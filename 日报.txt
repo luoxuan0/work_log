@@ -3130,6 +3130,34 @@
 1，项目交接相关-权限闭环
 2，网络优化相关-企业级设备上线后跟进&白名单&具体跟进
 3，导出top20运输商数据
+===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== =====
+20240506
+告警
+1，中台redis流入流出带宽 @CZH
+2，gitlab仓库权限 @LSJ
+技术评审
+3，导出运输商数据&自动化 @LAP
+4，大客户apiv4限速调整 @LZL
+5，状态top10运输商上线 @LAP
+本地
+6，电脑本身或网络卡 @ZL
+
+
+- 今日合规操作小结：无
+- 今日违规操作小结：无
+- 今日监督操作小结：无
+
+
+原计划：
+技术评审
+1，项目交接相关-权限闭环
+2，网络优化相关-企业级设备上线后跟进&白名单&具体跟进
+3，导出top20运输商数据
+计划：
+技术评审
+1，项目交接相关-权限闭环
+2，网络优化相关-企业级设备上线后跟进&白名单&具体跟进
+3，导出top20运输商数据
 
 3，测试环境-分支自动构建触发取消
 
@@ -3165,6 +3193,36 @@
 					深信服AC
 						本地
 						sass
+	导出物流商数据
+		--20240506
+			范围
+				top 20
+				已导：ups-mi，dhlglobalmail
+				剩余：australia-post，pitneybowes，taqbin-jp，dhl，wizmo，hermes，dpd，hermes-uk
+
+			执行			
+				-- 执行脚本，导出3个月pitneybowes数据到数据库表
+				-- tm 35服务器上执行
+				php /home/wwwroot/www.trackingmore.com/script/getEffectiveTracknumberForRule.info.php "{\"minScanTime\":\"2024-01-23\", \"maxScanTime\":\"2024-04-23\", \"dbUser\":\"trackingdb1\", \"courier\":\"\",\"type\":\"dumpInfoData\"}" 'tes1t' 'pitneybowes' 830 >> /run/getEffectiveTracknumberForRule.log &
+
+
+				-- pitneybowes正式导出
+				-- tm备份服务器上执行
+				mysqldump --single-transaction -h pc-0xi02p6760lwd5qa3.rwlb.rds.aliyuncs.com -u trackingdb -p -P3306 trackingdb tr_trackinfo_effective_for_rule > tr_trackinfo_effective_for_rule_pitneybowes_202401-04.sql
+				$OTOMVFSXdg^8QCJ
+
+				-- pitneybowes压缩sql
+				-- tm备份服务器上执行
+				tar -zcvf tr_trackinfo_effective_for_rule_pitneybowes_202401-04.tar.gz tr_trackinfo_effective_for_rule_pitneybowes_202401-04.sql
+
+			自动化
+				# 在35服务器，获取数据到数据表中
+					10 * * * * /usr/local/php7/bin/php /home/wwwroot/www.trackingmore.com/script/getEffectiveTracknumberForRule.info.php "{\"minScanTime\":\"2024-02-01\", \"maxScanTime\":\"2024-05-01\", \"dbUser\":\"trackingdb1\", \"courier\":\"\",\"type\":\"dumpInfoData\"}" 'tes1t' 'pitneybowes' 830 &>>/run/getEffectiveTracknumberForRule.log &
+				# 在tm备份服务器，导出压缩数据，清除原文件
+					# 测试
+						sh /mnt/getCourierInfoData.sh pitneybowes '' '' '' 1
+					# 正式执行
+						sh /mnt/getCourierInfoData.sh pitneybowes '' '' '' 0
 
 	--20240423
 		官网项目重构nginx调整&上线相关
