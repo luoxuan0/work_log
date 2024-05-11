@@ -3242,7 +3242,38 @@
 技术评审
 1，导出top20运输商数据&自动化
 2，本地相关维护&记录
-3，https://devops.aliyun.com/projex/task/TMPX-5469# 《【AWB Dashboard 一期】数据表字段调整》
+3，https://devops.aliyun.com/projex/task/TMPX-5469# 《【AWB Dashboard 一期】数据表字段调整》&本地数据库表结构维护（同线上同步，后续持续维护）
+===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== =====
+20240510
+告警
+1，国外数据库CPU https://alidocs.dingtalk.com/i/nodes/2Amq4vjg897aLYpyfwz09kw7V3kdP0wQ?utm_scene=team_space&iframeQuery=anchorId%3Duu_lw02cmov1akskrzlnkr （待优化） @GC
+技术评审
+2，cloudflare的worker确认&堡垒机服务器授权 https://alidocs.dingtalk.com/i/nodes/oP0MALyR8k0yZ1PGT3l2abllW3bzYmDO?corpId=ding15b0edd43fcaaac235c2f4657eb6378f&utm_medium=im_card&iframeQuery=utm_medium%3Dim_card%26utm_source%3Dim&utm_scene=team_space&utm_source=im @GC
+3，https://devops.aliyun.com/projex/task/TMPX-5469# 《【AWB Dashboard 一期】数据表字段调整》 @HYQ
+4，本地数据库表结构维护（同线上同步，后续持续维护） 进度：40%
+5，更新相关 @LGD
+5-1，运输商限速调整 https://alidocs.dingtalk.com/i/nodes/AR4GpnMqJz16XzNpCvl3KXdRVKe0xjE3?utm_scene=team_space&iframeQuery=anchorId%3Duu_lw1i7fr48404iobqy5g
+5-2，royal-mail用量超过10000用户及用量统计 https://alidocs.dingtalk.com/i/nodes/dQPGYqjpJYvxw1knsa41O6GL8akx1Z5N?utm_scene=team_space
+6，成本费用-代理 https://alidocs.dingtalk.com/i/nodes/YndMj49yWjRBz1OAS3OBo9l7W3pmz5aA?utm_scene=person_space&数据库存储（将保留6个月数据开启&日志相关数据冷处理） @GC
+本地
+7，有线掉线（1天几次）&无线无法访问外网 https://alidocs.dingtalk.com/i/nodes/bxgzX5wq4YoJPeQyemQw8Ry2OB79ALPD?utm_scene=team_space&iframeQuery=anchorId%3D1508215600539 @LHY
+
+
+- 今日合规操作小结：无
+- 今日违规操作小结：无
+- 今日监督操作小结：无
+
+
+原计划：
+技术评审
+1，导出top20运输商数据&自动化
+2，本地相关维护&记录
+3，https://devops.aliyun.com/projex/task/TMPX-5469# 《【AWB Dashboard 一期】数据表字段调整》&本地数据库表结构维护（同线上同步，后续持续维护）
+计划：
+技术评审
+1，导出top20运输商数据&自动化
+2，本地相关维护&记录
+3，本地数据库表结构维护（同线上同步，后续持续维护）
 
 3，测试环境-分支自动构建触发取消
 
@@ -3371,6 +3402,44 @@
 
 			待办：具体需要再看下备用金需要多少
 
+	数据表字段调整
+		-- 20240510
+			字段调整维护一个文档
+				（待办）
+
+			导出所有表结构维护到仓库中大家可自行获取
+				使用mysqldump
+					带了当前自增id，AUTO_INCREMENT=306499
+					检查表存在则drop
+					有set相关操作
+				后续考虑使用show tables，过滤部分info和number表，并对所有筛选的表执行create table table_name;
+					（待办）
+
+	所有用户范围内统计
+		统计指定用户单量
+			cd ${PTM}
+			d=`date '+%Y%m%d'`
+			php script/infoIDInsertInfoNum.courier.php '{"dayNum":30, "userid":0, "endCreateTime":"20240510", "whereStrArgv":"courier=\"royal-mail\" and is_delete!=1", "test":1}' >> /root/infoIDInsertInfoNum.courier.php.${d}.log &
+
+		统计超过10000单用户及单量
+			# 国外
+			# 添加环境变量
+			echo '. /etc/bashrc' > royal-mail.sh
+			# 生成命令脚本
+			msql -e "USE TRACKINGDB;SHOW TABLES LIKE 'tr_user_tracknumber_%_%'" | grep -v 'Tables_in_trackingdb\|_old27\|_extra\|_notupdate\|_notupdate_last\|_temp1101\|_test\|_temp\|_20220707\|_20240227\|_back\|_20240408' | xargs -i echo "msql -e \"USE TRACKINGDB;SELECT userid, COUNT(*) AS num FROM {} where create_time > 1712678400 and courier = 'royal-mail' GROUP BY userid  HAVING num > 10000 order by num desc\"" >> royal-mail.sh
+			# 为了避免中断，在定时任务中启动 crontab -e 然后在文件中添加如下内容：
+			# 统计使用royal-mail超过10000的用户
+			# 37 * * * * sh royal-mail.sh &>>royal-mail.sh.log
+			19:37
+			# 国内
+			# 添加环境变量
+			echo '. /etc/bashrc' > royal-mail.sh
+			# 生成命令脚本
+			msql -e "USE TRACKINGDB;SHOW TABLES LIKE 'tr_user_tracknumber_%_%'" | grep -v 'Tables_in_trackingdb\|_old27\|_extra\|_notupdate\|_notupdate_last\|_temp1101\|_test\|_temp\|_20220707\|_20240227\|_back\|22912_22912_\|_old' | xargs -i echo "msql -e \"USE TRACKINGDB;SELECT userid, COUNT(*) AS num FROM {} where create_time > 1712678400 and courier = 'royal-mail' GROUP BY userid  HAVING num > 10000 order by num desc\"" >> royal-mail.sh
+			# 为了避免中断，在定时任务中启动 crontab -e 然后在文件中添加如下内容：
+			# 统计使用royal-mail超过10000的用户
+			# 20 * * * * sh royal-mail.sh &>>royal-mail.sh.log
+			19:20
 
 	--20240423
 		官网项目重构nginx调整&上线相关
