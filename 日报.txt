@@ -3274,6 +3274,34 @@
 1，导出top20运输商数据&自动化
 2，本地相关维护&记录
 3，本地数据库表结构维护（同线上同步，后续持续维护）
+===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== =====
+20240511
+告警
+1，国外数据库CPU&api服务器负载&redis0节点流出带宽 https://alidocs.dingtalk.com/i/nodes/2Amq4vjg897aLYpyfwz09kw7V3kdP0wQ?utm_scene=team_space&iframeQuery=anchorId%3Duu_lw2bcw1ulx3neimvpo （待补充） 
+技术评审
+2，查询重构四期-监控分析系统 @LSJ
+3，部分工作自动化工具（windows下AutoHotKey）
+4，导出运输商数据-导出&自动化 60% @LAP
+5，客户对账-导出客户指定时间单号 @NZW
+本地
+6，本地-网卡灯不亮 https://alidocs.dingtalk.com/i/nodes/bxgzX5wq4YoJPeQyemQw8Ry2OB79ALPD?utm_scene=team_space&iframeQuery=anchorId%3D864088364230 @HRZ_DSM
+
+
+- 今日合规操作小结：无
+- 今日违规操作小结：无
+- 今日监督操作小结：无
+
+
+原计划：
+技术评审
+1，导出top20运输商数据&自动化
+2，本地相关维护&记录
+3，本地数据库表结构维护（同线上同步，后续持续维护）
+计划：
+技术评审
+1，导出top20运输商数据&自动化
+2，本地相关维护&记录
+3，本地数据库表结构维护（同线上同步，后续持续维护）
 
 3，测试环境-分支自动构建触发取消
 
@@ -3310,6 +3338,22 @@
 						本地
 						sass
 	导出物流商数据
+		--20240511
+			# 在35服务器，获取数据到数据表中
+				10 * * * * /usr/local/php7/bin/php /home/wwwroot/www.trackingmore.com/script/getEffectiveTracknumberForRule.info.php "{\"minScanTime\":\"2024-02-01\", \"maxScanTime\":\"2024-05-01\", \"dbUser\":\"trackingdb1\", \"courier\":\"\",\"type\":\"dumpInfoData\"}" 'tes1t' 'dhl' 830 &>>/run/getEffectiveTracknumberForRule.log &
+				# 使用shell脚本拼接命令
+				
+			# 在tm备份服务器，导出压缩数据，清除原文件
+				# 测试
+					sh /mnt/getCourierInfoData.sh taqbin-jp '' '' '' 1
+				# 正式执行
+					sh /mnt/getCourierInfoData.sh taqbin-jp '' '' '' 0			
+			发送到指定服务器
+				在tm备份服务器
+					ssh-keygen -t ed25519 -C "send_data_from_tm_back"
+					在 /root/.ssh/id_ed25519.pub 获取公钥
+					编辑 /etc/hosts 添加一行 47.253.62.186 tm-detect-test
+
 		--20240506
 			范围
 				top 20
@@ -3924,6 +3968,8 @@
 				调整 0117-
 
 	告警
+		国外数据库CPU&api服务器负载&redis0节点流出带宽
+
 		国外数据库-只读节点内存耗尽异常重启
 			定位
 			告警规则
