@@ -3302,10 +3302,59 @@
 1，导出top20运输商数据&自动化
 2，本地相关维护&记录
 3，本地数据库表结构维护（同线上同步，后续持续维护）
+===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== =====
+20240513
+告警
+1，国外数据库IOPS https://alidocs.dingtalk.com/i/nodes/lyQod3RxJKoxq159sKo0j6KbJkb4Mw9r?utm_scene=team_space&iframeQuery=anchorId%3Duu_lw5qnsfpv01ae5vkncb
+2，修改blog时间-国内外blog站点报错 https://alidocs.dingtalk.com/i/nodes/vy20BglGWOo6l1Ejs3kwA0P4WA7depqY?utm_scene=team_space&iframeQuery=anchorId%3Duu_lw5rfln6j80olq9vi88
+技术评审
+3，中台申请读取kafka相关权限 https://alidocs.dingtalk.com/i/nodes/AR4GpnMqJz16XzNpCvGzYZlxVKe0xjE3?utm_scene=team_space&iframeQuery=anchorId%3D1020613917483 @CZH
+4，ISO年审-对接 https://alidocs.dingtalk.com/i/nodes/gwva2dxOW4zaGnMRTm2y7eoZJbkz3BRL?utm_scene=team_space
+5，导出运输商数据-导出&自动化 70% @LAP
+6，webhook服务器端口开放 https://alidocs.dingtalk.com/i/nodes/AR4GpnMqJz16XzNpCvGzYZlxVKe0xjE3?utm_scene=team_space&iframeQuery=anchorId%3D749658507311 @JT
+7，运营301跳转 https://alidocs.dingtalk.com/i/nodes/YMyQA2dXW7maL0kYtKzbNMv1JzlwrZgb?utm_scene=team_space
+本地
+8，本地
+8-1，中台开发服务器申请 https://alidocs.dingtalk.com/i/nodes/m9bN7RYPWdzQj10rTD9vYkABJZd1wyK0?utm_scene=team_space
+8-2，代码拉取出现安全网关控制提示 https://alidocs.dingtalk.com/i/nodes/lyQod3RxJKoxq159swz9mj6wJkb4Mw9r?utm_scene=team_space
+
+
+- 今日合规操作小结：无
+- 今日违规操作小结：无
+- 今日监督操作小结：无
+
+
+原计划：
+技术评审
+1，导出top20运输商数据&自动化
+2，本地相关维护&记录
+3，本地数据库表结构维护（同线上同步，后续持续维护）
+计划：
+技术评审
+1，导出top20运输商数据&自动化
+2，IOS年审-确认新旧版&进入后续流程
+3，本地数据库表结构维护（同线上同步，后续持续维护）
 
 3，测试环境-分支自动构建触发取消
 
 操作顺序
+
+	ISO
+		-- 20240513
+			年审 https://alidocs.dingtalk.com/i/nodes/P7QG4Yx2Jp1PK9B4CxXQee0G89dEq3XD?utm_scene=team_space
+
+	白名单
+		-- 20240513
+			kafka访问api https://alidocs.dingtalk.com/i/nodes/AR4GpnMqJz16XzNpCvGzYZlxVKe0xjE3?utm_scene=team_space&iframeQuery=anchorId%3D1020613917483
+			webhook服务器端口开放 https://alidocs.dingtalk.com/i/nodes/AR4GpnMqJz16XzNpCvGzYZlxVKe0xjE3?utm_scene=team_space&iframeQuery=anchorId%3D749658507311
+
+	运营301跳转
+		-- 20240513
+			https://devops.aliyun.com/projex/task/TMPX-5380# 《301跳转需求》
+				钉钉文档 https://alidocs.dingtalk.com/i/nodes/dQPGYqjpJYvxw1knsa7Z5ew78akx1Z5N?utm_scene=team_space
+
+			操作文档 https://alidocs.dingtalk.com/i/nodes/YMyQA2dXW7maL0kYtKzbNMv1JzlwrZgb?utm_scene=team_space
+
 
 	服务梳理
 		--20240425
