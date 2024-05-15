@@ -3314,9 +3314,8 @@
 6，webhook服务器端口开放 https://alidocs.dingtalk.com/i/nodes/AR4GpnMqJz16XzNpCvGzYZlxVKe0xjE3?utm_scene=team_space&iframeQuery=anchorId%3D749658507311 @JT
 7，运营301跳转 https://alidocs.dingtalk.com/i/nodes/YMyQA2dXW7maL0kYtKzbNMv1JzlwrZgb?utm_scene=team_space
 本地
-8，本地
-8-1，中台开发服务器申请 https://alidocs.dingtalk.com/i/nodes/m9bN7RYPWdzQj10rTD9vYkABJZd1wyK0?utm_scene=team_space
-8-2，代码拉取出现安全网关控制提示 https://alidocs.dingtalk.com/i/nodes/lyQod3RxJKoxq159swz9mj6wJkb4Mw9r?utm_scene=team_space
+8，中台开发服务器申请 https://alidocs.dingtalk.com/i/nodes/m9bN7RYPWdzQj10rTD9vYkABJZd1wyK0?utm_scene=team_space
+9，代码拉取出现安全网关控制提示 https://alidocs.dingtalk.com/i/nodes/lyQod3RxJKoxq159swz9mj6wJkb4Mw9r?utm_scene=team_space
 
 
 - 今日合规操作小结：无
@@ -3334,12 +3333,48 @@
 1，导出top20运输商数据&自动化
 2，IOS年审-确认新旧版&进入后续流程
 3，本地数据库表结构维护（同线上同步，后续持续维护）
+===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== =====
+20240513
+告警
+1，中台流水线镜像构建报错-待办（流程熟悉&文档梳理） @CZH @GC
+2，国外正式服代码发布异常-原有项目发布尽量在原有基础上进行 LGD
+技术评审
+3，ISO年审 https://alidocs.dingtalk.com/i/nodes/gwva2dxOW4zaGnMRTmD0Dp30Jbkz3BRL?utm_scene=team_space
+本地
+4，访问tm提示证书不安全 @YL@CT
+
+
+- 今日合规操作小结：无
+- 今日违规操作小结：无
+- 今日监督操作小结：无
+
+
+原计划：
+技术评审
+1，导出top20运输商数据&自动化
+2，IOS年审-确认新旧版&进入后续流程
+3，本地数据库表结构维护（同线上同步，后续持续维护）
+计划：
+技术评审
+1，导出top20运输商数据&自动化
+2，IOS年审-合同准备&寄出
+3，本地数据库表结构维护（同线上同步，后续持续维护）
 
 3，测试环境-分支自动构建触发取消
 
 操作顺序
 
 	ISO
+		-- 20240514
+			合同
+				费用相关
+					11000 审核机构 审核费用
+					5500 咨询费用
+					1000-2000 差旅费 去年应该是
+				相关说明
+					咨询费用分两次付款
+					审核机构等 肖老师同步
+					差旅按实际进行（需要机票，发票）
 		-- 20240513
 			年审 https://alidocs.dingtalk.com/i/nodes/P7QG4Yx2Jp1PK9B4CxXQee0G89dEq3XD?utm_scene=team_space
 
