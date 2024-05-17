@@ -3418,11 +3418,43 @@
 1，文档补充（近期相关处理）
 2，导出top20运输商数据&自动化
 3，本地数据库表结构维护（同线上同步，后续持续维护）
+===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== =====
+20240517
+技术评审
+1，国外数据库CPU-接口优化后测试 @GC
+2，空运webhook优化-表字段新增 https://alidocs.dingtalk.com/i/nodes/P7QG4Yx2Jp1PK9B4Cxex9NLG89dEq3XD?utm_scene=team_space&iframeQuery=anchorId%3Duu_lwa5zdzvuv2urp6bgsf @LAP
+3，队列重启
+3-1，空运webhook优化上线-空运队列
+3-2，取消not found上线-国外查询&发送队列
+本地
+4，外网访问慢-针对域名进行限速 https://alidocs.dingtalk.com/i/nodes/P7QG4Yx2Jp1PK9B4Cz7Pzalz89dEq3XD?utm_scene=team_space
 
+
+- 今日合规操作小结：无
+- 今日违规操作小结：无
+- 今日监督操作小结：无
+
+
+原计划：
+技术评审
+1，文档补充（近期相关处理）
+2，导出top20运输商数据&自动化
+3，本地数据库表结构维护（同线上同步，后续持续维护）
+计划：
+技术评审
+1，文档补充（近期相关处理）
+告警
+2，堆积告警处理
+
+2，本地数据库表结构维护（同线上同步，后续持续维护）
 切换仓库分支失败 @WYK
 3，测试环境-分支自动构建触发取消
 
 操作顺序
+
+	告警
+		接收人
+			至少2-3位
 
 	ISO
 		-- 20240515
@@ -3489,6 +3521,17 @@
 						本地
 						sass
 	导出物流商数据
+		--20240517
+			形成脚本，定时执行
+				导出数据到表中
+				导出表中数据为文件并压缩
+				发送压缩文件到指定服务器
+			待优化
+				35服务器无法导出数据，目前分放在两台服务器上，考虑简化放在一台服务器一个脚本完成整个过程
+				异常情况判断
+				通知
+					异常
+					正常
 		--20240511
 			# 在35服务器，获取数据到数据表中
 				10 * * * * /usr/local/php7/bin/php /home/wwwroot/www.trackingmore.com/script/getEffectiveTracknumberForRule.info.php "{\"minScanTime\":\"2024-02-01\", \"maxScanTime\":\"2024-05-01\", \"dbUser\":\"trackingdb1\", \"courier\":\"\",\"type\":\"dumpInfoData\"}" 'tes1t' 'dhl' 830 &>>/run/getEffectiveTracknumberForRule.log &
