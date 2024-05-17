@@ -3387,7 +3387,39 @@
 1，文档补充（近期相关处理）
 2，导出top20运输商数据&自动化
 3，本地数据库表结构维护（同线上同步，后续持续维护）
+===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== =====
+20240516
+告警
+1，切换仓库分支失败（待解决） @WYK
+2，国外seo-tm磁盘-临时处理
+技术评审
+3，国外数据库CPU-技术评审 @GC
+4，中台kafka白名单权限 https://alidocs.dingtalk.com/i/nodes/YQBnd5ExVEoXLA3esZxyz4Od8yeZqMmz?utm_scene=team_space @CZH
+5，flink同步CU资源购买-flink oom，需要增加点内存测试，完成后降低费用 @JT
+6，carrier子页面-通用文案优化 @HYQ
+7，国外redis白名单 https://alidocs.dingtalk.com/i/nodes/dpYLaezmVNoxw1BMsD7vd6v0JrMqPxX6?utm_scene=team_space&iframeQuery=anchorId%3D1734277245218 @CZW
+本地
+8，外网访问慢-针对域名进行限速 https://alidocs.dingtalk.com/i/nodes/P7QG4Yx2Jp1PK9B4Cz7Pzalz89dEq3XD?utm_scene=team_space
+9，内网开发服务器端口映射 https://alidocs.dingtalk.com/i/nodes/YndMj49yWjRBz1OASBj6XjRoW3pmz5aA?utm_scene=team_space&iframeQuery=anchorId%3D1076835358554 @GC
 
+
+- 今日合规操作小结：无
+- 今日违规操作小结：无
+- 今日监督操作小结：无
+
+
+原计划：
+技术评审
+1，文档补充（近期相关处理）
+2，导出top20运输商数据&自动化
+3，本地数据库表结构维护（同线上同步，后续持续维护）
+计划：
+技术评审
+1，文档补充（近期相关处理）
+2，导出top20运输商数据&自动化
+3，本地数据库表结构维护（同线上同步，后续持续维护）
+
+切换仓库分支失败 @WYK
 3，测试环境-分支自动构建触发取消
 
 操作顺序
@@ -3411,6 +3443,9 @@
 			年审 https://alidocs.dingtalk.com/i/nodes/P7QG4Yx2Jp1PK9B4CxXQee0G89dEq3XD?utm_scene=team_space
 
 	白名单
+		-- 20240516
+			中台kafka白名单权限 https://alidocs.dingtalk.com/i/nodes/YQBnd5ExVEoXLA3esZxyz4Od8yeZqMmz?utm_scene=team_space @CZH
+			国外redis白名单 https://alidocs.dingtalk.com/i/nodes/dpYLaezmVNoxw1BMsD7vd6v0JrMqPxX6?utm_scene=team_space&iframeQuery=anchorId%3D1734277245218 @CZW
 		-- 20240513
 			kafka访问api https://alidocs.dingtalk.com/i/nodes/AR4GpnMqJz16XzNpCvGzYZlxVKe0xjE3?utm_scene=team_space&iframeQuery=anchorId%3D1020613917483
 			webhook服务器端口开放 https://alidocs.dingtalk.com/i/nodes/AR4GpnMqJz16XzNpCvGzYZlxVKe0xjE3?utm_scene=team_space&iframeQuery=anchorId%3D749658507311
@@ -3662,6 +3697,9 @@
 					取消自动即可？
 
 			1，shipment overview底层部分
+				-- 20240516
+					flink同步CU资源购买-flink oom，需要增加点内存测试，完成后降低费用 @JT
+
 				-- 20240422
 					重复数据处理（通过脚本处理国内一个表）
 
@@ -3932,6 +3970,13 @@
 			单号识别有效单号-LAP-自动获取异常 
 			国外数据库CPU告警
 
+			本地
+				AC
+					-- 20240516
+						外网访问慢-针对域名进行限速 https://alidocs.dingtalk.com/i/nodes/P7QG4Yx2Jp1PK9B4Cz7Pzalz89dEq3XD?utm_scene=team_space
+				esxi
+					-- 20240516
+						内网开发服务器端口映射 https://alidocs.dingtalk.com/i/nodes/YndMj49yWjRBz1OASBj6XjRoW3pmz5aA?utm_scene=team_space&iframeQuery=anchorId%3D1076835358554 @GC
 			本地网路调优
 				本地WIFI
 				-- 20240426
