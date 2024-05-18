@@ -3445,17 +3445,115 @@
 1，文档补充（近期相关处理）
 告警
 2，堆积告警处理
+===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== =====
+20240518
+告警
+1，国外数据库CPU
+2，告警处理优先级梳理&磁盘类告警优化思路
 
-2，本地数据库表结构维护（同线上同步，后续持续维护）
+
+- 今日合规操作小结：无
+- 今日违规操作小结：无
+- 今日监督操作小结：无
+
+
+原计划：
+技术评审
+1，文档补充（近期相关处理）
+告警
+2，堆积告警处理
+计划：
+技术评审
+1，文档补充（近期相关处理）
+告警
+2，堆积告警处理
+
+1，文档补充（近期相关处理）
+2，导出top20运输商数据&自动化
+3，本地数据库表结构维护（同线上同步，后续持续维护）
 切换仓库分支失败 @WYK
 3，测试环境-分支自动构建触发取消
 
 操作顺序
 
 	告警
+		-- 20240518 搭建
+			目的-稳定运行保证
+				异常可及时介入处理
+				根据异常做归类，进行大范围优化
+					磁盘
+						处理文件列表
+							重名为带指定时间段
+							直接压缩
+						压缩清理时间
+							默认每天，可自定
+						保留时间
+							默认6个月，可自定
+			分级
+				敏感重要节点冗余备份
+					多人电话告警人工介入修复
+					自动化修复
+				重要节点冗余备份
+					多人电话告警人工介入修复
+					自动化修复
+			准确性
+				敏感度
+				沉默通道
+
+		国外数据库CPU
+			定位
+				只是只读节点CPU使用率高
+				一直在查最近10天更新的单号
+					SELECT count(u.id) as total FROM tr_user_tracknumber_70001_70500 as u where u.userid=70242   and u.update_time>=1715162526 and u.update_time<=1716025926 and (u.is_delete=0 or u.is_delete=2)
+				35服务器，
+					17:00附近采样数据，msql.20240518.17.log
+						出现138同时执行sql时
+							有不少（35约25%）的写入tr_api_request_log的sql
+							有不少（35约40%）的更新info表的sql
+					23:28 附近采样数据，msql.20240518.28.log
+						出现124同时执行sql时
+							除去 tr_api_request_log和更新info表的sql，有91（约91/124=74%）
+							其中除了 Init DB 和 MySQL dump（Binlog Dump和Log Dump）类，主要有如下慢sql（应对-下周连续翻页上线）
+								594867752       trackingdb      172.16.21.179:49368     trackingdb      Query   4       Sending data    select n.track_number,n.id as infoid,n.courier,n.expressType,u.customer_name,u.order_id,u.is_phone,u.is_title,u.is_email,u.comment,u.id,n.origin_info,n.destination_info,n.update_time,n.stayTimeLength,n.itemTimeLength,u.create_time,u.order_create_time,u.track_status,u.is_delete,u.plateform_sort_id,u.lang,u.channel,n.destination,u.order_name,u.order_date,n.origin,u.origin as u_origin,u.destination as u_destination, u.uuid_tracknumber as uuid, u.alter_track_status,u.postcode,u.label_number,u.substatus from tr_user_tracknumber_81001_81500 as u left join tr_tracking_info_81001_81500 as n on u.`tracking_info_id` = n.`id` where u.userid = 81294 and u.create_time >= 1708300800 and u.create_time < 1716076799 and u.update_time >= 1708270062 and u.is_delete = 0 order by u.id desc limit 50800,200 0       0       3527875 0       0       0       0       0
+								594868385       trackingdb      172.16.21.180:34774     trackingdb      Query   2       Sending data    select n.track_number,n.id as infoid,n.courier,n.expressType,u.customer_name,u.order_id,u.is_phone,u.is_title,u.is_email,u.comment,u.id,n.origin_info,n.destination_info,n.update_time,n.stayTimeLength,n.itemTimeLength,u.create_time,u.order_create_time,u.track_status,u.is_delete,u.plateform_sort_id,u.lang,u.channel,n.destination,u.order_name,u.order_date,n.origin,u.origin as u_origin,u.destination as u_destination, u.uuid_tracknumber as uuid, u.alter_track_status,u.postcode,u.label_number,u.substatus from tr_user_tracknumber_81001_81500 as u left join tr_tracking_info_81001_81500 as n on u.`tracking_info_id` = n.`id` where u.userid = 81294 and u.create_time >= 1708300800 and u.create_time < 1716076799 and u.update_time >= 1708270062 and u.is_delete = 0 order by u.id desc limit 51200,200 0       0       1536492 0       0       0       0       0
+					23:58 附近采样数据，msql.20240518.2358.log
+						出现同时执行sql时
+							除去 tr_api_request_log和更新info表的sql，有51（约51/86=61%）
+							其中除了 Init DB 和 MySQL dump（Binlog Dump和Log Dump）类，主要有如下慢sql（应对-下周连续翻页上线）
+								326979262       trackingdb      172.16.21.178:37372     trackingdb      Query   5       Sending data    select n.track_number,n.id as infoid,n.courier,n.expressType,u.customer_name,u.order_id,u.is_phone,u.is_title,u.is_email,u.comment,u.id,n.origin_info,n.destination_info,n.update_time,n.stayTimeLength,n.itemTimeLength,u.create_time,u.order_create_time,u.track_status,u.is_delete,u.plateform_sort_id,u.lang,u.channel,n.destination,u.order_name,u.order_date,n.origin,u.origin as u_origin,u.destination as u_destination, u.uuid_tracknumber as uuid, u.alter_track_status,u.postcode,u.label_number,u.substatus from tr_user_tracknumber_81001_81500 as u left join tr_tracking_info_81001_81500 as n on u.`tracking_info_id` = n.`id` where u.userid = 81294 and u.create_time >= 1708300800 and u.create_time < 1716076799 and u.update_time >= 1708271860 and u.is_delete = 0 order by u.id desc limit 52200,200 0       0       4181551 0       0       0       0       0
+								595420676       trackingdb      172.16.21.179:46644     trackingdb      Query   4       Sending data    select n.track_number,n.id as infoid,n.courier,n.expressType,u.customer_name,u.order_id,u.is_phone,u.is_title,u.is_email,u.comment,u.id,n.origin_info,n.destination_info,n.update_time,n.stayTimeLength,n.itemTimeLength,u.create_time,u.order_create_time,u.track_status,u.is_delete,u.plateform_sort_id,u.lang,u.channel,n.destination,u.order_name,u.order_date,n.origin,u.origin as u_origin,u.destination as u_destination, u.uuid_tracknumber as uuid, u.alter_track_status,u.postcode,u.label_number,u.substatus from tr_user_tracknumber_81001_81500 as u left join tr_tracking_info_81001_81500 as n on u.`tracking_info_id` = n.`id` where u.userid = 81294 and u.create_time >= 1708300800 and u.create_time < 1716076799 and u.update_time >= 1708271860 and u.is_delete = 0 order by u.id desc limit 52000,200 0       0       2768702 0       0       0       0       0
+
+			待办
+				先处理前面的count sql，可能存在其他慢sql
+
 		接收人
 			至少2-3位
+				站点监控
+					阿里云
+					UptimeRobot
+		php-fpm
+			-- 20240517 tms服务出现访问异常
+				定位
+					服务器4核负载达到100，php-fpm占用CPU高（100个，基本都到4%）
+					php-fpm进程刚开启就关闭掉
+					php-fpm.log
+						[17-May-2024 16:03:28] WARNING: [pool www] child 1385369 exited on signal 11 (SIGSEGV) after 0.182433 seconds from start
+							php-fpm进程（child 1385369）在启动后不久即出现信号11 (SIGSEGV) 的错误而终止。SIGSEGV是一种由操作系统发送的信号，表明进程遇到了段错误，通常是由于访问了无效的内存地址。
 
+							这种情况可能由多种原因引起，包括但不限于：
+
+							内存不足或内存分配错误。
+							程序逻辑错误，导致访问了不应该访问的内存区域。
+							第三方扩展或库存在缺陷。
+							PHP版本问题或PHP与操作系统之间的兼容性问题。
+				操作
+					进行重启php-fpm，负载恢复
+				后续待办
+					服务有内存异常，后续考虑
+					1，定时重载服务，避免类似异常
+					2，做监控自动重载，在异常出现时自动恢复
+					3，增加负载均衡，带备份节点会更稳定
+			
 	ISO
 		-- 20240515
 			合同
