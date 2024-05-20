@@ -3428,6 +3428,8 @@
 3-2，取消not found上线-国外查询&发送队列
 本地
 4，外网访问慢-针对域名进行限速 https://alidocs.dingtalk.com/i/nodes/P7QG4Yx2Jp1PK9B4Cz7Pzalz89dEq3XD?utm_scene=team_space
+告警
+5，tms服务出现访问异常（admin.trackingmore.net） https://alidocs.dingtalk.com/i/nodes/NZQYprEoWo1y7vlKCpgKE2R6J1waOeDk?utm_scene=team_space&iframeQuery=anchorId%3Duu_lwec0kp2uam8axo5pr
 
 
 - 今日合规操作小结：无
@@ -3532,7 +3534,7 @@
 					阿里云
 					UptimeRobot
 		php-fpm
-			-- 20240517 tms服务出现访问异常
+			-- 20240517 tms服务出现访问异常（admin.trackingmore.net） https://alidocs.dingtalk.com/i/nodes/NZQYprEoWo1y7vlKCpgKE2R6J1waOeDk?utm_scene=team_space&iframeQuery=anchorId%3Duu_lwec0kp2uam8axo5pr
 				定位
 					服务器4核负载达到100，php-fpm占用CPU高（100个，基本都到4%）
 					php-fpm进程刚开启就关闭掉
@@ -3554,7 +3556,7 @@
 					2，做监控自动重载，在异常出现时自动恢复
 					3，增加负载均衡，带备份节点会更稳定
 			
-	ISO
+	ISO 
 		-- 20240515
 			合同
 				准备
