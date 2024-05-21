@@ -3478,7 +3478,7 @@
 3，首页移动端从php改为react @GK
 4，python项目测试服开通 https://alidocs.dingtalk.com/i/nodes/m9bN7RYPWdzQj10rTD9vYkABJZd1wyK0?utm_scene=team_space&iframeQuery=anchorId%3Duu_lwes4in9xkncxrpk99o @WYK
 告警
-5，官网前台上线静态资源出现404-先上了静态资源不应该出现404 @GC
+5，官网前台上线静态资源出现404-先上了静态资源不应该出现404 https://alidocs.dingtalk.com/i/nodes/gwva2dxOW4zaGnMRTmQGnAvZJbkz3BRL?utm_scene=team_space&iframeQuery=anchorId%3Duu_lweoh5fij5nhdlkdr6n @GC
 
 
 - 今日合规操作小结：无
@@ -3594,7 +3594,7 @@
 			进行reload
 			进行测试
 
-	cloudflare先发布静态资源再发布代码，依旧出现404 -- 20240520
+	cloudflare先发布静态资源再发布代码，依旧出现404 https://alidocs.dingtalk.com/i/nodes/gwva2dxOW4zaGnMRTmQGnAvZJbkz3BRL?utm_scene=team_space&iframeQuery=anchorId%3Duu_lweoh5fij5nhdlkdr6n -- 20240520
 		75.238.104.137，只有这个IP，第二个静态资源先有200再有404
 			/_next/static/css/dca97a35896accc4.css
 			/_next/static/media/dp-world-tab.53448e0d.webp
