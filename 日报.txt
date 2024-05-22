@@ -3498,7 +3498,35 @@
 3，nginx配置调整
 告警
 4，堆积告警处理-磁盘
+===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== =====
+20240521
+技术评审
+1，首页移动端从php改为react @GK
+2，python项目docker部署 https://alidocs.dingtalk.com/i/nodes/MNDoBb60VLoZw1qDsvRyBw7GWlemrZQ3?utm_scene=team_space&iframeQuery=anchorId%3Duu_lwg25ah3k5lsvphbpil @WYK
+3，指定用户调整指定运输商更新频率 https://alidocs.dingtalk.com/i/nodes/dQPGYqjpJYvxw1knslzdE0LY8akx1Z5N?utm_scene=team_space&iframeQuery=anchorId%3Duu_lwg9vn757w4riio5he8 @NZW
+告警
+4，更新-批量查询线路统计 @LGD
 
+
+- 今日合规操作小结：无
+- 今日违规操作小结：无
+- 今日监督操作小结：无
+
+
+原计划：
+技术评审
+1，文档补充（近期相关处理）
+2，python项目部署
+3，nginx配置调整
+告警
+4，堆积告警处理-磁盘
+计划：
+技术评审
+1，文档补充（近期相关处理）
+告警
+2，堆积告警处理-磁盘
+
+2，nginx配置调整
 3，本地数据库表结构维护（同线上同步，后续持续维护）
 切换仓库分支失败 @WYK
 3，测试环境-分支自动构建触发取消
@@ -3625,6 +3653,10 @@
 		-- 20240513
 			kafka访问api https://alidocs.dingtalk.com/i/nodes/AR4GpnMqJz16XzNpCvGzYZlxVKe0xjE3?utm_scene=team_space&iframeQuery=anchorId%3D1020613917483
 			webhook服务器端口开放 https://alidocs.dingtalk.com/i/nodes/AR4GpnMqJz16XzNpCvGzYZlxVKe0xjE3?utm_scene=team_space&iframeQuery=anchorId%3D749658507311
+
+	指定用户调整指定运输商更新频率
+		云效需求：https://devops.aliyun.com/projex/task/TMPX-5588# 《341485：提高royal mail更新频率》
+		https://alidocs.dingtalk.com/i/nodes/dQPGYqjpJYvxw1knslzdE0LY8akx1Z5N?utm_scene=team_space&iframeQuery=anchorId%3Duu_lwg9vn757w4riio5he8
 
 	运营301跳转
 		-- 20240513
