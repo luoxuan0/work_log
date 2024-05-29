@@ -3632,6 +3632,33 @@
 2，大用户Route600wnotfound-更新运输商为指定运输商
 告警
 3，堆积告警处理-磁盘
+===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== =====
+20240528
+告警
+1，tms站点异常 @LSJ
+2，客户访问oss进行下载慢 @LSJ
+技术评审
+3，大用户Route600万notfound-更新运输商为指定运输商 @LSJ
+4，上线超管后台优化修改运输商逻辑优化-队列启动 @LAP
+
+
+- 今日合规操作小结：无
+- 今日违规操作小结：无
+- 今日监督操作小结：无
+
+
+原计划：
+技术评审
+1，文档补充（近期相关处理）
+2，大用户Route600wnotfound-更新运输商为指定运输商
+告警
+3，堆积告警处理-磁盘
+计划：
+技术评审
+1，文档补充（近期相关处理）
+2，大用户Route600wnotfound-更新运输商为指定运输商
+告警
+3，堆积告警处理-磁盘
 
 2，nginx配置调整
 3，本地数据库表结构维护（同线上同步，后续持续维护）
@@ -3695,7 +3722,111 @@
 				站点监控
 					阿里云
 					UptimeRobot
+
+		客户访问oss进行下载慢
+			-- 20240528
+				https://devops.aliyun.com/projex/bug/TMPX-5629# 《KA 232300: Issues in Exporting shipments》
+					oss服务有时会出现下载慢的情况（没用加速的情况），使用带宽并没有大的波动，是正常现象么
+					慢时几十K，平常是几M
+					阿里 - 每个数据点是 5分钟 流量加和后除以 300 秒计算得出的带宽值；流量看到基本是内网的流出流入，建议检查下通过内网调用的机器带宽情况
+					阿里 - 用户是在国内执行的下载吗？
+					阿里 - 看bucket是美国（弗吉尼亚）的，用户在国内通过公网下载如果没有开启加速 因跨境和物理距离的因素，下载会很不理想的，属于正常情况
+					我们是国外的客户，平常是2-3分钟，今天出现需要15-20分钟，甚至30分钟以上的情况
+					阿里 - 观察下还有出现吗，客户本地网络因素也会导致下载慢的，bucket名称和下载的URL麻烦提供下哈 我这边反馈检查下
+					昨天早上我们自己测试也是几十K，当时用了加速域是有几M的，再过一会，就恢复到几M了
+					https://upload-public.oss-us-east-1.aliyuncs.com/trackingmore/2024/05/TrackingMore_export_shipments_20240528070142_9beb36w6.csv?Expires=1717484504&OSSAccessKeyId=LTAI5tFkqy5tjvDqhZWq6paM&Signature=yqLIUlql%2FHiPJmTDp7SZgPYpjx4%3D
+					https://upload-public.oss-us-east-1.aliyuncs.com/trackingmore/2024/05/TrackingMore_export_shipments_20240528021102_0jf8dj8f.csv?Expires=1717467064&OSSAccessKeyId=LTAI5tFkqy5tjvDqhZWq6paM&Signature=D0zM4iWaRq4AcaPwa3RwjP5xSBc%3D@奇墨ITQM
+					bucket 名称 upload-public
+					https://upload-public.oss-us-east-1.aliyuncs.com/trackingmore/2024/05/TrackingMore_export_shipments_20240527065523_d5cfqb1n.csv?Expires=1717397725&OSSAccessKeyId=LTAI5tFkqy5tjvDqhZWq6paM&Signature=4R%2FwGK04qbCvbx2FYnr9kGed2iM%3D
+					这是今天的测试呢
+					@奇墨ITQM我们的问题不是一直慢，而是出现慢的情况，客户感受到了，我们当时测试也是慢（几十K），现在测试正常跟我们观察到的是一致的（大部分情况是快的）
+					阿里 - 国外的客户也是美国地域的吗？还是？
+					阿里 - 如果是距离美国较远地区的用户访问，不用加速域名的话，传输速度是没有办法保证的，后端查看该bucket并未出现流控，公网链路没有办法保证传输速率，这个是运营商以及物理距离层面的问题
+
 		php-fpm
+			-- 20240528
+				现状
+					服务有内存异常，后续考虑
+					1，定时重载服务，避免类似异常
+					2，做监控自动重载，在异常出现时自动恢复
+					3，增加负载均衡，带备份节点会更稳定
+
+					从日志看是可能fpm的内存异常
+
+					2024/05/28 01:12:35 [error] 3020936#0: *26932699 directory index of "/www/wwwroot/tmshopify/laravel10/public/static/js/" is forbidden, client: 141.101.98.144, server: tms.trackingmore.net, request: "GET /static/js/?%3Fleaflet.js%2Ctrack_page_classic.js%3Ftime=20240520 HTTP/1.1", host: "tms.trackingmore.net"
+
+					[27-May-2024 18:11:56] WARNING: [pool www] child 2944254, script '/www/wwwroot/tmshopify/laravel10/public/index.php' (request: "GET /index.php?shop=great-family-shop.myshopify.com") executing too slow (32.755145 sec), logging
+
+				当前操作
+					1，定时reload php-fpm
+						确认已经存在
+							做监控自动重载，在异常出现时自动恢复
+
+					站点监控 针对 502 524 
+						https://tms.trackingmore.net/api/v1/checkout/version
+
+				tms宝塔后台添加定时任务每分钟检查执行
+					# 日志路径
+					log='/www/server/cron/load.php-fpm.log'
+					# 如果日志不存在，则创建日志
+					if [[ ! -f $log ]]; then
+						touch $log
+					fi
+
+					# 测试参数，支持传入，默认关闭
+					isTest=0
+					if [[ -n $1 ]] ; then
+						isTest=1
+					fi
+
+					# 获取系统核心数，赋值给变量 coreNum
+					coreNum=`grep -c ^processor /proc/cpuinfo`
+					# 开启测试模式，进行打印
+					if [ $isTest -eq 1 ]; then
+						echo 'coreNum: ' $coreNum
+					fi
+					# # 获取当前 CPU 使用率，赋值给变量 cpuUsage 更敏感，后续考虑使用
+					cpuUsage=`top -bn1 | grep "Cpu(s)" | awk '{print $2 + $4}'`
+					# 开启测试模式，进行打印
+					if [ $isTest -eq 1 ]; then
+						echo 'cpuUsage: ' $cpuUsage
+					fi
+					# 获取当前系统负载，去掉右边逗号，赋值给变量 loadAvg
+					loadAvg=`uptime | awk '{print $10}' | cut -d ',' -f 1`
+					if [ $isTest -eq 1 ]; then
+						echo 'loadAvg: ' $loadAvg
+					fi
+					# $loadAvg 取小数点前数字
+					loadAvg=${loadAvg%.*}
+					if [ $isTest -eq 1 ]; then
+						echo 'loadAvg: ' $loadAvg
+					fi
+
+					# 查看日志修改时间，即为上次执行时间
+					lastTime=`stat -c %y $log`
+					if [ $isTest -eq 1 ]; then
+						echo $lastTime
+					fi
+
+					# 脚本执行最短间隔时间，单位秒
+					interval=1200
+					# 当前时间减去上次执行时间，单位秒
+					timeDiff=$((`date +%s` - `date -d "$lastTime" +%s`))
+					if [ $isTest -eq 1 ]; then
+						echo $timeDiff
+					fi
+					# 如果系统当前负载超过系统核心数2倍，则执行以下操作（20分钟内最多执行一次）：
+					if [ $timeDiff -gt $interval ] && [ $loadAvg -gt $((coreNum*2)) ]; then
+						# 重载php-fpm配置
+						# /etc/init.d/php-fpm-82 reload
+						# 写日志到 $log 中，内容为时间、核心数、负载
+						currentTime=`date "+%Y-%m-%d %H:%M:%S"`
+						echo $currentTime ' coreNum: ' $coreNum' cpuUsage: ' $cpuUsage' loadAvg: ' $loadAvg >> $log
+						if [ $isTest -eq 1 ]; then
+							echo $currentTime ' coreNum: ' $coreNum' cpuUsage: ' $cpuUsage' loadAvg: ' $loadAvg
+						fi
+					fi
+
 			-- 20240517 tms服务出现访问异常（admin.trackingmore.net） https://alidocs.dingtalk.com/i/nodes/NZQYprEoWo1y7vlKCpgKE2R6J1waOeDk?utm_scene=team_space&iframeQuery=anchorId%3Duu_lwec0kp2uam8axo5pr
 				定位
 					服务器4核负载达到100，php-fpm占用CPU高（100个，基本都到4%）
@@ -3718,6 +3849,25 @@
 					2，做监控自动重载，在异常出现时自动恢复
 					3，增加负载均衡，带备份节点会更稳定
 			
+	上线超管后台优化修改运输商逻辑优化-队列启动（开启数量小于10的队列）
+		source /home/wwwroot/www.trackingmore.com/script/queueshell/start_queue_min.sh
+			echo $hostAlia
+			77
+		/home/wwwroot/www.trackingmore.com/script/queueshell/track_queue_conf_min_${hostAlia}.sh
+			添加配置
+			"updateCourierJob updateCourierAsyncQueue/resque.php 1 {\"n\":\"Z_GROUP_TRACKING_NUMBER_SET\",\"e\":\"Z_GROUP_TRACKING_NUMBER_SET\",\"u\":\"\"} ZCARD Z_GROUP_TRACKING_NUMBER_SET"
+		配置修改正常1分钟内启动，确认定时任务 crontab -l | grep start_queue_min.sh，实际执行测试
+
+			sh /home/wwwroot/www.trackingmore.com/script/queueshell/start_queue_min.sh
+			loadAverageMax 8 loadAverageOneMin 8
+			currentNum:10, queueKeyword:qichachasendEmail/resque.php, startNum:10
+			loadAverageMax 8 loadAverageOneMin 8
+			currentNum:1, queueKeyword:adminStayTimeDayQueue/resque.php, startNum:1
+			loadAverageMax 8 loadAverageOneMin 8
+			currentNum:0, queueKeyword:updateCourierAsyncQueue/resque.php, startNum:1
+
+			服务器负载不符合条件，currentNum:0，startNum:1，这个是符合启动条件的
+
 	nginx配置调整 -- 20240520
 		-- 20240527
 			考虑进入仓库，后续上线后，一键覆盖重启，支持回滚
