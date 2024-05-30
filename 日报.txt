@@ -3659,13 +3659,48 @@
 2，大用户Route600wnotfound-更新运输商为指定运输商
 告警
 3，堆积告警处理-磁盘
+===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== =====
+20240529
+告警
+1，国内前端3&134磁盘-历史数据清理
+技术评审
+2，财务-开票
+3，大用户Route600万notfound-延长修改了运输商的notfound单号更新时间到最长为90天 @LSJ
 
+
+- 今日合规操作小结：无
+- 今日违规操作小结：无
+- 今日监督操作小结：无
+
+
+原计划：
+技术评审
+1，文档补充（近期相关处理）
+2，大用户Route600wnotfound-更新运输商为指定运输商
+告警
+3，堆积告警处理-磁盘
+计划：
+技术评审
+1，文档补充（近期相关处理）
+2，大用户Route600wnotfound-更新运输商为指定运输商
+告警
+3，堆积告警处理-磁盘
 2，nginx配置调整
 3，本地数据库表结构维护（同线上同步，后续持续维护）
 切换仓库分支失败 @WYK
 3，测试环境-分支自动构建触发取消
 
 操作顺序
+
+	客诉
+		-- 20240529
+			大用户Route600wnotfound-更新运输商为指定运输商
+				大用户Route600万notfound-延长修改了运输商的notfound单号更新时间到最长为90天
+					php-resque\M1Express\M1Expressjob.php
+					php-resque\M1Globalpost\M1Globalpostjob.php
+				获取处理过的运输商列表，将排除的运输商从列表中删除
+					/usr/local/php7/bin/php /home/wwwroot/www.trackingmore.com/script/notfound/update_courier.php '{"source":"get_exclude_courier_list"}'
+					script\notfound\update_courier.php
 
 	告警
 		-- 20240518 搭建
@@ -3680,6 +3715,81 @@
 							默认每天，可自定
 						保留时间
 							默认6个月，可自定
+						现有脚本
+							-- 20240529
+								script\queueshell\logSplitByDay.sh
+								script\queueshell\zipAndRmFile.sh
+								script\queueshell\zipAndRmSpecifyTimeFile.sh
+								script\queueshell\file.to.zip.sh
+						历史数据清理 20240529
+							国内前端3 134服务器
+							-- 20240529
+								script\queueshell\zipAndRmSpecifyTimeFile.sh
+									# 获取当前执行命令包括脚本，脚本参数
+									echo "当前执行命令包括脚本，脚本参数：$0 $*"
+
+									# 封装处理文件的函数
+									processFiles() {
+										local targetDir=$1
+										local fileSuffix=$2
+										local monthBefor=$3
+
+										targetZipDir=${targetDir}'_zip'
+										if [ ! -d $targetZipDir ]; then
+											echo mkdir $targetZipDir
+											mkdir $targetZipDir
+										fi
+
+										int=0
+										while(( $int<$monthBefor ))
+										do
+											#find ${targetDir} -maxdepth 1 -type f -name \*${fileSuffix} ! -newermt 20220301 | wc -l
+											#find ${targetDir} -maxdepth 1 -type f -name \*${fileSuffix} ! -newermt 20220301 | xargs -i zip ${targetZipDir}/202203.zip {}
+											#find ${targetDir} -maxdepth 1 -type f -name \*${fileSuffix} ! -newermt 20220301 | xargs -i rm -f {}
+
+											month=`date -d"-${monthBefor} month" '+%Y%m'`
+											# echo ${month}
+											day=$[ $monthBefor - 1 ]
+											day=`date -d"-$[ $monthBefor - 1 ] month" '+%Y%m01'`
+											# echo ${day}
+											echo "find ${targetDir} -maxdepth 2 -type f -name \*${fileSuffix} -newermt ${month}01 ! -newermt ${day} | wc -l"
+											echo 'num:'
+											find ${targetDir} -maxdepth 2 -type f -name \*${fileSuffix} -newermt ${month}01 ! -newermt ${day} | wc -l
+											find ${targetDir} -maxdepth 2 -type f -name \*${fileSuffix} -newermt ${month}01 ! -newermt ${day} | xargs -i zip -q ${targetZipDir}/${month}.zip {}
+											find ${targetDir} -maxdepth 2 -type f -name \*${fileSuffix} -newermt ${month}01 ! -newermt ${day} | xargs -i rm -f {}
+
+											# echo $monthBefor
+											let "monthBefor--"
+										done
+									}
+
+									process=''
+
+									if [[ -n $1 && $1 == 'zipAndRmlogBymon' ]]; then
+										process='zipAndRmlogBymon'
+									fi
+
+									if [[ $process == 'zipAndRmlogBymon' ]]; then
+										# 国内前端134磁盘使用率达到95%，进行/home/wwwroot/www.trackingmore.com/admin/upload目录下csv xlsx xls文件压缩清理
+										# d=`date '+%Y%m%d'`;sh zipAndRmSpecifyTimeFile.sh zipAndRmlogBymon /home/wwwroot/www.trackingmore.com/admin/upload '.csv' 70 >>  /home/wwwlogs/zipAndRmSpecifyTimeFile.sh.${d}.log
+										# 调用函数并传递参数
+										targetDir='/home/wwwroot/www.trackingmore.com/admin/upload/auto_csv'
+										if [[ -n $2 ]]; then
+											targetDir=$2
+										fi
+										fileSuffix='.csv'
+										if [[ -n $3 ]]; then
+											fileSuffix=$3
+										fi
+										monthBefor=22
+										if [[ -n $4 ]]; then
+											monthBefor=$4
+										fi
+										processFiles $targetDir $fileSuffix $monthBefor
+
+										exit
+									fi
+
 			分级
 				敏感重要节点冗余备份
 					多人电话告警人工介入修复
