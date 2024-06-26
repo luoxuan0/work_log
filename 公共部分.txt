@@ -1,0 +1,4399 @@
+复盘
+
+	每日 
+	-- 20240301
+		==C==1
+		精确的时间消耗（队列化 包括原功能调试）
+			近期全部确认（相关资料 比如文档）
+			这样能排 事情-时间
+			为此服务的调整-环境（当前日志 1，去除 2，归文档）
+
+		
+		技术评审
+		3，产一各项目部署流程
+
+		1，客诉-状态识别导致部分info表数据异常
+		1-1，扫描筛选指定更新时间指定状态单号进行更新以修正数据-异常数据跟进
+		1-2，异常复现-测试环境（指定发送相关）
+		4，部分用户出现number数据丢失问题
+		2，深信服-离线跟进
+
+
+		告警
+		3，dolphinscheduler脚本保活-安装报错处理
+
+
+	-- 20240115
+		C==
+		C==21 运维
+			告警
+				系统本身
+				站点监控
+				快递
+		C==11 插入
+			AD域控
+				广域连接
+
+		--end-- 工作区清理
+
+		跟进
+	日志 -- -- -- 监控
+
+	聚焦实践（复盘-调整-复盘，状态-思维、处理方式，扩散到组织）
+		工作-自动化、简化操作（需要先行沟通，才能对当前精力分配做调整）
+			告警&技术评审（文档，后续根除动作）
+			针对具体项目点跟进
+		学习（2*5.5+5.5*2）
+			管理
+				cherry课程（实践意识）
+				其他
+			技术
+				go深入（运维上的使用？ python）
+		项目
+			--20230919
+				具体操作点
+					产品
+					技术
+
+
+			--20230918
+				收入
+					极致体验
+				支出
+					流程自动化
+					各点优化
+
+		--20231027
+			盘 -- 20231019
+				--
+				统计
+				现状
+				可能方式
+				应对调整
+				效果观察
+
+				近期的大客户 国内客户在国外访问国内api异常
+				CRM系统
+
+	当天操作
+
+		1，国内PolarDB数据库CPU-用户后台搜索客户名称
+		2，国外导出告警跟进
+		3，监控预警 星级XXXXX 群（来源阿里云告警）（CPU-国外redis节点0-文档&队列更新监控数据频率调整）
+		2，CPU（国内外PolarDB&国外redis节点0）
+
+		-- 20230509
+			费用迁移 - 云效补充
+
+		1，ssl证书续费更新
+		增加一项-审批未审批
+
+		6，代码发布异常（国外独立更新）--文档
+			国外导出队列代码发布异常
+		3，切换后续跟进（队列配置&IP相关配置）
+		3-1，部分运输商查询次数切换后按天持续下降
+		技术评审类
+		4，单号规则优化-有效单号相关数据获取自动化
+		3，redis升级-可能影响与处理&elk账密&access日志增加对应用户参数记录
+		客诉类
+		4，curl使用代理提示参数异常
+		技术评审类
+		5，notfound重查-消化队列相关&发送逻辑相关
+		国外登录异常-密码修正&精确授权（最小范围人员、机器）对应方案相关讨论（堡垒机限制命令==）
+
+		1-1，www、api观察跟进
+
+		api负载高 新增服务器
+			查找并归文档
+
+		延期待办：
+		lastpass-文档更新&相关同步
+		堡垒机
+
+
+		工作近点
+			反馈消化完成闭环-当前目标操作点带层级地
+
+			当天任务实际列表，调整顺序，外包，去除？ - 去识别 剔除点
+			
+		时间分配
+			回顾
+				--20200424时间分配情况 时间进度 -80% 0% 实际进度 -80% 0%
+					整体状态 
+						现象
+							作息时间失控
+							注意力分配意识
+						解释
+						行动结论 -- 尝试突破，着眼，意识点
+							阶段性目标之一（月周期） 20:30 或 21 这个节点
+				--0424可改进点
+					现状
+						现象
+						解释
+						行动结论 -- 所谓多维度
+
+		===== ===== =====放松-绷紧 点--反馈(当前最佳实践点)-获取-提炼-验证-工作日 操作目标点 -+-出来一个烦躁点吧-+- eg测试
+			睡眠
+			当下操作目标点-动态变化-可细分-现状确认（当下时间段单一操作）
+				先给从自身操作上排除
+			费时-切换点（对之前操作的反馈观察，不仅占据切换点，时间消耗还小半长，首先至少时间长度调整 对应操作--预先约定最快级别最晚不过40'，是否最佳5'内再说）
+			代码逻辑-走出“迷信”，到理解-彻底点
+				想专注确定的几件事，还是要先有应对方式，而非习惯性操作，比如，1，（表明原因）拒绝（给到方向，替换方案），2，（表明原因）延期--20230414
+					等？
+
+			假设（思路，基本清晰度-当前目标操作点）-现状（关注点拆分） 从单点开始，比如小范围的思路清晰度保证，流畅-清晰-推进：当前操作目标点
+				（思路--确认单元目标点，再进行串联（是完全不知道么，不是，而是知道了但没围绕进行）） 时刻一定层次清晰及清晰地操作 
+				（无法马上确认解决的立马从现状入手--20221214）现状的重现--聚齐现场条件--现状整理失误（应该有一个点，去重新梳理现状的） ：：角度不够全面么
+
+			确认异常（问题：期望与实际相差）-定位前确保基本流程（Aliexpress续费，china-post更新实际简码为china-ems）-定位（e.g.页面异常则确认js无报错）-日志-处理-效果确认（形成统计手段，消除时间占用；单纯完整测试）
+				排除一切干扰，新发现的问题可以，新开任务线进行处理
+				基本流程这块--还是优先确认，e.g.添加china-post单号更新异常（最后问题为实时接口添加为使用到批量查询）
+				最近改动应当是首选排除点（问题定位，首先怀疑当下操作--20210223）
+					排错思路--从最近人为操作开始保证，再从人为配置错误保证，再从使用当前工具用法上保证（往往过多花费精力在不是问题的后面步骤中了（思路共性失误，台阶）） -- 20220121
+					每个步骤节点反馈结果-shell脚本的（报错）日志（2>>test.log），操作准备（代码、定时任务、服务等）完成的时候同时将关键节点执行结果进行记录，或者从开始到结果对目前已有的反馈（日志）要有基本敏感度、掌控感（测试驱动开发如何）--20230404
+					当下操作--首先，本来就是当前可操作有哪些呢，再细致点，同预期不一致的话，那么就是什么的基础上同预期不一致了，从哪个地方开始，就那个点去切入，同样注意避免怀疑环境（先当前操作或当前思路，后面才是环境，理解六层次？）--20230607
+		   
+			日志整理（笔记 查询资料） 操作日志：流程形成 整体注意力分配
+				了解--达到基本程度
+					大方向的确定
+				准备-运行-测试（对单元） e.g. dhlglobalmail 独立服务器更新操作过程（且之前已操作过）--20200730
+		===== ===== =====放松-绷紧 点--反馈(当前最佳实践点)-获取-提炼-验证-工作日 操作目标点 -+-出来一个烦躁点吧-+- eg测试
+			==总结性质时间占比 20:20- 单点破 - 记录本
+				每周自评 每月绩效 提前完成
+				沟通能力 接收否定而升的情绪波动VS当前能做的（当前目标操作点）  更具体的-可能是理解对方所想表达的就像理解自身
+			流程-回顾-排序-分工为思路与实践
+				回顾-上线：确认之前操作-操作前
+
+			当天
+				复盘（当前事项进度把控&后续评估）
+					现象
+						当天5事件（实 7）
+
+							-- 午饭
+
+							-- 晚饭
+
+					行动结论
+						趋向单点及提质提速
+
+
+							-- 午饭
+
+
+							-- 晚饭
+
+							状态周期自检（更前提（基础状态）的操作可以是休息充足&放松与绷紧）
+							深入、可快速复制文档
+							时间区间划分，自检标识
+								有启动，可更快（只在很集中时可暂不强断）
+
+
+
+		复盘
+			整理
+				-- 20240112
+					精确的时间消耗（队列化 包括原功能调试）
+						近期全部确认（相关资料 比如文档）
+							日志中
+							现有记录
+						这样能排 事情-时间
+							报销
+								七牛迁移
+							中台
+								数据
+							告警
+								磁盘
+								redis
+						为此服务的调整-环境（当前日志 1，去除 2，归文档）
+							日志
+							操作记录缓存区
+
+					日志的产生（数据库、服务器磁盘，redis内存，就进入生命周期管理） --思路--
+					问题在于封装，引入方法文件（本身需要备注），引入也封装（之前可能已经考虑过并pass掉） --思路--
+						耗能对比
+							全局变量
+							方法（函数是否存在定义）
+
+
+				-- 20240104
+				文档整理
+
+				测试
+					针对指定用户运输商状态调整更新频率
+						数据流覆盖
+						结果（或者说输入输出）覆盖
+
+					实例测试-查询队列引入同步http VS http放到异步队列中（代价收益同在）
+						隔离
+
+						稳定性
+						时间
+
+				-- 20230724
+					环境
+						日志整理
+							开启软件
+							打开的浏览器标签
+
+					注意力 运维-线上-本地
+						主要有所分担 有部分还是来到延迟列表
+
+				任务分类优先级处理 -- 20220929
+					1，阿里云迁移
+					2，客诉
+					3，报警
+					4，历史待办
+					5，技术评审
+					6，定期动作
+				闭环-优先级
+
+					--20230615
+						模板整理
+							事项
+								
+								事件操作列表： （闭环文档）告警--内部协同--紧急告警处理确认--推进（告警-项目点）
+
+
+									操作优先（后面会插队）-信息确认往后（但要闭环）
+
+										==报警迁移（51php报错还是发原来的群）
+
+										告警
+										
+
+								==排序==
+									
+
+								==00==
+									==01==运维操作补充-简单先包含主线后续可能完善程度
+										数据库磁盘 
+											
+										自动化
+									==02==告警相关
+										
+
+								==10== 
+
+
+									
+								==00== 维护文档
+									近到远
+										代码发布授权
+									日志踪迹
+
+								关键节点监控报警
+									数据库
+									zabbix--监控系统
+
+
+							紧急情况
+								==0== 先列出来
+
+								打款
+								发票、合同开具
+
+							文档
+
+							技术评审
+
+							复盘（假期-年-近期）
+
+							协同
+
+							客诉
+
+							告警
+
+					--20220728
+						主线（时刻意识到）+2个计划外点（慎重）≈满载
+						闭环是先决条件，其他为辅助，那么开启任务时就应当已清晰，闭环条件下能到哪，既然如此，开启前已经是选择（是否开启，注意要闭环完整）的最后时间点
+							current point CRP
+							更先决的
+							闭环的意义具体在哪里
+
+					--20220720
+						一个很重要的点，取舍，其暗红一种方式是分出
+							php代码致命报错率（这里确实有争议，是否仅仅代码报错），确认manage/webhook_info.php:390，（这里其实已经可以给到指定人），还在服务器看了具体代码报错
+								PHP Fatal error:  Uncaught Error: Using $this when not in object context in
+
+					--20220714
+						大客户api反馈异常（超时&无响应） VS 当前任务
+						近期的直接需求 VS 长远的规划
+						直接沟通 VS 背后规划
+						当下 VS 时间链条 （逻辑&需求同时满足呢，从个体及项目需求考虑呢）
+							质量-资源、人手
+
+					--20220617
+						运维
+							能否接过
+								==移交== 战略位置 ？？ 怎么就漏掉了
+							文档
+
+					--20220609
+						红线 紧急处理 简单记录文档
+							长远（提出、补充文档等等）
+						==告警
+
+						考虑外部排序
+							其他关注
+								确实长远（优先）
+								短时（推成本 或处理）
+
+								需求方--20220616
+
+						已提出 仅长远
+							...
+
+						缩短时间 排序 --P
+							转表格文件
+								日期
+								内容
+							读取
+							处理
+								排除
+								分类累加
+									1
+									2
+							输出验证调整
+
+					--20220518
+						单点闭环
+							考虑因素
+								长远
+								严重性
+									api站点监控告警
+									数据库磁盘
+									webhook
+
+									==告警
+							事件列表
+								协同
+									项目
+										lastpass
+										堡垒机
+										windows升级
+									实际维护
+										历史待办
+
+									运维
+										端口
+										白名单
+										升级
+
+									其他
+										woocommerce
+									本地
+										网络
+										科学上网
+										dns服务器
+
+										mac绑定
+
+										软件打开异常等
+
+								原任务列表
+									往上合并
+
+							最近各操作
+								项目优化点
+								知识库
+								日志
+
+					--20220224
+						待办优先级（往待办管理工具放）
+							闭环
+
+							尝试
+								主线
+								碎片处理
+
+							KPI
+								红线
+									CPU
+										==00==RDS
+											api代码迁移
+										redis
+											确认key
+									==02==TiDB
+
+								==堡垒机
+									方向步骤
+										分阶段进行
+											登录人员
+											服务器
+										单台操作步骤
+											？
+
+
+
+								==12==等保迁移
+									同第三方确认 可能方案的详细步骤 信息汇聚以定下方向 能进入执行
+
+							协同
+								安全
+									
+									==dengbao
+										迁移
+								发票、合同开具
+								==11==
+								woocommerce
+
+							日常维护
+
+				闭环 19:30 -- 20:00
+					--20220802
+						tracking page 的 api调用添加解析记录（dnspod、cloudflare都需要），其实使用泛域名解析可省掉添加解析这步
+
+						I-运维-GC_SB-服务器充值 30'
+							涉及对象稍微多点的沟通时间立马上去
+
+						站点监控告警
+							明确的部分
+								指定后端正常，指定负载均衡异常，后端access、php报错日志目前未发现超时相关记录
+
+							解除当前问题
+							后续避免
+								相关日志搜集保存
+								节点监控、备份方案
+
+					--20220801
+						闭环-优先级 --20220728
+							在开始时就能确认是否都能闭环了的
+
+					--20220729
+						I-本地-mac投屏
+							搜索引擎 百度 是一个方向
+							投屏这种常用功能，可以考虑直接找到配置
+								现场
+
+						前台防护措施
+							0这边以自己的方式想着的是防护这层，以实际为准来进行的（终究是提高攻破成本而已，且还得以实际为准，比如实际被突破的主要是什么情况）
+							1人家重点在防护代码，cf只是顺带一提
+								识别需求，防护里的之前防护手段被撤离
+								识别本质问题（项目看目标点、人看需求点）
+
+						I-运维-TM的t子域名对应目录确认
+							nginx的重定向可以实现重写，仅针对同域名下
+							实际域名必须有个最开始的域名项目目录指向
+
+					--20220726
+						api迁移
+							php-fpm的zabbix监控
+							filebeat配置
+							沟通时的方式，出现分歧时，在目的，非方式去突破
+							面对重复容易着急，面对可快偏要慢些的也是容易着急
+
+					--20220714
+						www新阿里云服务器（通过企业网访问原七牛数据层）
+							功能测试
+								redis权限没给导致部分页面500
+									php报错日志
+										PHP message: PHP Fatal error:  Uncaught RedisException: read error on connection in /home/wwwroot/www.51tracking.com/library/admin/tool.php:3035
+									是否有SLB都一样
+									确认redis连接排至文件可以的呢（蛮早确认，忽略蛮久）
+									脚本连接同样报错（redis本身连接异常） 可命令行确认
+
+									redis白名单未添加
+
+								my二级域名重定向过多导致异常（前端监听443后端监听80导致）
+									php报错日志没记录，既都没到后端（蛮早确认，忽略蛮久）
+									前端浏览器看到的是https不断重新定向https，不走SLB是正常的
+										想起SLB的配置是前端监听443后端监听80
+										（现在回过来想，也是，分析过程确实，如果443到80,80再跳443，确实会进入循环）
+
+						现象过程的链条，确认环节（my二级域名没有SLB是正常的），然后确认单个环节异常条件（本身异常（上例redis未授权），环节某些条件（比如流量（数据库网关））异常）
+							==P(piont)C(change)==尝试分析最近出现部分客户反馈api出现无响应&超时==背后的区别可能是确定性不一样了
+
+
+					--20220713
+
+						起点清晰--是否往下--一定程度定了各任务（主要是主任务）终点需要的时间
+
+						客户反馈api异常
+							元申物流 124428
+								接口无响应
+							阿里 101911
+								超时
+
+							定位
+								站点监控
+									对比结果
+										当前有时间及可用行、报警和报错中也有超时
+
+								再做一个测试对比？
+									直接出结果
+
+							解决
+								反馈 -- 链路问题
+									目前在测试
+										是否可能扫描 -- 指定 | 确认效果
+
+								客户端到节点链路问题
+									操作看效果
+									测试后操作看效果
+
+								都需要一个确定的对比才好阶段收尾（通过同创宇不断确认，完善测试确定对比方案，最后依据地操作并阶段收尾）
+									从客户来测试数据
+									我们来发起做测试
+
+									实际的链路问题 是普遍的？
+										指定可能避开链路问题 因为发起跟服务端都在广东
+											==新增北京节点做测试
+
+									==重现以解决（模拟客户场景-确保操作确实解决问题）
+
+					--20220712
+						限于当前任务两难，大客户&项目之迁移，那么还有一个可选，找关键点压缩操作时间
+							比如今天先直接排除CDN节点测试解决方案
+
+					--20220707
+						时间预估-后续实践
+							当天 2/8-3/8沟通 5/8-6/8跑计划 （当前实际 2-3 至多1事件完整就差不多）
+								分块
+								专注（单一于当前操作目标点）
+
+					--20220705
+						功能上线（时间预估-后续实践）
+							代码
+								以此为例，考虑将函数返回值作为条件接入代码，不出意外下，每个点代码需要的时间是10'
+									具体通过代码实现功能时轻易不调整（跟原来的着眼点明确度相关）
+										完成伪代码后 检查调整应当在这个位置
+									中间想调整是因代码级完善度，这个在迭代中去完善（第一次在第二次调整，下一代就在第一次调整）
+									--20220706
+										这次确实也是，目的在中间做了调整，脚本完成，但是清除不够彻底，想着把front&api都处理完
+											原着眼点需要增加 更多可能性进去（比如方式达到，目的确实没达到，那么取舍是否再往长远投入一点）
+												这次主要是没并行，能并行或着力去并行的话，应当选择坚持原目的下计划
+									--20220707
+										这里每个单元块都需要（测试或。。）闭环，比如，今天的新机器代码发布支持
+											新机器可以比线上机器代码慢一点，因为可以指定发布
+												那么，就涉及到验证，确定范围操作后，确认每个涉及的文件发布成功
+								redisErrBigkeyLog
+									/**
+									 * [redisErrBigkeyLog redis异常大key日志]
+									 * @param  string $strToRedis [准备写入redis的字符串]
+									 * @return [type]               [description]
+									 */
+									function redisErrBigkeyLog($strToRedis = '') {
+										$returnData = array();
+
+										// 存在10个斜杆 则判定为异常key
+										if(strpos($strToRedis, 'notify') !== false) {
+										// if(strpos($strToRedis, '//////////') !== false) {
+											$returnData = array('has some /, num >= 10');
+
+											// 原始字符串长度
+											$lenOrigin = strlen($strToRedis);
+											// 将斜杆 “/” 清除
+											$strToRedis = strtr($strToRedis, array('/' => ''));
+											// 将斜杆 “/” 清除后字符串长度
+											$lenNew = strlen($strToRedis);
+
+											$strLog = ($lenNew > 10000) ? '$lenNew > 10000' : '$strToRedis:' . $strToRedis;
+											$strLog = date('Ymd His ') . '$lenOrigin:' . $lenOrigin . '$lenNew:' . $lenNew . '--' . $strLog . PHP_EOL;
+
+											// 将清除斜杆前后字符串大小记录下来，对于清除斜杆后长度小于10000的字符串，则将清除斜杆后的字符记录下来 按天记录
+											file_put_contents(dirname(__DIR__) . '/scrip/log/redis.bigkey.user_track_send_msg_log.' . date('Ymd') . '.log', $strLog, FILE_APPEND);
+										}
+
+										return $returnData;
+									}
+							测试（暂定1h跨度）
+								单元测试（正好实现了每步代码闭环），实际测试
+
+					--20220704
+						系统？ 行动前的确认 整体过一次（每个节点可能性 先穷尽？）
+							其中一台api服务器关闭xdebug
+
+						redis大key定位
+							一切都是代码的结果（一开始就认为都是斜杆，最多对应到b，其实有非斜杆的情况，能对应到a）
+								a 按理应该有初始化相关的关键字
+								b 如果没有，那也是一种可能
+
+					--20220630
+						系统 VS 长远 其一致性？
+
+						国内redis节点1内存告警
+							常规不通
+							参考之前国外的情况（查看节点内存最近变化趋势，做对比）
+
+						国内独立更新mycat连接异常（从日志确认 17:45开始一直重启失败）
+							单独的mycat提供访问（但忽略是不在同一vpc，调通后仍然无法添加到mycat负载均衡中）
+								mycat中对后端部分节点有超时情况，会出现启动慢情况，注释掉超时节点重复及错误次数过多，其中涉及schema.xml和server.xml同时修改，也出现未同时改导致的报错问题
+							单独的mycat提供访问（但忽略是不在同一vpc，调通后仍然无法添加到mycat负载均衡中）
+								wrapper.log 中 OpenJDK 64-Bit Server VM warning: ignoring option MaxPermSize=64M; support was removed in 8.0
+									以为本机有异常（参考历史可推翻），才有的上一尝试步骤
+								mycat.log 中 出现的后端节点异常（应当重点关注ERR） ，然后就一直尝试在多台服务器间验证配置（之前得到的超时异常节点导致启动慢其实可直接用的）
+								直到wrapper.log 中 出现如下，放弃配置验证，（前面查看监听1984的进程为java，将其kill重启也不行，并发现其实虽mycat进行的启动，那么怎么还会被占用？），查看https://icode.best/i/69105538358251，发现可以调整监听端口，再看htop发现java的进程很多（35）且占用内存高（猜测会不会是重启顺序导致端口被自己占用），通过htop进行关闭，过一会发现java进程又出现了，应该是重启任务生效了，再看日志发现mycat重启成功，验证服务也正常了
+									Error: Exception thrown by the agent : java.rmi.server.ExportException: Port already in use: 1984; nested exception is:
+									java.net.BindException: Address already in use (Bind failed)
+
+								可能因定时重启任务的存在，是的关闭，再启动的间隔操作无效，或先将java关闭，再进行mycat重启（最终版）
+
+
+					--20220629
+						关于开关是否在代码中进行VS优化线路统计
+							这边讲前面，原来你讲的后面呢，刚才已经给你反馈了，挺好，如此如此，那我知道了，不用再说，挺好，如此如此
+								满足其需求么，到底是什么，A稍微详细谈，比如好弄那具体如何，B肯定并稍作扩充，确实不错，能直接判断无需再这那确认
+								-因此重点不是自己或对方输出了什么，而是接收方接收了输出方的什么（通过再次输出确认？）
+									明确后还讲那么就是明确方式或沟通方式（比如，此对象此类型就只能是单独话题不扩展）
+
+					--20220628
+						china-post更新异常
+							异常图表现异常定位-决策之后 all in
+
+						组织-阿里云迁移这个事件 找到关键节点这个方向来讲，leader是也不是，执行人（是）也不是，执行关键人或才是
+
+						时间应该在7月底，， 那不就是 --0说完，以防万一，应当预留足够时间
+							最坏打算（沟通，直接，重点，先总）
+
+					--20220615
+						redis 国外节点内存
+							可能性（干扰性 当前处于实践 练习 注意力投放点位置 关注）
+						当下 估计同角度于过去与未来 围绕目的 目标毁人？
+						意识是可能汇聚点（发展） 期望方向
+							--20220616
+								意识之中，个体与一次沟通当中，会持续存在需求需被满足的情况
+
+					--20220225
+						定位前端undefined， 数据流节点关注
+
+						代码每步操作的确定性，多余调试，执行类调试阶段性思路时确定性应当是更高层次的
+							尝试按如此确定性确实进行下去 会怎样？？
+
+					--202205
+						--20220531
+							每一次操作都需要时间
+								晏洁 电脑升级 40'
+							当前印象依据权重大于当下情况
+								座位VS现在主机上名字
+
+						--20220524
+							操作列表跟实际操作区分开
+								待办记录 归入列表
+								排序
+								单项执行
+
+						--20220512
+							考虑返工可能性 并作应对
+								查找历史记录 tr_user_webhook_log
+
+					--202204
+						--20220422
+							肯定可能性
+								代理续费相关 思路差异（时空）
+								需要安全信息确认，传递已经有安全中心
+						--20220421
+							--1储物室钥匙，--0开不了，--1不应该，是储物室钥匙来着，--0现实是残酷的，--1直接上，且开了，--0诶。。
+
+							扎带--0可考虑去下面村里买--0去买吧--1确认长度发现从生产那边拿到了
+								大方向上可能性先行，且集中发大注意力
+
+						--20220420
+							阿里云怎么开出了别的主体
+								--1问下能否改，--0一般不行，可问（稍微费时，有不同想法）--1还是问下，不行，然后为何会这样--0对方给到这个，--1或许可行
+								其实需要的是，不同主体导致的“款冲不了账”问题解决，这边遗漏的是开票解决问题的可能性
+
+						--20220415
+							当前地域没有自动快照策略
+							
+							是自身同样敏感于反对可能性
+
+						--20220414
+							昨天的跑步运动 -- 仅必要脚部发力，不是难以做到，是难以一下成为习惯，也就是当下去意识的话，就是一个确实地调整过程
+
+							代理设置无效 -- 多位并发情况
+
+						--20220413
+							需要那个mac，没有系统的，，，不能看陌生设备么
+							同一时间戳的不同展示格式而已
+								确实是，而其实想法是否，有中间点可以取的是客户原始需求，结合根源（是且还有后续）
+
+						--20220406
+							排队的速度
+								提前判读（这次是一个消化者是否消化这2倍任务量队伍，队伍排重了）
+								另一个就是 刚开始的A2与B2出口选择 也是 可能排到前面的另一选项
+
+							从文件名来找，没找到
+
+					--202203
+						--20220328
+							1这样子就不会出现那种情况，数据丢失的情况。
+								0还是会啊，总会有一步的
+								1可不可以听我说，。。。
+								0确实，你说的这种情况是这样的，还有么。。
+
+								0之前是这样这样的来着，没讲清楚哈，分步骤，各自影响不一样，但就是会有这样的一步（1，分隔了步骤，2，在这一步还是有数据丢失（因此就如之前建议做好准备））
+
+						--20220324
+							开玩笑-感知尝试触碰个体敏感区
+								不想等我还这样，是你们不是你吧
+								顺其自然VS勉为其难
+
+							“激烈”反应于我自身的反应（统一WIFI名称方案执行的过程）
+
+							WIFI限速 什么目的呢 让跑着嘛，继续进行呗
+								对“否定”敏感过夸张了？
+
+						--20220323
+							代码提交 push 无权限
+								参考文档
+
+						--20220311
+							这是个确定性的东西，但你们总是被一些东西障碍住
+								被质问者的感受 感知
+								以倾听方决定对话走向的角度来讲，有一种情况是
+
+							早上的secureCRT认证解决
+
+				--20220226
+					--1五一如何--0回家--1看孩子么--0看？看？看？--1那就是看家人 单纯问候，却因信息查反馈了激动
+					--300'的数据库账号表授权，实际通了之后弄一个新表只要20'不到，从先接受（所有，特别刚刚进行的操作）错误可能性这方面来讲&结合实际，回撤后台调整权限为可读动作是有效的
+						方向性
+						贯穿
+						流畅性
+
+				--20220221
+					KPI
+						月度
+							==绩效相关
+								上月
+								计划
+							配置
+								1月份整理
+
+								项目是否覆盖完全
+								单元评估误差（细分颗粒度）
+
+					TM代码发布异常
+						keys sendCode_SET
+
+					站点监控-告警
+						节点列表
+						排查方式
+							增加curl请求测试
+								c-87
+								68
+									cat curl.api.trackingmore.com.time.log
+
+							==mycat
+								历史情况确认
+								定点监控
+									服务器告警
+
+								异常处理
+									负载均衡检测自动下线
+
+								mycat日志中内存不足报错
+									/usr/local/mycat/hs_err_pid10182.log:#  Out of Memory Error (os_linux.cpp:2627), pid=10182, tid=140636753737472
+									/usr/local/mycat/logs/wrapper.log ERROR状态
+										INFO   | jvm 6    | 2017/07/23 13:12:25 | Java HotSpot(TM) 64-Bit Server VM warning: INFO: os::commit_memory(0x000000075a380000, 71303168, 0) failed; error='Cannot allocate memory' (errno=12)
+										INFO   | jvm 6    | 2017/07/23 13:12:25 | #
+										INFO   | jvm 6    | 2017/07/23 13:12:25 | # There is insufficient memory for the Java Runtime Environment to continue.
+										INFO   | jvm 6    | 2017/07/23 13:12:25 | # Native memory allocation (mmap) failed to map 71303168 bytes for committing reserved memory.
+										INFO   | jvm 6    | 2017/07/23 13:12:25 | # An error report file with more information is saved as:
+										INFO   | jvm 6    | 2017/07/23 13:12:25 | # /usr/local/mycat/hs_err_pid11119.log
+										ERROR  | wrapper  | 2017/07/23 13:12:25 | JVM exited unexpectedly.
+										STATUS | wrapper  | 2017/07/23 13:12:29 | Launching a JVM...
+										INFO   | jvm 7    | 2017/07/23 13:12:29 | Java HotSpot(TM) 64-Bit Server VM warning: ignoring option MaxPermSize=64M; support was removed in 8.0
+										INFO   | jvm 7    | 2017/07/23 13:12:29 | Wrapper (Version 3.2.3) http://wrapper.tanukisoftware.org
+										INFO   | jvm 7    | 2017/07/23 13:12:29 |   Copyright 1999-2006 Tanuki Software, Inc.  All Rights Reserved.
+										INFO   | jvm 7    | 2017/07/23 13:12:29 |
+										INFO   | jvm 7    | 2017/07/23 13:12:30 | log4j 2017-07-23 13:12:30 [./conf/log4j.xml] load completed.
+										INFO   | jvm 7    | 2017/07/23 13:15:30 | MyCAT Server startup successfully. see logs in logs/mycat.log
+						api服务器
+							php-fpm
+								==连锁影响？
+
+							日志
+								10服务器sql报错
+									platefromShopify/resque.php
+									tr_shopify_order_sync_price
+
+								==异常时段定位
+									cat /home/wwwlogs/trackingmore.com.log.mysql.test.202202  | grep '07 23:' | wc -l
+									cat /home/wwwlogs/trackingmore.com.log.mysql.test.202202  | grep '07 22:' | wc -l
+									cat /home/wwwlogs/trackingmore.com.log.mysql.test.202202  | grep '07 21:' | wc -l
+									cat /home/wwwlogs/trackingmore.com.log.mysql.test.202202  | grep '07 20:' | wc -l
+									cat /home/wwwlogs/trackingmore.com.log.mysql.test.202202  | grep '07 19:' | wc -l
+									cat /home/wwwlogs/trackingmore.com.log.mysql.test.202202  | grep '07 18:' | wc -l
+									cat /home/wwwlogs/trackingmore.com.log.mysql.test.202202  | grep '07 17:' | wc -l
+									cat /home/wwwlogs/trackingmore.com.log.mysql.test.202202  | grep '07 16:' | wc -l
+									cat /home/wwwlogs/trackingmore.com.log.mysql.test.202202  | grep '07 15:' | wc -l
+									cat /home/wwwlogs/trackingmore.com.log.mysql.test.202202  | grep '07 14:' | wc -l
+									cat /home/wwwlogs/trackingmore.com.log.mysql.test.202202  | grep '07 13:' | wc -l
+									cat /home/wwwlogs/trackingmore.com.log.mysql.test.202202  | grep '07 12:' | wc -l
+									cat /home/wwwlogs/trackingmore.com.log.mysql.test.202202  | grep '07 11:' | wc -l
+									cat /home/wwwlogs/trackingmore.com.log.mysql.test.202202  | grep '07 10:' | wc -l
+									cat /home/wwwlogs/trackingmore.com.log.mysql.test.202202  | grep '07 09:' | wc -l
+									cat /home/wwwlogs/trackingmore.com.log.mysql.test.202202  | grep '07 08:' | wc -l
+
+									cat /home/wwwroot/www.trackingmore.com/executeSQL.20220207.log  | grep '2022-02-07 23:' | wc -l
+									cat /home/wwwroot/www.trackingmore.com/executeSQL.20220207.log  | grep '2022-02-07 22:' | wc -l
+									cat /home/wwwroot/www.trackingmore.com/executeSQL.20220207.log  | grep '2022-02-07 21:' | wc -l
+									cat /home/wwwroot/www.trackingmore.com/executeSQL.20220207.log  | grep '2022-02-07 20:' | wc -l
+									cat /home/wwwroot/www.trackingmore.com/executeSQL.20220207.log  | grep '2022-02-07 19:' | wc -l
+									cat /home/wwwroot/www.trackingmore.com/executeSQL.20220207.log  | grep '2022-02-07 18:' | wc -l
+									cat /home/wwwroot/www.trackingmore.com/executeSQL.20220207.log  | grep '2022-02-07 17:' | wc -l
+									cat /home/wwwroot/www.trackingmore.com/executeSQL.20220207.log  | grep '2022-02-07 16:' | wc -l
+									cat /home/wwwroot/www.trackingmore.com/executeSQL.20220207.log  | grep '2022-02-07 15:' | wc -l
+									cat /home/wwwroot/www.trackingmore.com/executeSQL.20220207.log  | grep '2022-02-07 14:' | wc -l
+									cat /home/wwwroot/www.trackingmore.com/executeSQL.20220207.log  | grep '2022-02-07 13:' | wc -l
+									cat /home/wwwroot/www.trackingmore.com/executeSQL.20220207.log  | grep '2022-02-07 12:' | wc -l
+									cat /home/wwwroot/www.trackingmore.com/executeSQL.20220207.log  | grep '2022-02-07 11:' | wc -l
+									cat /home/wwwroot/www.trackingmore.com/executeSQL.20220207.log  | grep '2022-02-07 10:' | wc -l
+									cat /home/wwwroot/www.trackingmore.com/executeSQL.20220207.log  | grep '2022-02-07 09:' | wc -l
+									cat /home/wwwroot/www.trackingmore.com/executeSQL.20220207.log  | grep '2022-02-07 08:' | wc -l
+									cat /home/wwwroot/www.trackingmore.com/executeSQL.20220207.log  | grep '2022-02-07 07:' | wc -l
+									cat /home/wwwroot/www.trackingmore.com/executeSQL.20220207.log  | grep '2022-02-07 06:' | wc -l
+									cat /home/wwwroot/www.trackingmore.com/executeSQL.20220207.log  | grep '2022-02-07 05:' | wc -l
+									cat /home/wwwroot/www.trackingmore.com/executeSQL.20220207.log  | grep '2022-02-07 04:' | wc -l
+									cat /home/wwwroot/www.trackingmore.com/executeSQL.20220207.log  | grep '2022-02-07 03:' | wc -l
+									cat /home/wwwroot/www.trackingmore.com/executeSQL.20220207.log  | grep '2022-02-07 02:' | wc -l
+									cat /home/wwwroot/www.trackingmore.com/executeSQL.20220207.log  | grep '2022-02-07 01:' | wc -l
+									cat /home/wwwroot/www.trackingmore.com/executeSQL.20220207.log  | grep '2022-02-07 00:' | wc -l
+
+					账号费用情况
+						下月（2月）订单
+						包年包月
+							排序去重，得到多出来的，确认历史付费详情
+						按量（未支付）
+
+						2月
+							23499.53 + 22000 + 38485.23 + 17000 = 100,984.76
+							-22000 = 78,984.76
+
+			日志
+
+				--20220215
+					闭环 19:30 -- 20:00
+						日志 当天事件级别
+						后续文档、记录、深入了解
+				--20211108
+					1113
+						应急预案
+							电脑
+							服务异常
+								服务器宕机
+								系统异常
+								服务异常
+					1110
+						本地机房断电服务器重启
+					1109
+						ELK
+						502
+							资源或资源利用未彻底都能通过扩容暂时解决
+							然后是详尽分析
+						IHC-当前需求
+						三层交换机
+
+					国内 外IP获取 1109
+						网络拓扑图
+					参考mac 1109
+						搜索快捷打开应用程序
+						剪贴板 少数派推荐可考虑
+							https://sspai.com/post/43775
+					新增服务器对应的操作
+						代码上线
+						同IP相关相应文件调整
+				--20211101
+					快递查询的测试用例 1103
+					沟通
+						具备一定专注度下，确认优先级
+							强制性的那么告知需要一定缓冲 1102
+						源头上调整
+							文档
+							操作
+								机器
+								网络
+									公用设备记录
+						分门类 1103
+							微信流程申请（50%）
+							QQ流程申请（50%）
+							电脑
+								音频
+								钉钉会议
+								网线送了 1104
+								事件查看器 1105
+
+					日志整理
+						价值最大化于复盘中
+
+						整体追踪 1107
+							盘点
+							更新
+								新加
+								更改
+
+			？？当下？？
+
+
+			电脑、网络
+				本地运维自查文档
+
+				mac系统打开
+				磁盘扩容
+					整盘备份调整还原
+
+				网络
+					DNS
+						ok
+					爱快备份容灾
+						17:00
+					有线
+						网络
+							500M跑满
+							中心路由器（ >50台设备）
+					无线
+						爱快 AP（信号、单点故障）（已经设置好，需要文档）
+						17:00
+
+				电脑
+					世杰 卡顿 晚上
+					黎总 卡顿 晚上
+					少纯电脑贴图工具
+
+					文档
+						电脑音频（提示：没插入设备-前后面板尝试）
+					设备
+						内存
+							小官（网卡重启，电脑重启）
+
+				电脑
+					CPU
+					==重选
+
+				==日志系统
+
+			--
+
+			工作清单
+
+			键盘防尘盖
+			大宝SOD蜜
+
+			
+			--ok--
+				==
+			工作-流程化
+				更新
+				日志整理
+				C==11 整体跟进
+				--20201209
+				每日时间安排
+					团队
+						结合流程化
+
+						协作
+						敏捷开发 工作日报
+
+					运维相关
+						服务
+						服务器
+						数据库
+							相关跟进
+
+			住
+			设备
+				键盘
+				屏幕
+				主机
+		当前
+			数据线
+			耳机
+			衣着
+
+			当前优先级 影响程度（时空评级）
+				崩溃因素
+				增长因素
+		操作
+			上线
+				php /home/wwwroot/www.trackingmore.com/script/test.php '{"d":"t", "file" : "/home/wwwroot/upload/huaqiang/18567", "to" : "set"}'
+				php /home/wwwroot/www.trackingmore.com/script/test.php '{"d":"t", "file" : "/home/wwwroot/upload/huaqiang/18567", "to" : "get"}'
+		排序
+			日常间
+				激活工具
+				本地服务器 svn
+			日常
+				cloudflare
+				首云
+				更新
+				服务器报警
+
+			报警
+				当前处理
+					数据库
+						语句输出
+					服务器
+						前端
+						mycat
+						负载均衡
+					日志
+						/usr/local/php7/var/log/php-fpm.log
+			监控--
+				web服务
+					应对
+						提前级别划分
+
+						已知检查点
+						针对现场来
+					站点监控
+					服务器
+						sql
+							ll /home/wwwroot/www.trackingmore.com/executeSQL.* -h
+						web
+							内存
+							load
+				更新
+					整体
+					个别（国外批量队列）
+					运行时间
+
+			应急操作
+				服务器down机无法ssh、vnc连接
+
+		日常
+			C==1
+				更新规则 -- readme
+				1 监控 -- readme
+			--==-- 环境优化
+				自动 容灾
+					脚本
+					备份 secureCRT config
+				电脑 多浏览器卡顿
+				知识仓库、结构
+
+
+			-- 环境 设备 自身投资
+
+			快捷键 .ahk
+
+			电脑卡顿
+				机械键盘
+
+	常用操作目录
+		index
+			crn--operation
+			rst--sql
+		script
+			D:\xampp\htdocs\trackingmore\trunk\TEST\test_sql_express.php
+
+		TDD
+			若需要备注 在思路阶段一并处理了 一个数据获取检查更新备注添加可以花40'的
+			D:\xampp\htdocs\trackingmore\trunk\script\apiRequestStatistics.php
+				mysqlQuery
+
+	项目改进点
+	流程改进点
+		--log_slow_queries 总结性质时间 20:00-20:30
+		--学习
+			动机层面 七层理论
+			学习观
+			方法
+				费马学习法
+				刻意练习 专注-反馈-修正
+				现在忙，推后，后面应该有时间，未来不确定性，其实存在一直往下推的可能性
+		--形成
+			断点
+				困了之后产生的注意力分散时间段，分割了原来就不怎嘛集中的时间段
+				确认到位置了，因为不确信还是什么（只关注自己看到的支持自身错误结论部分），就不找到那个问题位置点
+			当天
+				日志整理 尝试回放 排序 
+			上线
+				update - 确认 - 上非放出来部分 - 确认是否异常 - 全上 - 确认是否异常 （确认效果 明显问题 没问题 上线 20191101）
+					准备阶段准备所需 若效果有延迟，不在当前等待，继续后续任务，中断后续再接上
+				跨度太长中间被切入 的情况
+
+				多服务器及国外访问慢导致费时
+			bug处理
+				是否有最近修改的svn提交记录，确认当前（起点 重要性）
+					如果最近修改，可从可能的最外层开始着手，确认其流程正确性（eg shopify订单同步对应异常--原因:初始化异常）
+				定位日志 确认点 点权重 处理
+					不管定位前的确认，或者定位，都应当从现场线索开始
+					一个现有起点--用户反馈（eg 每天免费额度没有恢复）
+				应急处理
+					顺丰 收到邮件
+						定位
+						暂时应急解决 有时也是必须的
+			bug再处理
+				涉及修改
+					通过运行测试确保正常 X
+					运行测试前确保正常 O
+			操作任务修改涉及模块及文件
+				特别操作任务难度达到一定程度
+
+			沟通
+				能去掉就去掉-外包，用碎片时间
+				工作进度的沟通要提前完成，避免时间被动占用，转被动为主动
+		--注意点
+			svn未提交的可能被覆盖
+
+	知识改进点
+		--linux
+	现状确认改进点
+		--顶层 注意力 目前需要关注的整体点 单元完整性-目的目标操作点--流程完整性-点的完整连接
+			指导性沟通 有点反抗意识 所以大概是 反驳对反驳
+				如果是以解决问题为基准 设想中确实会不大一样
+					还是有问题，自以为以解决为基准，其实还是因为否定勾起其他思绪，干扰了基准，使得基准消失
+					尝试--或者说仅仅信息流通
+						考虑时间问题，仅仅想着优化当前可能问题
+						觉着重新弄一套 思路-文档（太费时）
+
+						如此考虑 流程没问题 那么就是redis和MySQL某些情况异常 为流程做标记
+						建议
+							-文件文件直接修改为redis，不管是否此问题，都需要改了
+							-这边的数据库异常判断可能有漏的
+							-利用已有的表做个状态标记
+							-不确定是否懂 可能你不同意这个我们一些东西 想要自己弄 ——所以这里是冲突点？——
+
+						还是择优而取吧--方案确定（给到对比 与其修复当前流程中可能异常点 更倾向确保其完成，具体redis有序集合，当然也可能异常，考虑再做一步记录）
+							当前异常点修复
+								1 2 3
+							确保流程完成
+					--而且，有点太容易激动了
+			需求沟通-反馈沟通
+				shopify 绑定无法进入后台
+					检查结果
+						国内 确实存在
+						国外 登录国内账号，切换到国外时会出现
+					处理
+						国内外一块
+						沟通完--其实国内没关系，不急着处理（工作量，国内90%，国外10%）
+			兜圈
+				只有两个搜索结果，之前一直没看到，花了大概60分钟的样子
+			配合沟通-服务器出现问题，需要这边进行某些操作
+				这边的不耐烦得到的同样是不耐烦呢
+			实践-再分配
+				整个流程完整性-整体目的基本在于完成工作，另外同等重要，也算是目的的环节之一就是为了 反馈-实践-反馈
+					确保完整，若缺失反馈环节，其他环节再多，徒劳感会更强，是应当避免的错误
+			实践-操作
+				小段时间内保证操作任务单一
+		--日志回放分析
+			时间分配 分割
+	
+
+
+	服务器
+		kill -s 14 `ps -aux | grep  'trackPostBatchInsert' | grep -v 'grep' | awk '{print $2}'`
+		kill -s 14 `ps -aux | grep  'trackFirstNew1' | grep -v 'grep' | awk '{print $2}'`
+		kill -s 14 `ps -ef | grep  'trackPostBatchInsert' | grep -v 'grep' | tail -50 | awk '{print $2}'`
+		59 100--50 New2
+		kill -s 14 `ps -ef | grep  'trackFirstNew2' | grep -v 'grep' | tail -50 | awk '{print $2}'`
+		59 100--50 trackPost2
+		kill -s 14 `ps -ef | grep  'trackPost2' | grep -v 'grep' | tail -50 | awk '{print $2}'`
+		234 50--20 trackEPCode1
+		kill -s 14 `ps -ef | grep  'trackEPCode1' | grep -v 'grep' | sort -nrk3 | tail -30 | awk '{print $2}'`
+		
+		79 80--50 trackPostShein
+		kill -s 14 `ps -ef | grep  'trackPostShein' | grep -v 'grep' | sort -nrk3 | tail -30 | awk '{print $2}'`
+
+		79
+		kill -s 14 `ps -ef | grep  'trackFirstNew' | grep -v 'grep' | sort -nrk3 | tail -30 | awk '{print $2}'`
+		kill -s 14 `ps -ef | grep  'trackPostShein' | grep -v 'grep' | sort -nrk3 | tail -20 | awk '{print $2}'`
+
+	60:10  +- 5-10
+		9:50-10:00-11:00-11:10-
+		14:40-14:50-15:50-16:00-17:00-17:10-18:10
+		19:00-20:30-
+
+
+	数据库 队列 线路 相关联监控
+		Waiting for table level lock
+		tr_user_destination 找到根源 建唯一索引
+
+		死锁根源
+			91 /home/wwwroot/www.trackingmore.com/executeSQL.20181220.log
+
+		239 CPU
+
+	整体检查
+
+		数量高-清除 国外
+			Z_H_O_B_Express_SET
+			Z_R_P_U_epacket_SET
+			Z_R_P_U_china-ems_SET
+
+		系统无法登录紧急操作
+			crontab设置kill命令
+
+	gls-italy
+	sunyou
+	yanwen
+	showl 客户 41733
+		批量按顺序更新
+		更新 04:04 入库 06:25
+			入库速度需要提高
+
+	数据库部分与请求部分分开
+
+队列
+	增加运输商队列
+		china-post批量查询队列
+		查询队列
+	分开，分别限制，使得队列种类增加时并发会成倍于配置
+
+
+
+国外
+	快递单号单引号问题
+	mycat
+		tail -f /var/log/messages | grep conntrack
+国内
+	insert 脚本
+	特殊单号队列 Array
+	重查最大次数设置 sunyou
+
+整体
+	日志统一方式
+	验证码删除，通过文件命名即可
+	china-ems 目的国查询
+	MySQL
+		Duplicate entry 
+		/v2/trackings/batch.php 121 87
+	需要各类异常日志 ==
+
+未更新
+	saicheng 同样 22894
+	905743656492 更新两轮了 时间没变 shein
+
+
+数据库
+	api
+	错误捕获
+	根源定位 time out
+
+
+
+xdebug文件 -- Z_R_ bq_C_L 
+	Bpoint
+		备用方案的快速执行
+
+		20200313
+			TiDB
+				那就是去进行比对价格、测试对吧--结果千万不要没了解就进行测试！
+			流程化
+				一定范围的时间预估-手动（尽可能避免）搜集预热URL VS 脚本执行
+				沟通，即使再三确认，需要有个底有个判断标准（外来即使高位判断干预，也需要去通过自身判断）（cdn再三确认，目前还是从减小静态文件大小入手）
+				临近休息时间，可能沟通会多，特别晚上，这些时间段可能要做排除准备
+
+				意大利单号页显示异常-先js变量未定义，再找全局变量，再改注释，再改单引号冲突（犹豫于根治）
+					--总思路，页面异常，首先js报错排除，特别仅部分情况
+		20200312
+			正常操作的流程化
+				测试确认方式（小站指定目录下删除文件rm当前目录文件是 rm ./filename （50'）；短信签名方法封转&指定用户去除（90'））
+
+
+	20220621 定时任务-任务开始时，上一任务未结束-独立更新负载高
+
+
+
+	20210122 原子性操作保证
+		redis缓存，是否有数据都有，为避免缓存与实际不一致，定时进行刷新，并定位产生位置进行优化（可能原因，1，人为，2，系统（2-1，逻辑，2-2，稳定性：刷新数据时原数据获取异常））
+			tr_express_concurrency_limit直接添加到表里的数据 tr_express_concurrency_limit_* 缓存需要刷新
+
+	20201215 sql redis最大值关注 避免超额
+	日志 -- 工作操作整理 -- 架构整理 （ 数据库分区分表 内存CPU代码级别优化 ） -- sar linux各项指标 -- 团队，操作者觉得可能不行，实践下来确实还是不行，但是却还是要提出者提出确实不行，然后改变似乎有点点阻力的感觉（自我）
+
+		分表分库 -- 联表查询需要在一库中相互矛盾 -- 性能问题比方说遍历，当数据量大时小问题会演变成大问题呢：状态匹配
+
+	效率么 -- 加班掩盖管理不足，但，除了时间分配，还有一个是时间下效率
+		大方向
+		细节点
+			日志--调试工具
+			断点--断点标记
+			查表--语句准备
+		可能性 -- 极致方面
+
+	数组匹配效率 str_replace($array, '*', $str, $count)
+
+	可能异常的监控
+		内存
+		最大id
+		字段
+		...
+
+	数据库存储长度入库前判断
+		函数封装 想关联的表需要考虑，可能出现字段有某种格式要求的需求
+		负载均衡 慎用 mysqli_insert_id($databaseLink)
+
+	数据库表与表间字段一致性，同样的字段存同样的东西，数据类型属性一般应当是一样的
+
+	数据库表insert应指定字段，避免后续字段有增减
+
+	定时脚本执行时间过长的异常情况出现多个脚本同时运行
+
+	连接--sql执行（负载均衡--mycat--MySQL）
+		连接环节异常，可以到执行的就少，连接环节正常，可以到执行环节就多，
+			日期--连接异常日志--执行异常日志
+				1220--5.5M--47M
+				1221--4.0M--697M
+				1222--1.4M--1.8G
+				1223--279K--2.8G
+				1224--2.5M--1002M
+
+	分表 表之间产生关系 修改需要保证一致性（可能出现各种不一致的情况） 否则在认为数据具有一致性的前提下进行的判断会在数据出现不一致时出错
+
+	分库
+		一定程度上达到了负载均衡的效果
+		同时，数据库单位时间请求量限定，能进一步起到负载均衡作用
+	202000310
+		大数据实时统计 考虑关系型数据库本身性能 可能思路方向还是需要结合非关系型数据库进行优化
+	20200112
+		距离整点不远执行代码 距离整分钟不远执行代码 以减少redis请求连接
+			redis过期时间设置
+	20191228 redis-pattern
+		match '*userid":*[0-9]RU*' count 1000000000 # e.g. [0-9]进行数字匹配
+	--2019--
+	20191217
+		22902 所在数据连接数过高，现场为大量 query end状态 update tr_tracking_info_22902_22902 语句
+		数据量 分区使用方式
+			增加creat_time作为条件
+			 	UPDATE `tr_tracking_info_22902_22902` SET `update_time` = '1576550763', `stayTimeLength` = '8', `itemTimeLength` = '14' WHERE `id` = '17645605'
+			 	EXPLAIN SELECT * FROM `tr_tracking_info_22902_22902` WHERE `id` = '17645605'\G
+			 	*************************** 1. row ***************************
+			 	           id: 1
+				 	  select_type: SIMPLE
+				 	        table: tr_tracking_info_22902_22902
+				 	   partitions: p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29,p30,p31,p32,p33,p34,p35,p36,p37,p38,p39,p40,p41,p42,p43,p44,p45
+				 	         type: ref
+				 	possible_keys: PRIMARY
+				 	          key: PRIMARY
+				 	      key_len: 4
+				 	          ref: const
+				 	         rows: 1
+				 	     filtered: 100.00
+				 	        Extra: NULL
+				 	1 row in set, 1 warning (0.00 sec)
+				 	        
+				 	EXPLAIN SELECT * FROM `tr_tracking_info_22902_22902` WHERE `id` = '17645605' AND CREATE_TIME = 1575381082\G
+				 	*************************** 1. row ***************************
+				 	           id: 1
+				 	  select_type: SIMPLE
+				 	        table: tr_tracking_info_22902_22902
+				 	   partitions: p33
+				 	         type: const
+				 	possible_keys: PRIMARY,index_name
+				 	          key: PRIMARY
+				 	      key_len: 8
+				 	          ref: const,const
+				 	         rows: 1
+				 	     filtered: 100.00
+				 	        Extra: NULL
+				 	1 row in set, 1 warning (0.01 sec)
+
+		--rds-read-and-drop-only 阿里云rds数据库磁盘满导致只读不可更新的状态，drop表可行，truncate某个分区不行，truncate未确认，并且需要一段时间才能回复，重启同样无效
+			暂时无法恢复，那就直接换掉数据库
+				备用方案的快速执行
+	20191121
+		主要对象监控
+			队列速度
+				查询多的运输商速度
+					eg china-ems 影响整体队列更新速度
+	20191118
+		json_encode 增加异常判断 ，输出false 使用json_last_error_msg()查看原因
+			Malformed UTF-8 characters, possibly incorrectly encoded
+	20191021
+		部分用户转大用户 - 实际上，从配置来讲，在各自配置相当的情况，没有将用户从A转到B的必要
+
+		大用户表连接数 优化
+			重启
+			分表
+				分析
+					通过二级条件，缩小范围，进而减少负担
+					不带二级条件可能效果大大打折
+
+				包含查询
+					select
+					update
+					delete
+
+				不包含查询
+					insert
+			分区
+			减少数据操作 -- 适用于info表物流信息存放字段
+			参考
+				https://blog.csdn.net/qq_28289405/article/details/80576614 数据库分区、分表、分库、分片
+					什么时候考虑分表？
+					一张表的查询速度已经慢到影响使用的时候。
+
+					sql经过优化
+
+					数据量大
+					当频繁插入或者联合查询时，速度变慢
+
+					分表解决的问题
+					分表后，单表的并发能力提高了，磁盘I/O性能也提高了，写操作效率提高了
+
+					查询一次的时间短了
+					数据分布在不同的文件，磁盘I/O性能提高
+					读写锁影响的数据量变小
+					插入数据库需要重新建立索引的数据减少
+	20191021
+
+	linux 在项目中搜索字符串 比本地快地多
+
+	只要是变量，即存在各种可能
+		2018-12-20 06:47:22.255
+		query--> select * from tr_country_info_time where two_code=''S'
+		error--> You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'S'' at line 1
+		errNo--> 1064
+		pos--> /costtime_express.php
+
+	20191016
+		数据库表 字段可能范围值 考虑-报警
+			2^31−1=2147483647 signed
+			2^32−1=4294967295 unsigned
+				bit(binary digit)
+	20191126
+	异常判断 php也有，包括内存、超时。。 待搜集完善
+		Allowed memory size of 536870912 bytes exhausted (tried to allocate 544591872 bytes) 
+	
+	20191016
+
+	异常判断
+		能json判断json_decode格式 > 字符是否存在 
+
+	设想可能的最坏情况 -- 数据库阻塞监控 线路至少两条稳定支撑
+
+	专利带来的可能影响 -- 大方向上？
+
+	66卡顿 -- 输出过多？ -- 写日志文件过大？ -- 重启暂时ok --20190111
+
+	自动化意识 -- 检查
+
+	日志
+		文件按时间命名
+			控制单个大小
+			便于清除以控制整体内存占用
+		对原始文件数据处理
+			统计数量随时间分布情况以定位问题出现可能时间段
+
+	shopify多类型帐户 -- 反馈优化
+		唯一标识 domain VS email
+		trim 用法
+		trackingmore登录标识 shopify接口获取邮箱 VS 绑定表获取用户id再从用户表获取邮箱
+
+	xdebug linux安装 --prefix=
+		https://stackoverflow.com/questions/3130910/php-warning-php-startup-unable-to-initialize-module PHP Warning: PHP Startup: ????????: Unable to initialize module
+		https://xdebug.org/download.php
+		https://www.cnblogs.com/bluebirds/p/7200380.html
+			https://sourceforge.net/projects/qcachegrindwin/
+			F:\chrome\qcachegrind074-32bit-x86.zip 
+
+			/etc/init.d/php-fpm reload
+
+
+	错误类型搜集 -- 根据情况做应对
+		MySQL server has gone away
+			重连
+		一开始实例化的连接失败
+			databaseLink
+		mysql_ping()：检查到服务器的连接是否正常
+		;
+			sql 
+				1064 不应该回发，需要另行记录还是怎样
+
+
+
+设想 -- 整体观察所需要的时间，再接着进行下去？
+
+
+
+	原计划
+		2，批量查询配置页
+			列表读取
+			配置添加
+				在运输商列表缓存中 -- 查表吧
+					限速 配置数量不为0
+						下拉形式 是否限速 是否支持批量查询
+					批量
+						必须有速度限制，不能为0
+						验证 -- 且有相应文件
+							自身进行请求即可
+							通过封装的方法进行验证
+								捕获异常判断 ‘’
+			编辑
+				限速 配置数量不为0 修改前确认存在
+				批量 必须有速度限制，不能为0 修改前确认存在
+			删除 -- 取消删除选项
+				限速 顺带删除批量 状态修改
+				批量 状态修改
+			都需要刷新缓存
+				列表 取不为空 清空 再取仍然不为空
+				单个 取不为空 清空 再取仍然不为空
+				验证 与数据库数据对比 可以后面添加
+
+	添加页是否刷新缓存判断 -- 编辑页的测试
+
+
+
+	限速 -- 数量按照从小到大 - | - 批量 -- 重复单号处理
+
+
+
+负载
+	php /home/wwwroot/www.trackingmore.com/php-resque/class.php "{\"className\":\"platefromShopify_Job\", \"fileName\":\"platefromShopify_Job\", \"upperDir\":\"platefromShopify\"}" "{\"sync_time_start\":1537414781,\"sync_time_end\":1540006781,\"id\":2863}"
+	php /home/wwwroot/www.trackingmore.com/php-resque/class.php "{\"className\":\"trackExpressjob\", \"fileName\":\"trackExpressjob\", \"upperDir\":\"trackExpress\"}" "{\"n\":\"Z_T_N_Express_SET\",\"e\":\"Z_T_N_Express_SET\",\"u\":0}"
+
+	改为有序集合，并在发送时直接进入相应快递集合
+		原有流程改为 有序集合
+
+
+	激活达到一定次数，减少内存使用
+	常驻 -- 不一定需要，一定时间长度即可
+		避免的是短暂性的负载冲击
+
+		调整为 5'内取不到再结束进程并进入接受激活流程
+			还是跟手动重启有冲突
+
+			读取手动重启信号，那么都可以解决了
+	速度调整依据
+		统计请求平均时间
+		从实际更新速度与更新量进行调整配合
+
+	反馈
+		通过统计结果调整速度 -- 改为有序集合 优化速度
+
+		邮政单组数量提高 需要配合激活改动 暂时单独改？
+
+		配置列表，少的在前面
+			区分快递邮政
+
+		记录上次更新完，有限制速度运输商未更新完的
+			集合改为有序集合
+			速度自动调整 负反馈系统？
+
+crn--operation
+
+	检查-更新频率-快递是否查得到-是否有快递跟不上大部队 -- 报错日志 -- 分割 来源集合对应配置 -- magento 1 客户 运输商对应
+		sql
+			ll /home/wwwroot/www.trackingmore.com/executeSQL.20181* -h
+			ll /home/wwwroot/www.trackingmore.com/executeSQL.2019* -h
+			ll /home/wwwroot/www.trackingmore.com/ -h | grep .log | grep 2019
+
+		掉队
+			vim /home/wwwroot/www.trackingmore.com/script/log/M1_globalpost.log
+			vim /home/wwwroot/www.trackingmore.com/script/log/M1_express.log
+
+		前台服务器
+			grep php  /home/wwwlogs/www.trackingmore.com.log
+			grep php  /home/wwwlogs/api.trackingmore.com.log
+
+			-=-=-
+
+			grep 15-Jan-2019 /usr/local/php7/var/log/php-fpm.log
+			grep 15-Jan-2019 /usr/local/php7/var/log/php-fpm.log | grep WARNING
+
+		ll -h | grep sql
+
+			
+		白天频率降低
+
+	crn--空运 
+		https://www.azfreight.com/home.html 全球航空公司 联系方式 URL
+		http://www.likecha.com/tools/airCargo.html 提单代码 IATA代码 国际民航代码
+
+		https://www.track-trace.com/aircargo
+		https://www.ufsoo.com/news/detail-59307681-b5e1-4328-a6e6-20fddd6c5ec6.html 全球所有的国家代码：二字码、三字代码大全
+		111.pdf 桌面文件
+		页面需要中英文
+		信息
+			基础信息
+			航班信息
+			详细信息
+		状态（只要有一种信息，则为 4 ）
+			异常 1
+			未上网 11
+			其他 4
+		代码
+			日志
+				file_put_contents('china-post_test_content.log', (number_format(microtime(true), 3, '', '') - $time0), FILE_APPEND);
+			字符串处理
+				隐藏字符串
+					需要去除字符ascii码确认，以替换
+						$le = strlen($arrival_time);
+						for ($i=0; $i < $le; $i++) {
+						    var_dump($arrival_time[$i], ord($arrival_time[$i]));
+						}
+						chr(32) # 空格 ord(' ') # 32
+						ascii表 http://ascii.911cha.com/
+							https://blog.csdn.net/df981011512/article/details/73732232 php将字符串转为ASCII，php将中文汉字字符串转为ASCII，以及互转 ==
+					去换行
+						https://blog.csdn.net/liiuweii/article/details/50942815/
+							str_replace(array("\r\n", "\r", "\n"), "", $str);
+				多个连续空格用单个空格替换
+					preg_replace("/\s(?=\s)/","\\1",$string);
+				取某字符串之后或之前的内容
+					# 取第一个 '/' 之前的内容，不包括 '/'
+					$piece = !empty($pieceAndWeight) ? trim(strstr($pieceAndWeight, '/', true)) : '';
+					# 取第一个 ' actual ' 之前的内容，不包括 ' actual '
+					$pos = strpos($eventStr, ' actual ');
+					$eventStr = ($pos !== false) ? substr($eventStr, 0, $pos) : $eventStr;
+					# 取第一个 '/' 及其之后的内容，不包括 '/'
+					$piece = !empty($pieceAndWeight) ? trim(strstr($pieceAndWeight, '/'), '/') : '';
+						# trim 会去掉两边所有 '/'，如果是多个字符串 'abc/'，则去掉两边所有这些单个字符串不是整个 trim('tr_user_track_send_msg_log#P#p20220301.ibd','tr_user_track_send_msg_log#P#') 结果 'p20220301.ib' 而不是 'p20220301.ibd'
+							$piece = !empty($pieceAndWeight) ? strtr(strstr($pieceAndWeight, '/adb'), array('/adb' => '')) : '';
+					# 取第一个 ' on flight ' 之后的内容 不包括' on flight '
+					$posOnFlight = strpos($eventStr, ' on flight ');
+					$flight_number_str  = ($posOnFlight !== false) ? substr($eventStr, $posOnFlight + 11) : '';
+			curl 乱码 curl_setopt($ch, CURLOPT_ACCEPT_ENCODING, "gzip,deflate,br");
+				https://blog.csdn.net/qq_39176597/article/details/81436613 php curl函数出现乱码
+				https://blog.csdn.net/default7/article/details/81297681 PHP CURL采集乱码解决办法
+					curl_setopt($ch, CURLOPT_ACCEPT_ENCODING, "gzip,deflate");
+			单个单号取完数据后
+				非异常情况下 状态初始化
+				# 保存数据来源
+				if(!empty($return["track_info"])) $return["source"] = $source = "web 1";
+
+				# 数据排序和第一条物流信息
+				$return = handleSortAndEvent($return);
+
+				$return_data[$docNumber]["return_data"] = $return;
+			https
+				TMEtihadCargoTracking
+				https://www.etihadcargo.com/services/EtihadCargoTracknTrace/services/dynamic/trackandtrace
+				线上必须要有返回header，否则http_code为0且到超时时间后无数据返回
+				XXX
+				线上 curl -d {"test":1} https://www.etihadcargo.com/services/EtihadCargoTracknTrace/services/dynamic/trackandtrace 有返回东西
+					php需要代理--
+
+			ssl证书有效期-待调试-20230411
+				# 在服务器段使用openssl工具查看
+				openssl x509 -in /etc/ssl/private/51tracking.crt -noout -dates
+
+				# php
+				/**
+				 * 获取证书有效期
+				 */
+				function getValidity($domain = "sslforfree.com"){
+				    $context = stream_context_create(array("ssl" => array("capture_peer_cert_chain" => true)));
+				    $socket = stream_socket_client("ssl://$domain:443", $errno, $errstr, 30, STREAM_CLIENT_CONNECT, $context);
+				    $context = stream_context_get_params($socket);
+				    var_dump($context);
+				    foreach ($context["options"]["ssl"]["peer_certificate_chain"] as $value) {
+				        //使用openssl扩展解析证书，这里使用x509证书验证函数
+				        $cerInfo = openssl_x509_parse($value);
+				        if(strpos($cerInfo['name'],$domain)) {
+				            echo  "start:".date("Y-m-d",$cerInfo['validFrom_time_t'])."<br/>";
+				            echo "end:".date("Y-m-d",$cerInfo['validTo_time_t']);
+				        }
+				    }
+				}
+				getValidity();
+				getValidity('baidu.com');
+				getValidity('51tracking.com');
+		待确认
+			D:\xampp\htdocs\trackingmore\trunk\air_transport\public\common.php
+				单号前缀
+
+	mysql lastid
+		日志
+			时间
+			位置
+			用户id
+			分别的infoID，行来记录
+		日志文件
+			生成
+			各服务器权限修改
+		位置
+			api
+				post
+				batch
+				realtime
+
+
+	检查
+		国外
+			ninjaxpress
+				有效单号
+				是否能查询
+			sfb2c
+				一半有数据
+					有效单号
+					全部统计
+		yanwen -- 更新速度跟不上
+		china-ems -- 疑似更新速度跟不上
+		shopify 增加单号筛选规则
+	shopify
+		运输商对应 other
+		app免密
+	china-post批量
+
+	客户
+		showl ==
+		magento2
+	服务器 <--10:00
+		大用户分离
+			邮政发送
+
+				#*/30 * * * * /usr/local/php7/bin/php -q    /home/wwwroot/www.trackingmore.com/script/autoUpdateNumber/M1GlobalpostSpecialjob.php > /dev/null 2>&1
+			取消限制
+			11:07
+			1603874
+			11:33
+			1498061
+			14:08
+			935623
+		china-post批量
+
+		insert TrOrSho
+			D:\xampp\htdocs\trackingmore\trunk\TEST\tr_notice.log
+	shopify免密登录
+	队列
+
+
+
+
+	各队列单独限速&相互更新及优先级确认
+		各集合对应配置
+			D:\xampp\htdocs\trackingmore\trunk\library\resque\getRPUcourierSETData.php
+			D:\xampp\htdocs\trackingmore\trunk\config\keySourceConf.php
+			快递邮政默认集
+			'Z_T_N_Express_SET' => ''
+			'Z_T_N_Post_SET' => ''
+			'Z_FIRST_T_Q_SET' => 'FIRST'
+			'FIRST_T_Q_U_SET' => 'FUSER'
+			'Z_CODE_T_Q_SET' => 'CODE'
+			'Z_T_N_Post_SET_Special' => 'Special'
+			'T_N_Post_SET_Shein' => 'Shein'
+			D:\xampp\htdocs\trackingmore\trunk\library\resque\resque.php
+		发送 -- 进行大部分处理 按配置分类处理
+			用户id
+			是否限速
+		取 -- 需要防止过多进程进行无限制筛选导致的CPU占用高 回发筛选逻辑判断  -- 进行小部分发送后变化的处理
+			-- 进行不经过发送部分--首次查询部分的处理
+			传入顺序数组
+			相互参杂的情况 ==
+				所属集合 受限目标集合
+		回发 -- 取时确定下来就行
+			直接回来源集
+
+		直接继承类 在类中规定好方法
+
+		Z_Plt_shopify_SET 重启 
+		count 还是 3？
+		暂时改为 同步30天
+
+
+	MySQL日志文件新建 -- 入库格式准备
+	 -- 检查 -- -- 更新频率 -- 快递 -- -- 有效单号
+	 -- 分区是否存在检测
+	poste-maroc 摩洛哥
+	 	官网报错 http://www.poste.ma/ LD630777449MA
+
+
+
+	服务器
+		87
+			max_request
+			关注时间
+
+		linux
+			watch -n 0.5 'ps aux | grep resq | grep -v grep | sort -nrk3 | head -50'
+			https://blog.csdn.net/aspnet_lyc/article/details/56280017 ps 与 top 对于cpu使用率不一致的问题
+				https://unix.stackexchange.com/questions/58539/top-and-ps-not-showing-the-same-cpu-result Top and ps not showing the same cpu result
+			top -p 1111 -d 0.5
+				http://www.51testing.com/html/00/130600-804035.html
+			内存使用率 启动队列判断
+				使用比例 基数大小会产生不够准确的判断
+					3536044/32781108
+					0.10786834905031276
+
+			操作方向
+				Express
+					找可以增加的服务器
+						91
+							trackExpress3 50-->100 确认
+							trackPostSpecial 150-->100 确认
+						66
+							trackFirstUser 100 --> 50
+						57
+							trackFirstNew1 100 --> 0 确认
+							trackExpress3 50-->100 确认 214 === ===
+							trackPostSpecial1 100-->50 确认
+
+						首次堆积确认 ==
+					有些查的很快的
+						调整速度
+						增加最小周期限制
+					有跳过的
+						一直80默认值
+						不少会回发
+							这里先开解 == 
+				调整
+					87
+						trackPostSpecial1 0 --> 100
+						insert1.php脚本 影响用户 -- 紧急
+					63
+						M1Globalpost 0 --> 20
+					37
+						M1G
+							邮政
+					121
+						webhook
+					FirstNew
+						37 121 87
+						受限列表排序 -- 分割 来源集合对应配置 -- 集合更新顺序优先级确定 本集合受限部分 无则本集合其余部分 再来其他集合或者大集合（前者使得优先排前的速度快，但是调整队列数量以调整速度的相关性则受到影响） ：有优先级，但是后面的只更无速度限制的（导致有限制的慢更完？），或者也是先更新有速度限制的（都做限制还是应该取此步骤，可能使得取数据上的操作过多？ -- 可以尝试先更新排在后面的，即允许并发请求更多的），再或者，只更新排在最后的，没有则更新无限制的 -- 顺便各队列相互更新可以一起了
+						运输商速度限制前后排序已经表明跟数据量有一定相关性了 
+					Express
+						37 121 87
+						限速按正序排序 == 
+							这里更优解应该是 再加上一个速度相对快与相对慢交叉排序 并且考虑更新量的影响？ ==
+						后面回发提高上限 或 考虑取消 相应的 == 并发取数据问题
+							调高上限对速度限制较小的影响，会使得小额限制无法达到 10以下 但是，实际上会出现这样的情况需求么 ==
+					筛选的速度问题
+						trackE trackP trackF
+
+				今天
+					121 Post/ 200 -> 0
+					121 wehbhook1/ 100 -> 0
+					87 webhook/ 0 -> 100
+					66 trackExpressBatch/ 0 -> 20
+
+				webhook
+				邮政更新速度 --
+				需要速度反馈 以快递得到修改效果
+
+			current--
+				提高上限 确认是否
+					上限提高5
+					速度限制按同时段请求数从小到大排序
+						封装方法
+							因为都调用getDataListFromTable改的话，要在这个公用里改
+					无物流信息统计 根据统计调整 差数据展示
+				首次查询更新顺序
+
+				发送注释测试 == 速度影响确认 == 15:50
+
+
+
+	有效单号 -- 失败情况单号有效性检查
+		ninjaxpress 60
+		ninjavan 60
+			7454826175 1024-1025 观察单号过期时间
+			A0005618101100S7 1018-1018 已失效 18天 只有两条物流信息，且时间一样
+				增加过滤
+					lastUpdateTime == firstUpdateTime
+					已经进去的也要过滤掉
+		ninjavan-my 30
+			YJYMY11166885324 1022-1029 观察单号过期时间
+			YMMY0190196912S 0924 已失效 43天 只有两条物流信息，且时间一样
+
+		omniva 
+			http://www.post11.com/ 有谷歌验证码 SB018290970EE 有信息
+			https://www.omniva.ee/private/track_and_trace SB018290970EE 无信息
+
+		bluedart 
+			43 
+		bhutan-post
+			RA001714913BT
+			http://202.144.143.120:8080/dts/TrackMail 官网有信息跟 http://globaltracktrace.ptc.post/gtt.web/Search.aspx 不一样
+			D:\xampp\htdocs\trackingmore\trunk\library\smallcountry.php 
+			trackBhutanPostQuery
+
+			http://www.poste.ma/wps/portal/messagerie/!ut/p/b0/fZDJDoIwEIafhSeYaWmBHisuFIWgGLS9mIYYg2GLMT6_wEkOOLdJvvmXAQOaCZdzQZgPVzCt_VQP-6661tbjbrxb4XMZiMTF3Xblo4oiVZzzGEnCBkD_AgHfb1AJDNdBGNCQeNO9l9P4JHKXpUePoMoOhMhYUowoXMDMLeYKCul_YLKYAFwYiZBGXXMHPWD-YpaMwHlUsuVYHXT_qtqy6ocfNKYW6smslo7zBX6wdXA!/
+				添加单号后再点两次
+
+
+		从新往旧 有则替换为最新 够 100 个的情况
+		单个检查 -- 定位原因 -- 优化
+			异常判定是否错误 -- 错误 -- 单号无效 -- 原因 有效单号获取优化部分
+				还是只有时间筛选上的优化？
+			异常判定是否错误 -- 错误 -- 单号有效 -- 原因（当时测试结果） **
+
+		优化点
+			从新往旧
+			邮政怀疑 判断目标国家可能为非本邮政国家而导致把实际没有信息的单号当成有效单号
+			备注
+				独立的备注日志 以便查看
+			91才有数据的部分，增加检测开关
+
+
+	new
+
+		shopify 带单引号单号清除 ==
+
+		负载按时间分配问题 -- woocommerce 繁体没有则使用简体
+		中通单号被识别为顺丰 -- 通过运单号找到订单号，没找到偶然看到数据库里确实是中通呢 -- 又来了，一些先决的东西未能先确认
+		获取时间节点确认有误，应该要能察觉出来的 另一点是上线前的测试确认
+		今天的异常更细 -- == -- 
+
+		时间节点修改bug
+
+		国外用户类型
+
+		搬电脑 -- 
+
+		调试日志 特殊参数带入 用户id带入
+
+		批量
+			bq_lang_C_L 必须跟着 bq_C_L 一起清除
+
+		sql日志文件生成 chown ==
+
+		driver irql no less or 
+			http://www.tomshardware.com/s/rtwlanu.sys/
+
+		是否有新增字段 -- 能否重新创建
+
+		修复bug以产生bug
+			wishpost ture
+			malaysia-post 调整速度停止更新，国外大用户发送也停了
+			批量查询的测试 留在 91 了，
+			添加amazon php library 误把配置文件添加上传了 （上传前确认&之前留下错误操作）
+		操作点
+			不是从来不用，而是这个没用过呢
+			从反馈来讲，似乎是关于这边给到的否定，或者说未肯定呢，可以尝试取消这样的嫌疑呢
+
+			整体时间的把控，先关注到
+		还是要测试 -- 
+			没加无需分割标记
+			忽略左右有 / 特殊符号的情况
+			循环中变量初始化
+
+	
+
+
+
+	 
+
+
+
+
+	上线
+		D:\xampp\htdocs\trackingmore\trunk\library\expresscompany.php
+		D:\xampp\htdocs\trackingmore\trunk\library\tools.php
+			队列重启
+
+
+cd library
+put D:\xampp\htdocs\trackingmore\trunk\library\expresscompany.php
+kill -s 3 `ps -ef | grep 'trackE\|trackF' | grep -v grep | awk '{print $2}'`
+
+		D:\xampp\htdocs\trackingmore\trunk\library\express\4px.php
+		D:\xampp\htdocs\trackingmore\trunk\script\selfFilterProxyNumControl.php
+		D:\xampp\htdocs\trackingmore\trunk\library\smallorbigtrackresult.php
+		D:\xampp\htdocs\trackingmore\trunk\script\The_agent_home_proxy\test\chinaEMSCN-on.php
+
+		D:\xampp\htdocs\trackingmore\trunk\script\queueshell\start_queue_min.sh
+
+		D:\xampp\htdocs\trackingmore\trunk\library\smallorbigtrackresult.php
+		D:\xampp\htdocs\trackingmore\trunk\php-resque\perform\perform_trackPostBatchInsert.php
+
+		D:\xampp\htdocs\trackingmore\trunk\library\smallorbigtrackresult.php
+		D:\xampp\htdocs\trackingmore\trunk\library\express.php
+		D:\xampp\htdocs\trackingmore\trunk\library\expresscompany.php
+
+		magento2 
+			D:\xampp\htdocs\trackingmore\trunk\admin\platform-magento2.php
+
+		shipstation
+			D:\xampp\htdocs\trackingmore\trunk\library\shipstationapi.php
+			D:\xampp\htdocs\trackingmore\trunk\admin\import_shipstation_data.php
+
+
+
+		D:\xampp\htdocs\trackingmore\trunk\script\concurrentUpdateDetection.php
+
+		D:\xampp\htdocs\trackingmore\trunk\TEST\feite_webhook_startup.php
+		D:\xampp\htdocs\trackingmore\trunk\TEST\feite_webhook.php
+		D:\xampp\htdocs\trackingmore\trunk\library\app.include.php
+
+
+
+		上周 
+			woocommerce
+				D:\xampp\htdocs\trackingmore\trunk\script\woocommerce.php
+
+			D:\xampp\htdocs\trackingmore\trunk\library\class.magento2.php
+
+
+
+
+
+
+crn-- 
+
+	有效单号维护
+
+	每日检查
+		wish -- 更新频率-个别更新慢于整体 -- 快递
+			更新
+			37 122
+			vim /home/wwwroot/www.trackingmore.com/script/log/M1_express.log
+			vim /home/wwwroot/www.trackingmore.com/script/log/M1_globalpost.log
+
+		服务器 sql
+
+		异常 sqlerr 平台 -- 盯前三
+
+	shopify 更新
+
+	4px 检查确认 -- 队列 频率 -- amazon
+
+		频率 -- woocommerce -- cscart
+			woocommerce 013513699408 013513699397
+			cscart 在最基本的地方，同时几乎是最开始的地方自己卡顿了
+			频率 
+				最小周期调整
+				保证最小一次操作能到更新
+
+
+	待优化
+		-- 取待更新单号，区分是否为验证码部分
+		-- 可直接在发送队列中完成
+		-- 37
+			platefromEbay_sync
+			速度不一致 导致的时而负载高冲击
+				-- 最小周期
+				-- 分割
+				-- 速度调整 -- 或许更快速
+					全部进行速度限制的顺序优先问题
+			首次查询队列 增加单号刷选
+
+
+
+库切换对日志影响 -- ??
+
+频率
+	队列数量 -- 内存
+	速度 -- CPU
+	可操作点
+		速度限制部分的优化 c--1
+
+4px
+	客户单号更新 c--0
+	批量查询部分获取不到信息 c--1
+	首次支持批量查询 c--2
+
+
+cs-cart -- amazon 最后--
+	https://docs.cs-cart.com/4.9.x/
+	https://docs.cs-cart.com/4.9.x/developer_guide/api/entities/auth.html
+	https://www.halalfoodmaster.com/api/users
+
+
+shipstation 更新
+
+检查 -- amazon -- 采购
+	检查
+		wish
+			09:40 SCARD R_P_U_malaysia-post_SET
+			
+		update
+
+		sql
+
+	临时 -- 
+
+
+	shopify
+		手动同步 -- 客户流失 -->
+
+	shipstation
+
+	并发速度限制下没获取的更新时间不再会变化
+
+
+	doc
+
+	amazon
+
+
+	mycat grep -- sql report
+
+
+	负载
+		M1 调整
+		使用 工具
+
+	每日记录 -- == --
+
+	目的国测试
+		https://www.trackingmore.com/gettracedetaildes.php?lang=cn&itemkey=&callback=jQuery171024642072917780755_1539399166218&tracknumber=RT425518295HK&express=hong-kong-post&pt=0&tracm=&destination=&exception=0&validate=07c8eae1a267f866e2fe6194ab65fde5&_=1539399170149&nocache=1&norobot=1
+
+
+	周报
+		30em ok
+		包括百分比占用
+		统计 ok
+
+	分享
+		文档
+		读书准备
+
+	购物
+		coco
+		舒肤佳
+
+		三层电饭煲
+		19:58 充满电
+		衣鞋
+
+		联络点
+			睡眠联盟
+
+		操作点
+
+
+	amazon 执行
+
+笔记
+	报错
+		https://www.cnblogs.com/alibai/p/4027318.html php开启与关闭错误提示
+
+	xml
+		https://cloth-inc.tidbitsolutions.biz/index.php/api/soap/ 0 SOAP extension is not loaded.
+		view-source:https://cloth-inc.tidbitsolutions.biz/index.php/api/soap/ 
+
+			<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+			                <SOAP-ENV:Body>
+			                <SOAP-ENV:Fault>
+			                <faultcode>0</faultcode>
+			                <faultstring>SOAP extension is not loaded.</faultstring>
+			                </SOAP-ENV:Fault>
+			                </SOAP-ENV:Body>
+			                </SOAP-ENV:Envelope>
+	
+	key
+
+	http://www.redis.net.cn/order/3627.html Redis Zunionstore 命令 - 计算给定的一个或多个有序集的并集，并存储在新的 key 中
+
+	systemd-journal linux系统日志 4G左右 122
+
+	wifi
+		之前总是用wifi共享精灵，但是它总是弹出广告，今天才知道原来能直接用cmd开启wifi。   win+r，输入cmd，确定。     第一步，netsh wlan set hostednetwork mode=allow ssid=fast key=1234567890，enter，ssid是WiFi名字，key是WiFi密码。   第二步， netsh wlan start hostednetwork，enter。  第三步，打开网络和共享中心，选更改适配器设置，右键正在使用的那个网络，属性，共享，勾选，方框里选那个与ssid有关的。      查看连接数的命令为netsh wlan show hostednetwork，执行命令后，可以查看到电脑的Wifi热点连接的客户端数和Mac地址。最后可以把netsh wlan start hostednetwork写到wifigx.bat里，下回电脑重启后，双击就可以继续使用了。
+
+		作者：我再补充两句
+		链接：https://zhuanlan.zhihu.com/p/41528861
+		来源：知乎
+		著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。		
+
+
+
+		首先，你对这件事的认知是完全错误的。你所说的三种方法，其实是一种方法。          一：“猎豹”软件共享网络。原理就是软件把笔记本自带的无线网卡设为SoafAp模式。         二：360随身WiFi。它只是一个USB无线网卡。原理同上。        三：所谓的“DIY代码”？？？只是用netsh命令设置一下网卡。原理同上。区别在于上面的是软件自动设置，这个你需要手敲。不要嘲笑别人的无知。
+
+		作者：匿名用户
+		链接：https://www.zhihu.com/question/34776753/answer/59833004
+		来源：知乎
+		著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+	windows 重置密码
+		https://jingyan.baidu.com/article/4d58d5417c47fc9dd4e9c03d.html 重置Windows 7密码的四大方法
+		https://zhidao.baidu.com/question/1641484684444477620.html usB闪存驱动器怎么修改电脑密码
+
+	https://blog.csdn.net/david_jiahuan/article/details/80092022 Mysql查看分区
+	https://zhidao.baidu.com/question/1866003684348408147.html mysql 怎么查看分区表全部的分区
+
+
+	https://blog.csdn.net/wmsjlihuan/article/details/9000790 PHP DOMXpath 查询表达式详解
+	https://blog.csdn.net/robinhunan/article/details/73826034 php 使用 domxpath读写元素
+	http://php.net/manual/zh/dom.examples.php 范例
+
+	$track_number = array('LZ712497652CN','LZ712661994CN','LY603473085CN','LY603540981CN','LZ712158169CN','LZ712407626CN','LZ712158084CN');
+	$track_number = implode("\r\n", $track_number);
+	是否双引号，结果不同
+
+	数组各字符串是否包含于另一字符串中
+		https://www.cnblogs.com/jinsanguo/p/7622799.html php中常用的字符串长度函数strlen()与mb_strlen()实例解释
+
+
+
+	sub($str, 1, 5); // 从 1 开始，初始位为 0 ，即去掉前面 1 个字符串，截取之后的部分
+	字符串匹配 有道搜索
+
+	<-->
+
+	xdebug
+		<?php
+		xdebug_start_trace();
+		for($i = 0; $i < 100; $i ++) {
+			echo 1;
+		}
+		//要追踪的代码
+		xdebug_stop_trace();
+
+	数据库内存
+		select 
+		table_schema as '数据库',
+		sum(table_rows) as '记录数',
+		sum(truncate(data_length/1024/1024, 2)) as '数据容量(MB)',
+		sum(truncate(index_length/1024/1024, 2)) as '索引容量(MB)'
+		from information_schema.tables
+		group by table_schema
+		order by sum(data_length) desc, sum(index_length) desc;
+
+		https://blog.csdn.net/fdipzone/article/details/80144166
+
+	trim(strip_tags(post_check ==
+
+	https://www.cnblogs.com/emanlee/p/3587571.html Linux查看物理CPU个数、核数、逻辑CPU个数
+
+	自己外网ip https://www.trackingmore.com/manage/user_api_statics.php?userid=54149
+
+	strace 
+		https://blog.csdn.net/qq_29344757/article/details/71634630 send()、sendto()和recv()、recvfrom()的使用
+		https://blog.csdn.net/baidu_32134295/article/details/70840269 客户端与服务器进行通信时sendto()和recfrom()函数的工作原理
+	经常操作的需要操作日志，否则可能忘掉呢
+	php 扩展
+		https://www.cnblogs.com/madonion/articles/2272288.html 使用C语言来扩展PHP，写PHP扩展dll
+		http://www.php.cn/php-weizijiaocheng-392678.html php扩展开发
+
+	https://blog.csdn.net/xiaobluesky/article/details/49819421
+	
+		MySQL [information_schema]>  SELECT  * FROM INNODB_TRX\G
+		Empty set (0.00 sec)
+
+		MySQL [information_schema]> SELECT * FROM INNODB_LOCKS\G;
+		Empty set, 1 warning (0.00 sec)
+
+		ERROR: No query specified
+
+		MySQL [information_schema]> SELECT * FROM INNODB_LOCK_WAITS\G
+		Empty set, 1 warning (0.00 sec)
+
+	大用户表索引修改
+		D:\xampp\htdocs\trackingmore\trunk\TEST\script\scr_tracknumberTableData.log
+
+amazon
+批量之saicheng&4px -- 统计 -- 信用
+
+从有序集合获取批量入库数据 
+
+
+
+
+
+yanwen统计
+wish
+	运输商对不上
+
+	4px 速度，频率调整
+		get t_c_4px
+			"{\"is_open\":1,\"is_fixed_proxy\":0,\"update_cycle\":8,\"172.22.57.104\":1}"
+		set t_c_4px "{\"is_open\":1,\"is_fixed_proxy\":0,\"update_cycle\":6,\"172.22.57.104\":1}"
+	oneworldexpress 速度是否需要上调
+		scard R_P_U_oneworldexpress_SET
+		get tr_express_concurrency_limit_oneworldexpress
+			"{\"id\":\"1\",\"real_concurrency_ratio\":\"90\",\"concurrency\":\"45\",\"company_sort\":\"express\",\"is_exit\":true,\"proxy_ip\":[],\"online_ip\":[]}"
+		set tr_express_concurrency_limit_oneworldexpress "{\"id\":\"1\",\"real_concurrency_ratio\":\"90\",\"concurrency\":\"50\",\"company_sort\":\"express\",\"is_exit\":true,\"proxy_ip\":[],\"online_ip\":[]}"
+		(error) OOM command not allowed when used memory > 'maxmemory'.
+		受限更新顺序问题
+	malaysia-post 速度不够 -- 限制调大或大用户邮政队列数量
+		增加队列
+
+shopify 
+	65060   dominik.schweda@gmx.net  这个账户9月21到9月22日Shopify上的一些单号没有自动同步（他自己手动同步了55193，55192和55194；你可以看一下55046，55045和55047这三个订单号为什么没有同步过去）
+	dominik.schweda@gmx.net
+		同步
+
+上线
+	队列 -- usps -- russian-post
+		D:\xampp\htdocs\trackingmore\trunk\library\commoncountry.php
+		D:\xampp\htdocs\trackingmore\trunk\script\run_start_proxy_cn_china-post.sh
+		D:\xampp\htdocs\trackingmore\trunk\script\selfFilterProxyNumControl.php
+		D:\xampp\htdocs\trackingmore\trunk\script\The_agent_foreign_proxy\russiaProxy.php
+
+	首次队列 -- usps -- singapore
+		D:\xampp\htdocs\trackingmore\trunk\library\trackingByQueue.php
+		D:\xampp\htdocs\trackingmore\trunk\library\trackingSingleQueue.php
+		D:\xampp\htdocs\trackingmore\trunk\php-resque\perform\perform_trackFirstNew.php
+
+		D:\xampp\htdocs\trackingmore\trunk\library\trackfunbak.php
+		D:\xampp\htdocs\trackingmore\trunk\script\selfFilterProxyNumControl.php
+		D:\xampp\htdocs\trackingmore\trunk\script\The_agent_foreign_proxy\uspsRroxy-D.php
+
+		D:\xampp\htdocs\trackingmore\trunk\library\smallorbigtrackresult.php
+	状态 针对运输商关键字排除
+		D:\xampp\htdocs\trackingmore\trunk\config\expressStatus.php
+		D:\xampp\htdocs\trackingmore\trunk\library\express.php
+		D:\xampp\htdocs\trackingmore\trunk\library\expresscompany.php
+		D:\xampp\htdocs\trackingmore\trunk\library\tools.php
+	队列
+		D:\xampp\htdocs\trackingmore\trunk\php-resque\perform\perform_trackFirstNew.php
+		D:\xampp\htdocs\trackingmore\trunk\library\tools.php
+	wishpost
+		D:\xampp\htdocs\trackingmore\trunk\library\express\wishpost.php
+
+	php报错
+		D:\xampp\htdocs\trackingmore\trunk\api\v1\setinfo\index.php
+		D:\xampp\htdocs\trackingmore\trunk\library\express.php
+		D:\xampp\htdocs\trackingmore\trunk\library\expresscompany.php
+		D:\xampp\htdocs\trackingmore\trunk\library\express\4px.php
+		D:\xampp\htdocs\trackingmore\trunk\manage\applyapi_list.php
+		D:\xampp\htdocs\trackingmore\trunk\sent_face.php
+		D:\xampp\htdocs\trackingmore\trunk\track-date-plugins.php
+
+
+	shopify
+		D:\xampp\htdocs\trackingmore\trunk\script\catchShopifyDataSyncByOrder.php
+
+
+
+快递添加
+	http://www.hnfywl.com/
+	83855878
+
+
+重查bug -- 批量 -- 
+	重查bug -- 从4px来看暂时没问题
+
+分享准备
+
+		kill -s 3 `ps aux | grep -E 'trackPostSpecial|trackExpressSpecial' | grep -v grep | awk '{print $2}'`
+
+
+
+批量查询测试 point--+ +--
+
+87
+	php-fpm 高原因
+		操作
+			$filenameWithPath = !empty($_SERVER['PHP_SELF']) ? $_SERVER['PHP_SELF'] : '';
+			if(!empty($filenameWithPath)) {
+			    $mypid = getmypid();
+			    $myuid = getmyuid();
+			    $pathinfoArr = pathinfo($filenameWithPath);
+			    $log = $pathinfoArr['filename'] . '.log';
+			    $testHandle = fopen($log, 'a+');
+			    fwrite($testHandle, date('Y-m-d H:i:s') . ' mypid:' . $mypid . ' myuid:' . $myuid . PHP_EOL);
+			}
+			if(!empty($filenameWithPath)) {
+			    fclose($testHandle);
+			}
+			die;
+
+			touch /home/wwwroot/www.trackingmore.com/script/test.log
+			chown www:www /home/wwwroot/www.trackingmore.com/script/test.log
+
+
+			touch /home/wwwroot/www.trackingmore.com/api/v2/trackings/APPpush.log
+			chown www:www /home/wwwroot/www.trackingmore.com/api/v2/trackings/APPpush.log
+			touch /home/wwwroot/www.trackingmore.com/api/v2/trackings/batch.log
+			chown www:www /home/wwwroot/www.trackingmore.com/api/v2/trackings/batch.log
+			touch /home/wwwroot/www.trackingmore.com/api/v2/trackings/delete.log
+			chown www:www /home/wwwroot/www.trackingmore.com/api/v2/trackings/delete.log
+			touch /home/wwwroot/www.trackingmore.com/api/v2/trackings/get.log
+			chown www:www /home/wwwroot/www.trackingmore.com/api/v2/trackings/get.log
+			touch /home/wwwroot/www.trackingmore.com/api/v2/trackings/getrealtime.log
+			chown www:www /home/wwwroot/www.trackingmore.com/api/v2/trackings/getrealtime.log
+			touch /home/wwwroot/www.trackingmore.com/api/v2/trackings/index.log
+			chown www:www /home/wwwroot/www.trackingmore.com/api/v2/trackings/index.log
+			touch /home/wwwroot/www.trackingmore.com/api/v2/trackings/post.log
+			chown www:www /home/wwwroot/www.trackingmore.com/api/v2/trackings/post.log
+			touch /home/wwwroot/www.trackingmore.com/api/v2/trackings/realtime37.log
+			chown www:www /home/wwwroot/www.trackingmore.com/api/v2/trackings/realtime37.log
+			touch /home/wwwroot/www.trackingmore.com/api/v2/trackings/test_realtime_api.log
+			chown www:www /home/wwwroot/www.trackingmore.com/api/v2/trackings/test_realtime_api.log
+			touch /home/wwwroot/www.trackingmore.com/api/v2/trackings/test_realtime_app_api.log
+			chown www:www /home/wwwroot/www.trackingmore.com/api/v2/trackings/test_realtime_app_api.log
+			touch /home/wwwroot/www.trackingmore.com/api/v2/trackings/updatemore.log
+			chown www:www /home/wwwroot/www.trackingmore.com/api/v2/trackings/updatemore.log
+			touch /home/wwwroot/www.trackingmore.com/api/v2/trackings/update.log
+			chown www:www /home/wwwroot/www.trackingmore.com/api/v2/trackings/update.log
+			touch /home/wwwroot/www.trackingmore.com/api/v2/trackings/versionRequest.log
+			chown www:www /home/wwwroot/www.trackingmore.com/api/v2/trackings/versionRequest.log
+
+
+			生成日志文件 -- 全文件编辑器中添加代码 -- winscp集体上传 -- 直接阅读 ll /proc/pid/fd
+
+
+更新
+	37
+	*/1 * * * * sh  /home/wwwroot/www.trackingmore.com/script/queueshell/sendTrackNumberQueueUser.sh > /dev/null 2>&1
+	*/1 * * * * sh  /home/wwwroot/www.trackingmore.com/script/queueshell/sendTrackNumberQueue_new.sh > /dev/null 2>&1
+	*/1 * * * * sleep 20; sh  /home/wwwroot/www.trackingmore.com/script/queueshell/sendTrackNumberQueue_new.sh > /dev/null 2>&1
+	*/1 * * * * sleep 40; sh  /home/wwwroot/www.trackingmore.com/script/queueshell/sendTrackNumberQueue_new.sh > /dev/null 2>&1
+	*/1 * * * * sh  /home/wwwroot/www.trackingmore.com/script/queueshell/sendTrackNumberQueueSpecial.sh > /dev/null 2>&1
+	*/1 * * * * sh  /home/wwwroot/www.trackingmore.com/script/queueshell/sendTrackNumberQueueShein.sh > /dev/null 2>&1
+	*/1 * * * * sh  /home/wwwroot/www.trackingmore.com/script/queueshell/sendTrackNumberQueueM1.sh > /dev/null 2>&1
+	
+	57
+	*/1 * * * * sh  /home/wwwroot/www.trackingmore.com/script/queueshell/sendTrackNumberQueue_new.sh > /dev/null 2>&1
+	*/1 * * * * sleep 20; sh  /home/wwwroot/www.trackingmore.com/script/queueshell/sendTrackNumberQueue_new.sh > /dev/null 2>&1
+	#*/1 * * * * sleep 30; sh  /home/wwwroot/www.trackingmore.com/script/queueshell/sendTrackNumberQueue_new.sh > /dev/null 2>&1
+	*/1 * * * * sleep 40; sh  /home/wwwroot/www.trackingmore.com/script/queueshell/sendTrackNumberQueue_new.sh > /dev/null 2>&1
+	
+	87
+	*/1 * * * * sh  /home/wwwroot/www.trackingmore.com/script/queueshell/sendTrackNumberQueue_new.sh > /dev/null 2>&1
+	*/1 * * * * sleep 20; sh  /home/wwwroot/www.trackingmore.com/script/queueshell/sendTrackNumberQueue_new.sh > /dev/null 2>&1
+	*/1 * * * * sleep 40; sh  /home/wwwroot/www.trackingmore.com/script/queueshell/sendTrackNumberQueue_new.sh > /dev/null 2>&1
+	
+	91
+	*/1 * * * * sh  /home/wwwroot/www.trackingmore.com/script/queueshell/sendTrackNumberQueueUser.sh > /dev/null 2>&1
+	*/1 * * * * sh  /home/wwwroot/www.trackingmore.com/script/queueshell/sendTrackNumberQueue.sh > /dev/null 2>&1
+	*/1 * * * * sh  /home/wwwroot/www.trackingmore.com/script/queueshell/sendTrackNumberQueue_new.sh > /dev/null 2>&1
+	*/1 * * * * sleep 20; sh  /home/wwwroot/www.trackingmore.com/script/queueshell/sendTrackNumberQueue_new.sh > /dev/null 2>&1
+	#*/1 * * * * sleep 30; sh  /home/wwwroot/www.trackingmore.com/script/queueshell/sendTrackNumberQueue_new.sh > /dev/null 2>&1
+	*/1 * * * * sleep 40; sh  /home/wwwroot/www.trackingmore.com/script/queueshell/sendTrackNumberQueue_new.sh > /dev/null 2>&1
+	
+	121
+	*/2 * * * * sh  /home/wwwroot/www.trackingmore.com/script/queueshell/sendTrackNumberQueue_new.sh > /dev/null 2>&1
+	
+	国外
+		大用户邮政队列不够 8 小时频率
+	国内
+		快递队列不够
+		webhook是否够确认
+		/home/wwwroot/www.trackingmore.com/api/v2/trackings 通过写日志确认CPU占用高的脚本
+			clock_gettime(CLOCK_MONOTONIC, {9431480, 893163922}) = 0
+			recvfrom(9, 0x2705670, 5, 0, 0, 0)      = -1 EAGAIN (Resource temporarily unavailable)
+			poll([{fd=9, events=POLLIN}], 1, 1000)  = 1 ([{fd=9, revents=POLLIN}])
+			fcntl(11, F_SETLK, {type=F_RDLCK, whence=SEEK_SET, start=1073741826, len=510}) = 0
+			access("/etc/pki/nssdb/cert9.db-journal", F_OK) = -1 ENOENT (No such file or directory)
+redis
+	scard R_P_U_cainiao_SET
+	(integer) 826404
+
+	603w 2G
+
+
+
+wish相关更新 -- 4px
+	批量查询，首次查询部分
+
+
+
+服务器
+	数据库 show processlist 0_0
+
+	队列总开关
+	队列假死
+	内存监控
+	speed 脚本去掉
+
+上线
+	D:\xampp\htdocs\trackingmore\trunk\script\queue_shell\start_server.sh
+	D:\xampp\htdocs\trackingmore\trunk\manage\company_effective_tracknumber.php
+	D:\xampp\htdocs\trackingmore\trunk\script\statistic_retrack_record.php
+	webhook 的发送
+		统一发送
+
+
+更新顺序
+
+
+国内redis内存增长过快
+
+shopify 反馈 -- 跟踪
+
+
+笔记
+	现必须先测试
+		如何规避 -+-+-+-+-
+
+	webhook sql修改产生另一bug
+
+	redis-内存
+		https://blog.csdn.net/longxingzhiwen/article/details/73176494 Redis: OOM command not allowed when used memory > ‘maxmemory’
+		https://blog.csdn.net/codetomylaw/article/details/50017633 redis的maxmemory使用达到上限
+
+	r-wz941750df0ad3b4.redis.rds.aliyuncs.com:6379> set AllCourierNumber 525
+	(error) OOM command not allowed when used memory > 'maxmemory'.
+	r-wz941750df0ad3b4.redis.rds.aliyuncs.com:6379> set AllCourierNumberMem 525
+	(error) OOM command not allowed when used memory > 'maxmemory'.
+	r-wz941750df0ad3b4.redis.rds.aliyuncs.com:6379> set AllCourierNumber2 525
+	OK
+	r-wz941750df0ad3b4.redis.rds.aliyuncs.com:6379> set AllCourierNum 525
+	OK
+	
+	http://www.redisfans.com/?p=68 Redis设置Key的过期时间 – EXPIRE命令
+
+	https://stackoverflow.com/questions/22868876/preg-match-compilation-failed-nothing-to-repeat-at-offset-2 preg_match(): Compilation failed: nothing to repeat at offset 2
+
+	https://www.cnblogs.com/kerrycode/p/4018712.html Linux rm删除大批量文件
+
+	https://blog.csdn.net/xzw_123/article/details/42424077 shell除法显示小数
+
+	https://www.cnblogs.com/black-mamba/p/5918688.html 正确计算linux系统内存使用率
+	https://blog.csdn.net/dailongjian2008/article/details/50596037?open_source=weibo_search linux下获取系统内存信息
+
+	http://blog.51cto.com/506554897/2067714 CPU利用率很高 800%爆了
+
+	数字与字符串对比--不应该
+	nanosleep({5, 0}, NULL)                 = ? ERESTART_RESTARTBLOCK (Interrupted by signal)
+	--- SIGCONT {si_signo=SIGCONT, si_code=SI_USER, si_pid=24515, si_uid=0} ---
+	rt_sigreturn()                          = -1 EINTR (Interrupted system call)
+
+	https://www.cnblogs.com/hjfeng1988/p/4519081.html [linux] reboot和shutdown-r的区别
+
+csv--shopify--大用户队列是否足够--eBay
+
+	发送部分
+		待调整确认
+			用户单号表区间分割方式进行均分
+			实际发送单号迭代器优化
+				usleep时间降低
+			启动数量调整
+			快递邮政不应分开
+		目前操作
+			启动数量调整
+			激活条件
+			express 再开10个？ ==
+
+
+	大用户队列数量不够 ==
+
+	绑定
+		csv ==
+		ebay
+
+	XX -- 容易失去焦点么
+
+	重查统计位置更改
+
+
+
+
+操作
+
+	这种级别的思路清晰么 游戏人生
+
+系统性调整
+	SSCAN FIRST_T_Q_U_SET 0 MATCH '{"t":0,"userid":"[^2]*' count 100000
+	
+批量查询 -- 受限待更新集合中数据更新顺序优先
+	批量查询
+		resque 引入文件修改 webhook
+	筛选
+		手机端需要相应处理 == -- ==
+	批量获取数据
+		直接认为必须有并发限制配置
+		有配置数据且有待更新的情况 -- 读取相应并发限制 -- 存在则看是否达到限制条件 参考大用户队列 malaysia-post 处理 -- 读取待更新数据 -- 随机方式，根据数量而不同 -- 
+			读取批量配置
+				看是否有
+				遍历所有
+					每项是否有待更新数据--速度限制方面的判断，随机最大值（）
+			先拿再删，避免重复操作
+				以唯一标识为键名，存入当前时间微妙戳，删除后睡10us，获取个数，一个则按原流程，多个则看自己是否为最小的，最小删除唯一标识继续原流程，0则重新获取按新流程，不断迭代直到按原流程或最前面进入条件失效为止
+					redis 操作 200-5000us
+			需要取的最大数量在批量配置中 -- 增加字段 ==
+		跳过筛选，进入数据获取
+
+	跳过多语言部分 -- 排除在外？--
+	语言一致问题 == 暂支持单语言
+	筛选同样适用于手机端 ？ -- 条件严格程度决定？ 或者说没关系，都行
+
+	重查统计的位置同样需要修改 ==
+		批量获取数据的统计重发
+		在forserver中 == 将外面的放进来？
+
+	剩余操作 --==--
+		文件引入
+		激活
+
+		入库
+			获取部分仍需考虑重复获取--
+			先进行后面入库操作
+			批量获取数据正常部分处理 -- 激活 -- 测试 -- 赛程 -- 测试
+				激活
+					php脚本获取判断数据
+				测试
+					步骤
+						筛选 -- 激活
+							队列中为首次查询筛选
+							更新可在发送中 不对，还是要在队列中筛选
+							53
+								启动队列
+									更新队列进行筛选
+									激活
+								手动发送 -- 筛选
+									获取不同用户id及其单号运输商
+									返回
+							集合 迭代筛选 4px 跟  用大用户队列筛选 --
+								P_U_courier_B_SET 放几种单号，并从这里取，看是否能筛选出来
+									30 
+									获取上线单号，导入测试账户
+										国内 47007
+										国外 54149
+											仅设置4px 开特殊队列进行筛选
+												建表
+												4px入库
+													insert into `tr_express_batch_query` (`courier`, `maximum`, `create_time`, `update_time`) value ('4px', 20, unix_timestamp(), unix_timestamp());
+												观察打印情况，有一定数量4px则可
+											同上，开首次查询，确认不进行筛选 
+
+								Z_P_U_4px_B_SET
+									http://track.4px.com/query/
+									20
+									insert into `tr_express_batch_query` (`courier`, `maximum`, `create_time`, `update_time`) value ('4px', 20, unix_timestamp(), unix_timestamp());
+								Z_P_U_saicheng_B_SET
+									http://www.saichenglogistics.com/a/waybill/
+									30
+									insert into `tr_express_batch_query` (`courier`, `maximum`, `create_time`, `update_time`) value ('saicheng', 30, unix_timestamp(), unix_timestamp());
+								Z_P_U_malaysia-post_B_SET
+									https://www.pos.com.my/postal-services/quick-access/?track-trace
+									50
+									insert into `tr_express_batch_query` (`courier`, `maximum`, `create_time`, `update_time`) value ('malaysia-post', 50, unix_timestamp(), unix_timestamp());
+
+							操作后查看 
+								准备好打印 -- Z_P_U_4px_B_SET 应该有数据
+								get bq_C_L
+
+								Z_P_U_saicheng_B_SET
+								Z_P_U_malaysia-post_B_SET
+						批量获取数据 -- 启动 -- 激活 --
+							只会取 4px 单号进行批量获取数据
+								结果
+									异常 -- 后面测试？？
+										Z_P_U_4px_B_SET
+										做一个异常 ？？
+									正常
+										Z_H_U_B_SET
+							准备好打印 -- Z_H_U_B_SET 应该有数据
+						
+						入库 -- 启动 -- 激活 --
+							直接看运行结果 -- 出现正常后半部分流程现象 -- 准备好打印 
+							入到这边账号来 时间更改入库成功？ 入库这里添加写识别信息
+							54149 国内
+
+							63 host 172.22.57.105
+					操作点
+						具体步骤细节需要的操作 -- 走一遍，确认所有文件&上面需要的命令 0_0
+						所有涉及的文件
+								
+								D:\xampp\htdocs\trackingmore\trunk\library\resque\resque.php
+								D:\xampp\htdocs\trackingmore\trunk\library\resque\getResqueTestLog.php
+							批量筛选
+								D:\xampp\htdocs\trackingmore\trunk\library\resque\resque.batchquery.php中
+									D:\xampp\htdocs\trackingmore\trunk\library\resque\batchScreening.php
+							批量查询
+								D:\xampp\htdocs\trackingmore\trunk\library\tools.php
+								队列
+									文件
+										D:\xampp\htdocs\trackingmore\trunk\php-resque\set_up\set_up_trackExpressBatch.php
+										D:\xampp\htdocs\trackingmore\trunk\php-resque\perform\perform_trackExpressBatch.php
+										D:\xampp\htdocs\trackingmore\trunk\php-resque\trackExpressBatch
+									命令
+										启动 -- QUEUE=trackExpressBatchQueue COUNT=$count  VVERBOSE=1 /usr/local/php7/bin/php   /home/wwwroot/www.trackingmore.com/php-resque/trackExpressBatch/resque.php
+										激活 -- curl -d '{"e":"Z_P_U_Express_B_SET","u":""}' http://172.22.57.105/php-resque/trackExpressBatch/queue.php?s=trackExpressBatchQueue
+								
+								D:\xampp\htdocs\trackingmore\trunk\library\resque\batchQueryHanle.php
+								D:\xampp\htdocs\trackingmore\trunk\library\resque\batchQueryExeptionHanle.php
+
+							批量入库
+								队列
+									文件
+										D:\xampp\htdocs\trackingmore\trunk\php-resque\set_up\set_up_trackExpressBatchInsert.php
+										D:\xampp\htdocs\trackingmore\trunk\php-resque\perform\perform_trackExpressBatchInsert.php
+										D:\xampp\htdocs\trackingmore\trunk\php-resque\trackExpressBatchInsert
+									命令
+										启动 -- QUEUE=trackExpressBatchInsertQueue COUNT=$count  VVERBOSE=1 /usr/local/php7/bin/php   /home/wwwroot/www.trackingmore.com/php-resque/trackExpressBatchInsert/resque.php
+										激活 -- curl -d '{"e":"Z_H_U_B_Express_SET","u":""}' http://172.22.57.105/php-resque/trackExpressBatchInsert/queue.php?s=trackExpressBatchInsertQueue
+
+								D:\xampp\htdocs\trackingmore\trunk\library\resque\getElementFromSortedSet.php
+							队列函数文件
+								D:\xampp\htdocs\trackingmore\trunk\library\trackingSingleQueue.php
+								D:\xampp\htdocs\trackingmore\trunk\library\gettracedetailforserver.php
+								#D:\xampp\htdocs\trackingmore\trunk\library\tools.php
+				反馈
+					library/tools/resque.php --> library/resque/resque.php
+					D:\xampp\htdocs\trackingmore\trunk\script\isNeedBatchQuery.php
+
+					批量查询
+						tools
+						4px
+						打印
+							gettracedetailforserver 
+							batchQueryHanle.php
+
+					撤回
+						D:\xampp\htdocs\trackingmore\trunk\php-resque\perform\perform_trackExpressSpecial.php
+
+					tools.php
+						10900
+
+					122 全上 -- 测试 
+
+					insert into `tr_express_batch_query` (`courier`, `maximum`, `create_time`, `update_time`) value ('4px', 20, unix_timestamp(), unix_timestamp());
+
+					get bq_C_L
+					get bq_C_4px
+
+
+					scard R_P_U_4px_SET
+					zcard Z_P_U_4px_B_SET
+					zcard Z_H_U_B_Express_SET
+
+
+					逆序 htop -- 
+
+
+
+manage/express_list_date.php
+
+
+
+
+
+
+mycat 日志 -- 国外
+
+	统计记录--
+	
+	--僵尸进程&队列开关
+
+特殊用户单号更新
+	QUEUE=trackFQueueUser COUNT=20  VVERBOSE=0 /usr/local/php7/bin/php   /home/wwwroot/www.trackingmore.com/php-resque/trackFirstUser/resque.php
+	91 user队列已有 -- 37 87 各 20 是否需要再开==
+
+
+
+更新情况 -- 队列问题
+
+	saicheng 22894 更新 后台发送队列
+
+	4px -- 优化
+		根据中文获取国家二字简码
+
+激活 -- 相互更新
+14:05 4914615 	3876544 	12376 	0 	12519 / 1038071
+14:30 4914615 	4271778 	10214 	10 	12519 / 642837  40w
+
+14:30 2440173 	1043363 	75141 	0 	12519 / 1396810
+
+
+-->->流程图--文档
+
+
+
+待定
+	日志文件
+		D:\xampp\htdocs\trackingmore\trunk\php-resque\platefromPdd\platefromPdd_Job.php
+		D:\xampp\htdocs\trackingmore\trunk\php-resque\platefromPddNew\platefromPddNew_Job.php
+		D:\xampp\htdocs\trackingmore\trunk\php-resque\platefromPddByOrderNew\platefromPddByOrderNew_Job.php
+
+	redis内存占用 key
+
+	D:\xampp\htdocs\trackingmore\trunk\manage\reSendUserNumberExpress.php 发送单号到更新集合
+
+	D:\xampp\htdocs\trackingmore\trunk\library\tools\getZScore.php 再更新时间顺序
+
+	重查待规范化
+		malaysia-post
+		    dhlecommerce-asia
+		    australia-post
+		    dhl-germany
+		    dhlglobalmail
+
+
+更新 速度 限制下
+	按顺序进行更长周期更新
+		顺序
+		批量 -- 周期长
+	新的线路
+		周期短，不确定性大
+
+
+jin
+	speed 
+		D:\xampp\htdocs\trackingmore\trunk\script\autoUpdateNumber\M1ExpressSpecialjob.php
+
+
+受限顺序优先
+
+3，服务器负载--验证码速度限制 -- 负载问题
+
+
+
+
+cur
+	速度限制重查
+		反馈是必须的
+		查询速度自调整
+
+
+
+
+队列多类型单号更新 -- 内存问题
+
+月统计 -- == --
+	https://www.trackingmore.com/manage/user_date_top_up.php
+	https://www.trackingmore.com/manage/user_date_top_up_order.php
+	https://www.trackingmore.com/manage/user_month_top_up.php
+快递中在更新验证码部分
+	根本在于验证短时间内计算量大 == 
+
+
+
+关于/proc/进程idpid/fd
+
+
+/etc/pki/nssdb/cert9.db-wal
+access("/etc/pki/nssdb/cert9.db-journal", F_OK) = -1 ENOENT (No such file or directory)
+
+平滑重启--队列相互更新
+
+
+shopify
+	数据报表，盲目
+	herry
+	用户体验
+		是否查询得到
+		运输商列表
+		卸载率
+
+
+
+
+登录异常
+
+原任务
+	受限待更新集合中数据更新顺序优先
+		划分到各队列的方式
+			按照来源划分
+				每个队列有各自的集合列表
+					回发集合带上来源集合标记
+				方式
+					每次遍历所有，还是进行列表更新
+			情况考虑
+				到限制数，没单号可以更新了，睡 5s 再次检查，进行 4 次循环
+	同时段请求记录加一减一处理位置更改
+		多语言查过，后面不做限制 确认下来
+
+
+
+异常处理
+	"{\"is_exit\":true}"
+	数据库异常
+	变量还是用最开始的，考虑中途可能异常的情况
+
+
+
+机器学习之捡回来掉了的
+
+装备购置
+	衣服
+	鞋子
+	鼠标
+	充电
+
+回顾操作
+
+修改点 == 
+	发送应该到最前而不是10倍发送数量位置
+	到达限制应该去取别的进行更新
+
+kill -s 12 `ps aux | grep trackPostSpecial | grep -v grep | awk '{print $2}'`
+ps aux | grep trackPostSpecial | grep -v grep | wc -l
+kill -s 9 `ps aux | grep trackPostSpecial | grep -v grep | awk '{print $2}'`
+
+
+
+
+
+1-1-1，同时段请求记录加一减一处理位置更改
+需要的参数
+	次数
+	是否为有序集合
+		有序
+			是否为验证码
+				验证码
+					集合来源
+					$is_code
+				非验证码
+			获取顺序发送
+			全部采取顺序
+				操作？
+					获取当前最前面的排序值作为排序值，存入有序集合中
+					以当前时间作为排序值即可确定本运输商相对更新顺序
+		无序
+			sadd
+进行位置移动 并代入相应参数
+测试
+后续涉及更改
+	发送再更新
+	测试维护的集合元素移动脚本，本来就需要添加有序集合移动操作
+
+
+防取重
+	取位置为10-200之间的元素
+	每5秒取1-10之间的元素
+	wish相关的运输商，当前并发未到90（留有2）且受限集合中有待更新元素，则取其元素进行更新
+
+	QUEUE=trackPostQueueSpecial COUNT=1  VVERBOSE=1 /usr/local/php7/bin/php   /home/wwwroot/www.trackingmore.com/php-resque/trackPostSpecial/resque.php
+
+	Fatal error: Uncaught Error: Cannot use object of type stdClass as array in /home/wwwroot/www.trackingmore.com/php-resque/perform/perform_trackPostSpecial.php:37
+	Stack trace:
+	#0 /home/wwwroot/www.trackingmore.com/php-resque/trackPostSpecial/trackPostSpecialjob.php(43): require_once()
+	#1 /home/wwwroot/www.trackingmore.com/php-resque/lib/Resque/Job.php(182): trackPostSpecialjob->perform()
+	#2 /home/wwwroot/www.trackingmore.com/php-resque/lib/Resque/Worker.php(237): Resque_Job->perform()
+	#3 /home/wwwroot/www.trackingmore.com/php-resque/lib/Resque/Worker.php(199): Resque_Worker->perform(Object(Resque_Job))
+	#4 /home/wwwroot/www.trackingmore.com/php-resque/resque.php(77): Resque_Worker->work(5)
+	#5 /home/wwwroot/www.trackingmore.com/php-resque/trackPostSpecial/resque.php(15): require('/home/wwwroot/w...')
+	#6 {main}
+	  thrown in /home/wwwroot/www.trackingmore.com/php-resque/perform/perform_trackPostSpecial.php on line 37
+
+
+next
+	单号错位导回去更新 --  == 
+
+	shopify根据订单号补充同步 是否没问题确认
+
+	wish 监控
+
+
+调试开关需要位置输出 +--+
+
+
+E:\work\project\队列--批量查询
+
+numbers.php 时间排序 ==
+	排序
+
+
+重查重发
+	current 
+		代码精简
+		增加来源集合常量
+		在查询中记录加一减一
+			使邮政并发数控制更精确
+		使用有序集合
+			溢出的稍微往后挪
+				保证了顺序但由于限速会拖慢整体速度
+		考虑去掉单元缓存
+			
+	优化 ==
+		展示细致化，界面增大
+			天统计
+			秒级展示
+
+		统一处理
+			function 
+				$function[]
+			need_retrack
+				$need_retrack
+					!empty()
+					isset()
+				
+				进行另外的标记？
+
+	隐藏问题 +--+
+		trackFirstUser 部分元素丢失？
+		打印中出现无 need_retrack 的情况 +--+
+
+E:\work\project\队列--批量查询
+	并发记录封装
+		连同 app 一块进行添加处理
+			同时段请求限制
+				无代理
+				有代理
+			重查处理
+		手机更新条件需要调整
+		缓存结果一样，要去掉一个
+			"tr_express_concurrency_limit_one_w_courier=\"showl\""
+			"tr_express_concurrency_limit_showl"
+	重新返回待更新集合 ==
+		排序问题
+			重查
+			到达限制
+		目标
+			按顺序
+				十倍数量放在往后 10% - 20% 之间
+				十倍数量所在区间容量超过其 2 倍，或者说需要一个这样的区间来后延
+				跟队列数量也会有一定关联
+			重新进入查询衔接间尽可能快
+
+联合查询时
+	联合索引》单个
+	单个
+		simple 没用到联合索引
+
+current
+	培训方式 -- 调整
+
+	操作环境优化
+		D:\xampp\htdocs\test\function01.php
+
+	操作--dialog--时长延生 20180823 analyse
+		
+	php-$this
+	可直接做字符串输出
+
+	文档
+		重查
+		批量查询
+	调时日志开关 == -- ==
+		默认定时进行清理
+		需要的可以 mv
+		位置
+		时间
+		一定次数平均时间
+	所谓最小操作抽象的意义 == -- == -- == -- ==
+		同时在此基础上丰富，功能往上，复杂度同时会往上的 == ~~ +--+
+		可能的公共部分要进行抽象代表
+			查询快递邮政区分判断
+			更新时间筛选判断
+			状态判断
+			获取物流信息后的处理可以肯定为个性部分
+	并发记录封装 ==
+	异常处理
+	方法中引入文件
+		外部能否调用引入文件所定义的 function 或 class
+	环境简化
+		笔记卡顿
+		sublime
+			https://www.cnblogs.com/alex-dong/p/8323765.html
+	队列
+		队列平滑重启 -- 队列检测状态的功能否直接用
+		tr_user_tracknumber_34001_34500 M1ExpressSpecialjob M1ExpressSheinjob 表名重复
+			/usr/local/php7/bin/php -q    /home/wwwroot/www.trackingmore.com/script/autoUpdateNumber/M1ExpressSpecialjob.php
+			/usr/local/php7/bin/php -q    /home/wwwroot/www.trackingmore.com/script/autoUpdateNumber/M1ExpressSheinjob.php
+
+		队列
+			发送部分
+				入参
+			更新
+				快递更新优化
+				邮政更新优化
+				验证码队列 sleep 过多 在队列数量多时影响过大， 
+					sleep 的必要性？
+
+				限速相关集合分类
+
+	监控 -- 将现在关注的内容简易地展示出来 ==
+	操作方向点
+		日志
+			平台
+			队列调试
+		备注
+			数据格式
+		Redis集合
+		当前项目 == == ==
+			获取配置方式
+				尽量避免在方法中使用
+					可能导致重复问题
+			https://www.yiibai.com/redis/redis_sets.html
+
+	安全问题
+		web目录不要存 sql 文件
+
+	服务器
+		php-fpm产生僵尸进程的监控
+		tempcode 过多删不掉 ==
+			文件内存被用完 df -i
+			D:\xampp\htdocs\trackingmore\trunk\script\queue_shell\delvalicode.sh CPU占用高
+
+		内存
+			尝试
+			开启队列后面添加 /dev/null &2 > 1
+				再把数量调高
+
+			还有一个激活的问题 -- 一下消减了
+
+		CPU
+			确保执行时间
+
+	调试
+		日志统计 结合redis
+			D:\xampp\htdocs\trackingmore\trunk\manage\carrier_route_new_ajax_proxy.php
+	wish
+		添加运输商需要确认点
+			service_code
+			重查
+				判定条件准确性
+				重查率
+		检查项
+			异常率 0%
+				运输商
+					malaysia-post 
+			  			http://www.pos.com.my/
+						UC760133238MY
+					trakpak
+				操作
+					进行打印输出，确认对比是否确实无数据
+						10' 打印 -- 30' 对比
+
+			china-post  增加重查 考虑基数大，是否会使查询增加太多
+
+			china-ems 数量很少 
+		优化点
+			整体
+				整体数据项
+					各运输商最近添加单号
+					各运输商最近查询稳定性--重查率
+					多少小时未更新数量统计
+					待更新数量实时数据
+					窗口适应屏幕
+					每天检测 --1--
+					增加更多周期查询量数据
+					增加超过重查次数集合元素数据显示
+						并做定时重查清理
+				增加异常判定标准
+					待更新集合中数量跟当前允许并发数关系结果
+					区间数量跟异常率关系结果
+				重查
+					数据展示增加平均值
+					增加近两分钟秒刻度统计数据
+					增加近7天24小时刻度统计数据
+					异常判断的返回收件国是不需要的
+				速度限制
+					在可查基础上根据当前单号量查询时间调整 --1--
+					根据单号查询量自动调整 == --1--
+			单点
+				anjun 超时时间设置 可更改 至少需要 15 s
+				oneworldexpress 网络情况不保证全时段稳定
+
+next
+	批量 -- 队列重启
+	问题
+		info 表新建分区慢
+
+
+平台
+	无运输商单号识别规则
+		原先的整体梳理
+		可能改善点
+			增加前台单号识别规则
+
+紧急程度排序
+	时空上
+
+稳定性解决思路--重查分享
+	文档
+	量增加下预警
+	量增加下整体是否存在异常
+
+
+
+
+
+	应急重启应包括 crontab 修改 含修改标志 #-->
+
+	参考
+		crontab 修改
+			linux-php-fpm
+			Mem=`free -m | awk '/Mem:/{print $2}'`  
+			sed -i "s@^pm.max_children.*@pm.max_children = 1000@" $php_install_dir/usr/local/php7/etc/php-fpm.d/www.conf
+			sed -i "s@^pm.start_servers.*@pm.start_servers = $(($Mem/2/30))@" $php_install_dir/usr/local/php7/etc/php-fpm.d/www.conf
+			sed -i "s@^pm.min_spare_servers.*@pm.min_spare_servers = $(($Mem/2/40))@" $php_install_dir/usr/local/php7/etc/php-fpm.d/www.conf
+			sed -i "s@^pm.max_spare_servers.*@pm.max_spare_servers = $(($Mem/2/20))@" $php_install_dir/usr/local/php7/etc/php-fpm.d/www.conf
+			/etc/init.d/php-fpm reload
+
+待 ==
+	所谓怀疑方向
+		redis-cli -h r-wz941750df0ad3b4.redis.rds.aliyuncs.com -p 6379 -a hy6T3eds89
+		redis-cli -h r-0xie7a97eb923504.redis.rds.aliyuncs.com -p 6379 -a HyTf56MxDets
+	手动传参数的方法抽象为类
+	https://blog.csdn.net/liutingxu1/article/details/19195305	curl+exec实现异步无等待请求
+	树--是否吃过晚餐的
+
+	独立的公共方法
+		getProxyIP
+
+	缓存中 MySQL 不一定要必须，某些地方连不上，但是 redis 却可以的，考虑灵活性
+
+	PHP Warning:  mysqli::__construct(): php_network_getaddresses: getaddrinfo failed: Name or service not known in 
+	PHP Fatal error:  Uncaught Error: Class 'MySQL' not found in
+	还是没能找到点，或者说当前假设下是系统崩溃，即使在这个前提下还想着进行下去》》
+
+	调试日志要带一个请求时间
+	配置调整增加一个请求时间
+
+	时空维度上的线索，基本可以很大程度上推进问题的解决 ==
+
+快递
+	重查
+		需要区分验证码的情况
+		数据展示
+			http://echarts.baidu.com/option.html#dataZoom dataZoom[i]
+			http://echarts.baidu.com/examples/editor.html?c=grid-multiple 
+			http://echarts.baidu.com/examples/editor.html?c=mix-zoom-on-value 需要联动效果
+	维护
+		saicheng
+			http://www.saichenglogistics.com/a/waybill/
+
+specail bu qu
+
+尝试点
+	sh脚本
+		ssh 登录 甚至国内外可以相互进行更新任务
+		最大内存监控下，队列启停，数量控制等
+
+	仅想法阶段
+		PHPProxy建立代理服务器
+		超大批量删除redis中无用key+配置
+
+	优化
+		队列
+			平滑启动 -- 队列
+				通过脚本找非激活状态的进行kill
+			紧急处理 -- 队列关闭 -- crontab 修改
+
+		统一的日志开关
+			队列 -- 方法 -- 具体功能点块
+
+		验证码部分CPU
+			可直接测最小周期 10us 情况
+
+		提交环境简化
+
+
+近阶段完成
+	wish api post 监控 redis 确定范围内的清理脚本
+	验证码 计算大的部分
+
+常用
+	kill -s 14 `ps -aux | grep M1Express | awk '{print $2}'`
+
+	ps aux | grep webhook2/ | head -1 | awk '{print $2}'
+	ps aux | grep webhook2/ | sort -nrk3 | awk '{ps aux | grep webhook2/ | head -1 | awk '{print $2}'}==$3{print}'
+
+
+回顾点
+	3，几个运输商的重发设置
+		未测试，崩了一半 -- == --
+
+模糊点
+	scan R_P_U_malaysia-post_SET 现有队列数 更新速度跟不上 
+
+
+
+重查统计 -- 查询限制统一 -- 验证码最小周期
+
+
+发送部分 -- 监控 -- 
+打包 -- 国内外一致性
+
+sscan R_P_U_malaysia-post_SET 0 MATCH "*\":1,*" COUNT 10000 [MATCH pattern] [COUNT count]
+
+
+
+有效单号
+	有数据显示异常--foreign
+		RG121026757IR
+		iran-post
+	显示为第一个，不可查，且展开后是没有的
+		4px S000024715223
+	国外--正常页面中异常记录无法刷新
+		laposte
+		colissimo
+		cambodia-post
+
+
+本地跑数据再往线上更新
+	https://www.cnblogs.com/dasn/articles/5644120.html
+	ssh-keygen -t rsa
+	scp ~/.ssh/id_rsa.pub  root@192.168.1.113:/root/.ssh/authorized_keys
+
+
+
+
+anjun
+	增加一个官网开关
+	重发需要一个总数
+		并作相应记录
+
+
+部分最近3天添加查不到的单号超过16 小时未更新
+	可以直接确定的是发送是否成功--可能有漏的
+	稳定性无法解决，这个优先排序要往前 ==
+
+
+
+客户
+	账号是否异常
+		api
+		更新
+		webhook
+	查询是否异常--稳定性数据--更新速度
+		先精确出量--秒级别统计
+			精度在每秒1000
+			可能漏洞
+				依赖于是否需要重查的判断
+				还是需要与精确监控互补
+				或者
+					增加一个有物流信息的单号量统计
+					在现有基础上获取即可
+					不需要重查中进行添加
+						考虑扩展？
+							可以考虑，过滤了是否重查字段， tr_express_statistics_bitkey_name
+
+			操作
+				获取相应键名进行记录
+					实际为运输时间点
+				进行数量统计
+			清空原先缓存记录 周期在 10000 us
+				srandmember SET 500
+				遍历前面 500 分别 srem SET 
+
+
+
+
+实际更新频率 4(limit time seted) + 1.5(T_N_Express_SET) + 4(update time)
+	部分单号更新间隔过长 --==-- 后面再考虑
+		不断扫描并做标记
+			进行时段区分 -- 
+			关键还是需要知道更新的时间
+		按照顺进行更新
+		集合拆分 -- 按时间区分待更新单号 -- 属于当前改动不需太大的操作 ==
+	直接就按时间发送
+
+客户检查
+	4px china-post malaysia-post
+	anjun oneworldexpress
+	4px
+		比较稳定
+	oneworldexpress
+		wanb 部分稳定性
+	频率
+		整体会出现单号超过设置时间2倍长度未更新单号
+			单独进行时刻检测
+			更新中的时间缩短
+
+
+
+并发限制这里，需要更新配置时比较麻烦
+
+新队列 是否适用 -- 增加所有需要的方法
+	具备易扩展性
+	并发限制统一处理就行，这个是本来就需要的操作 ==
+
+	set test_config "{\"test\":{\"queue\":\"need_retrack\"}}"
+
+
+
+
+使用新队列根据用户更新 == 方法引入 == 发送配置 -- 确保方法引入再进行配置添加
+	发送
+
+监控在后面，目前先把 oneworldexpress 存在的问题解决
+	查询次数控制更改
+	仅当前补充重发 -- 需要每个进行依据添加 近似人工判断 --> 后面封装为方法，减少代码重复 使用应用参数 == 
+		即使状态为查不到，也要配合http_code判断是是否进行再次查询，以避免无谓的请求
+			在这种情况下漏掉的，通过管理后台的监控进行补充
+		是否需要重发的依据
+
+
+当前可操作点
+	重发
+	时间做缓存以备调整
+
+	发送入单独更新集合
+
+
+查询量--异常量--时间？--
+	分别的请求时间，总的请求时间，各开始到结束
+	关注的是比例
+	异常情况查看--具体状态码，在异常超过一定数量后是重要的数据项
+
+wish -- 问题监控 == 需要的数据是什么 
+	api
+		需要对流程进行熟悉
+	推送
+		推送记录 -- 定位问题
+		预警怎么操作呢
+	更新
+		单一快递
+			查询总量
+			异常总量
+				非 200 因为是接口，基本上只要有这个数据，可以确认是否异常 -- 接口部分 -- 非接口部分怎么弄？
+				状态 1
+			5分钟进行一次监控采集
+		优化
+			非 200 的再发送
+
+
+
+
+日志分割--异常记录
+	日志分割 == 上线
+	异常记录--可以查测试结果显示为异常
+		poste-maroc LD636935735MA
+		expeditors 4396145462
+	管理后台队列发送优化
+		D:\xampp\htdocs\trackingmore\trunk\manage\sendUpdateNumber_ajax.php
+	打包准备
+		线上改的确认进行统一 ==
+客户反馈--expeditors
+
+china-post 
+
+0 0 */1 * * /usr/local/php7/bin/php -q  /home/wwwroot/www.trackingmore.com/script/logSplit.php >> logSplit.log
+
+
+每天推进
+	平台同步--发送激活失败 -- shopify ==
+
+	日志分割 按国内时间来 --OO--
+		webhook
+		shopify
+
+	测试记录清除 oneworldexpress singapore-post ==
+	shopify 客户同步
+
+	快递测试记录日志分割 ==
+	快捷键
+		alt
+		ctrl
+	僵尸进程，kill并重启队列即可
+
+	内存--队列
+		D:\xampp\htdocs\trackingmore\trunk\php-resque\timeEfficiently\timeEfficiently_job.php 占用内存大
+		D:\xampp\htdocs\trackingmore\trunk\admin\email_auto.php 标签，空判断
+		D:\xampp\htdocs\trackingmore\trunk\script\queueshell\test.sh shell
+		D:\xampp\htdocs\trackingmore\trunk\script\tr_user_tracknumber_notupdate_table_data.php 添加索引
+		D:\xampp\htdocs\trackingmore\trunk\script\logSplit.php 增加文件大小判断
+
+		mysql -h172.22.107.65  -utrackingdb -p'$OTOMVFSXdg^8QCJ' -P8066 -e "show processlist" | grep 172.22.57.101 | wc -l
+
+当下操作
+	数据流中
+
+	sar -r 跟 htop 内存占用相差很多 ==
+
+
+队列重启，之前先手动执行，确保不报严重错误
+	重启前
+		发送
+			邮政
+			QUEUE=M1GlobalpostQueue COUNT=$count  VVERBOSE=1 /usr/local/php7/bin/php   /home/wwwroot/www.trackingmore.com/php-resque/M1Globalpost/resque.php
+			curl -d '{"create":"M1_P_Q_SET","twoMothAgo":"","everHourRun":"","startId":"M1_P_Q_SET","endId":"","get_user_table_name":"M1_P_Q_SET"}' http://10.31.76.33/php-resque/M1Globalpost/queue.php?s=M1GlobalpostQueue
+			curl -d '{"create":"M1_P_Q_SET","twoMothAgo":"","everHourRun":"","startId":"M1_P_Q_SET","endId":"","get_user_table_name":"M1_P_Q_SET"}' http://172.22.57.107/php-resque/M1Globalpost/queue.php?s=M1GlobalpostQueue
+			快递
+			curl -d '{"create":"M1_E_Q_SET","twoMothAgo":"","everHourRun":"","startId":"M1_E_Q_SET","endId":"","get_user_table_name":"M1_E_Q_SET"}' http://172.22.57.107/php-resque/M1Express/queue.php?s=M1ExpressQueue
+			QUEUE=M1ExpressQueue COUNT=$count  VVERBOSE=1 /usr/local/php7/bin/php   /home/wwwroot/www.trackingmore.com/php-resque/M1Express/resque.php
+			QUEUE=M1ExpressQueue COUNT=10  VVERBOSE=1 /usr/local/php7/bin/php   /home/wwwroot/www.trackingmore.com/php-resque/M1Express/resque.php
+
+			'{"create":"M1_E_Q_SET","twoMothAgo":"","everHourRun":"","startId":"M1_E_Q_SET","endId":"","get_user_table_name":"M1_E_Q_SET"}'
+			'{"create":"M1_P_Q_SET","twoMothAgo":"","everHourRun":"","startId":"M1_P_Q_SET","endId":"","get_user_table_name":"M1_P_Q_SET"}'
+			快递
+			php /home/wwwroot/www.trackingmore.com/php-resque/class.php "{\"className\":\"M1Expressjob\", \"fileName\":\"M1Expressjob\", \"upperDir\":\"M1Express\"}" "{\"create\":\"M1_E_Q_SET\",\"twoMothAgo\":0,\"everHourRun\":0,\"startId\":\"M1_E_Q_SET\",\"endId\":0,\"get_user_table_name\":\"M1_E_Q_SET\"}"
+			邮政
+			php /home/wwwroot/www.trackingmore.com/php-resque/class.php "{\"className\":\"M1Globalpostjob\", \"fileName\":\"M1Globalpostjob\", \"upperDir\":\"M1Globalpost\"}" "{\"create\":\"M1_P_Q_SET\",\"twoMothAgo\":0,\"everHourRun\":0,\"startId\":\"M1_P_Q_SET\",\"endId\":0,\"get_user_table_name\":\"M1_P_Q_SET\"}"
+			
+			快递
+			php /home/wwwroot/www.trackingmore.com/php-resque/class.php "{\"className\":\"M1Expressjob\", \"fileName\":\"M1Expressjob\", \"upperDir\":\"M1Express\"}" "{\"create\":\"M1_E_Q_SET_TEST\",\"twoMothAgo\":0,\"everHourRun\":0,\"startId\":\"M1_E_Q_SET_TEST\",\"endId\":0,\"get_user_table_name\":\"M1_E_Q_SET_TEST\"}"
+			php /home/wwwroot/www.trackingmore.com/php-resque/class.php "{\"className\":\"M1Expressjob\", \"fileName\":\"M1Expressjob\", \"upperDir\":\"M1Express\"}" "{\"create\":\"M1_E_Q_SET_TEST\",\"twoMothAgo\":0,\"everHourRun\":0,\"startId\":\"M1_E_Q_SET_TEST\",\"endId\":0,\"get_user_table_name\":\"M1_E_Q_SET_TEST\",\"echo\":1,\"inCycleNumAllMax\":1000}" # 输出日志 扫描总数 1000
+			php /home/wwwroot/www.trackingmore.com/php-resque/class.php "{\"className\":\"M1Expressjob\", \"fileName\":\"M1Expressjob\", \"upperDir\":\"M1Express\"}" "{\"create\":\"M1_E_Q_SET_TEST\",\"twoMothAgo\":0,\"everHourRun\":0,\"startId\":\"M1_E_Q_SET_TEST\",\"endId\":0,\"get_user_table_name\":\"M1_E_Q_SET_TEST\",\"test_courier\":\"bluedart\",\"echo\":1,\"inCycleNumAllMax\":1000}" # 快递指定运输商从M1_E_Q_SET_TEST读取扫描数据 输出日志 扫描总数 1000
+			php /home/wwwroot/www.trackingmore.com/php-resque/class.php "{\"className\":\"M1Expressjob\", \"fileName\":\"M1Expressjob\", \"upperDir\":\"M1Express\"}" "{\"create\":\"M1_E_Q_SET_TEST\",\"twoMothAgo\":0,\"everHourRun\":0,\"startId\":\"M1_E_Q_SET_TEST\",\"endId\":0,\"get_user_table_name\":\"M1_E_Q_SET_TEST\",\"test_courier\":\"bluedart\",\"echo\":0,\"inCycleNumAllMax\":1000}" # 快递指定运输商从 M1_E_Q_SET_TEST 读取扫描数据 扫描总数 1000
+			邮政
+			php /home/wwwroot/www.trackingmore.com/php-resque/class.php "{\"className\":\"M1Globalpostjob\", \"fileName\":\"M1Globalpostjob\", \"upperDir\":\"M1Globalpost\"}" "{\"create\":\"M1_P_Q_SET_TEST\",\"twoMothAgo\":0,\"everHourRun\":0,\"startId\":\"M1_P_Q_SET_TEST\",\"endId\":0,\"get_user_table_name\":\"M1_P_Q_SET_TEST\",\"inCycleNumAllMax\":1000}"
+			php /home/wwwroot/www.trackingmore.com/php-resque/class.php "{\"className\":\"M1Globalpostjob\", \"fileName\":\"M1Globalpostjob\", \"upperDir\":\"M1Globalpost\"}" "{\"create\":\"M1_P_Q_SET_TEST\",\"twoMothAgo\":0,\"everHourRun\":0,\"startId\":\"M1_P_Q_SET_TEST\",\"endId\":0,\"get_user_table_name\":\"M1_P_Q_SET_TSET\",\"echo\":1,\"inCycleNumAllMax\":10}" # \"echo\":1进行输出日志 扫描总数 10
+			php /home/wwwroot/www.trackingmore.com/php-resque/class.php "{\"className\":\"M1Globalpostjob\", \"fileName\":\"M1Globalpostjob\", \"upperDir\":\"M1Globalpost\"}" "{\"create\":\"M1_P_Q_SET_TEST\",\"twoMothAgo\":0,\"everHourRun\":0,\"startId\":\"M1_P_Q_SET_TEST\",\"endId\":0,\"get_user_table_name\":\"M1_P_Q_SET_TSET\",\"test_courier\":\"bluedart\",\"inCycleNumAllMax\":10}" # \"test_courier\":\"bluedart\" 邮政指定用户id从 M1_P_Q_SET_TEST 读取扫描数据 扫描总数 10
+			php /home/wwwroot/www.trackingmore.com/php-resque/class.php "{\"className\":\"M1Globalpostjob\", \"fileName\":\"M1Globalpostjob\", \"upperDir\":\"M1Globalpost\"}" "{\"create\":\"M1_P_Q_SET_TEST\",\"twoMothAgo\":0,\"everHourRun\":0,\"startId\":\"M1_P_Q_SET_TEST\",\"endId\":0,\"get_user_table_name\":\"M1_P_Q_SET_TSET\",\"echo\":1,\"inCycleNumAllMax\":10}" # \"echo\":1进行输出日志 一个区间中扫描单号总数达到10则停止扫描
+
+			发送参数
+			/home/wwwroot/www.trackingmore.com/script/M1.sh
+			激活
+			/home/wwwroot/www.trackingmore.com/script/queueshell/sendTrackNumberQueueM1.sh
+			curl -d '{"create":"M1_E_Q_SET","twoMothAgo":"","everHourRun":"","startId":"M1_E_Q_SET","endId":"","get_user_table_name":"M1_E_Q_SET"}' http://10.31.76.33/php-resque/M1Express/queue.php?s=M1ExpressQueue
+			http://10.31.76.33/php-resque/M1Express/queue.php?s=M1ExpressQueue
+		批量
+			QUEUE=trackExpressBatchQueue COUNT=$count  VVERBOSE=1 /usr/local/php7/bin/php   /home/wwwroot/www.trackingmore.com/php-resque/trackExpressBatch/resque.php
+			trackExpressBatchjob
+			QUEUE=trackExpressBatchInsertQueue COUNT=$count  VVERBOSE=1 /usr/local/php7/bin/php   /home/wwwroot/www.trackingmore.com/php-resque/trackExpressBatchInsert/resque.php
+			trackExpressBatchInsertjob
+			php /home/wwwroot/www.trackingmore.com/php-resque/class.php "{\"className\":\"trackExpressBatchjob\", \"fileName\":\"trackExpressBatchjob\", \"upperDir\":\"trackExpressBatch\"}" "{\"e\":\"Z_P_U_Express_B_SET\",\"u\":0,\"test\":1,\"test_time\":60}"
+			独立服务器更新指定运输商
+			COURIER_UPDATE_IN_INDEPENDENT_SERVER=singsingpost-post php /home/wwwroot/www.trackingmore.com/php-resque/class.php "{\"className\":\"trackExpressBatchjob\", \"fileName\":\"trackExpressBatchjob\", \"upperDir\":\"trackExpressBatch\"}" "{\"e\":\"Z_P_U_Express_B_SET\",\"u\":0,\"test\":1,\"test_time\":60}"
+			php /home/wwwroot/www.trackingmore.com/php-resque/class.php "{\"className\":\"trackExpressBatchInsertjob\", \"fileName\":\"trackExpressBatchInsertjob\", \"upperDir\":\"trackExpressBatchInsert\"}" "{\"e\":\"Z_H_U_B_Express_SET\",\"u\":0,\"test\":1,\"test_time\":60}"
+			php /home/wwwroot/www.trackingmore.com/php-resque/class.php "{\"className\":\"trackExpressBatchInsertjob\", \"fileName\":\"trackExpressBatchInsertjob\", \"upperDir\":\"trackExpressBatchInsert\"}" "{\"e\":\"Z_H_U_B_Express_SET\",\"u\":0,\"test\":1,\"is_global\":1,\"test_time\":60}"
+
+			
+			QUEUE=trackPostBatchInsertQueue COUNT=$count  VVERBOSE=1 /usr/local/php7/bin/php   /home/wwwroot/www.trackingmore.com/php-resque/trackPostBatchInsert/resque.php
+			php /home/wwwroot/www.trackingmore.com/php-resque/class.php "{\"className\":\"trackPostBatchInsertjob\", \"fileName\":\"trackPostBatchInsertjob\", \"upperDir\":\"trackPostBatchInsert\"}" "{\"e\":\"Z_H_U_B_Post_SET\",\"u\":0,\"test\":1,\"test_time\":60}"
+			php /home/wwwroot/www.trackingmore.com/php-resque/class.php "{\"className\":\"trackPostBatchInsertjob\", \"fileName\":\"trackPostBatchInsertjob\", \"upperDir\":\"trackPostBatchInsert\"}" "{\"e\":\"Z_H_U_B_Post_SET\",\"u\":0,\"test\":1,\"is_global\":1,\"test_time\":60}"
+			php /home/wwwroot/www.trackingmore.com/php-resque/class.php "{\"className\":\"trackPostBatchInsertjob\", \"fileName\":\"trackPostBatchInsertjob\", \"upperDir\":\"trackPostBatchInsert\"}" "{\"e\":\"Z_H_U_B_Post_SET\",\"u\":0,\"test\":1,\"is_global\":1,\"keySource\":\"Z_R_P_U_china-post_3_err_SET\",\"test_time\":1}"
+				可给定集合 数据 进行测试
+
+			PRUNEDEADWORKERS=1 QUEUE=trackPostBatchInsertQueue COUNT=$count  VVERBOSE=1 /usr/local/php7/bin/php   /home/wwwroot/www.trackingmore.com/php-resque/trackPostBatchInsert/resque.php
+		快递
+			QUEUE=trackExpressQueue COUNT=1  VVERBOSE=1 /usr/local/php7/bin/php   /home/wwwroot/www.trackingmore.com/php-resque/trackExpress/resque.php 
+			trackExpressjob
+			QUEUE=trackExpressQueue COUNT=1  VVERBOSE=1 /usr/local/php7/bin/php   /home/wwwroot/www.trackingmore.com/php-resque/trackExpress7/resque.php 
+			php /home/wwwroot/www.trackingmore.com/php-resque/class.php "{\"className\":\"trackExpressjob\", \"fileName\":\"trackExpressjob\", \"upperDir\":\"trackExpress\"}" "{\"n\":\"Z_T_N_Express_SET\",\"e\":\"Z_T_N_Express_SET\",\"u\":0,\"test\":1,\"test_time\":60}"
+			php /home/wwwroot/www.trackingmore.com/php-resque/class.php "{\"className\":\"trackExpressjob\", \"fileName\":\"trackExpressjob\", \"upperDir\":\"trackExpress\"}" "{\"n\":\"Z_T_N_Express_SET\",\"e\":\"Z_T_N_Express_SET\",\"u\":0,\"test\":1,\"is_global\":1,\"test_time\":60}"
+			# 指定运输商测试
+			COURIER=fedex php /home/wwwroot/www.trackingmore.com/php-resque/class.php "{\"className\":\"trackExpressjob\", \"fileName\":\"trackExpressjob\", \"upperDir\":\"trackExpress\"}" "{\"n\":\"Z_T_N_Express_SET\",\"e\":\"Z_T_N_Express_SET\",\"u\":0,\"test\":1,\"is_global\":1,\"test_time\":60}"
+			
+			PRUNEDEADWORKERS=1 QUEUE=trackExpressQueue COUNT=1  VVERBOSE=1 /usr/local/php7/bin/php   /home/wwwroot/www.trackingmore.com/php-resque/trackExpress/resque.php 
+		邮政
+			QUEUE=trackPostQueue COUNT=1  VVERBOSE=1 /usr/local/php7/bin/php   /home/wwwroot/www.trackingmore.com/php-resque/trackPost/resque.php 
+			php /home/wwwroot/www.trackingmore.com/php-resque/class.php "{\"className\":\"trackPostjob\", \"fileName\":\"trackPostjob\", \"upperDir\":\"trackPost\"}" "{\"n\":\"Z_T_N_Post_SET\",\"e\":\"Z_T_N_Post_SET\",\"u\":0,\"test\":1,\"test_time\":60}"
+			php /home/wwwroot/www.trackingmore.com/php-resque/class.php "{\"className\":\"trackPostjob\", \"fileName\":\"trackPostjob\", \"upperDir\":\"trackPost\"}" "{\"n\":\"Z_T_N_Post_SET\",\"e\":\"Z_T_N_Post_SET\",\"u\":0,\"test\":1,\"is_global\":1,\"test_time\":60}"
+			trackPostjob
+
+			PRUNEDEADWORKERS=1 QUEUE=trackPostQueue COUNT=1  VVERBOSE=1 /usr/local/php7/bin/php   /home/wwwroot/www.trackingmore.com/php-resque/trackPost/resque.php 
+
+			邮政授权
+			php /home/wwwroot/www.trackingmore.com/php-resque/class.php "{\"className\":\"trackPostAuthjob\", \"fileName\":\"trackPostAuthjob\", \"upperDir\":\"trackPostAuth\"}" "{\"n\":\"AUTH_T_Q_U_SET\",\"e\":\"AUTH_T_Q_U_SET\",\"u\":0,\"test\":1,\"test_time\":60}"
+		首次查询
+			QUEUE=trackFQueue COUNT=1  VVERBOSE=1 /usr/local/php7/bin/php   /home/wwwroot/www.trackingmore.com/php-resque/trackFirst/resque.php
+
+			QUEUE=trackFQueue COUNT=$count  VVERBOSE=1 /usr/local/php7/bin/php   /home/wwwroot/www.trackingmore.com/php-resque/trackFirstNew/resque.php
+			trackFristjob
+			QUEUE=trackFQueueUser COUNT=$count  VVERBOSE=1 /usr/local/php7/bin/php   /home/wwwroot/www.trackingmore.com/php-resque/trackFirstUser/resque.php
+			trackFristUserjob
+			/home/wwwroot/www.trackingmore.com/script/queueshell/host_conf.sh
+			curl -d '{"n":"FIRST_T_Q_U_SET","e":"FIRST_T_Q_U_SET","u":""}' http://172.22.57.104/php-resque/trackFirstUser/queue.php?s=trackFQueueUser
+
+			php /home/wwwroot/www.trackingmore.com/php-resque/class.php "{\"className\":\"trackFristjob\", \"fileName\":\"trackFristjob\", \"upperDir\":\"trackFirstNew\"}" "{\"n\":\"Z_FIRST_T_Q_SET\",\"e\":\"Z_FIRST_T_Q_SET\",\"u\":0,\"test\":1,\"test_time\":60}"
+			php /home/wwwroot/www.trackingmore.com/php-resque/class.php "{\"className\":\"trackFristUserjob\", \"fileName\":\"trackFristUserjob\", \"upperDir\":\"trackFirstUser\"}" "{\"n\":\"FIRST_T_Q_U_SET\",\"e\":\"FIRST_T_Q_U_SET\",\"u\":0}"
+
+			PRUNEDEADWORKERS=1 QUEUE=trackFQueue COUNT=1  VVERBOSE=1 /usr/local/php7/bin/php   /home/wwwroot/www.trackingmore.com/php-resque/trackFirstNew/resque.php
+		特殊
+			QUEUE=trackExpressQueueSpecial COUNT=1  VVERBOSE=1 /usr/local/php7/bin/php   /home/wwwroot/www.trackingmore.com/php-resque/trackExpressSpecial/resque.php
+			curl -d '{"n":"Z_T_N_Express_SET_Special","e":"Z_T_N_Express_SET_Special","u":""}' http://10.31.76.33/php-resque/trackExpressSpecial/queue.php?s=trackExpressQueueSpecial 37
+			trackExpressSpecialjob
+			QUEUE=trackPostQueueSpecial COUNT=1  VVERBOSE=1 /usr/local/php7/bin/php   /home/wwwroot/www.trackingmore.com/php-resque/trackPostSpecial/resque.php
+			curl -d '{"n":"Z_T_N_Post_SET_Special","e":"Z_T_N_Post_SET_Special","u":""}' http://10.31.76.33/php-resque/trackPostSpecial/queue.php?s=trackPostQueueSpecial 37
+			curl -d '{"n":"Z_T_N_Post_SET_Special","e":"Z_T_N_Post_SET_Special","u":""}' http://10.80.244.229/php-resque/trackPostSpecial/queue.php?s=trackPostQueueSpecial 91
+			trackPostSpecialjob
+
+			php /home/wwwroot/www.trackingmore.com/php-resque/class.php "{\"className\":\"trackPostSpecialjob\", \"fileName\":\"trackPostSpecialjob\", \"upperDir\":\"trackPostSpecial\"}" "{\"n\":\"Z_T_N_Post_SET_Special\",\"e\":\"Z_T_N_Post_SET_Special\",\"u\":0}"
+			php /home/wwwroot/www.trackingmore.com/php-resque/class.php "{\"className\":\"trackExpressSpecialjob\", \"fileName\":\"trackExpressSpecialjob\", \"upperDir\":\"trackExpressSpecial\"}" "{\"n\":\"Z_T_N_Express_SET_Special\",\"e\":\"Z_T_N_Express_SET_Special\",\"u\":0}"
+			php /home/wwwroot/www.trackingmore.com/php-resque/class.php "{\"className\":\"trackExpressSpecialjob\", \"fileName\":\"trackExpressSpecialjob\", \"upperDir\":\"trackExpressSpecial\"}" "{\"n\":\"Z_T_N_Express_SET_Special\",\"e\":\"Z_T_N_Express_SET_Special\",\"u\":0,\"test\":1}"
+		验证码
+			QUEUE=trackEPQueueCode COUNT=1  VVERBOSE=1 /usr/local/php7/bin/php   /home/wwwroot/www.trackingmore.com/php-resque/trackEPCode5/resque.php
+			php /home/wwwroot/www.trackingmore.com/php-resque/class.php "{\"className\":\"trackEPCodejob\", \"fileName\":\"trackEPCodejob\", \"upperDir\":\"trackEPCode\"}" "{\"e\":\"Z_CODE_T_Q_SET\",\"n\":\"Z_CODE_T_Q_SET\",\"u\":0}"
+		新意
+			QUEUE=trackExpressQueueShein COUNT=$count  VVERBOSE=1 /usr/local/php7/bin/php   /home/wwwroot/www.trackingmore.com/php-resque/trackExpressShein/resque.php
+			trackExpressSheinjob
+			QUEUE=trackPostQueueShein COUNT=$count  VVERBOSE=1 /usr/local/php7/bin/php   /home/wwwroot/www.trackingmore.com/php-resque/trackPostShein/resque.php
+			trackPostSheinjob
+			php /home/wwwroot/www.trackingmore.com/php-resque/class.php "{\"className\":\"trackExpressSheinjob\", \"fileName\":\"trackExpressSheinjob\", \"upperDir\":\"trackExpressShein\"}" "{\"e\":\"Z_T_N_Express_SET_Shein\",\"n\":\"Z_T_N_Express_SET_Shein\",\"u\":0}"
+			php /home/wwwroot/www.trackingmore.com/php-resque/class.php "{\"className\":\"trackPostSheinjob\", \"fileName\":\"trackPostSheinjob\", \"upperDir\":\"trackPostShein\"}" "{\"e\":\"Z_T_N_Post_SET_Shein\",\"n\":\"Z_T_N_Post_SET_Shein\",\"u\":0}"
+		查询测试
+			QUEUE=trackTestQueue COUNT=1  VVERBOSE=1 /usr/local/php7/bin/php   /home/wwwroot/www.trackingmore.com/php-resque/trackTest1/resque.php 
+			QUEUE=trackTestQueue COUNT=1  VVERBOSE=1 /usr/local/php7/bin/php   /home/wwwroot/www.trackingmore.com/php-resque-test/trackTest1/resque.php 
+			trackTestjob
+			php /home/wwwroot/www.trackingmore.com/php-resque/class.php "{\"className\":\"trackTestjob\", \"fileName\":\"trackTestjob\", \"upperDir\":\"trackTest1\"}" "{\"n\":\"Z_T_N_Express_SET\",\"e\":\"Z_T_N_Express_SET\",\"u\":0}"
+			curl -d '{"n":"Z_T_N_Express_SET","e":"Z_T_N_Express_SET","u":0}' http://10.29.57.217/php-resque/trackTest1/queue.php?s=trackTestQueue
+
+		webhook
+			QUEUE=webhookQueue   COUNT=$count  VVERBOSE=1 /usr/local/php7/bin/php   /home/wwwroot/www.trackingmore.com/php-resque/webhook2/resque.php
+			webhook_job
+			php /home/wwwroot/www.trackingmore.com/php-resque/class.php "{\"className\":\"webhook_job\", \"fileName\":\"webhook_job\", \"upperDir\":\"webhook\"}" "{\"w\":\"WEBHOOK_T_Q_SET\",\"e\":\"WEBHOOK_T_Q_SET\",\"n\":\"WEBHOOK_T_Q_SET\",\"u\":0}"
+			php /home/wwwroot/www.trackingmore.com/php-resque/class.php "{\"className\":\"webhook_job\", \"fileName\":\"webhook_job\", \"upperDir\":\"webhook\"}" "{\"w\":\"WEBHOOK_T_Q_SET\",\"e\":\"WEBHOOK_T_Q_SET\",\"n\":\"WEBHOOK_T_Q_SET\",\"u\":0,\"isTest\":1,\"maxTime\":60}"
+
+		/home/wwwroot/www.trackingmore.com/script/queueshell/sendTrackNumberQueue_new.sh
+		/home/wwwroot/www.trackingmore.com/script/queueshell/track_queue_conf_37.sh
+
+		import
+			QUEUE=importFileQueue  COUNT=$count  VVERBOSE=1 /usr/local/php7/bin/php   /home/wwwroot/www.trackingmore.com/php-resque/importJob/resque.php
+			importJob
+			php /home/wwwroot/www.trackingmore.com/php-resque/class.php "{\"className\":\"Import_Job\", \"fileName\":\"Import_Job\", \"upperDir\":\"importJob\"}" '{"u":"79146","l":"en","is_basic":"","n":"79146_Import_20190402052315","record_id":"48834"}'
+			D:\xampp\htdocs\trackingmore\trunk\php-resque\importJob\Import_Job.php
+				select * from  tr_user_importjob where is_start = 0  order by id desc limit 16\G
+
+			导入记录
+				http://www.trackingmore.com/manage/import.php?lang=cn&p=1
+
+		button
+
+		emsStatusCheck
+			QUEUE=emsStatusCheckQueue  COUNT=$count  VVERBOSE=1 /usr/local/php7/bin/php   /home/wwwroot/www.trackingmore.com/php-resque/emsStatusCheck/resque.php
+			php /home/wwwroot/www.trackingmore.com/php-resque/class.php "{\"className\":\"emsStatusCheckJob\", \"fileName\":\"emsStatusCheckJob\", \"upperDir\":\"emsStatusCheck\"}" '{"p":"Z_SMS_CHECK_SET","i":"Z_SMS_CHECK_SET","s":"Z_SMS_CHECK_SET","t":1}'
+
+		pdd
+			QUEUE=platefromPddQueueNew  COUNT=$count  VVERBOSE=1 /usr/local/php7/bin/php   /home/wwwroot/www.trackingmore.com/php-resque/platefromPddNew/resque.php
+			platefromPddNew
+			php /home/wwwroot/www.trackingmore.com/php-resque/class.php "{\"className\":\"platefromPddNew_Job\", \"fileName\":\"platefromPddNew_Job\", \"upperDir\":\"platefromPddNew\"}" '{"sync_time":"0.25","id":"4287"}'
+			D:\xampp\htdocs\trackingmore\trunk\php-resque\platefromPddNew\platefromPddNew_Job.php
+		shopify
+			php /home/wwwroot/www.trackingmore.com/php-resque/class.php "{\"className\":\"shopifyWebhook_Job\", \"fileName\":\"shopifyWebhook_Job\", \"upperDir\":\"shopify_webhook\"}" "{\"k\":\"123\"}"
+		woocommerce
+			php /home/wwwroot/www.trackingmore.com/php-resque/class.php "{\"className\":\"platefromWoocommerce_Job\", \"fileName\":\"platefromWoocommerce_Job\", \"upperDir\":\"platefromWoocommerce\"}" "{\"sync_time_start_invid\":1533779940,\"sync_time\":8,\"id\":3736}"
+
+		time
+			php /home/wwwroot/www.trackingmore.com/php-resque/class.php "{\"className\":\"trackSubscribe_job\", \"fileName\":\"trackSubscribe_job\", \"upperDir\":\"timeEfficientlyNew\"}" '{"uid":"41733","keyPre":"lasteffictUserNumberItemArr"}'
+
+		redisSendOrReceive
+			国外更新国内 源集合Z_R_P_U_yodel_SET 发送到国外REDIS_FOREIGN_DB=9对应集合进行更新
+			REDIS_FOREIGN_DB=9 COURIER_UPDATE_IN_INDEPENDENT_KEY_SOURCE_FROM_FOREIGN=Z_R_P_U_yodel_SET php /home/wwwroot/www.trackingmore.com/php-resque/class.php "{\"className\":\"redisHomeToForeignSendData_Job\", \"fileName\":\"redisHomeToForeignSendData_Job\", \"upperDir\":\"inIndependentServerUpdate\"}" '{"test":1,"test_time":60}'
+			REDIS_FOREIGN_DB=9 COURIER_UPDATE_IN_INDEPENDENT_KEY_SOURCE_FROM_FOREIGN=z_test php /home/wwwroot/www.trackingmore.com/php-resque/class.php "{\"className\":\"redisHomeToForeignReceiveData_Job\", \"fileName\":\"redisHomeToForeignReceiveData_Job\", \"upperDir\":\"inIndependentServerUpdate\"}" '{"test":1,"test_time":60}'
+
+			REDIS_FOREIGN_DB=9 COURIER_UPDATE_IN_INDEPENDENT_KEY_SOURCE_FROM_FOREIGN=Z_R_P_U_yodel_SET php /home/wwwroot/www.trackingmore.com/php-resque/class.php "{\"className\":\"redisHomeToForeignReceiveData_Job\", \"fileName\":\"redisHomeToForeignReceiveData_Job\", \"upperDir\":\"inIndependentServerUpdate\"}" '{"test":1,"test_time":60}'
+			REDIS_FOREIGN_DB=9 COURIER_UPDATE_IN_INDEPENDENT_KEY_SOURCE_FROM_FOREIGN=Z_R_P_U_yodel_SET php /home/wwwroot/www.trackingmore.com/php-resque/class.php "{\"className\":\"redisHomeToForeignSendData_Job\", \"fileName\":\"redisHomeToForeignSendData_Job\", \"upperDir\":\"inIndependentServerUpdate\"}" '{"test":1,"test_time":60}'
+
+			4px send foreign to home
+			php /home/wwwroot/www.trackingmore.com/php-resque/class.php "{\"className\":\"redisForeignToHomeSendData_4px_Job\", \"fileName\":\"redisForeignToHomeSendData_4px_Job\", \"upperDir\":\"inIndependentServerUpdate\"}" '{"test":1,"test_time":60}'
+			php /home/wwwroot/www.trackingmore.com/php-resque/class.php "{\"className\":\"redisForeignToHomeReceiveData_4px_Job\", \"fileName\":\"redisForeignToHomeReceiveData_4px_Job\", \"upperDir\":\"inIndependentServerUpdate\"}" '{"test":1,"test_time":60}'
+
+			hermes-de
+				Z_P_U_hermes-de_SET
+					国内 Z_P_U_hermes-de_SET
+					国外 Z_H_U_B_Express_SET
+
+					国内更新国外 源集合Z_R_P_U_hermes-de_SET 发送到国内REDIS_DB=9对应集合进行更新
+					"redisHomeToForeignReceiveDataQueue inIndependentServerUpdate/resque.php 1 {\"t\":1} ZCARD Z_R_P_U_hermes-de_SET hermes-de COURIER_UPDATE_IN_INDEPENDENT_KEY_SOURCE_FROM_FOREIGN=Z_R_P_U_hermes-de_SET|REDIS_DB=9 redisHomeToForeignReceiveData_Job"
+
+					确认数据有到国内 且更新后有同步更新到宫外表中
+					配置更新
+						script/queueshell/track_queue_conf_update_independent_250.sh
+						"trackExpressQueue trackExpress/resque.php 1 {\"n\":\"Z_T_N_Express_SET\",\"e\":\"Z_T_N_Express_SET\",\"u\":\"\"} ZCARD Z_R_P_U_deutsche-post_SET deutsche-post REDIS_FOREIGN_DB=9
+
+					确认速度是否足够
+
+					国内非0数据库redis处理数据后发送批量集合的代码
+						--待定
+
+			colissimo
+				国外更新国内 源集合Z_R_P_U_colissimo_SET 发送到国外REDIS_FOREIGN_DB=9对应集合进行更新
+				"redisHomeToForeignSendDataQueue inIndependentServerUpdate/resque.php 30 {\"t\":1} ZCARD Z_R_P_U_colissimo_SET colissimo COURIER_UPDATE_IN_INDEPENDENT_KEY_SOURCE_FROM_FOREIGN=Z_R_P_U_colissimo_SET|REDIS_FOREIGN_DB=9 redisHomeToForeignSendData_Job"
+					国内 Z_P_U_colissimo_SET
+					配置更新
+						script/queueshell/track_queue_conf_update_independent_112.sh 
+						"trackPostQueue trackPost/resque.php 1 {\"n\":\"Z_T_N_Post_SET\",\"e\":\"Z_T_N_Post_SET\",\"u\":\"\"} ZCARD Z_R_P_U_colissimo_SET colissimo REDIS_FOREIGN_DB=9"
+			singapore-post
+				"redisHomeToForeignReceiveDataQueue inIndependentServerUpdate/resque.php 1 {\"t\":1} ZCARD Z_P_U_singapore-post_B_SET singapore-post COURIER_UPDATE_IN_INDEPENDENT_KEY_SOURCE_FROM_FOREIGN=Z_P_U_singapore-post_B_SET|REDIS_DB=9 redisHomeToForeignReceiveData_Job"
+		trackSubscribe
+			QUEUE=trackSubscribeQueue COUNT=1  VVERBOSE=2 /usr/local/php7/bin/php   /home/wwwroot/www.trackingmore.com/php-resque/trackSubscribe/resque.php
+			php /home/wwwroot/www.trackingmore.com/php-resque/class.php "{\"className\":\"trackSubscribejob\", \"fileName\":\"trackSubscribejob\", \"upperDir\":\"trackSubscribe\"}" '{"n":"Subscribe_T_Q_SET","e":"Subscribe_T_Q_SET","u":""}'
+
+			D:\xampp\htdocs\trackingmore\trunknk_git\php-resque\inIndependentServerUpdate\redisForeignToHomeSendData_4px_Job.php
+		sendEmail
+			cp /home/wwwroot/www.trackingmore.com/library/sendEmailByQueue.php /home/wwwroot/www.trackingmore.com/library/sendEmailByQueue.php.20230719
+			vi /home/wwwroot/www.trackingmore.com/library/sendEmailByQueue.php
+			diff /home/wwwroot/www.trackingmore.com/library/sendEmailByQueue.php /home/wwwroot/www.trackingmore.com/library/sendEmailByQueue.php.20230719
+			php /home/wwwroot/www.trackingmore.com/php-resque/class.php "{\"className\":\"sendEmailFirst_Job\", \"fileName\":\"sendEmailFirst_Job\", \"upperDir\":\"sendEmail\"}" '{"id":32513843}'
+
+			mv /home/wwwroot/www.trackingmore.com/library/sendEmailByQueue.php.20230719 /home/wwwroot/www.trackingmore.com/library/sendEmailByQueue.php
+			vi /home/wwwroot/www.trackingmore.com/library/sendEmailByQueue.php
+				cp /home/wwwroot/www.trackingmore.com/library/sendEmailByQueue.php.20230719 /home/wwwroot/www.trackingmore.com/library/sendEmailByQueue.php
+				diff /home/wwwroot/www.trackingmore.com/library/sendEmailByQueue.php.20230719 /home/wwwroot/www.trackingmore.com/library/sendEmailByQueue.php
+				rm -f /home/wwwroot/www.trackingmore.com/library/sendEmailByQueue.php.20230719
+
+			tail -1000 /home/wwwroot/www.trackingmore.com/logs/send-email-queue.log | grep 32513843
+
+	20200527 脚本补充 -- sql
+		php /home/wwwroot/www.trackingmore.com/script/test.php '{"u":68923, "n": "9975656785012"}'  test1
+		php /home/wwwroot/www.trackingmore.com/script/test.php '{"st":0, "t": "tr_api_request_log", "f":"{\"userid\":68923}", "fl":"{\"params\":\"9975627774089\"}"}'  test1
+	数据库 rst--redis
+		当前 主要key监控
+		key 清除
+			/usr/local/bin/redis-cli -h r-dh75485170d11c74.redis.rds.aliyuncs.com -p 6379 -a hy6T3eds89 keys *_BIT
+			/usr/local/bin/redis-cli -h r-dh75485170d11c74.redis.rds.aliyuncs.com -p 6379 -a hy6T3eds89 keys *_BIT   |  grep -v '10_20_2\|10_20_3' | xargs -i /usr/local/bin/redis-cli -h r-dh75485170d11c74.redis.rds.aliyuncs.com -p 6379 -a hy6T3eds89  bitcount {}
+			/usr/local/bin/redis-cli -h r-dh75485170d11c74.redis.rds.aliyuncs.com -p 6379 -a hy6T3eds89 keys *_BIT   |  grep -v '10_20_2\|10_20_3' | xargs -i /usr/local/bin/redis-cli -h r-dh75485170d11c74.redis.rds.aliyuncs.com -p 6379 -a hy6T3eds89  del {}
+
+			/usr/local/bin/redis-cli -h r-dh75485170d11c74.redis.rds.aliyuncs.com -p 6379 -a hy6T3eds89 keys *_O_*SET
+			/usr/local/bin/redis-cli -h r-dh75485170d11c74.redis.rds.aliyuncs.com -p 6379 -a hy6T3eds89 keys *_O_*SET | xargs -i /usr/local/bin/redis-cli -h r-dh75485170d11c74.redis.rds.aliyuncs.com -p 6379 -a hy6T3eds89  scard {}
+			/usr/local/bin/redis-cli -h r-dh75485170d11c74.redis.rds.aliyuncs.com -p 6379 -a hy6T3eds89 keys *_O_*SET | xargs -i /usr/local/bin/redis-cli -h r-dh75485170d11c74.redis.rds.aliyuncs.com -p 6379 -a hy6T3eds89  zcard {}
+			/usr/local/bin/redis-cli -h r-dh75485170d11c74.redis.rds.aliyuncs.com -p 6379 -a hy6T3eds89 keys *_O_*SET | xargs -i /usr/local/bin/redis-cli -h r-dh75485170d11c74.redis.rds.aliyuncs.com -p 6379 -a hy6T3eds89  DEL {}
+				Z_H_O_B_Post_SET
+
+			/usr/local/bin/redis-cli -h r-dh75485170d11c74.redis.rds.aliyuncs.com -p 6379 -a hy6T3eds89 keys lasteffictUserNumber*
+			/usr/local/bin/redis-cli -h r-dh75485170d11c74.redis.rds.aliyuncs.com -p 6379 -a hy6T3eds89 keys lasteffictUserNumber* | xargs -i /usr/local/bin/redis-cli -h r-dh75485170d11c74.redis.rds.aliyuncs.com -p 6379 -a hy6T3eds89  scard {} | sort -nrk1 | head -20
+
+			/usr/local/bin/redis-cli -h r-dh75485170d11c74.redis.rds.aliyuncs.com -p 6379 -a hy6T3eds89 keys lasteffictUserNumber* | xargs -i /usr/local/bin/redis-cli -h r-dh75485170d11c74.redis.rds.aliyuncs.com -p 6379 -a hy6T3eds89  DEL {}
+
+			/usr/local/bin/redis-cli -h r-dh75485170d11c74.redis.rds.aliyuncs.com -p 6379 -a hy6T3eds89 keys *_Import_* | grep -v 202004
+			/usr/local/bin/redis-cli -h r-dh75485170d11c74.redis.rds.aliyuncs.com -p 6379 -a hy6T3eds89 keys *_Import_* | grep -v 202004 | xargs -i /usr/local/bin/redis-cli -h r-dh75485170d11c74.redis.rds.aliyuncs.com -p 6379 -a hy6T3eds89  DEL {}
+
+			/usr/local/bin/redis-cli -h r-dh75485170d11c74.redis.rds.aliyuncs.com -p 6379 -a hy6T3eds89 keys *emp*  | xargs -i /usr/local/bin/redis-cli -h r-dh75485170d11c74.redis.rds.aliyuncs.com -p 6379 -a hy6T3eds89 del {}
+				xargs: unmatched double quote; by default quotes are special to xargs unless you use the -0 option
+			/usr/local/bin/redis-cli -h r-dh75485170d11c74.redis.rds.aliyuncs.com -p 6379 -a hy6T3eds89 keys *_2019*emp   | wc -l
+			/usr/local/bin/redis-cli -h r-dh75485170d11c74.redis.rds.aliyuncs.com -p 6379 -a hy6T3eds89 keys *_2019*empF   | wc -l
+			/usr/local/bin/redis-cli -h r-dh75485170d11c74.redis.rds.aliyuncs.com -p 6379 -a hy6T3eds89 keys *_2019*emp   | xargs -i /usr/local/bin/redis-cli -h r-dh75485170d11c74.redis.rds.aliyuncs.com -p 6379 -a hy6T3eds89 del {} > /dev/null
+			/usr/local/bin/redis-cli -h r-dh75485170d11c74.redis.rds.aliyuncs.com -p 6379 -a hy6T3eds89 keys *_2019*empF   | xargs -i /usr/local/bin/redis-cli -h r-dh75485170d11c74.redis.rds.aliyuncs.com -p 6379 -a hy6T3eds89 del {} > /dev/null
+
+			*_2020*_free_proxy
+			*_2020*_free_proxyab
+			*_2020*_gsaproxy
+			*_2020*_gsaproxyab
+			*_2020*_17app5
+			*_2020*_17app5ab
+			*_2020*_m_proxy
+			*_2020*_m_proxyab
+			/usr/local/bin/redis-cli -h r-dh75485170d11c74.redis.rds.aliyuncs.com -p 6379 -a hy6T3eds89 keys *_2020*proxy | wc -l
+			/usr/local/bin/redis-cli -h r-dh75485170d11c74.redis.rds.aliyuncs.com -p 6379 -a hy6T3eds89 keys *_2020*proxyab | wc -l
+			/usr/local/bin/redis-cli -h r-dh75485170d11c74.redis.rds.aliyuncs.com -p 6379 -a hy6T3eds89 keys *_2020*proxy   | xargs -i /usr/local/bin/redis-cli -h r-dh75485170d11c74.redis.rds.aliyuncs.com -p 6379 -a hy6T3eds89 get {}
+			/usr/local/bin/redis-cli -h r-dh75485170d11c74.redis.rds.aliyuncs.com -p 6379 -a hy6T3eds89 keys *_2020*proxy   | xargs -i /usr/local/bin/redis-cli -h r-dh75485170d11c74.redis.rds.aliyuncs.com -p 6379 -a hy6T3eds89 del {} > /dev/null
+			/usr/local/bin/redis-cli -h r-dh75485170d11c74.redis.rds.aliyuncs.com -p 6379 -a hy6T3eds89 keys *_2020*proxyab   | xargs -i /usr/local/bin/redis-cli -h r-dh75485170d11c74.redis.rds.aliyuncs.com -p 6379 -a hy6T3eds89 del {} > /dev/null
+			/usr/local/bin/redis-cli -h r-dh75485170d11c74.redis.rds.aliyuncs.com -p 6379 -a hy6T3eds89 keys *_2020*_17app5 | wc -l
+			/usr/local/bin/redis-cli -h r-dh75485170d11c74.redis.rds.aliyuncs.com -p 6379 -a hy6T3eds89 keys *_2020*_17app5ab | wc -l
+
+			find /home/wwwroot/www.trackingmore.com/library -name \* -type f -print | xargs grep "SADD" -C 2
+				scard sql_error_SET
+					9103
+				/usr/local/bin/redis-cli -h r-dh75485170d11c74.redis.rds.aliyuncs.com -p 6379 -a hy6T3eds89 sscan sql_error_SET 0 match '*timed out*' count 10000000 | wc -l
+					5829
+				/usr/local/bin/redis-cli -h r-dh75485170d11c74.redis.rds.aliyuncs.com -p 6379 -a hy6T3eds89 sscan sql_error_SET 0 match '2019-12-06*' count 10000000 | grep -v 'timed out'
+					Connection refused
+				/usr/local/bin/redis-cli -h r-dh75485170d11c74.redis.rds.aliyuncs.com -p 6379 -a hy6T3eds89 sscan sql_error_SET 0 match '*Connection refused*' count 10000000 | wc -l
+					23197
+				/usr/local/bin/redis-cli -h r-dh75485170d11c74.redis.rds.aliyuncs.com -p 6379 -a hy6T3eds89 sscan sql_error_SET 0 match '2019-12-06*' count 10000000 | grep -v 'timed out\|Connection refused'
+					stream closed ==
+					部分没有 lastError
+				/usr/local/bin/redis-cli -h r-dh75485170d11c74.redis.rds.aliyuncs.com -p 6379 -a hy6T3eds89 sscan sql_error_SET 0 match '*lastError*' count 10000000 | wc -l
+				/usr/local/bin/redis-cli -h r-dh75485170d11c74.redis.rds.aliyuncs.com -p 6379 -a hy6T3eds89 sscan sql_error_SET 0 match '*lastQuery*' count 10000000 | wc -l
+				/usr/local/bin/redis-cli -h r-dh75485170d11c74.redis.rds.aliyuncs.com -p 6379 -a hy6T3eds89 sscan sql_error_SET 0 match '*pos*' count 10000000 | wc -l
+					36413
+
+			全面排查 新增过期时间设置
+
+		待优化key
+			Err:china-post
+			Z_H_O_B_Post_SET
+
+	队列 rst--rq
+		grep stNe test_courier.log| wc -l
+		grep Express test_courier.log| wc -l
+		grep Post test_courier.log| wc -l
+
+		grep true test_courier.log | wc -l
+		grep false test_courier.log | wc -l
+
+		相关检查
+
+			ps aux | grep trackPost/ | grep -v grep | wc -l
+			ps aux | grep trackPost1 | grep -v grep | wc -l
+			ps aux | grep trackPost2 | grep -v grep | wc -l
+			ps aux | grep trackPost3 | grep -v grep | wc -l
+			ps aux | grep trackPost4 | grep -v grep | wc -l
+			ps aux | grep trackPost5 | grep -v grep | wc -l
+
+			ps aux | grep trackExpress/ | grep -v grep | wc -l
+			ps aux | grep trackExpress1/ | grep -v grep | wc -l
+			ps aux | grep trackExpress2/ | grep -v grep | wc -l
+			ps aux | grep trackExpress3/ | grep -v grep | wc -l
+			ps aux | grep trackExpress4/ | grep -v grep | wc -l
+			ps aux | grep trackFirstNew/ | grep -v grep | wc -l
+			ps aux | grep trackFirstNew1/ | grep -v grep | wc -l
+			ps aux | grep trackFirstNew2/ | grep -v grep | wc -l
+			ps aux | grep trackFirstNew3/ | grep -v grep | wc -l
+			ps aux | grep trackPostShein | grep -v grep | wc -l
+			ps aux | grep trackPostSpecial | grep -v grep | wc -l
+			ps aux | grep trackExpressSpecial | grep -v grep | wc -l
+			ps aux | grep webhook/ | grep -v grep | wc -l
+			ps aux | grep webhook1 | grep -v grep | wc -l
+			ps aux | grep webhook2 | grep -v grep | wc -l
+
+			37
+
+ps aux | grep trackPost1 | grep -v grep | wc -l
+ps aux | grep trackPost2 | grep -v grep | wc -l
+ps aux | grep trackPost3 | grep -v grep | wc -l
+ps aux | grep trackPost4 | grep -v grep | wc -l
+ps aux | grep trackPost5 | grep -v grep | wc -l
+
+ps aux | grep trackExpress/ | grep -v grep | wc -l
+ps aux | grep trackExpress1/ | grep -v grep | wc -l
+ps aux | grep trackFirstNew/ | grep -v grep | wc -l
+ps aux | grep trackFirstNew1/ | grep -v grep | wc -l
+ps aux | grep trackFirstNew2/ | grep -v grep | wc -l
+ps aux | grep trackFirstNew3/ | grep -v grep | wc -l
+ps aux | grep trackPostSpecial | grep -v grep | wc -l
+ps aux | grep trackExpressSpecial | grep -v grep | wc -l
+
+
+			121
+
+			ps aux | grep trackPost/ | grep -v grep | wc -l
+			ps aux | grep trackPost1 | grep -v grep | wc -l
+			ps aux | grep trackPost2 | grep -v grep | wc -l
+			ps aux | grep trackPost3 | grep -v grep | wc -l
+			ps aux | grep trackPost4 | grep -v grep | wc -l
+			ps aux | grep trackPost5 | grep -v grep | wc -l
+
+			ps aux | grep trackExpress/ | grep -v grep | wc -l
+			ps aux | grep trackExpress1/ | grep -v grep | wc -l
+			ps aux | grep trackExpress2/ | grep -v grep | wc -l
+			ps aux | grep trackExpress3/ | grep -v grep | wc -l
+			ps aux | grep trackExpress4/ | grep -v grep | wc -l
+			ps aux | grep trackFirstNew/ | grep -v grep | wc -l
+			ps aux | grep trackFirstNew1/ | grep -v grep | wc -l
+			ps aux | grep trackFirstNew2/ | grep -v grep | wc -l
+			ps aux | grep trackFirstNew3/ | grep -v grep | wc -l
+			ps aux | grep trackPostShein | grep -v grep | wc -l
+			ps aux | grep trackPostSpecial | grep -v grep | wc -l
+			ps aux | grep trackExpressSpecial | grep -v grep | wc -l
+			ps -ef | grep trackEPCode/ | wc -l
+			ps -ef | grep trackEPCode1/ | wc -l
+			ps aux | grep webhook/ | grep -v grep | wc -l
+			ps aux | grep webhook1 | grep -v grep | wc -l
+			ps aux | grep webhook2 | grep -v grep | wc -l
+
+
+			kill -s 14 `ps -ef | grep trackExpressSpecial/ | sort -nrk3 | grep -v grep | awk '{print $2}'`
+
+
+
+			sar -q | tail -10
+			sar -r | tail -10
+			sar | tail -10
+
+全部都是报错的
+sqlError22895----22895单独的报错
+
+sqlError---------除了下面的其他报错
+sqlErrorTimeout--超时
+sqlErrorToomany--连接数过多
+
+	重启rst--
+			kill -s 3 `ps aux | grep 'trackFirstN' | grep -v grep | awk '{print $2}'`
+			kill -s 3 `ps aux | grep 'trackExpressSpecial\|trackPostShein\|trackPostSpecial' | grep -v grep | awk '{print $2}'`
+
+			kill -s 3 `ps aux | grep 'webhook' | grep -v grep | awk '{print $2}'`
+
+			kill -s 3 `ps aux | grep 'trackE\|trackP\|trackF' | grep -v grep | awk '{print $2}'`
+			ps aux | grep 'trackE\|trackP\|trackF' | grep -v grep | wc -l
+
+			kill -s 3 `ps aux | grep 'trackP\|trackF' | grep -v 'grep\|Batch' | awk '{print $2}'`
+			ps aux | grep 'trackP\|trackF' | grep -v grep | wc -l
+
+			kill -s 3 `ps aux | grep 'trackE\|trackF' | grep -v grep | awk '{print $2}'`
+			ps aux | grep 'trackE\|trackF' | grep -v grep | wc -l
+
+			kill -s 3 `ps aux | grep 'trackE\|trackP' | grep -v grep | awk '{print $2}'`
+			ps aux | grep 'trackE\|trackP' | grep -v grep | wc -l
+
+			kill -s 3 `ps aux | grep 'trackP\|trackExpressSpecial\|trackF' | grep -v grep | awk '{print $2}'`
+			ps aux | grep 'trackP\|trackExpressSpecial\|trackF' | grep -v grep | wc -l
+			
+			kill -s 3 `ps aux | grep 'trackExpressShein\|trackExpressSpecial' | grep -v grep | awk '{print $2}'`
+			ps aux | grep 'trackExpressShein\|trackExpressSpecial' | grep -v grep | wc -l
+			kill -s 3 `ps aux | grep 'trackPostShein\|trackPostSpecial' | grep -v grep | awk '{print $2}'`
+			ps aux | grep 'trackPostShein\|trackPostSpecial' | grep -v grep | wc -l
+
+			kill -s 14 `ps aux | grep 'trackExpress/' | grep -v grep | awk '{print $2}'`
+			kill -s 14 `ps aux | grep 'trackP' | grep -v grep | awk '{print $2}'`
+
+			kill -s 3 `ps aux | grep 'trackExpressSpephp-cial' | grep -v grep | awk '{print $2}'`
+			kill -s 3 `ps aux | grep Express4 | grep -v grep | awk '{print $2}'`
+			kill -s 3 `ps aux | grep Post | grep -v grep | awk '{print $2}'`
+
+			kill -s 12 `ps aux | grep Post | grep -v grep | awk '{print $2}'`
+
+			kill -s 12 `ps aux | grep Post/ | grep -v grep | awk '{print $2}'`
+			ps aux | grep Post/ | grep -v grep | wc -l
+			kill -s 12 `ps aux | grep trackFirstNew | grep -v grep | awk '{print $2}'`
+			kill -s 9 `ps aux | grep M1Globalpost | grep -v grep | awk '{print $2}'`
+			kill -s 12 `ps aux | grep Post | Express | grep -v grep | awk '{print $2}'`
+
+			trackFirstNew1
+			kill -s 14 `ps aux | grep trackFirstNew1 | grep -v grep | awk '{print $2}'`
+			
+			ps aux | grep -E 'Post|Expres|Firs' | grep -v grep | wc -l
+
+			ps aux | grep resque | grep -v Post | grep -v Expre | grep -v Fir | grep -v grep | wc -l
+
+			ps aux | grep webhoo | grep -v grep | wc -l
+			kill -s 14 `ps aux | grep webhoo | grep -v grep | awk '{print $2}'`
+
+			ps aux | grep resque | grep -v Post | grep -v Expre | grep -v Fir | grep -v grep | grep -v webhoo | wc -l
+			
+			ps aux | grep M1Globalpost | grep -v grep | wc -l
+			kill -s 14 `ps aux | grep M1Globalpost | grep -v grep | awk '{print $2}'`
+			
+			ps aux | grep resque | grep -v Post | grep -v Expre | grep -v Fir | grep -v grep | grep -v webhoo | grep -v M1Globalpost | wc -l
+			ps aux | grep trackEPCode | grep -v grep | wc -l
+			kill -s 14 `ps aux | grep trackEPCode | grep -v grep | awk '{print $2}'`
+
+			ps aux | grep resque | grep -v Post | grep -v Expre | grep -v Fir | grep -v grep | grep -v webhoo | grep -v M1Globalpost | grep -v trackEPCode | wc -l
+			
+			ps aux | grep resque | grep -v Post | grep -v Expre | grep -v Fir | grep -v grep | grep -v webhoo | grep -v M1Globalpost | grep -v trackEPCode | grep -v platefromPddByOrderNew | wc -l
+			kill -s 14 `ps aux | grep resque | grep -v Post | grep -v Expre | grep -v Fir | grep -v grep | grep -v webhoo | grep -v M1Globalpost | grep -v trackEPCode | grep -v platefromPddByOrderNew | awk '{print $2}'`
+
+			ps aux | grep platefromPddByOrderNew | grep -v grep | wc -l
+
+		kill -s 14 `ps aux | grep trackPost5 | grep -v grep | awk '{print $2}'`
+
+		kill -s 12 `ps aux | grep -E "trackPost5|trackPost4" | grep -v grep | awk '{print $2}'`
+		 ps -ef | grep trackPost5 | grep -v grep | sort -nrk6 
+		kill -s 12 `ps aux | grep -E "trackPost3|trackPost2" | grep -v grep | awk '{print $2}'`
+
+
+
+		kill -s 12 `ps aux | grep -E 'trackPost\|trackFirst' | grep -v grep | awk '{print $2}'`
+		kill -s 12 `ps aux | grep -E "trackPost|trackFirst" | grep -v grep | awk '{print $2}'`
+
+		kill -s 12 `ps aux | grep trackExpress | grep -v grep | awk '{print $2}'`
+
+		kill -s 12 `ps aux | grep -E "trackPost3|trackPost2" | grep -v grep | tail -10 | head -10 | awk '{print $2}'`
+		kill -s 12 `ps aux | grep -E "trackPost3|trackPost2" | grep -v grep | tail -20 | head -10 | awk '{print $2}'`
+		kill -s 12 `ps aux | grep -E "trackPost3|trackPost2" | grep -v grep | tail -30 | head -10 | awk '{print $2}'`
+		kill -s 12 `ps aux | grep -E "trackPost3|trackPost2" | grep -v grep | tail -40 | head -10 | awk '{print $2}'`
+		kill -s 12 `ps aux | grep -E "trackPost3|trackPost2" | grep -v grep | tail -50 | head -10 | awk '{print $2}'`
+		kill -s 12 `ps aux | grep -E "trackPost3|trackPost2" | grep -v grep | tail -100 | head -50 | awk '{print $2}'`
+		kill -s 12 `ps aux | grep -E "trackPost3|trackPost2" | grep -v grep | tail -200 | head -100 | awk '{print $2}'`
+		kill -s 12 `ps aux | grep -E "trackPost3|trackPost2" | grep -v grep | tail -300 | head -100 | awk '{print $2}'`
+		kill -s 12 `ps aux | grep -E "trackPost3|trackPost2" | grep -v grep | tail -400 | head -100 | awk '{print $2}'`
+
+
+		kill -s 12 `ps aux | grep -E 'trackPostSpecial|trackExpressSpecial' | grep -v grep | awk '{print $2}'`
+		kill -s 12 `ps aux | grep 'trackExpressSpecial' | grep -v grep | awk '{print $2}'`
+		ps aux | grep 'trackExpressSpecial' | grep -v grep | sort -nrk6 | wc -l
+		kill -s 12 `ps aux | grep -E 'trackPost|trackExpress' | grep -v grep | awk '{print $2}'`
+		kill -s 12 `ps aux | grep 'trackExpress' | grep -v grep | awk '{print $2}'`
+
+		kill -s 12 `ps aux | grep 'trackFirstNew' | grep -v grep | awk '{print $2}'`
+		ps aux | grep 'trackFirstNew' | grep -v grep | sort -nrk6 | wc -l
+
+		ps -ef | grep defun | sort -nrk5 | grep 14:51 | head -100 | tail -100
+
+		kill -s 9 `ps aux | grep 'proxy' | grep -v grep | awk '{print $2}'`
+		ps aux | grep 'proxy' | grep -v grep | wc -l
+		kill -s 18 `ps aux | grep 'resque' | grep -v grep | awk '{print $2}'`
+
+		kill -s 12 `ps aux | grep 'trackExpressShein' | grep -v grep | awk '{print $2}'`
+		ps aux | grep 'trackExpressShein' | grep -v grep | sort -nrk6 | wc -l
+		kill -s 12 `ps aux | grep 'trackPostSpecial' | grep -v grep | awk '{print $2}'`
+		ps aux | grep 'trackPostSpecial' | grep -v grep | sort -nrk6 | wc -l
+		kill -s 12 `ps aux | grep 'trackExpressShein' | grep -v grep | awk '{print $2}'`
+		ps aux | grep 'trackExpressShein' | grep -v grep | sort -nrk6 | wc -l
+
+				kill -s 14 `ps aux|grep trackPost1/ | awk '{print $2}'`
+		首次查询
+			110*2 97 122
+				kill -s 14 `ps aux|grep First | awk '{print $2}'`
+			122
+				kill -s 14 `ps aux|grep FirstUser | awk '{print $2}'`
+		普通快递
+			110 122 208 63
+				kill -s 14 `ps aux|grep trackExpress | awk '{print $2}'`
+				kill -s 14 `ps aux|grep trackExpress/resque.php`
+				kill -s 14 `ps aux|grep trackExpress1/resque.php`
+				kill -s 14 `ps aux|grep trackExpress2/resque.php`
+				kill -s 14 `ps aux|grep trackExpress3/resque.php`
+				kill -s 14 `ps aux|grep trackExpress4/resque.php`
+				kill -s 14 `ps aux|grep trackExpress5/resque.php`
+				kill -s 14 `ps aux|grep trackExpress6/resque.php`
+			110
+				kill -s 14 `ps aux|grep trackExpress7/resque.php`
+
+		特殊快递
+			122 63 110
+				kill -s 14 `ps aux|grep trackExpressSpecial/resque.php`
+				kill -s 14 `ps aux|grep trackExpressSpecial | awk '{print $2}'`
+				kill -s 14 `ps aux|grep trackPostSpecial/resque.php`
+				QUEUE=trackPostQueueSpecial COUNT=20  VVERBOSE=1 /usr/local/php7/bin/php   /home/wwwroot/www.trackingmore.com/php-resque/trackPostSpecial/resque.php
+		crontab 
+			110
+				FI trackExpress trackExpressSpecial
+					start_Express_queue.sh
+					/start_FIRST_queue.sh
+					/start_FIRST_queue1.sh
+					start_Express_Special_queue_count_20
+			97
+				FI
+					start_FIRST_queue.sh
+			63
+				FI trackExpressSpecial
+					start_FIRST_User_queue
+					start_Express_Special_queue_count_20
+			122
+				trackExpress trackExpressSpecial
+					start_Express_queue
+					start_Express_Special_queue
+					start_Post_Special_queue
+
+			kill -s 14 `ps aux|grep trackExpressSpecial | awk '{print $2}'`
+
+	应急rst
+
+kill -s 12 `ps aux | grep resque | grep -v grep | awk '{print $2}'`
+kill -s 12 `ps aux | grep resque | grep -v grep | tail -10 | head -10 | awk '{print $2}'`
+kill -s 12 `ps aux | grep resque | grep -v grep | tail -20 | head -10 | awk '{print $2}'`
+kill -s 12 `ps aux | grep resque | grep -v grep | tail -30 | head -10 | awk '{print $2}'`
+kill -s 12 `ps aux | grep resque | grep -v grep | tail -40 | head -10 | awk '{print $2}'`
+kill -s 12 `ps aux | grep resque | grep -v grep | tail -50 | head -10 | awk '{print $2}'`
+kill -s 12 `ps aux | grep resque | grep -v grep | tail -100 | head -50 | awk '{print $2}'`
+kill -s 12 `ps aux | grep resque | grep -v grep | tail -200 | head -100 | awk '{print $2}'`
+kill -s 12 `ps aux | grep resque | grep -v grep | tail -300 | head -100 | awk '{print $2}'`
+kill -s 12 `ps aux | grep resque | grep -v grep | tail -400 | head -100 | awk '{print $2}'`
+kill -s 12 `ps aux | grep resque | grep -v grep | tail -500 | head -100 | awk '{print $2}'`
+kill -s 12 `ps aux | grep resque | grep -v grep | tail -600 | head -100 | awk '{print $2}'`
+kill -s 12 `ps aux | grep resque | grep -v grep | tail -700 | head -100 | awk '{print $2}'`
+kill -s 12 `ps aux | grep resque | grep -v grep | tail -800 | head -100 | awk '{print $2}'`
+kill -s 12 `ps aux | grep resque | grep -v grep | tail -900 | head -100 | awk '{print $2}'`
+kill -s 12 `ps aux | grep resque | grep -v grep | tail -1000 | head -100 | awk '{print $2}'`
+kill -s 12 `ps aux | grep resque | grep -v grep | tail -1100 | head -100 | awk '{print $2}'`
+kill -s 12 `ps aux | grep resque | grep -v grep | tail -1200 | head -100 | awk '{print $2}'`
+kill -s 12 `ps aux | grep resque | grep -v grep | tail -1300 | head -100 | awk '{print $2}'`
+kill -s 12 `ps aux | grep resque | grep -v grep | tail -1400 | head -100 | awk '{print $2}'`
+kill -s 12 `ps aux | grep resque | grep -v grep | tail -1500 | head -100 | awk '{print $2}'`
+kill -s 12 `ps aux | grep resque | grep -v grep | tail -1600 | head -100 | awk '{print $2}'`
+kill -s 12 `ps aux | grep resque | grep -v grep | tail -1700 | head -100 | awk '{print $2}'`
+kill -s 12 `ps aux | grep resque | grep -v grep | tail -1800 | head -100 | awk '{print $2}'`
+kill -s 12 `ps aux | grep resque | grep -v grep | tail -1900 | head -100 | awk '{print $2}'`
+kill -s 12 `ps aux | grep resque | grep -v grep | tail -2000 | head -100 | awk '{print $2}'`
+kill -s 12 `ps aux | grep resque | grep -v grep | tail -2100 | head -100 | awk '{print $2}'`
+kill -s 12 `ps aux | grep resque | grep -v grep | tail -2200 | head -100 | awk '{print $2}'`
+kill -s 12 `ps aux | grep resque | grep -v grep | tail -2300 | head -100 | awk '{print $2}'`
+kill -s 12 `ps aux | grep resque | grep -v grep | tail -2400 | head -100 | awk '{print $2}'`
+kill -s 12 `ps aux | grep resque | grep -v grep | tail -2500 | head -100 | awk '{print $2}'`
+kill -s 12 `ps aux | grep resque | grep -v grep | tail -2600 | head -100 | awk '{print $2}'`
+kill -s 12 `ps aux | grep resque | grep -v grep | tail -2700 | head -100 | awk '{print $2}'`
+kill -s 12 `ps aux | grep resque | grep -v grep | tail -2800 | head -100 | awk '{print $2}'`
+kill -s 12 `ps aux | grep resque | grep -v grep | tail -2900 | head -100 | awk '{print $2}'`
+kill -s 12 `ps aux | grep resque | grep -v grep | tail -2000 | head -100 | awk '{print $2}'`
+kill -s 12 `ps aux | grep resque | grep -v grep | tail -3100 | head -100 | awk '{print $2}'`
+kill -s 12 `ps aux | grep resque | grep -v grep | tail -3200 | head -100 | awk '{print $2}'`
+kill -s 12 `ps aux | grep resque | grep -v grep | tail -3300 | head -100 | awk '{print $2}'`
+kill -s 12 `ps aux | grep resque | grep -v grep | tail -3400 | head -100 | awk '{print $2}'`
+kill -s 12 `ps aux | grep resque | grep -v grep | tail -3500 | head -100 | awk '{print $2}'`
+kill -s 12 `ps aux | grep resque | grep -v grep | tail -3600 | head -100 | awk '{print $2}'`
+kill -s 12 `ps aux | grep resque | grep -v grep | tail -3700 | head -100 | awk '{print $2}'`
+kill -s 12 `ps aux | grep resque | grep -v grep | tail -3800 | head -100 | awk '{print $2}'`
+kill -s 12 `ps aux | grep resque | grep -v grep | tail -3900 | head -100 | awk '{print $2}'`
+kill -s 12 `ps aux | grep resque | grep -v grep | tail -4000 | head -100 | awk '{print $2}'`
+kill -s 12 `ps aux | grep resque | grep -v grep | tail -4100 | head -100 | awk '{print $2}'`
+kill -s 12 `ps aux | grep resque | grep -v grep | tail -4200 | head -100 | awk '{print $2}'`
+kill -s 12 `ps aux | grep resque | grep -v grep | tail -4300 | head -100 | awk '{print $2}'`
+kill -s 12 `ps aux | grep resque | grep -v grep | tail -4400 | head -100 | awk '{print $2}'`
+kill -s 12 `ps aux | grep resque | grep -v grep | tail -4500 | head -100 | awk '{print $2}'`
+kill -s 12 `ps aux | grep resque | grep -v grep | tail -4600 | head -100 | awk '{print $2}'`
+kill -s 12 `ps aux | grep resque | grep -v grep | tail -4700 | head -100 | awk '{print $2}'`
+kill -s 12 `ps aux | grep resque | grep -v grep | tail -4800 | head -100 | awk '{print $2}'`
+kill -s 12 `ps aux | grep resque | grep -v grep | tail -4900 | head -100 | awk '{print $2}'`
+kill -s 12 `ps aux | grep resque | grep -v grep | tail -5000 | head -100 | awk '{print $2}'`
+
+
+sql
+	partition
+		CREATE TABLE `tr_user_webhook_log_n` (
+		`id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+		`create_time` datetime NOT NULL,
+		PRIMARY KEY (`id`,`create_time`)
+		) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='webhook队列日志';
+
+
+		ALTER TABLE tr_user_webhook_log_n
+		partition by range(HOUR(create_time))
+		(
+		partition p1 values less than (2),
+		partition p2 values less than (3),
+		partition p3 values less than (4),
+		partition p4 values less than (5),
+		partition p5 values less than (6),
+		partition p6 values less than (7),
+		partition p7 values less than (8),
+		partition p8 values less than (9),
+		partition p9 values less than (10),
+		partition p10 values less than (11),
+		partition p11 values less than (12),
+		partition p12 values less than (13),
+		partition p13 values less than (14),
+		partition p14 values less than (15),
+		partition p15 values less than (16),
+		partition p16 values less than (17),
+		partition p17 values less than (18),
+		partition p18 values less than (19),
+		partition p19 values less than (20),
+		partition p20 values less than (21),
+		partition p21 values less than (22),
+		partition p22 values less than (23),
+		partition p23 values less than (24)
+		#partition p25 values less than maxvalue
+		);
+
+		insert into tr_user_webhook_log_n value (1, unix_timestamp());
+
+
+		 CREATE TABLE `tr_user_webhook_log` (
+		  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+		  `userid` int(11) unsigned NOT NULL COMMENT '用户id',
+		  `track_number` char(40) COLLATE utf8_unicode_ci NOT NULL COMMENT '单号',
+		  `courier` char(100) COLLATE utf8_unicode_ci NOT NULL COMMENT '快递公司',
+		  `track_status` tinyint(2) NOT NULL DEFAULT '0' COMMENT '最新状态',
+		  `content` text COLLATE utf8_unicode_ci NOT NULL COMMENT '日志信息',
+		  `create_time` int(11) unsigned NOT NULL,
+		  `ct` datetime NOT NULL,
+		  `update_time` int(11) unsigned NOT NULL,
+		  `status` tinyint(1) NOT NULL DEFAULT '0' COMMENT '0,未设置推送。1，推送成功。2，推送失败',
+		  PRIMARY KEY (`id`,`ct`),
+		  KEY `userid` (`userid`),
+		  KEY `utet` (`userid`,`track_number`,`courier`,`create_time`),
+		  KEY `ts` (`track_status`)
+		) ENGINE=InnoDB AUTO_INCREMENT=654346857 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=DYNAMIC COMMENT='webhook队列日志'
+		/*!50100 PARTITION BY RANGE (WEEKDAY(ct))
+		(PARTITION p0 VALUES LESS THAN (1) ENGINE = InnoDB,
+		 PARTITION p1 VALUES LESS THAN (2) ENGINE = InnoDB,
+		 PARTITION p2 VALUES LESS THAN (3) ENGINE = InnoDB,
+		 PARTITION p3 VALUES LESS THAN (4) ENGINE = InnoDB,
+		 PARTITION p4 VALUES LESS THAN (5) ENGINE = InnoDB,
+		 PARTITION p5 VALUES LESS THAN (6) ENGINE = InnoDB,
+		 PARTITION p6 VALUES LESS THAN (7) ENGINE = InnoDB) */
+
+
+		 CREATE TABLE `tr_api_request_log` (
+		  `id` int(11) NOT NULL AUTO_INCREMENT,
+		  `api_key` char(100) COLLATE utf8_unicode_ci NOT NULL,
+		  `ip` char(50) COLLATE utf8_unicode_ci NOT NULL,
+		  `api_path` char(50) COLLATE utf8_unicode_ci NOT NULL,
+		  `create_time` int(11) unsigned NOT NULL,
+		  `update_time` int(11) DEFAULT NULL,
+		  `params` varchar(1000) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '参数',
+		  `code` char(10) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '状态代码',
+		  `version` char(4) COLLATE utf8_unicode_ci NOT NULL COMMENT 'api版本',
+		  `method` char(5) COLLATE utf8_unicode_ci NOT NULL COMMENT '提交数据的方法(get,post,put)',
+		  `category` char(20) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '类别',
+		  `userid` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '关联用户表id',
+		  PRIMARY KEY (`id`,`create_time`),
+		  KEY `index_name` (`api_key`,`create_time`,`userid`),
+		  KEY `index_user_id` (`userid`),
+		  KEY `index_api_key` (`api_key`)
+		) ENGINE=InnoDB AUTO_INCREMENT=776762 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=DYNAMIC COMMENT='api请求日志'
+		/*!50100 PARTITION BY RANGE (create_time)
+		(PARTITION p10 VALUES LESS THAN (1527782400) ENGINE = InnoDB,
+		 PARTITION p11 VALUES LESS THAN (1530374400) ENGINE = InnoDB,
+		 PARTITION p12 VALUES LESS THAN (1533052800) ENGINE = InnoDB,
+		 PARTITION p13 VALUES LESS THAN (1535731200) ENGINE = InnoDB,
+		 PARTITION p14 VALUES LESS THAN (1538323200) ENGINE = InnoDB,
+		 PARTITION p15 VALUES LESS THAN (1541001600) ENGINE = InnoDB,
+		 PARTITION p16 VALUES LESS THAN (1543593600) ENGINE = InnoDB,
+		 PARTITION p21 VALUES LESS THAN (1546272000) ENGINE = InnoDB,
+		 PARTITION p22 VALUES LESS THAN (1548950400) ENGINE = InnoDB,
+		 PARTITION p23 VALUES LESS THAN (1551369600) ENGINE = InnoDB,
+		 PARTITION p24 VALUES LESS THAN (1554048000) ENGINE = InnoDB,
+		 PARTITION p25 VALUES LESS THAN (1556640000) ENGINE = InnoDB,
+		 PARTITION p26 VALUES LESS THAN (1559318400) ENGINE = InnoDB,
+		 PARTITION p27 VALUES LESS THAN (1561910400) ENGINE = InnoDB,
+		 PARTITION p28 VALUES LESS THAN (1564588800) ENGINE = InnoDB,
+		 PARTITION p29 VALUES LESS THAN (1567267200) ENGINE = InnoDB,
+		 PARTITION p30 VALUES LESS THAN (1569859200) ENGINE = InnoDB,
+		 PARTITION p31 VALUES LESS THAN (1572537600) ENGINE = InnoDB,
+		 PARTITION p32 VALUES LESS THAN (1575129600) ENGINE = InnoDB,
+		 PARTITION p33 VALUES LESS THAN MAXVALUE ENGINE = InnoDB) */
+
+
+
+
+		 CREATE TABLE `tr_api_request_log_n` (
+		  `id` int(11) NOT NULL AUTO_INCREMENT,
+		  `api_key` char(100) COLLATE utf8_unicode_ci NOT NULL,
+		  `ip` char(50) COLLATE utf8_unicode_ci NOT NULL,
+		  `api_path` char(50) COLLATE utf8_unicode_ci NOT NULL,
+		  `create_time` int(11) unsigned NOT NULL,
+		  `update_time` int(11) DEFAULT NULL,
+		  `params` varchar(1000) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '参数',
+		  `code` char(10) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '状态代码',
+		  `version` char(4) COLLATE utf8_unicode_ci NOT NULL COMMENT 'api版本',
+		  `method` char(5) COLLATE utf8_unicode_ci NOT NULL COMMENT '提交数据的方法(get,post,put)',
+		  `category` char(20) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '类别',
+		  `userid` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '关联用户表id',
+		  PRIMARY KEY (`id`,`create_time`),
+		  KEY `index_name` (`api_key`,`create_time`,`userid`),
+		  KEY `index_user_id` (`userid`),
+		  KEY `index_api_key` (`api_key`)
+		) ENGINE=InnoDB AUTO_INCREMENT=776762 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=DYNAMIC COMMENT='api请求日志'
+		/*!50100 PARTITION BY RANGE (create_time)
+		 (PARTITION p20190220 VALUES LESS THAN (1550678400) ENGINE = InnoDB,
+		 PARTITION p20190221 VALUES LESS THAN (1550764800) ENGINE = InnoDB,
+		 PARTITION p20190222 VALUES LESS THAN (1550851200) ENGINE = InnoDB,
+		 PARTITION p20190223 VALUES LESS THAN (1550937600) ENGINE = InnoDB,
+		 PARTITION p20190224 VALUES LESS THAN (1551024000) ENGINE = InnoDB,
+		 PARTITION p20190225 VALUES LESS THAN (1551110400) ENGINE = InnoDB,
+		 PARTITION p20190226 VALUES LESS THAN (1551196800) ENGINE = InnoDB,
+		 PARTITION p20190227 VALUES LESS THAN (1551283200) ENGINE = InnoDB,
+		 PARTITION p20190228 VALUES LESS THAN (1551369600) ENGINE = InnoDB,
+		 PARTITION p20190301 VALUES LESS THAN (1551456000) ENGINE = InnoDB)*/
+
+
+
+		 CREATE TABLE `tr_api_request_log_n` (
+		  `id` int(11) NOT NULL AUTO_INCREMENT,
+		  `api_key` char(100) COLLATE utf8_unicode_ci NOT NULL,
+		  `ip` char(50) COLLATE utf8_unicode_ci NOT NULL,
+		  `api_path` char(50) COLLATE utf8_unicode_ci NOT NULL,
+		  `create_time` int(11) unsigned NOT NULL,
+		  `update_time` int(11) DEFAULT NULL,
+		  `params` varchar(1000) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '参数',
+		  `code` char(10) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '状态代码',
+		  `version` char(4) COLLATE utf8_unicode_ci NOT NULL COMMENT 'api版本',
+		  `method` char(5) COLLATE utf8_unicode_ci NOT NULL COMMENT '提交数据的方法(get,post,put)',
+		  `category` char(20) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '类别',
+		  `userid` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '关联用户表id',
+		  PRIMARY KEY (`id`,`create_time`),
+		  KEY `index_name` (`api_key`,`create_time`,`userid`),
+		  KEY `index_user_id` (`userid`),
+		  KEY `index_api_key` (`api_key`)
+		) ENGINE=InnoDB AUTO_INCREMENT=6371687 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=DYNAMIC COMMENT='api请求日志'
+		/*!50100 PARTITION BY RANGE (create_time)
+		 (PARTITION p20190222 VALUES LESS THAN (1550851200) ENGINE = InnoDB */
+
+		 CREATE TABLE `tr_api_request_log_n` (
+		  `id` int(11) NOT NULL AUTO_INCREMENT,
+		  `api_key` char(100) COLLATE utf8_unicode_ci NOT NULL,
+		  `ip` char(50) COLLATE utf8_unicode_ci NOT NULL,
+		  `api_path` char(50) COLLATE utf8_unicode_ci NOT NULL,
+		  `create_time` int(11) unsigned NOT NULL,
+		  `update_time` int(11) DEFAULT NULL,
+		  `params` varchar(1000) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '参数',
+		  `code` char(10) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '状态代码',
+		  `version` char(4) COLLATE utf8_unicode_ci NOT NULL COMMENT 'api版本',
+		  `method` char(5) COLLATE utf8_unicode_ci NOT NULL COMMENT '提交数据的方法(get,post,put)',
+		  `category` char(20) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '类别',
+		  `userid` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '关联用户表id',
+		  PRIMARY KEY (`id`,`create_time`),
+		  KEY `index_api_key` (`api_key`),
+		  KEY `index_name` (`api_key`,`create_time`,`userid`),
+		  KEY `index_user_id` (`userid`)
+		) ENGINE=InnoDB AUTO_INCREMENT=134759234 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=DYNAMIC COMMENT='api请求日志'
+		/*!50100 PARTITION BY RANGE (create_time)
+		(PARTITION p20190222 VALUES LESS THAN (1550851200) ENGINE = InnoDB,
+		PARTITION p20190223 VALUES LESS THAN (1550937600) ENGINE = InnoDB) */
+
+
+		rename table tr_api_request_log to tr_api_request_log_b;
+		rename table tr_api_request_log_n to tr_api_request_log;
+
+		 rename table tr_api_request_log_b to tr_api_request_log;
+
+		 select * from tr_api_request_log limit 1\G
+
+		 select * from tr_api_request_log partition(p1)  limit 1\G
+		 
+
+		 alter table tr_api_request_log add partition(partition p190302 values less than (1551542400));
+	rst--sql
+		ll -h | grep sql
+			resq_track_sql_err.20190506.log 队列sql日志
+			sql_err_resq.20190506.log 带errNo队列sql日志
+		ll /home/wwwroot/www.trackingmore.com/ -h | grep .log | grep 2019
+
+		ll /home/wwwroot/www.trackingmore.com/executeSQL.2019* -h
+
+		数据库异常统计
+			keys err*
+
+		grep err /usr/local/shell_script/sqlError.log | wc -l
+		grep err /usr/local/shell_script/sqlError.log | tail -10
+		grep err /usr/local/shell_script/sqlError.log | grep Duplicate | wc -l
+		grep err /usr/local/shell_script/sqlError.log | grep -v Duplicate | tail -10
+		grep err /usr/local/shell_script/sqlError.log | grep -v Duplicate | grep max_user_con | wc -l
+		grep err /usr/local/shell_script/sqlError.log | grep -v Duplicate | grep -v max_user_con | tail -10
+		
+		grep err /usr/local/shell_script/sqlError.log | wc -l
+		grep err /usr/local/shell_script/sqlError.log | tail -10
+		grep err /usr/local/shell_script/sqlError.log | grep close | wc -l
+		grep err /usr/local/shell_script/sqlError.log | grep -v close | tail -10
+		grep err /usr/local/shell_script/sqlError.log | grep -v close | grep Duplicate | wc -l
+		grep err /usr/local/shell_script/sqlError.log | grep -v close | grep -v Duplicate | tail -10
+		grep err /usr/local/shell_script/sqlError.log | grep -v close | grep -v Duplicate | grep tr_express_trackstatus_test_recod | wc -l
+		grep err /usr/local/shell_script/sqlError.log | grep -v close | grep -v Duplicate | grep -v tr_express_trackstatus_test_recod | tail -10
+		grep err /usr/local/shell_script/sqlError.log | grep -v close | grep -v Duplicate | grep -v tr_express_trackstatus_test_recod | grep tr_express_trackstatus_abnormal_recod | wc -l
+		grep err /usr/local/shell_script/sqlError.log | grep -v close | grep -v Duplicate | grep -v tr_express_trackstatus_test_recod | grep -v tr_express_trackstatus_abnormal_recod | tail -10
+		grep err /usr/local/shell_script/sqlError.log | grep -v close | grep -v Duplicate | grep -v tr_express_trackstatus_test_recod | grep -v tr_express_trackstatus_abnormal_recod | grep syntax | wc -l
+		grep err /usr/local/shell_script/sqlError.log | grep -v close | grep -v Duplicate | grep -v tr_express_trackstatus_test_recod | grep -v tr_express_trackstatus_abnormal_recod | grep -v syntax | tail -10
+
+		grep err /usr/local/shell_script/sqlError.log | wc -l
+		grep err /usr/local/shell_script/sqlErrorTimeout.log | wc -l
+		grep err /usr/local/shell_script/sqlErrorToomany.log | wc -l
+
+		mv /usr/local/shell_script/sqlErrorToomany.log /usr/local/shell_script/sqlErrorToomany.log.201810161200
+		mv /usr/local/shell_script/sqlErrorTimeout.log /usr/local/shell_script/sqlErrorTimeout.log.201810161200
+		mv /usr/local/shell_script/sqlError.log /usr/local/shell_script/sqlError.log.201810161200
+
+cdn
+	rst--m站
+		http://m.trackingmore.com/
+		https://m.trackingmore.com/
+
+ip
+	rst--ip
+		国外
+		# 47.90.248.97(代理)                    172.22.57.106    13,155
+		# 47.90.211.63(验证码队列)              172.22.57.105    233
+		# 47.90.252.110(队列)                   172.22.57.104    189
+		# 47.90.248.208(前端)                   172.22.57.100    17
+		# 47.90.204.122                                 172.22.57.107
+		国内
+		host121="10.45.186.92"
+		host87="10.46.88.57"
+		host37="10.31.76.33"
+		host91="10.80.244.229"
+		host66="10.81.137.3"
+		120.78.233.57							10.30.222.189
+		119.23.136.125							10.29.57.217
+		120.77.225.4							10.29.216.166
+
+		47.89.37.129
+		47.89.42.156
+		47.75.212.175
+		47.75.180.196
+		47.244.41.234
+		47.244.41.57
+		47.75.153.65
+		47.90.101.8
+
+
+		sadd test_conf_SET 10.30.222.189 10.29.57.217 10.29.216.166 10.81.137.3 10.80.244.229 10.31.76.33 10.46.88.57  10.45.186.92
+
+R_P_U_express_SET
+
+curl -d '{"n":"R_P_U_express_SET","e":"oneworldexpress","u":0}' http://172.22.57.105/php-resque/trackTest/queue.php?s=trackTQueue
+
+php /home/wwwroot/www.trackingmore.com/script/remove_redis.php "{\"operation\":\"move\",\"source\":\"R_P_O_oneworldexpress_SET\",\"destination\":\"R_P_U_oneworldexpress_SET\"}" test1
+
+
+	rst--check
+		ll -h | grep sql
+		ll /home/wwwroot/www.trackingmore.com/ -h | grep .log | grep 2019
+
+		ll /home/wwwroot/www.trackingmore.com/executeSQL.2019* -h
+
+
+	sar -q | tail -10
+	sar -r | tail -10
+	sar -q
+	sar -r
+
+	out
+		AliexpressNew 241-182
+			E:\svn\241\trunk\20190729\getTracknumbers.php
+			E:\svn\241\trunk\20190729\getTracknumbers.test.php
+			E:\svn\241\trunk\20190729\aliExpressNew.test.php
+		python
+			D:\xampp\htdocs\trackingmore\trunk\python_img\python_5005.py
+
+rst--命令
+	20201208
+		php /home/wwwroot/www.trackingmore.com/script/test.php '{"d":"r", "c":"sh", "k": "keys *O*_SET | xargs -i COMM scard {}"}'
+rst--代码
+	20211227 空对象 (object)[]
+	20200523 IP相关
+	api 测试日志
+		// file_put_contents('test.' . date('Ymd') . 'log', date('Ymd_Hi ') . 'HTTP_X_FORWARDED_FOR:' . (isset($_SERVER["HTTP_X_FORWARDED_FOR"]) ? $_SERVER["HTTP_X_FORWARDED_FOR"] : '00') . 'HTTP_CLIENT_IP:' . (isset($_SERVER["HTTP_CLIENT_IP"]) ? $_SERVER["HTTP_CLIENT_IP"] : '01') . 'REMOTE_ADDR:' . (getenv("REMOTE_ADDR") ? getenv("REMOTE_ADDR") : '02') . 'HTTP_X_FORWARDED_FOR:' . (getenv("HTTP_X_FORWARDED_FOR") ? getenv("HTTP_X_FORWARDED_FOR") : '03') . 'HTTP_CLIENT_IP:' . (isset($_SERVER["HTTP_CLIENT_IP"]) ? $_SERVER["HTTP_CLIENT_IP"] : '04') . 'REMOTE_ADDR:' . (getenv("REMOTE_ADDR") ? getenv("REMOTE_ADDR") : '05') . ' ' . !empty($_SERVER['PHP_SELF']) . ' ' . $_SERVER['PHP_SELF'] . PHP_EOL, FILE_APPEND); # 测试日志
+
+	$test_code = !empty($test_code_arr[]) ? $test_code_arr[] : '';
+
+	function activeResque($redis = '', $args = array()) {}
+	function activeResque($redis = '', $url = '', $args = array()) {}
+	if(!empty($test_code)) {}
+	if(!empty($test_code) && !empty($test_code)) {}
+	if(!empty($test_code) || !empty($test_code)) {}
+	if($test_code%1000 == 0) {}
+	$test_code_str = !empty($test_code_str) ? $test_code_str : '';
+	$test_code = !empty($test_code) ? $test_code : 0;
+	$test_code_arr = !empty($test_code_arr) ? $test_code_arr : array();
+
+	$d = date('Y-m-d H:i:s');
+
+	$t0 = number_format(microtime(true), 3, '', '');
+	$t1 = number_format(microtime(true), 3, '', '');
+	$t = $t1 - $t0;
+	$tlabel = substr($t, )
+	file_put_contents('china-post_test_content.log', $tlabel, FILE_APPEND);
+		if(!empty($headers['Trackingmore-Api-Key']) && $headers['Trackingmore-Api-Key'] == 'cefeb0ce-e058-45e8-a99c-69701443edb5') file_put_contents('test.api.post.' . date('Ymd') . '.log', date('His ') . var_export($oMySQL->lastQuery, 1) . PHP_EOL, FILE_APPEND); # api post 
+
+
+	(!empty($_SERVER['PHP_SELF']) ? ('::' . strtr($_SERVER['PHP_SELF'], array('/home/wwwroot/www.trackingmore.com/' => ''))) : '') . PHP_EOL);
+
+	指定返回状态码
+		$code = !empty($_GET['code']) ? $_GET['code'] : 500;
+		# 4XX 模拟400,403,404
+		if($code == 400) {header('Status:400');exit(json_encode(['code' => 400, 'msg' => 'Bad Request'], true));}
+		if($code == 403) {header('Status:403');exit(json_encode(['code' => 403, 'msg' => 'Forbidden'], true));}
+		if($code == 404) {header('Status:404');exit(json_encode(['code' => 404, 'msg' => 'Not Found'], true));}
+
+		# 5XX 模拟500,502,503,504
+		if($code == 500) {header('Status:500');exit(json_encode(['code' => 500, 'msg' => 'Internal Server Error'], true));}
+		if($code == 502) {header('Status:502');exit(json_encode(['code' => 502, 'msg' => 'Bad Gateway'], true));}
+		if($code == 503) {header('Status:503');exit(json_encode(['code' => 503, 'msg' => 'Service Unavailable'], true));}
+		if($code == 504) {header('Status:504');exit(json_encode(['code' => 504, 'msg' => 'Gateway Time-out'], true));}
+
+		# 6XX 模拟600（我们有碰到过6XX的）
+		if($code == 600) {header('Status:600');exit(json_encode(['code' => 600, 'msg' => 'Unparseable Response Headers'], true));}
+
+		# 模拟响应超时
+		if($code == 601) {header('Status:200');sleep(11);exit(json_encode(['code' => 200, 'msg' => 'sleep 11s'], true));}
+
+	可固定化部分（状态检测预警，动作测试覆盖）
+		-日志同时进行分割压缩清理（包括原文件、压缩文件） --20230609
+		-重启后的检查操作 --20230612
+		-场景化考虑（出门前手机） --20230615
+			-节点串联成链条因此考虑备份重要节点 --20230617
+
+要举个例子的话，之前金玲说，去掉目的国，又没通知，
+

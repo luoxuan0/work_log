@@ -1,0 +1,1226 @@
+===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== =====
+20240530
+本地
+1，访问外网提示不安全 @ZLP_YY
+2，chatgpt访问有时出现异常
+3，专线访问crisp异常&clash访问外网异常 @WP_KF
+告警
+4，磁盘 @GC
+4-1，统一优化处理
+4-2，国外备份服务器历史数据压缩清理
+技术评审
+5，ISO27001现场审核资料
+6，大用户Route600万notfound-延长修改了运输商的notfound单号更新时间到最长为90天-修改报错导致发送更新停滞 @NZW@LSJ
+
+
+- 今日合规操作小结：无
+- 今日违规操作小结：无
+- 今日监督操作小结：无
+
+
+原计划：
+技术评审
+1，文档补充（近期相关处理）
+2，大用户Route600wnotfound-更新运输商为指定运输商
+告警
+3，堆积告警处理-磁盘
+计划：
+技术评审
+1，文档补充（近期相关处理）
+2，大用户Route600wnotfound-更新运输商为指定运输商
+3，ISO27001现场审核资料
+
+2，nginx配置调整
+3，本地数据库表结构维护（同线上同步，后续持续维护）
+切换仓库分支失败 @WYK
+3，测试环境-分支自动构建触发取消
+
+操作顺序
+
+	客诉
+		-- 20240529
+			大用户Route600wnotfound-更新运输商为指定运输商
+				大用户Route600万notfound-延长修改了运输商的notfound单号更新时间到最长为90天
+					php-resque\M1Express\M1Expressjob.php
+					php-resque\M1Globalpost\M1Globalpostjob.php
+				获取处理过的运输商列表，将排除的运输商从列表中删除
+					/usr/local/php7/bin/php /home/wwwroot/www.trackingmore.com/script/notfound/update_courier.php '{"source":"get_exclude_courier_list"}'
+					script\notfound\update_courier.php
+
+	告警
+		-- 20240518 搭建
+			目的-稳定运行保证
+				异常可及时介入处理
+				根据异常做归类，进行大范围优化
+					磁盘
+						处理文件列表
+							重名为带指定时间段
+							直接压缩
+						压缩清理时间
+							默认每天，可自定
+						保留时间
+							默认6个月，可自定
+						现有脚本
+							-- 20240529
+								script\queueshell\logSplitByDay.sh
+								script\queueshell\zipAndRmFile.sh
+								script\queueshell\zipAndRmSpecifyTimeFile.sh
+								script\queueshell\file.to.zip.sh
+						历史数据清理 20240529
+							国内前端3 134服务器
+							-- 20240529
+								script\queueshell\zipAndRmSpecifyTimeFile.sh
+									# 获取当前执行命令包括脚本，脚本参数
+									echo "当前执行命令包括脚本，脚本参数：$0 $*"
+
+									# 封装处理文件的函数
+									processFiles() {
+										local targetDir=$1
+										local fileSuffix=$2
+										local monthBefor=$3
+
+										targetZipDir=${targetDir}'_zip'
+										if [ ! -d $targetZipDir ]; then
+											echo mkdir $targetZipDir
+											mkdir $targetZipDir
+										fi
+
+										int=0
+										while(( $int<$monthBefor ))
+										do
+											#find ${targetDir} -maxdepth 1 -type f -name \*${fileSuffix} ! -newermt 20220301 | wc -l
+											#find ${targetDir} -maxdepth 1 -type f -name \*${fileSuffix} ! -newermt 20220301 | xargs -i zip ${targetZipDir}/202203.zip {}
+											#find ${targetDir} -maxdepth 1 -type f -name \*${fileSuffix} ! -newermt 20220301 | xargs -i rm -f {}
+
+											month=`date -d"-${monthBefor} month" '+%Y%m'`
+											# echo ${month}
+											day=$[ $monthBefor - 1 ]
+											day=`date -d"-$[ $monthBefor - 1 ] month" '+%Y%m01'`
+											# echo ${day}
+											echo "find ${targetDir} -maxdepth 2 -type f -name \*${fileSuffix} -newermt ${month}01 ! -newermt ${day} | wc -l"
+											echo 'num:'
+											find ${targetDir} -maxdepth 2 -type f -name \*${fileSuffix} -newermt ${month}01 ! -newermt ${day} | wc -l
+											find ${targetDir} -maxdepth 2 -type f -name \*${fileSuffix} -newermt ${month}01 ! -newermt ${day} | xargs -i zip -q ${targetZipDir}/${month}.zip {}
+											find ${targetDir} -maxdepth 2 -type f -name \*${fileSuffix} -newermt ${month}01 ! -newermt ${day} | xargs -i rm -f {}
+
+											# echo $monthBefor
+											let "monthBefor--"
+										done
+									}
+
+									process=''
+
+									if [[ -n $1 && $1 == 'zipAndRmlogBymon' ]]; then
+										process='zipAndRmlogBymon'
+									fi
+
+									if [[ $process == 'zipAndRmlogBymon' ]]; then
+										# 国内前端134磁盘使用率达到95%，进行/home/wwwroot/www.trackingmore.com/admin/upload目录下csv xlsx xls文件压缩清理
+										# d=`date '+%Y%m%d'`;sh zipAndRmSpecifyTimeFile.sh zipAndRmlogBymon /home/wwwroot/www.trackingmore.com/admin/upload '.csv' 70 >>  /home/wwwlogs/zipAndRmSpecifyTimeFile.sh.${d}.log
+										# 调用函数并传递参数
+										targetDir='/home/wwwroot/www.trackingmore.com/admin/upload/auto_csv'
+										if [[ -n $2 ]]; then
+											targetDir=$2
+										fi
+										fileSuffix='.csv'
+										if [[ -n $3 ]]; then
+											fileSuffix=$3
+										fi
+										monthBefor=22
+										if [[ -n $4 ]]; then
+											monthBefor=$4
+										fi
+										processFiles $targetDir $fileSuffix $monthBefor
+
+										exit
+									fi
+
+							tm备份服务器 /usr/local/shell_script/zipAndRmSql.sh
+							-- 20240531
+								#-20240103 51备份
+								#部分执行记录
+								#sh /usr/local/shell_script/zipAndRmSql.sh zipAndRmTest 454 300M >> /usr/local/shell_script/zipAndRmSql.sh.20240103.bigger.300M.smaller.1600M.log
+								#sh /usr/local/shell_script/zipAndRmSql.sh zipAndRmTest 130 500M >> /usr/local/shell_script/zipAndRmSql.sh.20231218.bigger.500M.smaller.800log
+
+								# 20240530 tm备份
+								# 打印并输出日志
+								# sh /usr/local/shell_script/zipAndRmSql.sh zipAndRmTest 1000 1024M | tee /usr/local/shell_script/zipAndRmSql.sh.20240530.within1000day.bigger.1024M.log
+								# sh /usr/local/shell_script/zipAndRmSql.sh zipAndRmTest 1000 512M | tee /usr/local/shell_script/zipAndRmSql.sh.20240530.within1000day.bigger.512M.smallerer.1024M.log
+								# sh /usr/local/shell_script/zipAndRmSql.sh zipAndRmTest 1000 100M | tee /usr/local/shell_script/zipAndRmSql.sh.20240530.within1000day.bigger.100M.smallerer.512M.log
+
+								. /etc/bashrc
+
+								# 获取当前执行命令包括脚本，脚本参数
+								echo "当前执行命令包括脚本，脚本参数：$0 $*"
+
+								operate=$1
+
+								# 根据大小或创建时间压缩清除 默认为大小超过100M
+								sizeOrCtime=100M
+								# 根据创建时间压缩清除 默认为创建时间1天内
+								if [[ ${operate} == 'zipAndRmCreateTime' ]]; then
+									sizeOrCtime=1
+								fi
+								if [[ -n $3 ]]; then
+									sizeOrCtime=$3
+								fi
+
+								num=2
+								# 根据创建时间压缩清除 默认压缩数量为符合条件文件数
+								if [[ ${operate} == 'zipAndRmCreateTime' ]]; then
+									num=$(find /mnt/bak/scriptbak/prodb -type f -name '*.sql' -ctime -${sizeOrCtime} | wc -l)
+								fi
+								if [[ -n $2 ]]; then
+									num=$2
+								fi
+
+								if [[ ${operate} == 'test' ]]; then
+									# test
+									pwd=/mnt/bak/scriptbak/prodb
+									find ${pwd} -type f -name '*.sql' | head -2 | xargs ls -lh
+									cp /mnt/bak/scriptbak/prodb/tr_user_tracknumber_107501_108000_20220704_20220706.sql /root/tr_user_tracknumber_107501_108000_20220704_20220706.20231218.sql
+									cp /mnt/bak/scriptbak/prodb/tr_user_tracknumber_15001_15500_20220620_20220622.sql /root/tr_user_tracknumber_15001_15500_20220620_20220622.20231218.sql
+									pwd=/root
+									find ${pwd} -type f -name '*.20231218.sql' | head -2 | awk '{print "zip",$1".zip",$1";rm -f",$1}'
+									find ${pwd} -type f -name '*.20231218.sql' | head -2 | awk '{print "zip",$1".zip",$1";rm -f",$1}' | sh
+									find ${pwd} -type f -name '*.20231218.sql*' | head -2 | xargs -i unzip -l {}
+								fi
+
+								pwd=/mnt/bak/scriptbak/prodb
+
+								echo
+								echo $(date '+%Y-%m-%d %H:%M:%S')
+								echo '$num: '${num}
+								int=1
+								while (($int <= $num)); do
+									# 当前操作次数
+									echo operat: ${int}
+
+									# 根据大小压缩清除
+									if [[ ${operate} == 'zipAndRmTest' ]]; then
+										fileSum=$(find ${pwd} -type f -name '*.sql' -size +${sizeOrCtime} | head -1 | wc -l)
+										if [[ ${fileSum} -eq 1 ]]; then
+											echo "file=\`find ${pwd} -type f -name '*.sql' -size +${sizeOrCtime} | head -1\`"
+											echo "file=$(find ${pwd} -type f -name '*.sql' -size +${sizeOrCtime} | head -1)"
+											file=$(find ${pwd} -type f -name '*.sql' -size +${sizeOrCtime} | head -1)
+											# 原文件大小 名称信息
+											echo "fileSizeAndName=\`ls -l ${file} | awk '{print \$5,\$NF}'\`"
+											echo "fileSizeAndName=$(ls -l ${file} | awk '{print $5,$NF}')"
+											fileSizeAndName=$(ls -l ${file} | awk '{print $5,$NF}')
+											# 压缩
+											echo "zip ${file}.zip ${file}"
+											zip ${file}.zip ${file}
+											# 从压缩文件获取 原文件大小 名称信息
+											echo "fileSizeAndNameFromZip=\`unzip -l ${file}.zip | awk 'NR==4{print \$1,\"/\"\$NF}'\`"
+											echo "fileSizeAndNameFromZip=$(unzip -l ${file}.zip | awk 'NR==4{print $1,\"/\"$NF}')"
+											fileSizeAndNameFromZip=$(unzip -l ${file}.zip | awk 'NR==4{print $1,"/"$NF}')
+											# 如果 从压缩文件获取 原文件大小 名称信息 跟 从原文件获取的 原文件大小 名称信息 一致 则将原文件清除
+											if [[ ${fileSizeAndName} == ${fileSizeAndNameFromZip} ]]; then
+												echo "rm -f ${file}"
+												rm -f ${file}
+											fi
+										fi
+									fi
+
+									# 根据创建时间压缩清除，最近1天/mnt/bak/scriptbak/prodb的文件 20240104 ops01
+									# 08 14 * * * /usr/bin/sh /usr/local/shell_script/zipAndRmSql.within.1day.sh &>> /usr/local/shell_script/zipAndRmSql.within.1day.sh.err.log
+									# 根据创建时间压缩清除
+									# d=`date '+%Y%m%d'`
+									# m=`date '+%Y%m'`
+									# sh /usr/local/shell_script/zipAndRmSql.sh zipAndRmCreateTime >> /usr/local/shell_script/zipAndRmSql.sh.${m}.within.1day.log
+
+									# 20240104 统一根据创建时间压缩清除（163天内）
+									# 08 * * * * /usr/bin/sh /usr/local/shell_script/zipAndRmSql.within.163day.sh &>> /usr/local/shell_script/zipAndRmSql.within.163day.sh.err.log
+									# d=`date '+%Y%m%d'`
+									# /usr/bin/sh /usr/local/shell_script/zipAndRmSql.sh zipAndRmCreateTime '' 163 >> /usr/local/shell_script/zipAndRmSql.sh.${d}.within.163day.log
+
+									cd ${pwd}
+									if [[ ${operate} == 'zipAndRmCreateTime' ]]; then
+										fileSum=$(find . -type f -name '*.sql' -ctime -${sizeOrCtime} | head -1 | wc -l)
+										if [[ ${fileSum} -eq 1 ]]; then
+											echo "file=\`find . -type f -name '*.sql' -ctime -${sizeOrCtime} | head -1\`"
+											echo "file=$(find . -type f -name '*.sql' -ctime -${sizeOrCtime} | head -1)"
+											file=$(find . -type f -name '*.sql' -ctime -${sizeOrCtime} | head -1)
+											# 原文件大小 名称信息
+											echo "fileSizeAndName=\`ls -l ${file} | awk '{print \$5,\$NF}'\`"
+											echo "fileSizeAndName=$(ls -l ${file} | awk '{print $5,$NF}')"
+											fileSizeAndName=$(ls -l ${file} | awk '{print $5,$NF}')
+											# 压缩
+											echo "zip ${file}.zip ${file}"
+											zip ${file}.zip ${file}
+											# 从压缩文件获取 原文件大小 名称信息
+											echo "fileSizeAndNameFromZip=\`unzip -l ${file}.zip | awk 'NR==4{print \$1,\"./\"\$NF}'\`"
+											echo "fileSizeAndNameFromZip=$(unzip -l ${file}.zip | awk 'NR==4{print $1,\"./\"$NF}')"
+											fileSizeAndNameFromZip=$(unzip -l ${file}.zip | awk 'NR==4{print $1,"./"$NF}')
+											# 如果 从压缩文件获取 原文件大小 名称信息 跟 从原文件获取的 原文件大小 名称信息 一致 则将原文件清除
+											if [[ ${fileSizeAndName} == ${fileSizeAndNameFromZip} ]]; then
+												echo "rm -f ${file}"
+												rm -f ${file}
+											fi
+										fi
+									fi
+
+									# 操作计数累加
+									let "int++"
+								done
+
+								if [[ ${operate} == 'zipAndRm' ]]; then
+									find ${pwd} -type f -name '*.sql' | head -${num} | awk '{print "zip",$1".zip",$1";rm -f",$1}' | sh
+								fi
+
+
+			分级
+				敏感重要节点冗余备份
+					多人电话告警人工介入修复
+					自动化修复
+				重要节点冗余备份
+					多人电话告警人工介入修复
+					自动化修复
+			准确性
+				敏感度
+				沉默通道
+
+		国外数据库CPU
+			定位
+				只是只读节点CPU使用率高
+				一直在查最近10天更新的单号
+					SELECT count(u.id) as total FROM tr_user_tracknumber_70001_70500 as u where u.userid=70242   and u.update_time>=1715162526 and u.update_time<=1716025926 and (u.is_delete=0 or u.is_delete=2)
+				35服务器，
+					17:00附近采样数据，msql.20240518.17.log
+						出现138同时执行sql时
+							有不少（35约25%）的写入tr_api_request_log的sql
+							有不少（35约40%）的更新info表的sql
+					23:28 附近采样数据，msql.20240518.28.log
+						出现124同时执行sql时
+							除去 tr_api_request_log和更新info表的sql，有91（约91/124=74%）
+							其中除了 Init DB 和 MySQL dump（Binlog Dump和Log Dump）类，主要有如下慢sql（应对-下周连续翻页上线）
+								594867752       trackingdb      172.16.21.179:49368     trackingdb      Query   4       Sending data    select n.track_number,n.id as infoid,n.courier,n.expressType,u.customer_name,u.order_id,u.is_phone,u.is_title,u.is_email,u.comment,u.id,n.origin_info,n.destination_info,n.update_time,n.stayTimeLength,n.itemTimeLength,u.create_time,u.order_create_time,u.track_status,u.is_delete,u.plateform_sort_id,u.lang,u.channel,n.destination,u.order_name,u.order_date,n.origin,u.origin as u_origin,u.destination as u_destination, u.uuid_tracknumber as uuid, u.alter_track_status,u.postcode,u.label_number,u.substatus from tr_user_tracknumber_81001_81500 as u left join tr_tracking_info_81001_81500 as n on u.`tracking_info_id` = n.`id` where u.userid = 81294 and u.create_time >= 1708300800 and u.create_time < 1716076799 and u.update_time >= 1708270062 and u.is_delete = 0 order by u.id desc limit 50800,200 0       0       3527875 0       0       0       0       0
+								594868385       trackingdb      172.16.21.180:34774     trackingdb      Query   2       Sending data    select n.track_number,n.id as infoid,n.courier,n.expressType,u.customer_name,u.order_id,u.is_phone,u.is_title,u.is_email,u.comment,u.id,n.origin_info,n.destination_info,n.update_time,n.stayTimeLength,n.itemTimeLength,u.create_time,u.order_create_time,u.track_status,u.is_delete,u.plateform_sort_id,u.lang,u.channel,n.destination,u.order_name,u.order_date,n.origin,u.origin as u_origin,u.destination as u_destination, u.uuid_tracknumber as uuid, u.alter_track_status,u.postcode,u.label_number,u.substatus from tr_user_tracknumber_81001_81500 as u left join tr_tracking_info_81001_81500 as n on u.`tracking_info_id` = n.`id` where u.userid = 81294 and u.create_time >= 1708300800 and u.create_time < 1716076799 and u.update_time >= 1708270062 and u.is_delete = 0 order by u.id desc limit 51200,200 0       0       1536492 0       0       0       0       0
+					23:58 附近采样数据，msql.20240518.2358.log
+						出现同时执行sql时
+							除去 tr_api_request_log和更新info表的sql，有51（约51/86=61%）
+							其中除了 Init DB 和 MySQL dump（Binlog Dump和Log Dump）类，主要有如下慢sql（应对-下周连续翻页上线）
+								326979262       trackingdb      172.16.21.178:37372     trackingdb      Query   5       Sending data    select n.track_number,n.id as infoid,n.courier,n.expressType,u.customer_name,u.order_id,u.is_phone,u.is_title,u.is_email,u.comment,u.id,n.origin_info,n.destination_info,n.update_time,n.stayTimeLength,n.itemTimeLength,u.create_time,u.order_create_time,u.track_status,u.is_delete,u.plateform_sort_id,u.lang,u.channel,n.destination,u.order_name,u.order_date,n.origin,u.origin as u_origin,u.destination as u_destination, u.uuid_tracknumber as uuid, u.alter_track_status,u.postcode,u.label_number,u.substatus from tr_user_tracknumber_81001_81500 as u left join tr_tracking_info_81001_81500 as n on u.`tracking_info_id` = n.`id` where u.userid = 81294 and u.create_time >= 1708300800 and u.create_time < 1716076799 and u.update_time >= 1708271860 and u.is_delete = 0 order by u.id desc limit 52200,200 0       0       4181551 0       0       0       0       0
+								595420676       trackingdb      172.16.21.179:46644     trackingdb      Query   4       Sending data    select n.track_number,n.id as infoid,n.courier,n.expressType,u.customer_name,u.order_id,u.is_phone,u.is_title,u.is_email,u.comment,u.id,n.origin_info,n.destination_info,n.update_time,n.stayTimeLength,n.itemTimeLength,u.create_time,u.order_create_time,u.track_status,u.is_delete,u.plateform_sort_id,u.lang,u.channel,n.destination,u.order_name,u.order_date,n.origin,u.origin as u_origin,u.destination as u_destination, u.uuid_tracknumber as uuid, u.alter_track_status,u.postcode,u.label_number,u.substatus from tr_user_tracknumber_81001_81500 as u left join tr_tracking_info_81001_81500 as n on u.`tracking_info_id` = n.`id` where u.userid = 81294 and u.create_time >= 1708300800 and u.create_time < 1716076799 and u.update_time >= 1708271860 and u.is_delete = 0 order by u.id desc limit 52000,200 0       0       2768702 0       0       0       0       0
+
+			待办
+				先处理前面的count sql，可能存在其他慢sql
+
+		接收人
+			至少2-3位
+				站点监控
+					阿里云
+					UptimeRobot
+
+		客户访问oss进行下载慢
+			-- 20240528
+				https://devops.aliyun.com/projex/bug/TMPX-5629# 《KA 232300: Issues in Exporting shipments》
+					oss服务有时会出现下载慢的情况（没用加速的情况），使用带宽并没有大的波动，是正常现象么
+					慢时几十K，平常是几M
+					阿里 - 每个数据点是 5分钟 流量加和后除以 300 秒计算得出的带宽值；流量看到基本是内网的流出流入，建议检查下通过内网调用的机器带宽情况
+					阿里 - 用户是在国内执行的下载吗？
+					阿里 - 看bucket是美国（弗吉尼亚）的，用户在国内通过公网下载如果没有开启加速 因跨境和物理距离的因素，下载会很不理想的，属于正常情况
+					我们是国外的客户，平常是2-3分钟，今天出现需要15-20分钟，甚至30分钟以上的情况
+					阿里 - 观察下还有出现吗，客户本地网络因素也会导致下载慢的，bucket名称和下载的URL麻烦提供下哈 我这边反馈检查下
+					昨天早上我们自己测试也是几十K，当时用了加速域是有几M的，再过一会，就恢复到几M了
+					https://upload-public.oss-us-east-1.aliyuncs.com/trackingmore/2024/05/TrackingMore_export_shipments_20240528070142_9beb36w6.csv?Expires=1717484504&OSSAccessKeyId=LTAI5tFkqy5tjvDqhZWq6paM&Signature=yqLIUlql%2FHiPJmTDp7SZgPYpjx4%3D
+					https://upload-public.oss-us-east-1.aliyuncs.com/trackingmore/2024/05/TrackingMore_export_shipments_20240528021102_0jf8dj8f.csv?Expires=1717467064&OSSAccessKeyId=LTAI5tFkqy5tjvDqhZWq6paM&Signature=D0zM4iWaRq4AcaPwa3RwjP5xSBc%3D@奇墨ITQM
+					bucket 名称 upload-public
+					https://upload-public.oss-us-east-1.aliyuncs.com/trackingmore/2024/05/TrackingMore_export_shipments_20240527065523_d5cfqb1n.csv?Expires=1717397725&OSSAccessKeyId=LTAI5tFkqy5tjvDqhZWq6paM&Signature=4R%2FwGK04qbCvbx2FYnr9kGed2iM%3D
+					这是今天的测试呢
+					@奇墨ITQM我们的问题不是一直慢，而是出现慢的情况，客户感受到了，我们当时测试也是慢（几十K），现在测试正常跟我们观察到的是一致的（大部分情况是快的）
+					阿里 - 国外的客户也是美国地域的吗？还是？
+					阿里 - 如果是距离美国较远地区的用户访问，不用加速域名的话，传输速度是没有办法保证的，后端查看该bucket并未出现流控，公网链路没有办法保证传输速率，这个是运营商以及物理距离层面的问题
+
+		php-fpm
+			-- 20240528
+				现状
+					服务有内存异常，后续考虑
+					1，定时重载服务，避免类似异常
+					2，做监控自动重载，在异常出现时自动恢复
+					3，增加负载均衡，带备份节点会更稳定
+
+					从日志看是可能fpm的内存异常
+
+					2024/05/28 01:12:35 [error] 3020936#0: *26932699 directory index of "/www/wwwroot/tmshopify/laravel10/public/static/js/" is forbidden, client: 141.101.98.144, server: tms.trackingmore.net, request: "GET /static/js/?%3Fleaflet.js%2Ctrack_page_classic.js%3Ftime=20240520 HTTP/1.1", host: "tms.trackingmore.net"
+
+					[27-May-2024 18:11:56] WARNING: [pool www] child 2944254, script '/www/wwwroot/tmshopify/laravel10/public/index.php' (request: "GET /index.php?shop=great-family-shop.myshopify.com") executing too slow (32.755145 sec), logging
+
+				当前操作
+					1，定时reload php-fpm
+						确认已经存在
+							做监控自动重载，在异常出现时自动恢复
+
+					站点监控 针对 502 524 
+						https://tms.trackingmore.net/api/v1/checkout/version
+
+				tms宝塔后台添加定时任务每分钟检查执行
+					# 日志路径
+					log='/www/server/cron/load.php-fpm.log'
+					# 如果日志不存在，则创建日志
+					if [[ ! -f $log ]]; then
+						touch $log
+					fi
+
+					# 测试参数，支持传入，默认关闭
+					isTest=0
+					if [[ -n $1 ]] ; then
+						isTest=1
+					fi
+
+					# 获取系统核心数，赋值给变量 coreNum
+					coreNum=`grep -c ^processor /proc/cpuinfo`
+					# 开启测试模式，进行打印
+					if [ $isTest -eq 1 ]; then
+						echo 'coreNum: ' $coreNum
+					fi
+					# # 获取当前 CPU 使用率，赋值给变量 cpuUsage 更敏感，后续考虑使用
+					cpuUsage=`top -bn1 | grep "Cpu(s)" | awk '{print $2 + $4}'`
+					# 开启测试模式，进行打印
+					if [ $isTest -eq 1 ]; then
+						echo 'cpuUsage: ' $cpuUsage
+					fi
+					# 获取当前系统负载，去掉右边逗号，赋值给变量 loadAvg
+					loadAvg=`uptime | awk '{print $10}' | cut -d ',' -f 1`
+					if [ $isTest -eq 1 ]; then
+						echo 'loadAvg: ' $loadAvg
+					fi
+					# $loadAvg 取小数点前数字
+					loadAvg=${loadAvg%.*}
+					if [ $isTest -eq 1 ]; then
+						echo 'loadAvg: ' $loadAvg
+					fi
+
+					# 查看日志修改时间，即为上次执行时间
+					lastTime=`stat -c %y $log`
+					if [ $isTest -eq 1 ]; then
+						echo $lastTime
+					fi
+
+					# 脚本执行最短间隔时间，单位秒
+					interval=1200
+					# 当前时间减去上次执行时间，单位秒
+					timeDiff=$((`date +%s` - `date -d "$lastTime" +%s`))
+					if [ $isTest -eq 1 ]; then
+						echo $timeDiff
+					fi
+					# 如果系统当前负载超过系统核心数2倍，则执行以下操作（20分钟内最多执行一次）：
+					if [ $timeDiff -gt $interval ] && [ $loadAvg -gt $((coreNum*2)) ]; then
+						# 重载php-fpm配置
+						# /etc/init.d/php-fpm-82 reload
+						# 写日志到 $log 中，内容为时间、核心数、负载
+						currentTime=`date "+%Y-%m-%d %H:%M:%S"`
+						echo $currentTime ' coreNum: ' $coreNum' cpuUsage: ' $cpuUsage' loadAvg: ' $loadAvg >> $log
+						if [ $isTest -eq 1 ]; then
+							echo $currentTime ' coreNum: ' $coreNum' cpuUsage: ' $cpuUsage' loadAvg: ' $loadAvg
+						fi
+					fi
+
+			-- 20240517 tms服务出现访问异常（admin.trackingmore.net） https://alidocs.dingtalk.com/i/nodes/NZQYprEoWo1y7vlKCpgKE2R6J1waOeDk?utm_scene=team_space&iframeQuery=anchorId%3Duu_lwec0kp2uam8axo5pr
+				定位
+					服务器4核负载达到100，php-fpm占用CPU高（100个，基本都到4%）
+					php-fpm进程刚开启就关闭掉
+					php-fpm.log
+						[17-May-2024 16:03:28] WARNING: [pool www] child 1385369 exited on signal 11 (SIGSEGV) after 0.182433 seconds from start
+							php-fpm进程（child 1385369）在启动后不久即出现信号11 (SIGSEGV) 的错误而终止。SIGSEGV是一种由操作系统发送的信号，表明进程遇到了段错误，通常是由于访问了无效的内存地址。
+
+							这种情况可能由多种原因引起，包括但不限于：
+
+							内存不足或内存分配错误。
+							程序逻辑错误，导致访问了不应该访问的内存区域。
+							第三方扩展或库存在缺陷。
+							PHP版本问题或PHP与操作系统之间的兼容性问题。
+				操作
+					进行重启php-fpm，负载恢复
+				后续待办
+					服务有内存异常，后续考虑
+					1，定时重载服务，避免类似异常
+					2，做监控自动重载，在异常出现时自动恢复
+					3，增加负载均衡，带备份节点会更稳定
+			
+	运维
+		脚本审核执行-空运客诉
+		测试服208授权堡垒机
+		测试服redis服务异常-重启服务器
+
+	本地
+		1，访问外网提示不安全 @ZLP_YY
+			通过switchyomega插件使用代理-文档
+		2，chatgpt访问有时出现异常
+			通过switchyomega插件使用代理-文档
+			长期方案
+				专线升级
+				排除sassAc影响
+		3，专线访问crisp异常&clash访问外网异常 @WP_KF
+			完善排查文档
+
+	上线超管后台优化修改运输商逻辑优化-队列启动（开启数量小于10的队列）
+		source /home/wwwroot/www.trackingmore.com/script/queueshell/start_queue_min.sh
+			echo $hostAlia
+			77
+		/home/wwwroot/www.trackingmore.com/script/queueshell/track_queue_conf_min_${hostAlia}.sh
+			添加配置
+			"updateCourierJob updateCourierAsyncQueue/resque.php 1 {\"n\":\"Z_GROUP_TRACKING_NUMBER_SET\",\"e\":\"Z_GROUP_TRACKING_NUMBER_SET\",\"u\":\"\"} ZCARD Z_GROUP_TRACKING_NUMBER_SET"
+		配置修改正常1分钟内启动，确认定时任务 crontab -l | grep start_queue_min.sh，实际执行测试
+
+			sh /home/wwwroot/www.trackingmore.com/script/queueshell/start_queue_min.sh
+			loadAverageMax 8 loadAverageOneMin 8
+			currentNum:10, queueKeyword:qichachasendEmail/resque.php, startNum:10
+			loadAverageMax 8 loadAverageOneMin 8
+			currentNum:1, queueKeyword:adminStayTimeDayQueue/resque.php, startNum:1
+			loadAverageMax 8 loadAverageOneMin 8
+			currentNum:0, queueKeyword:updateCourierAsyncQueue/resque.php, startNum:1
+
+			服务器负载不符合条件，currentNum:0，startNum:1，这个是符合启动条件的
+
+	nginx配置调整 -- 20240520
+		-- 20240527
+			考虑进入仓库，后续上线后，一键覆盖重启，支持回滚
+		配置进入仓库-记录问题
+			获取样板（初始版本）-对比各服务器差异，进行必要整理合并
+			配置仓库
+		发布
+			对比新旧配置
+			发布到指定目录
+			语法检查
+			进行reload
+			进行测试
+
+	cloudflare先发布静态资源再发布代码，依旧出现404 https://alidocs.dingtalk.com/i/nodes/gwva2dxOW4zaGnMRTmQGnAvZJbkz3BRL?utm_scene=team_space&iframeQuery=anchorId%3Duu_lweoh5fij5nhdlkdr6n -- 20240520
+		75.238.104.137，只有这个IP，第二个静态资源先有200再有404
+			/_next/static/css/dca97a35896accc4.css
+			/_next/static/media/dp-world-tab.53448e0d.webp
+			/_next/static/media/printify-logo-tab.c498fef9.webp
+
+	ISO 
+		-- 20240524
+			现场审核资料
+			考虑上仓库管理
+		-- 20240515
+			合同
+				准备
+				寄出
+		-- 20240514
+			合同
+				费用相关
+					11000 审核机构 审核费用
+					5500 咨询费用
+					1000-2000 差旅费 去年应该是
+				相关说明
+					咨询费用分两次付款
+					审核机构等 肖老师同步
+					差旅按实际进行（需要机票，发票）
+		-- 20240513
+			年审 https://alidocs.dingtalk.com/i/nodes/P7QG4Yx2Jp1PK9B4CxXQee0G89dEq3XD?utm_scene=team_space
+
+	白名单
+		-- 20240516
+			中台kafka白名单权限 https://alidocs.dingtalk.com/i/nodes/YQBnd5ExVEoXLA3esZxyz4Od8yeZqMmz?utm_scene=team_space @CZH
+			国外redis白名单 https://alidocs.dingtalk.com/i/nodes/dpYLaezmVNoxw1BMsD7vd6v0JrMqPxX6?utm_scene=team_space&iframeQuery=anchorId%3D1734277245218 @CZW
+		-- 20240513
+			kafka访问api https://alidocs.dingtalk.com/i/nodes/AR4GpnMqJz16XzNpCvGzYZlxVKe0xjE3?utm_scene=team_space&iframeQuery=anchorId%3D1020613917483
+			webhook服务器端口开放 https://alidocs.dingtalk.com/i/nodes/AR4GpnMqJz16XzNpCvGzYZlxVKe0xjE3?utm_scene=team_space&iframeQuery=anchorId%3D749658507311
+
+	指定用户调整指定运输商更新频率
+		云效需求：https://devops.aliyun.com/projex/task/TMPX-5588# 《341485：提高royal mail更新频率》
+		https://alidocs.dingtalk.com/i/nodes/dQPGYqjpJYvxw1knslzdE0LY8akx1Z5N?utm_scene=team_space&iframeQuery=anchorId%3Duu_lwg9vn757w4riio5he8
+
+	运营301跳转
+		-- 20240513
+			https://devops.aliyun.com/projex/task/TMPX-5380# 《301跳转需求》
+				钉钉文档 https://alidocs.dingtalk.com/i/nodes/dQPGYqjpJYvxw1knsa7Z5ew78akx1Z5N?utm_scene=team_space
+
+			操作文档 https://alidocs.dingtalk.com/i/nodes/YMyQA2dXW7maL0kYtKzbNMv1JzlwrZgb?utm_scene=team_space
+
+
+	服务梳理
+		--20240425
+			账号
+				VPN
+				cloudflare
+				dnspod
+
+			0424上添加一项-最小权限VS灵活度
+		--20240424
+			文档（比如操作相关，这么长时间一直没完全覆盖的原因，而且其他同学会是如何，可能更甚）
+			账号管理系统（比如lastpass）
+		--20240415 待办
+			项目
+				数据（数据安全）
+					数据库
+					访问路径（防火墙名单）
+				服务（权限）
+					阿里云账号（考虑动作幅度，换绑&修改密码）
+					堡垒机账号（考虑动作幅度，修改密码）
+					代码仓库（考虑动作幅度，修改密码）
+			本地
+				安全相关服务商、账号
+					加密软件
+					VPN
+				网络服务商、账号
+					电信带宽
+					专线
+					深信服AC
+						本地
+						sass
+	导出物流商数据
+		--20240517
+			形成脚本，定时执行
+				导出数据到表中
+				导出表中数据为文件并压缩
+				发送压缩文件到指定服务器
+			待优化
+				35服务器无法导出数据，目前分放在两台服务器上，考虑简化放在一台服务器一个脚本完成整个过程
+				异常情况判断
+				通知
+					异常
+					正常
+		--20240511
+			# 在35服务器，获取数据到数据表中
+				10 * * * * /usr/local/php7/bin/php /home/wwwroot/www.trackingmore.com/script/getEffectiveTracknumberForRule.info.php "{\"minScanTime\":\"2024-02-01\", \"maxScanTime\":\"2024-05-01\", \"dbUser\":\"trackingdb1\", \"courier\":\"\",\"type\":\"dumpInfoData\"}" 'tes1t' 'dhl' 830 &>>/run/getEffectiveTracknumberForRule.log &
+				# 使用shell脚本拼接命令
+				
+			# 在tm备份服务器，导出压缩数据，清除原文件
+				# 测试
+					sh /mnt/getCourierInfoData.sh taqbin-jp '' '' '' 1
+				# 正式执行
+					sh /mnt/getCourierInfoData.sh taqbin-jp '' '' '' 0			
+			发送到指定服务器
+				在tm备份服务器
+					ssh-keygen -t ed25519 -C "send_data_from_tm_back"
+					在 /root/.ssh/id_ed25519.pub 获取公钥
+					编辑 /etc/hosts 添加一行 47.253.62.186 tm-detect-test
+
+		--20240506
+			范围
+				top 20
+				已导：ups-mi，dhlglobalmail
+				剩余：australia-post，pitneybowes，taqbin-jp，dhl，wizmo，hermes，dpd，hermes-uk
+
+			执行			
+				-- 执行脚本，导出3个月pitneybowes数据到数据库表
+				-- tm 35服务器上执行
+				php /home/wwwroot/www.trackingmore.com/script/getEffectiveTracknumberForRule.info.php "{\"minScanTime\":\"2024-01-23\", \"maxScanTime\":\"2024-04-23\", \"dbUser\":\"trackingdb1\", \"courier\":\"\",\"type\":\"dumpInfoData\"}" 'tes1t' 'pitneybowes' 830 >> /run/getEffectiveTracknumberForRule.log &
+
+
+				-- pitneybowes正式导出
+				-- tm备份服务器上执行
+				mysqldump --single-transaction -h pc-0xi02p6760lwd5qa3.rwlb.rds.aliyuncs.com -u trackingdb -p -P3306 trackingdb tr_trackinfo_effective_for_rule > tr_trackinfo_effective_for_rule_pitneybowes_202401-04.sql
+				$OTOMVFSXdg^8QCJ
+
+				-- pitneybowes压缩sql
+				-- tm备份服务器上执行
+				tar -zcvf tr_trackinfo_effective_for_rule_pitneybowes_202401-04.tar.gz tr_trackinfo_effective_for_rule_pitneybowes_202401-04.sql
+
+			自动化
+				# 在35服务器，获取数据到数据表中
+					10 * * * * /usr/local/php7/bin/php /home/wwwroot/www.trackingmore.com/script/getEffectiveTracknumberForRule.info.php "{\"minScanTime\":\"2024-02-01\", \"maxScanTime\":\"2024-05-01\", \"dbUser\":\"trackingdb1\", \"courier\":\"\",\"type\":\"dumpInfoData\"}" 'tes1t' 'pitneybowes' 830 &>>/run/getEffectiveTracknumberForRule.log &
+				# 在tm备份服务器，导出压缩数据，清除原文件
+					# 测试
+						sh /mnt/getCourierInfoData.sh pitneybowes '' '' '' 1
+					# 正式执行
+						sh /mnt/getCourierInfoData.sh pitneybowes '' '' '' 0
+
+	服务梳理充值
+
+		0509提交充值
+
+			历史提交参考
+				五一节前供应商盘点
+				无需充值
+				- 欣易辰国内，余额2927.698元，对比前两月最高消费200元，余额充足，无需充值
+				- 青果网络，固定套餐1560元，已续费到下个月20号，无需充值
+				- zhishangit阿里云，余额13190.41元，盘点至5月9号需续费5000元，余额充足，无需充值
+				- nick七牛云，余额958.26元，仅剩一台数据分析服务器（用于tm外链），因波哥还未找到域名还保留在七牛云，每个月消费150元，余额充足，无需充值
+
+				- 欣易辰国际，余额5412.08214元，对比上个月消费2100元，余额充足，无需充值
+				- sendcloud，余额962.53元，对比前两月最高消费90元，余额充足，无需充值
+				- 亮代理，余额$202.46，对比前两月最高消费$60,无需充值
+
+
+				需充值
+				- changxiaojiait阿里云，余额61369.16元，盘点至5月9号需续费58000元，余额不充足，需充值20000元
+
+
+
+
+
+
+
+
+				- 青果代理				    余额：0元			    充值：1560元		    已升级稳定套餐至1560元
+				- 阿里云zhishangit			    余额：9527.39元	   	    充值：21000元		    3月消费19480.55元，预备10000元的备用金（后续再有公网服务新增，优先放在此账号中）
+				本月迁移七牛云nick，2台SLB，5台服务器，4台redis和一台1台RDS，部分费用增加是正常现象，下月正常续费后大概消费会稳定在20000元左右
+				本月消费正常
+				- 欣易辰国内				余额：2369.295元	    充值：1000元		1月份消费953.043元，正常消费
+				- 七牛云nick				   余额：800元		               充值：8000元		   2个月费用
+
+			执尚提交
+				- 青果网络 				    余额：0.29元			    充值：1559.71元		    已升级稳定套餐至1560元
+				- 阿里云zhishangit			    余额：8405.92元	                充值：22000元		    4月消费20720.92元，预备10000元的备用金（后续再有公网服务新增，优先放在此账号中）
+				本月消费正常
+
+				- 欣易辰国内，余额2892.676元，对比近3个月最高消费不足200元，余额充足，无需充值
+				- nick七牛云，余额942.72元，仅剩一台数据分析服务器（用于tm外链），因波哥还未找到域名还保留在七牛云，每个月消费150元，余额充足，无需充值
+
+
+
+			畅销家提交
+				- changxiaojiait阿里云，余额61369.16元，盘点至5月9号需续费58000元，余额不充足，需充值20000元
+				阿里云changxiaojiait费用充值：120000元
+					- 4月消费135831.76元
+					- 3月月初基于es同步需求，对tm polardb的binlog时间从1天增加至7天，费用相比2月增加4000元左右，流量费用相比2月增加1000左右
+					- 本月消费正常
+					- 当前余额 39000
+					- 预留20000元左右备用
+
+
+				- sendcloud，余额962.53元，对比近3个月最高消费不足100元，余额充足，无需充值
+				- 欣易辰国际，余额5169.67074元，对比近3个月最高消费不足2100元，余额充足，无需充值
+				- 亮代理，余额$180.40，对比前两月最高消费$60,无需充值
+
+
+
+			待办：具体需要再看下备用金需要多少
+
+	数据表字段调整
+		-- 20240510
+			字段调整维护一个文档
+				（待办）
+
+			导出所有表结构维护到仓库中大家可自行获取
+				使用mysqldump
+					带了当前自增id，AUTO_INCREMENT=306499
+					检查表存在则drop
+					有set相关操作
+				后续考虑使用show tables，过滤部分info和number表，并对所有筛选的表执行create table table_name;
+					（待办）
+
+	所有用户范围内统计
+		统计指定用户单量
+			cd ${PTM}
+			d=`date '+%Y%m%d'`
+			php script/infoIDInsertInfoNum.courier.php '{"dayNum":30, "userid":0, "endCreateTime":"20240510", "whereStrArgv":"courier=\"royal-mail\" and is_delete!=1", "test":1}' >> /root/infoIDInsertInfoNum.courier.php.${d}.log &
+
+		统计超过10000单用户及单量
+			# 国外
+			# 添加环境变量
+			echo '. /etc/bashrc' > royal-mail.sh
+			# 生成命令脚本
+			msql -e "USE TRACKINGDB;SHOW TABLES LIKE 'tr_user_tracknumber_%_%'" | grep -v 'Tables_in_trackingdb\|_old27\|_extra\|_notupdate\|_notupdate_last\|_temp1101\|_test\|_temp\|_20220707\|_20240227\|_back\|_20240408' | xargs -i echo "msql -e \"USE TRACKINGDB;SELECT userid, COUNT(*) AS num FROM {} where create_time > 1712678400 and courier = 'royal-mail' GROUP BY userid  HAVING num > 10000 order by num desc\"" >> royal-mail.sh
+			# 为了避免中断，在定时任务中启动 crontab -e 然后在文件中添加如下内容：
+			# 统计使用royal-mail超过10000的用户
+			# 37 * * * * sh royal-mail.sh &>>royal-mail.sh.log
+			19:37
+			# 国内
+			# 添加环境变量
+			echo '. /etc/bashrc' > royal-mail.sh
+			# 生成命令脚本
+			msql -e "USE TRACKINGDB;SHOW TABLES LIKE 'tr_user_tracknumber_%_%'" | grep -v 'Tables_in_trackingdb\|_old27\|_extra\|_notupdate\|_notupdate_last\|_temp1101\|_test\|_temp\|_20220707\|_20240227\|_back\|22912_22912_\|_old' | xargs -i echo "msql -e \"USE TRACKINGDB;SELECT userid, COUNT(*) AS num FROM {} where create_time > 1712678400 and courier = 'royal-mail' GROUP BY userid  HAVING num > 10000 order by num desc\"" >> royal-mail.sh
+			# 为了避免中断，在定时任务中启动 crontab -e 然后在文件中添加如下内容：
+			# 统计使用royal-mail超过10000的用户
+			# 20 * * * * sh royal-mail.sh &>>royal-mail.sh.log
+			19:20
+
+	--20240423
+		官网项目重构nginx调整&上线相关
+			nginx配置维护
+				提交仓库管理，并进入发布流程（上线-检查-重载）
+			静态资源缓存导致404
+				上线顺序
+				考虑影响（反应时间最多5分钟内）快速撤回
+	
+	历史
+
+		尝试回放
+			日志&云效维护
+			文档
+				先迁移
+
+		排序（可能待优化节点）
+			技术评审
+			==11== 1，shipment overview底层部分
+				1-1，国外number表调整-主键不一致
+					历史数据清除
+				1-2，国内外字段调整异常数据处理（info表数据调整）
+			==22== 2，网络优化相关-排错流程图&内部调整（WIFI白名单上网）
+				2-0，协作（排错流程图）
+				2-1，使用体验
+					多人
+				2-2，相关记录
+					最近至少2次反馈
+				2-3，梳理确认 从待办查看
+					白名单
+					爱快
+
+
+			测试环境 仓库调整&相关文档
+				随机抓取
+			shipment
+				number表
+				info表
+					剪切数据后再进行
+					统计操作
+						？
+			同步--更进一步，文档更精细作用
+				本地网络相关
+					内部优化
+						进行中：具体跟进反馈网络问
+						记录--
+					多人协作
+						处理流程文档
+						协作同学培训
+						问题搜集文档（当事人协助，负载人确认完善）
+							阶段处理
+							阶段反馈
+
+
+		技术评审
+			ssl证书更新
+
+			取消mytracking代码push触发自动构建
+				具体
+					取消自动即可？
+
+			1，shipment overview底层部分
+				-- 20240516
+					flink同步CU资源购买-flink oom，需要增加点内存测试，完成后降低费用 @JT
+
+				-- 20240422
+					重复数据处理（通过脚本处理国内一个表）
+
+				-- 20240412
+					国外number表主键不一致
+						调整后的检查确认
+						历史数据清除
+					国内info表结构检查确认
+
+				-- 20240411
+					1-1，国外number表调整-主键不一致
+						历史数据清理
+						结构调整
+
+				-- 20240409
+					1-1，国外number表调整-主键不一致
+						重复数据处理
+					1-2，国内外字段调整异常数据处理准备（info表数据调整）
+						重复数据日志开始（获取细节）
+						国内进行扫描
+
+				-- 20240407
+					1-1，国外number表调整-主键不一致
+						关注数据库CPU负载等性能
+					1-2，国内外字段调整异常数据处理准备（info表数据调整）
+						重复数据日志开始，现有&新的进行确认
+
+				-- 20240403
+					国外number表分区-执行调整
+
+				-- 20240402
+					国外number表分区-相关测试
+
+				-- 20240329
+					国内info表切换
+					统计数据新增不同时间数量分布情况 
+						SELECT from_unixtimestamp(create_time),COUNT(*) AS c FROM  tr_tracking_info_41501_42000 WHERE create_time >= unix_timestamp('202403291500') GROUP BY create_time ORDER BY c DESC\G
+				-- 20240325
+					会议
+						国外number表调整-分区不一致
+							保持原样
+						国内info表最后一个表一直无法完成切换
+							剪切数据后再进行
+								备份
+									msqldump tr_user_tracknumber_41501_42000 --single-transaction -w "create_time > 1688745600 and userid = 141409"> tr_user_tracknumber_141001_141500.20220707.20230707.sql
+
+									msqldump tr_user_tracknumber_41501_42000 --single-transaction -w "create_time > 1711353724"> tr_user_tracknumber_141001_141500.now.sql
+
+									-- 20240326
+									date;msqldump tr_user_tracknumber_41501_42000 --single-transaction -w "create_time < unix_timestamp('20230701')"> tr_user_tracknumber_141001_141500.20230308.20230630.sql;date;msqldump tr_user_tracknumber_41501_42000 --single-transaction -w "create_time >= unix_timestamp('20230701') and create_time < unix_timestamp('20230928')"> tr_user_tracknumber_141001_141500.20230701.20230927.sql;date
+										Tue Mar 26 18:32:55 CST 2024
+										mysqldump: [Warning] Using a password on the command line interface can be insecure.
+										Warning: A partial dump from a server that has GTIDs will by default include the GTIDs of all transactions, even those that changed suppressed parts of the database. If you don't want to restore GTIDs, pass --set-gtid-purged=OFF. To make a complete dump, pass --all-databases --triggers --routines --events. 
+										Tue Mar 26 18:42:22 CST 2024
+										mysqldump: [Warning] Using a password on the command line interface can be insecure.
+										Warning: A partial dump from a server that has GTIDs will by default include the GTIDs of all transactions, even those that changed suppressed parts of the database. If you don't want to restore GTIDs, pass --set-gtid-purged=OFF. To make a complete dump, pass --all-databases --triggers --routines --events. 
+										Tue Mar 26 18:51:54 CST 2024
+
+									date;msqldump tr_tracking_info_41501_42000 --single-transaction -w "create_time < unix_timestamp('20230701')"> tr_tracking_info_41501_42000.20230308.20230630.sql;date;msqldump tr_tracking_info_41501_42000 --single-transaction -w "create_time >= unix_timestamp('20230701') and create_time < unix_timestamp('20230928')"> tr_tracking_info_41501_42000.20230701.20230927.sql;date
+										Tue Mar 26 14:05:31 CST 2024
+										mysqldump: [Warning] Using a password on the command line interface can be insecure.
+										Warning: A partial dump from a server that has GTIDs will by default include the GTIDs of all transactions, even those that changed suppressed parts of the database. If you don't want to restore GTIDs, pass --set-gtid-purged=OFF. To make a complete dump, pass --all-databases --triggers --routines --events. 
+										Tue Mar 26 14:22:41 CST 2024
+										mysqldump: [Warning] Using a password on the command line interface can be insecure.
+										Warning: A partial dump from a server that has GTIDs will by default include the GTIDs of all transactions, even those that changed suppressed parts of the database. If you don't want to restore GTIDs, pass --set-gtid-purged=OFF. To make a complete dump, pass --all-databases --triggers --routines --events. 
+										Tue Mar 26 14:28:47 CST 2024
+
+								清除（关注磁盘空间）
+									select count(*) from tr_user_tracknumber_41501_42000 where create_time < unix_timestamp('20230701');
+										+----------+
+										| count(*) |
+										+----------+
+										| 13544722 |
+										+----------+
+									delete from tr_user_tracknumber_41501_42000 where create_time < unix_timestamp('20230701');
+										Query OK, 13544722 rows affected (19 min 1.00 sec)
+									select count(*) from tr_user_tracknumber_41501_42000 where create_time >= unix_timestamp('20230701') and create_time < unix_timestamp('20230928');
+										+----------+
+										| count(*) |
+										+----------+
+										| 12681072 |
+										+----------+
+										1 row in set (7.89 sec)
+									delete from tr_user_tracknumber_41501_42000 where create_time >= unix_timestamp('20230701') and create_time < unix_timestamp('20230928');
+										Query OK, 12681072 rows affected (16 min 47.27 sec)
+
+									select count(*) from tr_tracking_info_41501_42000 where create_time < unix_timestamp('20230701');
+										+----------+
+										| count(*) |
+										+----------+
+										| 13544707 |
+										+----------+
+										1 row in set (6.83 sec)
+									delete from tr_tracking_info_41501_42000 where create_time < unix_timestamp('20230701');
+									alter table tr_tracking_info_41501_42000 truncate partition p20230401,p20230501,p20230601,p20230701;
+										Query OK, 0 rows affected (4.30 sec)
+
+									select count(*) from tr_tracking_info_41501_42000 where create_time >= unix_timestamp('20230701') and create_time < unix_timestamp('20230928');
+										+----------+
+										| count(*) |
+										+----------+
+										| 12681062 |
+										+----------+
+										1 row in set (9.18 sec)
+									alter table tr_tracking_info_41501_42000 truncate partition p20230801,p20230901;
+										Query OK, 0 rows affected (2.21 sec)
+									delete from tr_tracking_info_41501_42000 where create_time >= unix_timestamp('20230701') and create_time < unix_timestamp('20230928');
+										Query OK, 3948446 rows affected (5 min 7.43 sec)
+				-- 20240321
+					会议
+						国外number表调整-分区不一致
+						国内info表最后一个表一直无法完成切换
+
+				-- 20240320
+					国外number表调整-分区不一致
+						测试表进行测试
+				
+				-- 20240319
+					国外number表调整-分区不一致
+
+				-- 20240318
+					云效维护
+						0226-0311 国外info表
+							单个表修改测试
+						0312-0320 国外number表
+						0312-031* 国内info表
+						0318-0321 国内number表
+
+						0313-0322 异常重复数据处理-扫描&处理
+
+
+					国外表结构调整
+						info表异常数据处理
+
+					国内表结构调整
+						info表
+							最后一张表
+						number表
+							考虑先进行
+
+				-- 20240315
+					国外表结构调整
+						异常数据处理准备-技术评审
+						number表处理
+						info表处理
+
+				-- 20240314
+					国外表结构调整，异常数据处理准备
+						检查脚本
+
+				-- 20240311
+					number表操作脚本准备
+
+				-- 20240308
+					执行最后的两个大表
+
+				-- 20240307
+					不同任务相互隔离（日志，判断依据）
+					重复相关复用（日志部分）
+					进度记录（比如每次执行及其累加）
+				-- 20240306
+					关注info表执行，并做相应需要调整
+					准备number表脚本
+				-- 20240305
+					暂停执行开关
+				-- 20240304
+					限定时间范围
+						逻辑
+							统计数量及最大最小id必须完全一致
+							抽查样本数据必须完全一致
+								范围内存在至少100条数据
+						测试
+							测试表
+							打印确认
+						检查
+
+
+				-- 20240301
+					脚本
+						测试驱动代码
+						检查需要调整表字段定义（前后对比）
+						拼接modify的sql
+
+				-- 20240229
+					对比国内外跟本地文件
+
+					调整逻辑
+						目标模版（引入文件提供，每次执行自定义）
+							提供字段对应类型、长度，是否添加unsigned和备注模版
+						是否同目标一致
+							将实际内容定义同模版对比，是否一致逻辑如下
+							字段类型或长度如果跟模版不一致则为不一致，
+							是否添加unsigned如果跟模版不一致则为不一致，
+							备注如果跟模版不一致（如果有替换为指定内容，如果没有则新增指定内容）则为不一致，
+							不一致则列出原定义和按照模版修改原定义后的定义
+								字段Type调整
+									在原定义，基础上进行替换调整
+										将原定义中字段Type直接替换
+								字段comment调整
+									无comment关键词，将原定义结尾“,”调整为“ comment '新备注'”
+									有comment关键词，将原定义“ comment '旧备注'”调整为“ comment '新备注'”
+						检查或执行
+							检查
+								如果不一致列出两者
+							执行
+								不一致情况下，拼接调整sql（定义替换）
+				-- 20240227
+					对比国内跟本地文件
+					提取出来为单独文件，后续包含进来
+
+					表名获取&调整
+						传入调整的表sql
+						关键词过滤
+							如果带%，需要包含关键词 tr_user_tracknumber_或tr_tracking_info_ 否则中断
+						获取所需要表
+							获取所有表
+							取关键词部分
+							过滤剔除关键词部分
+
+						sql异常检测中断定义（如果出现sql报错，中断执行）
+
+						逐个检查所有表
+							（根据传参确定）检查表结构（查看确认需要改的表结果）
+							（根据传参确定）调整表结构（确认后进行调整）（过程中进行日志记录）
+								跳过成功执行过的表
+								针对当前表进行调整
+								工具报错（具体判断详见代码及备注）中断
+								执行后（已经完成切换，此时旧表数据存在）对旧表及新表做数据统计对比，
+									最小id，最大id，表中数据数量
+									完全一致继续往后
+									如果最大id不一致且数量相差超过10%，中断当前执行，进行排查后重新开始
+										# 异常不清除原表，则撤回（交换回表名）（已经注释）
+								记录为成功执行过的表
+								清除旧表数据
+
+					异常处理-误操作清除了一个number表
+						应急操作以恢复用户新增数据
+							新建number表（注意AUTO_INCREMENT需要指定，可从ES中获取）
+						恢复
+							新建集群
+								恢复备份数据，从备份数据同步到数据到新建表
+									create table tr_user_tracknumber_144001_144500_20240227_01 like tr_user_tracknumber_144001_144500;
+									php /home/wwwroot/www.trackingmore.com/script/databaseAToB.php '{"toOperateNum":15000000, "oneInsNum":10000, "DA":"polardb_temp", "TA":"tr_user_tracknumber_144001_144500", "DB":"polardb", "TB":"tr_user_tracknumber_144001_144500_20240227_01", "operation":"aToB", "startId": 0, "nowhereclause":""}' test1 >> /home/wwwroot/www.trackingmore.com/script/log/databaseAToB.php.aToB.20240227.log
+									php /home/wwwroot/www.trackingmore.com/script/databaseAToB.php '{"toOperateNum":15000000, "oneInsNum":100, "DA":"polardb_temp", "TA":"tr_user_tracknumber_144001_144500", "DB":"polardb", "TB":"tr_user_tracknumber_144001_144500_20240227_01", "operation":"aToB", "startId": 0, "nowhereclause":""}' test1 >> /home/wwwroot/www.trackingmore.com/script/log/databaseAToB.php.aToB.20240227.log
+									php /home/wwwroot/www.trackingmore.com/script/databaseAToB.php '{"toOperateNum":15000000, "oneInsNum":1, "DA":"polardb_temp", "TA":"tr_user_tracknumber_144001_144500", "DB":"polardb", "TB":"tr_user_tracknumber_144001_144500_20240227_01", "operation":"aToB", "startId": 0, "nowhereclause":""}' test1 >> /home/wwwroot/www.trackingmore.com/script/log/databaseAToB.php.aToB.20240227.log
+
+								检查最新数据到新number表之间是否有新增数据
+								rename table tr_user_tracknumber_144001_144500 to tr_user_tracknumber_144001_144500_back_20240227;rename table tr_user_tracknumber_144001_144500_20240227_01 to tr_user_tracknumber_144001_144500;
+								insert into tr_user_tracknumber_144001_144500 select * from tr_user_tracknumber_144001_144500_back_20240227;
+
+								检查最新数据到新number表之间是否有新增数据
+
+							恢复数据到原集群中
+								select count(*) from tr_user_tracknumber_144001_144500_backup\G
+								select count(*) from tr_user_tracknumber_144001_144500\G
+								将新建表名字改为
+								rename table tr_user_tracknumber_144001_144500 to tr_user_tracknumber_144001_144500_back_20240227;rename table tr_user_tracknumber_144001_144500_backup to tr_user_tracknumber_144001_144500;
+								insert into tr_user_tracknumber_144001_144500 select * from tr_user_tracknumber_144001_144500_back_20240227;
+
+								insert into tr_user_tracknumber_144001_144500 select * from tr_user_tracknumber_144001_144500_backup where tracking_info_id = 3403347;
+
+						遗漏补充
+							对比info和number表（获取精确恢复时间，重新获取数据）
+							误操作后，新建表前客户是否有添加动作
+								查看报错记录，或sql（表名：tr_user_tracknumber_144001_144500，时间18:22:07-）
+
+		客诉&其他协助考虑
+			单号识别有效单号-LAP-自动获取异常 
+			国外数据库CPU告警
+
+			本地
+				AC
+					-- 20240516
+						外网访问慢-针对域名进行限速 https://alidocs.dingtalk.com/i/nodes/P7QG4Yx2Jp1PK9B4Cz7Pzalz89dEq3XD?utm_scene=team_space
+				esxi
+					-- 20240516
+						内网开发服务器端口映射 https://alidocs.dingtalk.com/i/nodes/YndMj49yWjRBz1OASBj6XjRoW3pmz5aA?utm_scene=team_space&iframeQuery=anchorId%3D1076835358554 @GC
+			本地网路调优
+				本地WIFI
+				-- 20240426
+					企业WIFI
+						605
+							L1 hw_manage_0180（被替换） -> hw_manage_6890
+							NL1 hw_manage_c700
+
+						602（线ap1，ap2是ok的）
+							L2 hw_manage_fbc0
+							NL2 hw_manage_6a50
+				-- 20240424
+					访问外网慢-专线被单个域名占用带宽（考虑按域名限速）
+					WIFI设备采购申请
+						(2565*3+1230*2) - (51*3+25*2+80*5) - (100*3)= 9252
+						2个AirEngine5762S-12 京东购买连接： https://item.jd.com/100017194219.html
+						3个AirEngine6761S-21T 京东购买连接： https://item.jd.com/100013057387.html
+
+						3个AirEngine6761S-21T
+						原价 2565*3
+						企业账号价格： 2565*3 - 51*3
+
+						2个AirEngine5762S-12
+						原价 1205*2
+						企业账号价格： 1205*2 - 25*2
+
+						优惠折扣：
+						领券1000-80（已经发给企业账号负责人，使用3张后可以再领一次），
+						3个AirEngine6761S-21T可以晒单领取100元E卡
+
+						最终估价(2565*3+1230*2)-(51*3+25*2+80*5+100*3)=9252
+						原价：2565*3+1230*2
+						企业账号折扣：51*3+25*2
+						领券：80*5
+						晒单E卡：100*3
+
+				-- 20240422
+				上线企业级WIFI
+					办公室面积
+					设备性能
+						覆盖面积
+						带机量（最大带机、最大并发）
+
+					602办公室（单位0.6米）
+						纵向
+						0.3+14+6+0.5=20.8
+						7.5ap
+						10ap
+						7.3ap+13左右0.3 （20.6）
+						横向
+						（0.6）23（11ap）+10（ap）+6+28（13）
+
+				-- 20240221
+				针对待确认跟进行动
+					白名单
+						首批添加
+							无线
+								公用设备
+									摄像头
+									门禁
+									打印机
+									会议室屏幕
+									音箱
+									等等
+								笔记本
+									发给大家进行登记
+								手机
+									发给大家进行登记
+								需要接入工作网络的设备（变动（钉钉文档本身包含历史记录）-需维护）
+							有线
+						后期维护（信息同步，@人事）
+							新增
+							调整（更改）
+							删除
+					限速
+						终端
+							无线
+							有线
+						高层级节点
+					无线WIFI位置调整为吸顶
+						605
+						602
+					重要节点备份
+						华为主路由器
+						其他节点
+
+				--20240415 待办
+					本地设备服务商
+						之前的服务商
+						华为（刘总提供，从聊天记录确认）
+						其他查找
+
+				-- 20240219
+				监控异常数据记录 -- 异常排查&事后溯源
+
+				-- 20240206
+				待优化点
+
+					有线组网 -- 节前
+						602
+					信号覆盖
+						吸顶（需要电源、网线）
+							相关背景
+								考虑使用原有线路（原来的要能被快速回来？）
+							605 -- 节前
+								使用原爱快AP位置2个
+									确认固定方式 --
+							602 -- 节后
+								需要拉线（电源）
+								暂用原爱快AP？
+
+						强度
+							测试
+						会议室
+							测试
+					限速
+						节点限制 -- 节前
+						白名单 -- 节后（需要大家配合搜集完整，避免遗漏到时无法上网需要手动再处理）
+							搜集无线设备mac
+								公用设备
+								笔记本
+								手机
+								需要接入工作网络的设备（变动）
+						访客网络（开启发布） -- 节后
+					节点备份 -- 节前
+						主路由
+				行动 -- 节前
+					确认信号强度后
+					（先？）新购买2华为路由器
+						流程 0326
+						非流程 
+					602进行有线组网（对比测试ap 与华为路由器？）
+
+				测试闭环-实际使用测试、反馈
+
+
+				-- 20240123
+				有线组网（华为智连）
+
+				-- 20240119
+
+				-- 20240114
+				现状 0115-0116
+					网络架构相关
+					内部投诉收集（测试用例准备）
+						热点连接的异常
+						翻墙使用
+						具体某个软件慢
+				服务商对接 0115-0116
+				调整 0117-
+
+	告警
+		国外数据库CPU&api服务器负载&redis0节点流出带宽
+
+		国外数据库-只读节点内存耗尽异常重启
+			定位
+			告警规则
+
+	协同
+	--文档--
+		时间？
