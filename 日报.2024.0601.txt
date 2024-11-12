@@ -2154,6 +2154,8 @@ prometheus 授权
 
 操作顺序
 	-- 20241111
+		ssl证书（钉钉任务）
+
 		本地
 			五部加密卸载
 			申请公网IP
@@ -3743,6 +3745,10 @@ prometheus 授权
 	指定用户调整指定运输商更新频率
 		云效需求：https://devops.aliyun.com/projex/task/TMPX-5588# 《341485：提高royal mail更新频率》
 		https://alidocs.dingtalk.com/i/nodes/dQPGYqjpJYvxw1knslzdE0LY8akx1Z5N?utm_scene=team_space&iframeQuery=anchorId%3Duu_lwg9vn757w4riio5he8
+		-- 20241111
+			22 2024-10-20 00:00:00
+			38 2024-11-01 00:00:00
+			1831 2024-11-01 19:18:00
 
 	运营301跳转
 		-- 20240513
