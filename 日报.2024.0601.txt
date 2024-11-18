@@ -2111,6 +2111,138 @@
 日常响应
 3，后续优先级、应对
 
+===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== =====
+20241111
+本地
+告警
+技术评审
+
+
+- 今日合规操作小结：无
+- 今日违规操作小结：无
+- 今日监督操作小结：无
+
+
+原计划：
+日常响应
+本地
+1，网络优化相关
+1-1，科学上网服务商对接-新设备
+1-2，后续相关优化
+运维
+2，分账
+日常响应
+3，后续优先级、应对
+
+计划：
+本地
+1，网络优化相关
+1-1，科学上网服务商对接-新设备
+1-2，后续相关优化
+运维
+2，分账
+日常响应
+3，后续优先级、应对
+
+===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== =====
+20241112
+本地
+告警
+技术评审
+
+
+- 今日合规操作小结：无
+- 今日违规操作小结：无
+- 今日监督操作小结：无
+
+
+原计划：
+日常响应
+本地
+1，网络优化相关
+1-1，科学上网服务商对接-新设备
+1-2，后续相关优化
+运维
+2，分账
+日常响应
+3，后续优先级、应对
+
+计划：
+本地
+1，网络优化相关
+1-1，科学上网服务商对接-新设备
+1-2，后续相关优化
+运维
+2，分账
+日常响应
+3，后续优先级、应对
+
+===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== =====
+20241113
+本地
+告警
+技术评审
+
+
+- 今日合规操作小结：无
+- 今日违规操作小结：无
+- 今日监督操作小结：无
+
+
+原计划：
+日常响应
+本地
+1，网络优化相关
+1-1，科学上网服务商对接-新设备
+1-2，后续相关优化
+运维
+2，分账
+日常响应
+3，后续优先级、应对
+
+计划：
+本地
+1，网络优化相关
+1-1，科学上网服务商对接-新设备
+1-2，后续相关优化
+运维
+2，充值梳理提交
+日常响应
+3，后续优先级、应对
+
+===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== =====
+20241114
+本地
+告警
+技术评审
+
+
+- 今日合规操作小结：无
+- 今日违规操作小结：无
+- 今日监督操作小结：无
+
+
+原计划：
+日常响应
+本地
+1，网络优化相关
+1-1，科学上网服务商对接-新设备
+1-2，后续相关优化
+运维
+2，充值梳理提交
+日常响应
+3，后续优先级、应对
+
+计划：
+本地
+1，网络优化相关
+1-1，科学上网服务商对接-新设备
+1-2，后续相关优化
+运维
+2，分账
+日常响应
+3，后续优先级、应对
+
 
 复盘
 3，工作项梳理
@@ -2153,6 +2285,21 @@ prometheus 授权
 5，测试环境-分支自动构建触发取消
 
 操作顺序
+	-- 20241115
+		信用卡更换
+	-- 20241113
+		专线续费
+		充值梳理
+
+		发票
+		本地
+			mac绑定
+			合同
+	-- 20241112
+		明天阿里云沟通 √
+		更新频率
+		ssl证书更新
+		五部加密移除
 	-- 20241111
 		ssl证书（钉钉任务）
 
@@ -2526,6 +2673,23 @@ prometheus 授权
 					监控告警
 					异常重发
 
+					临时处理
+						-- 20241112 代码发布异常-20230206（0129） · 钉钉文档: https://alidocs.dingtalk.com/i/nodes/qXomz1wAyjKVXoooXb7lW3Y9pRBx5OrE?corpId=
+							进行发布
+								sh send.code.sh a445aeee0 17e7bc0a3
+
+								echo >> send.code.log;echo `date` manu send code test start >> send.code.log
+								sh send.code.sh a445aeee0 17e7bc0a3 >> send.code.log
+								echo >> send.code.log;echo `date` manu send code test end >> send.code.log
+
+								echo >> build.commitid.log;echo `date`' manu send code start(build.commitid.log last line must be commit_id)' >> build.commitid.log;
+								echo 17e7bc0a3 >> build.commitid.log
+
+							确认效果
+								tail -100 send.code.log
+								tail -100 build.commitid.log
+								ll /home/wwwroot/www.trackingmore.com/tools/disposableEmail.php
+
 		多个运输商异常率上升 国内 china-post 4px 国外 wishpost
 			-- 20240817
 				日志
@@ -2638,6 +2802,244 @@ prometheus 授权
 								script\queueshell\zipAndRmSpecifyTimeFile.sh
 								script\queueshell\file.to.zip.sh
 						历史数据清理 20240529
+							-- 20241114
+								服务器
+									ind_front_87_101_172.16.10.170-resque-download-51-74
+								操作
+									[root@xxx ~]# df -h
+									Filesystem      Size  Used Avail Use% Mounted on
+									/dev/vda1        49G   48G     0 100% /
+									devtmpfs        3.8G     0  3.8G   0% /dev
+									tmpfs           3.8G     0  3.8G   0% /dev/shm
+									tmpfs           3.8G  3.4G  381M  91% /run
+									tmpfs           3.8G     0  3.8G   0% /sys/fs/cgroup
+									tmpfs           768M     0  768M   0% /run/user/0
+									tmpfs           768M     0  768M   0% /run/user/1004
+									[root@xxx ~]# find / -name '*' -type f -size +100M | xargs ls -lh {} | sort -nrk5
+									find: ‘/proc/16530/task/16908/fdinfo/6’: No such file or directory
+									find: ‘/proc/16530/task/16909/fdinfo/6’: No such file or directory
+									find: ‘/proc/16530/task/17182/fdinfo/6’: No such file or directory
+									find: ‘/proc/16530/task/17277/fdinfo/6’: No such file or directory
+									find: ‘/proc/16530/task/18885/fdinfo/6’: No such file or directory
+									find: ‘/proc/17484/task/17484/fdinfo/6’: No such file or directory
+									find: ‘/proc/17484/fdinfo/5’: No such file or directory
+									ls: cannot access {}: No such file or directory
+									-rwxr-xr-x  1 root root 528M Nov 14 19:48 /home/wwwroot/mytracking/logs/number/create-tracking.log
+									-rwxr-xr-x  1 root root 523M Nov 12 00:00 /home/wwwroot/mytracking/logs/number/create-tracking.log.20241112
+									-rwxr-xr-x  1 root root 478M Nov 13 00:00 /home/wwwroot/mytracking/logs/number/create-tracking.log.20241113
+									-rwxr-xr-x  1 root root 434M Nov 14 00:00 /home/wwwroot/mytracking/logs/number/create-tracking.log.20241114
+									-rwx------  1 root root 334M Nov 14 02:20 /run/log/home-wwwroot-mytracking-logs-number/create-tracking.log.20241114
+									-rw-r--r--  1 root root 203M Nov  8 03:06 /home/wwwroot/mytracking/uploads/excel_zip/20241107.zip
+									-rw-r--r--  1 root root 196M Nov  7 03:05 /home/wwwroot/mytracking/uploads/excel_zip/20241106.zip
+									-rw-r--r--  1 root root 194M Dec 20  2023 /home/wwwroot/www.trackingmore.com/download/2022.csv
+									-rw-r--r--  1 root root 190M Nov  2 03:05 /home/wwwroot/mytracking/uploads/excel_zip/20241101.zip
+									-rw-r--r--  1 root root 183M Oct 18 03:06 /home/wwwroot/mytracking/uploads/excel_zip/20241017.zip
+									-rw-r--r--  1 root root 164M Nov  6 03:05 /home/wwwroot/mytracking/uploads/excel_zip/20241105.zip
+									-rw-r--r--  1 root root 155M Sep 19 03:04 /home/wwwroot/mytracking/uploads/excel_zip/20240918.zip
+									-rw-r--r--  1 root root 153M Sep 26 03:04 /home/wwwroot/mytracking/uploads/excel_zip/20240925.zip
+									-rw-r--r--  1 root root 152M Oct 26 03:05 /home/wwwroot/mytracking/uploads/excel_zip/20241025.zip
+									-rw-r--r--  1 root root 152M Nov 14 19:14 /home/wwwroot/www.trackingmore.com/download/lo2oLiObLgDm4pvUkat7zitdqFrfBvsmnv2mD.csv
+									-rw-r--r--  1 root root 152M Nov 14 14:44 /home/wwwroot/www.trackingmore.com/download/9XvZe83weus18eoldiJ6us86XomULnvA9rvJG.csv
+									-rw-r--r--  1 root root 147M Nov 14 03:06 /home/wwwroot/mytracking/uploads/excel_zip/20241113.zip
+									-rw-r--r--  1 root root 146M Nov  5 03:05 /home/wwwroot/mytracking/uploads/excel_zip/20241104.zip
+									-rw-r--r--  1 root root 140M Oct 30 03:04 /home/wwwroot/mytracking/uploads/excel_zip/20241029.zip
+									-rw-r--r--  1 root root 139M Oct 25 03:06 /home/wwwroot/mytracking/uploads/excel_zip/20241024.zip
+									-rw-r--r--  1 root root 138M Nov  1 03:04 /home/wwwroot/mytracking/uploads/excel_zip/20241031.zip
+									-rw-r--r--  1 root root 136M Oct 10 03:04 /home/wwwroot/mytracking/uploads/excel_zip/20241009.zip
+									-rw-r--r--  1 root root 134M Sep 30 03:04 /home/wwwroot/mytracking/uploads/excel_zip/20240929.zip
+									-rw-r--r--  1 root root 134M Oct  9 03:04 /home/wwwroot/mytracking/uploads/excel_zip/20241008.zip
+									-rw-r--r--  1 root root 134M Nov  9 03:04 /home/wwwroot/mytracking/uploads/excel_zip/20241108.zip
+									-rw-r--r--  1 root root 130M Nov 14 20:09 /home/wwwroot/www.51tracking.com/script/sync/compare_img_sync.log
+									-rw-r--r--  1 root root 128M Oct 24 03:04 /home/wwwroot/mytracking/uploads/excel_zip/20241023.zip
+									-rw-r--r--  1 root root 128M Oct 22 03:04 /home/wwwroot/mytracking/uploads/excel_zip/20241021.zip
+									-r--------  1 root root 128T Nov 14 20:10 /proc/kcore
+									-rw-r--r--  1 root root 126M Aug 24  2023 /var/cache/yum/x86_64/7/updates/gen/primary_db.sqlite
+									-rw-r--r--  1 root root 125M Oct 31 03:04 /home/wwwroot/mytracking/uploads/excel_zip/20241030.zip
+									-rw-r--r--  1 root root 125M Nov 13 03:04 /home/wwwroot/mytracking/uploads/excel_zip/20241112.zip
+									-rw-r--r--  1 root root 124M May 14  2024 /run/log/home-wwwroot-mytracking-uploads-excel_zip/20240513.zip
+									-rw-r--r--  1 root root 119M Oct 23 03:04 /home/wwwroot/mytracking/uploads/excel_zip/20241022.zip
+									-rw-r--r--. 1 root root 119M Aug 28  2023 /var/lib/rpm/Packages
+									-rw-r--r--  1 root root 118M Aug 31  2020 /usr/local/rasp-php-linux.tar.bz2
+									-rw-r--r--  1 root root 117M Sep  5 03:03 /home/wwwroot/mytracking/uploads/excel_zip/20240904.zip
+									-rw-r--r--  1 root root 115M Oct 11 03:04 /home/wwwroot/mytracking/uploads/excel_zip/20241010.zip
+									-rw-r--r--  1 root root 114M Oct 29 03:04 /home/wwwroot/mytracking/uploads/excel_zip/20241028.zip
+									-rwxr-xr-x  1 root root 112M Nov 14 19:48 /home/wwwroot/mytracking/logs/send_first_queue/send.log
+									-rw-r--r--  1 root root 112M Sep 27 03:03 /home/wwwroot/mytracking/uploads/excel_zip/20240926.zip
+									-rw-r--r--  1 root root 112M Oct 17 03:04 /home/wwwroot/mytracking/uploads/excel_zip/20241016.zip
+									-rw-r--r--  1 root root 112M Oct 12 03:03 /home/wwwroot/mytracking/uploads/excel_zip/20241011.zip
+									-rw-r--r--  1 root root 112M Aug 22 03:03 /home/wwwroot/mytracking/uploads/excel_zip/20240821.zip
+									-rw-r--r--  1 root root 111M Oct 16 03:04 /home/wwwroot/mytracking/uploads/excel_zip/20241015.zip
+									-rw-r--r--  1 root root 109M May 16  2024 /run/log/home-wwwroot-mytracking-uploads-excel_zip/20240515.zip
+									-rw-r--r--  1 root root 108M Oct 13 03:03 /home/wwwroot/mytracking/uploads/excel_zip/20241012.zip
+									-rw-r--r--  1 root root 105M Aug 16 03:03 /home/wwwroot/mytracking/uploads/excel_zip/20240815.zip
+									-rw-r--r--  1 root root 104M May 31 03:03 /run/log/home-wwwroot-mytracking-uploads-excel_zip/20240530.zip
+									-rw-r--r--  1 root root 104M May 17 03:04 /run/log/home-wwwroot-mytracking-uploads-excel_zip/20240516.zip
+									-rw-r--r--  1 root root 103M May 23 03:04 /run/log/home-wwwroot-mytracking-uploads-excel_zip/20240522.zip
+									-rw-r--r--  1 root root 103M Aug 15 03:04 /home/wwwroot/mytracking/uploads/excel_zip/20240814.zip
+									-rw-r--r--  1 root root 102M Oct 15 03:03 /home/wwwroot/mytracking/uploads/excel_zip/20241014.zip
+									-rw-r--r--  1 root root 102M Nov 29  2022 /usr/lib/locale/locale-archive
+									-rw-r--r--  1 root root 102M Nov 12 03:04 /home/wwwroot/mytracking/uploads/excel_zip/20241111.zip
+									[root@xxx ~]# echo > /home/wwwroot/mytracking/logs/number/create-tracking.log.20241112
+									[root@xxx ~]# echo > /home/wwwroot/mytracking/logs/number/create-tracking.log.20241113
+									[root@xxx ~]# df -h
+									Filesystem      Size  Used Avail Use% Mounted on
+									/dev/vda1        49G   47G  795M  99% /
+									devtmpfs        3.8G     0  3.8G   0% /dev
+									tmpfs           3.8G     0  3.8G   0% /dev/shm
+									tmpfs           3.8G  3.4G  381M  91% /run
+									tmpfs           3.8G     0  3.8G   0% /sys/fs/cgroup
+									tmpfs           768M     0  768M   0% /run/user/0
+									tmpfs           768M     0  768M   0% /run/user/1004
+									[root@xxx ~]# ll /home/wwwroot/mytracking/uploads/excel_zip | head
+									total 8149176
+									-rw-r--r-- 1 root root  66091781 Aug 10 03:03 20240809.zip
+									-rw-r--r-- 1 root root  43291107 Aug 11 03:03 20240810.zip
+									-rw-r--r-- 1 root root   8699172 Aug 12 03:03 20240811.zip
+									-rw-r--r-- 1 root root 101649168 Aug 13 03:03 20240812.zip
+									-rw-r--r-- 1 root root  98266176 Aug 14 03:03 20240813.zip
+									-rw-r--r-- 1 root root 107715754 Aug 15 03:04 20240814.zip
+									-rw-r--r-- 1 root root 109980131 Aug 16 03:03 20240815.zip
+									-rw-r--r-- 1 root root  88212978 Aug 17 03:03 20240816.zip
+									-rw-r--r-- 1 root root  23774070 Aug 18 03:03 20240817.zip
+									[root@xxx ~]# ll /home/wwwroot/mytracking/uploads/excel_zip -h | head
+									total 7.8G
+									-rw-r--r-- 1 root root  64M Aug 10 03:03 20240809.zip
+									-rw-r--r-- 1 root root  42M Aug 11 03:03 20240810.zip
+									-rw-r--r-- 1 root root 8.3M Aug 12 03:03 20240811.zip
+									-rw-r--r-- 1 root root  97M Aug 13 03:03 20240812.zip
+									-rw-r--r-- 1 root root  94M Aug 14 03:03 20240813.zip
+									-rw-r--r-- 1 root root 103M Aug 15 03:04 20240814.zip
+									-rw-r--r-- 1 root root 105M Aug 16 03:03 20240815.zip
+									-rw-r--r-- 1 root root  85M Aug 17 03:03 20240816.zip
+									-rw-r--r-- 1 root root  23M Aug 18 03:03 20240817.zip
+									[root@xxx ~]# ll /home/wwwroot/mytracking/uploads/ -h | head
+									total 8.0K
+									drwxr-xr-x 13 root root 4.0K Nov  1 00:42 excel
+									drwxr-xr-x  2 root root 4.0K Nov 14 03:06 excel_zip
+									[root@xxx ~]# ll /home/wwwroot/mytracking/uploads/excel -h | head
+									total 416K
+									drwxr-xr-x 2 root root 36K Feb  1  2024 202401
+									drwxr-xr-x 2 root root 24K Mar  1  2024 202402
+									drwxr-xr-x 2 root root 32K Apr  1  2024 202403
+									drwxr-xr-x 2 root root 32K May  1  2024 202404
+									drwxr-xr-x 2 root root 32K Jun  1 03:03 202405
+									drwxr-xr-x 2 root root 36K Jul  1 03:03 202406
+									drwxr-xr-x 2 root root 36K Aug  1 03:03 202407
+									drwxr-xr-x 2 root root 36K Sep  1 03:03 202408
+									drwxr-xr-x 2 root root 36K Oct  1 03:03 202409
+									[root@xxx ~]# ll /home/wwwroot/mytracking/uploads/excel_zip -h | head
+									total 7.8G
+									-rw-r--r-- 1 root root  64M Aug 10 03:03 20240809.zip
+									-rw-r--r-- 1 root root  42M Aug 11 03:03 20240810.zip
+									-rw-r--r-- 1 root root 8.3M Aug 12 03:03 20240811.zip
+									-rw-r--r-- 1 root root  97M Aug 13 03:03 20240812.zip
+									-rw-r--r-- 1 root root  94M Aug 14 03:03 20240813.zip
+									-rw-r--r-- 1 root root 103M Aug 15 03:04 20240814.zip
+									-rw-r--r-- 1 root root 105M Aug 16 03:03 20240815.zip
+									-rw-r--r-- 1 root root  85M Aug 17 03:03 20240816.zip
+									-rw-r--r-- 1 root root  23M Aug 18 03:03 20240817.zip
+									[root@xxx ~]# find  /home/wwwroot/mytracking/uploads/excel_zip  -name '2024*.zip' | wc -l
+									97
+									[root@xxx ~]# find  /home/wwwroot/mytracking/uploads/excel_zip  -name '2024*.zip' | grep -v 202411 | wc -l
+									84
+									[root@xxx ~]# find  /home/wwwroot/mytracking/uploads/excel_zip  -name '2024*.zip' | grep -v 202411 |
+									> 
+									> ^C
+									[root@xxx ~]# find  /home/wwwroot/mytracking/uploads/excel_zip  -name '2024*.zip' | grep -v 202411 
+									/home/wwwroot/mytracking/uploads/excel_zip/20241010.zip
+									/home/wwwroot/mytracking/uploads/excel_zip/20240915.zip
+									/home/wwwroot/mytracking/uploads/excel_zip/20240913.zip
+									/home/wwwroot/mytracking/uploads/excel_zip/20241019.zip
+									/home/wwwroot/mytracking/uploads/excel_zip/20241023.zip
+									/home/wwwroot/mytracking/uploads/excel_zip/20240811.zip
+									/home/wwwroot/mytracking/uploads/excel_zip/20240810.zip
+									/home/wwwroot/mytracking/uploads/excel_zip/20240822.zip
+									/home/wwwroot/mytracking/uploads/excel_zip/20240901.zip
+									/home/wwwroot/mytracking/uploads/excel_zip/20241029.zip
+									/home/wwwroot/mytracking/uploads/excel_zip/20241028.zip
+									/home/wwwroot/mytracking/uploads/excel_zip/20240905.zip
+									/home/wwwroot/mytracking/uploads/excel_zip/20241017.zip
+									/home/wwwroot/mytracking/uploads/excel_zip/20240930.zip
+									/home/wwwroot/mytracking/uploads/excel_zip/20241031.zip
+									/home/wwwroot/mytracking/uploads/excel_zip/20241022.zip
+									/home/wwwroot/mytracking/uploads/excel_zip/20241018.zip
+									/home/wwwroot/mytracking/uploads/excel_zip/20241026.zip
+									/home/wwwroot/mytracking/uploads/excel_zip/20240825.zip
+									/home/wwwroot/mytracking/uploads/excel_zip/20240922.zip
+									/home/wwwroot/mytracking/uploads/excel_zip/20240820.zip
+									/home/wwwroot/mytracking/uploads/excel_zip/20240902.zip
+									/home/wwwroot/mytracking/uploads/excel_zip/20240817.zip
+									/home/wwwroot/mytracking/uploads/excel_zip/20241016.zip
+									/home/wwwroot/mytracking/uploads/excel_zip/20240908.zip
+									/home/wwwroot/mytracking/uploads/excel_zip/20241027.zip
+									/home/wwwroot/mytracking/uploads/excel_zip/20241025.zip
+									/home/wwwroot/mytracking/uploads/excel_zip/20240813.zip
+									/home/wwwroot/mytracking/uploads/excel_zip/20240920.zip
+									/home/wwwroot/mytracking/uploads/excel_zip/20241002.zip
+									/home/wwwroot/mytracking/uploads/excel_zip/20240809.zip
+									/home/wwwroot/mytracking/uploads/excel_zip/20241008.zip
+									/home/wwwroot/mytracking/uploads/excel_zip/20240909.zip
+									/home/wwwroot/mytracking/uploads/excel_zip/20240818.zip
+									/home/wwwroot/mytracking/uploads/excel_zip/20241015.zip
+									/home/wwwroot/mytracking/uploads/excel_zip/20240925.zip
+									/home/wwwroot/mytracking/uploads/excel_zip/20240916.zip
+									/home/wwwroot/mytracking/uploads/excel_zip/20240828.zip
+									/home/wwwroot/mytracking/uploads/excel_zip/20240903.zip
+									/home/wwwroot/mytracking/uploads/excel_zip/20240812.zip
+									/home/wwwroot/mytracking/uploads/excel_zip/20241013.zip
+									/home/wwwroot/mytracking/uploads/excel_zip/20240906.zip
+									/home/wwwroot/mytracking/uploads/excel_zip/20240921.zip
+									/home/wwwroot/mytracking/uploads/excel_zip/20240918.zip
+									/home/wwwroot/mytracking/uploads/excel_zip/20240819.zip
+									/home/wwwroot/mytracking/uploads/excel_zip/20241020.zip
+									/home/wwwroot/mytracking/uploads/excel_zip/20240824.zip
+									/home/wwwroot/mytracking/uploads/excel_zip/20240831.zip
+									/home/wwwroot/mytracking/uploads/excel_zip/20241007.zip
+									/home/wwwroot/mytracking/uploads/excel_zip/20240923.zip
+									/home/wwwroot/mytracking/uploads/excel_zip/20240829.zip
+									/home/wwwroot/mytracking/uploads/excel_zip/20240914.zip
+									/home/wwwroot/mytracking/uploads/excel_zip/20241009.zip
+									/home/wwwroot/mytracking/uploads/excel_zip/20240912.zip
+									/home/wwwroot/mytracking/uploads/excel_zip/20240815.zip
+									/home/wwwroot/mytracking/uploads/excel_zip/20240910.zip
+									/home/wwwroot/mytracking/uploads/excel_zip/20241011.zip
+									/home/wwwroot/mytracking/uploads/excel_zip/20240924.zip
+									/home/wwwroot/mytracking/uploads/excel_zip/20240816.zip
+									/home/wwwroot/mytracking/uploads/excel_zip/20240827.zip
+									/home/wwwroot/mytracking/uploads/excel_zip/20241006.zip
+									/home/wwwroot/mytracking/uploads/excel_zip/20240823.zip
+									/home/wwwroot/mytracking/uploads/excel_zip/20240919.zip
+									/home/wwwroot/mytracking/uploads/excel_zip/20241001.zip
+									/home/wwwroot/mytracking/uploads/excel_zip/20240830.zip
+									/home/wwwroot/mytracking/uploads/excel_zip/20240911.zip
+									/home/wwwroot/mytracking/uploads/excel_zip/20240826.zip
+									/home/wwwroot/mytracking/uploads/excel_zip/20240904.zip
+									/home/wwwroot/mytracking/uploads/excel_zip/20241005.zip
+									/home/wwwroot/mytracking/uploads/excel_zip/20241004.zip
+									/home/wwwroot/mytracking/uploads/excel_zip/20241012.zip
+									/home/wwwroot/mytracking/uploads/excel_zip/20240821.zip
+									/home/wwwroot/mytracking/uploads/excel_zip/20241003.zip
+									/home/wwwroot/mytracking/uploads/excel_zip/20241021.zip
+									/home/wwwroot/mytracking/uploads/excel_zip/20240928.zip
+									/home/wwwroot/mytracking/uploads/excel_zip/20241024.zip
+									/home/wwwroot/mytracking/uploads/excel_zip/20240926.zip
+									/home/wwwroot/mytracking/uploads/excel_zip/20240814.zip
+									/home/wwwroot/mytracking/uploads/excel_zip/20240927.zip
+									/home/wwwroot/mytracking/uploads/excel_zip/20241014.zip
+									/home/wwwroot/mytracking/uploads/excel_zip/20241030.zip
+									/home/wwwroot/mytracking/uploads/excel_zip/20240929.zip
+									/home/wwwroot/mytracking/uploads/excel_zip/20240917.zip
+									/home/wwwroot/mytracking/uploads/excel_zip/20240907.zip
+									[root@xxx ~]# find  /home/wwwroot/mytracking/uploads/excel_zip  -name '2024*.zip' | grep -v 202411 | xargs -i rm -f {}
+									[root@xxx ~]# df -h
+									Filesystem      Size  Used Avail Use% Mounted on
+									/dev/vda1        49G   41G  7.1G  86% /
+									devtmpfs        3.8G     0  3.8G   0% /dev
+									tmpfs           3.8G     0  3.8G   0% /dev/shm
+									tmpfs           3.8G  3.4G  381M  91% /run
+									tmpfs           3.8G     0  3.8G   0% /sys/fs/cgroup
+									tmpfs           768M     0  768M   0% /run/user/0
+									tmpfs           768M     0  768M   0% /run/user/1004
 							-- 20241001
 								www-214-153-tm
 									# 压缩指定文件目录，确认压缩完成，进行原文件清除
@@ -3358,7 +3760,10 @@ prometheus 授权
 
 			分账
 				-- 20241109
-					邮件推送（放到空白 即是国内）
+					无影云（现在放国内 -c-后续分摊）
+					函数计算（现在放国内 -c-后续其他区域使用需要注意如何分配）
+				-- 20241109
+					邮件推送（放到空白 即是国内 -c-后续归国外）
 
 				-- 20241104
 					从之前的分账进行切入，保证同分账一致（后续再优化）
