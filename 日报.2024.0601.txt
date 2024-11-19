@@ -2318,11 +2318,24 @@ prometheus 授权
 5，测试环境-分支自动构建触发取消
 
 操作顺序
+	-- 20241118
+		等保复测
+			测评报告
+			服务器IP列表
+			
+		本地
+		1，网络优化相关
+		1-1，科学上网服务商对接-新设备
+		1-2，后续相关优化
+			mac绑定
+			拓扑完善
+		运维
+		2，分账
 	-- 20241115
-		信用卡更换
+		信用卡更换 √
 	-- 20241113
 		专线续费
-		充值梳理
+		充值梳理 √
 
 		发票
 		本地
@@ -4727,6 +4740,26 @@ prometheus 授权
 					-- 20240516
 						内网开发服务器端口映射 https://alidocs.dingtalk.com/i/nodes/YndMj49yWjRBz1OASBj6XjRoW3pmz5aA?utm_scene=team_space&iframeQuery=anchorId%3D1076835358554 @GC
 			本地网路调优
+				-- 20241118
+					# 绑定全局接口 602
+					traffic-policy p4 global inbound
+					# 添加acl
+					acl 3004
+					rule permit ip source 192.168.45.54 0
+					rule permit ip source 192.168.45.83 0
+					rule permit ip source 192.168.45.216 0
+					rule permit ip source 192.168.45.224 0
+					rule permit ip source 192.168.45.225 0
+					rule permit ip source 192.168.45.245 0
+					rule permit ip source 192.168.8.0 0.0.0.255
+					rule permit ip source 192.168.25.0 0.0.0.255
+					rule permit ip source 192.168.35.0 0.0.0.255
+					rule permit ip source 192.168.55.0 0.0.0.255
+					# 绑定全局接口 605
+					traffic-policy p4 global inbound
+					# 添加acl
+					acl 3004
+					rule permit ip source 192.168.7.0 0.0.0.255
 				-- 20241111
 					605
 					爱快 192.168.9.1 接设备GE2
