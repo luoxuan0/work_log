@@ -2398,6 +2398,39 @@
 日常响应
 3，后续优先级、应对
 
+===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== =====
+20241122
+本地
+告警
+技术评审
+
+
+- 今日合规操作小结：无
+- 今日违规操作小结：无
+- 今日监督操作小结：无
+
+
+原计划：
+日常响应
+本地
+1，网络优化相关
+1-1，科学上网服务商对接-新设备
+1-2，后续相关优化-mac绑定
+运维
+2，分账
+日常响应
+3，后续优先级、应对
+
+计划：
+本地
+1，网络优化相关
+1-1，科学上网服务商对接-新设备
+1-2，后续相关优化-mac绑定
+告警
+2，usps紧急修复
+日常响应
+3，后续优先级、应对
+
 
 复盘
 3，工作项梳理
@@ -2440,6 +2473,55 @@ prometheus 授权
 5，测试环境-分支自动构建触发取消
 
 操作顺序
+	-- 20241205
+		本地
+			标签
+		客诉相关服务器授权
+	-- 20241203
+		考勤
+			1109 16-19 3
+			1123 09:20-19:00
+			1124 14:00-19:00
+		本地优化
+			专线服务商
+
+			后续优化
+		等保
+	-- 20241202
+		发票
+			sendcloud
+				0912 800 √
+			青果
+				0912 2060
+				0926 8160
+
+				1017 10320
+				1031 900
+				1114 2130.97
+			阿里云
+				0912 18000
+				0926 18000
+				1114 18000
+			
+			阿里云
+				0905 140000
+				1011 145000
+			腾讯云
+				0926 11775
+		本地优化
+
+	-- 20241129
+		本地-后续优化
+
+		国内更新异常-仅首次更新
+
+		定时任务新增-LAP
+
+		阿里云订单续费-YHX_XX
+		git账号创建-DYL_EB
+
+		发票-XHH_CW
+		123提交补充-ZZH_CW
 	-- 20241121
 		iOA推进-加密等卸载
 	-- 20241120
@@ -2978,6 +3060,181 @@ prometheus 授权
 								script\queueshell\zipAndRmSpecifyTimeFile.sh
 								script\queueshell\file.to.zip.sh
 						历史数据清理 20240529
+							-- 20241205
+								api-148-56-tm
+									[cxj@iz0xi64ws5lykn8xadtfphz ~]$ sudo su -
+									Last login: Wed Dec  4 23:01:21 CST 2024 on pts/0
+									[root@iz0xi64ws5lykn8xadtfphz ~]# df -h
+									Filesystem      Size  Used Avail Use% Mounted on
+									/dev/vda1        40G   39G     0 100% /
+									devtmpfs        3.8G     0  3.8G   0% /dev
+									tmpfs           3.8G     0  3.8G   0% /dev/shm
+									tmpfs           3.8G  3.0M  3.8G   1% /run
+									tmpfs           3.8G     0  3.8G   0% /sys/fs/cgroup
+									tmpfs           768M     0  768M   0% /run/user/1001
+									tmpfs           768M     0  768M   0% /run/user/0
+									tmpfs           768M     0  768M   0% /run/user/1002
+									[root@iz0xi64ws5lykn8xadtfphz ~]# find / -name '*' -type f -size +100M | xargs ls -lh {} | sort -nrk5
+									find: ‘/proc/6103/task/6103/fdinfo/6’: No such file or directory
+									find: ‘/proc/6103/fdinfo/6’: No such file or directory
+									ls: cannot access {}: No such file or directory
+									-rw-r--r-- 1 www  www  717M Dec  5 12:05 /home/wwwroot/www.trackingmore.com/api/v2/trackings/wishapigetport.log
+									-rw-r----- 1 root root 223M May 13  2024 /var/lib/docker/containers/26ebbf0926f2cec28cc625de00962006d2352a9abd809e3b9f9045a7dcb1bde1/26ebbf0926f2cec28cc625de00962006d2352a9abd809e3b9f9045a7dcb1bde1-json.log
+									-rw-r--r-- 1 root root 208M Apr  8  2022 /home/wwwroot/www.trackingmore.com/executeSQL.202202.zip
+									-rwxr-xr-x 1 root root 129M Feb 12  2023 /var/lib/docker/overlay2/1f4a5b1935bd74ed75434e91a45fb1ad3416fd3c7692a7be9b1fb599ce88e613/diff/usr/share/filebeat/filebeat
+									-r-------- 1 root root 128T Dec  5 15:42 /proc/kcore
+									-rw-r--r-- 1 root root 126M Aug 24  2023 /var/cache/yum/x86_64/7/updates/gen/primary_db.sqlite
+									-rw-r--r-- 1 www  www  121M Feb 22  2023 /home/wwwroot/www.trackingmore.com/postnl_parcels_tracking_info.log
+									-rw-r--r-- 1 root root 120M Aug 24  2023 /var/cache/yum/x86_64/7/updates/gen/filelists_db.sqlite
+									-rw------- 1 root root 120M Dec  5 15:29 /home/wwwlogs/phpslow.log
+									-rw-r--r-- 1 root root 102M Mar 16  2018 /usr/lib/locale/locale-archive
+									-rw-r--r-- 1 www  root 4.4G Dec  4 00:01 /home/wwwlogs/access_logs/api.trackingmore.com-2024-12-03.log
+									-rw-r--r-- 1 www  root 4.3G Dec  5 00:01 /home/wwwlogs/access_logs/api.trackingmore.com-2024-12-04.log
+									-rw-r--r-- 1 www  root 2.8G Dec  5 15:42 /home/wwwlogs/api.trackingmore.com.access.log
+									-rw------- 1 root root 1.6G Dec  5 15:42 /usr/local/php7.0.33/var/log/php-fpm.log
+									[root@iz0xi64ws5lykn8xadtfphz ~]# echo > /home/wwwlogs/access_logs/api.trackingmore.com-2024-12-03.log
+									[root@iz0xi64ws5lykn8xadtfphz ~]# df -h
+									Filesystem      Size  Used Avail Use% Mounted on
+									/dev/vda1        40G   35G  4.4G  89% /
+									devtmpfs        3.8G     0  3.8G   0% /dev
+									tmpfs           3.8G     0  3.8G   0% /dev/shm
+									tmpfs           3.8G  3.0M  3.8G   1% /run
+									tmpfs           3.8G     0  3.8G   0% /sys/fs/cgroup
+									tmpfs           768M     0  768M   0% /run/user/1001
+									tmpfs           768M     0  768M   0% /run/user/1002
+									tmpfs           768M     0  768M   0% /run/user/0
+								api-151-7-tm
+									[cxj@iz0xic9e6789t96eez4ag0z ~]$ sudo su -
+									Last login: Thu Dec  5 09:28:59 CST 2024 on pts/0
+									[root@iz0xic9e6789t96eez4ag0z ~]# df -h
+									Filesystem      Size  Used Avail Use% Mounted on
+									/dev/vda1        40G   39G     0 100% /
+									devtmpfs        7.7G     0  7.7G   0% /dev
+									tmpfs           7.7G     0  7.7G   0% /dev/shm
+									tmpfs           7.7G  388M  7.3G   5% /run
+									tmpfs           7.7G     0  7.7G   0% /sys/fs/cgroup
+									tmpfs           1.6G     0  1.6G   0% /run/user/1001
+									overlay          40G   39G     0 100% /var/lib/docker/overlay2/8e1df790d677b1c8c54c35739c129166364b651e5702ca3879aa90e0f27c8cdf/merged
+									tmpfs           1.6G     0  1.6G   0% /run/user/0
+									tmpfs           1.6G     0  1.6G   0% /run/user/1002
+									[root@iz0xic9e6789t96eez4ag0z ~]# find / -name '*' -type f -size +100M | xargs ls -lh {} | sort -nrk5
+									find: ‘/proc/27828/task/27828/fdinfo/6’: No such file or directory
+									find: ‘/proc/27828/fdinfo/6’: No such file or directory
+									ls: cannot access {}: No such file or directory
+									-rw------- 1 root root 742M Dec  5 15:42 /usr/local/php7.0.33/var/log/php-fpm.log
+									-rw-r--r-- 1 root root 385M Dec  5 10:22 /run/log/home-wwwlogs-access_logs/api.trackingmore.com-2024-12-03.log.20241205.zip
+									-rw-r--r-- 1 root root 143M Feb  6  2024 /var/cache/yum/x86_64/7/updates/gen/primary_db.sqlite
+									-rw-r--r-- 1 root root 136M Feb  6  2024 /var/cache/yum/x86_64/7/updates/gen/filelists_db.sqlite
+									-rw------- 1 root root 132M Dec  5 15:28 /home/wwwlogs/phpslow.log
+									-rwxr-xr-x 1 root root 129M Feb 12  2023 /var/lib/docker/overlay2/b14bfaa237eb294d1f68108b92494332bb80cb82822221b6ea4f368bc6e74d87/diff/usr/share/filebeat/filebeat
+									-rwxr-xr-x 1 root root 129M Feb 12  2023 /var/lib/docker/overlay2/8e1df790d677b1c8c54c35739c129166364b651e5702ca3879aa90e0f27c8cdf/merged/usr/share/filebeat/filebeat
+									-r-------- 1 root root 128T Dec  5 15:42 /proc/kcore
+									-rw-r--r-- 1 root root 102M Mar 16  2018 /usr/lib/locale/locale-archive
+									-rw-r--r-- 1 www  root 7.0G Dec  5 15:42 /home/wwwlogs/api.trackingmore.com.access.log
+									-rw-r--r-- 1 www  root 4.1G Dec  5 00:01 /home/wwwlogs/access_logs/api.trackingmore.com-2024-12-04.log
+									-rw-r----- 1 root root 1.2G Dec  5 15:42 /var/lib/docker/containers/258409b44ac1576e60f83bee18150d773b6c7a576fa8b9438ae24f23404d8115/258409b44ac1576e60f83bee18150d773b6c7a576fa8b9438ae24f23404d8115-json.log
+									[root@iz0xic9e6789t96eez4ag0z ~]# echo > /home/wwwlogs/access_logs/api.trackingmore.com-2024-12-04.log
+									[root@iz0xic9e6789t96eez4ag0z ~]# df -h
+									Filesystem      Size  Used Avail Use% Mounted on
+									/dev/vda1        40G   35G  4.1G  90% /
+									devtmpfs        7.7G     0  7.7G   0% /dev
+									tmpfs           7.7G     0  7.7G   0% /dev/shm
+									tmpfs           7.7G  388M  7.3G   5% /run
+									tmpfs           7.7G     0  7.7G   0% /sys/fs/cgroup
+									tmpfs           1.6G     0  1.6G   0% /run/user/1001
+									overlay          40G   35G  4.1G  90% /var/lib/docker/overlay2/8e1df790d677b1c8c54c35739c129166364b651e5702ca3879aa90e0f27c8cdf/merged
+									tmpfs           1.6G     0  1.6G   0% /run/user/1002
+									tmpfs           1.6G     0  1.6G   0% /run/user/0
+								api-151-7-tm
+									[root@iz0xic9e6789t96eez4ag0z ~]# df -h
+									Filesystem      Size  Used Avail Use% Mounted on
+									/dev/vda1        40G   39G  153M 100% /
+									devtmpfs        7.7G     0  7.7G   0% /dev
+									tmpfs           7.7G     0  7.7G   0% /dev/shm
+									tmpfs           7.7G  3.4M  7.7G   1% /run
+									tmpfs           7.7G     0  7.7G   0% /sys/fs/cgroup
+									tmpfs           1.6G     0  1.6G   0% /run/user/1001
+									overlay          40G   39G  153M 100% /var/lib/docker/overlay2/8e1df790d677b1c8c54c35739c129166364b651e5702ca3879aa90e0f27c8cdf/merged
+									tmpfs           1.6G     0  1.6G   0% /run/user/1002
+									tmpfs           1.6G     0  1.6G   0% /run/user/0
+									[root@iz0xic9e6789t96eez4ag0z ~]# find / -name '*' -type f -size +100M | xargs ls -lh {} | sort -nrk5
+									find: ‘/proc/15688/task/15688/fdinfo/6’: No such file or directory
+									find: ‘/proc/15688/fdinfo/6’: No such file or directory
+									ls: cannot access {}: No such file or directory
+									-rw------- 1 root root 741M Dec  5 09:30 /usr/local/php7.0.33/var/log/php-fpm.log
+									-rw-r--r-- 1 www  root 217M Dec  5 09:30 /home/wwwlogs/error.log
+									-rw-r--r-- 1 root root 143M Feb  6  2024 /var/cache/yum/x86_64/7/updates/gen/primary_db.sqlite
+									-rw-r--r-- 1 root root 136M Feb  6  2024 /var/cache/yum/x86_64/7/updates/gen/filelists_db.sqlite
+									-rw------- 1 root root 132M Dec  5 09:05 /home/wwwlogs/phpslow.log
+									-rwxr-xr-x 1 root root 129M Feb 12  2023 /var/lib/docker/overlay2/b14bfaa237eb294d1f68108b92494332bb80cb82822221b6ea4f368bc6e74d87/diff/usr/share/filebeat/filebeat
+									-rwxr-xr-x 1 root root 129M Feb 12  2023 /var/lib/docker/overlay2/8e1df790d677b1c8c54c35739c129166364b651e5702ca3879aa90e0f27c8cdf/merged/usr/share/filebeat/filebeat
+									-r-------- 1 root root 128T Dec  5 09:30 /proc/kcore
+									-rw-r--r-- 1 www  www  113M Dec  5 09:30 /home/wwwroot/www.trackingmore.com/handletestbatch.log
+									-rw-r--r-- 1 root root 102M Mar 16  2018 /usr/lib/locale/locale-archive
+									-rw-r--r-- 1 www  root 5.3G Dec  4 00:01 /home/wwwlogs/access_logs/api.trackingmore.com-2024-12-03.log
+									-rw-r--r-- 1 www  root 4.1G Dec  5 00:01 /home/wwwlogs/access_logs/api.trackingmore.com-2024-12-04.log
+									-rw-r--r-- 1 www  root 1.3G Dec  5 09:30 /home/wwwlogs/api.trackingmore.com.access.log
+									-rw-r----- 1 root root 1.2G Dec  5 09:29 /var/lib/docker/containers/258409b44ac1576e60f83bee18150d773b6c7a576fa8b9438ae24f23404d8115/258409b44ac1576e60f83bee18150d773b6c7a576fa8b9438ae24f23404d8115-json.log
+									[root@iz0xic9e6789t96eez4ag0z ~]# head /home/wwwlogs/error.log
+
+									2024/12/04 12:12:01 [error] 22844#0: *13547011688 "/home/wwwroot/default/index.html" is not found (2: No such file or directory), client: 100.122.21.107, server: www.lnmp.org, request: "HEAD / HTTP/1.0"
+									2024/12/04 12:12:01 [error] 22844#0: *13547011688 open() "/home/wwwroot/default/404.html" failed (2: No such file or directory), client: 100.122.21.107, server: www.lnmp.org, request: "HEAD / HTTP/1.0"
+									2024/12/04 12:12:02 [error] 22844#0: *13547011721 "/home/wwwroot/default/index.html" is not found (2: No such file or directory), client: 100.122.21.67, server: www.lnmp.org, request: "HEAD / HTTP/1.0"
+									2024/12/04 12:12:02 [error] 22844#0: *13547011721 open() "/home/wwwroot/default/404.html" failed (2: No such file or directory), client: 100.122.21.67, server: www.lnmp.org, request: "HEAD / HTTP/1.0"
+									2024/12/04 12:12:02 [error] 22844#0: *13547011820 "/home/wwwroot/default/index.html" is not found (2: No such file or directory), client: 100.122.19.87, server: www.lnmp.org, request: "HEAD / HTTP/1.0"
+									2024/12/04 12:12:02 [error] 22844#0: *13547011820 open() "/home/wwwroot/default/404.html" failed (2: No such file or directory), client: 100.122.19.87, server: www.lnmp.org, request: "HEAD / HTTP/1.0"
+									2024/12/04 12:12:03 [error] 22844#0: *13547011907 "/home/wwwroot/default/index.html" is not found (2: No such file or directory), client: 100.122.21.76, server: www.lnmp.org, request: "HEAD / HTTP/1.0"
+									2024/12/04 12:12:03 [error] 22844#0: *13547011907 open() "/home/wwwroot/default/404.html" failed (2: No such file or directory), client: 100.122.21.76, server: www.lnmp.org, request: "HEAD / HTTP/1.0"
+									2024/12/04 12:12:03 [error] 22844#0: *13547011912 "/home/wwwroot/default/index.html" is not found (2: No such file or directory), client: 100.122.16.170, server: www.lnmp.org, request: "HEAD / HTTP/1.0"
+									[root@iz0xic9e6789t96eez4ag0z ~]# echo > /home/wwwlogs/error.log
+									[root@iz0xic9e6789t96eez4ag0z ~]# ll /home/wwwlogs/access_logs 
+									total 9759836
+									-rw-r--r-- 1 www root          1 Apr 11  2022 api.trackingmore.com-2022-04-05.log
+									-rw-r--r-- 1 www root          1 Apr 11  2022 api.trackingmore.com-2022-04-06.log
+									-rw-r--r-- 1 www root          1 Apr 11  2022 api.trackingmore.com-2022-04-07.log
+									-rw-r--r-- 1 www root          1 Jun 18  2022 api.trackingmore.com-2022-06-15.log
+									-rw-r--r-- 1 www root          1 Mar 14  2024 api.trackingmore.com-2022-12-06.log
+									-rw-r--r-- 1 www root 5676175360 Dec  4 00:01 api.trackingmore.com-2024-12-03.log
+									-rw-r--r-- 1 www root 4317714394 Dec  5 00:01 api.trackingmore.com-2024-12-04.log
+									[root@iz0xic9e6789t96eez4ag0z ~]# tail api.trackingmore.com-2024-12-04.log
+									tail: cannot open ‘api.trackingmore.com-2024-12-04.log’ for reading: No such file or directory
+									[root@iz0xic9e6789t96eez4ag0z ~]# tail /home/wwwlogs/access_logs/api.trackingmore.com-2024-12-04.log
+									100.122.21.79|05/Dec/2024:00:01:01 +0800|POST /v4/couriers/detect HTTP/1.1|200|1306|48|200|0.088|0.085|-|{\x22tracking_number\x22:\x2292612903396155000107005813\x22}|fcbaed7e-f9af-4a43-acfd-19037a5634bf
+									100.122.21.83|05/Dec/2024:00:01:01 +0800|GET /v4/trackings/get?tracking_numbers=RS934019076DE&courier_code=royal-mail HTTP/1.1|200|1994|-|200|0.079|0.079|Apache-HttpAsyncClient/UNAVAILABLE (Java/1.8.0_432)|-|ah6qj4uw-o4qe-0dw4-fsj5-3gy4c7n0uiwh
+									100.122.19.85|05/Dec/2024:00:01:01 +0800|POST /v3/trackings/manualupdate HTTP/1.1|200|162|63|200|0.060|0.059|-|[{\x22tracking_number\x22:\x221ZHE9835YW03841997\x22,\x22courier_code\x22:\x22ups\x22}]|093c66ba-3a1f-4487-84f3-dfe1d9c1232d
+									100.122.19.81|05/Dec/2024:00:01:01 +0800|POST /v4/trackings/batch HTTP/1.1|200|205|190|200|0.231|0.230|-|[{\x22tracking_number\x22:\x22282729384093\x22,\x22courier_code\x22:\x22fedex\x22,\x22tracking_postal_code\x22:\x2229926-2280\x22,\x22tracking_destination_country\x22:\x22US\x22,\x22language\x22:\x22en\x22,\x22auto_correct\x22:1,\x22tracking_ship_date\x22:null}]|fcb73beb-6429-4b1c-99b5-5308329430ba
+									100.122.21.4|05/Dec/2024:00:01:01 +0800|GET / HTTP/1.1|200|107|-|200|0.069|0.068|curl/7.61.1|-|-
+									100.122.20.242|05/Dec/2024:00:01:01 +0800|POST /v4/couriers/detect HTTP/1.1|200|806|45|200|0.185|0.184|-|{\x0A  \x22tracking_number\x22: \x22YT2431021906000169\x22\x0A}|hlby9341-a5z2-ytcx-qlgm-bmcqnvupfdbf
+									100.122.21.5|05/Dec/2024:00:01:01 +0800|POST /v4/couriers/detect HTTP/1.1|200|491|48|200|0.167|0.162|-|{\x22tracking_number\x22:\x2292144903627190110000165355\x22}|fcbaed7e-f9af-4a43-acfd-19037a5634bf
+									100.122.16.168|05/Dec/2024:00:01:01 +0800|GET /v4/trackings/get?tracking_numbers=D10015862335663 HTTP/1.1|200|3464|-|200|0.088|0.085|GuzzleHttp/6.5.5 curl/7.68.0 PHP/7.4.33|-|t1n79cl3-59ei-4xfi-n3ac-6d5et1r5gyo7
+									100.122.21.12|05/Dec/2024:00:01:01 +0800|GET /v3/trackings/get?tracking_numbers=WD1010915997 HTTP/1.1|200|1340|-|200|0.076|0.062|axios/1.6.1|-|54216fd8-cc52-4ec6-8887-168e330935d9
+									100.122.21.75|05/Dec/2024:00:01:01 +0800|POST /v3/trackings/realtime HTTP/1.1|200|1762|131|200|0.198|0.198|-|{\x22tracking_number\x22:\x229400111105502453051128\x22,\x22courier_code\x22:\x22usps\x22,\x22tracking_ship_date\x22:\x222024-11-25\x22,\x22tracking_postal_code\x22:\x2294952\x22}|bdppt12t-m9hf-oip5-u3ak-bcc6q1vwk7mh
+									[root@iz0xic9e6789t96eez4ag0z ~]#  ^C
+									[root@iz0xic9e6789t96eez4ag0z ~]# mkdir -p /run/log/home-wwwlogs-access_logs;zip /run/log/home-wwwlogs-access_logs/api.trackingmore.com-2024-12-03.log.20241205.zip /home/wwwlogs/access_logs/api.trackingmore.com-2024-12-03.log
+									adding: home/wwwlogs/access_logs/api.trackingmore.com-2024-12-03.log (deflated 93%)
+									[root@iz0xic9e6789t96eez4ag0z ~]# df -h
+									Filesystem      Size  Used Avail Use% Mounted on
+									/dev/vda1        40G   39G  261M 100% /
+									devtmpfs        7.7G     0  7.7G   0% /dev
+									tmpfs           7.7G     0  7.7G   0% /dev/shm
+									tmpfs           7.7G  388M  7.3G   5% /run
+									tmpfs           7.7G     0  7.7G   0% /sys/fs/cgroup
+									tmpfs           1.6G     0  1.6G   0% /run/user/1001
+									overlay          40G   39G  261M 100% /var/lib/docker/overlay2/8e1df790d677b1c8c54c35739c129166364b651e5702ca3879aa90e0f27c8cdf/merged
+									tmpfs           1.6G     0  1.6G   0% /run/user/1002
+									tmpfs           1.6G     0  1.6G   0% /run/user/0
+									[root@iz0xic9e6789t96eez4ag0z ~]# echo > /home/wwwlogs/access_logs/api.trackingmore.com-2024-12-03.log
+									[root@iz0xic9e6789t96eez4ag0z ~]# df -h
+									Filesystem      Size  Used Avail Use% Mounted on
+									/dev/vda1        40G   34G  5.6G  86% /
+									devtmpfs        7.7G     0  7.7G   0% /dev
+									tmpfs           7.7G     0  7.7G   0% /dev/shm
+									tmpfs           7.7G  388M  7.3G   5% /run
+									tmpfs           7.7G     0  7.7G   0% /sys/fs/cgroup
+									tmpfs           1.6G     0  1.6G   0% /run/user/1001
+									overlay          40G   34G  5.6G  86% /var/lib/docker/overlay2/8e1df790d677b1c8c54c35739c129166364b651e5702ca3879aa90e0f27c8cdf/merged
+									tmpfs           1.6G     0  1.6G   0% /run/user/1002
+									tmpfs           1.6G     0  1.6G   0% /run/user/0
 							-- 20241114
 								服务器
 									ind_front_87_101_172.16.10.170-resque-download-51-74
