@@ -2490,6 +2490,93 @@
 日常响应
 3，后续优先级、应对
 
+===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== =====
+20241210
+本地
+告警
+技术评审
+
+
+- 今日合规操作小结：无
+- 今日违规操作小结：无
+- 今日监督操作小结：无
+
+
+原计划：
+日常响应
+本地
+1，网络优化相关-驻场收尾&后续相关梳理
+告警
+2，临时处理&后续优化
+日常响应
+3，后续优先级、应对
+
+计划：
+本地
+1，网络优化相关-后续相关梳理
+告警
+2，临时处理&后续优化
+日常响应
+3，后续优先级、应对
+
+===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== =====
+20241211
+本地
+告警
+技术评审
+
+
+- 今日合规操作小结：无
+- 今日违规操作小结：无
+- 今日监督操作小结：无
+
+
+原计划：
+日常响应
+本地
+1，网络优化相关-后续相关梳理
+告警
+2，临时处理&后续优化
+日常响应
+3，后续优先级、应对
+
+计划：
+本地
+1，网络优化相关-后续相关梳理
+告警
+2，临时处理&后续优化
+日常响应
+3，后续优先级、应对
+
+===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== =====
+20241212
+本地
+告警
+技术评审
+
+
+- 今日合规操作小结：无
+- 今日违规操作小结：无
+- 今日监督操作小结：无
+
+
+原计划：
+日常响应
+本地
+1，网络优化相关-后续相关梳理
+告警
+2，临时处理&后续优化
+日常响应
+3，后续优先级、应对
+
+计划：
+本地
+1，网络优化相关-后续相关梳理
+告警
+2，临时处理&后续优化
+日常响应
+3，后续优先级、应对
+
 
 复盘
 3，工作项梳理
@@ -2532,6 +2619,40 @@ prometheus 授权
 5，测试环境-分支自动构建触发取消
 
 操作顺序
+	-- 20241212
+		充值梳理
+			专线
+				5250
+
+				账户名称:中国移动通信集团广东有限公司广州分公司
+				账户号码:8888014700009548
+				开户银行:招商银行股份有限公司北京分行营业部
+				联行号:308100005027
+			桌面运维
+				公司名称：深圳市卡恩斯信息技术有限公司 
+				开户银行：中国工商银行深圳和平支行		
+				银行帐号：4000026609203932624
+
+				何工是 1029过来到1101
+				司工是 1107过来到1206
+				1029-1031 补上1104-1106相当于11月整个月12月多出来1周5天 22天 8500*5/22=19328500+1932=10432
+		桌面运维
+			服务方式
+				整理
+				同步
+	-- 20241210
+		find /home/wwwroot/www.trackingmore.com/admin/upload/  -type f ! -newermt "2024-07-01" | xargs -i zip /run/log/20241210.zip {};find /home/wwwroot/www.trackingmore.com/admin/upload/  -type f ! -newermt "2024-07-01" | xargs -i rm -f {}
+		
+		常用操作
+			队列重启
+				命令覆盖
+
+			独立更新配置
+				. /home/wwwroot/www.trackingmore.com/script/queueshell/host_conf.sh; ll /home/wwwroot/www.trackingmore.com/script/queueshell/track_queue_conf_update_independent_${hostAlia}.sh ;cat /home/wwwroot/www.trackingmore.com/script/queueshell/track_queue_conf_update_independent_${hostAlia}.sh
+			非独立更新配置（一次启动少于10的量）
+				. /home/wwwroot/www.trackingmore.com/script/queueshell/host_conf.sh; ll /home/wwwroot/www.trackingmore.com/script/queueshell/track_queue_conf_min_${hostAlia}.sh ;cat /home/wwwroot/www.trackingmore.com/script/queueshell/track_queue_conf_min_${hostAlia}.sh
+			非独立更新配置（一次启动大于等于10的量）
+				. /home/wwwroot/www.trackingmore.com/script/queueshell/host_conf.sh; ll /home/wwwroot/www.trackingmore.com/script/queueshell/track_queue_conf_${hostAlia}.sh ;cat /home/wwwroot/www.trackingmore.com/script/queueshell/track_queue_conf_${hostAlia}.sh
 	-- 20241206
 		1123-1205计划
 	-- 20241205
@@ -3972,6 +4093,24 @@ prometheus 授权
 					重启
 						ps -ef | grep syncApiLogToSls
 						kill -s 3 `ps -ef | grep syncApiLogToSls | grep -v grep | awk '{print $2}'`
+			-- 202411212
+				增加队列（同步api日志到sls）命令快捷方式
+					if [[ $cmd == 'killSyncApiLogToSls' ]];then
+							kill -s 3 `ps -ef | grep 'php-resque/syncApiLogToSls' | grep -v grep | awk  '{print $2}'`
+					fi
+					if [[ $cmd == 'kill14SyncApiLogToSls' ]];then
+							kill -s 14 `ps -ef | grep 'php-resque/syncApiLogToSls' | grep -v grep | awk  '{print $2}'`
+					fi
+					if [[ $cmd == 'syncApiLogToSls' ]] || [[ $cmd == 'killSyncApiLogToSls' ]] || [[ $cmd == 'kill14SyncApiLogToSls' ]];then
+							ps -ef | grep 'php-resque/syncApiLogToSls' | grep -v grep
+							echo 'num:'
+							ps -ef | grep 'php-resque/syncApiLogToSls' | grep -v grep | wc -l
+							exit
+					fi
+
+					alias syncApiLogToSls='/usr/bin/sh /root/cmd.with.param.sh notest syncApiLogToSls'
+					alias killSyncApiLogToSls='/usr/bin/sh /root/cmd.with.param.sh notest killSyncApiLogToSls'
+					alias kill14SyncApiLogToSls='/usr/bin/sh /root/cmd.with.param.sh notest kill14SyncApiLogToSls'
 
 		资源开通
 			阿里云
