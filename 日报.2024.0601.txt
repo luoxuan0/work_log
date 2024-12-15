@@ -2577,6 +2577,70 @@
 日常响应
 3，后续优先级、应对
 
+===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== =====
+20241213
+本地
+告警
+技术评审
+
+
+- 今日合规操作小结：无
+- 今日违规操作小结：无
+- 今日监督操作小结：无
+
+
+原计划：
+日常响应
+本地
+1，网络优化相关-后续相关梳理
+告警
+2，临时处理&后续优化
+日常响应
+3，后续优先级、应对
+
+计划：
+本地
+1，网络优化相关
+1-1，水晶头整体检查&更换
+1-2，新专线设备上线
+告警
+2，临时处理&后续优化
+日常响应
+3，后续优先级、应对
+
+===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== =====
+20241214
+本地
+告警
+技术评审
+
+
+- 今日合规操作小结：无
+- 今日违规操作小结：无
+- 今日监督操作小结：无
+
+
+原计划：
+日常响应
+本地
+1，网络优化相关
+1-1，水晶头整体检查&更换
+1-2，新专线设备上线
+告警
+2，临时处理&后续优化
+日常响应
+3，后续优先级、应对
+
+计划：
+本地
+1，网络优化相关
+1-1，原专线设备更换上线
+1-2，后续优化梳理
+告警
+2，临时处理&后续优化
+日常响应
+3，后续优先级、应对
+
 
 复盘
 3，工作项梳理
@@ -2619,6 +2683,20 @@ prometheus 授权
 5，测试环境-分支自动构建触发取消
 
 操作顺序
+	-- 20241215
+		本地
+			新专线上线
+			后续优化处理
+		告警
+			监控
+			后续
+		
+	-- 20241213
+		桌面运维
+			后续
+
+			付款（财务事项最好同快快确认）
+				可以后面补充结算单（大致写即可）-后面补不行-不能大致写即可-
 	-- 20241212
 		充值梳理
 			专线
@@ -2674,12 +2752,14 @@ prometheus 授权
 			sendcloud
 				0912 800 √
 			青果
-				0912 2060
-				0926 8160
+				0902 8160 √
+				0912 2060 √
+				0926 8160 √
 
-				1017 10320
-				1031 900
-				1114 2130.97
+				1017 10320 √
+				1129 12090 √
+					1031 900
+					1114 2130.97
 			阿里云
 				0912 18000
 				0926 18000
@@ -3022,6 +3102,15 @@ prometheus 授权
 			确认申请，定位P0事件 https://devops.aliyun.com/projex/req/TMPX-6053# 《ISO27701 证书申请》
 
 	周末值班
+		-- 20241219
+			#2024年12月14日物流信息事业部值班情况
+			值班人：陈华强
+
+			1，客诉
+				国外新增客诉3，1紧急客诉（官方接口出现官网有数据接口无数据情况，目前已反馈官方，待跟进）
+			2，从告警群确认，各运输商同昨天相比无大的波动变化（持续不同程度堆积）
+			3，国外redis节点内存（超95%）
+			4，处理本地上线新专线设备&水晶头检查跟进及拓扑完善
 		-- 20241019
 			#2024年10月19日物流信息事业部值班情况
 			值班人：陈华强
@@ -3095,40 +3184,6 @@ prometheus 授权
 					问题：
 						范围：国内
 						由于更新速度不稳定，不时触发堆积告警，最近一次堆积告警从周三开始持续到周六，可能延迟更新会更明显
-
-	客诉
-		-- 20240529
-			大用户Route600wnotfound-更新运输商为指定运输商
-				大用户Route600万notfound-延长修改了运输商的notfound单号更新时间到最长为90天
-					php-resque\M1Express\M1Expressjob.php
-					php-resque\M1Globalpost\M1Globalpostjob.php
-				获取处理过的运输商列表，将排除的运输商从列表中删除
-					/usr/local/php7/bin/php /home/wwwroot/www.trackingmore.com/script/notfound/update_courier.php '{"source":"get_exclude_courier_list"}'
-					script\notfound\update_courier.php
-
-	告警
-		告警规则（完善）
-			-- 20240911
-				代码发布异常
-					监控告警
-					异常重发
-
-					临时处理
-						-- 20241112 代码发布异常-20230206（0129） · 钉钉文档: https://alidocs.dingtalk.com/i/nodes/qXomz1wAyjKVXoooXb7lW3Y9pRBx5OrE?corpId=
-							进行发布
-								sh send.code.sh a445aeee0 17e7bc0a3
-
-								echo >> send.code.log;echo `date` manu send code test start >> send.code.log
-								sh send.code.sh a445aeee0 17e7bc0a3 >> send.code.log
-								echo >> send.code.log;echo `date` manu send code test end >> send.code.log
-
-								echo >> build.commitid.log;echo `date`' manu send code start(build.commitid.log last line must be commit_id)' >> build.commitid.log;
-								echo 17e7bc0a3 >> build.commitid.log
-
-							确认效果
-								tail -100 send.code.log
-								tail -100 build.commitid.log
-								ll /home/wwwroot/www.trackingmore.com/tools/disposableEmail.php
 
 		多个运输商异常率上升 国内 china-post 4px 国外 wishpost
 			-- 20240817
@@ -3222,6 +3277,68 @@ prometheus 授权
 						国外 0816 17:32 - 0817 23:37 异常率为100%
 						国内 从周三开始异常率逐渐上升，近三天稳定在80%
 					后续待办：关注更新异常率，及时处理跟进
+
+	客诉
+		-- 20240529
+			大用户Route600wnotfound-更新运输商为指定运输商
+				大用户Route600万notfound-延长修改了运输商的notfound单号更新时间到最长为90天
+					php-resque\M1Express\M1Expressjob.php
+					php-resque\M1Globalpost\M1Globalpostjob.php
+				获取处理过的运输商列表，将排除的运输商从列表中删除
+					/usr/local/php7/bin/php /home/wwwroot/www.trackingmore.com/script/notfound/update_courier.php '{"source":"get_exclude_courier_list"}'
+					script\notfound\update_courier.php
+
+	告警
+		redis节点内存
+			-- 20241214
+				国外
+				-77 开启扫描
+				[root@iz0xibhd8xjxiru8zt5ierz ~]# cat /home/wwwroot/www.trackingmore.com/python_img/redis.bigkey.7.length_10240_.20241201.log | awk -F: '{print $4" "$NF" "$5}' | sort -nrk2 | head -10cat /home/wwwroot/www.trackingmore.com/python_img/redis.bigkey.7.length_10240_.20241201.log | awk -F: '{print $4" "$NF" "$5}' | sort -nrk2 | head -10^C
+				[root@iz0xibhd8xjxiru8zt5ierz ~]# cat /home/wwwroot/www.trackingmore.com/python_img/redis.bigkey.5.length_10240_.20241215.log | awk -F: '{print $4" "$NF" "$5}' | sort -nrk2 | head -10
+				Z_P_U_australia-post_B_SET_POST 342267217 zset
+				Z_R_P_U_dfglobalex_SET 16779608 zset
+				Z_R_P_U_hunterexpress_SET 10977792 zset
+				Z_R_P_U_komonexpress_SET 7667072 zset
+				Z_R_P_U_china-ems_SET 6236168 zset
+				Z_R_P_U_usps_track123_SET_real_2024112913 5386688 zset
+				Z_R_P_U_usps_track123_SET_real_2024112900 5379094 zset
+				dhl_count_2024091709 3878001 hash
+				Z_R_P_U_mhgj_SET 3756900 zset
+				TrackingCompanyData_ko_8 3145808 string
+				进行处理
+				[root@iz0xibhd8xjxiru8zt5ierz ~]# cat /home/wwwroot/www.trackingmore.com/python_img/redis.bigkey.5.length_10240_.20241215.log | awk -F: '{print $4" "$NF" "$5}' | sort -nrk2 | head -10
+				Z_P_U_australia-post_B_SET_POST 342267217 zset
+				Z_R_P_U_dfglobalex_SET 16779608 zset
+				Z_R_P_U_hunterexpress_SET 10977792 zset
+				Z_R_P_U_komonexpress_SET 7667072 zset
+				Z_R_P_U_china-ems_SET 6236168 zset
+				Z_R_P_U_usps_track123_SET_real_2024112913 5386688 zset
+				Z_R_P_U_usps_track123_SET_real_2024112900 5379094 zset
+				dhl_count_2024091709 3878001 hash
+				Z_R_P_U_mhgj_SET 3756900 zset
+				TrackingCompanyData_ko_8 3145808 string
+		告警规则（完善）
+			-- 20240911
+				代码发布异常
+					监控告警
+					异常重发
+
+					临时处理
+						-- 20241112 代码发布异常-20230206（0129） · 钉钉文档: https://alidocs.dingtalk.com/i/nodes/qXomz1wAyjKVXoooXb7lW3Y9pRBx5OrE?corpId=
+							进行发布
+								sh send.code.sh a445aeee0 17e7bc0a3
+
+								echo >> send.code.log;echo `date` manu send code test start >> send.code.log
+								sh send.code.sh a445aeee0 17e7bc0a3 >> send.code.log
+								echo >> send.code.log;echo `date` manu send code test end >> send.code.log
+
+								echo >> build.commitid.log;echo `date`' manu send code start(build.commitid.log last line must be commit_id)' >> build.commitid.log;
+								echo 17e7bc0a3 >> build.commitid.log
+
+							确认效果
+								tail -100 send.code.log
+								tail -100 build.commitid.log
+								ll /home/wwwroot/www.trackingmore.com/tools/disposableEmail.php
 						
 		-- 20240518 搭建
 			目的-稳定运行保证
@@ -3242,6 +3359,305 @@ prometheus 授权
 								script\queueshell\zipAndRmSpecifyTimeFile.sh
 								script\queueshell\file.to.zip.sh
 						历史数据清理 20240529
+							-- 20241213
+								ind_resque-159-205-tm
+									[root@iz0xif9y7r0fstxmq97t54z ~]# find / -name '*' -type f -size +100M | xargs ls -lh {} | sort -nrk5find: ‘/proc/3127/task/3127/fdinfo/6’: No such file or directory
+									find: ‘/proc/3127/fdinfo/6’: No such file or directory
+									find: ‘/proc/3954’: No such file or directory
+									find: ‘/proc/8960’: No such file or directory
+									find: ‘/proc/13760’: No such file or directory
+									find: ‘/proc/26651’: No such file or directory
+									find: ‘/proc/30077’: No such file or directory
+									ls: cannot access {}: No such file or directory
+									-rw-r--r-- 1 root root 717M Aug 18 23:21 /run/log/171.csv.zip
+									-rw-r--r-- 1 root root 672M Dec  4 23:28 /run/log/20241204.zip
+									-rw-r--r-- 1 root root 234M Jan 11  2023 /run/log/home-wwwroot-www.trackingmore.com-admin-upload-auto_csv/390.csv.zip
+									-rw-r--r-- 1 root root 170M Aug 18 23:29 /run/log/1716.csv.zip
+									-rw-r--r-- 1 root root 170M Aug 18 23:26 /run/log/1715.csv.zip
+									-rw-r--r-- 1 root root 169M Aug 18 23:24 /run/log/1714.csv.zip
+									-rw-r--r-- 1 root root 163M Aug 18 23:36 /run/log/1718.csv.zip
+									-rw-r--r-- 1 root root 148M Aug 18 23:32 /run/log/1717.csv.zip
+									-rw-r--r-- 1 root root 136M Dec 10 19:03 /run/log/20241210.zip
+									-r-------- 1 root root 128T Dec 13 09:31 /proc/kcore
+									-rw-r--r-- 1 root root 121M Jul  6  2023 /var/cache/yum/x86_64/7/updates/gen/primary_db.sqlite
+									-rw-r--r-- 1 root root 102M Mar 16  2018 /usr/lib/locale/locale-archive
+									[root@iz0xif9y7r0fstxmq97t54z ~]#  sh disk.20241023.sh / 3 100
+									du: cannot access ‘/proc/7291/task/7291/fdinfo/18’: No such file or directory
+									du: cannot access ‘/proc/7291/task/26971’: No such file or directory
+									du: cannot access ‘/proc/19334/task/19334/fd/4’: No such file or directory
+									du: cannot access ‘/proc/19334/task/19334/fdinfo/4’: No such file or directory
+									du: cannot access ‘/proc/19334/fd/4’: No such file or directory
+									du: cannot access ‘/proc/19334/fdinfo/4’: No such file or directory
+									/: 56860 MB
+										//boot: 147 MB
+										//data: 8541 MB
+											//data/server_logs: 8541 MB
+										//home: 17583 MB
+											//home/wwwroot: 17418 MB
+											//lib/firmware: 172 MB
+											//lib/locale: 102 MB
+									locale-archive: 102 MB
+											//lib64/python2.7: 118 MB
+									du: cannot access ‘//proc/14087’: No such file or directory
+									du: cannot access ‘//proc/15701/task/15701/fd/4’: No such file or directory
+									du: cannot access ‘//proc/15701/task/15701/fdinfo/4’: No such file or directory
+									du: cannot access ‘//proc/15701/fd/4’: No such file or directory
+									du: cannot access ‘//proc/15701/fdinfo/4’: No such file or directory
+									du: cannot access ‘//proc/28884’: No such file or directory
+									du: cannot access ‘//proc/28886’: No such file or directory
+									du: cannot access ‘//proc/1947/map_files/7fecb2484000-7fecb2486000’: No such file or directory
+										//root: 171 MB
+										//run: 14959 MB
+											//run/log: 14948 MB
+									171.csv.zip: 717 MB
+									20241204.zip: 672 MB
+									1716.csv.zip: 170 MB
+									1715.csv.zip: 170 MB
+									1714.csv.zip: 169 MB
+									1718.csv.zip: 163 MB
+									1717.csv.zip: 148 MB
+									20241210.zip: 136 MB
+										//usr: 9233 MB
+											//usr/bin: 370 MB
+											//usr/lib: 486 MB
+											//usr/lib64: 250 MB
+											//usr/libexec: 200 MB
+											//usr/local: 7379 MB
+											//usr/share: 476 MB
+										//var: 6112 MB
+											//var/cache: 583 MB
+											//var/lib: 4066 MB
+											//var/log: 1462 MB
+									[root@iz0xif9y7r0fstxmq97t54z ~]#  sh disk.20241023.sh /usr/local 3 100
+										/usr/local: 7380 MB
+										/usr/local/aegis: 458 MB
+											/usr/local/aegis/aegis_client: 221 MB
+										/usr/local/bakfile: 3747 MB
+										/usr/local/lib: 202 MB
+											/usr/local/lib/python3.6: 147 MB
+										/usr/local/openresty-1.9.7.4: 127 MB
+											/usr/local/openresty-1.9.7.4/build: 103 MB
+										/usr/local/php7: 176 MB
+											/usr/local/php7/bin: 122 MB
+										/usr/local/php-7.0.0: 502 MB
+											/usr/local/php-7.0.0/ext: 263 MB
+											/usr/local/php-7.0.0/sapi: 176 MB
+										/usr/local/php-7.0.33: 526 MB
+											/usr/local/php-7.0.33/ext: 279 MB
+											/usr/local/php-7.0.33/sapi: 181 MB
+										/usr/local/php7.0.33: 255 MB
+											/usr/local/php7.0.33/bin: 126 MB
+										/usr/local/php-7.3.0: 586 MB
+											/usr/local/php-7.3.0/ext: 309 MB
+											/usr/local/php-7.3.0/sapi: 203 MB
+										/usr/local/php7.3.0: 207 MB
+											/usr/local/php7.3.0/bin: 142 MB
+										/usr/local/share: 263 MB
+											/usr/local/share/aliyun-assist: 183 MB
+									[root@iz0xif9y7r0fstxmq97t54z ~]#   df -h
+									Filesystem      Size  Used Avail Use% Mounted on
+									/dev/vda1        40G   39G  331M 100% /
+									devtmpfs         16G     0   16G   0% /dev
+									tmpfs            16G     0   16G   0% /dev/shm
+									tmpfs            16G   15G  535M  97% /run
+									tmpfs            16G     0   16G   0% /sys/fs/cgroup
+									tmpfs           3.1G     0  3.1G   0% /run/user/0
+									tmpfs           3.1G     0  3.1G   0% /run/user/1002
+									overlay          40G   39G  331M 100% /var/lib/docker/overlay2/d2703df78bc816ff68a6a91dd805825fdf41731b86dfb1acd45f001bad32e406/merged
+									overlay          40G   39G  331M 100% /var/lib/docker/overlay2/c043633fbddd7d4d2248284247bf06cc75fa5c740aa1366400bce75bb4168d14/merged
+									overlay          40G   39G  331M 100% /var/lib/docker/overlay2/b47a079dc9b17057739e60cc62794e9a083ef16f31890d897d67b8f31bd7a89a/merged
+									overlay          40G   39G  331M 100% /var/lib/docker/overlay2/83a49448c3e2713448d182eeb258505bdc2ef04eec331ba8b4499705e6ff06ed/merged
+									overlay          40G   39G  331M 100% /var/lib/docker/overlay2/46169c1ebedc71c054485e7a978387aa1d1b216470e539ecf3a12e84fd9c64aa/merged
+									overlay          40G   39G  331M 100% /var/lib/docker/overlay2/5a5d007e804e80f97e67cb993e7c00b6716bab22d40d780b03766a6ae871c4f3/merged
+									overlay          40G   39G  331M 100% /var/lib/docker/overlay2/1c60ac1751f37f5ea647ab8ad054192ec6eb9366d0ecc1b87b8d9d41e8933d98/merged
+									overlay          40G   39G  331M 100% /var/lib/docker/overlay2/eeb9c4ad79ae52e1698640c687ff2ef67360853b151f7ef2c61d8af38bd4a667/merged
+									overlay          40G   39G  331M 100% /var/lib/docker/overlay2/c780375c3d2c9bb41aea4785502cb8c045059b9666dbbfd4ce1b27c170de570b/merged
+									overlay          40G   39G  331M 100% /var/lib/docker/overlay2/5b9c7648f8a3103ae472be96492b4d694f28b9d4636f4a3c7fc28387b15f3c5b/merged
+									overlay          40G   39G  331M 100% /var/lib/docker/overlay2/be0afb28162fb4cbbba3653a35944a6fcc80eb1367426089b3c37dcac0af5053/merged
+									overlay          40G   39G  331M 100% /var/lib/docker/overlay2/b68be4f7b9222815ce8e644673aaef6cb6995ea0f7ebb85900394e898231568e/merged
+									overlay          40G   39G  331M 100% /var/lib/docker/overlay2/b8002b093029398fa675a5f103ad00052abffc8ea71c3d32e987e853a3958baf/merged
+									overlay          40G   39G  331M 100% /var/lib/docker/overlay2/9260ba6e864c36bbffd8248bee952df6b8ae211cbb40a17b954e95c4446b6450/merged
+									overlay          40G   39G  331M 100% /var/lib/docker/overlay2/ed7aa946cad59fe8f785e810a2cc68636ae6ee4aa076d291c674f0a8e780c3bd/merged
+									overlay          40G   39G  331M 100% /var/lib/docker/overlay2/42f90134a9d2925e59000e462681b05b6a399b31228537281a92f25afc8df878/merged
+									overlay          40G   39G  331M 100% /var/lib/docker/overlay2/40d2cb0487f9b57bc2bb10bf1e52d5fc1caca3dd35af46c0ee2f3779028edf2d/merged
+									overlay          40G   39G  331M 100% /var/lib/docker/overlay2/cf95d1b2d1272e586c0196fb584c7a7517890a94206cbca3e7a567756d036aad/merged
+									[root@iz0xif9y7r0fstxmq97t54z ~]#  sh disk.20241023.sh /data/server_logs/home/wwwroot 3 100
+									/data/server_logs/home/wwwroot: 3892 MB
+										/data/server_logs/home/wwwroot/www.trackingmore.com: 3892 MB
+											/data/server_logs/home/wwwroot/www.trackingmore.com/admin: 1132 MB
+											/data/server_logs/home/wwwroot/www.trackingmore.com/logs: 2508 MB
+											/data/server_logs/home/wwwroot/www.trackingmore.com/script: 198 MB
+									[root@iz0xif9y7r0fstxmq97t54z ~]#  sh disk.20241023.sh /data/server_logs 3 100
+									/data/server_logs: 8560 MB
+										/data/server_logs/home: 3892 MB
+											/data/server_logs/home/wwwroot: 3892 MB
+										/data/server_logs/root: 4668 MB
+									[root@iz0xif9y7r0fstxmq97t54z ~]#  find /home/wwwroot/www.trackingmore.com/admin/upload/  -type f ! -newermt "2024-08-01" | wc -l4107
+									[root@iz0xif9y7r0fstxmq97t54z ~]#  find /home/wwwroot/www.trackingmore.com/admin/upload/  -type f ! -newermt "2024-10-01" | wc -l
+									12300
+									[root@iz0xif9y7r0fstxmq97t54z ~]#  find /home/wwwroot/www.trackingmore.com/admin/upload/  -type f ! -newermt "2024-12-01" | wc -l
+									20026
+									[root@iz0xif9y7r0fstxmq97t54z ~]# ll /data/server_logs/root | head
+									total 4812200
+									-rw-r--r-- 1 root root  4130449 Aug  3 19:12 20240803191103.sendEmailFirst.log.zip
+									-rw-r--r-- 1 root root 48886258 Aug  3 19:21 20240803191108.platefromWoocommerce_sync.log.zip
+									-rw-r--r-- 1 root root  5848921 Aug  3 19:21 20240803191114.sendEmailFirst_Job.log.zip
+									-rw-r--r-- 1 root root   709735 Aug  3 19:12 20240803191119.sql_err_resq.20220804.log.zip
+									-rw-r--r-- 1 root root  1933812 Aug  3 19:12 20240803191120.sendEmailCommon.log.zip
+									-rw-r--r-- 1 root root   908086 Aug  3 19:12 20240803191123.resq_track_sql_err.20220614.log.zip
+									-rw-r--r-- 1 root root   892849 Aug  3 19:21 20240803191123.yiXinTongSendToForeign_null.log.zip
+									-rw-r--r-- 1 root root   946783 Aug  3 19:12 20240803191124.sql_err_resq.20220609.log.zip
+									-rw-r--r-- 1 root root   671249 Aug  3 19:12 20240803191125.sql_err_resq.20220929.log.zip
+									[root@iz0xif9y7r0fstxmq97t54z ~]# ll /data/server_logs/root | tail
+									-rw-r--r-- 1 root root  8891036 Dec 12 19:21 20241212191104.trackingSingleQueue.log.zip
+									-rw-r--r-- 1 root root 14682208 Dec 13 01:21 20241212211105.trackingSingleQueue.log.zip
+									-rw-r--r-- 1 root root  8805885 Dec 13 01:21 20241212231104.trackingSingleQueue.log.zip
+									-rw-r--r-- 1 root root 11951933 Dec 13 01:21 20241213011104.trackingSingleQueue.log.zip
+									-rw-r--r-- 1 root root 12440491 Dec 13 07:21 20241213031101.trackingSingleQueue.log.zip
+									-rw-r--r-- 1 root root 10114681 Dec 13 07:21 20241213051101.trackingSingleQueue.log.zip
+									-rw-r--r-- 1 root root  1775848 Dec 13 07:21 20241213061104.trackingSingleQueueNull.log.zip
+									-rw-r--r-- 1 root root 13338212 Dec 13 07:21 20241213071105.trackingSingleQueue.log.zip
+									-rw-r--r-- 1 root root 52286119 Dec 13 09:11 20241213091104.trackingSingleQueue.log
+									-rw-r--r-- 1 root root 33061144 Dec 13 11:11 20241213111104.trackingSingleQueue.log
+									[root@iz0xif9y7r0fstxmq97t54z ~]# find /data/server_logs/root/  -name '*trackingSingleQueue.log.zip'  | grep -v 202412 | xargs -i rm -f {}
+									[root@iz0xif9y7r0fstxmq97t54z ~]# df -h
+									Filesystem      Size  Used Avail Use% Mounted on
+									/dev/vda1        40G   37G  2.1G  95% /
+									devtmpfs         16G     0   16G   0% /dev
+									tmpfs            16G     0   16G   0% /dev/shm
+									tmpfs            16G   15G  535M  97% /run
+									tmpfs            16G     0   16G   0% /sys/fs/cgroup
+									tmpfs           3.1G     0  3.1G   0% /run/user/0
+									tmpfs           3.1G     0  3.1G   0% /run/user/1002
+									overlay          40G   37G  2.1G  95% /var/lib/docker/overlay2/d2703df78bc816ff68a6a91dd805825fdf41731b86dfb1acd45f001bad32e406/merged
+									overlay          40G   37G  2.1G  95% /var/lib/docker/overlay2/c043633fbddd7d4d2248284247bf06cc75fa5c740aa1366400bce75bb4168d14/merged
+									overlay          40G   37G  2.1G  95% /var/lib/docker/overlay2/b47a079dc9b17057739e60cc62794e9a083ef16f31890d897d67b8f31bd7a89a/merged
+									overlay          40G   37G  2.1G  95% /var/lib/docker/overlay2/83a49448c3e2713448d182eeb258505bdc2ef04eec331ba8b4499705e6ff06ed/merged
+									overlay          40G   37G  2.1G  95% /var/lib/docker/overlay2/46169c1ebedc71c054485e7a978387aa1d1b216470e539ecf3a12e84fd9c64aa/merged
+									overlay          40G   37G  2.1G  95% /var/lib/docker/overlay2/5a5d007e804e80f97e67cb993e7c00b6716bab22d40d780b03766a6ae871c4f3/merged
+									overlay          40G   37G  2.1G  95% /var/lib/docker/overlay2/1c60ac1751f37f5ea647ab8ad054192ec6eb9366d0ecc1b87b8d9d41e8933d98/merged
+									overlay          40G   37G  2.1G  95% /var/lib/docker/overlay2/eeb9c4ad79ae52e1698640c687ff2ef67360853b151f7ef2c61d8af38bd4a667/merged
+									overlay          40G   37G  2.1G  95% /var/lib/docker/overlay2/c780375c3d2c9bb41aea4785502cb8c045059b9666dbbfd4ce1b27c170de570b/merged
+									overlay          40G   37G  2.1G  95% /var/lib/docker/overlay2/5b9c7648f8a3103ae472be96492b4d694f28b9d4636f4a3c7fc28387b15f3c5b/merged
+									overlay          40G   37G  2.1G  95% /var/lib/docker/overlay2/be0afb28162fb4cbbba3653a35944a6fcc80eb1367426089b3c37dcac0af5053/merged
+									overlay          40G   37G  2.1G  95% /var/lib/docker/overlay2/b68be4f7b9222815ce8e644673aaef6cb6995ea0f7ebb85900394e898231568e/merged
+									overlay          40G   37G  2.1G  95% /var/lib/docker/overlay2/b8002b093029398fa675a5f103ad00052abffc8ea71c3d32e987e853a3958baf/merged
+									overlay          40G   37G  2.1G  95% /var/lib/docker/overlay2/9260ba6e864c36bbffd8248bee952df6b8ae211cbb40a17b954e95c4446b6450/merged
+									overlay          40G   37G  2.1G  95% /var/lib/docker/overlay2/ed7aa946cad59fe8f785e810a2cc68636ae6ee4aa076d291c674f0a8e780c3bd/merged
+									overlay          40G   37G  2.1G  95% /var/lib/docker/overlay2/42f90134a9d2925e59000e462681b05b6a399b31228537281a92f25afc8df878/merged
+									overlay          40G   37G  2.1G  95% /var/lib/docker/overlay2/40d2cb0487f9b57bc2bb10bf1e52d5fc1caca3dd35af46c0ee2f3779028edf2d/merged
+									overlay          40G   37G  2.1G  95% /var/lib/docker/overlay2/cf95d1b2d1272e586c0196fb584c7a7517890a94206cbca3e7a567756d036aad/merged
+									[root@iz0xif9y7r0fstxmq97t54z ~]# tail /data/server_logs/root/20241213091104.trackingSingleQueue.log
+									userid: 264024  cainiao : NM668984627BRtotal time 0.03298020362854
+									userid: 264024  cainiao : NM668984627BRtotal time 0.032839059829712
+									userid: 58126  cainiao : OJ550272552GBtotal time 0.09238600730896
+									userid: 58132  cj-dropshipping : CJPAEE3021400163YQtotal time 0.083827972412109
+									userid: 264024  cainiao : NM668984627BRtotal time 0.034959077835083
+									userid: 58131  cainiao : 158271900394563224306850total time 0.069175004959106
+									userid: 224763  gls-us : 398158145494980000000203110085262total time 0.035900115966797
+									userid: 58132  sf-express : SF6045413021684total time 0.049533128738403
+									userid: 58126  cainiao : LP00697650448434total time 0.080234050750732
+									userid: 58126  cainiao : 158271900391651094302384total time 0.076066970825195
+									[root@iz0xif9y7r0fstxmq97t54z ~]#  sh disk.20241023.sh /data/server_logs 3 100
+									/data/server_logs: 6813 MB
+										/data/server_logs/home: 3926 MB
+											/data/server_logs/home/wwwroot: 3926 MB
+										/data/server_logs/root: 2888 MB
+									[root@iz0xif9y7r0fstxmq97t54z ~]# ll  /data/server_logs/home/wwwroot | head
+									total 4
+									drwxr-xr-x 7 root root 4096 Jul  6 12:28 www.trackingmore.com
+									[root@iz0xif9y7r0fstxmq97t54z ~]#  sh disk.20241023.sh /data/server_logs/home/wwwroot/ 3 100
+									/data/server_logs/home/wwwroot/: 3926 MB
+										/data/server_logs/home/wwwroot//www.trackingmore.com: 3926 MB
+											/data/server_logs/home/wwwroot//www.trackingmore.com/admin: 1132 MB
+											/data/server_logs/home/wwwroot//www.trackingmore.com/logs: 2543 MB
+											/data/server_logs/home/wwwroot//www.trackingmore.com/script: 198 MB
+									[root@iz0xif9y7r0fstxmq97t54z ~]# ll  /data/server_logs/home/wwwroot/www.trackingmore.com/logs/ | head
+									total 2602748
+									-rw-r--r-- 1 root root   341881 Jul  6 12:28 20240706122606.track-sfexpress.log.zip
+									-rw-r--r-- 1 root root   401809 Jul  6 12:28 20240706122607.pushStatusToShopify.log.zip
+									-rw-r--r-- 1 root root   591231 Jul  6 12:28 20240706122607.send-sms-foreign-log.log.zip
+									-rw-r--r-- 1 root root   751607 Jul  6 12:28 20240706122608.insert-valid-number.log.zip
+									-rw-r--r-- 1 root root   231337 Jul  6 12:28 20240706122608.shopify-send-token-error.log.zip
+									-rw-r--r-- 1 root root  2261966 Jul  6 12:28 20240706122609.email-send-from-log.log.zip
+									-rw-r--r-- 1 root root   527725 Jul  6 12:28 20240706122609.tracking-dpd-be.log.zip
+									-rw-r--r-- 1 root root   479506 Jul  6 12:28 20240706122612.insert-user-operate-number-day-log.log.zip
+									-rw-r--r-- 1 root root  2721897 Jul  6 12:28 20240706122615.tracking-dhl-germany.log.zip
+									[root@iz0xif9y7r0fstxmq97t54z ~]# ll  /data/server_logs/home/wwwroot/www.trackingmore.com/logs/ | tail
+									-rw-r--r-- 1 root root 11893764 Dec 13 08:11 20241213081104.order_status.log
+									-rw-r--r-- 1 root root 12630761 Dec 13 09:11 20241213091104.TMshopifyemailTest.log
+									-rw-r--r-- 1 root root 19909077 Dec 13 10:11 20241213101104.order_status.log
+									-rw-r--r-- 1 root root 11837857 Dec 13 11:11 20241213111104.order_status.log
+									-rw-r--r-- 1 root root 12617232 Dec 13 11:11 20241213111104.shopify-send-email-error.log
+									-rw-r--r-- 1 root root 11299321 Dec 13 11:11 20241213111104.shopify-send-email.log
+									-rw------- 1 root root        0 Nov 29 01:21 zi43TfXz
+									-rw------- 1 root root        0 Nov 24 07:21 zi9Ijrxe
+									-rw------- 1 root root        0 Nov 24 07:21 ziCOgGqa
+									-rw------- 1 root root        0 Nov 24 07:21 ziIRrAYb
+									[root@iz0xif9y7r0fstxmq97t54z ~]# ll  /data/server_logs/home/wwwroot/www.trackingmore.com/logs/ | tail -20
+									-rw-r--r-- 1 root root  1203140 Dec 13 07:21 20241213021102.order_status.log.zip
+									-rw-r--r-- 1 root root  1225216 Dec 13 07:21 20241213021102.shopify-send-email-error.log.zip
+									-rw-r--r-- 1 root root   693044 Dec 13 07:21 20241213031101.order_status.log.zip
+									-rw-r--r-- 1 root root  1095702 Dec 13 07:21 20241213031101.shopify-send-email.log.zip
+									-rw-r--r-- 1 root root   515380 Dec 13 07:21 20241213041101.TMshopifyemailTest.log.zip
+									-rw-r--r-- 1 root root   418657 Dec 13 07:21 20241213051101.pushStatusToShopify.log.zip
+									-rw-r--r-- 1 root root   894236 Dec 13 07:21 20241213061103.order_status.log.zip
+									-rw-r--r-- 1 root root  1101198 Dec 13 07:21 20241213061103.shopify-send-email-error.log.zip
+									-rw-r--r-- 1 root root   610000 Dec 13 07:21 20241213071105.order_status.log.zip
+									-rw-r--r-- 1 root root  1150734 Dec 13 07:21 20241213071105.shopify-send-email.log.zip
+									-rw-r--r-- 1 root root 11893764 Dec 13 08:11 20241213081104.order_status.log
+									-rw-r--r-- 1 root root 12630761 Dec 13 09:11 20241213091104.TMshopifyemailTest.log
+									-rw-r--r-- 1 root root 19909077 Dec 13 10:11 20241213101104.order_status.log
+									-rw-r--r-- 1 root root 11837857 Dec 13 11:11 20241213111104.order_status.log
+									-rw-r--r-- 1 root root 12617232 Dec 13 11:11 20241213111104.shopify-send-email-error.log
+									-rw-r--r-- 1 root root 11299321 Dec 13 11:11 20241213111104.shopify-send-email.log
+									-rw------- 1 root root        0 Nov 29 01:21 zi43TfXz
+									-rw------- 1 root root        0 Nov 24 07:21 zi9Ijrxe
+									-rw------- 1 root root        0 Nov 24 07:21 ziCOgGqa
+									-rw------- 1 root root        0 Nov 24 07:21 ziIRrAYb
+									[root@iz0xif9y7r0fstxmq97t54z ~]# ll  /data/server_logs/home/wwwroot/www.trackingmore.com/logs/ | grep order | wcj -l
+									-bash: wcj: command not found
+									[root@iz0xif9y7r0fstxmq97t54z ~]# ll  /data/server_logs/home/wwwroot/www.trackingmore.com/logs/ | grep order | wc -l
+									2001
+									[root@iz0xif9y7r0fstxmq97t54z ~]# ll  /data/server_logs/home/wwwroot/www.trackingmore.com/logs/ | grep -v order | wc -l
+									1507
+									[root@iz0xif9y7r0fstxmq97t54z ~]# ll  /data/server_logs/home/wwwroot/www.trackingmore.com/logs/ | grep -v shopi | wc -l
+									2913
+									[root@iz0xif9y7r0fstxmq97t54z ~]# ll  /data/server_logs/home/wwwroot/www.trackingmore.com/logs/ | grep shopi | wc -l
+									595
+									[root@iz0xif9y7r0fstxmq97t54z ~]# tail  /data/server_logs/home/wwwroot/www.trackingmore.com/logs/20241213101104.order_status.log
+									2024-12-13 10:11:04 ===> {"sql":"select order_id,plateform_id from tr_user_tracknumber_125501_126000 where userid=125826 and track_number='4PX3001523901765CN' and is_delete=0 and plateform_sort_id=3 limit 1","tracknumberInfo":""} 
+									2024-12-13 10:11:04 ===> {"sql":"select order_id,plateform_id from tr_user_tracknumber_58133_58133 where userid=58133 and track_number='4PX3001406671099CN' and is_delete=0 and plateform_sort_id=3 limit 1","tracknumberInfo":""} 
+									2024-12-13 10:11:04 ===> {"sql":"select order_id,plateform_id from tr_user_tracknumber_224501_225000 where userid=224763 and track_number='4PX3001508596603CN' and is_delete=0 and plateform_sort_id=3 limit 1","tracknumberInfo":""} 
+									2024-12-13 10:11:04 ===> {"changeStatus":8} 
+									2024-12-13 10:11:04 ===> {"changeStatus":8} 
+									2024-12-13 10:11:04 ===> {"changeStatus":2} 
+									2024-12-13 10:11:04 ===> {"depict":"Status has been changed","status":"transit"} 
+									2024-12-13 10:11:04 ===> {"userId":"58126","courier":"yunexpress","track_number":"YT2434621269001399"} 
+									2024-12-13 10:11:04 ===> {"sql":"select order_id,plateform_id from tr_user_tracknumber_58126_58126 where userid=58126 and track_number='YT2434621269001399' and is_delete=0 and plateform_sort_id=3 limit 1","tracknumberInfo":""} 
+									2024-12-13 10:11:04 ===> {"changeStatus":8} 
+									[root@iz0xif9y7r0fstxmq97t54z ~]# tail  /data/server_logs/home/wwwroot/www.trackingmore.com/logs/20241213111104.shopify-send-email.log
+									2024-12-13 11:11:02 ===> {"way":"shopify send email","userid":"47740","track_number":"YT2434621404001255","changeStatus":2} 
+									2024-12-13 11:11:02 ===> {"way":"shopify send email","userid":"58126","track_number":"P5001173112102200","changeStatus":2} 
+									2024-12-13 11:11:03 ===> {"way":"shopify send email","userid":"58126","track_number":"P5001174638429430","changeStatus":2} 
+									2024-12-13 11:11:03 ===> {"way":"shopify send email","userid":"58126","track_number":"P5001175130567850","changeStatus":2} 
+									2024-12-13 11:11:03 ===> {"way":"shopify send email","userid":"58126","track_number":"VR666640252YP","changeStatus":2} 
+									2024-12-13 11:11:03 ===> {"way":"shopify send email","userid":"218491","track_number":"FR2604964795","changeStatus":4} 
+									2024-12-13 11:11:03 ===> {"way":"shopify send email","userid":"80240","track_number":"UJ857560715YP","changeStatus":4} 
+									2024-12-13 11:11:03 ===> {"way":"shopify send email","userid":"222434","track_number":"YT2433921272318430","changeStatus":4} 
+									2024-12-13 11:11:03 ===> {"way":"shopify send email","userid":"58126","track_number":"YT2433921272338490","changeStatus":4} 
+									2024-12-13 11:11:04 ===> {"way":"shopify send email","userid":"58126","track_number":"YT2434721406004075","changeStatus":2} 
+									[root@iz0xif9y7r0fstxmq97t54z ~]# tail  /data/server_logs/home/wwwroot/www.trackingmore.com/logs/20241213111104.shopify-send-email-error.log
+									2024-12-13 11:11:02 ===> {"way":"plateform_id is empty","userid":"58126","track_number":"P5001173112102200"} 
+									2024-12-13 11:11:02 ===> {"way":"plateform_id is empty","userid":"47740","track_number":"YT2434621404001255"} 
+									2024-12-13 11:11:03 ===> {"way":"plateform_id is empty","userid":"58126","track_number":"P5001174638429430"} 
+									2024-12-13 11:11:03 ===> {"way":"plateform_id is empty","userid":"58126","track_number":"P5001175130567850"} 
+									2024-12-13 11:11:03 ===> {"way":"plateform_id is empty","userid":"80240","track_number":"UJ857560715YP"} 
+									2024-12-13 11:11:03 ===> {"way":"plateform_id is empty","userid":"222434","track_number":"YT2433921272318430"} 
+									2024-12-13 11:11:03 ===> {"way":"plateform_id is empty","userid":"58126","track_number":"VR666640252YP"} 
+									2024-12-13 11:11:03 ===> {"way":"plateform_id is empty","userid":"58126","track_number":"YT2433921272338490"} 
+									2024-12-13 11:11:03 ===> {"way":"plateform_id is empty","userid":"218491","track_number":"FR2604964795"} 
+									2024-12-13 11:11:04 ===> {"way":"plateform_id is empty","userid":"58126","track_number":"YT2434721406004075"} 
 							-- 20241205
 								api-148-56-tm
 									[cxj@iz0xi64ws5lykn8xadtfphz ~]$ sudo su -
