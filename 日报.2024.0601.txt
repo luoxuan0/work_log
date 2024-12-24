@@ -2848,6 +2848,76 @@
 日常响应
 4，后续优先级、应对
 
+===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== =====
+20241221
+本地
+告警
+技术评审
+
+
+- 今日合规操作小结：无
+- 今日违规操作小结：无
+- 今日监督操作小结：无
+
+
+原计划：
+日常响应
+本地
+1，网络优化相关
+1-1，网线标签&水晶头整体检查&必要时更换
+1-2，可用性提升-宽带异常应对
+告警
+2，等保网警回复后续-整改
+3，堆积告警处理
+日常响应
+4，后续优先级、应对
+
+计划：
+本地
+1，网络优化相关-整体梳理
+1-1，拓扑完善相关待办梳理
+1-2，可用性提升-各节点梳理（包括交换机接口等）
+告警
+2，等保网警回复后续-整改
+3，堆积告警处理
+日常响应
+4，后续优先级、应对
+
+===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== =====
+20241223
+本地
+告警
+技术评审
+
+
+- 今日合规操作小结：无
+- 今日违规操作小结：无
+- 今日监督操作小结：无
+
+
+原计划：
+日常响应
+本地
+1，网络优化相关-整体梳理
+1-1，拓扑完善相关待办梳理
+1-2，可用性提升-各节点梳理（包括交换机接口等）
+告警
+2，等保网警回复后续-整改
+3，堆积告警处理
+日常响应
+4，后续优先级、应对
+
+计划：
+本地
+1，网络优化相关-整体梳理
+1-1，拓扑完善相关待办梳理
+1-2，可用性提升-各节点梳理（包括交换机接口等）
+告警
+2，等保网警回复后续-整改
+3，堆积告警处理
+日常响应
+4，后续优先级、应对
+
 
 复盘
 3，工作项梳理
@@ -2890,6 +2960,14 @@ prometheus 授权
 5，测试环境-分支自动构建触发取消
 
 操作顺序
+	-- 20241223
+		优先级
+			本地
+				近期事件
+			等保复测
+				整改
+				回复（先梳理确认）
+			堆积告警
 	-- 20241218
 		等保网警回复，日志检查
 			网络设备(交换机、路由器等)
@@ -3577,6 +3655,88 @@ prometheus 授权
 								script\queueshell\zipAndRmSpecifyTimeFile.sh
 								script\queueshell\file.to.zip.sh
 						历史数据清理 20240529
+							-- 20241223
+								ind_resque_49_172.16.10.167-resque-51-140
+									[root@izwz908uhtm6wdcqcg9bqez ~]
+									# df -h
+									Filesystem      Size  Used Avail Use% Mounted on
+									/dev/vda1        49G   48G   86M 100% /
+									devtmpfs         16G     0   16G   0% /dev
+									tmpfs            16G     0   16G   0% /dev/shm
+									tmpfs            16G  2.5G   13G  16% /run
+									tmpfs            16G     0   16G   0% /sys/fs/cgroup
+									tmpfs           3.1G     0  3.1G   0% /run/user/0
+									tmpfs           3.1G     0  3.1G   0% /run/user/1003
+									[root@izwz908uhtm6wdcqcg9bqez ~]
+									# find / -name '*' -type f -size +1000M | xargs ls -lh {} | sort -nrk5
+									find: ‘/proc/14048’: No such file or directory
+									find: ‘/proc/14460’: No such file or directory
+									find: ‘/proc/14873’: No such file or directory
+									find: ‘/proc/15056’: No such file or directory
+									find: ‘/proc/15785’: No such file or directory
+									find: ‘/proc/17627/task/2154’: No such file or directory
+									find: ‘/proc/20995’: No such file or directory
+									find: ‘/proc/21124’: No such file or directory
+									find: ‘/proc/23814’: No such file or directory
+									find: ‘/proc/23942’: No such file or directory
+									find: ‘/proc/24071’: No such file or directory
+									find: ‘/proc/26888’: No such file or directory
+									find: ‘/proc/27007’: No such file or directory
+									find: ‘/proc/28400/task/28400/fdinfo/6’: No such file or directory
+									find: ‘/proc/28400/fdinfo/5’: No such file or directory
+									ls: cannot access {}: No such file or directory
+									-r-------- 1 root root 128T Dec 23 15:30 /proc/kcore
+									-rw-r--r-- 1 root root 2.7G Dec 23 15:30 /home/wwwlogs/webhook.17proxy.com.log
+									[root@izwz908uhtm6wdcqcg9bqez ~]
+									# head /home/wwwlogs/webhook.17proxy.com.log
+									2021/09/04 17:26:40 [error] 3661#0: *37488241 FastCGI sent in stderr: "PHP message: PHP Warning:  fopen(/home/wwwroot/www.trackingmore.com/webhook/GetInfo.log): failed to open stream: Permission denied in /home/wwwroot/www.trackingmore.com/webhook/getInfo.php on line 36
+									PHP message: PHP Warning:  fwrite() expects parameter 1 to be resource, boolean given in /home/wwwroot/www.trackingmore.com/webhook/getInfo.php on line 37
+									PHP message: PHP Warning:  fclose() expects parameter 1 to be resource, boolean given in /home/wwwroot/www.trackingmore.com/webhook/getInfo.php on line 38" while reading response header from upstream, client: 121.35.3.72, server: 8.129.58.49, request: "POST /getInfo.php HTTP/1.1", upstream: "fastcgi://unix:/tmp/php-cgi.sock:", host: "8.129.58.49"
+									2021/09/04 17:36:51 [error] 3663#0: *37492704 FastCGI sent in stderr: "PHP message: PHP Warning:  fopen(/home/wwwroot/www.trackingmore.com/webhook/GetInfo.log): failed to open stream: Permission denied in /home/wwwroot/www.trackingmore.com/webhook/getInfo.php on line 36
+									PHP message: PHP Warning:  fwrite() expects parameter 1 to be resource, boolean given in /home/wwwroot/www.trackingmore.com/webhook/getInfo.php on line 37
+									PHP message: PHP Warning:  fclose() expects parameter 1 to be resource, boolean given in /home/wwwroot/www.trackingmore.com/webhook/getInfo.php on line 38" while reading response header from upstream, client: 121.35.3.72, server: 8.129.58.49, request: "POST /getInfo.php HTTP/1.1", upstream: "fastcgi://unix:/tmp/php-cgi.sock:", host: "8.129.58.49"
+									2021/09/04 17:40:21 [error] 3657#0: *37494591 FastCGI sent in stderr: "PHP message: PHP Warning:  fopen(/home/wwwroot/www.trackingmore.com/webhook/GetInfo.log): failed to open stream: Permission denied in /home/wwwroot/www.trackingmore.com/webhook/getInfo.php on line 18
+									PHP message: PHP Warning:  fwrite() expects parameter 1 to be resource, boolean given in /home/wwwroot/www.trackingmore.com/webhook/getInfo.php on line 19
+									PHP message: PHP Warning:  fclose() expects parameter 1 to be resource, boolean given in /home/wwwroot/www.trackingmore.com/webhook/getInfo.php on line 20" while reading response header from upstream, client: 121.35.3.72, server: 8.129.58.49, request: "POST /getInfo.php HTTP/1.1", upstream: "fastcgi://unix:/tmp/php-cgi.sock:", host: "8.129.58.49"
+									2021/09/04 17:42:10 [error] 3656#0: *37495079 FastCGI sent in stderr: "PHP message: PHP Warning:  fopen(/home/wwwroot/www.trackingmore.com/webhook/GetInfo.log): failed to open stream: Permission denied in /home/wwwroot/www.trackingmore.com/webhook/getInfo.php on line 18
+									[root@izwz908uhtm6wdcqcg9bqez ~]
+									# tail /home/wwwlogs/webhook.17proxy.com.log
+									PHP message: PHP Notice:  Array to string conversion in /home/wwwroot/www.trackingmore.com/library/tools/get_https_data.php on line 21" while reading response header from upstream, client: 106.55.29.23, server: 112.74.58.140, request: "POST /getTrack123Info.php HTTP/1.1", upstream: "fastcgi://unix:/tmp/php-cgi.sock:", host: "112.74.58.140"
+									2024/12/23 15:07:05 [error] 16665#0: *132754480 FastCGI sent in stderr: "PHP message: PHP Notice:  Array to string conversion in /home/wwwroot/www.trackingmore.com/library/tools/get_https_data.php on line 21
+									PHP message: PHP Notice:  Array to string conversion in /home/wwwroot/www.trackingmore.com/library/tools/get_https_data.php on line 21" while reading response header from upstream, client: 106.55.29.23, server: 112.74.58.140, request: "POST /getTrack123Info.php HTTP/1.1", upstream: "fastcgi://unix:/tmp/php-cgi.sock:", host: "112.74.58.140"
+									2024/12/23 15:07:50 [error] 16653#0: *132755232 FastCGI sent in stderr: "PHP message: PHP Notice:  Array to string conversion in /home/wwwroot/www.trackingmore.com/library/tools/get_https_data.php on line 21
+									PHP message: PHP Notice:  Array to string conversion in /home/wwwroot/www.trackingmore.com/library/tools/get_https_data.php on line 21" while reading response header from upstream, client: 106.55.29.23, server: 112.74.58.140, request: "POST /getTrack123Info.php HTTP/1.1", upstream: "fastcgi://unix:/tmp/php-cgi.sock:", host: "112.74.58.140"
+									2024/12/23 15:12:52 [alert] 16654#0: *132771911 write() to "/home/wwwlogs/webhook.17proxy.com.access.log" was incomplete: 44 of 114 while logging request, client: 42.194.238.56, server: 112.74.58.140, request: "POST /getTrack123Info.php HTTP/1.1", upstream: "fastcgi://unix:/tmp/php-cgi.sock", host: "112.74.58.140"
+									2024/12/23 15:12:52 [alert] 16658#0: *132756943 write() to "/home/wwwlogs/webhook.17proxy.com.access.log" failed (28: No space left on device) while logging request, client: 175.178.167.241, server: 112.74.58.140, request: "POST /getInfo.php HTTP/1.1", upstream: "fastcgi://unix:/tmp/php-cgi.sock", host: "112.74.58.140"
+									2024/12/23 15:12:54 [alert] 16661#0: *132754323 write() to "/home/wwwlogs/webhook.17proxy.com.access.log" failed (28: No space left on device) while logging request, client: 175.178.167.241, server: 112.74.58.140, request: "POST /getInfo.php HTTP/1.1", upstream: "fastcgi://unix:/tmp/php-cgi.sock", host: "112.74.58.140"
+									2024/12/23 15:12:54 [alert] 16664#0: *132771317 write() to "/home/wwwlogs/webhook.17proxy.com.access.log" failed (28: No space left on device) while logging request, client: 175.178.167.241, server: 112.74.58.140, request: "POST /getInfo.php HTTP/1.1", upstream: "fastcgi://unix:/tmp/php-cgi.sock", host: "112.74.58.140"
+									2024/12/23 15:13:02 [alert] 16655#0: *132772027 write() to "/home/wwwlogs/webhook.17proxy.com.access.log" failed (28: No space left on device) while logging request, client: 42.194.238.56, server: 112.74.58.140, request: "POS
+									# date;zip /home/wwwlogs/webhook.17proxy.com.log.zip /home/wwwlogs/webhook.17proxy.com.log;echo > /home/wwwlogs/webhook.17proxy.com.log;date
+									Mon Dec 23 15:38:39 CST 2024
+									  adding: home/wwwlogs/webhook.17proxy.com.log (deflated 99%)
+									Mon Dec 23 15:39:05 CST 2024
+									[root@izwz908uhtm6wdcqcg9bqez ~]
+									# ll -h /home/wwwlogs/webhook.17proxy.com.log*
+									-rw-r--r-- 1 root root   1 Dec 23 15:39 /home/wwwlogs/webhook.17proxy.com.log
+									-rw-r--r-- 1 root root 32M Dec 23 15:39 /home/wwwlogs/webhook.17proxy.com.log.zip
+									[root@izwz908uhtm6wdcqcg9bqez ~]
+									# unzip -l /home/wwwlogs/webhook.17proxy.com.log.zip
+									Archive:  /home/wwwlogs/webhook.17proxy.com.log.zip
+									  Length      Date    Time    Name
+									---------  ---------- -----   ----
+									2814996480  12-23-2024 15:38   home/wwwlogs/webhook.17proxy.com.log
+									---------                     -------
+									2814996480                     1 file
+									[root@izwz908uhtm6wdcqcg9bqez ~]
+									# df -h
+									Filesystem      Size  Used Avail Use% Mounted on
+									/dev/vda1        49G   46G  2.6G  95% /
+									devtmpfs         16G     0   16G   0% /dev
+									tmpfs            16G     0   16G   0% /dev/shm
+									tmpfs            16G  2.5G   13G  16% /run
+									tmpfs            16G     0   16G   0% /sys/fs/cgroup
+									tmpfs           3.1G     0  3.1G   0% /run/user/0
+									tmpfs           3.1G     0  3.1G   0% /run/user/1003
 							-- 20241213
 								ind_resque-159-205-tm
 									[root@iz0xif9y7r0fstxmq97t54z ~]# find / -name '*' -type f -size +100M | xargs ls -lh {} | sort -nrk5find: ‘/proc/3127/task/3127/fdinfo/6’: No such file or directory
