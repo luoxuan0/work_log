@@ -3275,6 +3275,45 @@
 日常响应
 4，后续优先级、应对
 
+===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== =====
+20250106
+本地
+告警
+技术评审
+
+
+- 今日合规操作小结：无
+- 今日违规操作小结：无
+- 今日监督操作小结：无
+
+
+原计划：
+日常响应
+本地
+1，网络优化相关-整体梳理&推进
+1-1，服务可用监控预警梳理
+1-2，拓扑完善相关待办推进
+1-3，可用性提升-各节点梳理（包括交换机接口等）
+告警
+2，等保网警回复后续-整改
+运维
+3，分账
+日常响应
+4，后续优先级、应对
+
+计划：
+本地
+1，网络优化相关-整体梳理&推进
+1-1，服务可用监控预警梳理
+1-2，拓扑完善相关待办推进
+1-3，可用性提升-各节点梳理（包括交换机接口等）
+告警
+2，等保网警回复后续-整改
+运维
+3，分账
+日常响应
+4，后续优先级、应对
+
 
 复盘
 3，工作项梳理
@@ -4249,6 +4288,165 @@ prometheus 授权
 								script\queueshell\zipAndRmSpecifyTimeFile.sh
 								script\queueshell\file.to.zip.sh
 						历史数据清理 20240529
+							-- 20250106
+								www-214-153-tm
+									[root@iz0xigjdatfp2x5ez15cpuz ~]# df -h
+									Filesystem      Size  Used Avail Use% Mounted on
+									/dev/vda1        40G   39G  667M  99% /
+									devtmpfs        7.8G     0  7.8G   0% /dev
+									tmpfs           7.8G     0  7.8G   0% /dev/shm
+									tmpfs           7.8G  516K  7.8G   1% /run
+									tmpfs           7.8G     0  7.8G   0% /sys/fs/cgroup
+									tmpfs           1.6G     0  1.6G   0% /run/user/1002
+									tmpfs           1.6G     0  1.6G   0% /run/user/0
+									[root@iz0xigjdatfp2x5ez15cpuz ~]# find / -name '*' -type f -size +100M | xargs ls -lh {} | sort -nrk5
+									find: ‘/proc/1658/fdinfo/76’: No such file or directory
+									find: ‘/proc/1658/fdinfo/77’: No such file or directory
+									find: ‘/proc/1661/fdinfo/112’: No such file or directory
+									find: ‘/proc/23227/task/23227/fdinfo/6’: No such file or directory
+									find: ‘/proc/23227/fdinfo/6’: No such file or directory
+									ls: cannot access {}: No such file or directory
+									-rw-r--r-- 1 root root 497M Jan  6 18:53 /root/yunxiao/be-tfpyqa22gtndemstnunakvmq/runner/__flow_logs/runner.log
+									-r--r--r-- 1 root root 392M Aug 11  2020 /var/lib/docker/overlay2/70e1adc85aea9331f7bcd4c926aa5282da78c8ceb9fc59fc510204df48857f22/diff/php-src/.git/objects/pack/pack-d53e643128ecd1ea6c2498eb1202bc30358b84dc.pack
+									-rw-r--r-- 1 root root 322M Jan  6 18:53 /usr/local/nginx/logs/access.log
+									-r-------- 1 root root 128T Jan  6 18:53 /proc/kcore
+									-rw-r--r-- 1 root root 118M Sep  1  2020 /usr/local/rasp-php-linux.tar.bz2
+									-rw-r--r-- 1 root root 117M Jun  1  2023 /var/cache/yum/x86_64/7/updates/gen/primary_db.sqlite
+									-rwxr-xr-x 1 root root 108M May  1  2024 /home/wwwroot/mytracking/uploads/excel/202404/858e65c171330d2ee34cdc93b64b24d3.csv
+									-rw-r--r-- 1 root root 102M Mar 16  2018 /usr/lib/locale/locale-archive
+									[root@iz0xigjdatfp2x5ez15cpuz ~]# sh disk.20241023.sh / 3 100
+									du: cannot access ‘/proc/12890’: No such file or directory
+									du: cannot access ‘/proc/14504/task/14504/fd/4’: No such file or directory
+									du: cannot access ‘/proc/14504/task/14504/fdinfo/4’: No such file or directory
+									du: cannot access ‘/proc/14504/fd/4’: No such file or directory
+									du: cannot access ‘/proc/14504/fdinfo/4’: No such file or directory
+									/: 39056 MB
+									^C
+									[root@iz0xigjdatfp2x5ez15cpuz ~]# sh disk.20241023.sh / 3 100
+									du: cannot access ‘/proc/17360/task/17360/loginuid’: No such file or directory
+									du: cannot access ‘/proc/17360/task/17360/sessionid’: No such file or directory
+									du: cannot access ‘/proc/17360/task/17360/io’: No such file or directory
+									du: cannot access ‘/proc/17360/task/17360/uid_map’: No such file or directory
+									du: cannot access ‘/proc/17360/task/17360/gid_map’: No such file or directory
+									du: cannot access ‘/proc/17360/task/17360/projid_map’: No such file or directory
+									du: cannot access ‘/proc/17360/task/17360/setgroups’: No such file or directory
+									du: cannot access ‘/proc/17360/fd’: No such process
+									du: cannot access ‘/proc/17360/map_files’: No such process
+									du: cannot access ‘/proc/17360/fdinfo’: No such process
+									du: cannot access ‘/proc/17360/ns’: No such process
+									du: cannot access ‘/proc/17360/net’: No such process
+									du: cannot access ‘/proc/17360/environ’: No such process
+									du: cannot access ‘/proc/17360/auxv’: No such process
+									du: cannot access ‘/proc/17360/status’: No such process
+									du: cannot access ‘/proc/17360/personality’: No such process
+									du: cannot access ‘/proc/17360/limits’: No such process
+									du: cannot access ‘/proc/17360/sched’: No such process
+									du: cannot access ‘/proc/17360/autogroup’: No such process
+									du: cannot access ‘/proc/17360/comm’: No such process
+									du: cannot access ‘/proc/17360/syscall’: No such process
+									du: cannot access ‘/proc/17360/cmdline’: No such process
+									du: cannot access ‘/proc/17360/stat’: No such process
+									du: cannot access ‘/proc/17360/statm’: No such process
+									du: cannot access ‘/proc/17360/maps’: No such process
+									du: cannot access ‘/proc/17360/numa_maps’: No such process
+									du: cannot access ‘/proc/17360/mem’: No such process
+									du: cannot access ‘/proc/17360/cwd’: No such process
+									du: cannot access ‘/proc/17360/root’: No such process
+									du: cannot access ‘/proc/17360/exe’: No such process
+									du: cannot access ‘/proc/17360/mounts’: No such process
+									du: cannot access ‘/proc/17360/mountinfo’: No such process
+									du: cannot access ‘/proc/17360/mountstats’: No such process
+									du: cannot access ‘/proc/17360/clear_refs’: No such process
+									du: cannot access ‘/proc/17360/smaps’: No such process
+									du: cannot access ‘/proc/17360/pagemap’: No such process
+									du: cannot access ‘/proc/17360/attr’: No such process
+									du: cannot access ‘/proc/17360/wchan’: No such process
+									du: cannot access ‘/proc/17360/stack’: No such process
+									du: cannot access ‘/proc/17360/schedstat’: No such process
+									du: cannot access ‘/proc/17360/cpuset’: No such process
+									du: cannot access ‘/proc/17360/cgroup’: No such process
+									du: cannot access ‘/proc/17360/oom_score’: No such process
+									du: cannot access ‘/proc/17360/oom_adj’: No such process
+									du: cannot access ‘/proc/17360/oom_score_adj’: No such process
+									du: cannot access ‘/proc/17360/loginuid’: No such process
+									du: cannot access ‘/proc/17360/sessionid’: No such process
+									du: cannot access ‘/proc/17360/coredump_filter’: No such process
+									du: cannot access ‘/proc/17360/io’: No such process
+									du: cannot access ‘/proc/17360/uid_map’: No such process
+									du: cannot access ‘/proc/17360/gid_map’: No such process
+									du: cannot access ‘/proc/17360/projid_map’: No such process
+									du: cannot access ‘/proc/17360/setgroups’: No such process
+									du: cannot access ‘/proc/17360/timers’: No such process
+									du: cannot access ‘/proc/17870/task/17870/fd/4’: No such file or directory
+									du: cannot access ‘/proc/17870/task/17870/fdinfo/4’: No such file or directory
+									du: cannot access ‘/proc/17870/fd/4’: No such file or directory
+									du: cannot access ‘/proc/17870/fdinfo/4’: No such file or directory
+									/: 39057 MB
+										//boot: 147 MB
+										//data: 3893 MB
+											//data/server_logs: 3892 MB
+										//home: 16973 MB
+											//home/wwwlogs: 772 MB
+											//home/wwwroot: 16109 MB
+											//lib/firmware: 172 MB
+											//lib/golang: 321 MB
+											//lib/locale: 102 MB
+									locale-archive: 102 MB
+											//lib64/python2.7: 129 MB
+									du: cannot access ‘//proc/32709/task/32709/fd/4’: No such file or directory
+									du: cannot access ‘//proc/32709/task/32709/fdinfo/4’: No such file or directory
+									du: cannot access ‘//proc/32709/fd/4’: No such file or directory
+									du: cannot access ‘//proc/32709/fdinfo/4’: No such file or directory
+										//root: 748 MB
+											//root/yunxiao: 601 MB
+										//usr: 10572 MB
+											//usr/bin: 174 MB
+											//usr/lib: 809 MB
+											//usr/lib64: 270 MB
+											//usr/local: 8675 MB
+									rasp-php-linux.tar.bz2: 118 MB
+											//usr/share: 490 MB
+										//var: 6626 MB
+											//var/cache: 301 MB
+											//var/lib: 2194 MB
+											//var/log: 4131 MB
+									[root@iz0xigjdatfp2x5ez15cpuz ~]# sh disk.20241023.sh /home/wwwroot 3 100
+									/home/wwwroot: 16116 MB
+										/home/wwwroot/mytracking: 5638 MB
+											/home/wwwroot/mytracking/downloads: 2612 MB
+											/home/wwwroot/mytracking/logs: 932 MB
+											/home/wwwroot/mytracking/uploads: 1941 MB
+										/home/wwwroot/upload: 4872 MB
+											/home/wwwroot/upload/huaqiang: 4405 MB
+											/home/wwwroot/upload/lipeng: 412 MB
+										/home/wwwroot/www.trackingmore.com: 5569 MB
+											/home/wwwroot/www.trackingmore.com/admin: 2345 MB
+											/home/wwwroot/www.trackingmore.com/logs: 156 MB
+											/home/wwwroot/www.trackingmore.com/python3: 221 MB
+											/home/wwwroot/www.trackingmore.com/python_img: 300 MB
+											/home/wwwroot/www.trackingmore.com/script: 136 MB
+											/home/wwwroot/www.trackingmore.com/section: 1499 MB
+											/home/wwwroot/www.trackingmore.com/trackingpage: 356 MB
+									[root@iz0xigjdatfp2x5ez15cpuz ~]# sh disk.20241023.sh /home/wwwroot/mytracking/downloads 3 100
+									/home/wwwroot/mytracking/downloads: 2612 MB
+										/home/wwwroot/mytracking/downloads/excel: 973 MB
+											/home/wwwroot/mytracking/downloads/excel/202411: 364 MB
+											/home/wwwroot/mytracking/downloads/excel/202412: 445 MB
+										/home/wwwroot/mytracking/downloads/excel_zip: 1639 MB
+									[root@iz0xigjdatfp2x5ez15cpuz ~]# ll /run/log/home-wwwroot-mytracking-downloads-excel_zip
+									ls: cannot access /run/log/home-wwwroot-mytracking-downloads-excel_zip: No such file or directory
+
+									[root@iz0xigjdatfp2x5ez15cpuz ~]# mkdir -p /run/log/home-wwwroot-mytracking-downloads-excel_zip
+									[root@iz0xigjdatfp2x5ez15cpuz ~]# mv /home/wwwroot/mytracking/downloads/excel_zip* /run/log/home-wwwroot-mytracking-downloads-excel_zip/
+									[root@iz0xigjdatfp2x5ez15cpuz ~]# df -h
+									Filesystem      Size  Used Avail Use% Mounted on
+									/dev/vda1        40G   37G  2.3G  95% /
+									devtmpfs        7.8G     0  7.8G   0% /dev
+									tmpfs           7.8G     0  7.8G   0% /dev/shm
+									tmpfs           7.8G  1.6G  6.2G  21% /run
+									tmpfs           7.8G     0  7.8G   0% /sys/fs/cgroup
+									tmpfs           1.6G     0  1.6G   0% /run/user/1002
+									tmpfs           1.6G     0  1.6G   0% /run/user/0
 							-- 20241228
 								ind_resque-145-44-35-tm
 									[root@iz0xibhd8xjxiru8zt5ietz ~]# find / -name '*' -type f -size +100M | xargs ls -lh {} | sort -nrk5
@@ -5877,6 +6075,21 @@ prometheus 授权
 					表权限调整-20240909 · 钉钉文档: https://alidocs.dingtalk.com/i/nodes/93NwLYZXWy1Lk2jXC5geR2veWkyEqBQm
 
 			分账
+				-- 20250106
+					费用标签开启位置
+						费用与成本: https://usercenter2.aliyun.com/finance/tags
+					在分账账单中确认是否有财务标签
+						费用与成本: https://usercenter2.aliyun.com/finance/split-bill
+						
+						举例PolarDB备份在财务单元中为未分配，查看费用成本中分账账单发现，对应部分的计费项为PolarDB二级备份（没有标签），分账的是一级备份（有标签）
+							找到PolarDB二级备份进行标签新增
+								发现二级备份未开启（待办）
+
+					mes目前没有账单
+						手动分配
+				-- 20241115
+					财务单元用的是分账账单数据，分账账单内标签只和出账的时候标签有关，如果标签是后续加上的这个也不会同步，所以财务单元会有打了标签未同步的情况。
+
 				-- 20241109
 					无影云（现在放国内 -c-后续分摊）
 					函数计算（现在放国内 -c-后续其他区域使用需要注意如何分配）
