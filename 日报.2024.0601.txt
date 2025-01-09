@@ -3353,6 +3353,46 @@
 日常响应
 4，后续优先级、应对
 
+===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== =====
+20250108
+本地
+告警
+技术评审
+
+
+- 今日合规操作小结：无
+- 今日违规操作小结：无
+- 今日监督操作小结：无
+
+
+原计划：
+日常响应
+本地
+1，网络优化相关-整体梳理&推进
+1-1，服务可用监控预警梳理
+1-2，拓扑完善相关待办推进
+1-3，可用性提升-各节点梳理（包括交换机接口等）
+告警
+2，等保网警回复后续-整改
+运维
+3，分账
+日常响应
+4，后续优先级、应对
+
+计划：
+本地
+1，网络优化相关-整体梳理&推进
+1-1，服务可用监控预警梳理
+1-2，拓扑完善相关待办推进
+1-3，可用性提升-各节点梳理（包括交换机接口等）
+告警
+2，等保网警回复后续-整改
+运维
+3，分账
+4，充值梳理提交
+日常响应
+5，后续优先级、应对
+
 
 复盘
 3，工作项梳理
@@ -6402,7 +6442,46 @@ prometheus 授权
 				负载高
 				go-zero提供web服务,高并发原理
 
-					
+		脚本审核执行
+			统计detect近三年来每个用户每个月的调用情况
+				--20250108
+					服务器 -77
+						PTM=/home/wwwroot/www.trackingmore.com/
+						# 单个修改测试
+						php ${PTM}script/20250107/detectDataStatistics.php "{\"first_time\":\"20220101\",\"last_time\":\"20250101\",\"userid\":259481}"
+						# 查看测试数据情况
+						tail ${PTM}script/20250107/detect_data_statistics_v2.csv
+						tail ${PTM}script/20250107/detect_data_statistics_v3.csv
+						# 整体修改，并保存日志
+						php ${PTM}script/20250107/detectDataStatistics.php &>> ${PTM}logs/20250107-detectDataStatistics.php.log &
+						# 查看数据情况
+						tail ${PTM}script/20250107/detect_data_statistics_v2.csv
+						tail ${PTM}script/20250107/detect_data_statistics_v3.csv
+					服务器 -140
+						PTM=/home/wwwroot/www.trackingmore.com/
+						# 单个修改测试
+						SELECT * FROM `tr_user_cost_rd_log` WHERE  create_time >=1732982400 AND create_time <1735660800 AND way='detect' order by id desc limit 1\G
+						*************************** 1. row ***************************
+								id: 28632777
+							userid: 48922
+								code: CNG00702019662272
+							country: 
+						number_money: 0.020
+							is_order: 1
+								way: detect
+						create_time: 1735660620
+						update_time: 0
+
+						php ${PTM}script/20250107/detectDataStatistics.php "{\"first_time\":\"20241201\",\"last_time\":\"20250101\",\"userid\":48922}"
+						# 查看测试数据情况
+						tail ${PTM}script/20250107/detect_data_statistics_v2.csv
+						tail ${PTM}script/20250107/detect_data_statistics_v3.csv
+						# 整体修改，并保存日志
+						php ${PTM}script/20250107/detectDataStatistics.php &>> ${PTM}logs/20250107-detectDataStatistics.php.log &
+						# 查看数据情况
+						tail ${PTM}script/20250107/detect_data_statistics_v2.csv
+						tail ${PTM}script/20250107/detect_data_statistics_v3.csv
+
 		脚本审核执行-空运客诉
 		测试服208授权堡垒机
 		测试服redis服务异常-重启服务器
