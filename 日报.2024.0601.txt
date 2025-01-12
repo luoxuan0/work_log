@@ -3433,586 +3433,628 @@
 日常响应
 4，后续优先级、应对
 
-
-复盘
-3，工作项梳理
-	方向
-		往深度优化
-			告警
-				设定覆盖
-				定期检查补充
-		其他
-4，文档补充（近期相关处理）
-	所有操作的分类完善（快速找到指定位置进行文档生成）
-		举例微信传文件限制进行关闭（应对微信给我们企业微信传图片无法显示问题）
-		记录的细致程度（优先级的一个考虑因素）
-		分类
-			问题记录
-				redis的首次更新集合过大 为例
-			连接器
-				安全的一部分
-				也属于运维中资源创建
-			20240820 
-
-国庆前 - dataworks和maxcompute权限 WTB
-prometheus 授权
+===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== =====
+20250110
+本地
+告警
+技术评审
 
 
-2，ssl证书更新-设定提醒 √
-二级等保复测
-运维考核细则
-安全
-	挖矿服务器整改
-	安全漏洞
-	整体处理
-成本
-	PolarDB折扣从8折一直上升到95折
-	日志数据库
-1，ISO27701
-2，nginx配置调整
-3，本地数据库表结构维护（同线上同步，后续持续维护）
-4，切换仓库分支失败 @WYK
-5，测试环境-分支自动构建触发取消
+- 今日合规操作小结：无
+- 今日违规操作小结：无
+- 今日监督操作小结：无
+
+
+原计划：
+日常响应
+本地
+1，网络优化相关-整体梳理&推进
+1-1，服务可用监控预警梳理
+1-2，拓扑完善相关待办推进
+1-3，可用性提升-各节点梳理（包括交换机接口等）
+告警
+2，等保网警回复后续-整改
+运维
+3，分账
+日常响应
+4，后续优先级、应对
+
+计划：
+本地
+1，网络优化相关-整体梳理&推进
+1-1，服务可用监控预警梳理
+1-2，拓扑完善相关待办推进
+1-3，可用性提升-各节点梳理（包括交换机接口等）
+告警
+2，等保网警回复后续-整改
+运维
+3，分账
+日常响应
+4，后续优先级、应对
+
+近期复盘
+	3，工作项梳理
+		方向
+			往深度优化
+				告警
+					设定覆盖
+					定期检查补充
+			其他
+	4，文档补充（近期相关处理）
+		所有操作的分类完善（快速找到指定位置进行文档生成）
+			举例微信传文件限制进行关闭（应对微信给我们企业微信传图片无法显示问题）
+			记录的细致程度（优先级的一个考虑因素）
+			分类
+				问题记录
+					redis的首次更新集合过大 为例
+				连接器
+					安全的一部分
+					也属于运维中资源创建
+				20240820 
+
+近期待办
+	国庆前 - dataworks和maxcompute权限 WTB
+	prometheus 授权
+
+
+	2，ssl证书更新-设定提醒 √
+	二级等保复测
+	运维考核细则
+	安全
+		挖矿服务器整改
+		安全漏洞
+		整体处理
+	成本
+		PolarDB折扣从8折一直上升到95折
+		日志数据库
+	1，ISO27701
+	2，nginx配置调整
+	3，本地数据库表结构维护（同线上同步，后续持续维护）
+	4，切换仓库分支失败 @WYK
+	5，测试环境-分支自动构建触发取消
 
 操作顺序
-	-- 20250109
-		添加云效
-		tp迁移
+	-- 20250110
 
-		1，网络优化相关-整体梳理&推进
-		1-1，服务可用监控预警梳理
-		1-2，拓扑完善相关待办推进
-		1-3，可用性提升-各节点梳理（包括交换机接口等）
-		告警
-		2，等保网警回复后续-整改
-		运维
-		3，分账
-		4，充值梳理提交
-		日常响应
-		5，后续优先级、应对
-	-- 20250107
-		梳理
-			告警、优化
-				等保（磁盘）
-					现有脚本-
-					查询方案
-			本地
-		分账
-	-- 20250104
-		602 
-			设备
-				sn
-					e43a6e6177ca
-				eth0为wan口  eth2为lan口
-				设备天线麻烦也装一下
-					天线是我们这边用来做远程带外管理的
-			爱快
-				192.168.14.1
-			三层
-				21口
-					DHCP
-						名称
-							16
-						IP地址池子网地址
-							192.168.16.0
-						网关
-							192.168.16.254
-					VLAN
-						VLAN ID 
-							16
-						MAC地址学习
-							√
-						IPv4
-							192.168.16.254
-						绑定接口
-							2 3 4 5 6 19
-		605
-			设备
-				sn
-					6e6177ca
-				eth0为wan口  eth2为lan口
-				设备天线麻烦也装一下
-					天线是我们这边用来做远程带外管理的
-			爱快
-				192.168.13.1
-			三层
-				19口
-					DHCP
-						名称
-							17
-						IP地址池子网地址
-							192.168.17.0
-						网关
-							192.168.17.254
-					VLAN
-						VLAN ID 
-							17
-						MAC地址学习
-							√
-						IPv4
-							192.168.17.254
-						绑定接口
-							2 3 4 5 21（从5解绑）
+	散记录
+		-- 20250109
+			添加云效
+			tp迁移
 
-	-- 20250102
-		绩效
-		充值
-		等保复测
-		告警
-	-- 20241230
-		财务
-			深圳畅销家：腾讯云11775元的票需要开过来，阿里云的票也同样要开。
-			执尚：闪达800元的票，阿里云的票、以及青果21440.97元的票。
-			实际
-				青果（等邮件）
-				阿里云（是否现在） √
-				闪达（其他个人充值 等通过）
-				invoice （修改抬头等回复）
-		等保
-		本地
+			1，网络优化相关-整体梳理&推进
+			1-1，服务可用监控预警梳理
+			1-2，拓扑完善相关待办推进
+			1-3，可用性提升-各节点梳理（包括交换机接口等）
+			告警
+			2，等保网警回复后续-整改
+			运维
+			3，分账
+			4，充值梳理提交
+			日常响应
+			5，后续优先级、应对
+		-- 20250107
+			梳理
+				告警、优化
+					等保（磁盘）
+						现有脚本-
+						查询方案
+				本地
+			分账
+		-- 20250104
+			602 
+				设备
+					sn
+						e43a6e6177ca
+					eth0为wan口  eth2为lan口
+					设备天线麻烦也装一下
+						天线是我们这边用来做远程带外管理的
+				爱快
+					192.168.14.1
+				三层
+					21口
+						DHCP
+							名称
+								16
+							IP地址池子网地址
+								192.168.16.0
+							网关
+								192.168.16.254
+						VLAN
+							VLAN ID 
+								16
+							MAC地址学习
+								√
+							IPv4
+								192.168.16.254
+							绑定接口
+								2 3 4 5 6 19
+			605
+				设备
+					sn
+						6e6177ca
+					eth0为wan口  eth2为lan口
+					设备天线麻烦也装一下
+						天线是我们这边用来做远程带外管理的
+				爱快
+					192.168.13.1
+				三层
+					19口
+						DHCP
+							名称
+								17
+							IP地址池子网地址
+								192.168.17.0
+							网关
+								192.168.17.254
+						VLAN
+							VLAN ID 
+								17
+							MAC地址学习
+								√
+							IPv4
+								192.168.17.254
+							绑定接口
+								2 3 4 5 21（从5解绑）
 
-	-- 20241227
-		本地
-			拓扑完善
-				公用设备
-				表格确认
-				开启
-					mac绑定
-				收集相关
-					iOA比对
-					使用
-			两边可用性
-		整改
-	-- 20241225
-		等保整改
-			日志保留6个月
-	-- 20241223
-		优先级
-			本地
-				近期事件
+		-- 20250102
+			绩效
+			充值
 			等保复测
-				整改
-				回复（先梳理确认）
-			堆积告警
-	-- 20241218
-		等保网警回复，日志检查
-			网络设备(交换机、路由器等)
-			安全设备(防火墙、IPS、IDS、VPN设备、 堡垒机等)
-				堡垒机日志6个月
-				waf防火墙日志最早日志2024/10/27
-			服务器(物理主机或虚拟主机)的操作系统
-			中间件
-			重要数据库软件
-			工控设备
-			五是业务应用系统
-	-- 20241215
-		本地
-			新专线上线
-			后续优化处理
-		告警
-			监控
-			后续
-		
-	-- 20241213
-		桌面运维
-			后续
+			告警
+		-- 20241230
+			财务
+				深圳畅销家：腾讯云11775元的票需要开过来，阿里云的票也同样要开。
+				执尚：闪达800元的票，阿里云的票、以及青果21440.97元的票。
+				实际
+					青果（等邮件）
+					阿里云（是否现在） √
+					闪达（其他个人充值 等通过）
+					invoice （修改抬头等回复）
+			等保
+			本地
 
-			付款（财务事项最好同快快确认）
-				可以后面补充结算单（大致写即可）-后面补不行-不能大致写即可-
-	-- 20241212
-		充值梳理
-			专线
-				5250
-
-				账户名称:中国移动通信集团广东有限公司广州分公司
-				账户号码:8888014700009548
-				开户银行:招商银行股份有限公司北京分行营业部
-				联行号:308100005027
+		-- 20241227
+			本地
+				拓扑完善
+					公用设备
+					表格确认
+					开启
+						mac绑定
+					收集相关
+						iOA比对
+						使用
+				两边可用性
+			整改
+		-- 20241225
+			等保整改
+				日志保留6个月
+		-- 20241223
+			优先级
+				本地
+					近期事件
+				等保复测
+					整改
+					回复（先梳理确认）
+				堆积告警
+		-- 20241218
+			等保网警回复，日志检查
+				网络设备(交换机、路由器等)
+				安全设备(防火墙、IPS、IDS、VPN设备、 堡垒机等)
+					堡垒机日志6个月
+					waf防火墙日志最早日志2024/10/27
+				服务器(物理主机或虚拟主机)的操作系统
+				中间件
+				重要数据库软件
+				工控设备
+				五是业务应用系统
+		-- 20241215
+			本地
+				新专线上线
+				后续优化处理
+			告警
+				监控
+				后续
+			
+		-- 20241213
 			桌面运维
-				公司名称：深圳市卡恩斯信息技术有限公司 
-				开户银行：中国工商银行深圳和平支行		
-				银行帐号：4000026609203932624
+				后续
 
-				何工是 1029过来到1101
-				司工是 1107过来到1206
-				1029-1031 补上1104-1106相当于11月整个月12月多出来1周5天 22天 8500*5/22=19328500+1932=10432
-		桌面运维
-			服务方式
-				整理
-				同步
-	-- 20241210
-		find /home/wwwroot/www.trackingmore.com/admin/upload/  -type f ! -newermt "2024-07-01" | xargs -i zip /run/log/20241210.zip {};find /home/wwwroot/www.trackingmore.com/admin/upload/  -type f ! -newermt "2024-07-01" | xargs -i rm -f {}
-		
-		常用操作
-			队列重启
-				命令覆盖
+				付款（财务事项最好同快快确认）
+					可以后面补充结算单（大致写即可）-后面补不行-不能大致写即可-
+		-- 20241212
+			充值梳理
+				专线
+					5250
 
-			独立更新配置
-				. /home/wwwroot/www.trackingmore.com/script/queueshell/host_conf.sh; ll /home/wwwroot/www.trackingmore.com/script/queueshell/track_queue_conf_update_independent_${hostAlia}.sh ;cat /home/wwwroot/www.trackingmore.com/script/queueshell/track_queue_conf_update_independent_${hostAlia}.sh
-			非独立更新配置（一次启动少于10的量）
-				. /home/wwwroot/www.trackingmore.com/script/queueshell/host_conf.sh; ll /home/wwwroot/www.trackingmore.com/script/queueshell/track_queue_conf_min_${hostAlia}.sh ;cat /home/wwwroot/www.trackingmore.com/script/queueshell/track_queue_conf_min_${hostAlia}.sh
-			非独立更新配置（一次启动大于等于10的量）
-				. /home/wwwroot/www.trackingmore.com/script/queueshell/host_conf.sh; ll /home/wwwroot/www.trackingmore.com/script/queueshell/track_queue_conf_${hostAlia}.sh ;cat /home/wwwroot/www.trackingmore.com/script/queueshell/track_queue_conf_${hostAlia}.sh
-	-- 20241206
-		1123-1205计划
-	-- 20241205
-		本地
-			标签
-		客诉相关服务器授权
-	-- 20241203
-		考勤
-			1109 16-19 3
-			1123 09:20-19:00
-			1124 14:00-19:00
-		本地优化
-			专线服务商
+					账户名称:中国移动通信集团广东有限公司广州分公司
+					账户号码:8888014700009548
+					开户银行:招商银行股份有限公司北京分行营业部
+					联行号:308100005027
+				桌面运维
+					公司名称：深圳市卡恩斯信息技术有限公司 
+					开户银行：中国工商银行深圳和平支行		
+					银行帐号：4000026609203932624
 
-			后续优化
-		等保
-	-- 20241202
-		发票
-			sendcloud
-				0912 800 √
-			青果
-				0902 8160 √
-				0912 2060 √
-				0926 8160 √
-
-				1017 10320 √
-				1129 12090 √
-					1031 900
-					1114 2130.97
-			阿里云
-				0912 18000
-				0926 18000
-				1114 18000
+					何工是 1029过来到1101
+					司工是 1107过来到1206
+					1029-1031 补上1104-1106相当于11月整个月12月多出来1周5天 22天 8500*5/22=19328500+1932=10432
+			桌面运维
+				服务方式
+					整理
+					同步
+		-- 20241210
+			find /home/wwwroot/www.trackingmore.com/admin/upload/  -type f ! -newermt "2024-07-01" | xargs -i zip /run/log/20241210.zip {};find /home/wwwroot/www.trackingmore.com/admin/upload/  -type f ! -newermt "2024-07-01" | xargs -i rm -f {}
 			
-			阿里云
-				0905 140000
-				1011 145000
-			腾讯云
-				0926 11775
-		本地优化
+			常用操作
+				队列重启
+					命令覆盖
 
-	-- 20241129
-		本地-后续优化
+				独立更新配置
+					. /home/wwwroot/www.trackingmore.com/script/queueshell/host_conf.sh; ll /home/wwwroot/www.trackingmore.com/script/queueshell/track_queue_conf_update_independent_${hostAlia}.sh ;cat /home/wwwroot/www.trackingmore.com/script/queueshell/track_queue_conf_update_independent_${hostAlia}.sh
+				非独立更新配置（一次启动少于10的量）
+					. /home/wwwroot/www.trackingmore.com/script/queueshell/host_conf.sh; ll /home/wwwroot/www.trackingmore.com/script/queueshell/track_queue_conf_min_${hostAlia}.sh ;cat /home/wwwroot/www.trackingmore.com/script/queueshell/track_queue_conf_min_${hostAlia}.sh
+				非独立更新配置（一次启动大于等于10的量）
+					. /home/wwwroot/www.trackingmore.com/script/queueshell/host_conf.sh; ll /home/wwwroot/www.trackingmore.com/script/queueshell/track_queue_conf_${hostAlia}.sh ;cat /home/wwwroot/www.trackingmore.com/script/queueshell/track_queue_conf_${hostAlia}.sh
+		-- 20241206
+			1123-1205计划
+		-- 20241205
+			本地
+				标签
+			客诉相关服务器授权
+		-- 20241203
+			考勤
+				1109 16-19 3
+				1123 09:20-19:00
+				1124 14:00-19:00
+			本地优化
+				专线服务商
 
-		国内更新异常-仅首次更新
+				后续优化
+			等保
+		-- 20241202
+			发票
+				sendcloud
+					0912 800 √
+				青果
+					0902 8160 √
+					0912 2060 √
+					0926 8160 √
 
-		定时任务新增-LAP
+					1017 10320 √
+					1129 12090 √
+						1031 900
+						1114 2130.97
+				阿里云
+					0912 18000
+					0926 18000
+					1114 18000
+				
+				阿里云
+					0905 140000
+					1011 145000
+				腾讯云
+					0926 11775
+			本地优化
 
-		阿里云订单续费-YHX_XX
-		git账号创建-DYL_EB
+		-- 20241129
+			本地-后续优化
 
-		发票-XHH_CW
-		123提交补充-ZZH_CW
-	-- 20241121
-		iOA推进-加密等卸载
-	-- 20241120
-		等保复测
-			整改建议（可能涉及购买安全产品）
-		chatgpt充值
-	-- 20241119
-		国内yanwen调频效果不佳
-	-- 20241118
-		等保复测
-			测评报告
-			服务器IP列表
-			
-		本地
-		1，网络优化相关
-		1-1，科学上网服务商对接-新设备
-		1-2，后续相关优化
-			mac绑定
-			拓扑完善
-		运维
-		2，分账
-	-- 20241115
-		信用卡更换 √
-	-- 20241113
-		专线续费
-		充值梳理 √
+			国内更新异常-仅首次更新
 
-		发票
-		本地
-			mac绑定
-			合同
-	-- 20241112
-		明天阿里云沟通 √
-		更新频率
-		ssl证书更新
-		五部加密移除
-	-- 20241111
-		ssl证书（钉钉任务）
+			定时任务新增-LAP
 
-		本地
-			五部加密卸载
-			申请公网IP
+			阿里云订单续费-YHX_XX
+			git账号创建-DYL_EB
+
+			发票-XHH_CW
+			123提交补充-ZZH_CW
+		-- 20241121
+			iOA推进-加密等卸载
+		-- 20241120
+			等保复测
+				整改建议（可能涉及购买安全产品）
+			chatgpt充值
+		-- 20241119
+			国内yanwen调频效果不佳
+		-- 20241118
+			等保复测
+				测评报告
+				服务器IP列表
+				
+			本地
 			1，网络优化相关
 			1-1，科学上网服务商对接-新设备
 			1-2，后续相关优化
-		运维
-		2，分账
-		日常响应
-		3，后续优先级、应对
-	-- 20241105
-		carrier子页面SOE优化-LAP-前台下架物流商页面优化脚本执行物流商页面优化脚本执行
-			服务器 -77
-			PTM=/home/wwwroot/www.trackingmore.com/
-			# 单个修改测试
-			php ${PTM}script/20241105/resetTrackingCompany.php 1
-			# 整体修改，并保存日志
-			php ${PTM}script/20241105/resetTrackingCompany.php &>> ${PTM}logs/20241105-resetTrackingCompany.php.log &
-			缓存清除
+				mac绑定
+				拓扑完善
+			运维
+			2，分账
+		-- 20241115
+			信用卡更换 √
+		-- 20241113
+			专线续费
+			充值梳理 √
+
+			发票
+			本地
+				mac绑定
+				合同
+		-- 20241112
+			明天阿里云沟通 √
+			更新频率
+			ssl证书更新
+			五部加密移除
+		-- 20241111
+			ssl证书（钉钉任务）
+
+			本地
+				五部加密卸载
+				申请公网IP
+				1，网络优化相关
+				1-1，科学上网服务商对接-新设备
+				1-2，后续相关优化
+			运维
+			2，分账
+			日常响应
+			3，后续优先级、应对
+		-- 20241105
+			carrier子页面SOE优化-LAP-前台下架物流商页面优化脚本执行物流商页面优化脚本执行
+				服务器 -77
+				PTM=/home/wwwroot/www.trackingmore.com/
 				# 单个修改测试
-				php ${PTM}script/20241105/clearCache.php 1
+				php ${PTM}script/20241105/resetTrackingCompany.php 1
 				# 整体修改，并保存日志
-				php ${PTM}script/20241105/clearCache.php &>> ${PTM}logs/script-20241105-clearCache.php.log &
-				# 查看日志，确保正常执行（如有异常，进行跟进调整）
-				tail -f ${PTM}logs/script-20241105-clearCache.php.log
+				php ${PTM}script/20241105/resetTrackingCompany.php &>> ${PTM}logs/20241105-resetTrackingCompany.php.log &
+				缓存清除
+					# 单个修改测试
+					php ${PTM}script/20241105/clearCache.php 1
+					# 整体修改，并保存日志
+					php ${PTM}script/20241105/clearCache.php &>> ${PTM}logs/script-20241105-clearCache.php.log &
+					# 查看日志，确保正常执行（如有异常，进行跟进调整）
+					tail -f ${PTM}logs/script-20241105-clearCache.php.log
 
-				待办：有些简码部分语言的缓存信息不存在，说明页面不存在访问，这个是否正常 @FYT_KF
-			排除数组有换行导致修改了部分不应该修改的数据
-				-- 20241106
-				数据恢复
-				select ttc.page_contents from tr_tracking_company ttc JOIN tr_tracking_company_bk11061736 ttbk ON ttc.company_code = ttbk.company_code AND ttc.lang = ttbk.lang WHERE ttc.company_code IN ('thailand-post', 'ecms', 'australia-post', 'ups-mi', 'rrts') AND ttc.lang IN ('cn', 'tw', 'es', 'de', 'ru', 'nl', 'pt', 'it', 'ja', 'fr', 'ko', 'pl', 'tr', 'en', 'ar');
+					待办：有些简码部分语言的缓存信息不存在，说明页面不存在访问，这个是否正常 @FYT_KF
+				排除数组有换行导致修改了部分不应该修改的数据
+					-- 20241106
+					数据恢复
+					select ttc.page_contents from tr_tracking_company ttc JOIN tr_tracking_company_bk11061736 ttbk ON ttc.company_code = ttbk.company_code AND ttc.lang = ttbk.lang WHERE ttc.company_code IN ('thailand-post', 'ecms', 'australia-post', 'ups-mi', 'rrts') AND ttc.lang IN ('cn', 'tw', 'es', 'de', 'ru', 'nl', 'pt', 'it', 'ja', 'fr', 'ko', 'pl', 'tr', 'en', 'ar');
 
-				msql -e "use trackingdb;select ttc.page_contents,ttbk.page_contents as page_contents_bk,ttc.detail_contents,ttbk.detail_contents as detail_contents_bk from tr_tracking_company ttc JOIN tr_tracking_company_bk11061736 ttbk ON ttc.company_code = ttbk.company_code   AND ttc.lang = ttbk.lang WHERE ttc.company_code IN ('thailand-post', 'ecms', 'australia-post', 'ups-mi', 'rrts')   AND ttc.lang IN ('cn', 'tw', 'es', 'de', 'ru', 'nl', 'pt', 'it', 'ja', 'fr', 'ko','pl', 'tr', 'en', 'ar')\G" >> tr_tracking_company.20241106.log
+					msql -e "use trackingdb;select ttc.page_contents,ttbk.page_contents as page_contents_bk,ttc.detail_contents,ttbk.detail_contents as detail_contents_bk from tr_tracking_company ttc JOIN tr_tracking_company_bk11061736 ttbk ON ttc.company_code = ttbk.company_code   AND ttc.lang = ttbk.lang WHERE ttc.company_code IN ('thailand-post', 'ecms', 'australia-post', 'ups-mi', 'rrts')   AND ttc.lang IN ('cn', 'tw', 'es', 'de', 'ru', 'nl', 'pt', 'it', 'ja', 'fr', 'ko','pl', 'tr', 'en', 'ar')\G" >> tr_tracking_company.20241106.log
 
-				UPDATE tr_tracking_company ttc JOIN tr_tracking_company_bk11061736 ttbk ON ttc.company_code = ttbk.company_code AND ttc.lang = ttbk.lang SET ttc.detail_contents = ttbk.detail_contents,ttc.page_contents = ttbk.page_contents,ttc.update_time = NOW() WHERE ttc.company_code IN ('thailand-post', 'ecms', 'australia-post', 'ups-mi', 'rrts') AND ttc.lang IN ('cn', 'tw', 'es', 'de', 'ru', 'nl', 'pt', 'it', 'ja', 'fr', 'ko', 'pl', 'tr', 'en', 'ar');
+					UPDATE tr_tracking_company ttc JOIN tr_tracking_company_bk11061736 ttbk ON ttc.company_code = ttbk.company_code AND ttc.lang = ttbk.lang SET ttc.detail_contents = ttbk.detail_contents,ttc.page_contents = ttbk.page_contents,ttc.update_time = NOW() WHERE ttc.company_code IN ('thailand-post', 'ecms', 'australia-post', 'ups-mi', 'rrts') AND ttc.lang IN ('cn', 'tw', 'es', 'de', 'ru', 'nl', 'pt', 'it', 'ja', 'fr', 'ko', 'pl', 'tr', 'en', 'ar');
 
-				php ${PTM}script/20241105/resetTrackingCompany.php &>> ${PTM}logs/20241105-resetTrackingCompany.php.20241106.log &
-				tail -f ${PTM}logs/20241105-resetTrackingCompany.php.20241106.log
+					php ${PTM}script/20241105/resetTrackingCompany.php &>> ${PTM}logs/20241105-resetTrackingCompany.php.20241106.log &
+					tail -f ${PTM}logs/20241105-resetTrackingCompany.php.20241106.log
 
-				php ${PTM}script/20241105/clearCache.php &>> ${PTM}logs/script-20241105-clearCache.php.20241106.log &
-				tail -f ${PTM}logs/script-20241105-clearCache.php.20241106.log
-			更新条件错误
-				-- 20241107
+					php ${PTM}script/20241105/clearCache.php &>> ${PTM}logs/script-20241105-clearCache.php.20241106.log &
+					tail -f ${PTM}logs/script-20241105-clearCache.php.20241106.log
+				更新条件错误
+					-- 20241107
 
-				php ${PTM}script/20241105/resetTrackingCompany.php &>> ${PTM}logs/20241105-resetTrackingCompany.php.20241107.log &
-				tail -f ${PTM}logs/20241105-resetTrackingCompany.php.20241107.log
+					php ${PTM}script/20241105/resetTrackingCompany.php &>> ${PTM}logs/20241105-resetTrackingCompany.php.20241107.log &
+					tail -f ${PTM}logs/20241105-resetTrackingCompany.php.20241107.log
 
-				php ${PTM}script/20241105/clearCache.php &>> ${PTM}logs/script-20241105-clearCache.php.20241107.log &
-				tail -f ${PTM}logs/script-20241105-clearCache.php.20241107.log
-				-- 20241107 需求方变动（沟通问题）
-				echo '需求方变动（沟通问题）' >> ${PTM}logs/20241105-resetTrackingCompany.php.20241107.log
-				php ${PTM}script/20241105/resetTrackingCompany.php &>> ${PTM}logs/20241105-resetTrackingCompany.php.20241107.log &
-				tail -f ${PTM}logs/20241105-resetTrackingCompany.php.20241107.log
+					php ${PTM}script/20241105/clearCache.php &>> ${PTM}logs/script-20241105-clearCache.php.20241107.log &
+					tail -f ${PTM}logs/script-20241105-clearCache.php.20241107.log
+					-- 20241107 需求方变动（沟通问题）
+					echo '需求方变动（沟通问题）' >> ${PTM}logs/20241105-resetTrackingCompany.php.20241107.log
+					php ${PTM}script/20241105/resetTrackingCompany.php &>> ${PTM}logs/20241105-resetTrackingCompany.php.20241107.log &
+					tail -f ${PTM}logs/20241105-resetTrackingCompany.php.20241107.log
 
-				echo '需求方变动（沟通问题）' >> ${PTM}logs/script-20241105-clearCache.php.20241107.log
-				php ${PTM}script/20241105/clearCache.php &>> ${PTM}logs/script-20241105-clearCache.php.20241107.log &
-				tail -f ${PTM}logs/script-20241105-clearCache.php.20241107.log
+					echo '需求方变动（沟通问题）' >> ${PTM}logs/script-20241105-clearCache.php.20241107.log
+					php ${PTM}script/20241105/clearCache.php &>> ${PTM}logs/script-20241105-clearCache.php.20241107.log &
+					tail -f ${PTM}logs/script-20241105-clearCache.php.20241107.log
 
-				-- 20241107 需求方变动（沟通问题）
-				echo '需求方变动（沟通问题）1' >> ${PTM}logs/20241105-resetTrackingCompany.php.20241107.log
-				php ${PTM}script/20241105/resetTrackingCompany.php &>> ${PTM}logs/20241105-resetTrackingCompany.php.20241107.log &
-				tail -f ${PTM}logs/20241105-resetTrackingCompany.php.20241107.log
+					-- 20241107 需求方变动（沟通问题）
+					echo '需求方变动（沟通问题）1' >> ${PTM}logs/20241105-resetTrackingCompany.php.20241107.log
+					php ${PTM}script/20241105/resetTrackingCompany.php &>> ${PTM}logs/20241105-resetTrackingCompany.php.20241107.log &
+					tail -f ${PTM}logs/20241105-resetTrackingCompany.php.20241107.log
 
-				echo '需求方变动（沟通问题）1' >> ${PTM}logs/script-20241105-clearCache.php.20241107.log
-				php ${PTM}script/20241105/clearCache.php &>> ${PTM}logs/script-20241105-clearCache.php.20241107.log &
-				tail -f ${PTM}logs/script-20241105-clearCache.php.20241107.log
+					echo '需求方变动（沟通问题）1' >> ${PTM}logs/script-20241105-clearCache.php.20241107.log
+					php ${PTM}script/20241105/clearCache.php &>> ${PTM}logs/script-20241105-clearCache.php.20241107.log &
+					tail -f ${PTM}logs/script-20241105-clearCache.php.20241107.log
 
 
-	-- 20241104
-		
-	-- 20241101
-			进行发布
-				sh send.code.sh 2d86075dd dc82e4b15
-
-				echo >> send.code.log;echo `date` manu send code test start >> send.code.log
-				sh send.code.sh 2d86075dd dc82e4b15 >> send.code.log
-				echo >> send.code.log;echo `date` manu send code test end >> send.code.log
-
-				echo >> build.commitid.log;echo `date`' manu send code start(build.commitid.log last line must be commit_id)' >> build.commitid.log;
-				echo dc82e4b15 >> build.commitid.log
-
-			确认效果
-				tail -100 send.code.log
-				tail -100 build.commitid.log
-	-- 20241031
-		数据库表字段新增
-			待完善
-				直接将需求对应的命令行转化为脚本，只需要给到必须参数即可
-	-- 20241030
-		时间属性，后续归类
-
-		文件免密发送
-			ssh-keygen -t ed25519 -C 'sendfile_form_35-tm'
-			vi .ssh/authorized_keys
-			chmod 600 .ssh/authorized_keys
-			ssh root@47.253.62.186 echo 1
-
-			待完善
-				默认存的文件id_ed25519.pub的公钥是有效的，再生成一个id_de25519.35.pub是无效的
-				直接将需求对应的命令行转化为脚本，只需要给到必须参数即可
-		注册异常
-			参考 https://alidocs.dingtalk.com/i/nodes/qXomz1wAyjKVXoooXb7lW3Y9pRBx5OrE?utm_scene=team_space
+		-- 20241104
 			
-			进行发布
-				sh send.code.sh 0a29c4c2f 9c6ac5944
+		-- 20241101
+				进行发布
+					sh send.code.sh 2d86075dd dc82e4b15
 
-				echo >> send.code.log;echo `date` manu send code test start >> send.code.log
-				sh send.code.sh 0a29c4c2f 9c6ac5944 >> send.code.log
-				echo >> send.code.log;echo `date` manu send code test end >> send.code.log
+					echo >> send.code.log;echo `date` manu send code test start >> send.code.log
+					sh send.code.sh 2d86075dd dc82e4b15 >> send.code.log
+					echo >> send.code.log;echo `date` manu send code test end >> send.code.log
 
-				echo >> build.commitid.log;echo `date`' manu send code start(build.commitid.log last line must be commit_id)' >> build.commitid.log;
-				echo 9c6ac5944 >> build.commitid.log
+					echo >> build.commitid.log;echo `date`' manu send code start(build.commitid.log last line must be commit_id)' >> build.commitid.log;
+					echo dc82e4b15 >> build.commitid.log
 
-			确认效果
-				tail -100 send.code.log
-				tail -100 build.commitid.log
-				ll /home/wwwroot/www.trackingmore.com/tools/disposableEmail.php
-	-- 20241026
-		磁盘
-			172.16.10.129-api-51-67
-				find / -name '*' -type f -size +100M | xargs ls -lh {} | sort -nrk5
-					-rw-r--r--  1 www  www   18G Oct 26 18:50 /home/wwwroot/www.51tracking.com/logs/api-error.log √
-					-rw-r--r--  1 www  www  6.7G Oct 13  2022 /home/wwwroot/www.51tracking.com/api/v2/trackings/first_track.log √
-					-rw-------  1 root root 2.1G Oct 26 18:48 /usr/local/php7.0.33/var/log/php-fpm.log
-					-rw-r--r--  1 root root 1.9G Oct 26 18:50 /home/wwwlogs/api.51tracking.com.access.log
-				/home/wwwroot/www.51tracking.com/logs/api-error.log
-					11 * * * * /usr/bin/sh /home/wwwroot/www.trackingmore.com/script/queueshell/zipAndRmFileNew.checkAndMove.over10M.sh &>> /home/wwwroot/www.trackingmore.com/script/queueshell/zipAndRmFileNew.checkAndMove.over10M.sh.err.log
-						m=`date '+%Y%m'`
-						/usr/bin/sh /home/wwwroot/www.trackingmore.com/script/queueshell/zipAndRmFileNew.sh checkAndMove '' 10M '*.log' /home/wwwroot/www.51tracking.com/logs &>> /home/wwwroot/www.trackingmore.com/script/queueshell/zipAndRmFileNew.sh.${m}.checkAndMove.over10M.log &
-					21 01,07,13,19 * * * /usr/bin/sh /home/wwwroot/www.trackingmore.com/script/queueshell/zipAndRmFileNew.within.1day.sh &>> /home/wwwroot/www.trackingmore.com/script/queueshell/zipAndRmFileNew.within.1day.sh.err.log
-				echo > /home/wwwroot/www.51tracking.com/api/v2/trackings/first_track.log
-			ind_resque-159-205-tm
-				/home/wwwroot/upload/huaqiang （其他服务器）4G
-			ind_resque_49_172.16.10.167-resque-51-140
-				# zip /home/wwwlogs/webhook.17proxy.com.access.log.zip /home/wwwlogs/webhook.17proxy.com.access.log;echo > /home/wwwlogs/webhook.17proxy.com.access.log
-					adding: home/wwwlogs/webhook.17proxy.com.access.log
-							zip warning:  file size changed while zipping /home/wwwlogs/webhook.17proxy.com.access.log
-					(deflated 98%)
-	-- 20241025
-		本地
-		1，网络优化相关
-		1-1，外包服务商对接-内部流程
-		1-2，科学上网服务商对接-上设备
-		告警
-		2，磁盘
-		日常响应
-		3，后续优先级、应对	
-	-- 20241024
-		本地
-		1，网络优化相关
-		1-1，外包服务商对接-内部流程
-		1-2，科学上网服务商对接-上设备
-		告警
-		2，磁盘
-		日常响应
-		3，后续优先级、应对	
-	-- 20241021
-		本地
-		1，网络优化相关-外包服务商对接&科学上网
-			外包 --10
-			科学上网 --11
-				上新设备 -- 110
-				新服务商对接 -- 111
-		2，开发机网络异常-遗留问题（代码拉取，IP变动） --20
-		告警
-		3，国外redis节点内存 --01
-		磁盘
-			思路 --010
-			dolphinscheduler-任务调度系统-磁盘统一处理 --011
-		日常响应
-		4，后续优先级、应对
-	-- 20241018
-		本地
-		1，网络优化相关-外包服务商对接&科学上网
-			外包 --10
-				日常响应
-					断网了？
-						（水晶头 上级上上级）
-					打印机离线
-					网络安全稳定性（mac绑定 水晶头检查）
-					WIFI网络不稳定
-					节后网络变慢很多
-					602网络不稳定
-				长期优化
-					上述后续
-					文档
-				有印象的排障
-			科学上网 --11
-		2，开发机网络异常-遗留问题（代码拉取，IP变动） --20
-		告警
-		3，国外redis节点内存 --01
-		日常响应
-		4，后续优先级、应对
-	-- 20241017
-		redis内存
-			php /home/wwwroot/www.trackingmore.com/script/warning_redis.php dfdf 10 | grep ':redis:' -A8
-				node:2: 100% > 10%
+				确认效果
+					tail -100 send.code.log
+					tail -100 build.commitid.log
+		-- 20241031
+			数据库表字段新增
+				待完善
+					直接将需求对应的命令行转化为脚本，只需要给到必须参数即可
+		-- 20241030
+			时间属性，后续归类
 
-			redis keys *_BIT |  grep -v '17_17_4\|17_17_5' | xargs -i /usr/local/bin/redis-cli -h r-wz9vgp558v8qsps6jg.redis.rds.aliyuncs.com -p 6379 -a hy6T3eds89 bitcount {} >> redis.memory.count.20241017.log
-			redis keys *_BIT |  grep -v '17_17_4\|17_17_5' | xargs -i /usr/local/bin/redis-cli -h r-wz9vgp558v8qsps6jg.redis.rds.aliyuncs.com -p 6379 -a hy6T3eds89 memory usage {} >> redis.memory.usage.20241017.log
-			redis keys *_BIT |  grep -v '17_17_4\|17_17_5' | xargs -i /usr/local/bin/redis-cli -h r-wz9vgp558v8qsps6jg.redis.rds.aliyuncs.com -p 6379 -a hy6T3eds89 del {} >> redis.memory.del.20241017.log
+			文件免密发送
+				ssh-keygen -t ed25519 -C 'sendfile_form_35-tm'
+				vi .ssh/authorized_keys
+				chmod 600 .ssh/authorized_keys
+				ssh root@47.253.62.186 echo 1
 
-			# redis memory usage courier_jtexpress-my_ticket
-			(integer) 597195709
+				待完善
+					默认存的文件id_ed25519.pub的公钥是有效的，再生成一个id_de25519.35.pub是无效的
+					直接将需求对应的命令行转化为脚本，只需要给到必须参数即可
+			注册异常
+				参考 https://alidocs.dingtalk.com/i/nodes/qXomz1wAyjKVXoooXb7lW3Y9pRBx5OrE?utm_scene=team_space
+				
+				进行发布
+					sh send.code.sh 0a29c4c2f 9c6ac5944
 
-			# redis llen courier_jtexpress-my_ticket
-			(integer) 2838405
+					echo >> send.code.log;echo `date` manu send code test start >> send.code.log
+					sh send.code.sh 0a29c4c2f 9c6ac5944 >> send.code.log
+					echo >> send.code.log;echo `date` manu send code test end >> send.code.log
 
-			# redis info key courier_jtexpress-my_ticket 
-			slot:4850 node_index:2
+					echo >> build.commitid.log;echo `date`' manu send code start(build.commitid.log last line must be commit_id)' >> build.commitid.log;
+					echo 9c6ac5944 >> build.commitid.log
 
-			php /home/wwwroot/www.trackingmore.com/script/warning_redis.php dfdf 10 | grep ':redis:' -A8
-				node:2: 71% > 10%
+				确认效果
+					tail -100 send.code.log
+					tail -100 build.commitid.log
+					ll /home/wwwroot/www.trackingmore.com/tools/disposableEmail.php
+		-- 20241026
+			磁盘
+				172.16.10.129-api-51-67
+					find / -name '*' -type f -size +100M | xargs ls -lh {} | sort -nrk5
+						-rw-r--r--  1 www  www   18G Oct 26 18:50 /home/wwwroot/www.51tracking.com/logs/api-error.log √
+						-rw-r--r--  1 www  www  6.7G Oct 13  2022 /home/wwwroot/www.51tracking.com/api/v2/trackings/first_track.log √
+						-rw-------  1 root root 2.1G Oct 26 18:48 /usr/local/php7.0.33/var/log/php-fpm.log
+						-rw-r--r--  1 root root 1.9G Oct 26 18:50 /home/wwwlogs/api.51tracking.com.access.log
+					/home/wwwroot/www.51tracking.com/logs/api-error.log
+						11 * * * * /usr/bin/sh /home/wwwroot/www.trackingmore.com/script/queueshell/zipAndRmFileNew.checkAndMove.over10M.sh &>> /home/wwwroot/www.trackingmore.com/script/queueshell/zipAndRmFileNew.checkAndMove.over10M.sh.err.log
+							m=`date '+%Y%m'`
+							/usr/bin/sh /home/wwwroot/www.trackingmore.com/script/queueshell/zipAndRmFileNew.sh checkAndMove '' 10M '*.log' /home/wwwroot/www.51tracking.com/logs &>> /home/wwwroot/www.trackingmore.com/script/queueshell/zipAndRmFileNew.sh.${m}.checkAndMove.over10M.log &
+						21 01,07,13,19 * * * /usr/bin/sh /home/wwwroot/www.trackingmore.com/script/queueshell/zipAndRmFileNew.within.1day.sh &>> /home/wwwroot/www.trackingmore.com/script/queueshell/zipAndRmFileNew.within.1day.sh.err.log
+					echo > /home/wwwroot/www.51tracking.com/api/v2/trackings/first_track.log
+				ind_resque-159-205-tm
+					/home/wwwroot/upload/huaqiang （其他服务器）4G
+				ind_resque_49_172.16.10.167-resque-51-140
+					# zip /home/wwwlogs/webhook.17proxy.com.access.log.zip /home/wwwlogs/webhook.17proxy.com.access.log;echo > /home/wwwlogs/webhook.17proxy.com.access.log
+						adding: home/wwwlogs/webhook.17proxy.com.access.log
+								zip warning:  file size changed while zipping /home/wwwlogs/webhook.17proxy.com.access.log
+						(deflated 98%)
+		-- 20241025
+			本地
+			1，网络优化相关
+			1-1，外包服务商对接-内部流程
+			1-2，科学上网服务商对接-上设备
+			告警
+			2，磁盘
+			日常响应
+			3，后续优先级、应对	
+		-- 20241024
+			本地
+			1，网络优化相关
+			1-1，外包服务商对接-内部流程
+			1-2，科学上网服务商对接-上设备
+			告警
+			2，磁盘
+			日常响应
+			3，后续优先级、应对	
+		-- 20241021
+			本地
+			1，网络优化相关-外包服务商对接&科学上网
+				外包 --10
+				科学上网 --11
+					上新设备 -- 110
+					新服务商对接 -- 111
+			2，开发机网络异常-遗留问题（代码拉取，IP变动） --20
+			告警
+			3，国外redis节点内存 --01
+			磁盘
+				思路 --010
+				dolphinscheduler-任务调度系统-磁盘统一处理 --011
+			日常响应
+			4，后续优先级、应对
+		-- 20241018
+			本地
+			1，网络优化相关-外包服务商对接&科学上网
+				外包 --10
+					日常响应
+						断网了？
+							（水晶头 上级上上级）
+						打印机离线
+						网络安全稳定性（mac绑定 水晶头检查）
+						WIFI网络不稳定
+						节后网络变慢很多
+						602网络不稳定
+					长期优化
+						上述后续
+						文档
+					有印象的排障
+				科学上网 --11
+			2，开发机网络异常-遗留问题（代码拉取，IP变动） --20
+			告警
+			3，国外redis节点内存 --01
+			日常响应
+			4，后续优先级、应对
+		-- 20241017
+			redis内存
+				php /home/wwwroot/www.trackingmore.com/script/warning_redis.php dfdf 10 | grep ':redis:' -A8
+					node:2: 100% > 10%
 
-			cat /home/wwwroot/www.trackingmore.com/python_img/redis.bigkey.5.length_10240_.20241017.log | awk -F: '{print $4" "$NF" "$5}' | sort -nrk2
+				redis keys *_BIT |  grep -v '17_17_4\|17_17_5' | xargs -i /usr/local/bin/redis-cli -h r-wz9vgp558v8qsps6jg.redis.rds.aliyuncs.com -p 6379 -a hy6T3eds89 bitcount {} >> redis.memory.count.20241017.log
+				redis keys *_BIT |  grep -v '17_17_4\|17_17_5' | xargs -i /usr/local/bin/redis-cli -h r-wz9vgp558v8qsps6jg.redis.rds.aliyuncs.com -p 6379 -a hy6T3eds89 memory usage {} >> redis.memory.usage.20241017.log
+				redis keys *_BIT |  grep -v '17_17_4\|17_17_5' | xargs -i /usr/local/bin/redis-cli -h r-wz9vgp558v8qsps6jg.redis.rds.aliyuncs.com -p 6379 -a hy6T3eds89 del {} >> redis.memory.del.20241017.log
 
-			resque:failed
+				# redis memory usage courier_jtexpress-my_ticket
+				(integer) 597195709
 
-		本地
-		1，网络优化相关-外包服务商对接&科学上网
-			外包 --10
-			科学上网 --11
-		2，开发机网络异常-遗留问题（代码拉取，IP变动） --20
-		运维
-		3，充值提交 --01
-		日常响应
-		4，后续优先级、应对
-	-- 20241011
-		复盘
-			针对8、9月操作记录
+				# redis llen courier_jtexpress-my_ticket
+				(integer) 2838405
 
-			重要紧急
-				11
-					影响服务告警类
-					复盘（每天、周一定频率）
-						确认顺序
-					文档（事项前中后）
-				10
-					按顺序推进计划
-				01
-					卡住协作的部分
-				00
-	-- 20241010
-		国内大数据环境
-			maxcompute的单SQL消费限制(GB*复杂度) 100-->200
-		充值
-			smart代理
-	-- 20240819
-		运维
-			成本费用
-				折扣相关
-				公网IP
+				# redis info key courier_jtexpress-my_ticket 
+				slot:4850 node_index:2
 
-		协作
-			周末运输商维护，同步独立更新文档（其他运输商维护文档）
-			tracktry服务器 
-			ack购买
-			云效账号
-				Marcel 陈建宇
-				Anson Ng(畅销家（深圳）科技有限公司-物流信息事业部-营销部 | content specialist)
-		其他
+				php /home/wwwroot/www.trackingmore.com/script/warning_redis.php dfdf 10 | grep ':redis:' -A8
+					node:2: 71% > 10%
 
-	-- 20240729
-		财务-发票
-		资源 预期
-		日志-连接器\资源开通-
+				cat /home/wwwroot/www.trackingmore.com/python_img/redis.bigkey.5.length_10240_.20241017.log | awk -F: '{print $4" "$NF" "$5}' | sort -nrk2
 
-		ISO27701
+				resque:failed
+
+			本地
+			1，网络优化相关-外包服务商对接&科学上网
+				外包 --10
+				科学上网 --11
+			2，开发机网络异常-遗留问题（代码拉取，IP变动） --20
+			运维
+			3，充值提交 --01
+			日常响应
+			4，后续优先级、应对
+		-- 20241011
+			复盘
+				针对8、9月操作记录
+
+				重要紧急
+					11
+						影响服务告警类
+						复盘（每天、周一定频率）
+							确认顺序
+						文档（事项前中后）
+					10
+						按顺序推进计划
+					01
+						卡住协作的部分
+					00
+		-- 20241010
+			国内大数据环境
+				maxcompute的单SQL消费限制(GB*复杂度) 100-->200
+			充值
+				smart代理
+		-- 20240819
+			运维
+				成本费用
+					折扣相关
+					公网IP
+
+			协作
+				周末运输商维护，同步独立更新文档（其他运输商维护文档）
+				tracktry服务器 
+				ack购买
+				云效账号
+					Marcel 陈建宇
+					Anson Ng(畅销家（深圳）科技有限公司-物流信息事业部-营销部 | content specialist)
+			其他
+
+		-- 20240729
+			财务-发票
+			资源 预期
+			日志-连接器\资源开通-
+
+			ISO27701
 
 	ISO27701
 	专线升级
@@ -4430,6 +4472,252 @@ prometheus 授权
 								script\queueshell\zipAndRmSpecifyTimeFile.sh
 								script\queueshell\file.to.zip.sh
 						历史数据清理 20240529
+							-- 20250110
+								upload-46-tm
+									root@iZ0xiatx34i386h8eslisjZ:~# df -h
+									Filesystem      Size  Used Avail Use% Mounted on
+									tmpfs           169M  2.1M  167M   2% /run
+									/dev/vda3        40G   38G     0 100% /
+									tmpfs           841M     0  841M   0% /dev/shm
+									tmpfs           5.0M     0  5.0M   0% /run/lock
+									/dev/vda2       197M  6.1M  191M   4% /boot/efi
+									tmpfs            50M     0   50M   0% /usr/local/aegis/cgroup
+									overlay          40G   38G     0 100% /var/lib/docker/overlay2/3b7dd24fd79e0362c0b275b13480378ab3018183db9b98d0231644a99d270ed9/merged
+									overlay          40G   38G     0 100% /var/lib/docker/overlay2/356345bb73b491c602f52654c0f7d63271b3df045c95e436fccefce83de6f474/merged
+									tmpfs           169M  4.0K  169M   1% /run/user/1000
+									overlay          40G   38G     0 100% /var/lib/docker/overlay2/4c033bf52c4de6f3abb21e503adab6947ff55b1593a2b6235b673971280cf782/merged
+									overlay          40G   38G     0 100% /var/lib/docker/overlay2/f2c36a828b4c2d1700cfcbfcfb99790662c0a9d8286365ec4bfe10b51c6ec306/merged
+									overlay          40G   38G     0 100% /var/lib/docker/overlay2/9d8ef1653b8762b65c610ac2fe4cd15d79a30a6d269691f7d589e975986b8160/merged
+									overlay          40G   38G     0 100% /var/lib/docker/overlay2/ae929d321313ded7d52d63cfa031432822bc6ced867adb4d33043e86fef6242e/merged
+									overlay          40G   38G     0 100% /var/lib/docker/overlay2/e3c3f89696f734f487acf56e0c7dea88bbe4abe703c7c71b74b4cdff19849060/merged
+									overlay          40G   38G     0 100% /var/lib/docker/overlay2/057a6789e90dfbb78f90be45f9026db38908a53013a6cc7453d6aa3bdd61b19a/merged
+									root@iZ0xiatx34i386h8eslisjZ:~# tail /root/nginx/logs/error.log 
+									2024/12/24 18:27:53 [error] 180#180: *50559884 connect() failed (111: Connection refused) while connecting to upstream, client: 172.68.23.71, server: mailstg.channelwill.com, request: "POST /api/v1/receiveMailgunWebhooks HTTP/1.1", upstream: "http://127.0.0.1:9901/api/v1/receiveMailgunWebhooks", host: "mail.channelwill.com"
+									2024/12/24 18:27:53 [error] 181#181: *50568442 connect() failed (111: Connection refused) while connecting to upstream, client: 172.71.223.116, server: mailstg.channelwill.com, request: "POST /api/v1/receiveMailgunWebhooks HTTP/1.1", upstream: "http://127.0.0.1:9901/api/v1/receiveMailgunWebhooks", host: "mail.channelwill.com"
+									2024/12/24 18:27:54 [error] 181#181: *50568767 connect() failed (111: Connection refused) while connecting to upstream, client: 172.71.151.165, server: mailstg.channelwill.com, request: "POST /api/v1/receiveMailgunWebhooks HTTP/1.1", upstream: "http://127.0.0.1:9901/api/v1/receiveMailgunWebhooks", host: "mail.channelwill.com"
+									2024/12/24 18:27:54 [error] 181#181: *50568769 connect() failed (111: Connection refused) while connecting to upstream, client: 172.70.43.193, server: mailstg.channelwill.com, request: "POST /api/v1/receiveMailgunWebhooks HTTP/1.1", upstream: "http://127.0.0.1:9901/api/v1/receiveMailgunWebhooks", host: "mail.channelwill.com"
+									2024/12/24 18:27:54 [error] 181#181: *50568771 connect() failed (111: Connection refused) while connecting to upstream, client: 172.68.15.220, server: mailstg.channelwill.com, request: "POST /api/v1/receiveMailgunWebhooks HTTP/1.1", upstream: "http://127.0.0.1:9901/api/v1/receiveMailgunWebhooks", host: "mail.channelwill.com"
+									2024/12/24 18:27:54 [error] 181#181: *50568773 connect() failed (111: Connection refused) while connecting to upstream, client: 172.71.191.25, server: mailstg.channelwill.com, request: "POST /api/v1/receiveMailgunWebhooks HTTP/1.1", upstream: "http://127.0.0.1:9901/api/v1/receiveMailgunWebhooks", host: "mail.channelwill.com"
+									2024/12/24 18:27:55 [error] 181#181: *50568775 connect() failed (111: Connection refused) while connecting to upstream, client: 172.70.38.86, server: mailstg.channelwill.com, request: "POST /api/v1/receiveMailgunWebhooks HTTP/1.1", upstream: "http://127.0.0.1:9901/api/v1/receiveMailgunWebhooks", host: "mail.channelwill.com"
+									2024/12/24 18:27:55 [error] 181#181: *50568662 connect() failed (111: Connection refused) while connecting to upstream, client: 172.68.245.51, server: mailstg.channelwill.com, request: "POST /api/v1/receiveMailgunWebhooks HTTP/1.1", upstream: "http://127.0.0.1:9901/api/v1/receiveMailgunWebhooks", host: "mail.channelwill.com"
+									2024/12/24 18:27:55 [error] 181#181: *50566719 connect() failed (111: Connection refused) while connecting to upstream, client: 162.158.42.206, server: mailstg.channelwill.com, request: "POST /api/v1/receiveMailgunWebhooks HTTP/1.1", upstream: "http://127.0.0.1:9901/api/v1/receiveMailgunWebhooks", host: "mail.channelwill.com"
+									2024/12/24 18:27:55 [error] 180#180: *50565122 connect() failed (111: Connection refused) while connecting to upstream, client: 172.68.23.60, server: mailstg.channelwill.com, request: "POST /api/v1/receiveMailgunWebhooks HTTP/1.1", upstream: "http://127.0.0.1:9901/api/v1/receiveMailgunWebhooks", hroot@iZ0xiatx34i386h8eslisjZ:~# ll -h /root/nginx/logs/error.log 
+									-rw-r--r-- 1 root root 2.6G Jan 10 18:11 /root/nginx/logs/error.log
+									root@iZ0xiatx34i386h8eslisjZ:~# head -h /root/nginx/logs/error.log 
+									head: invalid option -- 'h'
+									Try 'head --help' for more information.
+									root@iZ0xiatx34i386h8eslisjZ:~# head /root/nginx/logs/error.log 
+									2022/11/24 06:40:06 [warn] 1#1: conflicting server name "" on 0.0.0.0:80, ignored
+									2022/11/24 06:40:06 [emerg] 1#1: bind() to 0.0.0.0:80 failed (98: Address already in use)
+									2022/11/24 06:40:06 [notice] 1#1: try again to bind() after 500ms
+									2022/11/24 06:40:06 [emerg] 1#1: bind() to 0.0.0.0:80 failed (98: Address already in use)
+									2022/11/24 06:40:06 [notice] 1#1: try again to bind() after 500ms
+									2022/11/24 06:40:06 [emerg] 1#1: bind() to 0.0.0.0:80 failed (98: Address already in use)
+									2022/11/24 06:40:06 [notice] 1#1: try again to bind() after 500ms
+									2022/11/24 06:40:06 [emerg] 1#1: bind() to 0.0.0.0:80 failed (98: Address already in use)
+									2022/11/24 06:40:06 [notice] 1#1: try again to bind() after 500ms
+									2022/11/24 06:40:06 [emerg] 1#1: bind() to 0.0.0.0:80 failed (98: Address already in use)
+									root@iZ0xiatx34i386h8eslisjZ:~# find / -name '*' -type f -size +100M | xargs ls -lh {} | sort -nrk5
+									find: ‘/proc/2938656/task/2938656/fdinfo/6’: No such file or directory
+									find: ‘/proc/2938656/fdinfo/5’: No such file or directory
+									ls: cannot access '{}': No such file or directory
+									-rw-r----- 1 root root 1001M May  8  2024 /var/lib/docker/containers/233bf170e9660a84e31d302315bc699d2c8f9ecf041a0b7d4cb3f57f71c8d24b/233bf170e9660a84e31d302315bc699d2c8f9ecf041a0b7d4cb3f57f71c8d24b-json.log
+									-rw-r--r-- 1 root root 1000M May  8  2024 /home/data/logs/mail/logs/mail-2024-05-08T07-22-20.622.log
+									-rw-r--r-- 1 root root 1000M Jun 10  2024 /home/data/logs/mail/logs/mail-2024-06-10T00-51-47.791.log
+									-rw-r--r-- 1 root root 1000M Jul 13 12:57 /home/data/logs/mail/logs/mail-2024-07-13T04-57-09.551.log
+									-rwxr-xr-x 1 root root  952M May  8  2024 /home/data/logs/mail/logs/redisEmailSending/consumer/2024/05/consumer20240507.log
+									-rwxr-xr-x 1 root root  908M May  8  2024 /home/data/logs/mail/logs/emailSending/sendmail/2024/05/sendmail20240507.log
+									-rw-r----- 1 root root  882M Jan 10 18:12 /var/lib/docker/containers/4d0259f8382eff660b4044163a7c9971277d975f957e9af839a2a9cf1de08679/4d0259f8382eff660b4044163a7c9971277d975f957e9af839a2a9cf1de08679-json.log
+									-rwxr-xr-x 1 root root  610M May  8  2024 /home/data/logs/mail/logs/redisEmailSending/consumer/2024/05/consumer20240508.log
+									-rwxr-xr-x 1 root root  583M May  8  2024 /home/data/logs/mail/logs/emailSending/sendmail/2024/05/sendmail20240508.log
+									-rwxr-xr-x 1 root root  442M May  8  2024 /home/data/logs/mail/logs/mailgun/webapi/2024/05/webapi20240507.log
+									-rw------- 1 root root  410M Sep 13  2023 /var/lib/docker/overlay2/356345bb73b491c602f52654c0f7d63271b3df045c95e436fccefce83de6f474/merged/tmp/multipart-1283081463
+									-rw------- 1 root root  410M Sep 13  2023 /var/lib/docker/overlay2/356345bb73b491c602f52654c0f7d63271b3df045c95e436fccefce83de6f474/diff/tmp/multipart-1283081463
+									-rw------- 1 root root  410M Sep 12  2023 /var/lib/docker/overlay2/356345bb73b491c602f52654c0f7d63271b3df045c95e436fccefce83de6f474/merged/tmp/multipart-4223124992
+									-rw------- 1 root root  410M Sep 12  2023 /var/lib/docker/overlay2/356345bb73b491c602f52654c0f7d63271b3df045c95e436fccefce83de6f474/merged/tmp/multipart-192762127
+									-rw------- 1 root root  410M Sep 12  2023 /var/lib/docker/overlay2/356345bb73b491c602f52654c0f7d63271b3df045c95e436fccefce83de6f474/diff/tmp/multipart-4223124992
+									-rw------- 1 root root  410M Sep 12  2023 /var/lib/docker/overlay2/356345bb73b491c602f52654c0f7d63271b3df045c95e436fccefce83de6f474/diff/tmp/multipart-192762127
+									-rwxr-xr-x 1 root root  403M Apr 24  2024 /home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/04/mailgun20240423.log
+									-rw-r--r-- 1 root root  292M Jul 27 09:25 /home/data/logs/mail/logs/mail.log
+									-rwxr-xr-x 1 root root  282M May  8  2024 /home/data/logs/mail/logs/mailgun/webapi/2024/05/webapi20240508.log
+									-rw-r----- 1 root root  241M Jan 10 18:12 /var/lib/docker/containers/eb9c15cffb1c336f5b2ea0dba66233b2f75cfe39934b3e31b64e22b40b9c9347/eb9c15cffb1c336f5b2ea0dba66233b2f75cfe39934b3e31b64e22b40b9c9347-json.log
+									-rwxr-xr-x 1 root root  213M May  9  2024 /home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/05/mailgun20240508.log
+									-rw-r--r-- 1 root root  198M Jan 10 18:12 /root/yunxiao/be-tfpyqa22gtndemstnunakvmq/runner/__flow_logs/runner.log
+									-rwxr-xr-x 1 root root  175M Jun  4  2024 /home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/06/mailgun20240603.log
+									-rwxr-xr-x 1 root root  168M Apr 23  2024 /home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/04/mailgun20240422.log
+									-rw-r----- 1 root root  162M Jul 27 07:05 /var/lib/docker/containers/0b17a6088007d19f80480982810a38baf84bcd035fb15e729716d0b69f176e45/0b17a6088007d19f80480982810a38baf84bcd035fb15e729716d0b69f176e45-json.log
+									-rwxr-xr-x 1 root root  161M Jun 14  2024 /home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/06/mailgun20240613.log
+									-rwxr-xr-x 1 root root  154M Jun 12  2024 /home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/06/mailgun20240611.log
+									-rwxr-xr-x 1 root root  153M May 10  2024 /home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/05/mailgun20240509.log
+									-rwxr-xr-x 1 root root  149M Jun  5  2024 /home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/06/mailgun20240604.log
+									-rwxr-xr-x 1 root root  149M Jun 13  2024 /home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/06/mailgun20240612.log
+									-rwxr-xr-x 1 root root  145M Jun 15  2024 /home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/06/mailgun20240614.log
+									-rwxr-xr-x 1 root root  144M Jun  6  2024 /home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/06/mailgun20240605.log
+									-rwxr-xr-x 1 root root  141M Jun  7  2024 /home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/06/mailgun20240606.log
+									-rwxr-xr-x 1 root root  140M Apr 20  2024 /home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/04/mailgun20240419.log
+									-rwxr-xr-x 1 root root  139M Jun 11  2024 /home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/06/mailgun20240610.log
+									-rwxr-xr-x 1 root root  138M Apr 18  2024 /home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/04/mailgun20240417.log
+									-rwxr-xr-x 1 root root  133M Apr 21  2024 /home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/04/mailgun20240420.log
+									-rwxr-xr-x 1 root root  129M Jun 19  2024 /home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/06/mailgun20240618.log
+									-rwxr-xr-x 1 root root  129M Feb 12  2023 /var/lib/docker/overlay2/f2c36a828b4c2d1700cfcbfcfb99790662c0a9d8286365ec4bfe10b51c6ec306/merged/usr/share/filebeat/filebeat
+									-rwxr-xr-x 1 root root  129M Feb 12  2023 /var/lib/docker/overlay2/cc770c5bccf7c2717483c6b962a5e1b47caecbf4383f4ef75b35f952bd74c795/diff/usr/share/filebeat/filebeat
+									-rwxr-xr-x 1 root root  129M Feb 12  2023 /var/lib/docker/overlay2/4c033bf52c4de6f3abb21e503adab6947ff55b1593a2b6235b673971280cf782/merged/usr/share/filebeat/filebeat
+									-rwxr-xr-x 1 root root  128M Jun  8  2024 /home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/06/mailgun20240607.log
+									-r-------- 1 root root  128T Mar 29  2024 /proc/kcore
+									-rwxr-xr-x 1 root root  125M May 31  2024 /home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/05/mailgun20240530.log
+									-rwxr-xr-x 1 root root  124M Apr  4  2024 /home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/04/mailgun20240403.log
+									-rwxr-xr-x 1 root root  123M Jun 21  2024 /home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/06/mailgun20240620.log
+									-rwxr-xr-x 1 root root  122M Jun 18  2024 /home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/06/mailgun20240617.log
+									-rwxr-xr-x 1 root root  121M Jun 20  2024 /home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/06/mailgun20240619.log
+									-rwxr-xr-x 1 root root  121M Apr 11  2024 /home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/04/mailgun20240410.log
+									-rwxr-xr-x 1 root root  119M May 29  2024 /home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/05/mailgun20240528.log
+									-rwxr-xr-x 1 root root  119M Jun 16  2024 /home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/06/mailgun20240615.log
+									-rwxr-xr-x 1 root root  118M May 25  2024 /home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/05/mailgun20240524.log
+									-rwxr-xr-x 1 root root  115M Jul 11  2024 /home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/07/mailgun20240710.log
+									-rwxr-xr-x 1 root root  115M Jul 10  2024 /home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/07/mailgun20240709.log
+									-rwxr-xr-x 1 root root  114M May 23  2024 /home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/05/mailgun20240522.log
+									-rwxr-xr-x 1 root root  113M May 16  2024 /home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/05/mailgun20240515.log
+									-rw------- 1 root root  112M Sep 12  2023 /var/lib/docker/overlay2/356345bb73b491c602f52654c0f7d63271b3df045c95e436fccefce83de6f474/merged/tmp/multipart-3480601607
+									-rw------- 1 root root  112M Sep 12  2023 /var/lib/docker/overlay2/356345bb73b491c602f52654c0f7d63271b3df045c95e436fccefce83de6f474/diff/tmp/multipart-3480601607
+									-rwxr-xr-x 1 root root  111M May 24  2024 /home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/05/mailgun20240523.log
+									-rwxr-xr-x 1 root root  111M Jun 22  2024 /home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/06/mailgun20240621.log
+									-rwxr-xr-x 1 root root  110M May 18  2024 /home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/05/mailgun20240517.log
+									-rwxr-xr-x 1 root root  106M May  5  2024 /home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/05/mailgun20240504.log
+									-rwxr-xr-x 1 root root  105M May 22  2024 /home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/05/mailgun20240521.log
+									-rwxr-xr-x 1 root root  105M May 15  2024 /home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/05/mailgun20240514.log
+									-rwxr-xr-x 1 root root  105M Apr 25  2024 /home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/04/mailgun20240424.log
+									-rwxr-xr-x 1 root root  104M Apr  3  2024 /home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/04/mailgun20240402.log
+									-rwxr-xr-x 1 root root  104M Apr 19  2024 /home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/04/mailgun20240418.log
+									-rwxr-xr-x 1 root root  102M Jul 12 07:59 /home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/07/mailgun20240711.log
+									-rwxr-xr-x 1 root root  101M May 17  2024 /home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/05/mailgun20240516.log
+									-rwxr-xr-x 1 root root  101M Jun  1  2024 /home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/05/mailgun20240531.log
+									-rwxr-xr-x 1 root root  101M Apr  5  2024 /home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/04/mailgun20240404.log
+									-rwxr-xr-x 1 root root  101M Apr 12  2024 /home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/04/mailgun20240411.log
+									-rwxr-xr-x 1 root root  101M Apr 10  2024 /home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/04/mailgun20240409.log
+									-rw-r--r-- 1 root root  2.6G Jan 10 18:12 /root/nginx/logs/error.log
+									-rw-r----- 1 root root  1.4G Jan 10 18:12 /var/lib/docker/containers/4d4c3d0728c9690473fc69c41a5143f8331e1324097a55fd4197b4cb99a75fd7/4d4c3d0728c9690473fc69c41a5143f8331e1324097a55fd4197b4cb99a75fd7-json.log
+									-rw-r--r-- 1 root root  1.2G Jan 10 18:12 /root/nginx/logs/mailwebhook.access.log
+									root@iZ0xiatx34i386h8eslisjZ:~# tail /root/nginx/logs/mailwebhook.access.log
+									172.70.43.193 - - [24/Dec/2024:18:27:54 +0000] "POST /api/v1/receiveMailgunWebhooks HTTP/1.1" 502 157 "-" "Go-http-client/2.0" "35.212.82.244"
+									172.68.15.220 - - [24/Dec/2024:18:27:54 +0000] "POST /api/v1/receiveMailgunWebhooks HTTP/1.1" 502 157 "-" "Go-http-client/2.0" "35.212.98.13"
+									172.71.191.25 - - [24/Dec/2024:18:27:54 +0000] "POST /api/v1/receiveMailgunWebhooks HTTP/1.1" 502 157 "-" "Go-http-client/2.0" "35.212.98.13"
+									172.70.38.86 - - [24/Dec/2024:18:27:55 +0000] "POST /api/v1/receiveMailgunWebhooks HTTP/1.1" 502 157 "-" "Go-http-client/2.0" "35.212.59.118"
+									172.68.245.51 - - [24/Dec/2024:18:27:55 +0000] "POST /api/v1/receiveMailgunWebhooks HTTP/1.1" 502 157 "-" "Go-http-client/2.0" "35.212.59.118"
+									162.158.42.206 - - [24/Dec/2024:18:27:55 +0000] "POST /api/v1/receiveMailgunWebhooks HTTP/1.1" 502 157 "-" "Go-http-client/2.0" "35.212.223.74"
+									172.68.23.60 - - [24/Dec/2024:18:27:55 +0000] "POST /api/v1/receiveMailgunWebhooks HTTP/1.1" 502 157 "-" "Go-http-client/2.0" "35.212.204.255"
+									172.70.174.15 - - [24/Dec/2024:18:27:55 +0000] "POST /api/v1/receiveMailgunWebhooks HTTP/1.1" 502 157 "-" "Go-http-client/2.0" "35.212.82.244"
+									172.68.23.60 - - [24/Dec/2024:18:27:56 +0000] "POST /api/v1/receiveMailgunWebhooks HTTP/1.1" 502 157 "-" "Go-http-client/2.0" "35.212.150.167"
+									172.70.135.1root@iZ0xiatx34i386h8eslisjZ:~# head /root/nginx/logs/error.log
+									2022/11/24 06:40:06 [warn] 1#1: conflicting server name "" on 0.0.0.0:80, ignored
+									2022/11/24 06:40:06 [emerg] 1#1: bind() to 0.0.0.0:80 failed (98: Address already in use)
+									2022/11/24 06:40:06 [notice] 1#1: try again to bind() after 500ms
+									2022/11/24 06:40:06 [emerg] 1#1: bind() to 0.0.0.0:80 failed (98: Address already in use)
+									2022/11/24 06:40:06 [notice] 1#1: try again to bind() after 500ms
+									2022/11/24 06:40:06 [emerg] 1#1: bind() to 0.0.0.0:80 failed (98: Address already in use)
+									2022/11/24 06:40:06 [notice] 1#1: try again to bind() after 500ms
+									2022/11/24 06:40:06 [emerg] 1#1: bind() to 0.0.0.0:80 failed (98: Address already in use)
+									2022/11/24 06:40:06 [notice] 1#1: try again to bind() after 500ms
+									2022/11/24 06:40:06 [emerg] 1#1: bind() to 0.0.0.0:80 failed (98: Address already in use)
+									root@iZ0xiatx34i386h8eslisjZ:~# head /root/nginx/logs/mailwebhook.access.log
+
+									172.71.147.90 - - [29/Jul/2024:02:00:51 +0000] "POST /api/v1/receiveMailgunWebhooks HTTP/1.1" 502 157 "-" "Go-http-client/2.0" "35.212.255.172"
+									172.71.222.123 - - [29/Jul/2024:02:00:53 +0000] "POST /api/v1/receiveMailgunWebhooks HTTP/1.1" 502 157 "-" "Go-http-client/2.0" "35.212.119.42"
+									172.68.22.40 - - [29/Jul/2024:02:00:55 +0000] "POST /api/v1/receiveMailgunWebhooks HTTP/1.1" 502 157 "-" "Go-http-client/2.0" "35.212.204.65"
+									172.70.38.206 - - [29/Jul/2024:02:00:58 +0000] "POST /api/v1/receiveMailgunWebhooks HTTP/1.1" 502 157 "-" "Go-http-client/2.0" "35.212.119.221"
+									172.68.22.224 - - [29/Jul/2024:02:01:00 +0000] "POST /api/v1/receiveMailgunWebhooks HTTP/1.1" 502 157 "-" "Go-http-client/2.0" "35.212.209.115"
+									172.71.147.82 - - [29/Jul/2024:02:01:01 +0000] "POST /api/v1/receiveMailgunWebhooks HTTP/1.1" 502 157 "-" "Go-http-client/2.0" "35.212.142.10"
+									172.68.245.233 - - [29/Jul/2024:02:01:02 +0000] "POST /api/v1/receiveMailgunWebhooks HTTP/1.1" 502 157 "-" "Go-http-client/2.0" "35.212.53.237"
+									108.162.245.167 - - [29/Jul/2024:02:01:03 +0000] "POST /api/v1/receiveMailgunWebhooks HTTP/1.1" 502 157 "-" "Go-http-client/2.0" "35.212.255.172"
+									172.71.142.3 - - [29/Jul/2024:02:01:06 +0000] "POST /api/v1/receiveMailgunWebhooks HTTP/1.1" 502 157 "-" "Go-http-client/2.0" "35.212.175.198"
+									root@iZ0xiatx34i386h8eslisjZ:~# head /home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/07/mailgun20240710.log
+									{"level":"INFO","msg":{"info":"controller_receiveWebhooks message","message":{"event-data":{"campaigns":null,"delivery-status":{"attempt-no":0,"certificate-verified":false,"code":0,"description":"","enhanced-code":"","message":"","mx-host":"","session-seconds":0,"tls":false},"envelope":{"sender":"notify@trackingmore.org","sending-ip":"","targets":"logistics@yocabe.com","transport":"smtp"},"event":"accepted","flags":{"is-authenticated":true,"is-big":false,"is-routed":false,"is-system-test":false,"is-test-mode":false},"id":"oO5m4NYNQySAmX305Pzscg","log-level":"info","message":{"attachments":null,"headers":{"from":"YOCABE Tracking Service \u003cnotify@trackingmore.org\u003e","message-id":"71ca40bcdd8f0a2bd736d95c0b595fda@iz0xif9y7r0fstxmq97t54z","subject":"- Order was Delivered","to":"logistics@yocabe.com"},"size":1480},"recipient":"logistics@yocabe.com","recipient-domain":"yocabe.com","storage":{"key":"BAABAAXn-vMVPc4lLK1DLrLtZC6h82ztZg","url":"https://storage-us-east4.api.mailgun.net/v3/domains/edms.trackingmore.com/messages/BAABAAXn-vMVPc4lLK1DLrLtZC6h82ztZg"},"tags":null,"timestamp":1720569602.9160786,"user-variables":{}},"signature":{"signature":"2a17f99bbdb390cca69bf12ee9c046ac916a0043c60436ea8e6ab27338583ab3","timestamp":"1720569603","token":"9f212a25b71514827bca20e5b1ed753b4a62b3e1890e2c430f"}}},"time":"2024/07/10 00:00:03"}
+									{"level":"INFO","msg":{"emailSendingRecords":{"id":0,"email_sending_number":0,"email_send_rule_id":0,"appid":"","message_id":"","mail_sending_mode":0,"email_template_type":0,"email_number":"","from_email":"","from_name":"","subject":"","content":"","reply_address":"","reply_address_alias":"","unsubscribe_url":"","email_event":0,"retry_count":0,"create_time":0,"update_time":0},"error":{},"messageId":"\u003c71ca40bcdd8f0a2bd736d95c0b595fda@iz0xif9y7r0fstxmq97t54z\u003e","msg":"controller_receiveWebhooks.ReceiveMailgunWebhooks(GetEmailSendingRecordByMessageId) get emailSendingRecords error"},"time":"2024/07/10 00:00:03"}
+									{"level":"INFO","msg":{"info":"controller_receiveWebhooks message","message":{"event-data":{"campaigns":[],"delivery-status":{"attempt-no":1,"certificate-verified":true,"code":250,"description":"","enhanced-code":"","message":"OK","mx-host":"aspmx.l.google.com","session-seconds":0.711,"tls":true},"envelope":{"sender":"notify@trackingmore.org","sending-ip":"69.72.42.164","targets":"logistics@yocabe.com","transport":"smtp"},"event":"delivered","flags":{"is-authenticated":true,"is-big":false,"is-routed":false,"is-system-test":false,"is-test-mode":false},"id":"87DsMJggR6mBTdvn2FV86Q","log-level":"info","message":{"attachments":[],"headers":{"from":"YOCABE Tracking Service \u003cnotify@trackingmore.org\u003e","message-id":"71ca40bcdd8f0a2bd736d95c0b595fda@iz0xif9y7r0fstxmq97t54z","subject":"- Order was Delivered","to":"logistics@yocabe.com"},"size":1480},"recipient":"logistics@yocabe.com","recipient-domain":"yocabe.com","storage":{"key":"BAABAAXn-vMVPc4lLK1DLrLtZC6h82ztZg","url":"https://storage-us-east4.api.mailgun.net/v3/domains/edms.trackingmore.com/messages/BAABAAXn-vMVPc4lLK1DLrLtZC6h82ztZg"},"tags":[],"timestamp":1720569604.1846282,"user-variables":{}},"signature":{"signature":"7b398bd86daff95cb7cfd1fbd4a7abe6eccfda18cc5615fc6a7e9eecfd722f4b","timestamp":"1720569604","token":"19ea73e8fad66b2ab9dc5bf2bde6867d8c8ee129e47431af98"}}},"time":"2024/07/10 00:00:04"}
+									{"level":"INFO","msg":{"emailSendingRecords":{"id":0,"email_sending_number":0,"email_send_rule_id":0,"appid":"","message_id":"","mail_sending_mode":0,"email_template_type":0,"email_number":"","from_email":"","from_name":"","subject":"","content":"","reply_address":"","reply_address_alias":"","unsubscribe_url":"","email_event":0,"retry_count":0,"create_time":0,"update_time":0},"error":{},"messageId":"\u003c71ca40bcdd8f0a2bd736d95c0b595fda@iz0xif9y7r0fstxmq97t54z\u003e","msg":"controller_receiveWebhooks.ReceiveMailgunWebhooks(GetEmailSendingRecordByMessageId) get emailSendingRecords error"},"time":"2024/07/10 00:00:04"}
+									{"level":"INFO","msg":{"info":"controller_receiveWebhooks message","message":{"event-data":{"campaigns":null,"delivery-status":{"attempt-no":0,"certificate-verified":false,"code":0,"description":"","enhanced-code":"","message":"","mx-host":"","session-seconds":0,"tls":false},"envelope":{"sender":"notify@trackingmore.org","sending-ip":"","targets":"cs@asl-asia.com","transport":"smtp"},"event":"accepted","flags":{"is-authenticated":true,"is-big":false,"is-routed":false,"is-system-test":false,"is-test-mode":false},"id":"tGOpOiUMRSCXjDIP8Sm8gg","log-level":"info","message":{"attachments":null,"headers":{"from":"\"Trackingmore\" \u003cnotify@trackingmore.org\u003e","message-id":"1720569603660405565.17158.8599208266505790611@iz0xibhd8xjxiru8zt5ietz","subject":"🔥You can't add new shipment to TrackingMore","to":"\u003ccs@asl-asia.com\u003e"},"size":2217},"recipient":"cs@asl-asia.com","recipient-domain":"asl-asia.com","storage":{"key":"BAABAQWMQr_-xBz0cypNc4QUrp1MpizlZQ","url":"https://storage-us-west1.api.mailgun.net/v3/domains/edms.trackingmore.com/messages/BAABAQWMQr_-xBz0cypNc4QUrp1MpizlZQ"},"tags":null,"timestamp":1720569604.663472,"user-variables":{}},"signature":{"signature":"e812b1126ec49db4813c7ca9569c5012b5a743dfa3d35249990cfefb29b34999","timestamp":"1720569604","token":"f3ff28be97bcd63642e33aeda4bdcc5594a0fba49d08f63f20"}}},"time":"2024/07/10 00:00:04"}
+									{"level":"INFO","msg":{"emailSendingRecords":{"id":0,"email_sending_number":0,"email_send_rule_id":0,"appid":"","message_id":"","mail_sending_mode":0,"email_template_type":0,"email_number":"","from_email":"","from_name":"","subject":"","content":"","reply_address":"","reply_address_alias":"","unsubscribe_url":"","email_event":0,"retry_count":0,"create_time":0,"update_time":0},"error":{},"messageId":"\u003c1720569603660405565.17158.8599208266505790611@iz0xibhd8xjxiru8zt5ietz\u003e","msg":"controller_receiveWebhooks.ReceiveMailgunWebhooks(GetEmailSendingRecordByMessageId) get emailSendingRecords error"},"time":"2024/07/10 00:00:04"}
+									{"level":"INFO","msg":{"info":"controller_receiveWebhooks message","message":{"event-data":{"campaigns":null,"delivery-status":{"attempt-no":0,"certificate-verified":false,"code":0,"description":"","enhanced-code":"","message":"","mx-host":"","session-seconds":0,"tls":false},"envelope":{"sender":"notify@trackingmore.org","sending-ip":"","targets":"kanu@pls4africa.com","transport":"smtp"},"event":"accepted","flags":{"is-authenticated":true,"is-big":false,"is-routed":false,"is-system-test":false,"is-test-mode":false},"id":"k5TFYhRXTCeHnTrKtt5HtA","log-level":"info","message":{"attachments":null,"headers":{"from":"\"Trackingmore\" \u003cnotify@trackingmore.org\u003e","message-id":"1720569606165183526.17158.8582505982315436594@iz0xibhd8xjxiru8zt5ietz","subject":"🔥You can't add new shipment to TrackingMore","to":"\u003ckanu@pls4africa.com\u003e"},"size":2221},"recipient":"kanu@pls4africa.com","recipient-domain":"pls4africa.com","storage":{"key":"BAABAAWtAUFHt2aEe1VB-LfPr97qQqTjYw","url":"https://storage-us-east4.api.mailgun.net/v3/domains/edms.trackingmore.com/messages/BAABAAWtAUFHt2aEe1VB-LfPr97qQqTjYw"},"tags":null,"timestamp":1720569606.7767491,"user-variables":{}},"signature":{"signature":"ca62b79640c1dce5a2130d8734d83856f28132c6833ac4fe3ebe211493b35ed6","timestamp":"1720569607","token":"fc102786cb6b828584f08781c4ab7207437fc112bc39126152"}}},"time":"2024/07/10 00:00:07"}
+									{"level":"INFO","msg":{"emailSendingRecords":{"id":0,"email_sending_number":0,"email_send_rule_id":0,"appid":"","message_id":"","mail_sending_mode":0,"email_template_type":0,"email_number":"","from_email":"","from_name":"","subject":"","content":"","reply_address":"","reply_address_alias":"","unsubscribe_url":"","email_event":0,"retry_count":0,"create_time":0,"update_time":0},"error":{},"messageId":"\u003c1720569606165183526.17158.8582505982315436594@iz0xibhd8xjxiru8zt5ietz\u003e","msg":"controller_receiveWebhooks.ReceiveMailgunWebhooks(GetEmailSendingRecordByMessageId) get emailSendingRecords error"},"time":"2024/07/10 00:00:07"}
+									{"level":"INFO","msg":{"info":"controller_receiveWebhooks message","message":{"event-data":{"campaigns":null,"delivery-status":{"attempt-no":0,"certificate-verified":false,"code":0,"description":"","enhanced-code":"","message":"","mx-host":"","session-seconds":0,"tls":false},"envelope":{"sender":"notify@trackingmore.org","sending-ip":"","targets":"tuongphitienbm@gmail.com","transport":"smtp"},"event":"accepted","flags":{"is-authenticated":true,"is-big":false,"is-routed":false,"is-system-test":false,"is-test-mode":false},"id":"BrMPcfSIQuWaF3qpdErueQ","log-level":"info","message":{"attachments":null,"headers":{"from":"\"Trackingmore\" \u003cnotify@trackingmore.org\u003e","message-id":"1720569607344778980.17158.1118361352790461101@iz0xibhd8xjxiru8zt5ietz","subject":"🔥You can't add new shipment to TrackingMore","to":"\u003ctuongphitienbm@gmail.com\u003e"},"size":2226},"recipient":"tuongphitienbm@gmail.com","recipient-domain":"gmail.com","storage":{"key":"BAABAQVFCxEFDrzrbTlLZ4P9YqcJYOYbYg","url":"https://storage-us-west1.api.mailgun.net/v3/domains/edms.trackingmore.com/messages/BAABAQVFCxEFDrzrbTlLZ4P9YqcJYOYbYg"},"tags":null,"timestamp":1720569608.1799896,"user-variables":{}},"signature":{"signature":"8cb8f8c7be9b32ef5f5577b54595c57c8c659ec111c89626781694b343fb4df3","timestamp":"1720569608","token":"40b568b851fc23a9f9c35e2c8d0127319ac00b8e07c82f3636"}}},"time":"2024/07/10 00:00:08"}
+									{"level":"INFO","msg":{"emailSendingRecords":{"id":0,"email_sending_number":0,"email_send_rule_id":0,"appid":"","message_id":"","mail_sending_mode":0,"email_template_type":0,"email_number":"","from_email":"","from_name":"","subject":"","content":"","reply_address":"","reply_address_alias":"","unsubscribe_url":"","email_event":0,"retry_count":0,"create_time":0,"update_time":0},"error":{},"messageId":"\u003c1720569607344778980.17158.1118361352790461101@iz0xibhd8xjxiru8zt5ietz\u003e","msg":"controller_receiveWebhooks.ReceiveMailgunWebhooks(GetEmailSendingRecordByMessageId) get emailSendingRecords error"},"time":"2024/07/10 00:00:08"}
+									root@iZ0xiatx34i386h8eslisjZ:~# tail /home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/07/mailgun20240710.log
+									{"level":"INFO","msg":{"info":"controller_receiveWebhooks message","message":{"event-data":{"campaigns":[],"delivery-status":{"attempt-no":0,"certificate-verified":false,"code":0,"description":"","enhanced-code":"","message":"","mx-host":"","session-seconds":0,"tls":false},"envelope":{"sender":"","sending-ip":"","targets":"","transport":""},"event":"opened","flags":{"is-authenticated":false,"is-big":false,"is-routed":false,"is-system-test":false,"is-test-mode":false},"id":"WUQxn7DIQAahQ-8osgx2zg","log-level":"info","message":{"attachments":null,"headers":{"from":"","message-id":"93e107e10e10d364be17d893c7ef1f27@geckocustom.com","subject":"","to":""},"size":0},"recipient":"mwandasue@gmail.com","recipient-domain":"gmail.com","storage":{"key":"","url":""},"tags":[],"timestamp":1720655994.771519,"user-variables":{}},"signature":{"signature":"8053ac300ade81319bdb0c41776d9a392c5def67d0ddc6ff9190c4b7c52e52b7","timestamp":"1720655994","token":"aff3629b433e12b3f5a731ae8788bae86753cd87697d302f9c"}}},"time":"2024/07/10 23:59:54"}
+									{"level":"INFO","msg":{"emailSendingRecords":{"id":0,"email_sending_number":0,"email_send_rule_id":0,"appid":"","message_id":"","mail_sending_mode":0,"email_template_type":0,"email_number":"","from_email":"","from_name":"","subject":"","content":"","reply_address":"","reply_address_alias":"","unsubscribe_url":"","email_event":0,"retry_count":0,"create_time":0,"update_time":0},"error":{},"messageId":"\u003c93e107e10e10d364be17d893c7ef1f27@geckocustom.com\u003e","msg":"controller_receiveWebhooks.ReceiveMailgunWebhooks(GetEmailSendingRecordByMessageId) get emailSendingRecords error"},"time":"2024/07/10 23:59:54"}
+									{"level":"INFO","msg":{"info":"controller_receiveWebhooks message","message":{"event-data":{"campaigns":[],"delivery-status":{"attempt-no":0,"certificate-verified":false,"code":0,"description":"","enhanced-code":"","message":"","mx-host":"","session-seconds":0,"tls":false},"envelope":{"sender":"","sending-ip":"","targets":"","transport":""},"event":"opened","flags":{"is-authenticated":false,"is-big":false,"is-routed":false,"is-system-test":false,"is-test-mode":false},"id":"NhzL9ynkRuSxruLkvoWe0g","log-level":"info","message":{"attachments":null,"headers":{"from":"","message-id":"2d8bd954deb2f19b7461f66d71290317@trackingmore.org","subject":"","to":""},"size":0},"recipient":"scaling@lotacy.com","recipient-domain":"lotacy.com","storage":{"key":"","url":""},"tags":[],"timestamp":1720655996.4953725,"user-variables":{}},"signature":{"signature":"2734c4c7d4cc6f23f34ad47bc56d2211d0a848dbb13a798aba996da0f2db1587","timestamp":"1720655996","token":"e0655a023a58c1cdd7813bdf3a00f8f2a108f8e3a0152742fb"}}},"time":"2024/07/10 23:59:56"}
+									{"level":"INFO","msg":{"emailSendingRecords":{"id":0,"email_sending_number":0,"email_send_rule_id":0,"appid":"","message_id":"","mail_sending_mode":0,"email_template_type":0,"email_number":"","from_email":"","from_name":"","subject":"","content":"","reply_address":"","reply_address_alias":"","unsubscribe_url":"","email_event":0,"retry_count":0,"create_time":0,"update_time":0},"error":{},"messageId":"\u003c2d8bd954deb2f19b7461f66d71290317@trackingmore.org\u003e","msg":"controller_receiveWebhooks.ReceiveMailgunWebhooks(GetEmailSendingRecordByMessageId) get emailSendingRecords error"},"time":"2024/07/10 23:59:56"}
+									{"level":"INFO","msg":{"info":"controller_receiveWebhooks message","message":{"event-data":{"campaigns":[],"delivery-status":{"attempt-no":0,"certificate-verified":false,"code":0,"description":"","enhanced-code":"","message":"","mx-host":"","session-seconds":0,"tls":false},"envelope":{"sender":"","sending-ip":"","targets":"","transport":""},"event":"opened","flags":{"is-authenticated":false,"is-big":false,"is-routed":false,"is-system-test":false,"is-test-mode":false},"id":"KC2Xpbv1QVGdWksVCGe2kA","log-level":"info","message":{"attachments":null,"headers":{"from":"","message-id":"37a1fd26b21ad92c11eb17fbe49a6057@trackingmore.org","subject":"","to":""},"size":0},"recipient":"scaling@lotacy.com","recipient-domain":"lotacy.com","storage":{"key":"","url":""},"tags":[],"timestamp":1720655996.7580235,"user-variables":{}},"signature":{"signature":"27e468ca1cf2362d411fafc4d7d9cfab9c57d10036c952423691951c5f5b6c6a","timestamp":"1720655996","token":"8e0d046b281340b611828fac218fb978dff5c9bd466a5dc0a6"}}},"time":"2024/07/10 23:59:56"}
+									{"level":"INFO","msg":{"emailSendingRecords":{"id":0,"email_sending_number":0,"email_send_rule_id":0,"appid":"","message_id":"","mail_sending_mode":0,"email_template_type":0,"email_number":"","from_email":"","from_name":"","subject":"","content":"","reply_address":"","reply_address_alias":"","unsubscribe_url":"","email_event":0,"retry_count":0,"create_time":0,"update_time":0},"error":{},"messageId":"\u003c37a1fd26b21ad92c11eb17fbe49a6057@trackingmore.org\u003e","msg":"controller_receiveWebhooks.ReceiveMailgunWebhooks(GetEmailSendingRecordByMessageId) get emailSendingRecords error"},"time":"2024/07/10 23:59:56"}
+									{"level":"INFO","msg":{"info":"controller_receiveWebhooks message","message":{"event-data":{"campaigns":[],"delivery-status":{"attempt-no":0,"certificate-verified":false,"code":0,"description":"","enhanced-code":"","message":"","mx-host":"","session-seconds":0,"tls":false},"envelope":{"sender":"","sending-ip":"","targets":"","transport":""},"event":"opened","flags":{"is-authenticated":false,"is-big":false,"is-routed":false,"is-system-test":false,"is-test-mode":false},"id":"siD8dCw3RbqhNlczP3Y8yg","log-level":"info","message":{"attachments":null,"headers":{"from":"","message-id":"56723acacef24cca01b8f10630c0c208@trackingmore.org","subject":"","to":""},"size":0},"recipient":"scaling@lotacy.com","recipient-domain":"lotacy.com","storage":{"key":"","url":""},"tags":[],"timestamp":1720655996.7439609,"user-variables":{}},"signature":{"signature":"2f5f39433039f7f77b81ba113f95fc87faefb6d3d48895a9f2fbf70c0867fbe1","timestamp":"1720655996","token":"2bf51e53188d7822641b8cbb11f9a5c5227caafd1715ebb4c1"}}},"time":"2024/07/10 23:59:56"}
+									{"level":"INFO","msg":{"emailSendingRecords":{"id":0,"email_sending_number":0,"email_send_rule_id":0,"appid":"","message_id":"","mail_sending_mode":0,"email_template_type":0,"email_number":"","from_email":"","from_name":"","subject":"","content":"","reply_address":"","reply_address_alias":"","unsubscribe_url":"","email_event":0,"retry_count":0,"create_time":0,"update_time":0},"error":{},"messageId":"\u003c56723acacef24cca01b8f10630c0c208@trackingmore.org\u003e","msg":"controller_receiveWebhooks.ReceiveMailgunWebhooks(GetEmailSendingRecordByMessageId) get emailSendingRecords error"},"time":"2024/07/10 23:59:56"}
+									{"level":"INFO","msg":{"info":"controller_receiveWebhooks message","message":{"event-data":{"campaigns":[],"delivery-status":{"attempt-no":0,"certificate-verified":false,"code":0,"description":"","enhanced-code":"","message":"","mx-host":"","session-seconds":0,"tls":false},"envelope":{"sender":"","sending-ip":"","targets":"","transport":""},"event":"clicked","flags":{"is-authenticated":false,"is-big":false,"is-routed":false,"is-system-test":false,"is-test-mode":false},"id":"5Z_Tq7mhQ8S0XE_xAD3ZCw","log-level":"info","message":{"attachments":null,"headers":{"from":"","message-id":"2c357865726703403ce04daecea93bd3@trackingmore.org","subject":"","to":""},"size":0},"recipient":"Dino.brat@yahoo.com","recipient-domain":"yahoo.com","storage":{"key":"","url":""},"tags":[],"timestamp":1720655996.8353996,"user-variables":{}},"signature":{"signature":"da6a4b631d95ebf5d838b65e655728f758516c623503274be5b89db5d7447d61","timestamp":"1720655996","token":"0b56cfa989b05becb1033f338929e90450d9af9235b7d266e4"}}},"time":"2024/07/10 23:59:56"}
+									{"level":"INFO","msg":{"emailSendingRecords":{"id":0,"email_sending_number":0,"email_send_rule_id":0,"appid":"","message_id":"","mail_sending_mode":0,"email_template_type":0,"email_number":"","from_email":"","from_name":"","subject":"","content":"","reply_address":"","reply_address_alias":"","unsubscribe_url":"","email_event":0,"retry_count":0,"create_time":0,"update_time":0},"error":{},"messageId":"\u003c2c357865726703403ce04daecea93bd3@trackingmore.org\u003e","msg":"controller_receiveWebhooks.ReceiveMailgunWebhooks(GetEmailSendingRecordByMessageId) get emailSendingRecords error"},"time":"2024/07/10 23:59:56"}
+									root@iZ0xiatx34i386h8eslisjZ:~# df -h
+									Filesystem      Size  Used Avail Use% Mounted on
+									tmpfs           169M  2.1M  167M   2% /run
+									/dev/vda3        40G   38G     0 100% /
+									tmpfs           841M     0  841M   0% /dev/shm
+									tmpfs           5.0M     0  5.0M   0% /run/lock
+									/dev/vda2       197M  6.1M  191M   4% /boot/efi
+									tmpfs            50M     0   50M   0% /usr/local/aegis/cgroup
+									overlay          40G   38G     0 100% /var/lib/docker/overlay2/3b7dd24fd79e0362c0b275b13480378ab3018183db9b98d0231644a99d270ed9/merged
+									overlay          40G   38G     0 100% /var/lib/docker/overlay2/356345bb73b491c602f52654c0f7d63271b3df045c95e436fccefce83de6f474/merged
+									tmpfs           169M  4.0K  169M   1% /run/user/1000
+									overlay          40G   38G     0 100% /var/lib/docker/overlay2/4c033bf52c4de6f3abb21e503adab6947ff55b1593a2b6235b673971280cf782/merged
+									overlay          40G   38G     0 100% /var/lib/docker/overlay2/f2c36a828b4c2d1700cfcbfcfb99790662c0a9d8286365ec4bfe10b51c6ec306/merged
+									overlay          40G   38G     0 100% /var/lib/docker/overlay2/9d8ef1653b8762b65c610ac2fe4cd15d79a30a6d269691f7d589e975986b8160/merged
+									overlay          40G   38G     0 100% /var/lib/docker/overlay2/ae929d321313ded7d52d63cfa031432822bc6ced867adb4d33043e86fef6242e/merged
+									overlay          40G   38G     0 100% /var/lib/docker/overlay2/e3c3f89696f734f487acf56e0c7dea88bbe4abe703c7c71b74b4cdff19849060/merged
+									overlay          40G   38G     0 100% /var/lib/docker/overlay2/057a6789e90dfbb78f90be45f9026db38908a53013a6cc7453d6aa3bdd61b19a/merged
+									root@iZ0xiatx34i386h8eslisjZ:~# ll /dev/shm
+									total 0
+									drwxrwxrwt  2 root root   60 Mar 15  2023 ./
+									drwxr-xr-x 19 root root 4020 Nov 28 02:43 ../
+									-rw-------  1 root root    0 Mar 15  2023 aliyun-assist-agent-coldstarted
+									root@iZ0xiatx34i386h8eslisjZ:~# mkdir /dev/shm/log
+									root@iZ0xiatx34i386h8eslisjZ:~# date;zip  /dev/shm/log/root.nginx.logs.error.log.zip /root/nginx/logs/error.log;date
+									Fri Jan 10 06:20:14 PM CST 2025
+									adding: root/nginx/logs/error.log (deflated 97%)
+									Fri Jan 10 06:20:39 PM CST 2025
+									root@iZ0xiatx34i386h8eslisjZ:~# echo > /root/nginx/logs/error.log
+									root@iZ0xiatx34i386h8eslisjZ:~# ll -h
+									total 200K
+									drwxr-xr-x 10 root root 4.0K Nov 21 13:20 ./
+									drwxr-xr-x 19 root root 4.0K Nov 24  2022 ../
+									-rw-------  1 root root  25K Nov 21 13:20 .bash_history
+									-rw-r--r--  1 root root  500 Jan  3  2024 .bashrc
+									drwxr-xr-x  3 root root 4.0K Dec 19  2023 .cache/
+									drwx------  3 root root 4.0K May  8  2024 .config/
+									drwxr-xr-x  3 root root 4.0K Mar 25  2024 go/
+									-rw-------  1 root root  78K May  8  2024 .mysql_history
+									drwxr-xr-x  4 root root 4.0K Sep 12  2023 nginx/
+									-rw-r--r--  1 root root  162 Jan  3  2024 .profile
+									-rw-------  1 root root 2.9K Apr  1  2024 .rediscli_history
+									drwxr-xr-x  2 root root 4.0K Mar  9  2023 .rpmdb/
+									drwx------  3 root root 4.0K Jan 25  2023 snap/
+									drwx------  2 root root 4.0K Dec  1  2022 .ssh/
+									-rw-r--r--  1 root root 4.1K Nov 21 11:13 ssl.20241121.zip
+									-rw-------  1 root root  25K Nov 21 13:20 .viminfo
+									-rw-r--r--  1 root root  208 Mar 25  2024 .wget-hsts
+									drwxr-xr-x  3 root root 4.0K Feb 26  2024 yunxiao/
+									root@iZ0xiatx34i386h8eslisjZ:~# ll -h /dev/shm/log/root.nginx.logs.error.log.zip
+									-rw-r--r-- 1 root root 71M Jan 10 18:20 /dev/shm/log/root.nginx.logs.error.log.zip
+									root@iZ0xiatx34i386h8eslisjZ:~# df -h
+									Filesystem      Size  Used Avail Use% Mounted on
+									tmpfs           169M  2.1M  167M   2% /run
+									/dev/vda3        40G   35G  2.5G  94% /
+									tmpfs           841M   71M  770M   9% /dev/shm
+									tmpfs           5.0M     0  5.0M   0% /run/lock
+									/dev/vda2       197M  6.1M  191M   4% /boot/efi
+									tmpfs            50M     0   50M   0% /usr/local/aegis/cgroup
+									overlay          40G   35G  2.5G  94% /var/lib/docker/overlay2/3b7dd24fd79e0362c0b275b13480378ab3018183db9b98d0231644a99d270ed9/merged
+									overlay          40G   35G  2.5G  94% /var/lib/docker/overlay2/356345bb73b491c602f52654c0f7d63271b3df045c95e436fccefce83de6f474/merged
+									tmpfs           169M  4.0K  169M   1% /run/user/1000
+									overlay          40G   35G  2.5G  94% /var/lib/docker/overlay2/4c033bf52c4de6f3abb21e503adab6947ff55b1593a2b6235b673971280cf782/merged
+									overlay          40G   35G  2.5G  94% /var/lib/docker/overlay2/f2c36a828b4c2d1700cfcbfcfb99790662c0a9d8286365ec4bfe10b51c6ec306/merged
+									overlay          40G   35G  2.5G  94% /var/lib/docker/overlay2/9d8ef1653b8762b65c610ac2fe4cd15d79a30a6d269691f7d589e975986b8160/merged
+									overlay          40G   35G  2.5G  94% /var/lib/docker/overlay2/ae929d321313ded7d52d63cfa031432822bc6ced867adb4d33043e86fef6242e/merged
+									overlay          40G   35G  2.5G  94% /var/lib/docker/overlay2/e3c3f89696f734f487acf56e0c7dea88bbe4abe703c7c71b74b4cdff19849060/merged
+									overlay          40G   35G  2.5G  94% /var/lib/docker/overlay2/057a6789e90dfbb78f90be45f9026db38908a53013a6cc7453d6aa3bdd61b19a/merged
 							-- 20250106
 								www-214-153-tm
 									[root@iz0xigjdatfp2x5ez15cpuz ~]# df -h
@@ -6544,7 +6832,7 @@ prometheus 授权
 						tail ${PTM}script/20250107/detect_data_statistics_v2.csv
 						tail ${PTM}script/20250107/detect_data_statistics_v3.csv
 						
-						-- 20250109
+						-- 20250110
 						# 下载数据
 						cp ${PTM}script/20250107/detect_data_statistics_v2.csv /tmp/detect_data_statistics_v2.51.csv
 						cp ${PTM}script/20250107/detect_data_statistics_v3.csv /tmp/detect_data_statistics_v3.51.csv
