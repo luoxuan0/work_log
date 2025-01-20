@@ -3658,6 +3658,43 @@
 日常响应
 6，后续优先级、应对
 
+===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== =====
+20250117
+本地
+告警
+技术评审
+
+
+- 今日合规操作小结：无
+- 今日违规操作小结：无
+- 今日监督操作小结：无
+
+
+原计划：
+日常响应
+本地
+1，网络优化相关-整体梳理&推进
+2，安全方案腾讯IOA-权限&相关问题处理跟进
+告警
+3，等保网警回复后续-整改
+运维
+4，充值梳理提交-跟进
+5，分账
+日常响应
+6，后续优先级、应对
+
+计划：
+本地
+1，网络优化相关-整体梳理&推进
+2，安全方案腾讯IOA-权限&相关问题处理跟进
+告警
+3，等保网警回复后续-整改
+运维
+4，充值梳理提交-跟进
+5，分账
+日常响应
+6，后续优先级、应对
+
 近期复盘
 	3，工作项梳理
 		方向
@@ -4698,6 +4735,52 @@
 								script\queueshell\zipAndRmSpecifyTimeFile.sh
 								script\queueshell\file.to.zip.sh
 						历史数据清理 20240529
+							-- 20250117
+								-205
+									[root@iz0xif9y7r0fstxmq97t54z ~]# head /data/server_logs/root/20250117111104.trackingSingleQueue.log
+
+									serid: 58126  yunexpress : YT2500621406025803total time 0.091259956359863
+									userid: 58126  yunexpress : YT2500621272282337total time 0.06647801399231
+									userid: 381935  dpd-de : 01487067226307total time 1.1327199935913
+									userid: 58132  china-ems : LZ158169095CNtotal time 0.17547202110291
+									userid: 224763  china-ems : LZ159797812CNtotal time 0.14254307746887
+									userid: 224763  china-ems : LZ159797812CNtotal time 0.1421480178833
+									userid: 58132  china-ems : LZ158169095CNtotal time 0.17739009857178
+									userid: 224763  china-ems : LZ159797812CNtotal time 0.1438319683075
+									userid: 224763  china-ems : LZ159797812CNtotal time 0.14619898796082
+									[root@iz0xif9y7r0fstxmq97t54z ~]# find /data/server_logs/root/  -name '*trackingSingleQueue.log.zip'  | grep -v '2025011' | xargs -i rm -f {}
+									[root@iz0xif9y7r0fstxmq97t54z ~]# df -h
+									Filesystem      Size  Used Avail Use% Mounted on
+									/dev/vda1        40G   38G  1.1G  98% /
+									devtmpfs         16G     0   16G   0% /dev
+									tmpfs            16G     0   16G   0% /dev/shm
+									tmpfs            16G   15G  428M  98% /run
+									tmpfs            16G     0   16G   0% /sys/fs/cgroup
+									tmpfs           3.1G     0  3.1G   0% /run/user/0
+									tmpfs           3.1G     0  3.1G   0% /run/user/1002
+									overlay          40G   38G  1.1G  98% /var/lib/docker/overlay2/d2703df78bc816ff68a6a91dd805825fdf41731b86dfb1acd45f001bad32e406/merged
+									overlay          40G   38G  1.1G  98% /var/lib/docker/overlay2/c043633fbddd7d4d2248284247bf06cc75fa5c740aa1366400bce75bb4168d14/merged
+									overlay          40G   38G  1.1G  98% /var/lib/docker/overlay2/b47a079dc9b17057739e60cc62794e9a083ef16f31890d897d67b8f31bd7a89a/merged
+									overlay          40G   38G  1.1G  98% /var/lib/docker/overlay2/83a49448c3e2713448d182eeb258505bdc2ef04eec331ba8b4499705e6ff06ed/merged
+									overlay          40G   38G  1.1G  98% /var/lib/docker/overlay2/46169c1ebedc71c054485e7a978387aa1d1b216470e539ecf3a12e84fd9c64aa/merged
+									overlay          40G   38G  1.1G  98% /var/lib/docker/overlay2/5a5d007e804e80f97e67cb993e7c00b6716bab22d40d780b03766a6ae871c4f3/merged
+									overlay          40G   38G  1.1G  98% /var/lib/docker/overlay2/1c60ac1751f37f5ea647ab8ad054192ec6eb9366d0ecc1b87b8d9d41e8933d98/merged
+									overlay          40G   38G  1.1G  98% /var/lib/docker/overlay2/eeb9c4ad79ae52e1698640c687ff2ef67360853b151f7ef2c61d8af38bd4a667/merged
+									overlay          40G   38G  1.1G  98% /var/lib/docker/overlay2/c780375c3d2c9bb41aea4785502cb8c045059b9666dbbfd4ce1b27c170de570b/merged
+									overlay          40G   38G  1.1G  98% /var/lib/docker/overlay2/5b9c7648f8a3103ae472be96492b4d694f28b9d4636f4a3c7fc28387b15f3c5b/merged
+									overlay          40G   38G  1.1G  98% /var/lib/docker/overlay2/be0afb28162fb4cbbba3653a35944a6fcc80eb1367426089b3c37dcac0af5053/merged
+									overlay          40G   38G  1.1G  98% /var/lib/docker/overlay2/b68be4f7b9222815ce8e644673aaef6cb6995ea0f7ebb85900394e898231568e/merged
+									overlay          40G   38G  1.1G  98% /var/lib/docker/overlay2/b8002b093029398fa675a5f103ad00052abffc8ea71c3d32e987e853a3958baf/merged
+									overlay          40G   38G  1.1G  98% /var/lib/docker/overlay2/9260ba6e864c36bbffd8248bee952df6b8ae211cbb40a17b954e95c4446b6450/merged
+									overlay          40G   38G  1.1G  98% /var/lib/docker/overlay2/ed7aa946cad59fe8f785e810a2cc68636ae6ee4aa076d291c674f0a8e780c3bd/merged
+									overlay          40G   38G  1.1G  98% /var/lib/docker/overlay2/42f90134a9d2925e59000e462681b05b6a399b31228537281a92f25afc8df878/merged
+									overlay          40G   38G  1.1G  98% /var/lib/docker/overlay2/40d2cb0487f9b57bc2bb10bf1e52d5fc1caca3dd35af46c0ee2f3779028edf2d/merged
+									overlay          40G   38G  1.1G  98% /var/lib/docker/overlay2/cf95d1b2d1272e586c0196fb584c7a7517890a94206cbca3e7a567756d036aad/merged
+									sh disk.20241023.sh /data/server_logs/ 3 100
+								api-151-7-tm
+									vi /home/wwwlogs/cut_log_handle.sh
+									# 保留时间减少一天（3-->2） opt01 20250117
+									KEEPTIME=$(date -d "-2 days" +%Y-%m-%d)
 							-- 20250110
 								upload-46-tm
 									root@iZ0xiatx34i386h8eslisjZ:~# df -h
