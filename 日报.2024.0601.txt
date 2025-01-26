@@ -3911,6 +3911,38 @@
 日常响应
 5，后续优先级、应对
 
+===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== =====
+20250126
+本地
+告警
+技术评审
+
+
+- 今日合规操作小结：无
+- 今日违规操作小结：无
+- 今日监督操作小结：无
+
+
+原计划：
+日常响应
+本地
+1，网络优化相关-整体梳理&推进
+2，安全方案腾讯IOA-权限&相关问题处理跟进
+告警
+3，等保网警回复后续-整改
+运维
+4，分账
+日常响应
+5，后续优先级、应对
+
+计划：
+本地
+1，取消电脑自动关机
+告警
+2，等保网警回复后续-整改
+日常响应
+3，后续优先级、应对
+
 近期复盘
 	3，工作项梳理
 		方向
@@ -4967,6 +4999,88 @@
 					磁盘
 
 					IOA 测试 29
+						-- 20250126
+							定时任务同步
+								# 国外
+									# 20250126
+									# 获取内网IP地址
+									ifconfig | grep 'inet ' | awk '{print $2}' | grep '172.16.21'
+									# 获取外网IP地址后两位
+									curl -s icanhazip.com | cut -d'.' -f3,4
+
+									# 写入key
+									echo '# 20250126 传输文件' >> /root/.ssh/authorized_keys
+									echo 'ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHP5Iv/SnD4cYRUEuZ9lEE6WbmbLL4IlzZrdvSlnS0sk for webhook' >> /root/.ssh/authorized_keys
+									# 写入key 确认
+									sed -n '/# 20250126 传输文件/p' /root/.ssh/authorized_keys
+									sed -n '/AAAAC3NzaC1lZDI1NTE5AAAAIHP5Iv/p' /root/.ssh/authorized_keys
+
+									# 删除写入key 测试
+									sed -n '/# 20250126 传输文件/p' /root/.ssh/authorized_keys
+									sed '/# 20250126 传输文件/d' /root/.ssh/authorized_keys
+									# 删除写入key 正式
+									sed -i '/# 20250126 传输文件/d' /root/.ssh/authorized_keys
+									# 删除写入key 正式确认内容已经删除
+									sed -n '/# 20250126 传输文件/p' /root/.ssh/authorized_keys
+
+									在首次使用 rsync 通过 SSH 连接到远程服务器时，可能会提示以下信息，要求用户输入 yes 以接受远程主机的 SSH 密钥
+										在 rsync 命令中使用 -e 参数传递 StrictHostKeyChecking=no：
+										rsync -avz -e "ssh -o StrictHostKeyChecking=no" 
+										说明：
+
+										-e：指定用于远程传输的命令（这里是 ssh）。
+										-o StrictHostKeyChecking=no：禁用 SSH 主机密钥验证，首次连接时自动接受新主机密钥。
+
+										或
+										ssh-keyscan -H remote_host >> ~/.ssh/known_hosts
+										ssh-keyscan 会扫描远程主机的密钥并添加到 ~/.ssh/known_hosts。
+
+									# 模拟发送文件
+									rsync -avz --dry-run root@remote_host:/var/spool/cron/root /tmp/root -e 'ssh -p 20480'
+									# 正式发送文件
+									rsync -avz root@remote_host:/var/spool/cron/root /tmp/root -e 'ssh -p 20480'
+
+								# 国内
+									ssh-keygen -t ed25519 -C "operation_from_realtime-51-215"
+
+									# 20250126
+									# 获取内网IP地址
+									ifconfig | grep 'inet ' | awk '{print $2}' | grep '172.16.10'
+									# 获取外网IP地址后两位
+									curl -s icanhazip.com | cut -d'.' -f3,4
+
+									# 写入key
+									echo '# 20250126 传输文件' >> /root/.ssh/authorized_keys
+									echo 'ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJQPcd2joi3dxC+BRre5gWs3Sq5bzyLAZLDG1AX6DElj operation_from_realtime-51-215' >> /root/.ssh/authorized_keys
+									# 写入key 确认
+									sed -n '/# 20250126 传输文件/p' /root/.ssh/authorized_keys
+									sed -n '/AAAAC3NzaC1lZDI1NTE5AAAAIJQPcd2joi3dxC/p' /root/.ssh/authorized_keys
+									# 20250126
+
+									# 删除写入key 测试
+									sed -n '/# 20250126 传输文件/p' /root/.ssh/authorized_keys
+									sed '/# 20250126 传输文件/d' /root/.ssh/authorized_keys
+									# 删除写入key 正式
+									sed -i '/# 20250126 传输文件/d' /root/.ssh/authorized_keys
+									# 删除写入key 正式确认内容已经删除
+									sed -n '/# 20250126 传输文件/p' /root/.ssh/authorized_keys
+
+									在首次使用 rsync 通过 SSH 连接到远程服务器时，可能会提示以下信息，要求用户输入 yes 以接受远程主机的 SSH 密钥
+										在 rsync 命令中使用 -e 参数传递 StrictHostKeyChecking=no：
+										rsync -avz -e "ssh -o StrictHostKeyChecking=no" 
+										说明：
+
+										-e：指定用于远程传输的命令（这里是 ssh）。
+										-o StrictHostKeyChecking=no：禁用 SSH 主机密钥验证，首次连接时自动接受新主机密钥。
+
+										或
+										ssh-keyscan -H remote_host >> ~/.ssh/known_hosts
+										ssh-keyscan 会扫描远程主机的密钥并添加到 ~/.ssh/known_hosts。
+
+									# 模拟发送文件
+									rsync -avz --dry-run root@remote_host:/var/spool/cron/root /tmp/root -e 'ssh -p 20480'
+									# 正式发送文件
+									rsync -avz root@remote_host:/var/spool/cron/root /tmp/root -e 'ssh -p 20480'
 						-- 20250125
 							版本库发布定时任务
 								定时任务同步
@@ -4998,6 +5112,457 @@
 								script\queueshell\zipAndRmSpecifyTimeFile.sh
 								script\queueshell\file.to.zip.sh
 						历史数据清理 20240529
+							-- 20250126
+								-api-51-194
+									[root@iZwz9ai1u8vc1fuir8prryZ ~]# find / -name '*' -type f -size +100M | xargs ls -lh {} | sort -nrk5
+									find: ‘/proc/1392/task/1392/fdinfo/6’: No such file or directory
+									find: ‘/proc/1392/fdinfo/5’: No such file or directory
+									-rw-------  1 root root 716M Oct 16  2018 /var/crash/127.0.0.1-2018-10-16-16:57:30/vmcore
+									-rw-r--r--  1 www  www  633M Oct 13  2022 /home/wwwroot/www.51tracking.com/api/v2/trackings/first_track.log
+									----------  1 root root 435M Sep 26  2021 /home/wwwroot/www.51tracking.com/sedp4O0H0
+									-rw-r--r--  1 root root 244M Jan 26 22:19 /root/yunxiao/be-tfpyqa22gtndemstnunakvmq/runner/__flow_logs/runner.log
+									-rwxr-xr-x  1 root root 240M Aug 20  2019 /usr/local/lib/python3.6/site-packages/tensorflow/python/_pywrap_tensorflow_internal.so
+									-rw-r--r--  1 root root 204M Jan 25 23:59 /root/test.meminfo.log.20250125
+									-rw-r--r--  1 root root 204M Jan 24 23:59 /root/test.meminfo.log.20250124
+									-rw-r--r--  1 root root 190M Jan 26 22:19 /root/test.meminfo.log.20250126
+									-rw-r--r--  1 www  www  146M Oct 21  2020 /home/wwwroot/www.trackingmore.com/lastIdLogUserNumberData.log
+									-rwxr-xr-x  1 root root 137M Apr  4  2019 /opt/google/chrome/chrome
+									-r--------  1 root root 128T Jan 26 22:19 /proc/kcore
+									-rw-r--r--  1 root root 126M Aug 24  2023 /var/cache/yum/x86_64/7/updates/gen/primary_db.sqlite
+									-rw-r--r--  1 root root 124M May 12  2020 /root/platefromPddOrder_sync_time.log
+									-rw-r--r--  1 www  www  114M Aug 19  2022 /home/wwwroot/www.51tracking.com/postnl_parcels_tracking_info.log
+									-rw-r--r--. 1 root root 114M Aug 30  2023 /var/lib/rpm/Packages
+									-rw-r--r--  1 www  www  105M Aug 14  2022 /home/wwwroot/www.trackingmore.com/executeSQL.20220814.log
+									-rw-------  1 root root 104M Jan 26 19:41 /home/wwwlogs/phpslow.log
+									-rw-r--r--  1 root root 102M May 15  2019 /usr/lib/locale/locale-archive
+									-rw-r--r--  1 root root   31 Jul 31  2019 {}
+									-rw-r--r--  1 www  www   25G Jan 26 22:19 /home/wwwroot/www.51tracking.com/logs/api-error.log
+									-rw-------  1 root root 2.2G Jan 26 22:19 /usr/local/php7.0.33/var/log/php-fpm.log
+									-rw-r--r--  1 root root 1.4G Jan 26 22:19 /home/wwwlogs/api.51tracking.com.access.log
+									[root@iZwz9ai1u8vc1fuir8prryZ ~]# tail /home/wwwroot/www.51tracking.com/logs/api-error.log
+									2025-01-26 22:20:06 userId:139366 - post - {"tracking_number":"9300120111470705340655","carrier_code":"usps"} 
+									2025-01-26 22:20:06 userId:142985 - post - {"tracking_number":"1Z105ER30303074972","carrier_code":"ups"} 
+									2025-01-26 22:20:06 userId:145178 - post - {"tracking_number":"9405511206210720109625","carrier_code":"usps"} 
+									2025-01-26 22:20:06 userId:139366 - post - {"tracking_number":"9300120111470705033540","carrier_code":"usps"} 
+									2025-01-26 22:20:06 userId:139366 - post - {"tracking_number":"9300120111470705020755","carrier_code":"usps"} 
+									2025-01-26 22:20:06 userId:145178 - post - {"tracking_number":"276247071213","carrier_code":"fedex"} 
+									2025-01-26 22:20:06 userId:139366 - post - {"tracking_number":"9305520111472806621308","carrier_code":"usps"} 
+									2025-01-26 22:20:06 userId:142985 - post - {"tracking_number":"92144903630803111048105454","carrier_code":"usps"} 
+									2025-01-26 22:20:06 userId:145178 - post - {"tracking_number":"9305566541670989266988","carrier_code":"usps"} 
+									2025-01-26 22:20:06 userId:139366 - post - {"tracking_number":"9300120111470703991170","carrier_code":"usps"} 
+									[root@iZwz9ai1u8vc1fuir8prryZ ~]#  head /home/wwwroot/www.51tracking.com/logs/api-error.log
+
+									2024-08-03 19:08:13 userId:121581 - post - {"tracking_number":"92055903608722520855225875","carrier_code":"usps"} 
+									2024-08-03 19:08:13 userId:142985 - post - {"tracking_number":"92144903630803112796866956","carrier_code":"usps"} 
+									2024-08-03 19:08:13 userId:145178 - post - {"tracking_number":"92144902123051000096224787","carrier_code":"usps"} 
+									2024-08-03 19:08:14 userId:142985 - post - {"tracking_number":"92144903630803132792860970","carrier_code":"usps"} 
+									2024-08-03 19:08:14 userId:145178 - post - {"tracking_number":"1Z4X98X80304636857","carrier_code":"usps"} 
+									2024-08-03 19:08:15 userId:121581 - post - {"tracking_number":"92055903608722520855294994","carrier_code":"usps"} 
+									2024-08-03 19:08:15 userId:145178 - post - {"tracking_number":"9300184026817633870574","carrier_code":"usps"} 
+									2024-08-03 19:08:15 userId:121581 - post - {"tracking_number":"9200190579308831175091","carrier_code":"usps"} 
+									2024-08-03 19:08:15 userId:142985 - post - {"tracking_number":"92144903630803102557853936","carrier_code":"usps"} 
+									[root@iZwz9ai1u8vc1fuir8prryZ ~]# echo > /home/wwwroot/www.51tracking.com/logs/api-error.log
+									[root@iZwz9ai1u8vc1fuir8prryZ ~]# df -h
+									Filesystem      Size  Used Avail Use% Mounted on
+									/dev/vda1        59G   33G   26G  56% /
+									devtmpfs        3.7G     0  3.7G   0% /dev
+									tmpfs           3.7G     0  3.7G   0% /dev/shm
+									tmpfs           3.7G   22M  3.7G   1% /run
+									tmpfs           3.7G     0  3.7G   0% /sys/fs/cgroup
+									tmpfs           756M     0  756M   0% /run/user/0
+									tmpfs           756M     0  756M   0% /run/user/1003
+								-145-44-35-tm
+									[root@iz0xibhd8xjxiru8zt5ietz ~]# find / -name '*' -type f -size +100M | xargs ls -lh {} | sort -nrk5find: ‘/proc/10478/task/10478/fdinfo/6’: No such file or directory
+									find: ‘/proc/10478/fdinfo/5’: No such file or directory
+									find: ‘/proc/16780’: No such file or directory
+									find: ‘/proc/16781’: No such file or directory
+									find: ‘/proc/21717’: No such file or directory
+									ls: cannot access {}: No such file or directory
+									-rw-r--r--  1 root root 869M Jan 26 21:52 /root/sum.sh.log
+									-rw-r--r--  1 root root 621M Jan 26 18:18 /root/platefromWoocommerce_sync.log
+									-rw-r--r--  1 root root 485M Jan 26 22:19 /root/trackingSingleQueueNull.log
+									-rw-r--r--  1 root root 396M Jan 26 00:01 /home/wwwroot/www.trackingmore.com/script/log/catchShopifyDataSyncByOrder.log
+									-rw-r--r--  1 root root 332M Aug 17 23:57 /root/china-post_test.20240817.log
+									-rw-r--r--  1 root root 266M Nov 26 00:47 /root/userNumberRulers_s.log
+									-rwxr-xr-x  1 root root 243M Dec  8  2022 /usr/sbin/mysqld
+									-rwxr-xr-x  1 root root 164M Dec  8  2022 /usr/sbin/mysqld-debug
+									-rw-r--r--  1 root root 164M Jan 26 17:06 /home/wwwroot/www.trackingmore.com/script/log/catchWoocommerceDataSyncByOrder.log
+									-rw-r--r--  1 root root 140M Jan  6  2024 /root/getEffectiveTracknumberForRule.20240101.log
+									-rw-r--r--  1 root root 138M Apr  3  2024 /run/getEffectiveTracknumberForRule.20240403.0809.log
+									-rwxr-xr-x  1 root root 131M Jan 26 22:15 /home/wwwroot/mytracking/logs/command/subscriptions/ScanExceed.log
+									-r--------  1 root root 128T Jan 26 22:20 /proc/kcore
+									-rw-r--r--  1 root root 121M Jul  6  2023 /var/cache/yum/x86_64/7/updates/gen/primary_db.sqlite
+									-rw-r--r--. 1 root root 117M Mar 10  2023 /var/lib/rpm/Packages
+									-rw-r--r--  1 root root 114M Jan 26 22:20 /root/track_frist_user_Job.log
+									-rw-r--r--  1 root root 108M Mar  8  2023 /var/cache/yum/x86_64/7/updates/gen/filelists_db.sqlite
+									-rw-r--r--  1 root root 102M Nov 14  2022 /usr/lib/locale/locale-archive
+									-rw-r--r--  1 root root 1.4G Jan 26 12:26 /home/wwwroot/www.trackingmore.com/script/log/memberTableSync.log
+									[root@iz0xibhd8xjxiru8zt5ietz ~]# df -h
+									Filesystem      Size  Used Avail Use% Mounted on
+									devtmpfs         12G  4.0K   12G   1% /dev
+									tmpfs            12G     0   12G   0% /dev/shm
+									tmpfs            12G  3.2G  8.2G  29% /run
+									tmpfs            12G     0   12G   0% /sys/fs/cgroup
+									/dev/vda1        40G   39G  337M 100% /
+									tmpfs           2.3G     0  2.3G   0% /run/user/0
+									overlay          40G   39G  337M 100% /var/lib/docker/overlay2/f32f1a66a724922b4b6e3b3025bf7c26702d2acd8c9cdb4483c57405e4c1f944/merged
+									overlay          40G   39G  337M 100% /var/lib/docker/overlay2/3bc24f2e1f02be2da94aaa45204fde4cfae4723e190c4a093ee0061039f7914d/merged
+									overlay          40G   39G  337M 100% /var/lib/docker/overlay2/a1450f72c102025794e3a1854eed67304fc338bf57308a68687105ad6a8e0523/merged
+									overlay          40G   39G  337M 100% /var/lib/docker/overlay2/f47e87ac2faec4bca2c5f5af763200c42f5e2abffafd8d5c9f6e3c9746bf8b33/merged
+									overlay          40G   39G  337M 100% /var/lib/docker/overlay2/d68fb40923d5526fb9dcb18fa13392d9bfd34a778c7613bd246b724e33ec8d28/merged
+									overlay          40G   39G  337M 100% /var/lib/docker/overlay2/9cfa905c1ee2a08387bef1e63d31a7829de8b72976db5fd631772ade7991f273/merged
+									overlay          40G   39G  337M 100% /var/lib/docker/overlay2/42269d276137de374266bd0384ab49d701a5eab0d36d53d47f5dedf19f5468dd/merged
+									overlay          40G   39G  337M 100% /var/lib/docker/overlay2/bc9e4c0ba99e5eea457c3213b25013c977cffda5de52e96c2b67bfb3d782a060/merged
+									overlay          40G   39G  337M 100% /var/lib/docker/overlay2/106d2f39d28ba0ccf0ba824f5c8afae4291386cbedd9da83016551318fd13ee9/merged
+									overlay          40G   39G  337M 100% /var/lib/docker/overlay2/622341e4442b12d79faf8acb4fca31f843e81b9ad7ed44cf04f5ca18a8e2fd41/merged
+									overlay          40G   39G  337M 100% /var/lib/docker/overlay2/a202e929b22b6072bc0d7ceddfd1cfdece1d65a793010cce5baef8b6d06480c4/merged
+									overlay          40G   39G  337M 100% /var/lib/docker/overlay2/d84d991b31d78d89f4ab89de6ed5b3ed55219cafbc59cc10724dfda757d3d29e/merged
+									overlay          40G   39G  337M 100% /var/lib/docker/overlay2/2f76cb191a8db2ea1eef0c32a31ddd6a2ac7938a5330aac90a5b49372b65dc5c/merged
+									overlay          40G   39G  337M 100% /var/lib/docker/overlay2/45c7a8f0840352e35f4e839a4a8972085934473d449e5484fd94692c83e60c0a/merged
+									overlay          40G   39G  337M 100% /var/lib/docker/overlay2/c0523133d8a45896117674a96206555ecf15a8f2c6a08533aa92b76fe7a2e1b7/merged
+									overlay          40G   39G  337M 100% /var/lib/docker/overlay2/138729e3105c2c2de8cb298b175134cdec0115a2e4f55117046f5f2aee1acad6/merged
+									overlay          40G   39G  337M 100% /var/lib/docker/overlay2/4fd12a13c8ddd80f348dadf0537b4afd99903b4692d23e119f114b41c85009b7/merged
+									overlay          40G   39G  337M 100% /var/lib/docker/overlay2/cf7fc074fc31a7d91600a34db842944b8a7937b7a5d9e48f8afc9a7cd3212a81/merged
+									tmpfs           2.3G     0  2.3G   0% /run/user/1002
+									[root@iz0xibhd8xjxiru8zt5ietz ~]# echo > /home/wwwroot/www.trackingmore.com/script/log/memberTableSync.log
+									[root@iz0xibhd8xjxiru8zt5ietz ~]# tail /root/sum.sh.log
+									tr_user_tracknumber_98001_98500: 6832
+									mysql: [Warning] Using a password on the command line interface can be insecure.
+									*************************** 1. row ***************************
+									tr_user_tracknumber_98501_99000: 0
+									mysql: [Warning] Using a password on the command line interface can be insecure.
+									*************************** 1. row ***************************
+									tr_user_tracknumber_99001_99500: 855
+									mysql: [Warning] Using a password on the command line interface can be insecure.
+									*************************** 1. row ***************************
+									tr_user_tracknumber_99501_100000: 11
+									[root@iz0xibhd8xjxiru8zt5ietz ~]# head /root/sum.sh.log
+									mysql: [Warning] Using a password on the command line interface can be insecure.
+									userid  tr_user_tracknumber_100001_100500
+									100238  11787
+									mysql: [Warning] Using a password on the command line interface can be insecure.
+									userid  tr_user_tracknumber_10001_10500
+									NULL    0
+									mysql: [Warning] Using a password on the command line interface can be insecure.
+									userid  tr_user_tracknumber_1001_1500
+									1345    674
+									mysql: [Warning] Using a password on the command line interface can be insecure.
+									[root@iz0xibhd8xjxiru8zt5ietz ~]# ll /root/sum.sh.log
+									-rw-r--r-- 1 root root 911132805 Jan 26 21:52 /root/sum.sh.log
+									[root@iz0xibhd8xjxiru8zt5ietz ~]# crontab -l | grep sum
+									50 * * * * sh sum.sh &>>sum.sh.log
+									[root@iz0xibhd8xjxiru8zt5ietz ~]# tail sum.sh
+									msql -e "USE TRACKINGDB;SELECT COUNT(*) as tr_user_tracknumber_9501_10000 FROM tr_user_tracknumber_9501_10000 \G"
+									msql -e "USE TRACKINGDB;SELECT COUNT(*) as tr_user_tracknumber_95501_96000 FROM tr_user_tracknumber_95501_96000 \G"
+									msql -e "USE TRACKINGDB;SELECT COUNT(*) as tr_user_tracknumber_96001_96500 FROM tr_user_tracknumber_96001_96500 \G"
+									msql -e "USE TRACKINGDB;SELECT COUNT(*) as tr_user_tracknumber_96501_97000 FROM tr_user_tracknumber_96501_97000 \G"
+									msql -e "USE TRACKINGDB;SELECT COUNT(*) as tr_user_tracknumber_97001_97500 FROM tr_user_tracknumber_97001_97500 \G"
+									msql -e "USE TRACKINGDB;SELECT COUNT(*) as tr_user_tracknumber_97501_98000 FROM tr_user_tracknumber_97501_98000 \G"
+									msql -e "USE TRACKINGDB;SELECT COUNT(*) as tr_user_tracknumber_98001_98500 FROM tr_user_tracknumber_98001_98500 \G"
+									msql -e "USE TRACKINGDB;SELECT COUNT(*) as tr_user_tracknumber_98501_99000 FROM tr_user_tracknumber_98501_99000 \G"
+									msql -e "USE TRACKINGDB;SELECT COUNT(*) as tr_user_tracknumber_99001_99500 FROM tr_user_tracknumber_99001_99500 \G"
+									msql -e "USE TRACKINGDB;SELECT COUNT(*) as tr_user_tracknumber_99501_100000 FROM tr_user_tracknumber_99501_100000 \G"
+									[root@iz0xibhd8xjxiru8zt5ietz ~]# crontab -e
+									crontab: no changes made to crontab
+									[root@iz0xibhd8xjxiru8zt5ietz ~]# tail -100 sum.sh
+									msql -e "USE TRACKINGDB;SELECT COUNT(*) as tr_user_tracknumber_58142_58142 FROM tr_user_tracknumber_58142_58142 \G"
+									msql -e "USE TRACKINGDB;SELECT COUNT(*) as tr_user_tracknumber_58143_58143 FROM tr_user_tracknumber_58143_58143 \G"
+									msql -e "USE TRACKINGDB;SELECT COUNT(*) as tr_user_tracknumber_58144_58144 FROM tr_user_tracknumber_58144_58144 \G"
+									msql -e "USE TRACKINGDB;SELECT COUNT(*) as tr_user_tracknumber_58145_58145 FROM tr_user_tracknumber_58145_58145 \G"
+									msql -e "USE TRACKINGDB;SELECT COUNT(*) as tr_user_tracknumber_58146_58146 FROM tr_user_tracknumber_58146_58146 \G"
+									msql -e "USE TRACKINGDB;SELECT COUNT(*) as tr_user_tracknumber_58147_58147 FROM tr_user_tracknumber_58147_58147 \G"
+									msql -e "USE TRACKINGDB;SELECT COUNT(*) as tr_user_tracknumber_58148_58148 FROM tr_user_tracknumber_58148_58148 \G"
+									msql -e "USE TRACKINGDB;SELECT COUNT(*) as tr_user_tracknumber_58149_58149 FROM tr_user_tracknumber_58149_58149 \G"
+									msql -e "USE TRACKINGDB;SELECT COUNT(*) as tr_user_tracknumber_58150_58150 FROM tr_user_tracknumber_58150_58150 \G"
+									msql -e "USE TRACKINGDB;SELECT COUNT(*) as tr_user_tracknumber_58501_59000 FROM tr_user_tracknumber_58501_59000 \G"
+									msql -e "USE TRACKINGDB;SELECT COUNT(*) as tr_user_tracknumber_59001_59500 FROM tr_user_tracknumber_59001_59500 \G"
+									msql -e "USE TRACKINGDB;SELECT COUNT(*) as tr_user_tracknumber_59501_60000 FROM tr_user_tracknumber_59501_60000 \G"
+									msql -e "USE TRACKINGDB;SELECT COUNT(*) as tr_user_tracknumber_60001_60500 FROM tr_user_tracknumber_60001_60500 \G"
+									msql -e "USE TRACKINGDB;SELECT COUNT(*) as tr_user_tracknumber_6001_6500 FROM tr_user_tracknumber_6001_6500 \G"
+									msql -e "USE TRACKINGDB;SELECT COUNT(*) as tr_user_tracknumber_60501_61000 FROM tr_user_tracknumber_60501_61000 \G"
+									msql -e "USE TRACKINGDB;SELECT COUNT(*) as tr_user_tracknumber_61001_61500 FROM tr_user_tracknumber_61001_61500 \G"
+									msql -e "USE TRACKINGDB;SELECT COUNT(*) as tr_user_tracknumber_61501_62000 FROM tr_user_tracknumber_61501_62000 \G"
+									msql -e "USE TRACKINGDB;SELECT COUNT(*) as tr_user_tracknumber_62001_62500 FROM tr_user_tracknumber_62001_62500 \G"
+									msql -e "USE TRACKINGDB;SELECT COUNT(*) as tr_user_tracknumber_62501_63000 FROM tr_user_tracknumber_62501_63000 \G"
+									msql -e "USE TRACKINGDB;SELECT COUNT(*) as tr_user_tracknumber_63001_63500 FROM tr_user_tracknumber_63001_63500 \G"
+									msql -e "USE TRACKINGDB;SELECT COUNT(*) as tr_user_tracknumber_63501_64000 FROM tr_user_tracknumber_63501_64000 \G"
+									msql -e "USE TRACKINGDB;SELECT COUNT(*) as tr_user_tracknumber_64001_64500 FROM tr_user_tracknumber_64001_64500 \G"
+									msql -e "USE TRACKINGDB;SELECT COUNT(*) as tr_user_tracknumber_64501_65000 FROM tr_user_tracknumber_64501_65000 \G"
+									msql -e "USE TRACKINGDB;SELECT COUNT(*) as tr_user_tracknumber_65001_65500 FROM tr_user_tracknumber_65001_65500 \G"
+									msql -e "USE TRACKINGDB;SELECT COUNT(*) as tr_user_tracknumber_6501_7000 FROM tr_user_tracknumber_6501_7000 \G"
+									msql -e "USE TRACKINGDB;SELECT COUNT(*) as tr_user_tracknumber_65501_66000 FROM tr_user_tracknumber_65501_66000 \G"
+									msql -e "USE TRACKINGDB;SELECT COUNT(*) as tr_user_tracknumber_66001_66500 FROM tr_user_tracknumber_66001_66500 \G"
+									msql -e "USE TRACKINGDB;SELECT COUNT(*) as tr_user_tracknumber_66501_67000 FROM tr_user_tracknumber_66501_67000 \G"
+									msql -e "USE TRACKINGDB;SELECT COUNT(*) as tr_user_tracknumber_67001_67500 FROM tr_user_tracknumber_67001_67500 \G"
+									msql -e "USE TRACKINGDB;SELECT COUNT(*) as tr_user_tracknumber_67501_68000 FROM tr_user_tracknumber_67501_68000 \G"
+									msql -e "USE TRACKINGDB;SELECT COUNT(*) as tr_user_tracknumber_68001_68500 FROM tr_user_tracknumber_68001_68500 \G"
+									msql -e "USE TRACKINGDB;SELECT COUNT(*) as tr_user_tracknumber_68501_69000 FROM tr_user_tracknumber_68501_69000 \G"
+									msql -e "USE TRACKINGDB;SELECT COUNT(*) as tr_user_tracknumber_69001_69500 FROM tr_user_tracknumber_69001_69500 \G"
+									msql -e "USE TRACKINGDB;SELECT COUNT(*) as tr_user_tracknumber_69501_70000 FROM tr_user_tracknumber_69501_70000 \G"
+									msql -e "USE TRACKINGDB;SELECT COUNT(*) as tr_user_tracknumber_70001_70500 FROM tr_user_tracknumber_70001_70500 \G"
+									msql -e "USE TRACKINGDB;SELECT COUNT(*) as tr_user_tracknumber_7001_7500 FROM tr_user_tracknumber_7001_7500 \G"
+									msql -e "USE TRACKINGDB;SELECT COUNT(*) as tr_user_tracknumber_70501_71000 FROM tr_user_tracknumber_70501_71000 \G"
+									msql -e "USE TRACKINGDB;SELECT COUNT(*) as tr_user_tracknumber_71001_71500 FROM tr_user_tracknumber_71001_71500 \G"
+									msql -e "USE TRACKINGDB;SELECT COUNT(*) as tr_user_tracknumber_71501_72000 FROM tr_user_tracknumber_71501_72000 \G"
+									msql -e "USE TRACKINGDB;SELECT COUNT(*) as tr_user_tracknumber_72001_72500 FROM tr_user_tracknumber_72001_72500 \G"
+									msql -e "USE TRACKINGDB;SELECT COUNT(*) as tr_user_tracknumber_72501_73000 FROM tr_user_tracknumber_72501_73000 \G"
+									msql -e "USE TRACKINGDB;SELECT COUNT(*) as tr_user_tracknumber_73001_73500 FROM tr_user_tracknumber_73001_73500 \G"
+									msql -e "USE TRACKINGDB;SELECT COUNT(*) as tr_user_tracknumber_73501_74000 FROM tr_user_tracknumber_73501_74000 \G"
+									msql -e "USE TRACKINGDB;SELECT COUNT(*) as tr_user_tracknumber_74001_74500 FROM tr_user_tracknumber_74001_74500 \G"
+									msql -e "USE TRACKINGDB;SELECT COUNT(*) as tr_user_tracknumber_74501_75000 FROM tr_user_tracknumber_74501_75000 \G"
+									msql -e "USE TRACKINGDB;SELECT COUNT(*) as tr_user_tracknumber_75001_75500 FROM tr_user_tracknumber_75001_75500 \G"
+									msql -e "USE TRACKINGDB;SELECT COUNT(*) as tr_user_tracknumber_7501_8000 FROM tr_user_tracknumber_7501_8000 \G"
+									msql -e "USE TRACKINGDB;SELECT COUNT(*) as tr_user_tracknumber_75501_76000 FROM tr_user_tracknumber_75501_76000 \G"
+									msql -e "USE TRACKINGDB;SELECT COUNT(*) as tr_user_tracknumber_76001_76500 FROM tr_user_tracknumber_76001_76500 \G"
+									msql -e "USE TRACKINGDB;SELECT COUNT(*) as tr_user_tracknumber_76501_77000 FROM tr_user_tracknumber_76501_77000 \G"
+									msql -e "USE TRACKINGDB;SELECT COUNT(*) as tr_user_tracknumber_77001_77500 FROM tr_user_tracknumber_77001_77500 \G"
+									msql -e "USE TRACKINGDB;SELECT COUNT(*) as tr_user_tracknumber_77501_78000 FROM tr_user_tracknumber_77501_78000 \G"
+									msql -e "USE TRACKINGDB;SELECT COUNT(*) as tr_user_tracknumber_78001_78500 FROM tr_user_tracknumber_78001_78500 \G"
+									msql -e "USE TRACKINGDB;SELECT COUNT(*) as tr_user_tracknumber_78501_79000 FROM tr_user_tracknumber_78501_79000 \G"
+									msql -e "USE TRACKINGDB;SELECT COUNT(*) as tr_user_tracknumber_79001_79500 FROM tr_user_tracknumber_79001_79500 \G"
+									msql -e "USE TRACKINGDB;SELECT COUNT(*) as tr_user_tracknumber_79501_80000 FROM tr_user_tracknumber_79501_80000 \G"
+									msql -e "USE TRACKINGDB;SELECT COUNT(*) as tr_user_tracknumber_80001_80500 FROM tr_user_tracknumber_80001_80500 \G"
+									msql -e "USE TRACKINGDB;SELECT COUNT(*) as tr_user_tracknumber_8001_8500 FROM tr_user_tracknumber_8001_8500 \G"
+									msql -e "USE TRACKINGDB;SELECT COUNT(*) as tr_user_tracknumber_80501_81000 FROM tr_user_tracknumber_80501_81000 \G"
+									msql -e "USE TRACKINGDB;SELECT COUNT(*) as tr_user_tracknumber_81001_81500 FROM tr_user_tracknumber_81001_81500 \G"
+									msql -e "USE TRACKINGDB;SELECT COUNT(*) as tr_user_tracknumber_81501_82000 FROM tr_user_tracknumber_81501_82000 \G"
+									msql -e "USE TRACKINGDB;SELECT COUNT(*) as tr_user_tracknumber_82001_82500 FROM tr_user_tracknumber_82001_82500 \G"
+									msql -e "USE TRACKINGDB;SELECT COUNT(*) as tr_user_tracknumber_82501_83000 FROM tr_user_tracknumber_82501_83000 \G"
+									msql -e "USE TRACKINGDB;SELECT COUNT(*) as tr_user_tracknumber_83001_83500 FROM tr_user_tracknumber_83001_83500 \G"
+									msql -e "USE TRACKINGDB;SELECT COUNT(*) as tr_user_tracknumber_83501_84000 FROM tr_user_tracknumber_83501_84000 \G"
+									msql -e "USE TRACKINGDB;SELECT COUNT(*) as tr_user_tracknumber_84001_84500 FROM tr_user_tracknumber_84001_84500 \G"
+									msql -e "USE TRACKINGDB;SELECT COUNT(*) as tr_user_tracknumber_84501_85000 FROM tr_user_tracknumber_84501_85000 \G"
+									msql -e "USE TRACKINGDB;SELECT COUNT(*) as tr_user_tracknumber_85001_85500 FROM tr_user_tracknumber_85001_85500 \G"
+									msql -e "USE TRACKINGDB;SELECT COUNT(*) as tr_user_tracknumber_8501_9000 FROM tr_user_tracknumber_8501_9000 \G"
+									msql -e "USE TRACKINGDB;SELECT COUNT(*) as tr_user_tracknumber_85501_86000 FROM tr_user_tracknumber_85501_86000 \G"
+									msql -e "USE TRACKINGDB;SELECT COUNT(*) as tr_user_tracknumber_86001_86500 FROM tr_user_tracknumber_86001_86500 \G"
+									msql -e "USE TRACKINGDB;SELECT COUNT(*) as tr_user_tracknumber_86501_87000 FROM tr_user_tracknumber_86501_87000 \G"
+									msql -e "USE TRACKINGDB;SELECT COUNT(*) as tr_user_tracknumber_87001_87500 FROM tr_user_tracknumber_87001_87500 \G"
+									msql -e "USE TRACKINGDB;SELECT COUNT(*) as tr_user_tracknumber_87501_88000 FROM tr_user_tracknumber_87501_88000 \G"
+									msql -e "USE TRACKINGDB;SELECT COUNT(*) as tr_user_tracknumber_88001_88500 FROM tr_user_tracknumber_88001_88500 \G"
+									msql -e "USE TRACKINGDB;SELECT COUNT(*) as tr_user_tracknumber_88501_89000 FROM tr_user_tracknumber_88501_89000 \G"
+									msql -e "USE TRACKINGDB;SELECT COUNT(*) as tr_user_tracknumber_89001_89500 FROM tr_user_tracknumber_89001_89500 \G"
+									msql -e "USE TRACKINGDB;SELECT COUNT(*) as tr_user_tracknumber_89501_90000 FROM tr_user_tracknumber_89501_90000 \G"
+									msql -e "USE TRACKINGDB;SELECT COUNT(*) as tr_user_tracknumber_90001_90500 FROM tr_user_tracknumber_90001_90500 \G"
+									msql -e "USE TRACKINGDB;SELECT COUNT(*) as tr_user_tracknumber_9001_9500 FROM tr_user_tracknumber_9001_9500 \G"
+									msql -e "USE TRACKINGDB;SELECT COUNT(*) as tr_user_tracknumber_90501_91000 FROM tr_user_tracknumber_90501_91000 \G"
+									msql -e "USE TRACKINGDB;SELECT COUNT(*) as tr_user_tracknumber_91001_91500 FROM tr_user_tracknumber_91001_91500 \G"
+									msql -e "USE TRACKINGDB;SELECT COUNT(*) as tr_user_tracknumber_91501_92000 FROM tr_user_tracknumber_91501_92000 \G"
+									msql -e "USE TRACKINGDB;SELECT COUNT(*) as tr_user_tracknumber_92001_92500 FROM tr_user_tracknumber_92001_92500 \G"
+									msql -e "USE TRACKINGDB;SELECT COUNT(*) as tr_user_tracknumber_92501_93000 FROM tr_user_tracknumber_92501_93000 \G"
+									msql -e "USE TRACKINGDB;SELECT COUNT(*) as tr_user_tracknumber_93001_93500 FROM tr_user_tracknumber_93001_93500 \G"
+									msql -e "USE TRACKINGDB;SELECT COUNT(*) as tr_user_tracknumber_93501_94000 FROM tr_user_tracknumber_93501_94000 \G"
+									msql -e "USE TRACKINGDB;SELECT COUNT(*) as tr_user_tracknumber_94001_94500 FROM tr_user_tracknumber_94001_94500 \G"
+									msql -e "USE TRACKINGDB;SELECT COUNT(*) as tr_user_tracknumber_94501_95000 FROM tr_user_tracknumber_94501_95000 \G"
+									msql -e "USE TRACKINGDB;SELECT COUNT(*) as tr_user_tracknumber_95001_95500 FROM tr_user_tracknumber_95001_95500 \G"
+									msql -e "USE TRACKINGDB;SELECT COUNT(*) as tr_user_tracknumber_9501_10000 FROM tr_user_tracknumber_9501_10000 \G"
+									msql -e "USE TRACKINGDB;SELECT COUNT(*) as tr_user_tracknumber_95501_96000 FROM tr_user_tracknumber_95501_96000 \G"
+									msql -e "USE TRACKINGDB;SELECT COUNT(*) as tr_user_tracknumber_96001_96500 FROM tr_user_tracknumber_96001_96500 \G"
+									msql -e "USE TRACKINGDB;SELECT COUNT(*) as tr_user_tracknumber_96501_97000 FROM tr_user_tracknumber_96501_97000 \G"
+									msql -e "USE TRACKINGDB;SELECT COUNT(*) as tr_user_tracknumber_97001_97500 FROM tr_user_tracknumber_97001_97500 \G"
+									msql -e "USE TRACKINGDB;SELECT COUNT(*) as tr_user_tracknumber_97501_98000 FROM tr_user_tracknumber_97501_98000 \G"
+									msql -e "USE TRACKINGDB;SELECT COUNT(*) as tr_user_tracknumber_98001_98500 FROM tr_user_tracknumber_98001_98500 \G"
+									msql -e "USE TRACKINGDB;SELECT COUNT(*) as tr_user_tracknumber_98501_99000 FROM tr_user_tracknumber_98501_99000 \G"
+									msql -e "USE TRACKINGDB;SELECT COUNT(*) as tr_user_tracknumber_99001_99500 FROM tr_user_tracknumber_99001_99500 \G"
+									msql -e "USE TRACKINGDB;SELECT COUNT(*) as tr_user_tracknumber_99501_100000 FROM tr_user_tracknumber_99501_100000 \G"
+									[root@iz0xibhd8xjxiru8zt5ietz ~]# crontab -e
+									crontab: installing new crontab
+									[root@iz0xibhd8xjxiru8zt5ietz ~]# df -h
+									Filesystem      Size  Used Avail Use% Mounted on
+									devtmpfs         12G  4.0K   12G   1% /dev
+									tmpfs            12G     0   12G   0% /dev/shm
+									tmpfs            12G  3.2G  8.2G  29% /run
+									tmpfs            12G     0   12G   0% /sys/fs/cgroup
+									/dev/vda1        40G   38G  1.7G  96% /
+									tmpfs           2.3G     0  2.3G   0% /run/user/0
+									overlay          40G   38G  1.7G  96% /var/lib/docker/overlay2/f32f1a66a724922b4b6e3b3025bf7c26702d2acd8c9cdb4483c57405e4c1f944/merged
+									overlay          40G   38G  1.7G  96% /var/lib/docker/overlay2/3bc24f2e1f02be2da94aaa45204fde4cfae4723e190c4a093ee0061039f7914d/merged
+									overlay          40G   38G  1.7G  96% /var/lib/docker/overlay2/a1450f72c102025794e3a1854eed67304fc338bf57308a68687105ad6a8e0523/merged
+									overlay          40G   38G  1.7G  96% /var/lib/docker/overlay2/f47e87ac2faec4bca2c5f5af763200c42f5e2abffafd8d5c9f6e3c9746bf8b33/merged
+									overlay          40G   38G  1.7G  96% /var/lib/docker/overlay2/d68fb40923d5526fb9dcb18fa13392d9bfd34a778c7613bd246b724e33ec8d28/merged
+									overlay          40G   38G  1.7G  96% /var/lib/docker/overlay2/9cfa905c1ee2a08387bef1e63d31a7829de8b72976db5fd631772ade7991f273/merged
+									overlay          40G   38G  1.7G  96% /var/lib/docker/overlay2/42269d276137de374266bd0384ab49d701a5eab0d36d53d47f5dedf19f5468dd/merged
+									overlay          40G   38G  1.7G  96% /var/lib/docker/overlay2/bc9e4c0ba99e5eea457c3213b25013c977cffda5de52e96c2b67bfb3d782a060/merged
+									overlay          40G   38G  1.7G  96% /var/lib/docker/overlay2/106d2f39d28ba0ccf0ba824f5c8afae4291386cbedd9da83016551318fd13ee9/merged
+									overlay          40G   38G  1.7G  96% /var/lib/docker/overlay2/622341e4442b12d79faf8acb4fca31f843e81b9ad7ed44cf04f5ca18a8e2fd41/merged
+									overlay          40G   38G  1.7G  96% /var/lib/docker/overlay2/a202e929b22b6072bc0d7ceddfd1cfdece1d65a793010cce5baef8b6d06480c4/merged
+									overlay          40G   38G  1.7G  96% /var/lib/docker/overlay2/d84d991b31d78d89f4ab89de6ed5b3ed55219cafbc59cc10724dfda757d3d29e/merged
+									overlay          40G   38G  1.7G  96% /var/lib/docker/overlay2/2f76cb191a8db2ea1eef0c32a31ddd6a2ac7938a5330aac90a5b49372b65dc5c/merged
+									overlay          40G   38G  1.7G  96% /var/lib/docker/overlay2/45c7a8f0840352e35f4e839a4a8972085934473d449e5484fd94692c83e60c0a/merged
+									overlay          40G   38G  1.7G  96% /var/lib/docker/overlay2/c0523133d8a45896117674a96206555ecf15a8f2c6a08533aa92b76fe7a2e1b7/merged
+									overlay          40G   38G  1.7G  96% /var/lib/docker/overlay2/138729e3105c2c2de8cb298b175134cdec0115a2e4f55117046f5f2aee1acad6/merged
+									overlay          40G   38G  1.7G  96% /var/lib/docker/overlay2/4fd12a13c8ddd80f348dadf0537b4afd99903b4692d23e119f114b41c85009b7/merged
+									overlay          40G   38G  1.7G  96% /var/lib/docker/overlay2/cf7fc074fc31a7d91600a34db842944b8a7937b7a5d9e48f8afc9a7cd3212a81/merged
+									tmpfs           2.3G     0  2.3G   0% /run/user/1002
+								-159-205-tm
+									[root@iz0xif9y7r0fstxmq97t54z ~]# find / -name '*' -type f -size +100M | xargs ls -lh {} | sort -nrk5
+									find: ‘/proc/11716/task/11716/fdinfo/6’: No such file or directory
+									find: ‘/proc/11716/fdinfo/6’: No such file or directory
+									ls: cannot access {}: No such file or directory
+									-rw-r--r-- 1 root root 717M Aug 18 23:21 /run/log/171.csv.zip
+									-rw-r--r-- 1 root root 672M Dec  4 23:28 /run/log/20241204.zip
+									-rw-r--r-- 1 root root 234M Jan 11  2023 /run/log/home-wwwroot-www.trackingmore.com-admin-upload-auto_csv/390.csv.zip
+									-rw-r--r-- 1 root root 170M Aug 18 23:29 /run/log/1716.csv.zip
+									-rw-r--r-- 1 root root 170M Aug 18 23:26 /run/log/1715.csv.zip
+									-rw-r--r-- 1 root root 169M Aug 18 23:24 /run/log/1714.csv.zip
+									-rw-r--r-- 1 root root 163M Aug 18 23:36 /run/log/1718.csv.zip
+									-rw-r--r-- 1 root root 148M Aug 18 23:32 /run/log/1717.csv.zip
+									-rw-r--r-- 1 root root 136M Dec 10 19:03 /run/log/20241210.zip
+									-r-------- 1 root root 128T Jan 26 22:20 /proc/kcore
+									-rw-r--r-- 1 root root 121M Jul  6  2023 /var/cache/yum/x86_64/7/updates/gen/primary_db.sqlite
+									-rw-r--r-- 1 root root 102M Mar 16  2018 /usr/lib/locale/locale-archive
+									[root@iz0xif9y7r0fstxmq97t54z ~]# df -h
+									Filesystem      Size  Used Avail Use% Mounted on
+									/dev/vda1        40G   39G  356M 100% /
+									devtmpfs         16G     0   16G   0% /dev
+									tmpfs            16G     0   16G   0% /dev/shm
+									tmpfs            16G   15G  402M  98% /run
+									tmpfs            16G     0   16G   0% /sys/fs/cgroup
+									tmpfs           3.1G     0  3.1G   0% /run/user/0
+									tmpfs           3.1G     0  3.1G   0% /run/user/1002
+									overlay          40G   39G  356M 100% /var/lib/docker/overlay2/d2703df78bc816ff68a6a91dd805825fdf41731b86dfb1acd45f001bad32e406/merged
+									overlay          40G   39G  356M 100% /var/lib/docker/overlay2/c043633fbddd7d4d2248284247bf06cc75fa5c740aa1366400bce75bb4168d14/merged
+									overlay          40G   39G  356M 100% /var/lib/docker/overlay2/b47a079dc9b17057739e60cc62794e9a083ef16f31890d897d67b8f31bd7a89a/merged
+									overlay          40G   39G  356M 100% /var/lib/docker/overlay2/83a49448c3e2713448d182eeb258505bdc2ef04eec331ba8b4499705e6ff06ed/merged
+									overlay          40G   39G  356M 100% /var/lib/docker/overlay2/46169c1ebedc71c054485e7a978387aa1d1b216470e539ecf3a12e84fd9c64aa/merged
+									overlay          40G   39G  356M 100% /var/lib/docker/overlay2/5a5d007e804e80f97e67cb993e7c00b6716bab22d40d780b03766a6ae871c4f3/merged
+									overlay          40G   39G  356M 100% /var/lib/docker/overlay2/1c60ac1751f37f5ea647ab8ad054192ec6eb9366d0ecc1b87b8d9d41e8933d98/merged
+									overlay          40G   39G  356M 100% /var/lib/docker/overlay2/eeb9c4ad79ae52e1698640c687ff2ef67360853b151f7ef2c61d8af38bd4a667/merged
+									overlay          40G   39G  356M 100% /var/lib/docker/overlay2/c780375c3d2c9bb41aea4785502cb8c045059b9666dbbfd4ce1b27c170de570b/merged
+									overlay          40G   39G  356M 100% /var/lib/docker/overlay2/5b9c7648f8a3103ae472be96492b4d694f28b9d4636f4a3c7fc28387b15f3c5b/merged
+									overlay          40G   39G  356M 100% /var/lib/docker/overlay2/be0afb28162fb4cbbba3653a35944a6fcc80eb1367426089b3c37dcac0af5053/merged
+									overlay          40G   39G  356M 100% /var/lib/docker/overlay2/b68be4f7b9222815ce8e644673aaef6cb6995ea0f7ebb85900394e898231568e/merged
+									overlay          40G   39G  356M 100% /var/lib/docker/overlay2/b8002b093029398fa675a5f103ad00052abffc8ea71c3d32e987e853a3958baf/merged
+									overlay          40G   39G  356M 100% /var/lib/docker/overlay2/9260ba6e864c36bbffd8248bee952df6b8ae211cbb40a17b954e95c4446b6450/merged
+									overlay          40G   39G  356M 100% /var/lib/docker/overlay2/ed7aa946cad59fe8f785e810a2cc68636ae6ee4aa076d291c674f0a8e780c3bd/merged
+									overlay          40G   39G  356M 100% /var/lib/docker/overlay2/42f90134a9d2925e59000e462681b05b6a399b31228537281a92f25afc8df878/merged
+									overlay          40G   39G  356M 100% /var/lib/docker/overlay2/40d2cb0487f9b57bc2bb10bf1e52d5fc1caca3dd35af46c0ee2f3779028edf2d/merged
+									overlay          40G   39G  356M 100% /var/lib/docker/overlay2/cf95d1b2d1272e586c0196fb584c7a7517890a94206cbca3e7a567756d036aad/merged
+									[root@iz0xif9y7r0fstxmq97t54z ~]# find /data/server_logs/root/  -name '*trackingSingleQueue.log.zip'  | grep -v '20250126' | xargs -i rm -f {}
+									[root@iz0xif9y7r0fstxmq97t54z ~]# df -h
+									Filesystem      Size  Used Avail Use% Mounted on
+									/dev/vda1        40G   38G  894M  98% /
+									devtmpfs         16G     0   16G   0% /dev
+									tmpfs            16G     0   16G   0% /dev/shm
+									tmpfs            16G   15G  402M  98% /run
+									tmpfs            16G     0   16G   0% /sys/fs/cgroup
+									tmpfs           3.1G     0  3.1G   0% /run/user/0
+									tmpfs           3.1G     0  3.1G   0% /run/user/1002
+									overlay          40G   38G  894M  98% /var/lib/docker/overlay2/d2703df78bc816ff68a6a91dd805825fdf41731b86dfb1acd45f001bad32e406/merged
+									overlay          40G   38G  894M  98% /var/lib/docker/overlay2/c043633fbddd7d4d2248284247bf06cc75fa5c740aa1366400bce75bb4168d14/merged
+									overlay          40G   38G  894M  98% /var/lib/docker/overlay2/b47a079dc9b17057739e60cc62794e9a083ef16f31890d897d67b8f31bd7a89a/merged
+									overlay          40G   38G  894M  98% /var/lib/docker/overlay2/83a49448c3e2713448d182eeb258505bdc2ef04eec331ba8b4499705e6ff06ed/merged
+									overlay          40G   38G  894M  98% /var/lib/docker/overlay2/46169c1ebedc71c054485e7a978387aa1d1b216470e539ecf3a12e84fd9c64aa/merged
+									overlay          40G   38G  894M  98% /var/lib/docker/overlay2/5a5d007e804e80f97e67cb993e7c00b6716bab22d40d780b03766a6ae871c4f3/merged
+									overlay          40G   38G  894M  98% /var/lib/docker/overlay2/1c60ac1751f37f5ea647ab8ad054192ec6eb9366d0ecc1b87b8d9d41e8933d98/merged
+									overlay          40G   38G  894M  98% /var/lib/docker/overlay2/eeb9c4ad79ae52e1698640c687ff2ef67360853b151f7ef2c61d8af38bd4a667/merged
+									overlay          40G   38G  894M  98% /var/lib/docker/overlay2/c780375c3d2c9bb41aea4785502cb8c045059b9666dbbfd4ce1b27c170de570b/merged
+									overlay          40G   38G  894M  98% /var/lib/docker/overlay2/5b9c7648f8a3103ae472be96492b4d694f28b9d4636f4a3c7fc28387b15f3c5b/merged
+									overlay          40G   38G  894M  98% /var/lib/docker/overlay2/be0afb28162fb4cbbba3653a35944a6fcc80eb1367426089b3c37dcac0af5053/merged
+									overlay          40G   38G  894M  98% /var/lib/docker/overlay2/b68be4f7b9222815ce8e644673aaef6cb6995ea0f7ebb85900394e898231568e/merged
+									overlay          40G   38G  894M  98% /var/lib/docker/overlay2/b8002b093029398fa675a5f103ad00052abffc8ea71c3d32e987e853a3958baf/merged
+									overlay          40G   38G  894M  98% /var/lib/docker/overlay2/9260ba6e864c36bbffd8248bee952df6b8ae211cbb40a17b954e95c4446b6450/merged
+									overlay          40G   38G  894M  98% /var/lib/docker/overlay2/ed7aa946cad59fe8f785e810a2cc68636ae6ee4aa076d291c674f0a8e780c3bd/merged
+									overlay          40G   38G  894M  98% /var/lib/docker/overlay2/42f90134a9d2925e59000e462681b05b6a399b31228537281a92f25afc8df878/merged
+									overlay          40G   38G  894M  98% /var/lib/docker/overlay2/40d2cb0487f9b57bc2bb10bf1e52d5fc1caca3dd35af46c0ee2f3779028edf2d/merged
+									overlay          40G   38G  894M  98% /var/lib/docker/overlay2/cf95d1b2d1272e586c0196fb584c7a7517890a94206cbca3e7a567756d036aad/merged
+									[root@iz0xif9y7r0fstxmq97t54z ~]# find /data/server_logs/home/wwwroot/www.trackingmore.com/logs  -name '*hopi*' -type f | grep -v '2025012' | xargs -i rm -f {}
+									[root@iz0xif9y7r0fstxmq97t54z ~]# df -h
+									Filesystem      Size  Used Avail Use% Mounted on
+									/dev/vda1        40G   38G  1.1G  98% /
+									devtmpfs         16G     0   16G   0% /dev
+									tmpfs            16G     0   16G   0% /dev/shm
+									tmpfs            16G   15G  402M  98% /run
+									tmpfs            16G     0   16G   0% /sys/fs/cgroup
+									tmpfs           3.1G     0  3.1G   0% /run/user/0
+									tmpfs           3.1G     0  3.1G   0% /run/user/1002
+									overlay          40G   38G  1.1G  98% /var/lib/docker/overlay2/d2703df78bc816ff68a6a91dd805825fdf41731b86dfb1acd45f001bad32e406/merged
+									overlay          40G   38G  1.1G  98% /var/lib/docker/overlay2/c043633fbddd7d4d2248284247bf06cc75fa5c740aa1366400bce75bb4168d14/merged
+									overlay          40G   38G  1.1G  98% /var/lib/docker/overlay2/b47a079dc9b17057739e60cc62794e9a083ef16f31890d897d67b8f31bd7a89a/merged
+									overlay          40G   38G  1.1G  98% /var/lib/docker/overlay2/83a49448c3e2713448d182eeb258505bdc2ef04eec331ba8b4499705e6ff06ed/merged
+									overlay          40G   38G  1.1G  98% /var/lib/docker/overlay2/46169c1ebedc71c054485e7a978387aa1d1b216470e539ecf3a12e84fd9c64aa/merged
+									overlay          40G   38G  1.1G  98% /var/lib/docker/overlay2/5a5d007e804e80f97e67cb993e7c00b6716bab22d40d780b03766a6ae871c4f3/merged
+									overlay          40G   38G  1.1G  98% /var/lib/docker/overlay2/1c60ac1751f37f5ea647ab8ad054192ec6eb9366d0ecc1b87b8d9d41e8933d98/merged
+									overlay          40G   38G  1.1G  98% /var/lib/docker/overlay2/eeb9c4ad79ae52e1698640c687ff2ef67360853b151f7ef2c61d8af38bd4a667/merged
+									overlay          40G   38G  1.1G  98% /var/lib/docker/overlay2/c780375c3d2c9bb41aea4785502cb8c045059b9666dbbfd4ce1b27c170de570b/merged
+									overlay          40G   38G  1.1G  98% /var/lib/docker/overlay2/5b9c7648f8a3103ae472be96492b4d694f28b9d4636f4a3c7fc28387b15f3c5b/merged
+									overlay          40G   38G  1.1G  98% /var/lib/docker/overlay2/be0afb28162fb4cbbba3653a35944a6fcc80eb1367426089b3c37dcac0af5053/merged
+									overlay          40G   38G  1.1G  98% /var/lib/docker/overlay2/b68be4f7b9222815ce8e644673aaef6cb6995ea0f7ebb85900394e898231568e/merged
+									overlay          40G   38G  1.1G  98% /var/lib/docker/overlay2/b8002b093029398fa675a5f103ad00052abffc8ea71c3d32e987e853a3958baf/merged
+									overlay          40G   38G  1.1G  98% /var/lib/docker/overlay2/9260ba6e864c36bbffd8248bee952df6b8ae211cbb40a17b954e95c4446b6450/merged
+									overlay          40G   38G  1.1G  98% /var/lib/docker/overlay2/ed7aa946cad59fe8f785e810a2cc68636ae6ee4aa076d291c674f0a8e780c3bd/merged
+									overlay          40G   38G  1.1G  98% /var/lib/docker/overlay2/42f90134a9d2925e59000e462681b05b6a399b31228537281a92f25afc8df878/merged
+									overlay          40G   38G  1.1G  98% /var/lib/docker/overlay2/40d2cb0487f9b57bc2bb10bf1e52d5fc1caca3dd35af46c0ee2f3779028edf2d/merged
+									overlay          40G   38G  1.1G  98% /var/lib/docker/overlay2/cf95d1b2d1272e586c0196fb584c7a7517890a94206cbca3e7a567756d036aad/merged
+									[root@iz0xif9y7r0fstxmq97t54z ~]# find /data/server_logs/home/wwwroot/www.trackingmore.com/logs  -name '*order_status.log.zip'  | grep -v '2025012' | xargs -i rm -f {}
+									[root@iz0xif9y7r0fstxmq97t54z ~]# df -h
+									Filesystem      Size  Used Avail Use% Mounted on
+									/dev/vda1        40G   38G  1.2G  97% /
+									devtmpfs         16G     0   16G   0% /dev
+									tmpfs            16G     0   16G   0% /dev/shm
+									tmpfs            16G   15G  402M  98% /run
+									tmpfs            16G     0   16G   0% /sys/fs/cgroup
+									tmpfs           3.1G     0  3.1G   0% /run/user/0
+									tmpfs           3.1G     0  3.1G   0% /run/user/1002
+									overlay          40G   38G  1.2G  97% /var/lib/docker/overlay2/d2703df78bc816ff68a6a91dd805825fdf41731b86dfb1acd45f001bad32e406/merged
+									overlay          40G   38G  1.2G  97% /var/lib/docker/overlay2/c043633fbddd7d4d2248284247bf06cc75fa5c740aa1366400bce75bb4168d14/merged
+									overlay          40G   38G  1.2G  97% /var/lib/docker/overlay2/b47a079dc9b17057739e60cc62794e9a083ef16f31890d897d67b8f31bd7a89a/merged
+									overlay          40G   38G  1.2G  97% /var/lib/docker/overlay2/83a49448c3e2713448d182eeb258505bdc2ef04eec331ba8b4499705e6ff06ed/merged
+									overlay          40G   38G  1.2G  97% /var/lib/docker/overlay2/46169c1ebedc71c054485e7a978387aa1d1b216470e539ecf3a12e84fd9c64aa/merged
+									overlay          40G   38G  1.2G  97% /var/lib/docker/overlay2/5a5d007e804e80f97e67cb993e7c00b6716bab22d40d780b03766a6ae871c4f3/merged
+									overlay          40G   38G  1.2G  97% /var/lib/docker/overlay2/1c60ac1751f37f5ea647ab8ad054192ec6eb9366d0ecc1b87b8d9d41e8933d98/merged
+									overlay          40G   38G  1.2G  97% /var/lib/docker/overlay2/eeb9c4ad79ae52e1698640c687ff2ef67360853b151f7ef2c61d8af38bd4a667/merged
+									overlay          40G   38G  1.2G  97% /var/lib/docker/overlay2/c780375c3d2c9bb41aea4785502cb8c045059b9666dbbfd4ce1b27c170de570b/merged
+									overlay          40G   38G  1.2G  97% /var/lib/docker/overlay2/5b9c7648f8a3103ae472be96492b4d694f28b9d4636f4a3c7fc28387b15f3c5b/merged
+									overlay          40G   38G  1.2G  97% /var/lib/docker/overlay2/be0afb28162fb4cbbba3653a35944a6fcc80eb1367426089b3c37dcac0af5053/merged
+									overlay          40G   38G  1.2G  97% /var/lib/docker/overlay2/b68be4f7b9222815ce8e644673aaef6cb6995ea0f7ebb85900394e898231568e/merged
+									overlay          40G   38G  1.2G  97% /var/lib/docker/overlay2/b8002b093029398fa675a5f103ad00052abffc8ea71c3d32e987e853a3958baf/merged
+									overlay          40G   38G  1.2G  97% /var/lib/docker/overlay2/9260ba6e864c36bbffd8248bee952df6b8ae211cbb40a17b954e95c4446b6450/merged
+									overlay          40G   38G  1.2G  97% /var/lib/docker/overlay2/ed7aa946cad59fe8f785e810a2cc68636ae6ee4aa076d291c674f0a8e780c3bd/merged
+									overlay          40G   38G  1.2G  97% /var/lib/docker/overlay2/42f90134a9d2925e59000e462681b05b6a399b31228537281a92f25afc8df878/merged
+									overlay          40G   38G  1.2G  97% /var/lib/docker/overlay2/40d2cb0487f9b57bc2bb10bf1e52d5fc1caca3dd35af46c0ee2f3779028edf2d/merged
+									overlay          40G   38G  1.2G  97% /var/lib/docker/overlay2/cf95d1b2d1272e586c0196fb584c7a7517890a94206cbca3e7a567756d036aad/merged
+								-www-27-tm
+									[root@iZ0xifhcadlq8e9t1jngcpZ ~]# find / -name '*' -type f -size +100M | xargs ls -lh {} | sort -nrk5
+									find: ‘/proc/13202/task/13202/fdinfo/6’: No such file or directory
+									find: ‘/proc/13202/fdinfo/6’: No such file or directory
+									ls: cannot access {}: No such file or directory
+									-rw-r--r-- 1 www  www  462M Jan 26 22:20 /home/wwwroot/www.trackingmore.com/mailwebhook/en/royalmail_webhook_input.log
+									-rw-r--r-- 1 www  www  177M Jan 23 15:05 /home/wwwroot/www.trackingmore.com/mailwebhook/en/easypost_webhook_input.log
+									-rw-r--r-- 1 root root 174M Nov 26 18:58 /run/log/home-wwwroot-www.trackingmore.com-mailwehook-en/easypost_webhook_input.log.saveto.20250216.2g.zip
+									-rw-r--r-- 1 root root 164M Dec 18 23:55 /run/log/home-wwwroot-www.trackingmore.com-mailwehook-en/royalmail_webhook_input.log.20241115.20241218.1.5g.zip
+									-rw-r--r-- 1 root root 147M Apr  3  2024 /var/cache/yum/x86_64/7/updates/gen/primary_db.sqlite
+									-rw-r--r-- 1 root root 139M Apr  3  2024 /var/cache/yum/x86_64/7/updates/gen/filelists_db.sqlite
+									-r-------- 1 root root 128T Jan 26 22:20 /proc/kcore
+									-rw-r--r-- 1 root root 119M Jan 26 22:20 /root/yunxiao/be-tfpyqa22gtndemstnunakvmq/runner/__flow_logs/runner.log
+									-rw-r--r-- 1 root root 118M Sep  1  2020 /usr/local/rasp-php-linux.tar.bz2
+									-rwxr-xr-x 1 root root 104M Jan 26 10:20 /home/wwwroot/mytracking/logs/jobs/exportJobs.log
+									-rwxr-xr-x 1 root root 102M Apr 23  2024 /usr/bin/dockerd
+									-rw-r--r-- 1 root root 102M Mar 16  2018 /usr/lib/locale/locale-archive
+									[root@iZ0xifhcadlq8e9t1jngcpZ ~]# df -h
+									Filesystem      Size  Used Avail Use% Mounted on
+									/dev/vda1        40G   39G  595M  99% /
+									devtmpfs        7.8G     0  7.8G   0% /dev
+									tmpfs           7.8G     0  7.8G   0% /dev/shm
+									tmpfs           7.8G  364M  7.5G   5% /run
+									tmpfs           7.8G     0  7.8G   0% /sys/fs/cgroup
+									tmpfs           1.6G     0  1.6G   0% /run/user/0
+									tmpfs           1.6G     0  1.6G   0% /run/user/1002
+									overlay          40G   39G  595M  99% /var/lib/docker/overlay2/7f63719155be846a6e0b82194559725cd5c3b092d37e1e02bebb8b395ff35672/merged
+									(reverse-i-search)`rm': grep '.html' /usr/local/nginx/conf/vhost/www.trackingmore.com.conf | grep pe^C
+									[root@iZ0xifhcadlq8e9t1jngcpZ ~]# ll /data/^C
+									[root@iZ0xifhcadlq8e9t1jngcpZ ~]# echo > /home/wwwroot/www.trackingmore.com/mailwebhook/en/royalmail_webhook_input.log
+									[root@iZ0xifhcadlq8e9t1jngcpZ ~]# echo > /home/wwwroot/www.trackingmore.com/mailwebhook/en/easypost_webhook_input.log
+									[root@iZ0xifhcadlq8e9t1jngcpZ ~]# df -h
+									Filesystem      Size  Used Avail Use% Mounted on
+									/dev/vda1        40G   38G  1.2G  97% /
+									devtmpfs        7.8G     0  7.8G   0% /dev
+									tmpfs           7.8G     0  7.8G   0% /dev/shm
+									tmpfs           7.8G  364M  7.5G   5% /run
+									tmpfs           7.8G     0  7.8G   0% /sys/fs/cgroup
+									tmpfs           1.6G     0  1.6G   0% /run/user/0
+									tmpfs           1.6G     0  1.6G   0% /run/user/1002
+									overlay          40G   38G  1.2G  97% /var/lib/docker/overlay2/7f63719155be846a6e0b82194559725cd5c3b092d37e1e02bebb8b395ff35672/merged
 							-- 20250117
 								-205
 									[root@iz0xif9y7r0fstxmq97t54z ~]# head /data/server_logs/root/20250117111104.trackingSingleQueue.log
