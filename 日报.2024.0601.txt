@@ -3943,6 +3943,33 @@
 日常响应
 3，后续优先级、应对
 
+===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== =====
+20250127
+本地
+告警
+技术评审
+
+
+- 今日合规操作小结：无
+- 今日违规操作小结：无
+- 今日监督操作小结：无
+
+
+原计划：
+日常响应
+本地
+1，取消电脑自动关机
+告警
+2，等保网警回复后续-整改
+日常响应
+3，后续优先级、应对
+
+计划：
+告警
+1，等保网警回复后续-整改
+日常响应
+2，后续优先级、应对
+
 近期复盘
 	3，工作项梳理
 		方向
@@ -4999,6 +5026,9 @@
 					磁盘
 
 					IOA 测试 29
+						-- 20250127
+							分割、压缩、清除定时任务
+							上传oss							
 						-- 20250126
 							定时任务同步
 								# 国外
@@ -5073,7 +5103,23 @@
 										-e：指定用于远程传输的命令（这里是 ssh）。
 										-o StrictHostKeyChecking=no：禁用 SSH 主机密钥验证，首次连接时自动接受新主机密钥。
 
-										或
+										# 实际可行
+											rsync -avz --dry-run root@172.16.10.168:/var/spool/cron/root /tmp/root.57.180 -e 'ssh -p 20480 -o StrictHostKeyChecking=no'
+											Warning: Permanently added '[172.16.10.168]:20480' (ECDSA) to the list of known hosts.
+											receiving incremental file list
+											root
+
+											sent 27 bytes  received 50 bytes  154.00 bytes/sec
+											total size is 26,167  speedup is 339.83 (DRY RUN)
+
+										或（实际会出现
+											# 查找不到
+											grep 168 .ssh/known_hosts 
+											# 无法添加
+											ssh-keyscan -H 172.16.10.168 >> ~/.ssh/known_hosts
+											read (172.16.10.168): No route to host
+											read (172.16.10.168): No route to host
+										）
 										ssh-keyscan -H remote_host >> ~/.ssh/known_hosts
 										ssh-keyscan 会扫描远程主机的密钥并添加到 ~/.ssh/known_hosts。
 
