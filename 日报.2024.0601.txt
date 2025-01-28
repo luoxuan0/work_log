@@ -5158,6 +5158,289 @@
 								script\queueshell\zipAndRmSpecifyTimeFile.sh
 								script\queueshell\file.to.zip.sh
 						历史数据清理 20240529
+							-- 20250128
+								-www-51-20
+									[root@iZ94apf5ivnZ ~]# df -h
+									Filesystem      Size  Used Avail Use% Mounted on
+									/dev/vda1        49G   47G  1.2G  98% /
+									devtmpfs        3.7G     0  3.7G   0% /dev
+									tmpfs           3.7G     0  3.7G   0% /dev/shm
+									tmpfs           3.7G  787M  3.0G  21% /run
+									tmpfs           3.7G     0  3.7G   0% /sys/fs/cgroup
+									tmpfs           756M     0  756M   0% /run/user/1004
+									[root@iZ94apf5ivnZ ~]# find / -name '*' -type f -size +100M | xargs ls -lh {} | sort -nrk5
+									find: ‘/proc/19080/task/19080/fdinfo/6’: No such file or directory
+									find: ‘/proc/19080/fdinfo/5’: No such file or directory
+									ls: cannot access {}: No such file or directory
+									-rw-r--r--  1 www  www  577M Jan 29 00:52 /home/wwwroot/www.51tracking.com/mailwebhook/cn/royalmail_webhook_input.log
+									-rw-r--r--  1 root root 402M Jan 27  2024 /run/log/home-wwwroot-mytracking-logs-send_first_queue/send.log.20231010.20240127.zip
+									-rw-r--r--  1 www  www  385M Jan 28 22:32 /home/wwwroot/www.51tracking.com/export-send-queue.log
+									-rw-------  1 root root 356M Jan 29 00:43 /usr/local/php7.0.33/var/log/php-fpm.log
+									-rw-r--r--  1 root root 186M Aug  1  2022 /root/trackingSingleQueueNull.log
+									-rw-r--r--  1 root root 147M Jul 15  2022 /root/sendEmailGun_Job.log
+									-rw-r--r--  1 www  www  136M Sep  7  2022 /home/wwwroot/www.51tracking.com/api/v2/trackings/first_track.log
+									-r--------  1 root root 128T Jan 29 00:52 /proc/kcore
+									-rw-r--r--  1 root root 126M Aug 24  2023 /var/cache/yum/x86_64/7/updates/gen/primary_db.sqlite
+									-rw-r--r--  1 root root 120M Jul 28  2022 /root/express_test_abnormal.log
+									-rw-r--r--. 1 root root 119M Aug 30  2023 /var/lib/rpm/Packages
+									-rw-r--r--  1 root root 118M Aug 31  2020 /usr/local/rasp-php-linux.tar.bz2
+									-rw-r--r--  1 root root 107M Jul 13  2022 /home/wwwroot/www.trackingmore.com/download/K2msSfC9SHV3g32NAtw70TPmgA00O.csv
+									-rw-r--r--  1 root root 102M May 15  2019 /usr/lib/locale/locale-archive
+									-rw-r--r--  1 root root 102M Jul 13  2022 /home/wwwroot/www.trackingmore.com/download/gOl2XfRfiaS2VwX7g8eqy8vmroMpxT8JHEZK8qoAB0RsF.csv
+									-rw-r--r--  1  386  386 102M Jan 29 00:49 /home/wwwroot/www.trackingmore.com/section/carrierspic10.css
+									-rw-r--r--  1  386  386 102M Jan 29 00:49 /home/wwwroot/www.51tracking.com/section/carrierspic10.css
+									-rw-r--r--  1 root root 1.9G Jan 29 00:51 /home/wwwroot/www.51tracking.com/script/sync/compare_img_sync.log
+									-rw-r--r--  1 root root 1.6G Jan 28 02:21 /home/wwwlogs/mailwebhook.51tracking.com.log
+									[root@iZ94apf5ivnZ ~]# tail /home/wwwroot/www.51tracking.com/script/sync/compare_img_sync.log
+									logoimage:dsv-mydsv-51.png 
+
+									is_exist:1 
+
+									filebak is_exist:1 
+
+									filebak:/home/wwwroot/www.trackingmore.com/section/images/compare/dsv-mydsv-51.png 
+
+									file:/home/wwwroot/www.51tracking.com/section/images/compare/dsv-mydsv-51.png 
+									total time 0.0042140483856201
+									[root@iZ94apf5ivnZ ~]# head /home/wwwlogs/mailwebhook.51tracking.com.log
+
+									2022/06/13 18:04:23 [error] 7317#0: *4669517454 FastCGI sent in stderr: "PHP message: PHP Warning:  Packets out of order. Expected 1 received 0. Packet size=1 in /home/wwwroot/www.51tracking.com/library/class.MySQL.php on line 138
+									PHP message: PHP Warning:  mysqli_ping(): MySQL server has gone away in /home/wwwroot/www.51tracking.com/library/class.MySQL.php on line 138
+									PHP message: PHP Warning:  mysqli_ping(): Couldn't fetch mysqli in /home/wwwroot/www.51tracking.com/library/class.MySQL.php on line 529
+									PHP message: PHP Warning:  mysqli_query(): Couldn't fetch mysqli in /home/wwwroot/www.51tracking.com/library/class.MySQL.php on line 336
+									PHP message: PHP Warning:  mysqli_close(): Couldn't fetch mysqli in /home/wwwroot/www.51tracking.com/library/class.MySQL.php on line 532
+									PHP message: PHP Warning:  mysqli_set_charset(): Couldn't fetch mysqli in /home/wwwroot/www.51tracking.com/library/class.MySQL.php on line 344" while reading response header from upstream, client: 100.123.31.45, server: mailwebhook.51tracking.com, request: "GET /lgs_cn.php?track_number=LXBVN000031366597&lang=en HTTP/1.1", upstream: "fastcgi://unix:/tmp/php-cgi.sock:", host: "mailwebhookcn.51tracking.com"
+									2022/06/13 18:05:09 [error] 7323#0: *4669533392 FastCGI sent in stderr: "PHP message: PHP Warning:  Packets out of order. Expected 1 received 0. Packet size=15 in /home/wwwroot/www.51tracking.com/library/class.MySQL.php on line 344
+									PHP message: PHP Warning:  mysqli_set_charset(): MySQL server has gone away in /home/wwwroot/www.51tracking.com/library/class.MySQL.php on line 344
+									PHP message: PHP Warning:  mysqli_set_charset(): Error reading result set's header in /home/wwwroot/www.51tracking.com/library/class.MySQL.php on line 344
+									[root@iZ94apf5ivnZ ~]# tail /home/wwwlogs/mailwebhook.51tracking.com.log
+									PHP message: PHP Warning:  mysqli_query(): MySQL server has gone away in /home/wwwroot/www.51tracking.com/library/class.MySQL.php on line 336
+									PHP message: PHP Warning:  mysqli_query(): Error reading result set's header in /home/wwwroot/www.51tracking.com/library/class.MySQL.php on line 336" while reading response header from upstream, client: 47.252.37.27, server: mailwebhook.51tracking.com, request: "POST /easypost_webhook.php HTTP/1.1", upstream: "fastcgi://unix:/tmp/php-cgi.sock:", host: "mailwebhookcn.51tracking.com"
+									2025/01/21 21:31:31 [error] 4598#0: *4429461161 FastCGI sent in stderr: "PHP message: PHP Warning:  mysqli_query(): MySQL server has gone away in /home/wwwroot/www.51tracking.com/library/class.MySQL.php on line 56
+									PHP message: PHP Warning:  mysqli_query(): Error reading result set's header in /home/wwwroot/www.51tracking.com/library/class.MySQL.php on line 56
+									PHP message: PHP Warning:  mysqli_ping(): Couldn't fetch mysqli in /home/wwwroot/www.51tracking.com/library/class.MySQL.php on line 529
+									PHP message: PHP Warning:  mysqli_query(): Couldn't fetch mysqli in /home/wwwroot/www.51tracking.com/library/class.MySQL.php on line 336
+									PHP message: PHP Warning:  mysqli_close(): Couldn't fetch mysqli in /home/wwwroot/www.51tracking.com/library/class.MySQL.php on line 532" while reading response header from upstream, client: 47.252.37.27, server: mailwebhook.51tracking.com, request: "POST /easypost_webhook.php HTTP/1.1", upstream: "fastcgi://unix:/tmp/php-cgi.sock:", host: "mailwebhookcn.51tracking.com"
+									2025/01/23 15:02:22 [error] 4597#0: *4440373986 FastCGI sent in stderr: "PHP message: PHP Warning:  file_put_contents(/home/wwwroot/www.51tracking.com/mailwebhook/cn/royalmail_mysql_err.log): failed to open stream: Permission denied in /home/wwwroot/www.51tracking.com/mailwebhook/cn/royalmail_webhook.php on line 157" while reading response header from upstream, client: 47.252.37.27, server: mailwebhook.51tracking.com, request: "POST /royalmail_webhook.php HTTP/1.1", upstream: "fastcgi://unix:/tmp/php-cgi.sock:", host: "mailwebhookcn.51tracking.com"
+									2025/01/27 17:47:04 [error] 4597#0: *4460718199 FastCGI sent in stderr: "PHP message: PHP Warning:  file_put_contents(/home/wwwroot/www.51tracking.com/mailwebhook/cn/royalmail_mysql_err.log): failed to open stream: Permission denied in /home/wwwroot/www.51tracking.com/mailwebhook/cn/royalmail_webhook.php on line 157" while reading response header from upstream, client: 47.252.7.153, server: mailwebhook.51tracking.com, request: "POST /royalmail_webhook.php HTTP/1.1", upstream: "fastcgi://unix:/tmp/php-cgi.sock:", host: "mailwebhookcn.51tracking.com"
+									2025/01/28 02:21:29 [error] 4597#0: *4462513927 FastCGI sent in stderr: "PHP message: PHP Warning:  file_put_contents(/home/wwwroot/www.51tracking.com/mailwebhook/cn/royalmail_mysql_err.log): failed to open stream: Permission denied in /home/wwwroot/www.51tracking.com/mailwebhook/cn/royalmail_webhook.php on line 157" while reading response header from upstream, client: 47.252.37.27, server: mailwebhook.51tracking.com, request: "POST /royalmail_webhook.php HTTP/1.1", upstream: "fastcgi://unix:/tmp/php-cgi.sock:", host: "mailwebhookcn.51tracking.com"
+									[root@iZ94apf5ivnZ ~]# head /home/wwwroot/www.51tracking.com/script/sync/compare_img_sync.log
+
+									logoimage:dhl-51.png 
+
+									is_exist: 
+
+									url:http://172.16.10.114/section/images/compare/dhl-51.png
+
+									http_code: 404 
+
+									url:http://172.16.10.121/section/images/compare/dhl-51.png
+									[root@iZ94apf5ivnZ ~]# head /home/wwwroot/www.51tracking.com/mailwebhook/cn/royalmail_webhook_input.log
+									[2025-01-16 22:54:46+08:00] => [{"TrackingNumber":"OJ627546856GB","ShipmentId":"28516ca5-6f03-47c6-ba4d-76deef97f6fb","ShipperReference":"LP8815604869776829","CarrierCode":"RM","Milestone":"DELIVERED","MilestoneDateTime":"2025-01-16 14:54:10","Events":[{"EventId":"737ad20c-6dc9-489b-9af5-b8ebb9c78939","EventType":"Delivery","EventCode":"DELV","EventDescription":"Delivered","EventDateTime":"2025-01-16 14:54:10","EventUtcOffset":"+00:00","EventLocation":{"Location":"Kirkby DO","CountryCode":"  "}}]}]
+									{"t":"2025-01-16 22:54:47","check":true,"track_number":"OJ627546856GB","code":200,"response":"HTTP\/1.1 200 OK\r\ncontent-type: application\/json\r\ndate: Thu, 16 Jan 2025 14:54:47 GMT\r\ncontent-length: 52\r\nreq-cost-time: 266\r\nreq-arrive-time: 1737039286871\r\nresp-start-time: 1737039287137\r\nx-envoy-upstream-service-time: 266\r\nserver: istio-envoy\r\n\r\n{\"code\":200,\"message\":\"Success\",\"error_doc_ids\":[]}\n"}
+									[2025-01-16 22:54:50+08:00] => [{"TrackingNumber":"OF103765805GB","ShipmentId":"b7e4e4a9-667d-4a1c-8cbb-c6e2c3971efd","ShipperReference":"3400247844+5","CarrierCode":"RM","Milestone":"IT'S ON IT'S WAY","MilestoneDateTime":"2025-01-16 14:53:57","Events":[{"EventId":"a7b2e311-2f04-467b-93d2-26114808b196","EventType":"Milestone","EventCode":"PRID","EventDescription":"Shipment Received in Depot","EventDateTime":"2025-01-16 14:53:57","EventUtcOffset":"+00:00","EventLocation":{"Location":"Warrington MC","CountryCode":"  "}}]}]
+									{"t":"2025-01-16 22:54:51","check":false,"track_number":"OF103765805GB","code":404,"response":"HTTP\/1.1 404 Not Found\r\ncontent-type: application\/json\r\ndate: Thu, 16 Jan 2025 14:54:51 GMT\r\ncontent-length: 69\r\nreq-cost-time: 221\r\nreq-arrive-time: 1737039290822\r\nresp-start-time: 1737039291043\r\nx-envoy-upstream-service-time: 221\r\nserver: istio-envoy\r\n\r\n{\"code\":404,\"message\":\"Track number not found\",\"error_doc_ids\":null}\n"}
+									[2025-01-16 22:54:51+08:00] => [{"TrackingNumber":"OF065381215GB","ShipmentId":"5493d5d6-8031-447d-8497-18b246259a52","ShipperReference":"DC1736853417167","CarrierCode":"RM","Milestone":"DELIVERED","MilestoneDateTime":"2025-01-16 14:54:13","Events":[{"EventId":"3f9a4a03-ade5-434d-94c5-f781f83d2901","EventType":"Delivery","EventCode":"DELV","EventDescription":"Delivered","EventDateTime":"2025-01-16 14:54:13","EventUtcOffset":"+00:00","EventLocation":{"Location":"Chelmsford DO","CountryCode":"  "}}]}]
+									[2025-01-16 22:54:51+08:00] => [{"TrackingNumber":"OJ327070785GB","ShipmentId":"d0aee915-decc-4378-9ca5-698fc5a4545a","ShipperReference":"","CarrierCode":"RM","Milestone":"DELIVERY ATTEMPT FAILED","MilestoneDateTime":"2025-01-16 11:45:22","Events":[{"EventId":"ff4303ee-c0f4-4826-989f-72343b137484","EventType":"Milestone","EventCode":"FCAR","EventDescription":"No Answer - Carded","EventDateTime":"2025-01-16 11:45:22","EventUtcOffset":"+00:00","EventLocation":{"Location":"Kilmarnock DO","CountryCode":"  "}}]}]
+									{"t":"2025-01-16 22:54:52","check":false,"track_number":"OF065381215GB","code":404,"response":"HTTP\/1.1 404 Not Found\r\ncontent-type: application\/json\r\ndate: Thu, 16 Jan 2025 14:54:52 GMT\r\ncontent-length: 69\r\nreq-cost-time: 640\r\nreq-arrive-time: 1737039291874\r\nresp-start-time: 1737039292515\r\nx-envoy-upstream-service-time: 640\r\nserver: istio-envoy\r\n\r\n{\"code\":404,\"message\":\"Track number not found\",\"error_doc_ids\":null}\n"}
+									{"t":"2025-01-16 22:54:52","check":true,"track_number":"OJ327070785GB","code":200,"response":"HTTP\/1.1 200 OK\r\ncontent-type: application\/json\r\ndate: Thu, 16 Jan 2025 14:54:52 GMT\r\ncontent-length: 52\r\nreq-cost-time: 681\r\nreq-arrive-time: 1737039291887\r\nresp-start-time: 1737039292568\r\nx-envoy-upstream-service-time: 681\r\nserver: istio-envoy\r\n\r\n{\"code\":200,\"message\":\"Success\",\"error_doc_ids\":[]}\n"}
+									[2025-01-16 22:54:55+08:00] => [{"TrackingNumber":"OJ058351164GB","ShipmentId":"7c3561b0-58e1-4407-a36c-91e398d5dda2","ShipperReference":"SC00120BYIVMD9RUTQQB","CarrierCode":"RM","Milestone":"DELIVERED","MilestoneDateTime":"2025-01-16 14:54:21","Events":[{"EventId":"29e7942d-f610-482b-9ab6-e88337387080","EventType":"Delivery","EventCode":"DELV","EventDescription":"Delivered","EventDateTime":"2025-01-16 14:54:21","EventUtcOffset":"+00:00","EventLocation":{"Location":"Mastrick DO","CountryCode":"  "}}]}]
+									{"t":"2025-01-16 22:54:55","check":true,"track_number":"OJ058351164GB","code":200,"response":"HTTP\/1.1 200 OK\r\ncontent-type: application\/json\r\ndate: Thu, 16 Jan 2025 14:54:55 GMT\r\ncontent-length: 52\r\nreq-cost-time: 252\r\nreq-arrive-time: 1737039295193\r\nresp-start-time: 1737039295446\r\nx-envoy-upstream-service-time: 252\r\nserver: istio-envoy\r\n\r\n{\"code\":200,\"message\":\"Success\",\"error_doc_ids\":[]}\n"}
+									[root@iZ94apf5ivnZ ~]# echo >/home/wwwroot/www.51tracking.com/mailwebhook/cn/royalmail_webhook_input.log
+									[root@iZ94apf5ivnZ ~]# echo > /home/wwwroot/www.51tracking.com/script/sync/compare_img_sync.log
+									[root@iZ94apf5ivnZ ~]# df -h
+									Filesystem      Size  Used Avail Use% Mounted on
+									/dev/vda1        49G   45G  3.6G  93% /
+									devtmpfs        3.7G     0  3.7G   0% /dev
+									tmpfs           3.7G     0  3.7G   0% /dev/shm
+									tmpfs           3.7G  787M  3.0G  21% /run
+									tmpfs           3.7G     0  3.7G   0% /sys/fs/cgroup
+									tmpfs           756M     0  756M   0% /run/user/1004
+								-www-27-tm
+									[root@iZ0xifhcadlq8e9t1jngcpZ ~]# df -h
+									Filesystem      Size  Used Avail Use% Mounted on
+									/dev/vda1        40G   39G  533M  99% /
+									devtmpfs        7.8G     0  7.8G   0% /dev
+									tmpfs           7.8G     0  7.8G   0% /dev/shm
+									tmpfs           7.8G  364M  7.5G   5% /run
+									tmpfs           7.8G     0  7.8G   0% /sys/fs/cgroup
+									tmpfs           1.6G     0  1.6G   0% /run/user/0
+									tmpfs           1.6G     0  1.6G   0% /run/user/1002
+									overlay          40G   39G  533M  99% /var/lib/docker/overlay2/7f63719155be846a6e0b82194559725cd5c3b092d37e1e02bebb8b395ff35672/merged
+									[root@iZ0xifhcadlq8e9t1jngcpZ ~]# find / -name '*' -type f -size +100M | xargs ls -lh {} | sort -nrk5
+									find: ‘/proc/16424/task/16424/fdinfo/6’: No such file or directory
+									find: ‘/proc/16424/fdinfo/6’: No such file or directory
+									ls: cannot access {}: No such file or directory
+									-rw-r--r-- 1 root root 446M Jan 29 00:53 /home/wwwlogs/www.trackingmore.com.access.log
+									-rw-r--r-- 1 www  www  237M Jan 29 00:53 /home/wwwroot/www.trackingmore.com/mailwebhook/en/royalmail_webhook_input.log
+									-rw-r--r-- 1 root root 174M Nov 26 18:58 /run/log/home-wwwroot-www.trackingmore.com-mailwehook-en/easypost_webhook_input.log.saveto.20250216.2g.zip
+									-rw-r--r-- 1 root root 164M Dec 18 23:55 /run/log/home-wwwroot-www.trackingmore.com-mailwehook-en/royalmail_webhook_input.log.20241115.20241218.1.5g.zip
+									-rw-r--r-- 1 root root 147M Apr  3  2024 /var/cache/yum/x86_64/7/updates/gen/primary_db.sqlite
+									-rw-r--r-- 1 root root 139M Apr  3  2024 /var/cache/yum/x86_64/7/updates/gen/filelists_db.sqlite
+									-r-------- 1 root root 128T Jan 29 00:53 /proc/kcore
+									-rw-r--r-- 1 root root 123M Jan 29 00:53 /root/yunxiao/be-tfpyqa22gtndemstnunakvmq/runner/__flow_logs/runner.log
+									-rw-r--r-- 1 root root 118M Sep  1  2020 /usr/local/rasp-php-linux.tar.bz2
+									-rwxr-xr-x 1 root root 106M Jan 28 19:50 /home/wwwroot/mytracking/logs/jobs/exportJobs.log
+									-rwxr-xr-x 1 root root 102M Apr 23  2024 /usr/bin/dockerd
+									-rw-r--r-- 1 root root 102M Mar 16  2018 /usr/lib/locale/locale-archive
+									[root@iZ0xifhcadlq8e9t1jngcpZ ~]# echo > /home/wwwroot/www.trackingmore.com/mailwebhook/en/royalmail_webhook_input.log
+									[root@iZ0xifhcadlq8e9t1jngcpZ ~]# cp /home/wwwlogs/www.trackingmore.com.access.log /home/wwwlogs/www.trackingmore.com.access.log.20250128 ;echo > /home/wwwlogs/www.trackingmore.com.access.log
+									[root@iZ0xifhcadlq8e9t1jngcpZ ~]# df -h
+									Filesystem      Size  Used Avail Use% Mounted on
+									/dev/vda1        40G   39G  767M  99% /
+									devtmpfs        7.8G     0  7.8G   0% /dev
+									tmpfs           7.8G     0  7.8G   0% /dev/shm
+									tmpfs           7.8G  364M  7.5G   5% /run
+									tmpfs           7.8G     0  7.8G   0% /sys/fs/cgroup
+									tmpfs           1.6G     0  1.6G   0% /run/user/0
+									tmpfs           1.6G     0  1.6G   0% /run/user/1002
+									overlay          40G   39G  767M  99% /var/lib/docker/overlay2/7f63719155be846a6e0b82194559725cd5c3b092d37e1e02bebb8b395ff35672/merged
+									(reverse-i-search)`rm': grep '.html' /usr/local/nginx/conf/vhost/www.trackingmore.com.conf | grep pe^C
+									[root@iZ0xifhcadlq8e9t1jngcpZ ~]# echo > /home/wwwlogs/www.trackingmore.com.access.log.20250128
+									[root@iZ0xifhcadlq8e9t1jngcpZ ~]# df -h
+									Filesystem      Size  Used Avail Use% Mounted on
+									/dev/vda1        40G   38G  1.2G  97% /
+									devtmpfs        7.8G     0  7.8G   0% /dev
+									tmpfs           7.8G     0  7.8G   0% /dev/shm
+									tmpfs           7.8G  364M  7.5G   5% /run
+									tmpfs           7.8G     0  7.8G   0% /sys/fs/cgroup
+									tmpfs           1.6G     0  1.6G   0% /run/user/0
+									tmpfs           1.6G     0  1.6G   0% /run/user/1002
+									overlay          40G   38G  1.2G  97% /var/lib/docker/overlay2/7f63719155be846a6e0b82194559725cd5c3b092d37e1e02bebb8b395ff35672/merged
+									(reverse-i-search)`rm ': ^C -f /tmp/nginx.conf.27
+									(reverse-i-search)`echo': ^Cho > /home/wwwroot/mytracking/logs/jobs/exportJobs.log[root@iZ0xifhcadlq8e9t1jngcpZ ~]# crontab -e
+									crontab: installing new crontab
+								-api-151-7-tm
+									[root@iz0xic9e6789t96eez4ag0z ~]# df -h
+									Filesystem      Size  Used Avail Use% Mounted on
+									/dev/vda1        40G   36G  3.8G  91% /
+									devtmpfs        7.7G     0  7.7G   0% /dev
+									tmpfs           7.7G     0  7.7G   0% /dev/shm
+									tmpfs           7.7G  388M  7.3G   5% /run
+									tmpfs           7.7G     0  7.7G   0% /sys/fs/cgroup
+									tmpfs           1.6G     0  1.6G   0% /run/user/1001
+									overlay          40G   36G  3.8G  91% /var/lib/docker/overlay2/8e1df790d677b1c8c54c35739c129166364b651e5702ca3879aa90e0f27c8cdf/merged
+									tmpfs           1.6G     0  1.6G   0% /run/user/0
+									tmpfs           1.6G     0  1.6G   0% /run/user/1002
+									[root@iz0xic9e6789t96eez4ag0z ~]# find / -name '*' -type f -size +100M | xargs ls -lh {} | sort -nrk5
+									find: ‘/proc/1000/task/1000/fdinfo/6’: No such file or directory
+									find: ‘/proc/1000/fdinfo/6’: No such file or directory
+									ls: cannot access {}: No such file or directory
+									-rw------- 1 root root 932M Jan 29 00:52 /usr/local/php7.0.33/var/log/php-fpm.log
+									-rw-r--r-- 1 root root 385M Dec  5 10:22 /run/log/home-wwwlogs-access_logs/api.trackingmore.com-2024-12-03.log.20241205.zip
+									-rw------- 1 root root 152M Jan 29 00:52 /home/wwwlogs/phpslow.log
+									-rw-r--r-- 1 root root 143M Feb  6  2024 /var/cache/yum/x86_64/7/updates/gen/primary_db.sqlite
+									-rw-r--r-- 1 www  root 141M Jan 29 00:52 /home/wwwlogs/error.log
+									-rw-r--r-- 1 root root 136M Feb  6  2024 /var/cache/yum/x86_64/7/updates/gen/filelists_db.sqlite
+									-rwxr-xr-x 1 root root 129M Feb 12  2023 /var/lib/docker/overlay2/b14bfaa237eb294d1f68108b92494332bb80cb82822221b6ea4f368bc6e74d87/diff/usr/share/filebeat/filebeat
+									-rwxr-xr-x 1 root root 129M Feb 12  2023 /var/lib/docker/overlay2/8e1df790d677b1c8c54c35739c129166364b651e5702ca3879aa90e0f27c8cdf/merged/usr/share/filebeat/filebeat
+									-r-------- 1 root root 128T Jan 29 00:52 /proc/kcore
+									-rw-r--r-- 1 root root 102M Mar 16  2018 /usr/lib/locale/locale-archive
+									-rw-r--r-- 1 www  root 3.6G Jan 29 00:01 /home/wwwlogs/access_logs/api.trackingmore.com-2025-01-28.log
+									-rw-r----- 1 root root 1.4G Jan 29 00:52 /var/lib/docker/containers/258409b44ac1576e60f83bee18150d773b6c7a576fa8b9438ae24f23404d8115/258409b44ac1576e60f83bee18150d773b6c7a576fa8b9438ae24f23404d8115-json.log
+									[root@iz0xic9e6789t96eez4ag0z ~]# head /usr/local/php7.0.33/var/log/php-fpm.log
+
+									[11-May-2024 23:58:39] WARNING: [pool www] child 30042, script '/home/wwwroot/www.trackingmore.com/api/v2/air/api-tracking.php' (request: "POST /v2/air/api-tracking.php?type=") execution timed out (101.571448 sec), terminating
+									[11-May-2024 23:58:39] WARNING: [pool www] child 26261, script '/home/wwwroot/www.trackingmore.com/api/v2/air/api-tracking.php' (request: "POST /v2/air/api-tracking.php?type=") executing too slow (68.574656 sec), logging
+									[11-May-2024 23:58:39] NOTICE: child 26261 stopped for tracing
+									[11-May-2024 23:58:39] NOTICE: about to trace 26261
+									[11-May-2024 23:58:39] NOTICE: finished trace of 26261
+									[11-May-2024 23:58:39] WARNING: [pool www] child 30042 exited on signal 15 (SIGTERM) after 414.939541 seconds from start
+									[11-May-2024 23:58:39] NOTICE: [pool www] child 640 started
+									[11-May-2024 23:58:59] WARNING: [pool www] child 31257, script '/home/wwwroot/www.trackingmore.com/api/v2/air/api-tracking.php' (request: "POST /v2/air/api-tracking.php?type=") executing too slow (62.406451 sec), logging
+									[11-May-2024 23:58:59] NOTICE: child 31257 stopped for tracing
+								-www-214-153-tm
+									[root@iz0xigjdatfp2x5ez15cpuz ~]# df -h
+									Filesystem      Size  Used Avail Use% Mounted on
+									/dev/vda1        40G   38G  1.1G  98% /
+									devtmpfs        7.8G     0  7.8G   0% /dev
+									tmpfs           7.8G     0  7.8G   0% /dev/shm
+									tmpfs           7.8G  1.6G  6.2G  21% /run
+									tmpfs           7.8G     0  7.8G   0% /sys/fs/cgroup
+									tmpfs           1.6G     0  1.6G   0% /run/user/1002
+									tmpfs           1.6G     0  1.6G   0% /run/user/0
+									[root@iz0xigjdatfp2x5ez15cpuz ~]# find / -name '*' -type f -size +100M | xargs ls -lh {} | sort -nrk5
+									find: ‘/proc/24182/task/24182/fdinfo/6’: No such file or directory
+									find: ‘/proc/24182/fdinfo/6’: No such file or directory
+									ls: cannot access {}: No such file or directory
+									-r--r--r-- 1 root root 392M Aug 11  2020 /var/lib/docker/overlay2/70e1adc85aea9331f7bcd4c926aa5282da78c8ceb9fc59fc510204df48857f22/diff/php-src/.git/objects/pack/pack-d53e643128ecd1ea6c2498eb1202bc30358b84dc.pack
+									-r-------- 1 root root 128T Jan 29 00:53 /proc/kcore
+									-rw-r--r-- 1 root root 118M Sep  1  2020 /usr/local/rasp-php-linux.tar.bz2
+									-rw-r--r-- 1 root root 117M Jun  1  2023 /var/cache/yum/x86_64/7/updates/gen/primary_db.sqlite
+									-rwxr-xr-x 1 root root 108M May  1  2024 /home/wwwroot/mytracking/uploads/excel/202404/858e65c171330d2ee34cdc93b64b24d3.csv
+									-rw-r--r-- 1 root root 102M Mar 16  2018 /usr/lib/locale/locale-archive
+									[root@iz0xigjdatfp2x5ez15cpuz ~]# find /home/wwwroot/mytracking/uploads/excel/202405 -maxdepth 1 -type f -name \*xlsx -newermt 20240528 ! -newermt 20240529  | wc -l
+									0
+									[root@iz0xigjdatfp2x5ez15cpuz ~]# find /home/wwwroot/mytracking/uploads/excel/202405 -maxdepth 1 -type f -name \*xlsx -newermt 20240528 ! -newermt 20250101  | wc -l
+									20
+									[root@iz0xigjdatfp2x5ez15cpuz ~]# find /home/wwwroot/mytracking/uploads/excel/202405 -maxdepth 1 -type f -name \*xlsx -newermt 20240528 ! -newermt 20250101  
+									/home/wwwroot/mytracking/uploads/excel/202405/f74ec9a5e413695bfde3d685fae2d4c3.xlsx
+									/home/wwwroot/mytracking/uploads/excel/202405/3c55ab55274aea7c13eda13e08ac8b4f.xlsx
+									/home/wwwroot/mytracking/uploads/excel/202405/ebe319caf702fbb6a6294f2708130dc8.xlsx
+									/home/wwwroot/mytracking/uploads/excel/202405/0e9dd529787bc936f69e4c0f0f8c413a.xlsx
+									/home/wwwroot/mytracking/uploads/excel/202405/e3f1003af7cdec690982dd24452656e1.xlsx
+									/home/wwwroot/mytracking/uploads/excel/202405/d51bb097a0d64153a74fb6eb65f19873.xlsx
+									/home/wwwroot/mytracking/uploads/excel/202405/8667702f0bc0f1887cdd4b649f5dfedb.xlsx
+									/home/wwwroot/mytracking/uploads/excel/202405/9c849d775ebeeb163d8f8d38ce88e68c.xlsx
+									/home/wwwroot/mytracking/uploads/excel/202405/e7603a4d7ed5013ea251976363d7f3a0.xlsx
+									/home/wwwroot/mytracking/uploads/excel/202405/8b3c29c639304dd2811af1d483fc3b0f.xlsx
+									/home/wwwroot/mytracking/uploads/excel/202405/dfc81fc18e887c9a8ecb70241ceb255c.xlsx
+									/home/wwwroot/mytracking/uploads/excel/202405/a7cfd251279915c551c266932ab50586.xlsx
+									/home/wwwroot/mytracking/uploads/excel/202405/54af194e8802e139473026f463c94658.xlsx
+									/home/wwwroot/mytracking/uploads/excel/202405/5c86766aa915f28bd19387e48bada921.xlsx
+									/home/wwwroot/mytracking/uploads/excel/202405/e8ff2982cbd5551f91ef9f556acd92da.xlsx
+									/home/wwwroot/mytracking/uploads/excel/202405/65eeff5173b2adfdd963714c6acde805.xlsx
+									/home/wwwroot/mytracking/uploads/excel/202405/c9d8a3042dede41b6186730a4c11587d.xlsx
+									/home/wwwroot/mytracking/uploads/excel/202405/12c9f0416cef242df1037ad4c5552bed.xlsx
+									/home/wwwroot/mytracking/uploads/excel/202405/3b17873f9918f0d806443205d7b1b944.xlsx
+									/home/wwwroot/mytracking/uploads/excel/202405/dbc31440104407fab227ba3862b3621c.xlsx
+									[root@iz0xigjdatfp2x5ez15cpuz ~]# du -sh /home/wwwroot/mytracking/uploads
+									2.4G    /home/wwwroot/mytracking/uploads
+									[root@iz0xigjdatfp2x5ez15cpuz ~]# sh disk.20241023.sh /home/wwwroot/mytracking/uploads 3 100
+									/home/wwwroot/mytracking/uploads: 2417 MB
+										/home/wwwroot/mytracking/uploads/excel: 880 MB
+											/home/wwwroot/mytracking/uploads/excel/202402: 272 MB
+											/home/wwwroot/mytracking/uploads/excel/202404: 110 MB
+									858e65c171330d2ee34cdc93b64b24d3.csv: 108 MB
+										/home/wwwroot/mytracking/uploads/excel_zip: 1538 MB
+									[root@iz0xigjdatfp2x5ez15cpuz ~]# sh disk.20241023.sh /home/wwwroot/mytracking 3 100
+									/home/wwwroot/mytracking: 4843 MB
+										/home/wwwroot/mytracking/downloads: 1242 MB
+											/home/wwwroot/mytracking/downloads/excel: 1242 MB
+										/home/wwwroot/mytracking/logs: 1031 MB
+											/home/wwwroot/mytracking/logs/routes: 910 MB
+										/home/wwwroot/mytracking/uploads: 2417 MB
+											/home/wwwroot/mytracking/uploads/excel: 880 MB
+											/home/wwwroot/mytracking/uploads/excel_zip: 1538 MB
+									[root@iz0xigjdatfp2x5ez15cpuz ~]# ll /home/wwwroot/mytracking/logs/routes | wc -l
+									209
+									[root@iz0xigjdatfp2x5ez15cpuz ~]# ll /home/wwwroot/mytracking/logs/routes | head
+									total 931472
+									-rwxr-xr-x 1 root root  7157139 Jul  6  2024 20240705.log
+									-rwxr-xr-x 1 root root  3333461 Jul  7  2024 20240706.log
+									-rwxr-xr-x 1 root root  2481496 Jul  8  2024 20240707.log
+									-rwxr-xr-x 1 root root  8410177 Jul  9  2024 20240708.log
+									-rwxr-xr-x 1 root root  9654460 Jul 10  2024 20240709.log
+									-rwxr-xr-x 1 root root  8223149 Jul 11  2024 20240710.log
+									-rwxr-xr-x 1 root root        1 Jul 13  2024 20240711.log
+									-rwxr-xr-x 1 root root  7963322 Jul 13  2024 20240712.log
+									-rwxr-xr-x 1 root root  3877696 Jul 14  2024 20240713.log
+									[root@iz0xigjdatfp2x5ez15cpuz ~]# ll /home/wwwroot/mytracking/logs/routes | tail /home/wwwroot/mytracking/logs/routes
+									tail: error reading ‘/home/wwwroot/mytracking/logs/routes’: Is a directory
+									[root@iz0xigjdatfp2x5ez15cpuz ~]# ll /home/wwwroot/mytracking/logs/routes | tail 
+									-rwxr-xr-x 1 root root  2243402 Jan 20 07:48 20250119.log
+									-rwxr-xr-x 1 root root   575795 Jan 21 07:58 20250120.log
+									-rwxr-xr-x 1 root root   934458 Jan 22 07:58 20250121.log
+									-rwxr-xr-x 1 root root   675906 Jan 23 07:58 20250122.log
+									-rwxr-xr-x 1 root root   166313 Jan 24 07:56 20250123.log
+									-rwxr-xr-x 1 root root   584906 Jan 25 07:58 20250124.log
+									-rwxr-xr-x 1 root root  3062586 Jan 26 07:56 20250125.log
+									-rwxr-xr-x 1 root root  2296927 Jan 27 07:41 20250126.log
+									-rwxr-xr-x 1 root root  7581595 Jan 28 07:59 20250127.log
+									-rwxr-xr-x 1 root root  6415079 Jan 29 01:01 20250128.log
+								
+								待办
+									/home/wwwroot/mytracking/logs/routes 接入压缩目录 
 							-- 20250126
 								-api-51-194
 									[root@iZwz9ai1u8vc1fuir8prryZ ~]# find / -name '*' -type f -size +100M | xargs ls -lh {} | sort -nrk5
