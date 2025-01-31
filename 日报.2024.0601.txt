@@ -5158,7 +5158,1147 @@
 								script\queueshell\zipAndRmSpecifyTimeFile.sh
 								script\queueshell\file.to.zip.sh
 						历史数据清理 20240529
+							-- 20250131
+								-www-214-153-tm
+									mkdir /run/log/home-wwwroot-mytracking-uploads-excel_zip
+									mv /home/wwwroot/mytracking/uploads/excel_zip/* /run/log/home-wwwroot-mytracking-uploads-excel_zip/
+
+
+									[root@iz0xigjdatfp2x5ez15cpuz ~]# df -h
+									Filesystem      Size  Used Avail Use% Mounted on
+									/dev/vda1        40G   39G  470M  99% /
+									devtmpfs        7.8G     0  7.8G   0% /dev
+									tmpfs           7.8G     0  7.8G   0% /dev/shm
+									tmpfs           7.8G  1.6G  6.2G  21% /run
+									tmpfs           7.8G     0  7.8G   0% /sys/fs/cgroup
+									tmpfs           1.6G     0  1.6G   0% /run/user/1002
+									tmpfs           1.6G     0  1.6G   0% /run/user/0
+									[root@iz0xigjdatfp2x5ez15cpuz ~]# find / -name '*' -type f -size +100M | xargs ls -lh {} | sort -nrk5
+									find: ‘/proc/9779/task/9779/fdinfo/6’: No such file or directory
+									find: ‘/proc/9779/fdinfo/6’: No such file or directory
+									ls: cannot access {}: No such file or directory
+									-r--r--r-- 1 root root 392M Aug 11  2020 /var/lib/docker/overlay2/70e1adc85aea9331f7bcd4c926aa5282da78c8ceb9fc59fc510204df48857f22/diff/php-src/.git/objects/pack/pack-d53e643128ecd1ea6c2498eb1202bc30358b84dc.pack
+									-rw-r--r-- 1 root root 372M Jan 31 22:59 /usr/local/nginx/logs/access.log
+									-r-------- 1 root root 128T Jan 31 22:59 /proc/kcore
+									-rw-r--r-- 1 root root 118M Sep  1  2020 /usr/local/rasp-php-linux.tar.bz2
+									-rw-r--r-- 1 root root 117M Jun  1  2023 /var/cache/yum/x86_64/7/updates/gen/primary_db.sqlite
+									-rwxr-xr-x 1 root root 108M May  1  2024 /home/wwwroot/mytracking/uploads/excel/202404/858e65c171330d2ee34cdc93b64b24d3.csv
+									-rw-r--r-- 1 root root 102M Mar 16  2018 /usr/lib/locale/locale-archive
+									[root@iz0xigjdatfp2x5ez15cpuz ~]# head /usr/local/nginx/logs/access.log
+
+									100.122.16.174 - - [31/Jan/2025:12:00:01 +0800] "GET /compare/aftership?_rsc=nlqxk HTTP/1.1" 200 65990 "https://www.trackingmore.com/track/en/HRD378084057%20?express=professional-couriers" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36"
+									100.122.19.82 - - [31/Jan/2025:12:00:01 +0800] "GET /uikit/css/uikit.min.css?time=1738232980 HTTP/1.1" 200 38377 "https://www.trackingmore.com/" "Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko; compatible; bingbot/2.0; +http://www.bing.com/bingbot.htm) Chrome/112.0.0.0 Safari/537.36"
+									100.122.21.74 - - [31/Jan/2025:12:00:01 +0800] "GET /manage/webhook_info_bak_v4.php?courier=yunexpress&hookurl=https%3A%2F%2Fwebhook.parcelpanel.com%2Finfo&order_number=&track_number=YT2502821272084606&userid=58126&version=4 HTTP/1.1" 200 1069 "-" "Go-http-client/1.1"
+									100.122.16.171 - - [31/Jan/2025:12:00:01 +0800] "GET /manage/webhook_info_bak_v4.php?courier=usps&hookurl=https%3A%2F%2Fwebhook.parcelpanel.com%2Finfo&order_number=&track_number=420600629261290339728708284213&userid=58126&version=4 HTTP/1.1" 200 1024 "-" "Go-http-client/1.1"
+									100.122.20.242 - - [31/Jan/2025:12:00:01 +0800] "GET /code.php HTTP/1.1" 200 5726 "https://m.trackingmore.com/" "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Mobile Safari/537.36"
+									100.122.21.10 - - [31/Jan/2025:12:00:01 +0800] "GET /manage/webhook_info_bak.php?courier=yunexpress&hookurl=https%3A%2F%2Fteehunter.xyz%2Ftrackmore-webhook&track_number=YT2502621266032539&userid=219400&version=2 HTTP/1.1" 200 958 "-" "Go-http-client/1.1"
+									100.122.21.79 - - [31/Jan/2025:12:00:01 +0800] "GET /manage/webhook_info_bak_v4.php?courier=uni&hookurl=https%3A%2F%2Fapp-api.route.com%2Ftrack%2Fwebhooks%2Ftrackingmore&order_number=&track_number=UUS51T0832878333030&userid=224763&version=4 HTTP/1.1" 200 969 "-" "Go-http-client/1.1"
+									100.122.21.1 - - [31/Jan/2025:12:00:01 +0800] "GET /manage/webhook_info_bak_v4.php?courier=delhivery&hookurl=https%3A%2F%2Fwebhook.parcelpanel.com%2Finfo&order_number=&track_number=28235410006252&userid=58126&version=4 HTTP/1.1" 200 884 "-" "Go-http-client/1.1"
+									100.122.21.6 - - [31/Jan/2025:12:00:01 +0800] "GET /package-tracking-widget?_rsc=nlqxk HTTP/1.1" 304 0 "https://www.trackingmore.com/track/en/HRD378084057%20?express=professional-couriers" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36"
+									[root@iz0xigjdatfp2x5ez15cpuz ~]# du -sh /home/wwwroot/mytracking/uploads/excel/
+									942M    /home/wwwroot/mytracking/uploads/excel/
+									[root@iz0xigjdatfp2x5ez15cpuz ~]# du -sh /home/wwwroot/mytracking/uploads/
+									2.5G    /home/wwwroot/mytracking/uploads/
+									[root@iz0xigjdatfp2x5ez15cpuz ~]# sh disk.20241023.sh /home/wwwroot/mytracking 3 100
+									/home/wwwroot/mytracking: 4989 MB
+										/home/wwwroot/mytracking/downloads: 1274 MB
+											/home/wwwroot/mytracking/downloads/excel: 1274 MB
+										/home/wwwroot/mytracking/logs: 1040 MB
+											/home/wwwroot/mytracking/logs/routes: 930 MB
+										/home/wwwroot/mytracking/uploads: 2521 MB
+											/home/wwwroot/mytracking/uploads/excel: 942 MB
+											/home/wwwroot/mytracking/uploads/excel_zip: 1579 MB
+									[root@iz0xigjdatfp2x5ez15cpuz ~]# sh disk.20241023.sh /home/wwwroot/mytracking/downloads/ 3 100
+									/home/wwwroot/mytracking/downloads/: 1274 MB
+										/home/wwwroot/mytracking/downloads//excel: 1274 MB
+											/home/wwwroot/mytracking/downloads//excel/202411: 364 MB
+											/home/wwwroot/mytracking/downloads//excel/202412: 445 MB
+											/home/wwwroot/mytracking/downloads//excel/202501: 375 MB
+									[root@iz0xigjdatfp2x5ez15cpuz ~]# sh disk.20241023.sh /home/wwwroot/mytracking/uploads/ 3 100
+									/home/wwwroot/mytracking/uploads/: 2521 MB
+										/home/wwwroot/mytracking/uploads//excel: 942 MB
+									^C
+									[root@iz0xigjdatfp2x5ez15cpuz ~]# sh disk.20241023.sh /home/wwwroot/mytracking/uploads 3 100
+									/home/wwwroot/mytracking/uploads: 2521 MB
+										/home/wwwroot/mytracking/uploads/excel: 942 MB
+											/home/wwwroot/mytracking/uploads/excel/202402: 272 MB
+											/home/wwwroot/mytracking/uploads/excel/202404: 110 MB
+									858e65c171330d2ee34cdc93b64b24d3.csv: 108 MB
+											/home/wwwroot/mytracking/uploads/excel/202501: 110 MB
+										/home/wwwroot/mytracking/uploads/excel_zip: 1579 MB
+									[root@iz0xigjdatfp2x5ez15cpuz ~]# ll /home/wwwroot/mytracking/uploads/excel_zip
+									total 1616412
+									-rw-r--r-- 1 root root  7004756 Dec  2 03:03 20241201.zip
+									-rw-r--r-- 1 root root 29444356 Dec  3 03:03 20241202.zip
+									-rw-r--r-- 1 root root 30164022 Dec  4 03:03 20241203.zip
+									-rw-r--r-- 1 root root 38556511 Dec  5 03:03 20241204.zip
+									-rw-r--r-- 1 root root 35926696 Dec  6 03:03 20241205.zip
+									-rw-r--r-- 1 root root 30807300 Dec  7 03:03 20241206.zip
+									-rw-r--r-- 1 root root 15957734 Dec  8 03:03 20241207.zip
+									-rw-r--r-- 1 root root  3885396 Dec  9 03:03 20241208.zip
+									-rw-r--r-- 1 root root 39383374 Dec 10 03:03 20241209.zip
+									-rw-r--r-- 1 root root 28478243 Dec 11 03:03 20241210.zip
+									-rw-r--r-- 1 root root 47833538 Dec 12 03:03 20241211.zip
+									-rw-r--r-- 1 root root 27562802 Dec 13 03:03 20241212.zip
+									-rw-r--r-- 1 root root 36939370 Dec 14 03:03 20241213.zip
+									-rw-r--r-- 1 root root 22948066 Dec 15 03:03 20241214.zip
+									-rw-r--r-- 1 root root  9553941 Dec 16 03:03 20241215.zip
+									-rw-r--r-- 1 root root 31776246 Dec 17 03:03 20241216.zip
+									-rw-r--r-- 1 root root 34562662 Dec 18 03:03 20241217.zip
+									-rw-r--r-- 1 root root 29934530 Dec 19 03:03 20241218.zip
+									-rw-r--r-- 1 root root 34860169 Dec 20 03:03 20241219.zip
+									-rw-r--r-- 1 root root 22450605 Dec 21 03:03 20241220.zip
+									-rw-r--r-- 1 root root 17971377 Dec 22 03:03 20241221.zip
+									-rw-r--r-- 1 root root 18550403 Dec 23 03:03 20241222.zip
+									-rw-r--r-- 1 root root 24983342 Dec 24 03:03 20241223.zip
+									-rw-r--r-- 1 root root 40754299 Dec 25 03:03 20241224.zip
+									-rw-r--r-- 1 root root 24675136 Dec 26 03:03 20241225.zip
+									-rw-r--r-- 1 root root 22506624 Dec 27 03:03 20241226.zip
+									-rw-r--r-- 1 root root 52303994 Dec 28 03:03 20241227.zip
+									-rw-r--r-- 1 root root 36918478 Dec 29 03:03 20241228.zip
+									-rw-r--r-- 1 root root  4298408 Dec 30 03:03 20241229.zip
+									-rw-r--r-- 1 root root 30803624 Dec 31 03:03 20241230.zip
+									-rw-r--r-- 1 root root 40172105 Jan  1 03:03 20241231.zip
+									-rw-r--r-- 1 root root  3107629 Jan  2 03:03 20250101.zip
+									-rw-r--r-- 1 root root 27208046 Jan  3 03:03 20250102.zip
+									-rw-r--r-- 1 root root 35988759 Jan  4 03:03 20250103.zip
+									-rw-r--r-- 1 root root 11042216 Jan  5 03:03 20250104.zip
+									-rw-r--r-- 1 root root 14230459 Jan  6 03:03 20250105.zip
+									-rw-r--r-- 1 root root 36281545 Jan  7 03:03 20250106.zip
+									-rw-r--r-- 1 root root 25748683 Jan  8 03:03 20250107.zip
+									-rw-r--r-- 1 root root 28071652 Jan  9 03:03 20250108.zip
+									-rw-r--r-- 1 root root 44567106 Jan 10 03:03 20250109.zip
+									-rw-r--r-- 1 root root 44335445 Jan 11 03:03 20250110.zip
+									-rw-r--r-- 1 root root 29393467 Jan 12 03:03 20250111.zip
+									-rw-r--r-- 1 root root 15899270 Jan 13 03:03 20250112.zip
+									-rw-r--r-- 1 root root 28221924 Jan 14 03:03 20250113.zip
+									-rw-r--r-- 1 root root 66088580 Jan 15 03:03 20250114.zip
+									-rw-r--r-- 1 root root 40257506 Jan 16 03:03 20250115.zip
+									-rw-r--r-- 1 root root 29126148 Jan 17 03:03 20250116.zip
+									-rw-r--r-- 1 root root 36865758 Jan 18 03:03 20250117.zip
+									-rw-r--r-- 1 root root 21908366 Jan 19 03:03 20250118.zip
+									-rw-r--r-- 1 root root  2492391 Jan 20 03:03 20250119.zip
+									-rw-r--r-- 1 root root 28614593 Jan 21 03:03 20250120.zip
+									-rw-r--r-- 1 root root 19194243 Jan 22 03:03 20250121.zip
+									-rw-r--r-- 1 root root 54548082 Jan 23 03:03 20250122.zip
+									-rw-r--r-- 1 root root 16217097 Jan 24 03:03 20250123.zip
+									-rw-r--r-- 1 root root 40732353 Jan 25 03:03 20250124.zip
+									-rw-r--r-- 1 root root 23836623 Jan 26 03:03 20250125.zip
+									-rw-r--r-- 1 root root  4411937 Jan 27 03:03 20250126.zip
+									-rw-r--r-- 1 root root 11531129 Jan 28 03:03 20250127.zip
+									-rw-r--r-- 1 root root 12663643 Jan 29 03:03 20250128.zip
+									-rw-r--r-- 1 root root  6027666 Jan 30 03:03 20250129.zip
+									-rw-r--r-- 1 root root 24240877 Jan 31 03:03 20250130.zip
+									[root@iz0xigjdatfp2x5ez15cpuz ~]# ll /home/wwwroot/mytracking/uploads/excel/202404/
+									0080076a6958367240bb887ccc5d8538.xlsx  36471d6ddca971610af3cd02a6c54148.csv   7e33ca9d896317a3d13611c4e87bc324.xlsx  95d9fd191e53d8f5dcb3a1611e155a68.xlsx  d3221d2c62bf3fe39f70829618dc693b.xlsx
+									0114fb762609dbc89648e33ff994ae16.csv   5381832c364b13f0b14c8bc84f75dd76.xlsx  7f0d3b6d3b7a6f288bc3321e5b1d01b4.xlsx  9967b7bc310ce7f6b91862a52f15b222.xlsx  e49f7d9edd1b573cca1407a3d78f657e.csv
+									0a51cd0e28bfe2f32e6e9a1828440ba1.xlsx  6691dc499e4ea706e8f64d5cfaabb191.xlsx  84a12959c8094e29a9615537cc1e5f9b.csv   a1c16b169b2bfd53bee1465145ef2050.xlsx  ece8fc2e372ac929a7ea4376812215eb.xlsx
+									1648375f5d7fe2807c0fb7c736904479.csv   7a7ef0d002a47d1abf08a18dcf0ff84a.xlsx  858e65c171330d2ee34cdc93b64b24d3.csv   bc1c417089dfdd6dcaad713722b2c42e.xlsx  faab989eaccf75829b08c3a3d06a3586.csv
+									2c099c9ebbbc8adf6b6c367408c34c6d.xlsx  7e2e8897d7370e5f4b6bb4e67a3b5d7b.xlsx  8718d2e319c75d6d7af51b1253987590.xlsx  d1735482024263fe2ed31adc96d6ee2d.csv   
+									[root@iz0xigjdatfp2x5ez15cpuz ~]# ll /home/wwwroot/mytracking/uploads/excel/202404/
+									0080076a6958367240bb887ccc5d8538.xlsx  36471d6ddca971610af3cd02a6c54148.csv   7e33ca9d896317a3d13611c4e87bc324.xlsx  95d9fd191e53d8f5dcb3a1611e155a68.xlsx  d3221d2c62bf3fe39f70829618dc693b.xlsx
+									0114fb762609dbc89648e33ff994ae16.csv   5381832c364b13f0b14c8bc84f75dd76.xlsx  7f0d3b6d3b7a6f288bc3321e5b1d01b4.xlsx  9967b7bc310ce7f6b91862a52f15b222.xlsx  e49f7d9edd1b573cca1407a3d78f657e.csv
+									0a51cd0e28bfe2f32e6e9a1828440ba1.xlsx  6691dc499e4ea706e8f64d5cfaabb191.xlsx  84a12959c8094e29a9615537cc1e5f9b.csv   a1c16b169b2bfd53bee1465145ef2050.xlsx  ece8fc2e372ac929a7ea4376812215eb.xlsx
+									1648375f5d7fe2807c0fb7c736904479.csv   7a7ef0d002a47d1abf08a18dcf0ff84a.xlsx  858e65c171330d2ee34cdc93b64b24d3.csv   bc1c417089dfdd6dcaad713722b2c42e.xlsx  faab989eaccf75829b08c3a3d06a3586.csv
+									2c099c9ebbbc8adf6b6c367408c34c6d.xlsx  7e2e8897d7370e5f4b6bb4e67a3b5d7b.xlsx  8718d2e319c75d6d7af51b1253987590.xlsx  d1735482024263fe2ed31adc96d6ee2d.csv   
+									[root@iz0xigjdatfp2x5ez15cpuz ~]# ll /home/wwwroot/mytracking/uploads/excel/202404/ | wc -l
+									25
+									[root@iz0xigjdatfp2x5ez15cpuz ~]# ll /home/wwwroot/mytracking/uploads/excel/202404/
+									total 112120
+									-rwxr-xr-x 1 root root      9978 May  1  2024 0080076a6958367240bb887ccc5d8538.xlsx
+									-rwxr-xr-x 1 root root     92379 May  1  2024 0114fb762609dbc89648e33ff994ae16.csv
+									-rwxr-xr-x 1 root root    173447 May  1  2024 0a51cd0e28bfe2f32e6e9a1828440ba1.xlsx
+									-rw-r--r-- 1 root root      8384 May  1  2024 1648375f5d7fe2807c0fb7c736904479.csv
+									-rwxr-xr-x 1 root root     30785 May  1  2024 2c099c9ebbbc8adf6b6c367408c34c6d.xlsx
+									-rw-r--r-- 1 root root     40993 May  1  2024 36471d6ddca971610af3cd02a6c54148.csv
+									-rwxr-xr-x 1 root root     19214 May  1  2024 5381832c364b13f0b14c8bc84f75dd76.xlsx
+									-rwxr-xr-x 1 root root     13795 May  1  2024 6691dc499e4ea706e8f64d5cfaabb191.xlsx
+									-rwxr-xr-x 1 root root     26777 May  1  2024 7a7ef0d002a47d1abf08a18dcf0ff84a.xlsx
+									-rwxr-xr-x 1 root root      9908 May  1  2024 7e2e8897d7370e5f4b6bb4e67a3b5d7b.xlsx
+									-rwxr-xr-x 1 root root     19560 May  1  2024 7e33ca9d896317a3d13611c4e87bc324.xlsx
+									-rwxr-xr-x 1 root root     14022 May  1  2024 7f0d3b6d3b7a6f288bc3321e5b1d01b4.xlsx
+									-rw-r--r-- 1 root root     41933 May  1  2024 84a12959c8094e29a9615537cc1e5f9b.csv
+									-rwxr-xr-x 1 root root 112955758 May  1  2024 858e65c171330d2ee34cdc93b64b24d3.csv
+									-rwxr-xr-x 1 root root      9430 May  1  2024 8718d2e319c75d6d7af51b1253987590.xlsx
+									-rwxr-xr-x 1 root root     19546 May  1  2024 95d9fd191e53d8f5dcb3a1611e155a68.xlsx
+									-rwxr-xr-x 1 root root     19750 May  1  2024 9967b7bc310ce7f6b91862a52f15b222.xlsx
+									-rwxr-xr-x 1 root root     40309 May  1  2024 a1c16b169b2bfd53bee1465145ef2050.xlsx
+									-rwxr-xr-x 1 root root     15690 May  1  2024 bc1c417089dfdd6dcaad713722b2c42e.xlsx
+									-rw-r--r-- 1 root root      1191 May  1  2024 d1735482024263fe2ed31adc96d6ee2d.csv
+									-rwxr-xr-x 1 root root      9895 May  1  2024 d3221d2c62bf3fe39f70829618dc693b.xlsx
+									-rwxr-xr-x 1 root root    412015 May  1  2024 e49f7d9edd1b573cca1407a3d78f657e.csv
+									-rwxr-xr-x 1 root root      9893 May  1  2024 ece8fc2e372ac929a7ea4376812215eb.xlsx
+									-rwxr-xr-x 1 root root    761697 May  1  2024 faab989eaccf75829b08c3a3d06a3586.csv
+									[root@iz0xigjdatfp2x5ez15cpuz ~]# ll /home/wwwroot/mytracking/uploads/excel/202404/ -h
+									total 110M
+									-rwxr-xr-x 1 root root 9.8K May  1  2024 0080076a6958367240bb887ccc5d8538.xlsx
+									-rwxr-xr-x 1 root root  91K May  1  2024 0114fb762609dbc89648e33ff994ae16.csv
+									-rwxr-xr-x 1 root root 170K May  1  2024 0a51cd0e28bfe2f32e6e9a1828440ba1.xlsx
+									-rw-r--r-- 1 root root 8.2K May  1  2024 1648375f5d7fe2807c0fb7c736904479.csv
+									-rwxr-xr-x 1 root root  31K May  1  2024 2c099c9ebbbc8adf6b6c367408c34c6d.xlsx
+									-rw-r--r-- 1 root root  41K May  1  2024 36471d6ddca971610af3cd02a6c54148.csv
+									-rwxr-xr-x 1 root root  19K May  1  2024 5381832c364b13f0b14c8bc84f75dd76.xlsx
+									-rwxr-xr-x 1 root root  14K May  1  2024 6691dc499e4ea706e8f64d5cfaabb191.xlsx
+									-rwxr-xr-x 1 root root  27K May  1  2024 7a7ef0d002a47d1abf08a18dcf0ff84a.xlsx
+									-rwxr-xr-x 1 root root 9.7K May  1  2024 7e2e8897d7370e5f4b6bb4e67a3b5d7b.xlsx
+									-rwxr-xr-x 1 root root  20K May  1  2024 7e33ca9d896317a3d13611c4e87bc324.xlsx
+									-rwxr-xr-x 1 root root  14K May  1  2024 7f0d3b6d3b7a6f288bc3321e5b1d01b4.xlsx
+									-rw-r--r-- 1 root root  41K May  1  2024 84a12959c8094e29a9615537cc1e5f9b.csv
+									-rwxr-xr-x 1 root root 108M May  1  2024 858e65c171330d2ee34cdc93b64b24d3.csv
+									-rwxr-xr-x 1 root root 9.3K May  1  2024 8718d2e319c75d6d7af51b1253987590.xlsx
+									-rwxr-xr-x 1 root root  20K May  1  2024 95d9fd191e53d8f5dcb3a1611e155a68.xlsx
+									-rwxr-xr-x 1 root root  20K May  1  2024 9967b7bc310ce7f6b91862a52f15b222.xlsx
+									-rwxr-xr-x 1 root root  40K May  1  2024 a1c16b169b2bfd53bee1465145ef2050.xlsx
+									-rwxr-xr-x 1 root root  16K May  1  2024 bc1c417089dfdd6dcaad713722b2c42e.xlsx
+									-rw-r--r-- 1 root root 1.2K May  1  2024 d1735482024263fe2ed31adc96d6ee2d.csv
+									-rwxr-xr-x 1 root root 9.7K May  1  2024 d3221d2c62bf3fe39f70829618dc693b.xlsx
+									-rwxr-xr-x 1 root root 403K May  1  2024 e49f7d9edd1b573cca1407a3d78f657e.csv
+									-rwxr-xr-x 1 root root 9.7K May  1  2024 ece8fc2e372ac929a7ea4376812215eb.xlsx
+									-rwxr-xr-x 1 root root 744K May  1  2024 faab989eaccf75829b08c3a3d06a3586.csv
+									[root@iz0xigjdatfp2x5ez15cpuz ~]# df -h
+									Filesystem      Size  Used Avail Use% Mounted on
+									/dev/vda1        40G   39G  461M  99% /
+									devtmpfs        7.8G     0  7.8G   0% /dev
+									tmpfs           7.8G     0  7.8G   0% /dev/shm
+									tmpfs           7.8G  1.6G  6.2G  21% /run
+									tmpfs           7.8G     0  7.8G   0% /sys/fs/cgroup
+									tmpfs           1.6G     0  1.6G   0% /run/user/1002
+									tmpfs           1.6G     0  1.6G   0% /run/user/0
+									[root@iz0xigjdatfp2x5ez15cpuz ~]# sh disk.20241023.sh /home/wwwroot/www.trackingmore.com/admin 3 100
+									/home/wwwroot/www.trackingmore.com/admin: 2345 MB
+										/home/wwwroot/www.trackingmore.com/admin/upload: 218 MB
+										/home/wwwroot/www.trackingmore.com/admin/upload_zip: 1874 MB
+									[root@iz0xigjdatfp2x5ez15cpuz ~]# ll /run/log/home-wwwroot-mytracking-uploads-excel_zip
+									ls: cannot access /run/log/home-wwwroot-mytracking-uploads-excel_zip: No such file or directory
+									[root@iz0xigjdatfp2x5ez15cpuz ~]# mkdir /run/log/home-wwwroot-mytracking-uploads-excel_zip
+									[root@iz0xigjdatfp2x5ez15cpuz ~]# mv /home/wwwroot/mytracking/uploads/excel_zip/* /run/log/home-wwwroot-mytracking-uploads-excel_zip/
+									[root@iz0xigjdatfp2x5ez15cpuz ~]# df -h
+									Filesystem      Size  Used Avail Use% Mounted on
+									/dev/vda1        40G   37G  2.0G  95% /
+									devtmpfs        7.8G     0  7.8G   0% /dev
+									tmpfs           7.8G     0  7.8G   0% /dev/shm
+									tmpfs           7.8G  3.2G  4.7G  41% /run
+									tmpfs           7.8G     0  7.8G   0% /sys/fs/cgroup
+									tmpfs           1.6G     0  1.6G   0% /run/user/1002
+									tmpfs           1.6G     0  1.6G   0% /run/user/0
+								-www-27-tm
+									[root@iZ0xifhcadlq8e9t1jngcpZ ~]# df -h
+									Filesystem      Size  Used Avail Use% Mounted on
+									/dev/vda1        40G   39G  631M  99% /
+									devtmpfs        7.8G     0  7.8G   0% /dev
+									tmpfs           7.8G     0  7.8G   0% /dev/shm
+									tmpfs           7.8G  364M  7.5G   5% /run
+									tmpfs           7.8G     0  7.8G   0% /sys/fs/cgroup
+									tmpfs           1.6G     0  1.6G   0% /run/user/0
+									tmpfs           1.6G     0  1.6G   0% /run/user/1002
+									overlay          40G   39G  631M  99% /var/lib/docker/overlay2/7f63719155be846a6e0b82194559725cd5c3b092d37e1e02bebb8b395ff35672/merged
+									find: ‘/proc/26699/task/26699/fdinfo/6’: No such file or directory
+									find: ‘/proc/26699/fdinfo/6’: No such file or directory
+									ls: cannot access {}: No such file or directory
+									-rw-r--r-- 1 www  www  403M Jan 31 23:00 /home/wwwroot/www.trackingmore.com/mailwebhook/en/royalmail_webhook_input.log
+									-rw-r--r-- 1 root root 174M Nov 26 18:58 /run/log/home-wwwroot-www.trackingmore.com-mailwehook-en/easypost_webhook_input.log.saveto.20250216.2g.zip
+									-rw-r--r-- 1 root root 164M Dec 18 23:55 /run/log/home-wwwroot-www.trackingmore.com-mailwehook-en/royalmail_webhook_input.log.20241115.20241218.1.5g.zip
+									-rw-r--r-- 1 root root 147M Apr  3  2024 /var/cache/yum/x86_64/7/updates/gen/primary_db.sqlite
+									-rw-r--r-- 1 root root 139M Apr  3  2024 /var/cache/yum/x86_64/7/updates/gen/filelists_db.sqlite
+									-rw-r--r-- 1 root root 130M Jan 31 23:00 /root/yunxiao/be-tfpyqa22gtndemstnunakvmq/runner/__flow_logs/runner.log
+									-r-------- 1 root root 128T Jan 31 23:00 /proc/kcore
+									-rw-r--r-- 1 root root 118M Sep  1  2020 /usr/local/rasp-php-linux.tar.bz2
+									-rwxr-xr-x 1 root root 110M Jan 31 20:55 /home/wwwroot/mytracking/logs/jobs/exportJobs.log
+									-rwxr-xr-x 1 root root 102M Apr 23  2024 /usr/bin/dockerd
+									-rw-r--r-- 1 root root 102M Mar 16  2018 /usr/lib/locale/locale-archive
+									[root@iZ0xifhcadlq8e9t1jngcpZ ~]# echo > /home/wwwroot/www.trackingmore.com/mailwebhook/en/royalmail_webhook_input.log
+									[root@iZ0xifhcadlq8e9t1jngcpZ ~]# ll disk.20241023.sh 
+									Display all 855 possibilities? (y or n)^C
+									[root@iZ0xifhcadlq8e9t1jngcpZ ~]# sh disk.20241023.sh /home/wwwroot/www.trackingmore.com/admin 3 100
+									/home/wwwroot/www.trackingmore.com/admin: 5768 MB
+										/home/wwwroot/www.trackingmore.com/admin/apps: 602 MB
+											/home/wwwroot/www.trackingmore.com/admin/apps/tm-official-website: 602 MB
+										/home/wwwroot/www.trackingmore.com/admin/myshopify: 126 MB
+											/home/wwwroot/www.trackingmore.com/admin/myshopify/logs: 115 MB
+										/home/wwwroot/www.trackingmore.com/admin/upload: 4808 MB
+									[root@iZ0xifhcadlq8e9t1jngcpZ ~]# sh disk.20241023.sh /home/wwwroot/mytracking/uploads 3 100
+									/home/wwwroot/mytracking/uploads: 1834 MB
+										/home/wwwroot/mytracking/uploads/excel: 1834 MB
+											/home/wwwroot/mytracking/uploads/excel/202310: 152 MB
+											/home/wwwroot/mytracking/uploads/excel/202404: 170 MB
+											/home/wwwroot/mytracking/uploads/excel/202409: 109 MB
+											/home/wwwroot/mytracking/uploads/excel/202411: 161 MB
+											/home/wwwroot/mytracking/uploads/excel/202412: 163 MB
+											/home/wwwroot/mytracking/uploads/excel/202501: 179 MB
+									[root@iZ0xifhcadlq8e9t1jngcpZ ~]# sh disk.20241023.sh /home/wwwroot/mytracking/downloads/ 3 100
+									/home/wwwroot/mytracking/downloads/: 272 MB
+										/home/wwwroot/mytracking/downloads//excel: 272 MB
+									[root@iZ0xifhcadlq8e9t1jngcpZ ~]# tail ~/zipAndRmlog.mon.sh.log
+									0
+									find /home/wwwroot/mytracking/uploads/excel/202501 -maxdepth 1 -type f -name \*xlsx -newermt 20250130 ! -newermt 20250131 | xargs -i zip -q /home/wwwroot/mytracking/uploads/excel_zip/20250130.zip {}
+									690356
+									find /home/wwwroot/mytracking/uploads/excel/202501 -maxdepth 1 -type f -name \*xlsx -newermt 20250130 ! -newermt 20250131 | xargs -i rm -f {}
+									find /home/wwwroot/mytracking/uploads/excel/202501 -maxdepth 1 -type f -name \*csv -newermt 20250130 ! -newermt 20250131 | wc -l
+									0
+									find /home/wwwroot/mytracking/uploads/excel/202501 -maxdepth 1 -type f -name \*csv -newermt 20250130 ! -newermt 20250131 | xargs -i zip -q /home/wwwroot/mytracking/uploads/excel_zip/20250130.zip {}
+									690356
+									find /home/wwwroot/mytracking/uploads/excel/202501 -maxdepth 1 -type f -name \*csv -newermt 20250130 ! -newermt 20250131 | xargs -i rm -f {}
+									1
+									[root@iZ0xifhcadlq8e9t1jngcpZ ~]# sh ~/zipAndRmlog.mon.sh 1 1 30
+
+									2025-01-31 23:40:27
+									day 20250101
+									month 202501
+									oneDayLater 20250102
+									find /home/wwwroot/mytracking/uploads/excel/202501 -maxdepth 1 -type f -name \*xlsx -newermt 20250101 ! -newermt 20250102 | wc -l
+									0
+									find /home/wwwroot/mytracking/uploads/excel/202501 -maxdepth 1 -type f -name \*xlsx -newermt 20250101 ! -newermt 20250102 | xargs -i zip -q /home/wwwroot/mytracking/uploads/excel_zip/20250101.zip {}
+									6034
+									find /home/wwwroot/mytracking/uploads/excel/202501 -maxdepth 1 -type f -name \*xlsx -newermt 20250101 ! -newermt 20250102 | xargs -i rm -f {}
+									find /home/wwwroot/mytracking/uploads/excel/202501 -maxdepth 1 -type f -name \*csv -newermt 20250101 ! -newermt 20250102 | wc -l
+									0
+									find /home/wwwroot/mytracking/uploads/excel/202501 -maxdepth 1 -type f -name \*csv -newermt 20250101 ! -newermt 20250102 | xargs -i zip -q /home/wwwroot/mytracking/uploads/excel_zip/20250101.zip {}
+									6034
+									find /home/wwwroot/mytracking/uploads/excel/202501 -maxdepth 1 -type f -name \*csv -newermt 20250101 ! -newermt 20250102 | xargs -i rm -f {}
+									30
+									day 20250102
+									month 202501
+									oneDayLater 20250103
+									find /home/wwwroot/mytracking/uploads/excel/202501 -maxdepth 1 -type f -name \*xlsx -newermt 20250102 ! -newermt 20250103 | wc -l
+									0
+									find /home/wwwroot/mytracking/uploads/excel/202501 -maxdepth 1 -type f -name \*xlsx -newermt 20250102 ! -newermt 20250103 | xargs -i zip -q /home/wwwroot/mytracking/uploads/excel_zip/20250102.zip {}
+									1724567
+									find /home/wwwroot/mytracking/uploads/excel/202501 -maxdepth 1 -type f -name \*xlsx -newermt 20250102 ! -newermt 20250103 | xargs -i rm -f {}
+									find /home/wwwroot/mytracking/uploads/excel/202501 -maxdepth 1 -type f -name \*csv -newermt 20250102 ! -newermt 20250103 | wc -l
+									0
+									find /home/wwwroot/mytracking/uploads/excel/202501 -maxdepth 1 -type f -name \*csv -newermt 20250102 ! -newermt 20250103 | xargs -i zip -q /home/wwwroot/mytracking/uploads/excel_zip/20250102.zip {}
+									1724567
+									find /home/wwwroot/mytracking/uploads/excel/202501 -maxdepth 1 -type f -name \*csv -newermt 20250102 ! -newermt 20250103 | xargs -i rm -f {}
+									29
+									day 20250103
+									month 202501
+									oneDayLater 20250104
+									find /home/wwwroot/mytracking/uploads/excel/202501 -maxdepth 1 -type f -name \*xlsx -newermt 20250103 ! -newermt 20250104 | wc -l
+									0
+									find /home/wwwroot/mytracking/uploads/excel/202501 -maxdepth 1 -type f -name \*xlsx -newermt 20250103 ! -newermt 20250104 | xargs -i zip -q /home/wwwroot/mytracking/uploads/excel_zip/20250103.zip {}
+									4424420
+									find /home/wwwroot/mytracking/uploads/excel/202501 -maxdepth 1 -type f -name \*xlsx -newermt 20250103 ! -newermt 20250104 | xargs -i rm -f {}
+									find /home/wwwroot/mytracking/uploads/excel/202501 -maxdepth 1 -type f -name \*csv -newermt 20250103 ! -newermt 20250104 | wc -l
+									0
+									find /home/wwwroot/mytracking/uploads/excel/202501 -maxdepth 1 -type f -name \*csv -newermt 20250103 ! -newermt 20250104 | xargs -i zip -q /home/wwwroot/mytracking/uploads/excel_zip/20250103.zip {}
+									4424420
+									find /home/wwwroot/mytracking/uploads/excel/202501 -maxdepth 1 -type f -name \*csv -newermt 20250103 ! -newermt 20250104 | xargs -i rm -f {}
+									28
+									day 20250104
+									month 202501
+									oneDayLater 20250105
+									find /home/wwwroot/mytracking/uploads/excel/202501 -maxdepth 1 -type f -name \*xlsx -newermt 20250104 ! -newermt 20250105 | wc -l
+									0
+									find /home/wwwroot/mytracking/uploads/excel/202501 -maxdepth 1 -type f -name \*xlsx -newermt 20250104 ! -newermt 20250105 | xargs -i zip -q /home/wwwroot/mytracking/uploads/excel_zip/20250104.zip {}
+									35196
+									find /home/wwwroot/mytracking/uploads/excel/202501 -maxdepth 1 -type f -name \*xlsx -newermt 20250104 ! -newermt 20250105 | xargs -i rm -f {}
+									find /home/wwwroot/mytracking/uploads/excel/202501 -maxdepth 1 -type f -name \*csv -newermt 20250104 ! -newermt 20250105 | wc -l
+									0
+									find /home/wwwroot/mytracking/uploads/excel/202501 -maxdepth 1 -type f -name \*csv -newermt 20250104 ! -newermt 20250105 | xargs -i zip -q /home/wwwroot/mytracking/uploads/excel_zip/20250104.zip {}
+									35196
+									find /home/wwwroot/mytracking/uploads/excel/202501 -maxdepth 1 -type f -name \*csv -newermt 20250104 ! -newermt 20250105 | xargs -i rm -f {}
+									27
+									day 20250105
+									month 202501
+									oneDayLater 20250106
+									find /home/wwwroot/mytracking/uploads/excel/202501 -maxdepth 1 -type f -name \*xlsx -newermt 20250105 ! -newermt 20250106 | wc -l
+									0
+									find /home/wwwroot/mytracking/uploads/excel/202501 -maxdepth 1 -type f -name \*xlsx -newermt 20250105 ! -newermt 20250106 | xargs -i zip -q /home/wwwroot/mytracking/uploads/excel_zip/20250105.zip {}
+									514970
+									find /home/wwwroot/mytracking/uploads/excel/202501 -maxdepth 1 -type f -name \*xlsx -newermt 20250105 ! -newermt 20250106 | xargs -i rm -f {}
+									find /home/wwwroot/mytracking/uploads/excel/202501 -maxdepth 1 -type f -name \*csv -newermt 20250105 ! -newermt 20250106 | wc -l
+									0
+									find /home/wwwroot/mytracking/uploads/excel/202501 -maxdepth 1 -type f -name \*csv -newermt 20250105 ! -newermt 20250106 | xargs -i zip -q /home/wwwroot/mytracking/uploads/excel_zip/20250105.zip {}
+									514970
+									find /home/wwwroot/mytracking/uploads/excel/202501 -maxdepth 1 -type f -name \*csv -newermt 20250105 ! -newermt 20250106 | xargs -i rm -f {}
+									26
+									day 20250106
+									month 202501
+									oneDayLater 20250107
+									find /home/wwwroot/mytracking/uploads/excel/202501 -maxdepth 1 -type f -name \*xlsx -newermt 20250106 ! -newermt 20250107 | wc -l
+									0
+									find /home/wwwroot/mytracking/uploads/excel/202501 -maxdepth 1 -type f -name \*xlsx -newermt 20250106 ! -newermt 20250107 | xargs -i zip -q /home/wwwroot/mytracking/uploads/excel_zip/20250106.zip {}
+									4704990
+									find /home/wwwroot/mytracking/uploads/excel/202501 -maxdepth 1 -type f -name \*xlsx -newermt 20250106 ! -newermt 20250107 | xargs -i rm -f {}
+									find /home/wwwroot/mytracking/uploads/excel/202501 -maxdepth 1 -type f -name \*csv -newermt 20250106 ! -newermt 20250107 | wc -l
+									0
+									find /home/wwwroot/mytracking/uploads/excel/202501 -maxdepth 1 -type f -name \*csv -newermt 20250106 ! -newermt 20250107 | xargs -i zip -q /home/wwwroot/mytracking/uploads/excel_zip/20250106.zip {}
+									4704990
+									find /home/wwwroot/mytracking/uploads/excel/202501 -maxdepth 1 -type f -name \*csv -newermt 20250106 ! -newermt 20250107 | xargs -i rm -f {}
+									25
+									day 20250107
+									month 202501
+									oneDayLater 20250108
+									find /home/wwwroot/mytracking/uploads/excel/202501 -maxdepth 1 -type f -name \*xlsx -newermt 20250107 ! -newermt 20250108 | wc -l
+									0
+									find /home/wwwroot/mytracking/uploads/excel/202501 -maxdepth 1 -type f -name \*xlsx -newermt 20250107 ! -newermt 20250108 | xargs -i zip -q /home/wwwroot/mytracking/uploads/excel_zip/20250107.zip {}
+									2131322
+									find /home/wwwroot/mytracking/uploads/excel/202501 -maxdepth 1 -type f -name \*xlsx -newermt 20250107 ! -newermt 20250108 | xargs -i rm -f {}
+									find /home/wwwroot/mytracking/uploads/excel/202501 -maxdepth 1 -type f -name \*csv -newermt 20250107 ! -newermt 20250108 | wc -l
+									0
+									find /home/wwwroot/mytracking/uploads/excel/202501 -maxdepth 1 -type f -name \*csv -newermt 20250107 ! -newermt 20250108 | xargs -i zip -q /home/wwwroot/mytracking/uploads/excel_zip/20250107.zip {}
+									2131322
+									find /home/wwwroot/mytracking/uploads/excel/202501 -maxdepth 1 -type f -name \*csv -newermt 20250107 ! -newermt 20250108 | xargs -i rm -f {}
+									24
+									day 20250108
+									month 202501
+									oneDayLater 20250109
+									find /home/wwwroot/mytracking/uploads/excel/202501 -maxdepth 1 -type f -name \*xlsx -newermt 20250108 ! -newermt 20250109 | wc -l
+									0
+									find /home/wwwroot/mytracking/uploads/excel/202501 -maxdepth 1 -type f -name \*xlsx -newermt 20250108 ! -newermt 20250109 | xargs -i zip -q /home/wwwroot/mytracking/uploads/excel_zip/20250108.zip {}
+									1715994
+									find /home/wwwroot/mytracking/uploads/excel/202501 -maxdepth 1 -type f -name \*xlsx -newermt 20250108 ! -newermt 20250109 | xargs -i rm -f {}
+									find /home/wwwroot/mytracking/uploads/excel/202501 -maxdepth 1 -type f -name \*csv -newermt 20250108 ! -newermt 20250109 | wc -l
+									0
+									find /home/wwwroot/mytracking/uploads/excel/202501 -maxdepth 1 -type f -name \*csv -newermt 20250108 ! -newermt 20250109 | xargs -i zip -q /home/wwwroot/mytracking/uploads/excel_zip/20250108.zip {}
+									1715994
+									find /home/wwwroot/mytracking/uploads/excel/202501 -maxdepth 1 -type f -name \*csv -newermt 20250108 ! -newermt 20250109 | xargs -i rm -f {}
+									23
+									day 20250109
+									month 202501
+									oneDayLater 20250110
+									find /home/wwwroot/mytracking/uploads/excel/202501 -maxdepth 1 -type f -name \*xlsx -newermt 20250109 ! -newermt 20250110 | wc -l
+									0
+									find /home/wwwroot/mytracking/uploads/excel/202501 -maxdepth 1 -type f -name \*xlsx -newermt 20250109 ! -newermt 20250110 | xargs -i zip -q /home/wwwroot/mytracking/uploads/excel_zip/20250109.zip {}
+									10422222
+									find /home/wwwroot/mytracking/uploads/excel/202501 -maxdepth 1 -type f -name \*xlsx -newermt 20250109 ! -newermt 20250110 | xargs -i rm -f {}
+									find /home/wwwroot/mytracking/uploads/excel/202501 -maxdepth 1 -type f -name \*csv -newermt 20250109 ! -newermt 20250110 | wc -l
+									0
+									find /home/wwwroot/mytracking/uploads/excel/202501 -maxdepth 1 -type f -name \*csv -newermt 20250109 ! -newermt 20250110 | xargs -i zip -q /home/wwwroot/mytracking/uploads/excel_zip/20250109.zip {}
+									10422222
+									find /home/wwwroot/mytracking/uploads/excel/202501 -maxdepth 1 -type f -name \*csv -newermt 20250109 ! -newermt 20250110 | xargs -i rm -f {}
+									22
+									day 20250110
+									month 202501
+									oneDayLater 20250111
+									find /home/wwwroot/mytracking/uploads/excel/202501 -maxdepth 1 -type f -name \*xlsx -newermt 20250110 ! -newermt 20250111 | wc -l
+									0
+									find /home/wwwroot/mytracking/uploads/excel/202501 -maxdepth 1 -type f -name \*xlsx -newermt 20250110 ! -newermt 20250111 | xargs -i zip -q /home/wwwroot/mytracking/uploads/excel_zip/20250110.zip {}
+									727189
+									find /home/wwwroot/mytracking/uploads/excel/202501 -maxdepth 1 -type f -name \*xlsx -newermt 20250110 ! -newermt 20250111 | xargs -i rm -f {}
+									find /home/wwwroot/mytracking/uploads/excel/202501 -maxdepth 1 -type f -name \*csv -newermt 20250110 ! -newermt 20250111 | wc -l
+									0
+									find /home/wwwroot/mytracking/uploads/excel/202501 -maxdepth 1 -type f -name \*csv -newermt 20250110 ! -newermt 20250111 | xargs -i zip -q /home/wwwroot/mytracking/uploads/excel_zip/20250110.zip {}
+									727189
+									find /home/wwwroot/mytracking/uploads/excel/202501 -maxdepth 1 -type f -name \*csv -newermt 20250110 ! -newermt 20250111 | xargs -i rm -f {}
+									21
+									day 20250111
+									month 202501
+									oneDayLater 20250112
+									find /home/wwwroot/mytracking/uploads/excel/202501 -maxdepth 1 -type f -name \*xlsx -newermt 20250111 ! -newermt 20250112 | wc -l
+									0
+									find /home/wwwroot/mytracking/uploads/excel/202501 -maxdepth 1 -type f -name \*xlsx -newermt 20250111 ! -newermt 20250112 | xargs -i zip -q /home/wwwroot/mytracking/uploads/excel_zip/20250111.zip {}
+									76022
+									find /home/wwwroot/mytracking/uploads/excel/202501 -maxdepth 1 -type f -name \*xlsx -newermt 20250111 ! -newermt 20250112 | xargs -i rm -f {}
+									find /home/wwwroot/mytracking/uploads/excel/202501 -maxdepth 1 -type f -name \*csv -newermt 20250111 ! -newermt 20250112 | wc -l
+									0
+									find /home/wwwroot/mytracking/uploads/excel/202501 -maxdepth 1 -type f -name \*csv -newermt 20250111 ! -newermt 20250112 | xargs -i zip -q /home/wwwroot/mytracking/uploads/excel_zip/20250111.zip {}
+									76022
+									find /home/wwwroot/mytracking/uploads/excel/202501 -maxdepth 1 -type f -name \*csv -newermt 20250111 ! -newermt 20250112 | xargs -i rm -f {}
+									20
+									day 20250112
+									month 202501
+									oneDayLater 20250113
+									find /home/wwwroot/mytracking/uploads/excel/202501 -maxdepth 1 -type f -name \*xlsx -newermt 20250112 ! -newermt 20250113 | wc -l
+									0
+									find /home/wwwroot/mytracking/uploads/excel/202501 -maxdepth 1 -type f -name \*xlsx -newermt 20250112 ! -newermt 20250113 | xargs -i zip -q /home/wwwroot/mytracking/uploads/excel_zip/20250112.zip {}
+									236431
+									find /home/wwwroot/mytracking/uploads/excel/202501 -maxdepth 1 -type f -name \*xlsx -newermt 20250112 ! -newermt 20250113 | xargs -i rm -f {}
+									find /home/wwwroot/mytracking/uploads/excel/202501 -maxdepth 1 -type f -name \*csv -newermt 20250112 ! -newermt 20250113 | wc -l
+									0
+									find /home/wwwroot/mytracking/uploads/excel/202501 -maxdepth 1 -type f -name \*csv -newermt 20250112 ! -newermt 20250113 | xargs -i zip -q /home/wwwroot/mytracking/uploads/excel_zip/20250112.zip {}
+									236431
+									find /home/wwwroot/mytracking/uploads/excel/202501 -maxdepth 1 -type f -name \*csv -newermt 20250112 ! -newermt 20250113 | xargs -i rm -f {}
+									19
+									day 20250113
+									month 202501
+									oneDayLater 20250114
+									find /home/wwwroot/mytracking/uploads/excel/202501 -maxdepth 1 -type f -name \*xlsx -newermt 20250113 ! -newermt 20250114 | wc -l
+									0
+									find /home/wwwroot/mytracking/uploads/excel/202501 -maxdepth 1 -type f -name \*xlsx -newermt 20250113 ! -newermt 20250114 | xargs -i zip -q /home/wwwroot/mytracking/uploads/excel_zip/20250113.zip {}
+									1578990
+									find /home/wwwroot/mytracking/uploads/excel/202501 -maxdepth 1 -type f -name \*xlsx -newermt 20250113 ! -newermt 20250114 | xargs -i rm -f {}
+									find /home/wwwroot/mytracking/uploads/excel/202501 -maxdepth 1 -type f -name \*csv -newermt 20250113 ! -newermt 20250114 | wc -l
+									0
+									find /home/wwwroot/mytracking/uploads/excel/202501 -maxdepth 1 -type f -name \*csv -newermt 20250113 ! -newermt 20250114 | xargs -i zip -q /home/wwwroot/mytracking/uploads/excel_zip/20250113.zip {}
+									1578990
+									find /home/wwwroot/mytracking/uploads/excel/202501 -maxdepth 1 -type f -name \*csv -newermt 20250113 ! -newermt 20250114 | xargs -i rm -f {}
+									18
+									day 20250114
+									month 202501
+									oneDayLater 20250115
+									find /home/wwwroot/mytracking/uploads/excel/202501 -maxdepth 1 -type f -name \*xlsx -newermt 20250114 ! -newermt 20250115 | wc -l
+									0
+									find /home/wwwroot/mytracking/uploads/excel/202501 -maxdepth 1 -type f -name \*xlsx -newermt 20250114 ! -newermt 20250115 | xargs -i zip -q /home/wwwroot/mytracking/uploads/excel_zip/20250114.zip {}
+									4381540
+									find /home/wwwroot/mytracking/uploads/excel/202501 -maxdepth 1 -type f -name \*xlsx -newermt 20250114 ! -newermt 20250115 | xargs -i rm -f {}
+									find /home/wwwroot/mytracking/uploads/excel/202501 -maxdepth 1 -type f -name \*csv -newermt 20250114 ! -newermt 20250115 | wc -l
+									0
+									find /home/wwwroot/mytracking/uploads/excel/202501 -maxdepth 1 -type f -name \*csv -newermt 20250114 ! -newermt 20250115 | xargs -i zip -q /home/wwwroot/mytracking/uploads/excel_zip/20250114.zip {}
+									4381540
+									find /home/wwwroot/mytracking/uploads/excel/202501 -maxdepth 1 -type f -name \*csv -newermt 20250114 ! -newermt 20250115 | xargs -i rm -f {}
+									17
+									day 20250115
+									month 202501
+									oneDayLater 20250116
+									find /home/wwwroot/mytracking/uploads/excel/202501 -maxdepth 1 -type f -name \*xlsx -newermt 20250115 ! -newermt 20250116 | wc -l
+									0
+									find /home/wwwroot/mytracking/uploads/excel/202501 -maxdepth 1 -type f -name \*xlsx -newermt 20250115 ! -newermt 20250116 | xargs -i zip -q /home/wwwroot/mytracking/uploads/excel_zip/20250115.zip {}
+									2182710
+									find /home/wwwroot/mytracking/uploads/excel/202501 -maxdepth 1 -type f -name \*xlsx -newermt 20250115 ! -newermt 20250116 | xargs -i rm -f {}
+									find /home/wwwroot/mytracking/uploads/excel/202501 -maxdepth 1 -type f -name \*csv -newermt 20250115 ! -newermt 20250116 | wc -l
+									0
+									find /home/wwwroot/mytracking/uploads/excel/202501 -maxdepth 1 -type f -name \*csv -newermt 20250115 ! -newermt 20250116 | xargs -i zip -q /home/wwwroot/mytracking/uploads/excel_zip/20250115.zip {}
+									2182710
+									find /home/wwwroot/mytracking/uploads/excel/202501 -maxdepth 1 -type f -name \*csv -newermt 20250115 ! -newermt 20250116 | xargs -i rm -f {}
+									16
+									day 20250116
+									month 202501
+									oneDayLater 20250117
+									find /home/wwwroot/mytracking/uploads/excel/202501 -maxdepth 1 -type f -name \*xlsx -newermt 20250116 ! -newermt 20250117 | wc -l
+									0
+									find /home/wwwroot/mytracking/uploads/excel/202501 -maxdepth 1 -type f -name \*xlsx -newermt 20250116 ! -newermt 20250117 | xargs -i zip -q /home/wwwroot/mytracking/uploads/excel_zip/20250116.zip {}
+									1850423
+									find /home/wwwroot/mytracking/uploads/excel/202501 -maxdepth 1 -type f -name \*xlsx -newermt 20250116 ! -newermt 20250117 | xargs -i rm -f {}
+									find /home/wwwroot/mytracking/uploads/excel/202501 -maxdepth 1 -type f -name \*csv -newermt 20250116 ! -newermt 20250117 | wc -l
+									0
+									find /home/wwwroot/mytracking/uploads/excel/202501 -maxdepth 1 -type f -name \*csv -newermt 20250116 ! -newermt 20250117 | xargs -i zip -q /home/wwwroot/mytracking/uploads/excel_zip/20250116.zip {}
+									1850423
+									find /home/wwwroot/mytracking/uploads/excel/202501 -maxdepth 1 -type f -name \*csv -newermt 20250116 ! -newermt 20250117 | xargs -i rm -f {}
+									15
+									day 20250117
+									month 202501
+									oneDayLater 20250118
+									find /home/wwwroot/mytracking/uploads/excel/202501 -maxdepth 1 -type f -name \*xlsx -newermt 20250117 ! -newermt 20250118 | wc -l
+									0
+									find /home/wwwroot/mytracking/uploads/excel/202501 -maxdepth 1 -type f -name \*xlsx -newermt 20250117 ! -newermt 20250118 | xargs -i zip -q /home/wwwroot/mytracking/uploads/excel_zip/20250117.zip {}
+									512103
+									find /home/wwwroot/mytracking/uploads/excel/202501 -maxdepth 1 -type f -name \*xlsx -newermt 20250117 ! -newermt 20250118 | xargs -i rm -f {}
+									find /home/wwwroot/mytracking/uploads/excel/202501 -maxdepth 1 -type f -name \*csv -newermt 20250117 ! -newermt 20250118 | wc -l
+									0
+									find /home/wwwroot/mytracking/uploads/excel/202501 -maxdepth 1 -type f -name \*csv -newermt 20250117 ! -newermt 20250118 | xargs -i zip -q /home/wwwroot/mytracking/uploads/excel_zip/20250117.zip {}
+									512103
+									find /home/wwwroot/mytracking/uploads/excel/202501 -maxdepth 1 -type f -name \*csv -newermt 20250117 ! -newermt 20250118 | xargs -i rm -f {}
+									14
+									day 20250118
+									month 202501
+									oneDayLater 20250119
+									find /home/wwwroot/mytracking/uploads/excel/202501 -maxdepth 1 -type f -name \*xlsx -newermt 20250118 ! -newermt 20250119 | wc -l
+									0
+									find /home/wwwroot/mytracking/uploads/excel/202501 -maxdepth 1 -type f -name \*xlsx -newermt 20250118 ! -newermt 20250119 | xargs -i zip -q /home/wwwroot/mytracking/uploads/excel_zip/20250118.zip {}
+									537598
+									find /home/wwwroot/mytracking/uploads/excel/202501 -maxdepth 1 -type f -name \*xlsx -newermt 20250118 ! -newermt 20250119 | xargs -i rm -f {}
+									find /home/wwwroot/mytracking/uploads/excel/202501 -maxdepth 1 -type f -name \*csv -newermt 20250118 ! -newermt 20250119 | wc -l
+									0
+									find /home/wwwroot/mytracking/uploads/excel/202501 -maxdepth 1 -type f -name \*csv -newermt 20250118 ! -newermt 20250119 | xargs -i zip -q /home/wwwroot/mytracking/uploads/excel_zip/20250118.zip {}
+									537598
+									find /home/wwwroot/mytracking/uploads/excel/202501 -maxdepth 1 -type f -name \*csv -newermt 20250118 ! -newermt 20250119 | xargs -i rm -f {}
+									13
+									day 20250119
+									month 202501
+									oneDayLater 20250120
+									find /home/wwwroot/mytracking/uploads/excel/202501 -maxdepth 1 -type f -name \*xlsx -newermt 20250119 ! -newermt 20250120 | wc -l
+									0
+									find /home/wwwroot/mytracking/uploads/excel/202501 -maxdepth 1 -type f -name \*xlsx -newermt 20250119 ! -newermt 20250120 | xargs -i zip -q /home/wwwroot/mytracking/uploads/excel_zip/20250119.zip {}
+									12539
+									find /home/wwwroot/mytracking/uploads/excel/202501 -maxdepth 1 -type f -name \*xlsx -newermt 20250119 ! -newermt 20250120 | xargs -i rm -f {}
+									find /home/wwwroot/mytracking/uploads/excel/202501 -maxdepth 1 -type f -name \*csv -newermt 20250119 ! -newermt 20250120 | wc -l
+									0
+									find /home/wwwroot/mytracking/uploads/excel/202501 -maxdepth 1 -type f -name \*csv -newermt 20250119 ! -newermt 20250120 | xargs -i zip -q /home/wwwroot/mytracking/uploads/excel_zip/20250119.zip {}
+									12539
+									find /home/wwwroot/mytracking/uploads/excel/202501 -maxdepth 1 -type f -name \*csv -newermt 20250119 ! -newermt 20250120 | xargs -i rm -f {}
+									12
+									day 20250120
+									month 202501
+									oneDayLater 20250121
+									find /home/wwwroot/mytracking/uploads/excel/202501 -maxdepth 1 -type f -name \*xlsx -newermt 20250120 ! -newermt 20250121 | wc -l
+									0
+									find /home/wwwroot/mytracking/uploads/excel/202501 -maxdepth 1 -type f -name \*xlsx -newermt 20250120 ! -newermt 20250121 | xargs -i zip -q /home/wwwroot/mytracking/uploads/excel_zip/20250120.zip {}
+									823738
+									find /home/wwwroot/mytracking/uploads/excel/202501 -maxdepth 1 -type f -name \*xlsx -newermt 20250120 ! -newermt 20250121 | xargs -i rm -f {}
+									find /home/wwwroot/mytracking/uploads/excel/202501 -maxdepth 1 -type f -name \*csv -newermt 20250120 ! -newermt 20250121 | wc -l
+									0
+									find /home/wwwroot/mytracking/uploads/excel/202501 -maxdepth 1 -type f -name \*csv -newermt 20250120 ! -newermt 20250121 | xargs -i zip -q /home/wwwroot/mytracking/uploads/excel_zip/20250120.zip {}
+									823738
+									find /home/wwwroot/mytracking/uploads/excel/202501 -maxdepth 1 -type f -name \*csv -newermt 20250120 ! -newermt 20250121 | xargs -i rm -f {}
+									11
+									day 20250121
+									month 202501
+									oneDayLater 20250122
+									find /home/wwwroot/mytracking/uploads/excel/202501 -maxdepth 1 -type f -name \*xlsx -newermt 20250121 ! -newermt 20250122 | wc -l
+									0
+									find /home/wwwroot/mytracking/uploads/excel/202501 -maxdepth 1 -type f -name \*xlsx -newermt 20250121 ! -newermt 20250122 | xargs -i zip -q /home/wwwroot/mytracking/uploads/excel_zip/20250121.zip {}
+									813328
+									find /home/wwwroot/mytracking/uploads/excel/202501 -maxdepth 1 -type f -name \*xlsx -newermt 20250121 ! -newermt 20250122 | xargs -i rm -f {}
+									find /home/wwwroot/mytracking/uploads/excel/202501 -maxdepth 1 -type f -name \*csv -newermt 20250121 ! -newermt 20250122 | wc -l
+									0
+									find /home/wwwroot/mytracking/uploads/excel/202501 -maxdepth 1 -type f -name \*csv -newermt 20250121 ! -newermt 20250122 | xargs -i zip -q /home/wwwroot/mytracking/uploads/excel_zip/20250121.zip {}
+									813328
+									find /home/wwwroot/mytracking/uploads/excel/202501 -maxdepth 1 -type f -name \*csv -newermt 20250121 ! -newermt 20250122 | xargs -i rm -f {}
+									10
+									day 20250122
+									month 202501
+									oneDayLater 20250123
+									find /home/wwwroot/mytracking/uploads/excel/202501 -maxdepth 1 -type f -name \*xlsx -newermt 20250122 ! -newermt 20250123 | wc -l
+									0
+									find /home/wwwroot/mytracking/uploads/excel/202501 -maxdepth 1 -type f -name \*xlsx -newermt 20250122 ! -newermt 20250123 | xargs -i zip -q /home/wwwroot/mytracking/uploads/excel_zip/20250122.zip {}
+									1427916
+									find /home/wwwroot/mytracking/uploads/excel/202501 -maxdepth 1 -type f -name \*xlsx -newermt 20250122 ! -newermt 20250123 | xargs -i rm -f {}
+									find /home/wwwroot/mytracking/uploads/excel/202501 -maxdepth 1 -type f -name \*csv -newermt 20250122 ! -newermt 20250123 | wc -l
+									0
+									find /home/wwwroot/mytracking/uploads/excel/202501 -maxdepth 1 -type f -name \*csv -newermt 20250122 ! -newermt 20250123 | xargs -i zip -q /home/wwwroot/mytracking/uploads/excel_zip/20250122.zip {}
+									1427916
+									find /home/wwwroot/mytracking/uploads/excel/202501 -maxdepth 1 -type f -name \*csv -newermt 20250122 ! -newermt 20250123 | xargs -i rm -f {}
+									9
+									day 20250123
+									month 202501
+									oneDayLater 20250124
+									find /home/wwwroot/mytracking/uploads/excel/202501 -maxdepth 1 -type f -name \*xlsx -newermt 20250123 ! -newermt 20250124 | wc -l
+									0
+									find /home/wwwroot/mytracking/uploads/excel/202501 -maxdepth 1 -type f -name \*xlsx -newermt 20250123 ! -newermt 20250124 | xargs -i zip -q /home/wwwroot/mytracking/uploads/excel_zip/20250123.zip {}
+									2213810
+									find /home/wwwroot/mytracking/uploads/excel/202501 -maxdepth 1 -type f -name \*xlsx -newermt 20250123 ! -newermt 20250124 | xargs -i rm -f {}
+									find /home/wwwroot/mytracking/uploads/excel/202501 -maxdepth 1 -type f -name \*csv -newermt 20250123 ! -newermt 20250124 | wc -l
+									0
+									find /home/wwwroot/mytracking/uploads/excel/202501 -maxdepth 1 -type f -name \*csv -newermt 20250123 ! -newermt 20250124 | xargs -i zip -q /home/wwwroot/mytracking/uploads/excel_zip/20250123.zip {}
+									2213810
+									find /home/wwwroot/mytracking/uploads/excel/202501 -maxdepth 1 -type f -name \*csv -newermt 20250123 ! -newermt 20250124 | xargs -i rm -f {}
+									8
+									day 20250124
+									month 202501
+									oneDayLater 20250125
+									find /home/wwwroot/mytracking/uploads/excel/202501 -maxdepth 1 -type f -name \*xlsx -newermt 20250124 ! -newermt 20250125 | wc -l
+									0
+									find /home/wwwroot/mytracking/uploads/excel/202501 -maxdepth 1 -type f -name \*xlsx -newermt 20250124 ! -newermt 20250125 | xargs -i zip -q /home/wwwroot/mytracking/uploads/excel_zip/20250124.zip {}
+									1009159
+									find /home/wwwroot/mytracking/uploads/excel/202501 -maxdepth 1 -type f -name \*xlsx -newermt 20250124 ! -newermt 20250125 | xargs -i rm -f {}
+									find /home/wwwroot/mytracking/uploads/excel/202501 -maxdepth 1 -type f -name \*csv -newermt 20250124 ! -newermt 20250125 | wc -l
+									0
+									find /home/wwwroot/mytracking/uploads/excel/202501 -maxdepth 1 -type f -name \*csv -newermt 20250124 ! -newermt 20250125 | xargs -i zip -q /home/wwwroot/mytracking/uploads/excel_zip/20250124.zip {}
+									1009159
+									find /home/wwwroot/mytracking/uploads/excel/202501 -maxdepth 1 -type f -name \*csv -newermt 20250124 ! -newermt 20250125 | xargs -i rm -f {}
+									7
+									day 20250125
+									month 202501
+									oneDayLater 20250126
+									find /home/wwwroot/mytracking/uploads/excel/202501 -maxdepth 1 -type f -name \*xlsx -newermt 20250125 ! -newermt 20250126 | wc -l
+									0
+									find /home/wwwroot/mytracking/uploads/excel/202501 -maxdepth 1 -type f -name \*xlsx -newermt 20250125 ! -newermt 20250126 | xargs -i zip -q /home/wwwroot/mytracking/uploads/excel_zip/20250125.zip {}
+									92326
+									find /home/wwwroot/mytracking/uploads/excel/202501 -maxdepth 1 -type f -name \*xlsx -newermt 20250125 ! -newermt 20250126 | xargs -i rm -f {}
+									find /home/wwwroot/mytracking/uploads/excel/202501 -maxdepth 1 -type f -name \*csv -newermt 20250125 ! -newermt 20250126 | wc -l
+									0
+									find /home/wwwroot/mytracking/uploads/excel/202501 -maxdepth 1 -type f -name \*csv -newermt 20250125 ! -newermt 20250126 | xargs -i zip -q /home/wwwroot/mytracking/uploads/excel_zip/20250125.zip {}
+									92326
+									find /home/wwwroot/mytracking/uploads/excel/202501 -maxdepth 1 -type f -name \*csv -newermt 20250125 ! -newermt 20250126 | xargs -i rm -f {}
+									6
+									day 20250126
+									month 202501
+									oneDayLater 20250127
+									find /home/wwwroot/mytracking/uploads/excel/202501 -maxdepth 1 -type f -name \*xlsx -newermt 20250126 ! -newermt 20250127 | wc -l
+									0
+									find /home/wwwroot/mytracking/uploads/excel/202501 -maxdepth 1 -type f -name \*xlsx -newermt 20250126 ! -newermt 20250127 | xargs -i zip -q /home/wwwroot/mytracking/uploads/excel_zip/20250126.zip {}
+									1630176
+									find /home/wwwroot/mytracking/uploads/excel/202501 -maxdepth 1 -type f -name \*xlsx -newermt 20250126 ! -newermt 20250127 | xargs -i rm -f {}
+									find /home/wwwroot/mytracking/uploads/excel/202501 -maxdepth 1 -type f -name \*csv -newermt 20250126 ! -newermt 20250127 | wc -l
+									0
+									find /home/wwwroot/mytracking/uploads/excel/202501 -maxdepth 1 -type f -name \*csv -newermt 20250126 ! -newermt 20250127 | xargs -i zip -q /home/wwwroot/mytracking/uploads/excel_zip/20250126.zip {}
+									1630176
+									find /home/wwwroot/mytracking/uploads/excel/202501 -maxdepth 1 -type f -name \*csv -newermt 20250126 ! -newermt 20250127 | xargs -i rm -f {}
+									5
+									day 20250127
+									month 202501
+									oneDayLater 20250128
+									find /home/wwwroot/mytracking/uploads/excel/202501 -maxdepth 1 -type f -name \*xlsx -newermt 20250127 ! -newermt 20250128 | wc -l
+									0
+									find /home/wwwroot/mytracking/uploads/excel/202501 -maxdepth 1 -type f -name \*xlsx -newermt 20250127 ! -newermt 20250128 | xargs -i zip -q /home/wwwroot/mytracking/uploads/excel_zip/20250127.zip {}
+									654331
+									find /home/wwwroot/mytracking/uploads/excel/202501 -maxdepth 1 -type f -name \*xlsx -newermt 20250127 ! -newermt 20250128 | xargs -i rm -f {}
+									find /home/wwwroot/mytracking/uploads/excel/202501 -maxdepth 1 -type f -name \*csv -newermt 20250127 ! -newermt 20250128 | wc -l
+									0
+									find /home/wwwroot/mytracking/uploads/excel/202501 -maxdepth 1 -type f -name \*csv -newermt 20250127 ! -newermt 20250128 | xargs -i zip -q /home/wwwroot/mytracking/uploads/excel_zip/20250127.zip {}
+									654331
+									find /home/wwwroot/mytracking/uploads/excel/202501 -maxdepth 1 -type f -name \*csv -newermt 20250127 ! -newermt 20250128 | xargs -i rm -f {}
+									4
+									day 20250128
+									month 202501
+									oneDayLater 20250129
+									find /home/wwwroot/mytracking/uploads/excel/202501 -maxdepth 1 -type f -name \*xlsx -newermt 20250128 ! -newermt 20250129 | wc -l
+									0
+									find /home/wwwroot/mytracking/uploads/excel/202501 -maxdepth 1 -type f -name \*xlsx -newermt 20250128 ! -newermt 20250129 | xargs -i zip -q /home/wwwroot/mytracking/uploads/excel_zip/20250128.zip {}
+									247861
+									find /home/wwwroot/mytracking/uploads/excel/202501 -maxdepth 1 -type f -name \*xlsx -newermt 20250128 ! -newermt 20250129 | xargs -i rm -f {}
+									find /home/wwwroot/mytracking/uploads/excel/202501 -maxdepth 1 -type f -name \*csv -newermt 20250128 ! -newermt 20250129 | wc -l
+									0
+									find /home/wwwroot/mytracking/uploads/excel/202501 -maxdepth 1 -type f -name \*csv -newermt 20250128 ! -newermt 20250129 | xargs -i zip -q /home/wwwroot/mytracking/uploads/excel_zip/20250128.zip {}
+									247861
+									find /home/wwwroot/mytracking/uploads/excel/202501 -maxdepth 1 -type f -name \*csv -newermt 20250128 ! -newermt 20250129 | xargs -i rm -f {}
+									3
+									day 20250129
+									month 202501
+									oneDayLater 20250130
+									find /home/wwwroot/mytracking/uploads/excel/202501 -maxdepth 1 -type f -name \*xlsx -newermt 20250129 ! -newermt 20250130 | wc -l
+									0
+									find /home/wwwroot/mytracking/uploads/excel/202501 -maxdepth 1 -type f -name \*xlsx -newermt 20250129 ! -newermt 20250130 | xargs -i zip -q /home/wwwroot/mytracking/uploads/excel_zip/20250129.zip {}
+									385291
+									find /home/wwwroot/mytracking/uploads/excel/202501 -maxdepth 1 -type f -name \*xlsx -newermt 20250129 ! -newermt 20250130 | xargs -i rm -f {}
+									find /home/wwwroot/mytracking/uploads/excel/202501 -maxdepth 1 -type f -name \*csv -newermt 20250129 ! -newermt 20250130 | wc -l
+									0
+									find /home/wwwroot/mytracking/uploads/excel/202501 -maxdepth 1 -type f -name \*csv -newermt 20250129 ! -newermt 20250130 | xargs -i zip -q /home/wwwroot/mytracking/uploads/excel_zip/20250129.zip {}
+									385291
+									find /home/wwwroot/mytracking/uploads/excel/202501 -maxdepth 1 -type f -name \*csv -newermt 20250129 ! -newermt 20250130 | xargs -i rm -f {}
+									2
+									day 20250130
+									month 202501
+									oneDayLater 20250131
+									find /home/wwwroot/mytracking/uploads/excel/202501 -maxdepth 1 -type f -name \*xlsx -newermt 20250130 ! -newermt 20250131 | wc -l
+									0
+									find /home/wwwroot/mytracking/uploads/excel/202501 -maxdepth 1 -type f -name \*xlsx -newermt 20250130 ! -newermt 20250131 | xargs -i zip -q /home/wwwroot/mytracking/uploads/excel_zip/20250130.zip {}
+									690356
+									find /home/wwwroot/mytracking/uploads/excel/202501 -maxdepth 1 -type f -name \*xlsx -newermt 20250130 ! -newermt 20250131 | xargs -i rm -f {}
+									find /home/wwwroot/mytracking/uploads/excel/202501 -maxdepth 1 -type f -name \*csv -newermt 20250130 ! -newermt 20250131 | wc -l
+									0
+									find /home/wwwroot/mytracking/uploads/excel/202501 -maxdepth 1 -type f -name \*csv -newermt 20250130 ! -newermt 20250131 | xargs -i zip -q /home/wwwroot/mytracking/uploads/excel_zip/20250130.zip {}
+									690356
+									find /home/wwwroot/mytracking/uploads/excel/202501 -maxdepth 1 -type f -name \*csv -newermt 20250130 ! -newermt 20250131 | xargs -i rm -f {}
+									1
+									[root@iZ0xifhcadlq8e9t1jngcpZ ~]# df -h
+									Filesystem      Size  Used Avail Use% Mounted on
+									/dev/vda1        40G   38G  1.2G  98% /
+									devtmpfs        7.8G     0  7.8G   0% /dev
+									tmpfs           7.8G     0  7.8G   0% /dev/shm
+									tmpfs           7.8G  364M  7.5G   5% /run
+									tmpfs           7.8G     0  7.8G   0% /sys/fs/cgroup
+									tmpfs           1.6G     0  1.6G   0% /run/user/0
+									tmpfs           1.6G     0  1.6G   0% /run/user/1002
+									overlay          40G   38G  1.2G  98% /var/lib/docker/overlay2/7f63719155be846a6e0b82194559725cd5c3b092d37e1e02bebb8b395ff35672/merged
+									[root@iZ0xifhcadlq8e9t1jngcpZ ~]# sh ~/zipAndRmlog.mon.sh 1 1 300 >> ~/zipAndRmlog.mon.sh.log
+									ls: cannot access /home/wwwroot/mytracking/uploads/excel_zip/20240406.zip: No such file or directory
+									ls: cannot access /home/wwwroot/mytracking/uploads/excel_zip/20240407.zip: No such file or directory
+									ls: cannot access /home/wwwroot/mytracking/uploads/excel_zip/20240409.zip: No such file or directory
+									ls: cannot access /home/wwwroot/mytracking/uploads/excel_zip/20240413.zip: No such file or directory
+									ls: cannot access /home/wwwroot/mytracking/uploads/excel_zip/20240414.zip: No such file or directory
+									ls: cannot access /home/wwwroot/mytracking/uploads/excel_zip/20240419.zip: No such file or directory
+									ls: cannot access /home/wwwroot/mytracking/uploads/excel_zip/20240420.zip: No such file or directory
+									ls: cannot access /home/wwwroot/mytracking/uploads/excel_zip/20240421.zip: No such file or directory
+									ls: cannot access /home/wwwroot/mytracking/uploads/excel_zip/20240421.zip: No such file or directory
+									ls: cannot access /home/wwwroot/mytracking/uploads/excel_zip/20240427.zip: No such file or directory
+									ls: cannot access /home/wwwroot/mytracking/uploads/excel_zip/20240428.zip: No such file or directory
+									ls: cannot access /home/wwwroot/mytracking/uploads/excel_zip/20240430.zip: No such file or directory
+									ls: cannot access /home/wwwroot/mytracking/uploads/excel_zip/20240504.zip: No such file or directory
+									ls: cannot access /home/wwwroot/mytracking/uploads/excel_zip/20240505.zip: No such file or directory
+									ls: cannot access /home/wwwroot/mytracking/uploads/excel_zip/20240511.zip: No such file or directory
+									ls: cannot access /home/wwwroot/mytracking/uploads/excel_zip/20240512.zip: No such file or directory
+									ls: cannot access /home/wwwroot/mytracking/uploads/excel_zip/20240512.zip: No such file or directory
+									ls: cannot access /home/wwwroot/mytracking/uploads/excel_zip/20240519.zip: No such file or directory
+									ls: cannot access /home/wwwroot/mytracking/uploads/excel_zip/20240526.zip: No such file or directory
+									ls: cannot access /home/wwwroot/mytracking/uploads/excel_zip/20240526.zip: No such file or directory
+									ls: cannot access /home/wwwroot/mytracking/uploads/excel_zip/20240601.zip: No such file or directory
+									ls: cannot access /home/wwwroot/mytracking/uploads/excel_zip/20240603.zip: No such file or directory
+									ls: cannot access /home/wwwroot/mytracking/uploads/excel_zip/20240609.zip: No such file or directory
+									ls: cannot access /home/wwwroot/mytracking/uploads/excel_zip/20240613.zip: No such file or directory
+									ls: cannot access /home/wwwroot/mytracking/uploads/excel_zip/20240615.zip: No such file or directory
+									ls: cannot access /home/wwwroot/mytracking/uploads/excel_zip/20240616.zip: No such file or directory
+									ls: cannot access /home/wwwroot/mytracking/uploads/excel_zip/20240616.zip: No such file or directory
+									ls: cannot access /home/wwwroot/mytracking/uploads/excel_zip/20240619.zip: No such file or directory
+									ls: cannot access /home/wwwroot/mytracking/uploads/excel_zip/20240620.zip: No such file or directory
+									ls: cannot access /home/wwwroot/mytracking/uploads/excel_zip/20240621.zip: No such file or directory
+									ls: cannot access /home/wwwroot/mytracking/uploads/excel_zip/20240623.zip: No such file or directory
+									ls: cannot access /home/wwwroot/mytracking/uploads/excel_zip/20240630.zip: No such file or directory
+									ls: cannot access /home/wwwroot/mytracking/uploads/excel_zip/20240702.zip: No such file or directory
+									ls: cannot access /home/wwwroot/mytracking/uploads/excel_zip/20240703.zip: No such file or directory
+									ls: cannot access /home/wwwroot/mytracking/uploads/excel_zip/20240706.zip: No such file or directory
+									ls: cannot access /home/wwwroot/mytracking/uploads/excel_zip/20240707.zip: No such file or directory
+									ls: cannot access /home/wwwroot/mytracking/uploads/excel_zip/20240713.zip: No such file or directory
+									ls: cannot access /home/wwwroot/mytracking/uploads/excel_zip/20240714.zip: No such file or directory
+									ls: cannot access /home/wwwroot/mytracking/uploads/excel_zip/20240716.zip: No such file or directory
+									ls: cannot access /home/wwwroot/mytracking/uploads/excel_zip/20240721.zip: No such file or directory
+									ls: cannot access /home/wwwroot/mytracking/uploads/excel_zip/20240722.zip: No such file or directory
+									ls: cannot access /home/wwwroot/mytracking/uploads/excel_zip/20240728.zip: No such file or directory
+									ls: cannot access /home/wwwroot/mytracking/uploads/excel_zip/20240802.zip: No such file or directory
+									ls: cannot access /home/wwwroot/mytracking/uploads/excel_zip/20240803.zip: No such file or directory
+									ls: cannot access /home/wwwroot/mytracking/uploads/excel_zip/20240804.zip: No such file or directory
+									ls: cannot access /home/wwwroot/mytracking/uploads/excel_zip/20240805.zip: No such file or directory
+									ls: cannot access /home/wwwroot/mytracking/uploads/excel_zip/20240807.zip: No such file or directory
+									ls: cannot access /home/wwwroot/mytracking/uploads/excel_zip/20240811.zip: No such file or directory
+									ls: cannot access /home/wwwroot/mytracking/uploads/excel_zip/20240817.zip: No such file or directory
+									ls: cannot access /home/wwwroot/mytracking/uploads/excel_zip/20240818.zip: No such file or directory
+									ls: cannot access /home/wwwroot/mytracking/uploads/excel_zip/20240818.zip: No such file or directory
+									ls: cannot access /home/wwwroot/mytracking/uploads/excel_zip/20240824.zip: No such file or directory
+									ls: cannot access /home/wwwroot/mytracking/uploads/excel_zip/20240825.zip: No such file or directory
+									ls: cannot access /home/wwwroot/mytracking/uploads/excel_zip/20240831.zip: No such file or directory
+									ls: cannot access /home/wwwroot/mytracking/uploads/excel_zip/20240901.zip: No such file or directory
+									ls: cannot access /home/wwwroot/mytracking/uploads/excel_zip/20240902.zip: No such file or directory
+									ls: cannot access /home/wwwroot/mytracking/uploads/excel_zip/20240903.zip: No such file or directory
+									ls: cannot access /home/wwwroot/mytracking/uploads/excel_zip/20240907.zip: No such file or directory
+									ls: cannot access /home/wwwroot/mytracking/uploads/excel_zip/20240908.zip: No such file or directory
+									ls: cannot access /home/wwwroot/mytracking/uploads/excel_zip/20240915.zip: No such file or directory
+									ls: cannot access /home/wwwroot/mytracking/uploads/excel_zip/20240919.zip: No such file or directory
+									ls: cannot access /home/wwwroot/mytracking/uploads/excel_zip/20240921.zip: No such file or directory
+									ls: cannot access /home/wwwroot/mytracking/uploads/excel_zip/20240922.zip: No such file or directory
+									ls: cannot access /home/wwwroot/mytracking/uploads/excel_zip/20240929.zip: No such file or directory
+									ls: cannot access /home/wwwroot/mytracking/uploads/excel_zip/20241005.zip: No such file or directory
+									ls: cannot access /home/wwwroot/mytracking/uploads/excel_zip/20241012.zip: No such file or directory
+									ls: cannot access /home/wwwroot/mytracking/uploads/excel_zip/20241013.zip: No such file or directory
+									ls: cannot access /home/wwwroot/mytracking/uploads/excel_zip/20241020.zip: No such file or directory
+									ls: cannot access /home/wwwroot/mytracking/uploads/excel_zip/20241027.zip: No such file or directory
+									ls: cannot access /home/wwwroot/mytracking/uploads/excel_zip/20241031.zip: No such file or directory
+									ls: cannot access /home/wwwroot/mytracking/uploads/excel_zip/20241102.zip: No such file or directory
+									ls: cannot access /home/wwwroot/mytracking/uploads/excel_zip/20241104.zip: No such file or directory
+									ls: cannot access /home/wwwroot/mytracking/uploads/excel_zip/20241106.zip: No such file or directory
+									ls: cannot access /home/wwwroot/mytracking/uploads/excel_zip/20241109.zip: No such file or directory
+									ls: cannot access /home/wwwroot/mytracking/uploads/excel_zip/20241110.zip: No such file or directory
+									ls: cannot access /home/wwwroot/mytracking/uploads/excel_zip/20241111.zip: No such file or directory
+									ls: cannot access /home/wwwroot/mytracking/uploads/excel_zip/20241116.zip: No such file or directory
+									ls: cannot access /home/wwwroot/mytracking/uploads/excel_zip/20241117.zip: No such file or directory
+									ls: cannot access /home/wwwroot/mytracking/uploads/excel_zip/20241123.zip: No such file or directory
+									ls: cannot access /home/wwwroot/mytracking/uploads/excel_zip/20241124.zip: No such file or directory
+									ls: cannot access /home/wwwroot/mytracking/uploads/excel_zip/20241130.zip: No such file or directory
+									ls: cannot access /home/wwwroot/mytracking/uploads/excel_zip/20241201.zip: No such file or directory
+									ls: cannot access /home/wwwroot/mytracking/uploads/excel_zip/20241208.zip: No such file or directory
+									ls: cannot access /home/wwwroot/mytracking/uploads/excel_zip/20241214.zip: No such file or directory
+									ls: cannot access /home/wwwroot/mytracking/uploads/excel_zip/20241215.zip: No such file or directory
+									ls: cannot access /home/wwwroot/mytracking/uploads/excel_zip/20241219.zip: No such file or directory
+									ls: cannot access /home/wwwroot/mytracking/uploads/excel_zip/20241222.zip: No such file or directory
+									ls: cannot access /home/wwwroot/mytracking/uploads/excel_zip/20241229.zip: No such file or directory
+									[root@iZ0xifhcadlq8e9t1jngcpZ ~]# df -h
+									Filesystem      Size  Used Avail Use% Mounted on
+									/dev/vda1        40G   38G  1.9G  96% /
+									devtmpfs        7.8G     0  7.8G   0% /dev
+									tmpfs           7.8G     0  7.8G   0% /dev/shm
+									tmpfs           7.8G  364M  7.5G   5% /run
+									tmpfs           7.8G     0  7.8G   0% /sys/fs/cgroup
+									tmpfs           1.6G     0  1.6G   0% /run/user/0
+									tmpfs           1.6G     0  1.6G   0% /run/user/1002
+									overlay          40G   38G  1.9G  96% /var/lib/docker/overlay2/7f63719155be846a6e0b82194559725cd5c3b092d37e1e02bebb8b395ff35672/merged
+									[root@iZ0xifhcadlq8e9t1jngcpZ ~]# sh disk.20241023.sh /home/wwwroot/www.trackingmore.com/admin 3 100
+									/home/wwwroot/www.trackingmore.com/admin: 5768 MB
+										/home/wwwroot/www.trackingmore.com/admin/apps: 602 MB
+											/home/wwwroot/www.trackingmore.com/admin/apps/tm-official-website: 602 MB
+										/home/wwwroot/www.trackingmore.com/admin/myshopify: 126 MB
+											/home/wwwroot/www.trackingmore.com/admin/myshopify/logs: 115 MB
+										/home/wwwroot/www.trackingmore.com/admin/upload: 4808 MB
+								-159-205-tm
+									[root@iz0xif9y7r0fstxmq97t54z ~]# df -h
+									Filesystem      Size  Used Avail Use% Mounted on
+									/dev/vda1        40G   39G  717M  99% /
+									devtmpfs         16G     0   16G   0% /dev
+									tmpfs            16G     0   16G   0% /dev/shm
+									tmpfs            16G   15G  385M  98% /run
+									tmpfs            16G     0   16G   0% /sys/fs/cgroup
+									tmpfs           3.1G     0  3.1G   0% /run/user/0
+									tmpfs           3.1G     0  3.1G   0% /run/user/1002
+									overlay          40G   39G  717M  99% /var/lib/docker/overlay2/d2703df78bc816ff68a6a91dd805825fdf41731b86dfb1acd45f001bad32e406/merged
+									overlay          40G   39G  717M  99% /var/lib/docker/overlay2/c043633fbddd7d4d2248284247bf06cc75fa5c740aa1366400bce75bb4168d14/merged
+									overlay          40G   39G  717M  99% /var/lib/docker/overlay2/b47a079dc9b17057739e60cc62794e9a083ef16f31890d897d67b8f31bd7a89a/merged
+									overlay          40G   39G  717M  99% /var/lib/docker/overlay2/83a49448c3e2713448d182eeb258505bdc2ef04eec331ba8b4499705e6ff06ed/merged
+									overlay          40G   39G  717M  99% /var/lib/docker/overlay2/46169c1ebedc71c054485e7a978387aa1d1b216470e539ecf3a12e84fd9c64aa/merged
+									overlay          40G   39G  717M  99% /var/lib/docker/overlay2/5a5d007e804e80f97e67cb993e7c00b6716bab22d40d780b03766a6ae871c4f3/merged
+									overlay          40G   39G  717M  99% /var/lib/docker/overlay2/1c60ac1751f37f5ea647ab8ad054192ec6eb9366d0ecc1b87b8d9d41e8933d98/merged
+									overlay          40G   39G  717M  99% /var/lib/docker/overlay2/eeb9c4ad79ae52e1698640c687ff2ef67360853b151f7ef2c61d8af38bd4a667/merged
+									overlay          40G   39G  717M  99% /var/lib/docker/overlay2/c780375c3d2c9bb41aea4785502cb8c045059b9666dbbfd4ce1b27c170de570b/merged
+									overlay          40G   39G  717M  99% /var/lib/docker/overlay2/5b9c7648f8a3103ae472be96492b4d694f28b9d4636f4a3c7fc28387b15f3c5b/merged
+									overlay          40G   39G  717M  99% /var/lib/docker/overlay2/be0afb28162fb4cbbba3653a35944a6fcc80eb1367426089b3c37dcac0af5053/merged
+									overlay          40G   39G  717M  99% /var/lib/docker/overlay2/b68be4f7b9222815ce8e644673aaef6cb6995ea0f7ebb85900394e898231568e/merged
+									overlay          40G   39G  717M  99% /var/lib/docker/overlay2/b8002b093029398fa675a5f103ad00052abffc8ea71c3d32e987e853a3958baf/merged
+									overlay          40G   39G  717M  99% /var/lib/docker/overlay2/9260ba6e864c36bbffd8248bee952df6b8ae211cbb40a17b954e95c4446b6450/merged
+									overlay          40G   39G  717M  99% /var/lib/docker/overlay2/ed7aa946cad59fe8f785e810a2cc68636ae6ee4aa076d291c674f0a8e780c3bd/merged
+									overlay          40G   39G  717M  99% /var/lib/docker/overlay2/42f90134a9d2925e59000e462681b05b6a399b31228537281a92f25afc8df878/merged
+									overlay          40G   39G  717M  99% /var/lib/docker/overlay2/40d2cb0487f9b57bc2bb10bf1e52d5fc1caca3dd35af46c0ee2f3779028edf2d/merged
+									overlay          40G   39G  717M  99% /var/lib/docker/overlay2/cf95d1b2d1272e586c0196fb584c7a7517890a94206cbca3e7a567756d036aad/merged
+									[root@iz0xif9y7r0fstxmq97t54z ~]# find / -name '*' -type f -size +100M | xargs ls -lh {} | sort -nrk5
+									find: ‘/proc/8617/task/8617/fdinfo/6’: No such file or directory
+									find: ‘/proc/8617/fdinfo/6’: No such file or directory
+									ls: cannot access {}: No such file or directory
+									-rw-r--r-- 1 root root 717M Aug 18 23:21 /run/log/171.csv.zip
+									-rw-r--r-- 1 root root 672M Dec  4 23:28 /run/log/20241204.zip
+									-rw-r--r-- 1 root root 234M Jan 11  2023 /run/log/home-wwwroot-www.trackingmore.com-admin-upload-auto_csv/390.csv.zip
+									-rw-r--r-- 1 root root 170M Aug 18 23:29 /run/log/1716.csv.zip
+									-rw-r--r-- 1 root root 170M Aug 18 23:26 /run/log/1715.csv.zip
+									-rw-r--r-- 1 root root 169M Aug 18 23:24 /run/log/1714.csv.zip
+									-rw-r--r-- 1 root root 163M Aug 18 23:36 /run/log/1718.csv.zip
+									-rw-r--r-- 1 root root 148M Aug 18 23:32 /run/log/1717.csv.zip
+									-rw-r--r-- 1 root root 136M Dec 10 19:03 /run/log/20241210.zip
+									-r-------- 1 root root 128T Jan 31 23:00 /proc/kcore
+									-rw-r--r-- 1 root root 121M Jul  6  2023 /var/cache/yum/x86_64/7/updates/gen/primary_db.sqlite
+									-rw-r--r-- 1 root root 102M Mar 16  2018 /usr/lib/locale/locale-archive
+									[root@iz0xif9y7r0fstxmq97t54z ~]# sh disk.20241023.sh / 3 100
+									du: cannot access ‘/proc/11027/task/11027/fd/4’: No such file or directory
+									du: cannot access ‘/proc/11027/task/11027/fdinfo/4’: No such file or directory
+									du: cannot access ‘/proc/11027/fd/4’: No such file or directory
+									du: cannot access ‘/proc/11027/fdinfo/4’: No such file or directory
+									du: cannot access ‘/proc/22742’: No such file or directory
+									du: cannot access ‘/proc/28625’: No such file or directory
+									/: 56674 MB
+										//boot: 147 MB
+										//data: 3897 MB
+											//data/server_logs: 3897 MB
+										//home: 21182 MB
+											//home/wwwroot: 21016 MB
+											//lib/firmware: 172 MB
+											//lib/locale: 102 MB
+									locale-archive: 102 MB
+											//lib64/python2.7: 118 MB
+									du: cannot access ‘//proc/2418/task/3046/fd/5’: No such file or directory
+									du: cannot access ‘//proc/2418/task/3430/fdinfo/5’: No such file or directory
+									du: cannot access ‘//proc/2418/task/3441/fd/5’: No such file or directory
+									du: cannot access ‘//proc/2418/task/3442/fd/5’: No such file or directory
+									du: cannot access ‘//proc/2418/task/3583/fdinfo/5’: No such file or directory
+									du: cannot access ‘//proc/2418/task/3584/fdinfo/5’: No such file or directory
+									du: cannot access ‘//proc/2418/task/3590/fdinfo/5’: No such file or directory
+									du: cannot access ‘//proc/2418/task/12350/fd/5’: No such file or directory
+									du: cannot access ‘//proc/2418/task/13928/fd/5’: No such file or directory
+									du: cannot access ‘//proc/2418/task/21985/fd/5’: No such file or directory
+									du: cannot access ‘//proc/2418/task/22204/fd/5’: No such file or directory
+									du: cannot access ‘//proc/2418/task/25318/fd/5’: No such file or directory
+									du: cannot access ‘//proc/2418/task/32509/fd/5’: No such file or directory
+									du: cannot access ‘//proc/2418/fd/5’: No such file or directory
+									du: cannot access ‘//proc/24319’: No such file or directory
+									du: cannot access ‘//proc/24397’: No such file or directory
+									du: cannot access ‘//proc/24416’: No such file or directory
+									du: cannot access ‘//proc/32565’: No such file or directory
+									du: cannot access ‘//proc/32566/task/32566/fd/4’: No such file or directory
+									du: cannot access ‘//proc/32566/task/32566/fdinfo/4’: No such file or directory
+									du: cannot access ‘//proc/32566/fd/4’: No such file or directory
+									du: cannot access ‘//proc/32566/fdinfo/4’: No such file or directory
+										//root: 159 MB
+										//run: 15109 MB
+											//run/log: 15097 MB
+									171.csv.zip: 717 MB
+									20241204.zip: 672 MB
+									1716.csv.zip: 170 MB
+									1715.csv.zip: 170 MB
+									1714.csv.zip: 169 MB
+									1718.csv.zip: 163 MB
+									1717.csv.zip: 148 MB
+									20241210.zip: 136 MB
+										//usr: 9914 MB
+											//usr/bin: 370 MB
+											//usr/lib: 486 MB
+											//usr/lib64: 250 MB
+											//usr/libexec: 200 MB
+											//usr/local: 8061 MB
+											//usr/share: 476 MB
+										//var: 6137 MB
+											//var/cache: 583 MB
+											//var/lib: 4066 MB
+											//var/log: 1487 MB
+									[root@iz0xif9y7r0fstxmq97t54z ~]# sh disk.20241023.sh /usr/local 3 100
+									/usr/local: 8061 MB
+										/usr/local/aegis: 492 MB
+											/usr/local/aegis/aegis_client: 214 MB
+										/usr/local/bakfile: 4377 MB
+										/usr/local/lib: 202 MB
+											/usr/local/lib/python3.6: 147 MB
+										/usr/local/openresty-1.9.7.4: 127 MB
+											/usr/local/openresty-1.9.7.4/build: 103 MB
+										/usr/local/php7: 176 MB
+											/usr/local/php7/bin: 122 MB
+										/usr/local/php-7.0.0: 502 MB
+											/usr/local/php-7.0.0/ext: 263 MB
+											/usr/local/php-7.0.0/sapi: 176 MB
+										/usr/local/php-7.0.33: 526 MB
+											/usr/local/php-7.0.33/ext: 279 MB
+											/usr/local/php-7.0.33/sapi: 181 MB
+										/usr/local/php7.0.33: 258 MB
+											/usr/local/php7.0.33/bin: 126 MB
+										/usr/local/php-7.3.0: 586 MB
+											/usr/local/php-7.3.0/ext: 309 MB
+											/usr/local/php-7.3.0/sapi: 203 MB
+										/usr/local/php7.3.0: 207 MB
+											/usr/local/php7.3.0/bin: 142 MB
+										/usr/local/share: 283 MB
+											/usr/local/share/aliyun-assist: 202 MB
+									(reverse-i-search)`rm': find /data/server_logs/home/wwwroot/www.trackingmore.com/logs  -name '*order_status.log.zip'  | grep -v '2025012' | xargs -i ^C -f {}
+									[root@iz0xif9y7r0fstxmq97t54z ~]# du -hs /home/wwwroot/mytracking/uploads/
+									du: cannot access ‘/home/wwwroot/mytracking/uploads/’: No such file or directory
+									[root@iz0xif9y7r0fstxmq97t54z ~]# find /data/server_logs/root/  -name '*trackingSingleQueue.log.zip'  | grep -v '20241227\|20241226\|20241225\|20241224' | xargs -i rm -f {}^C
+									[root@iz0xif9y7r0fstxmq97t54z ~]# sh disk.20241023.sh /data/server_logs 3 100
+									/data/server_logs: 3943 MB
+										/data/server_logs/home: 2089 MB
+											/data/server_logs/home/wwwroot: 2089 MB
+										/data/server_logs/root: 1855 MB
+									[root@iz0xif9y7r0fstxmq97t54z ~]# ll /data/server_logs/root | head
+									total 1898704
+									-rw-r--r-- 1 root root  4130449 Aug  3 19:12 20240803191103.sendEmailFirst.log.zip
+									-rw-r--r-- 1 root root 48886258 Aug  3 19:21 20240803191108.platefromWoocommerce_sync.log.zip
+									-rw-r--r-- 1 root root  5848921 Aug  3 19:21 20240803191114.sendEmailFirst_Job.log.zip
+									-rw-r--r-- 1 root root   709735 Aug  3 19:12 20240803191119.sql_err_resq.20220804.log.zip
+									-rw-r--r-- 1 root root  1933812 Aug  3 19:12 20240803191120.sendEmailCommon.log.zip
+									-rw-r--r-- 1 root root   908086 Aug  3 19:12 20240803191123.resq_track_sql_err.20220614.log.zip
+									-rw-r--r-- 1 root root   892849 Aug  3 19:21 20240803191123.yiXinTongSendToForeign_null.log.zip
+									-rw-r--r-- 1 root root   946783 Aug  3 19:12 20240803191124.sql_err_resq.20220609.log.zip
+									-rw-r--r-- 1 root root   671249 Aug  3 19:12 20240803191125.sql_err_resq.20220929.log.zip
+									[root@iz0xif9y7r0fstxmq97t54z ~]# ll -h /data/server_logs/root | head
+									total 1.9G
+									-rw-r--r-- 1 root root  4.0M Aug  3 19:12 20240803191103.sendEmailFirst.log.zip
+									-rw-r--r-- 1 root root   47M Aug  3 19:21 20240803191108.platefromWoocommerce_sync.log.zip
+									-rw-r--r-- 1 root root  5.6M Aug  3 19:21 20240803191114.sendEmailFirst_Job.log.zip
+									-rw-r--r-- 1 root root  694K Aug  3 19:12 20240803191119.sql_err_resq.20220804.log.zip
+									-rw-r--r-- 1 root root  1.9M Aug  3 19:12 20240803191120.sendEmailCommon.log.zip
+									-rw-r--r-- 1 root root  887K Aug  3 19:12 20240803191123.resq_track_sql_err.20220614.log.zip
+									-rw-r--r-- 1 root root  872K Aug  3 19:21 20240803191123.yiXinTongSendToForeign_null.log.zip
+									-rw-r--r-- 1 root root  925K Aug  3 19:12 20240803191124.sql_err_resq.20220609.log.zip
+									-rw-r--r-- 1 root root  656K Aug  3 19:12 20240803191125.sql_err_resq.20220929.log.zip
+									[root@iz0xif9y7r0fstxmq97t54z ~]# ll -h /data/server_logs/root | head -100
+									total 1.9G
+									-rw-r--r-- 1 root root  4.0M Aug  3 19:12 20240803191103.sendEmailFirst.log.zip
+									-rw-r--r-- 1 root root   47M Aug  3 19:21 20240803191108.platefromWoocommerce_sync.log.zip
+									-rw-r--r-- 1 root root  5.6M Aug  3 19:21 20240803191114.sendEmailFirst_Job.log.zip
+									-rw-r--r-- 1 root root  694K Aug  3 19:12 20240803191119.sql_err_resq.20220804.log.zip
+									-rw-r--r-- 1 root root  1.9M Aug  3 19:12 20240803191120.sendEmailCommon.log.zip
+									-rw-r--r-- 1 root root  887K Aug  3 19:12 20240803191123.resq_track_sql_err.20220614.log.zip
+									-rw-r--r-- 1 root root  872K Aug  3 19:21 20240803191123.yiXinTongSendToForeign_null.log.zip
+									-rw-r--r-- 1 root root  925K Aug  3 19:12 20240803191124.sql_err_resq.20220609.log.zip
+									-rw-r--r-- 1 root root  656K Aug  3 19:12 20240803191125.sql_err_resq.20220929.log.zip
+									-rw-r--r-- 1 root root  707K Aug  3 19:12 20240803191126.sql_err_resq.20220803.log.zip
+									-rw-r--r-- 1 root root  633K Aug  3 19:12 20240803191126.sql_err_resq.20220913.log.zip
+									-rw-r--r-- 1 root root  878K Aug  3 19:12 20240803191127.sql_err_resq.20221019.log.zip
+									-rw-r--r-- 1 root root  699K Aug  3 19:12 20240803191128.sql_err_resq.20220713.log.zip
+									-rw-r--r-- 1 root root  664K Aug  3 19:12 20240803191128.sql_err_resq.20220901.log.zip
+									-rw-r--r-- 1 root root  2.3M Aug  3 19:12 20240803191129.platefromMagento_sync.log.zip
+									-rw-r--r-- 1 root root  646K Aug  3 19:12 20240803191130.sql_err_resq.20220827.log.zip
+									-rw-r--r-- 1 root root  2.3M Aug  3 19:21 20240803191131.resq_track_sql_err.20220527.log.zip
+									-rw-r--r-- 1 root root  662K Aug  3 19:12 20240803191131.sql_err_resq.20220826.log.zip
+									-rw-r--r-- 1 root root  1.2M Aug  3 19:12 20240803191131.test.m1.224763.20231222.log.zip
+									-rw-r--r-- 1 root root  665K Aug  3 19:21 20240803191132.sql_err_resq.20220907.log.zip
+									-rw-r--r-- 1 root root  697K Aug  3 19:21 20240803191133.sql_err_resq.20220805.log.zip
+									-rw-r--r-- 1 root root  807K Aug  3 19:12 20240803191133.sql_err_resq.20221021.log.zip
+									-rw-r--r-- 1 root root  453K Aug  3 19:12 20240803191134.resq_track_sql_err.20220803.log.zip
+									-rw-r--r-- 1 root root  3.2M Aug  3 19:12 20240803191139.fedex.M1.log.zip
+									-rw-r--r-- 1 root root  649K Aug  3 19:21 20240803191139.sql_err_resq.20220830.log.zip
+									-rw-r--r-- 1 root root  840K Aug  3 19:12 20240803191140.smsQueueActive.log.zip
+									-rw-r--r-- 1 root root  645K Aug  3 19:12 20240803191143.sql_err_resq.20220825.log.zip
+									-rw-r--r-- 1 root root   13M Aug  3 19:21 20240803191144.sendEmailCustomer_Job.log.zip
+									-rw-r--r-- 1 root root  758K Aug  3 19:12 20240803191152.sql_err_resq.20221022.log.zip
+									-rw-r--r-- 1 root root 1015K Aug  3 19:12 20240803191153.sql_err_resq.20220610.log.zip
+									-rw-r--r-- 1 root root  682K Aug  3 19:12 20240803191153.sql_err_resq.20220915.log.zip
+									-rw-r--r-- 1 root root  4.0M Aug  3 19:12 20240803191154.get_user_table_name.log.zip
+									-rw-r--r-- 1 root root  642K Aug  3 19:12 20240803191204.sql_err_resq.20220902.log.zip
+									-rw-r--r-- 1 root root  4.4M Aug  3 19:12 20240803191205.sendEmailSwitch_Job.log.zip
+									-rw-r--r-- 1 root root  663K Aug  3 19:12 20240803191207.sql_err_resq.20220916.log.zip
+									-rw-r--r-- 1 root root   15M Aug  3 19:12 20240803191208.sendEmailGun_Job.log.zip
+									-rw-r--r-- 1 root root  152K Aug  3 19:12 20240803191217.sendSMSFirst_Job.log.zip
+									-rw-r--r-- 1 root root  670K Aug  3 19:21 20240803191219.sql_err_resq.20220824.log.zip
+									-rw-r--r-- 1 root root  641K Aug  3 19:12 20240803191219.sql_err_resq.20220831.log.zip
+									-rw-r--r-- 1 root root  653K Aug  3 19:12 20240803191220.sql_err_resq.20220914.log.zip
+									-rw-r--r-- 1 root root  8.5M Aug  3 19:21 20240803191221.platefromWoocommerce_sync_time.log.zip
+									-rw-r--r-- 1 root root  649K Aug  3 19:21 20240803191224.sql_err_resq.20220909.log.zip
+									-rw-r--r-- 1 root root  1.7M Aug  5 13:21 20240805091104.platefromWoocommerce_sync.log.zip
+									-rw-r--r-- 1 root root  1.6M Aug  6 19:21 20240806171105.platefromWoocommerce_sync.log.zip
+									-rw-r--r-- 1 root root  1.3M Aug  8 01:21 20240808001104.platefromWoocommerce_sync.log.zip
+									-rw-r--r-- 1 root root  586K Aug  8 13:21 20240808121104.test_courier.log.zip
+									-rw-r--r-- 1 root root  585K Aug  8 19:21 20240808141104.test_courier.log.zip
+									-rw-r--r-- 1 root root  714K Aug  8 19:21 20240808161104.test_courier.log.zip
+									-rw-r--r-- 1 root root  554K Aug  8 19:21 20240808181103.test_courier.log.zip
+									-rw-r--r-- 1 root root  731K Aug  9 01:21 20240808201104.test_courier.log.zip
+									-rw-r--r-- 1 root root  512K Aug  9 01:21 20240808221106.test_courier.log.zip
+									-rw-r--r-- 1 root root  1.5M Aug  9 01:21 20240809011104.platefromWoocommerce_sync.log.zip
+									-rw-r--r-- 1 root root  677K Aug  9 07:21 20240809021103.test_courier.log.zip
+									-rw-r--r-- 1 root root  636K Aug  9 07:21 20240809041104.test_courier.log.zip
+									-rw-r--r-- 1 root root  681K Aug  9 07:21 20240809061104.test_courier.log.zip
+									-rw-r--r-- 1 root root  568K Aug  9 13:21 20240809081105.test_courier.log.zip
+									-rw-r--r-- 1 root root  609K Aug  9 13:21 20240809101102.test_courier.log.zip
+									-rw-r--r-- 1 root root  743K Aug  9 13:21 20240809121103.test_courier.log.zip
+									-rw-r--r-- 1 root root  799K Aug  9 19:21 20240809141102.test_courier.log.zip
+									-rw-r--r-- 1 root root  776K Aug  9 19:21 20240809161104.test_courier.log.zip
+									-rw-r--r-- 1 root root  766K Aug  9 19:21 20240809181103.test_courier.log.zip
+									-rw-r--r-- 1 root root  768K Aug 10 01:21 20240809201102.test_courier.log.zip
+									-rw-r--r-- 1 root root  634K Aug 10 01:21 20240809221105.test_courier.log.zip
+									-rw-r--r-- 1 root root  736K Aug 10 07:21 20240810021104.test_courier.log.zip
+									-rw-r--r-- 1 root root  559K Aug 10 07:21 20240810041104.test_courier.log.zip
+									-rw-r--r-- 1 root root  679K Aug 10 07:21 20240810061104.test_courier.log.zip
+									-rw-r--r-- 1 root root  685K Aug 10 13:21 20240810081105.test_courier.log.zip
+									-rw-r--r-- 1 root root  1.3M Aug 10 13:21 20240810091102.platefromWoocommerce_sync.log.zip
+									-rw-r--r-- 1 root root  663K Aug 10 13:21 20240810101104.test_courier.log.zip
+									-rw-r--r-- 1 root root  573K Aug 10 13:21 20240810121103.test_courier.log.zip
+									-rw-r--r-- 1 root root  724K Aug 10 19:21 20240810141102.test_courier.log.zip
+									-rw-r--r-- 1 root root  1.6M Aug 10 19:21 20240810161103.sendEmail_Job.log.zip
+									-rw-r--r-- 1 root root  815K Aug 10 19:21 20240810161103.test_courier.log.zip
+									-rw-r--r-- 1 root root  542K Aug 10 19:21 20240810181102.test_courier.log.zip
+									-rw-r--r-- 1 root root  579K Aug 11 01:21 20240810221104.test_courier.log.zip
+									-rw-r--r-- 1 root root  658K Aug 11 07:21 20240811031103.test_courier.log.zip
+									-rw-r--r-- 1 root root  644K Aug 11 07:21 20240811051103.test_courier.log.zip
+									-rw-r--r-- 1 root root  550K Aug 11 07:21 20240811071104.test_courier.log.zip
+									-rw-r--r-- 1 root root  516K Aug 11 13:21 20240811091105.test_courier.log.zip
+									-rw-r--r-- 1 root root  506K Aug 11 13:21 20240811111103.test_courier.log.zip
+									-rw-r--r-- 1 root root  611K Aug 11 13:21 20240811131102.test_courier.log.zip
+									-rw-r--r-- 1 root root  589K Aug 11 19:21 20240811151103.test_courier.log.zip
+									-rw-r--r-- 1 root root  605K Aug 11 19:21 20240811171103.test_courier.log.zip
+									-rw-r--r-- 1 root root  489K Aug 11 19:21 20240811191102.test_courier.log.zip
+									-rw-r--r-- 1 root root  623K Aug 12 01:21 20240811211104.test_courier.log.zip
+									-rw-r--r-- 1 root root  682K Aug 12 01:21 20240811231104.test_courier.log.zip
+									-rw-r--r-- 1 root root  1.6M Aug 12 01:21 20240812011104.platefromWoocommerce_sync.log.zip
+									-rw-r--r-- 1 root root  772K Aug 12 07:21 20240812021104.test_courier.log.zip
+									-rw-r--r-- 1 root root  617K Aug 12 07:21 20240812041103.test_courier.log.zip
+									-rw-r--r-- 1 root root  702K Aug 12 07:21 20240812061104.test_courier.log.zip
+									-rw-r--r-- 1 root root  558K Aug 12 13:21 20240812081105.test_courier.log.zip
+									-rw-r--r-- 1 root root  490K Aug 12 13:21 20240812101103.test_courier.log.zip
+									-rw-r--r-- 1 root root  498K Aug 12 13:21 20240812121105.test_courier.log.zip
+									-rw-r--r-- 1 root root  574K Aug 12 19:21 20240812141101.test_courier.log.zip
+									-rw-r--r-- 1 root root  953K Aug 12 19:21 20240812161103.test_courier.log.zip
+									-rw-r--r-- 1 root root  1.1M Aug 12 19:21 20240812171102.test_courier.log.zip
+									-rw-r--r-- 1 root root  632K Aug 12 19:21 20240812181102.test_courier.log.zip
+									-rw-r--r-- 1 root root  648K Aug 13 01:21 20240812201104.test_courier.log.zip
+									-rw-r--r-- 1 root root  628K Aug 13 01:21 20240812221103.test_courier.log.zip
+									[root@iz0xif9y7r0fstxmq97t54z ~]# find /data/server_logs/root/  -name '*test_courier.log*'  | grep -v '2025013' | xargs -i rm -f {}
+									[root@iz0xif9y7r0fstxmq97t54z ~]# df -h
+									Filesystem      Size  Used Avail Use% Mounted on
+									/dev/vda1        40G   38G  1.8G  96% /
+									devtmpfs         16G     0   16G   0% /dev
+									tmpfs            16G     0   16G   0% /dev/shm
+									tmpfs            16G   15G  385M  98% /run
+									tmpfs            16G     0   16G   0% /sys/fs/cgroup
+									tmpfs           3.1G     0  3.1G   0% /run/user/0
+									tmpfs           3.1G     0  3.1G   0% /run/user/1002
+									overlay          40G   38G  1.8G  96% /var/lib/docker/overlay2/d2703df78bc816ff68a6a91dd805825fdf41731b86dfb1acd45f001bad32e406/merged
+									overlay          40G   38G  1.8G  96% /var/lib/docker/overlay2/c043633fbddd7d4d2248284247bf06cc75fa5c740aa1366400bce75bb4168d14/merged
+									overlay          40G   38G  1.8G  96% /var/lib/docker/overlay2/b47a079dc9b17057739e60cc62794e9a083ef16f31890d897d67b8f31bd7a89a/merged
+									overlay          40G   38G  1.8G  96% /var/lib/docker/overlay2/83a49448c3e2713448d182eeb258505bdc2ef04eec331ba8b4499705e6ff06ed/merged
+									overlay          40G   38G  1.8G  96% /var/lib/docker/overlay2/46169c1ebedc71c054485e7a978387aa1d1b216470e539ecf3a12e84fd9c64aa/merged
+									overlay          40G   38G  1.8G  96% /var/lib/docker/overlay2/5a5d007e804e80f97e67cb993e7c00b6716bab22d40d780b03766a6ae871c4f3/merged
+									overlay          40G   38G  1.8G  96% /var/lib/docker/overlay2/1c60ac1751f37f5ea647ab8ad054192ec6eb9366d0ecc1b87b8d9d41e8933d98/merged
+									overlay          40G   38G  1.8G  96% /var/lib/docker/overlay2/eeb9c4ad79ae52e1698640c687ff2ef67360853b151f7ef2c61d8af38bd4a667/merged
+									overlay          40G   38G  1.8G  96% /var/lib/docker/overlay2/c780375c3d2c9bb41aea4785502cb8c045059b9666dbbfd4ce1b27c170de570b/merged
+									overlay          40G   38G  1.8G  96% /var/lib/docker/overlay2/5b9c7648f8a3103ae472be96492b4d694f28b9d4636f4a3c7fc28387b15f3c5b/merged
+									overlay          40G   38G  1.8G  96% /var/lib/docker/overlay2/be0afb28162fb4cbbba3653a35944a6fcc80eb1367426089b3c37dcac0af5053/merged
+									overlay          40G   38G  1.8G  96% /var/lib/docker/overlay2/b68be4f7b9222815ce8e644673aaef6cb6995ea0f7ebb85900394e898231568e/merged
+									overlay          40G   38G  1.8G  96% /var/lib/docker/overlay2/b8002b093029398fa675a5f103ad00052abffc8ea71c3d32e987e853a3958baf/merged
+									overlay          40G   38G  1.8G  96% /var/lib/docker/overlay2/9260ba6e864c36bbffd8248bee952df6b8ae211cbb40a17b954e95c4446b6450/merged
+									overlay          40G   38G  1.8G  96% /var/lib/docker/overlay2/ed7aa946cad59fe8f785e810a2cc68636ae6ee4aa076d291c674f0a8e780c3bd/merged
+									overlay          40G   38G  1.8G  96% /var/lib/docker/overlay2/42f90134a9d2925e59000e462681b05b6a399b31228537281a92f25afc8df878/merged
+									overlay          40G   38G  1.8G  96% /var/lib/docker/overlay2/40d2cb0487f9b57bc2bb10bf1e52d5fc1caca3dd35af46c0ee2f3779028edf2d/merged
+									overlay          40G   38G  1.8G  96% /var/lib/docker/overlay2/cf95d1b2d1272e586c0196fb584c7a7517890a94206cbca3e7a567756d036aad/merged
+									[root@iz0xif9y7r0fstxmq97t54z ~]# find /data/server_logs/root/  -name '*sql_err_resq*'  | grep -v '2025013' | xargs -i rm -f {}
+									[root@iz0xif9y7r0fstxmq97t54z ~]# df -h
+									Filesystem      Size  Used Avail Use% Mounted on
+									/dev/vda1        40G   38G  1.8G  96% /
+									devtmpfs         16G     0   16G   0% /dev
+									tmpfs            16G     0   16G   0% /dev/shm
+									tmpfs            16G   15G  385M  98% /run
+									tmpfs            16G     0   16G   0% /sys/fs/cgroup
+									tmpfs           3.1G     0  3.1G   0% /run/user/0
+									tmpfs           3.1G     0  3.1G   0% /run/user/1002
+									overlay          40G   38G  1.8G  96% /var/lib/docker/overlay2/d2703df78bc816ff68a6a91dd805825fdf41731b86dfb1acd45f001bad32e406/merged
+									overlay          40G   38G  1.8G  96% /var/lib/docker/overlay2/c043633fbddd7d4d2248284247bf06cc75fa5c740aa1366400bce75bb4168d14/merged
+									overlay          40G   38G  1.8G  96% /var/lib/docker/overlay2/b47a079dc9b17057739e60cc62794e9a083ef16f31890d897d67b8f31bd7a89a/merged
+									overlay          40G   38G  1.8G  96% /var/lib/docker/overlay2/83a49448c3e2713448d182eeb258505bdc2ef04eec331ba8b4499705e6ff06ed/merged
+									overlay          40G   38G  1.8G  96% /var/lib/docker/overlay2/46169c1ebedc71c054485e7a978387aa1d1b216470e539ecf3a12e84fd9c64aa/merged
+									overlay          40G   38G  1.8G  96% /var/lib/docker/overlay2/5a5d007e804e80f97e67cb993e7c00b6716bab22d40d780b03766a6ae871c4f3/merged
+									overlay          40G   38G  1.8G  96% /var/lib/docker/overlay2/1c60ac1751f37f5ea647ab8ad054192ec6eb9366d0ecc1b87b8d9d41e8933d98/merged
+									overlay          40G   38G  1.8G  96% /var/lib/docker/overlay2/eeb9c4ad79ae52e1698640c687ff2ef67360853b151f7ef2c61d8af38bd4a667/merged
+									overlay          40G   38G  1.8G  96% /var/lib/docker/overlay2/c780375c3d2c9bb41aea4785502cb8c045059b9666dbbfd4ce1b27c170de570b/merged
+									overlay          40G   38G  1.8G  96% /var/lib/docker/overlay2/5b9c7648f8a3103ae472be96492b4d694f28b9d4636f4a3c7fc28387b15f3c5b/merged
+									overlay          40G   38G  1.8G  96% /var/lib/docker/overlay2/be0afb28162fb4cbbba3653a35944a6fcc80eb1367426089b3c37dcac0af5053/merged
+									overlay          40G   38G  1.8G  96% /var/lib/docker/overlay2/b68be4f7b9222815ce8e644673aaef6cb6995ea0f7ebb85900394e898231568e/merged
+									overlay          40G   38G  1.8G  96% /var/lib/docker/overlay2/b8002b093029398fa675a5f103ad00052abffc8ea71c3d32e987e853a3958baf/merged
+									overlay          40G   38G  1.8G  96% /var/lib/docker/overlay2/9260ba6e864c36bbffd8248bee952df6b8ae211cbb40a17b954e95c4446b6450/merged
+									overlay          40G   38G  1.8G  96% /var/lib/docker/overlay2/ed7aa946cad59fe8f785e810a2cc68636ae6ee4aa076d291c674f0a8e780c3bd/merged
+									overlay          40G   38G  1.8G  96% /var/lib/docker/overlay2/42f90134a9d2925e59000e462681b05b6a399b31228537281a92f25afc8df878/merged
+									overlay          40G   38G  1.8G  96% /var/lib/docker/overlay2/40d2cb0487f9b57bc2bb10bf1e52d5fc1caca3dd35af46c0ee2f3779028edf2d/merged
+									overlay          40G   38G  1.8G  96% /var/lib/docker/overlay2/cf95d1b2d1272e586c0196fb584c7a7517890a94206cbca3e7a567756d036aad/merged
 							-- 20250128
+								-www-51-20
 								-www-51-20
 									[root@iZ94apf5ivnZ ~]# df -h
 									Filesystem      Size  Used Avail Use% Mounted on
