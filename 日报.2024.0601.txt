@@ -5152,6 +5152,24 @@
 						保留时间
 							默认6个月，可自定
 						现有脚本
+							-- 20250202
+								# 20250202
+								# 统一根据大小压缩清除（10M以上）（先重名分割以进行压缩清除）
+								11 * * * * /usr/bin/sh /home/wwwroot/www.trackingmore.com/script/queueshell/zipAndRmFileNew.checkAndMove.over10M.sh &>> /home/wwwroot/www.trackingmore.com/script/queueshell/zipAndRmFileNew.checkAndMove.over100M.sh.err.log
+
+								m=`date '+%Y%m'`
+								/usr/bin/sh /home/wwwroot/www.trackingmore.com/script/queueshell/zipAndRmFileNew.sh checkAndMove '' 10M '*.log' /home/wwwroot/www.trackingmore.com &>> /home/wwwroot/www.trackingmore.com/script/queueshell/zipAndRmFileNew.sh.${m}.checkAndMove.over10M.log 
+								/usr/bin/sh /home/wwwroot/www.trackingmore.com/script/queueshell/zipAndRmFileNew.sh checkAndMove '' 10M '*.log' /home/wwwroot/mytracking/logs &>> /home/wwwroot/www.trackingmore.com/script/queueshell/zipAndRmFileNew.sh.${m}.checkAndMove.over10M.log &
+								/usr/bin/sh /home/wwwroot/www.trackingmore.com/script/queueshell/zipAndRmFileNew.sh checkAndMove '' 10M '*.log' /root &>> /home/wwwroot/www.trackingmore.com/script/queueshell/zipAndRmFileNew.sh.${m}.checkAndMove.over10M.log &
+								/usr/bin/sh /home/wwwroot/www.trackingmore.com/script/queueshell/zipAndRmFileNew.sh checkAndMove '' 10M '*.log' /home/wwwroot/www.trackingmore.com/api/v2/trackings &>> /home/wwwroot/www.trackingmore.com/script/queueshell/zipAndRmFileNew.sh.${m}.checkAndMove.over10M.log &
+
+								# 每天执行四次，将统一目录下1天内创建的问题进行压缩，并删除原文件
+								21 01,07,13,19 * * * /usr/bin/sh /home/wwwroot/www.trackingmore.com/script/queueshell/zipAndRmFileNew.within.1day.sh &>> /home/wwwroot/www.trackingmore.com/script/queueshell/zipAndRmFileNew.within.1day.sh.err.log
+
+								m=`date '+%Y%m'`
+								/usr/bin/sh /home/wwwroot/www.trackingmore.com/script/queueshell/zipAndRmFileNew.sh zipAndRmCreateTime '' '' '*.log' '/data/server_logs' &>> /home/wwwroot/www.trackingmore.com/script/queueshell/zipAndRmFileNew.sh.${m}.within.1day.log &
+
+								# 20250202
 							-- 20240529
 								script\queueshell\logSplitByDay.sh
 								script\queueshell\zipAndRmFile.sh
