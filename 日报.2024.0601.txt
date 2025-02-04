@@ -5153,6 +5153,326 @@
 							默认6个月，可自定
 						现有脚本
 							-- 20250204
+								磁盘空间记录
+									国外
+										notest_10_10 | CHANGED | rc=0 >>
+										Filesystem      Size  Used Avail Use% Mounted on
+										/dev/vda1        40G   37G  2.9G  93% /
+										devtmpfs        7.8G     0  7.8G   0% /dev
+										tmpfs           7.8G     0  7.8G   0% /dev/shm
+										tmpfs           7.8G   17M  7.8G   1% /run
+										tmpfs           7.8G     0  7.8G   0% /sys/fs/cgroup
+										tmpfs           1.6G     0  1.6G   0% /run/user/1001
+										tmpfs           1.6G     0  1.6G   0% /run/user/1002
+										tmpfs           1.6G     0  1.6G   0% /run/user/0
+										notest_159_205 | CHANGED | rc=0 >>
+										Filesystem      Size  Used Avail Use% Mounted on
+										/dev/vda1        40G   38G 1019M  98% /
+										devtmpfs         16G     0   16G   0% /dev
+										tmpfs            16G     0   16G   0% /dev/shm
+										tmpfs            16G   15G  376M  98% /run
+										tmpfs            16G     0   16G   0% /sys/fs/cgroup
+										tmpfs           3.1G     0  3.1G   0% /run/user/0
+										tmpfs           3.1G     0  3.1G   0% /run/user/1002
+										overlay          40G   38G 1019M  98% /var/lib/docker/overlay2/d2703df78bc816ff68a6a91dd805825fdf41731b86dfb1acd45f001bad32e406/merged
+										overlay          40G   38G 1019M  98% /var/lib/docker/overlay2/c043633fbddd7d4d2248284247bf06cc75fa5c740aa1366400bce75bb4168d14/merged
+										overlay          40G   38G 1019M  98% /var/lib/docker/overlay2/b47a079dc9b17057739e60cc62794e9a083ef16f31890d897d67b8f31bd7a89a/merged
+										overlay          40G   38G 1019M  98% /var/lib/docker/overlay2/83a49448c3e2713448d182eeb258505bdc2ef04eec331ba8b4499705e6ff06ed/merged
+										overlay          40G   38G 1019M  98% /var/lib/docker/overlay2/46169c1ebedc71c054485e7a978387aa1d1b216470e539ecf3a12e84fd9c64aa/merged
+										overlay          40G   38G 1019M  98% /var/lib/docker/overlay2/5a5d007e804e80f97e67cb993e7c00b6716bab22d40d780b03766a6ae871c4f3/merged
+										overlay          40G   38G 1019M  98% /var/lib/docker/overlay2/1c60ac1751f37f5ea647ab8ad054192ec6eb9366d0ecc1b87b8d9d41e8933d98/merged
+										overlay          40G   38G 1019M  98% /var/lib/docker/overlay2/eeb9c4ad79ae52e1698640c687ff2ef67360853b151f7ef2c61d8af38bd4a667/merged
+										overlay          40G   38G 1019M  98% /var/lib/docker/overlay2/c780375c3d2c9bb41aea4785502cb8c045059b9666dbbfd4ce1b27c170de570b/merged
+										overlay          40G   38G 1019M  98% /var/lib/docker/overlay2/5b9c7648f8a3103ae472be96492b4d694f28b9d4636f4a3c7fc28387b15f3c5b/merged
+										overlay          40G   38G 1019M  98% /var/lib/docker/overlay2/be0afb28162fb4cbbba3653a35944a6fcc80eb1367426089b3c37dcac0af5053/merged
+										overlay          40G   38G 1019M  98% /var/lib/docker/overlay2/b68be4f7b9222815ce8e644673aaef6cb6995ea0f7ebb85900394e898231568e/merged
+										overlay          40G   38G 1019M  98% /var/lib/docker/overlay2/b8002b093029398fa675a5f103ad00052abffc8ea71c3d32e987e853a3958baf/merged
+										overlay          40G   38G 1019M  98% /var/lib/docker/overlay2/9260ba6e864c36bbffd8248bee952df6b8ae211cbb40a17b954e95c4446b6450/merged
+										overlay          40G   38G 1019M  98% /var/lib/docker/overlay2/ed7aa946cad59fe8f785e810a2cc68636ae6ee4aa076d291c674f0a8e780c3bd/merged
+										overlay          40G   38G 1019M  98% /var/lib/docker/overlay2/42f90134a9d2925e59000e462681b05b6a399b31228537281a92f25afc8df878/merged
+										overlay          40G   38G 1019M  98% /var/lib/docker/overlay2/40d2cb0487f9b57bc2bb10bf1e52d5fc1caca3dd35af46c0ee2f3779028edf2d/merged
+										overlay          40G   38G 1019M  98% /var/lib/docker/overlay2/cf95d1b2d1272e586c0196fb584c7a7517890a94206cbca3e7a567756d036aad/merged
+										tmpfs           3.1G     0  3.1G   0% /run/user/1001
+										notest_214_153 | CHANGED | rc=0 >>
+										Filesystem      Size  Used Avail Use% Mounted on
+										/dev/vda1        40G   37G  2.0G  96% /
+										devtmpfs        7.8G     0  7.8G   0% /dev
+										tmpfs           7.8G     0  7.8G   0% /dev/shm
+										tmpfs           7.8G  3.2G  4.7G  41% /run
+										tmpfs           7.8G     0  7.8G   0% /sys/fs/cgroup
+										tmpfs           1.6G     0  1.6G   0% /run/user/1002
+										tmpfs           1.6G     0  1.6G   0% /run/user/0
+										tmpfs           1.6G     0  1.6G   0% /run/user/1001
+										notest_27 | CHANGED | rc=0 >>
+										Filesystem      Size  Used Avail Use% Mounted on
+										/dev/vda1        40G   38G  1.5G  97% /
+										devtmpfs        7.8G     0  7.8G   0% /dev
+										tmpfs           7.8G     0  7.8G   0% /dev/shm
+										tmpfs           7.8G  364M  7.5G   5% /run
+										tmpfs           7.8G     0  7.8G   0% /sys/fs/cgroup
+										tmpfs           1.6G     0  1.6G   0% /run/user/0
+										tmpfs           1.6G     0  1.6G   0% /run/user/1002
+										overlay          40G   38G  1.5G  97% /var/lib/docker/overlay2/7f63719155be846a6e0b82194559725cd5c3b092d37e1e02bebb8b395ff35672/merged
+										tmpfs           1.6G     0  1.6G   0% /run/user/1001
+										notest_145_44_35 | CHANGED | rc=0 >>
+										Filesystem      Size  Used Avail Use% Mounted on
+										devtmpfs         12G  4.0K   12G   1% /dev
+										tmpfs            12G  124K   12G   1% /dev/shm
+										tmpfs            12G  3.2G  8.2G  29% /run
+										tmpfs            12G     0   12G   0% /sys/fs/cgroup
+										/dev/vda1        40G   33G  6.7G  83% /
+										tmpfs           2.3G     0  2.3G   0% /run/user/0
+										overlay          40G   33G  6.7G  83% /var/lib/docker/overlay2/f32f1a66a724922b4b6e3b3025bf7c26702d2acd8c9cdb4483c57405e4c1f944/merged
+										overlay          40G   33G  6.7G  83% /var/lib/docker/overlay2/3bc24f2e1f02be2da94aaa45204fde4cfae4723e190c4a093ee0061039f7914d/merged
+										overlay          40G   33G  6.7G  83% /var/lib/docker/overlay2/a1450f72c102025794e3a1854eed67304fc338bf57308a68687105ad6a8e0523/merged
+										overlay          40G   33G  6.7G  83% /var/lib/docker/overlay2/f47e87ac2faec4bca2c5f5af763200c42f5e2abffafd8d5c9f6e3c9746bf8b33/merged
+										overlay          40G   33G  6.7G  83% /var/lib/docker/overlay2/d68fb40923d5526fb9dcb18fa13392d9bfd34a778c7613bd246b724e33ec8d28/merged
+										overlay          40G   33G  6.7G  83% /var/lib/docker/overlay2/9cfa905c1ee2a08387bef1e63d31a7829de8b72976db5fd631772ade7991f273/merged
+										overlay          40G   33G  6.7G  83% /var/lib/docker/overlay2/42269d276137de374266bd0384ab49d701a5eab0d36d53d47f5dedf19f5468dd/merged
+										overlay          40G   33G  6.7G  83% /var/lib/docker/overlay2/bc9e4c0ba99e5eea457c3213b25013c977cffda5de52e96c2b67bfb3d782a060/merged
+										overlay          40G   33G  6.7G  83% /var/lib/docker/overlay2/106d2f39d28ba0ccf0ba824f5c8afae4291386cbedd9da83016551318fd13ee9/merged
+										overlay          40G   33G  6.7G  83% /var/lib/docker/overlay2/622341e4442b12d79faf8acb4fca31f843e81b9ad7ed44cf04f5ca18a8e2fd41/merged
+										overlay          40G   33G  6.7G  83% /var/lib/docker/overlay2/a202e929b22b6072bc0d7ceddfd1cfdece1d65a793010cce5baef8b6d06480c4/merged
+										overlay          40G   33G  6.7G  83% /var/lib/docker/overlay2/d84d991b31d78d89f4ab89de6ed5b3ed55219cafbc59cc10724dfda757d3d29e/merged
+										overlay          40G   33G  6.7G  83% /var/lib/docker/overlay2/2f76cb191a8db2ea1eef0c32a31ddd6a2ac7938a5330aac90a5b49372b65dc5c/merged
+										overlay          40G   33G  6.7G  83% /var/lib/docker/overlay2/45c7a8f0840352e35f4e839a4a8972085934473d449e5484fd94692c83e60c0a/merged
+										overlay          40G   33G  6.7G  83% /var/lib/docker/overlay2/c0523133d8a45896117674a96206555ecf15a8f2c6a08533aa92b76fe7a2e1b7/merged
+										overlay          40G   33G  6.7G  83% /var/lib/docker/overlay2/138729e3105c2c2de8cb298b175134cdec0115a2e4f55117046f5f2aee1acad6/merged
+										overlay          40G   33G  6.7G  83% /var/lib/docker/overlay2/4fd12a13c8ddd80f348dadf0537b4afd99903b4692d23e119f114b41c85009b7/merged
+										overlay          40G   33G  6.7G  83% /var/lib/docker/overlay2/cf7fc074fc31a7d91600a34db842944b8a7937b7a5d9e48f8afc9a7cd3212a81/merged
+										tmpfs           2.3G     0  2.3G   0% /run/user/1002
+										tmpfs           2.3G     0  2.3G   0% /run/user/1001
+										notest_234_72 | CHANGED | rc=0 >>
+										Filesystem      Size  Used Avail Use% Mounted on
+										/dev/vda1        49G   38G   11G  78% /
+										devtmpfs        3.7G     0  3.7G   0% /dev
+										tmpfs           3.7G     0  3.7G   0% /dev/shm
+										tmpfs           3.7G  3.6M  3.7G   1% /run
+										tmpfs           3.7G     0  3.7G   0% /sys/fs/cgroup
+										tmpfs           756M     0  756M   0% /run/user/1001
+										tmpfs           756M     0  756M   0% /run/user/0
+										notest_151_7 | CHANGED | rc=0 >>
+										Filesystem      Size  Used Avail Use% Mounted on
+										/dev/vda1        40G   29G   11G  73% /
+										devtmpfs        7.7G     0  7.7G   0% /dev
+										tmpfs           7.7G     0  7.7G   0% /dev/shm
+										tmpfs           7.7G  388M  7.3G   5% /run
+										tmpfs           7.7G     0  7.7G   0% /sys/fs/cgroup
+										tmpfs           1.6G     0  1.6G   0% /run/user/1001
+										overlay          40G   29G   11G  73% /var/lib/docker/overlay2/8e1df790d677b1c8c54c35739c129166364b651e5702ca3879aa90e0f27c8cdf/merged
+										tmpfs           1.6G     0  1.6G   0% /run/user/0
+										notest_148_56 | CHANGED | rc=0 >>
+										Filesystem      Size  Used Avail Use% Mounted on
+										/dev/vda1        40G   33G  6.5G  84% /
+										devtmpfs        3.8G     0  3.8G   0% /dev
+										tmpfs           3.8G     0  3.8G   0% /dev/shm
+										tmpfs           3.8G  3.2M  3.8G   1% /run
+										tmpfs           3.8G     0  3.8G   0% /sys/fs/cgroup
+										tmpfs           768M     0  768M   0% /run/user/1001
+										tmpfs           768M     0  768M   0% /run/user/0
+										notest_46_56 | CHANGED | rc=0 >>
+										Filesystem      Size  Used Avail Use% Mounted on
+										/dev/vda1        49G   46G  2.5G  95% /
+										devtmpfs        3.9G     0  3.9G   0% /dev
+										tmpfs           3.9G     0  3.9G   0% /dev/shm
+										tmpfs           3.9G  589M  3.3G  16% /run
+										tmpfs           3.9G     0  3.9G   0% /sys/fs/cgroup
+										tmpfs           783M     0  783M   0% /run/user/0
+										tmpfs           783M     0  783M   0% /run/user/1002
+										tmpfs           783M     0  783M   0% /run/user/1001
+										overlay          49G   46G  2.5G  95% /var/lib/docker/overlay2/20a9714aa3e0d5eccfbfae00a672fffcad42b8e7902cb2b18cdaf725ee474977/merged
+										notest_228_84 | CHANGED | rc=0 >>
+										Filesystem      Size  Used Avail Use% Mounted on
+										/dev/vda1        49G   31G   18G  64% /
+										devtmpfs        3.9G     0  3.9G   0% /dev
+										tmpfs           3.9G     0  3.9G   0% /dev/shm
+										tmpfs           3.9G  5.4M  3.9G   1% /run
+										tmpfs           3.9G     0  3.9G   0% /sys/fs/cgroup
+										tmpfs           783M     0  783M   0% /run/user/0
+										overlay          49G   31G   18G  64% /var/lib/docker/overlay2/982c3ee40aff95b2a286ddfe6cb94367aa0df7acde3baa0ba495b381c3f2a966/merged
+										shm              64M     0   64M   0% /var/lib/docker/containers/b60d24e56b4926dac0a2b424491000c9f752f72e597406f3bc151106251b56b8/mounts/shm
+										tmpfs           783M     0  783M   0% /run/user/1001
+										notest_105 | CHANGED | rc=0 >>
+										Filesystem      Size  Used Avail Use% Mounted on
+										/dev/vda1        40G   38G  1.7G  96% /
+										devtmpfs        3.7G     0  3.7G   0% /dev
+										tmpfs           3.7G     0  3.7G   0% /dev/shm
+										tmpfs           3.7G  2.9G  834M  78% /run
+										tmpfs           3.7G     0  3.7G   0% /sys/fs/cgroup
+										tmpfs           747M     0  747M   0% /run/user/0
+										tmpfs           747M     0  747M   0% /run/user/1002
+										tmpfs           747M     0  747M   0% /run/user/1001
+									国内
+										api_163 | CHANGED | rc=0 >>
+										Filesystem      Size  Used Avail Use% Mounted on
+										/dev/vda1        59G   39G   21G  66% /
+										devtmpfs        3.7G     0  3.7G   0% /dev
+										tmpfs           3.7G     0  3.7G   0% /dev/shm
+										tmpfs           3.7G  9.1M  3.7G   1% /run
+										tmpfs           3.7G     0  3.7G   0% /sys/fs/cgroup
+										tmpfs           756M     0  756M   0% /run/user/0
+										tmpfs           756M     0  756M   0% /run/user/1002
+										api_215 | CHANGED | rc=0 >>
+										Filesystem      Size  Used Avail Use% Mounted on
+										/dev/vda1        59G   41G   19G  69% /
+										devtmpfs        3.7G     0  3.7G   0% /dev
+										tmpfs           3.7G  248K  3.7G   1% /dev/shm
+										tmpfs           3.7G  1.2G  2.6G  31% /run
+										tmpfs           3.7G     0  3.7G   0% /sys/fs/cgroup
+										tmpfs           756M     0  756M   0% /run/user/0
+										tmpfs           756M     0  756M   0% /run/user/1003
+										tmpfs           756M     0  756M   0% /run/user/1002
+										api_183 | CHANGED | rc=0 >>
+										Filesystem      Size  Used Avail Use% Mounted on
+										/dev/vda1        59G   50G  9.5G  84% /
+										devtmpfs        3.7G     0  3.7G   0% /dev
+										tmpfs           3.7G     0  3.7G   0% /dev/shm
+										tmpfs           3.7G  9.4M  3.7G   1% /run
+										tmpfs           3.7G     0  3.7G   0% /sys/fs/cgroup
+										tmpfs           756M     0  756M   0% /run/user/0
+										tmpfs           756M     0  756M   0% /run/user/1002
+										api_30 | CHANGED | rc=0 >>
+										Filesystem      Size  Used Avail Use% Mounted on
+										/dev/vda1        59G   56G  2.8G  96% /
+										devtmpfs        3.7G     0  3.7G   0% /dev
+										tmpfs           3.7G     0  3.7G   0% /dev/shm
+										tmpfs           3.7G   13M  3.7G   1% /run
+										tmpfs           3.7G     0  3.7G   0% /sys/fs/cgroup
+										tmpfs           756M     0  756M   0% /run/user/0
+										tmpfs           756M     0  756M   0% /run/user/1002
+										api_169 | CHANGED | rc=0 >>
+										Filesystem      Size  Used Avail Use% Mounted on
+										/dev/vda1        59G   30G   29G  51% /
+										devtmpfs        3.7G     0  3.7G   0% /dev
+										tmpfs           3.7G     0  3.7G   0% /dev/shm
+										tmpfs           3.7G   14M  3.7G   1% /run
+										tmpfs           3.7G     0  3.7G   0% /sys/fs/cgroup
+										tmpfs           756M     0  756M   0% /run/user/0
+										tmpfs           756M     0  756M   0% /run/user/1002
+										api_67 | CHANGED | rc=0 >>
+										Filesystem      Size  Used Avail Use% Mounted on
+										/dev/vda1        59G   28G   32G  47% /
+										devtmpfs        3.7G     0  3.7G   0% /dev
+										tmpfs           3.7G     0  3.7G   0% /dev/shm
+										tmpfs           3.7G   43M  3.7G   2% /run
+										tmpfs           3.7G     0  3.7G   0% /sys/fs/cgroup
+										tmpfs           756M     0  756M   0% /run/user/0
+										tmpfs           756M     0  756M   0% /run/user/1003
+										tmpfs           756M     0  756M   0% /run/user/1002
+										api_194 | CHANGED | rc=0 >>
+										Filesystem      Size  Used Avail Use% Mounted on
+										/dev/vda1        59G   27G   32G  46% /
+										devtmpfs        3.7G     0  3.7G   0% /dev
+										tmpfs           3.7G     0  3.7G   0% /dev/shm
+										tmpfs           3.7G   22M  3.7G   1% /run
+										tmpfs           3.7G     0  3.7G   0% /sys/fs/cgroup
+										tmpfs           756M     0  756M   0% /run/user/0
+										tmpfs           756M     0  756M   0% /run/user/1003
+										tmpfs           756M     0  756M   0% /run/user/1002
+										front_20 | CHANGED | rc=0 >>
+										Filesystem      Size  Used Avail Use% Mounted on
+										/dev/vda1        49G   44G  4.3G  92% /
+										devtmpfs        3.7G     0  3.7G   0% /dev
+										tmpfs           3.7G     0  3.7G   0% /dev/shm
+										tmpfs           3.7G  795M  3.0G  22% /run
+										tmpfs           3.7G     0  3.7G   0% /sys/fs/cgroup
+										tmpfs           756M     0  756M   0% /run/user/1004
+										tmpfs           756M     0  756M   0% /run/user/0
+										tmpfs           756M     0  756M   0% /run/user/1003
+										front_3 | CHANGED | rc=0 >>
+										Filesystem      Size  Used Avail Use% Mounted on
+										/dev/vda1        49G   44G  4.2G  92% /
+										devtmpfs        3.7G     0  3.7G   0% /dev
+										tmpfs           3.7G     0  3.7G   0% /dev/shm
+										tmpfs           3.7G  771M  3.0G  21% /run
+										tmpfs           3.7G     0  3.7G   0% /sys/fs/cgroup
+										tmpfs           756M     0  756M   0% /run/user/1004
+										tmpfs           756M     0  756M   0% /run/user/0
+										tmpfs           756M     0  756M   0% /run/user/1003
+										front_134 | CHANGED | rc=0 >>
+										Filesystem      Size  Used Avail Use% Mounted on
+										/dev/vda1        49G   45G  3.6G  93% /
+										devtmpfs        3.7G     0  3.7G   0% /dev
+										tmpfs           3.7G     0  3.7G   0% /dev/shm
+										tmpfs           3.7G  777M  3.0G  21% /run
+										tmpfs           3.7G     0  3.7G   0% /sys/fs/cgroup
+										tmpfs           756M     0  756M   0% /run/user/0
+										tmpfs           756M     0  756M   0% /run/user/1003
+										tmpfs           756M     0  756M   0% /run/user/1002
+										resque_117 | CHANGED | rc=0 >>
+										Filesystem      Size  Used Avail Use% Mounted on
+										/dev/vda1        40G   28G   12G  71% /
+										devtmpfs        7.5G     0  7.5G   0% /dev
+										tmpfs           7.6G     0  7.6G   0% /dev/shm
+										tmpfs           7.6G  4.7G  2.9G  63% /run
+										tmpfs           7.6G     0  7.6G   0% /sys/fs/cgroup
+										tmpfs           1.6G     0  1.6G   0% /run/user/0
+										tmpfs           1.6G     0  1.6G   0% /run/user/1003
+										resque_80 | CHANGED | rc=0 >>
+										Filesystem      Size  Used Avail Use% Mounted on
+										/dev/vda1        49G   29G   19G  61% /
+										devtmpfs        7.5G     0  7.5G   0% /dev
+										tmpfs           7.6G     0  7.6G   0% /dev/shm
+										tmpfs           7.6G  5.9G  1.7G  79% /run
+										tmpfs           7.6G     0  7.6G   0% /sys/fs/cgroup
+										tmpfs           1.6G     0  1.6G   0% /run/user/0
+										tmpfs           1.6G     0  1.6G   0% /run/user/1003
+										resque_184 | CHANGED | rc=0 >>
+										Filesystem      Size  Used Avail Use% Mounted on
+										/dev/vda1        40G   33G  6.2G  85% /
+										devtmpfs        7.5G     0  7.5G   0% /dev
+										tmpfs           7.6G     0  7.6G   0% /dev/shm
+										tmpfs           7.6G  4.0G  3.6G  54% /run
+										tmpfs           7.6G     0  7.6G   0% /sys/fs/cgroup
+										tmpfs           1.6G     0  1.6G   0% /run/user/0
+										tmpfs           1.6G     0  1.6G   0% /run/user/1003
+										resque_103 | CHANGED | rc=0 >>
+										Filesystem      Size  Used Avail Use% Mounted on
+										/dev/vda1        49G   45G  3.2G  94% /
+										devtmpfs        7.5G     0  7.5G   0% /dev
+										tmpfs           7.6G     0  7.6G   0% /dev/shm
+										tmpfs           7.6G  615M  7.0G   8% /run
+										tmpfs           7.6G     0  7.6G   0% /sys/fs/cgroup
+										tmpfs           1.6G     0  1.6G   0% /run/user/0
+										overlay          49G   45G  3.2G  94% /var/lib/docker/overlay2/cd84870011d225cf401590706fc52ed76093ebaab747d334c934eb82596a40b3/merged
+										tmpfs           1.6G     0  1.6G   0% /run/user/1001
+										resque_140 | CHANGED | rc=0 >>
+										Filesystem      Size  Used Avail Use% Mounted on
+										/dev/vda1        49G   41G  7.4G  85% /
+										devtmpfs         16G     0   16G   0% /dev
+										tmpfs            16G     0   16G   0% /dev/shm
+										tmpfs            16G  1.1G   15G   8% /run
+										tmpfs            16G     0   16G   0% /sys/fs/cgroup
+										tmpfs           3.1G     0  3.1G   0% /run/user/0
+										tmpfs           3.1G     0  3.1G   0% /run/user/1001
+										resque_180 | CHANGED | rc=0 >>
+										Filesystem      Size  Used Avail Use% Mounted on
+										/dev/vda1        49G   33G   16G  69% /
+										devtmpfs        7.5G     0  7.5G   0% /dev
+										tmpfs           7.6G     0  7.6G   0% /dev/shm
+										tmpfs           7.6G  1.9G  5.7G  25% /run
+										tmpfs           7.6G     0  7.6G   0% /sys/fs/cgroup
+										tmpfs           1.6G     0  1.6G   0% /run/user/0
+										tmpfs           1.6G     0  1.6G   0% /run/user/1003
+										resque_18 | CHANGED | rc=0 >>
+										Filesystem      Size  Used Avail Use% Mounted on
+										/dev/vda1        49G   35G   14G  73% /
+										devtmpfs        7.5G     0  7.5G   0% /dev
+										tmpfs           7.6G     0  7.6G   0% /dev/shm
+										tmpfs           7.6G  411M  7.2G   6% /run
+										tmpfs           7.6G     0  7.6G   0% /sys/fs/cgroup
+										tmpfs           1.6G     0  1.6G   0% /run/user/0
+										tmpfs           1.6G     0  1.6G   0% /run/user/1001
+										resque_74 | CHANGED | rc=0 >>
+										Filesystem      Size  Used Avail Use% Mounted on
+										/dev/vda1        49G   47G  642M  99% /
+										devtmpfs        3.8G     0  3.8G   0% /dev
+										tmpfs           3.8G     0  3.8G   0% /dev/shm
+										tmpfs           3.8G  3.2G  611M  85% /run
+										tmpfs           3.8G     0  3.8G   0% /sys/fs/cgroup
+										tmpfs           768M     0  768M   0% /run/user/0
+										tmpfs           768M     0  768M   0% /run/user/1004
+										tmpfs           768M     0  768M   0% /run/user/1003
 								-74
 									[root@iZ94apf5ivnZ ~]# df -h
 									Filesystem      Size  Used Avail Use% Mounted on
