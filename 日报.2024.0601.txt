@@ -5152,6 +5152,96 @@
 						保留时间
 							默认6个月，可自定
 						现有脚本
+							-- 20250204
+								-74
+									[root@iZ94apf5ivnZ ~]# df -h
+									Filesystem      Size  Used Avail Use% Mounted on
+									/dev/vda1        49G   48G  362M 100% /
+									devtmpfs        3.8G     0  3.8G   0% /dev
+									tmpfs           3.8G     0  3.8G   0% /dev/shm
+									tmpfs           3.8G  3.2G  611M  85% /run
+									tmpfs           3.8G     0  3.8G   0% /sys/fs/cgroup
+									tmpfs           768M     0  768M   0% /run/user/0
+									tmpfs           768M     0  768M   0% /run/user/1004
+									[root@iZ94apf5ivnZ ~]# find / -name '*' -type f -size +100M | xargs ls -lh {} | sort -nrk5
+									find: ‘/proc/17938/task/17938/fdinfo/6’: No such file or directory
+									find: ‘/proc/17938/fdinfo/5’: No such file or directory
+									ls: cannot access {}: No such file or directory
+									-rw-r--r--  1 root root 367M Jan  9 03:09 /home/wwwroot/mytracking/uploads/excel_zip/20250108.zip
+									-rw-r--r--  1 root root 300M Feb  5 01:06 /home/wwwroot/www.51tracking.com/script/sync/compare_img_sync.log
+									-rwxr-xr-x  1 root root 299M Feb  5 00:00 /home/wwwroot/mytracking/logs/number/create-tracking.log.20250205
+									-rw-r--r--  1 root root 297M Jan 18 03:09 /home/wwwroot/mytracking/uploads/excel_zip/20250117.zip
+									-rw-r--r--  1 root root 269M Jan  3 03:08 /home/wwwroot/mytracking/uploads/excel_zip/20250102.zip
+									-rw-r--r--  1 root root 246M Jan 17 03:07 /home/wwwroot/mytracking/uploads/excel_zip/20250116.zip
+									-rw-r--r--  1 root root 234M Jan 23 03:07 /home/wwwroot/mytracking/uploads/excel_zip/20250122.zip
+									-rw-r--r--  1 root root 223M Jan  7 03:06 /home/wwwroot/mytracking/uploads/excel_zip/20250106.zip
+									-rw-r--r--  1 root root 214M Jan 21 03:06 /home/wwwroot/mytracking/uploads/excel_zip/20250120.zip
+									-rw-r--r--  1 root root 213M Jan 10 03:06 /home/wwwroot/mytracking/uploads/excel_zip/20250109.zip
+									-rw-r--r--  1 root root 210M Jan 22 03:06 /home/wwwroot/mytracking/uploads/excel_zip/20250121.zip
+									-rw-r--r--  1 root root 209M Jan  8 03:06 /home/wwwroot/mytracking/uploads/excel_zip/20250107.zip
+									-rw-r--r--  1 root root 203M Jan 16 03:06 /home/wwwroot/mytracking/uploads/excel_zip/20250115.zip
+									-rw-r--r--  1 root root 194M Dec 20  2023 /home/wwwroot/www.trackingmore.com/download/2022.csv
+									-rw-r--r--  1 root root 192M Jan 14 03:06 /home/wwwroot/mytracking/uploads/excel_zip/20250113.zip
+									-rw-r--r--  1 root root 186M Feb  3 11:03 /home/wwwroot/www.trackingmore.com/download/vfBXvFtZ3z24BkHOTVrqDH27f4E6n2Mcv0Kf5.csv
+									-rw-r--r--  1 root root 185M Jan  4 03:05 /home/wwwroot/mytracking/uploads/excel_zip/20250103.zip
+									-rw-r--r--  1 root root 182M Jan 15 03:06 /home/wwwroot/mytracking/uploads/excel_zip/20250114.zip
+									-rw-r--r--  1 root root 170M Jan 11 03:05 /home/wwwroot/mytracking/uploads/excel_zip/20250110.zip
+									-rw-r--r--  1 root root 156M Jan 19 03:04 /home/wwwroot/mytracking/uploads/excel_zip/20250118.zip
+									-rw-r--r--  1 root root 151M Feb  4 14:05 /home/wwwroot/www.trackingmore.com/download/YxUQfwIFgJYzkiPYPCfTKKkENafjgCb7COoVb.csv
+									-rw-r--r--  1 root root 142M Jan 25 03:04 /home/wwwroot/mytracking/uploads/excel_zip/20250124.zip
+									-r--------  1 root root 128T Feb  5 01:08 /proc/kcore
+									-rw-r--r--  1 root root 127M Jan 24 03:04 /home/wwwroot/mytracking/uploads/excel_zip/20250123.zip
+									-rw-r--r--  1 root root 126M Aug 24  2023 /var/cache/yum/x86_64/7/updates/gen/primary_db.sqlite
+									-rw-r--r--  1 root root 124M May 14  2024 /run/log/home-wwwroot-mytracking-uploads-excel_zip/20240513.zip
+									-rw-r--r--. 1 root root 119M Aug 28  2023 /var/lib/rpm/Packages
+									-rwxr-xr-x  1 root root 118M Feb  4 04:53 /home/wwwroot/mytracking/uploads/excel/202502/b2149a7b7cb04590eb41d7e5486f5507.csv
+									-rw-r--r--  1 root root 118M Aug 31  2020 /usr/local/rasp-php-linux.tar.bz2
+									-rwxr-xr-x  1 root root 111M Feb  4 00:00 /run/log/home-wwwroot-mytracking-logs-number/create-tracking.log.20250204
+									-rw-r--r--  1 root root 109M May 16  2024 /run/log/home-wwwroot-mytracking-uploads-excel_zip/20240515.zip
+									-rw-r--r--  1 root root 108M Jan 26 03:03 /home/wwwroot/mytracking/uploads/excel_zip/20250125.zip
+									-rw-r--r--  1 root root 104M May 31  2024 /run/log/home-wwwroot-mytracking-uploads-excel_zip/20240530.zip
+									-rw-r--r--  1 root root 104M May 17  2024 /run/log/home-wwwroot-mytracking-uploads-excel_zip/20240516.zip
+									-rw-r--r--  1 root root 103M May 23  2024 /run/log/home-wwwroot-mytracking-uploads-excel_zip/20240522.zip
+									-rw-r--r--  1 root root 102M Nov 29  2022 /usr/lib/locale/locale-archive
+									-rw-r--r--  1  386  386 4.6M Feb  5 01:08 /home/wwwroot/www.trackingmore.com/section/carrierspic10.css
+									-rw-r--r--  1  386  386 4.5M Feb  5 01:08 /home/wwwroot/www.51tracking.com/section/carrierspic10.css
+									-rwxr-xr-x  1 root root 1.1G Feb  5 00:25 /home/wwwroot/mytracking/logs/send_first_queue/send.log
+									[root@iZ94apf5ivnZ ~]# echo > /home/wwwroot/mytracking/logs/send_first_queue/send.log
+									[root@iZ94apf5ivnZ ~]# df -h
+									Filesystem      Size  Used Avail Use% Mounted on
+									/dev/vda1        49G   47G  1.6G  97% /
+									devtmpfs        3.8G     0  3.8G   0% /dev
+									tmpfs           3.8G     0  3.8G   0% /dev/shm
+									tmpfs           3.8G  3.2G  611M  85% /run
+									tmpfs           3.8G     0  3.8G   0% /sys/fs/cgroup
+									tmpfs           768M     0  768M   0% /run/user/0
+									tmpfs           768M     0  768M   0% /run/user/1004
+									[root@iZ94apf5ivnZ ~]# df -h
+									Filesystem      Size  Used Avail Use% Mounted on
+									/dev/vda1        49G   47G  1.6G  97% /
+									devtmpfs        3.8G     0  3.8G   0% /dev
+									tmpfs           3.8G     0  3.8G   0% /dev/shm
+									tmpfs           3.8G  3.2G  611M  85% /run
+									tmpfs           3.8G     0  3.8G   0% /sys/fs/cgroup
+									tmpfs           768M     0  768M   0% /run/user/0
+									tmpfs           768M     0  768M   0% /run/user/1004
+								notest_27
+									> # 清理日志 2025012
+									> 0 */5 * * *  echo > /home/wwwlogs/www.trackingmore.com.access.log 2>&1
+									notest_145_44_35 | CHANGED | rc=0 >>
+									603c603
+									< 50 * * * * sh sum.sh &>>sum.sh.log
+									---
+									> #50 * * * * sh sum.sh &>>sum.sh.log
+								6.105
+									# 20230504
+									# 临时按每天压缩清理csv文件
+									10 01 */1 * * sh test.zip.every.5.day.sh > /dev/null 2>&1
+									#22 17 */1 * * sh test.zip.every.5.day.sh > /dev/null 2>&1
+								141.74
+									# 分割并清理日志
+									0 0 * * * /bin/sh /root/log_split_rm.sh > /dev/null 2>&1
+									20 02 * * * sh disk.sh > /dev/null 2>&1
 							-- 20250202
 								# 20250202
 								# 统一根据大小压缩清除（10M以上）（先重名分割以进行压缩清除）
