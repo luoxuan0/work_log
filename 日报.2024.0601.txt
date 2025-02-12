@@ -5847,6 +5847,384 @@
 								script\queueshell\zipAndRmSpecifyTimeFile.sh
 								script\queueshell\file.to.zip.sh
 						历史数据清理 20240529
+							-- 20250211
+								-74
+									[root@iZ94apf5ivnZ ~]# df -h
+									Filesystem      Size  Used Avail Use% Mounted on
+									/dev/vda1        49G   48G  287M 100% /
+									devtmpfs        3.8G     0  3.8G   0% /dev
+									tmpfs           3.8G     0  3.8G   0% /dev/shm
+									tmpfs           3.8G  3.1G  728M  82% /run
+									tmpfs           3.8G     0  3.8G   0% /sys/fs/cgroup
+									tmpfs           768M     0  768M   0% /run/user/0
+									tmpfs           768M     0  768M   0% /run/user/1004
+									[root@iZ94apf5ivnZ ~]# ll -h /home/wwwroot/mytracking/logs/send_first_queue/send.log
+									-rwxr-xr-x 1 root root 3.5M Feb 11 17:25 /home/wwwroot/mytracking/logs/send_first_queue/send.log
+									[root@iZ94apf5ivnZ ~]# find / -name '*' -type f -size +100M | xargs ls -lh {} | sort -nrk5
+									find: ‘/proc/17305/task/17305/fdinfo/6’: No such file or directory
+									find: ‘/proc/17305/fdinfo/5’: No such file or directory
+									find: ‘/proc/23447/task/23469/fdinfo/229’: No such file or directory
+									ls: cannot access {}: No such file or directory
+									-rw-r--r--  1 root root 367M Jan  9 03:09 /home/wwwroot/mytracking/uploads/excel_zip/20250108.zip
+									-rw-r--r--  1 root root 314M Feb 11 17:24 /home/wwwroot/www.51tracking.com/script/sync/compare_img_sync.log
+									-rw-r--r--  1 root root 297M Jan 18 03:09 /home/wwwroot/mytracking/uploads/excel_zip/20250117.zip
+									-rw-r--r--  1 root root 269M Jan  3 03:08 /home/wwwroot/mytracking/uploads/excel_zip/20250102.zip
+									-rw-r--r--  1 root root 246M Jan 17 03:07 /home/wwwroot/mytracking/uploads/excel_zip/20250116.zip
+									-rw-r--r--  1 root root 234M Jan 23 03:07 /home/wwwroot/mytracking/uploads/excel_zip/20250122.zip
+									-rw-r--r--  1 root root 226M Feb  8 03:05 /home/wwwroot/mytracking/uploads/excel_zip/20250207.zip
+									-rw-r--r--  1 root root 223M Jan  7 03:06 /home/wwwroot/mytracking/uploads/excel_zip/20250106.zip
+									-rw-r--r--  1 root root 214M Jan 21 03:06 /home/wwwroot/mytracking/uploads/excel_zip/20250120.zip
+									-rw-r--r--  1 root root 213M Jan 10 03:06 /home/wwwroot/mytracking/uploads/excel_zip/20250109.zip
+									-rw-r--r--  1 root root 210M Jan 22 03:06 /home/wwwroot/mytracking/uploads/excel_zip/20250121.zip
+									-rw-r--r--  1 root root 209M Jan  8 03:06 /home/wwwroot/mytracking/uploads/excel_zip/20250107.zip
+									-rw-r--r--  1 root root 203M Jan 16 03:06 /home/wwwroot/mytracking/uploads/excel_zip/20250115.zip
+									-rw-r--r--  1 root root 194M Dec 20  2023 /home/wwwroot/www.trackingmore.com/download/2022.csv
+									-rw-r--r--  1 root root 192M Jan 14 03:06 /home/wwwroot/mytracking/uploads/excel_zip/20250113.zip
+									-rw-r--r--  1 root root 188M Feb 11 03:04 /home/wwwroot/mytracking/uploads/excel_zip/20250210.zip
+									-rw-r--r--  1 root root 185M Jan  4 03:05 /home/wwwroot/mytracking/uploads/excel_zip/20250103.zip
+									-rw-r--r--  1 root root 182M Jan 15 03:06 /home/wwwroot/mytracking/uploads/excel_zip/20250114.zip
+									-rwxr-xr-x  1 root root 173M Feb 11 11:08 /home/wwwroot/mytracking/uploads/excel/202502/9432aa98acde4fad92b77f1cb847f28b.csv
+									-rw-r--r--  1 root root 170M Jan 11 03:05 /home/wwwroot/mytracking/uploads/excel_zip/20250110.zip
+									-rw-r--r--  1 root root 169M Feb  7 03:05 /home/wwwroot/mytracking/uploads/excel_zip/20250206.zip
+									-rw-r--r--  1 root root 168M Feb  6 03:05 /home/wwwroot/mytracking/uploads/excel_zip/20250205.zip
+									-rw-r--r--  1 root root 158M Feb  9 03:04 /home/wwwroot/mytracking/uploads/excel_zip/20250208.zip
+									-rw-r--r--  1 root root 156M Jan 19 03:04 /home/wwwroot/mytracking/uploads/excel_zip/20250118.zip
+									-rw-r--r--  1 root root 151M Feb 11 10:34 /home/wwwroot/www.trackingmore.com/download/vTy4sPWsnFZlSq3d7GgmcXAt6AZzjE5VvTyEh.csv
+									-rw-r--r--  1 root root 151M Feb 11 10:32 /home/wwwroot/www.trackingmore.com/download/RzhqUBym1NXtkLOf08F3Ic4tnFcSDBCQuvhHQ.csv
+									-rw-r--r--  1 root root 142M Jan 25 03:04 /home/wwwroot/mytracking/uploads/excel_zip/20250124.zip
+									-r--------  1 root root 128T Feb 11 17:26 /proc/kcore
+									-rw-r--r--  1 root root 127M Jan 24 03:04 /home/wwwroot/mytracking/uploads/excel_zip/20250123.zip
+									-rw-r--r--  1 root root 126M Aug 24  2023 /var/cache/yum/x86_64/7/updates/gen/primary_db.sqlite
+									-rw-r--r--  1 root root 124M May 14  2024 /run/log/home-wwwroot-mytracking-uploads-excel_zip/20240513.zip
+									-rw-r--r--. 1 root root 119M Aug 28  2023 /var/lib/rpm/Packages
+									-rw-r--r--  1 root root 118M Aug 31  2020 /usr/local/rasp-php-linux.tar.bz2
+									-rw-r--r--  1 root root 116M Feb 10 15:03 /home/wwwroot/www.trackingmore.com/download/noHhbomdY47IJbJqUUXSE4neSfEDM3Lr7oLwr.csv
+									-rwxr-xr-x  1 root root 110M Feb 11 15:13 /home/wwwroot/mytracking/uploads/excel/202502/0c43488728a2ef7260684969b0f81484.csv
+									-rw-r--r--  1 root root 109M May 16  2024 /run/log/home-wwwroot-mytracking-uploads-excel_zip/20240515.zip
+									-rw-r--r--  1 root root 108M Jan 26 03:03 /home/wwwroot/mytracking/uploads/excel_zip/20250125.zip
+									-rwxr-xr-x  1 root root 105M Feb 11 10:29 /home/wwwroot/mytracking/uploads/excel/202502/67201af381efa21a98fdb108ec35e47f.csv
+									-rw-r--r--  1 root root 104M May 31  2024 /run/log/home-wwwroot-mytracking-uploads-excel_zip/20240530.zip
+									-rw-r--r--  1 root root 104M May 17  2024 /run/log/home-wwwroot-mytracking-uploads-excel_zip/20240516.zip
+									-rw-r--r--  1 root root 104M Feb  5 03:04 /home/wwwroot/mytracking/uploads/excel_zip/20250204.zip
+									-rw-r--r--  1 root root 103M May 23  2024 /run/log/home-wwwroot-mytracking-uploads-excel_zip/20240522.zip
+									-rw-r--r--  1 root root 102M Nov 29  2022 /usr/lib/locale/locale-archive
+									[root@iZ94apf5ivnZ ~]# head /home/wwwroot/www.51tracking.com/script/sync/compare_img_sync.log
+
+
+									logoimage:dhl-proview-51.png 
+
+									is_exist:1 
+
+									filebak is_exist:1 
+
+									filebak:/home/wwwroot/www.trackingmore.com/section/images/compare/dhl-proview-51.png 
+
+									[root@iZ94apf5ivnZ ~]# echo > /home/wwwroot/www.51tracking.com/script/sync/compare_img_sync.log
+									[root@iZ94apf5ivnZ ~]# df -h
+									Filesystem      Size  Used Avail Use% Mounted on
+									/dev/vda1        49G   48G  365M 100% /
+									devtmpfs        3.8G     0  3.8G   0% /dev
+									tmpfs           3.8G     0  3.8G   0% /dev/shm
+									tmpfs           3.8G  3.1G  728M  82% /run
+									tmpfs           3.8G     0  3.8G   0% /sys/fs/cgroup
+									tmpfs           768M     0  768M   0% /run/user/0
+									tmpfs           768M     0  768M   0% /run/user/1004
+									[root@iZ94apf5ivnZ ~]# rm -f /home/wwwroot/mytracking/uploads/excel_zip/202502* 
+									[root@iZ94apf5ivnZ ~]# df -h
+									Filesystem      Size  Used Avail Use% Mounted on
+									/dev/vda1        49G   47G  1.6G  97% /
+									devtmpfs        3.8G     0  3.8G   0% /dev
+									tmpfs           3.8G     0  3.8G   0% /dev/shm
+									tmpfs           3.8G  3.1G  728M  82% /run
+									tmpfs           3.8G     0  3.8G   0% /sys/fs/cgroup
+									tmpfs           768M     0  768M   0% /run/user/0
+									tmpfs           768M     0  768M   0% /run/user/1004
+									[root@iZ94apf5ivnZ ~]# ll run/log/home-wwwroot-mytracking-uploads-excel_zip/
+									ls: cannot access run/log/home-wwwroot-mytracking-uploads-excel_zip/: No such file or directory
+									[root@iZ94apf5ivnZ ~]# ll /run/log/home-wwwroot-mytracking-uploads-excel_zip/
+									total 2536792
+									-rw-r--r-- 1 root root  22808548 May  2  2024 20240501.zip
+									-rw-r--r-- 1 root root  47855803 May  3  2024 20240502.zip
+									-rw-r--r-- 1 root root  21100470 May  4  2024 20240503.zip
+									-rw-r--r-- 1 root root  19056987 May  5  2024 20240504.zip
+									-rw-r--r-- 1 root root  28721745 May  6  2024 20240505.zip
+									-rw-r--r-- 1 root root  64972547 May  7  2024 20240506.zip
+									-rw-r--r-- 1 root root  47239593 May  8  2024 20240507.zip
+									-rw-r--r-- 1 root root  50533693 May  9  2024 20240508.zip
+									-rw-r--r-- 1 root root  67701532 May 10  2024 20240509.zip
+									-rw-r--r-- 1 root root  71065481 May 11  2024 20240510.zip
+									-rw-r--r-- 1 root root  81794879 May 12  2024 20240511.zip
+									-rw-r--r-- 1 root root   8066959 May 13  2024 20240512.zip
+									-rw-r--r-- 1 root root 129701444 May 14  2024 20240513.zip
+									-rw-r--r-- 1 root root  99318661 May 15  2024 20240514.zip
+									-rw-r--r-- 1 root root 113347995 May 16  2024 20240515.zip
+									-rw-r--r-- 1 root root 109021025 May 17  2024 20240516.zip
+									-rw-r--r-- 1 root root  90817831 May 18  2024 20240517.zip
+									-rw-r--r-- 1 root root  12434229 May 19  2024 20240518.zip
+									-rw-r--r-- 1 root root  12071641 May 20  2024 20240519.zip
+									-rw-r--r-- 1 root root  96081008 May 21  2024 20240520.zip
+									-rw-r--r-- 1 root root  82551572 May 22  2024 20240521.zip
+									-rw-r--r-- 1 root root 107163117 May 23  2024 20240522.zip
+									-rw-r--r-- 1 root root  94883583 May 24  2024 20240523.zip
+									-rw-r--r-- 1 root root  73047362 May 25  2024 20240524.zip
+									-rw-r--r-- 1 root root  66388408 May 26  2024 20240525.zip
+									-rw-r--r-- 1 root root   4318121 May 27  2024 20240526.zip
+									-rw-r--r-- 1 root root 100050807 May 28  2024 20240527.zip
+									-rw-r--r-- 1 root root  85630747 May 29  2024 20240528.zip
+									-rw-r--r-- 1 root root  92838240 May 30  2024 20240529.zip
+									-rw-r--r-- 1 root root 108379110 May 31  2024 20240530.zip
+									-rw-r--r-- 1 root root  87339857 Jun  1  2024 20240531.zip
+									-rw-r--r-- 1 root root  94273826 Aug  2  2024 20240801.zip
+									-rw-r--r-- 1 root root  70008737 Aug  3  2024 20240802.zip
+									-rw-r--r-- 1 root root  18388635 Aug  4  2024 20240803.zip
+									-rw-r--r-- 1 root root   9043469 Aug  5  2024 20240804.zip
+									-rw-r--r-- 1 root root  61292299 Aug  6  2024 20240805.zip
+									-rw-r--r-- 1 root root  64302460 Aug  7  2024 20240806.zip
+									-rw-r--r-- 1 root root  52339460 Aug  8  2024 20240807.zip
+									-rw-r--r-- 1 root root  66991045 Aug  9  2024 20240808.zip
+									-rw------- 1 root root  39600128 Oct 28  2023 ziEETUND
+									-rw------- 1 root root  25053210 Nov  3  2023 ziFqxqKe
+									[root@iZ94apf5ivnZ ~]# du -sh /run/log/home-wwwroot-mytracking-uploads-excel_zip/
+									2.5G    /run/log/home-wwwroot-mytracking-uploads-excel_zip/
+									[root@iZ94apf5ivnZ ~]# ll /home/wwwroot/mytracking/uploads/excel
+									excel/     excel_zip/ 
+									[root@iZ94apf5ivnZ ~]# ll /home/wwwroot/mytracking/uploads/excel
+									excel/     excel_zip/ 
+									[root@iZ94apf5ivnZ ~]# ll /home/wwwroot/mytracking/uploads/excel
+									excel/     excel_zip/ 
+									[root@iZ94apf5ivnZ ~]# ll /home/wwwroot/mytracking/uploads/excel/202
+									202401/ 202402/ 202403/ 202404/ 202405/ 202406/ 202407/ 202408/ 202409/ 202410/ 202411/ 202412/ 202501/ 202502/ 
+									[root@iZ94apf5ivnZ ~]# du -sh /home/wwwroot/mytracking/uploads/excel/
+									1.7G    /home/wwwroot/mytracking/uploads/excel/
+									[root@iZ94apf5ivnZ ~]# du -sh /home/wwwroot/mytracking/uploads/excel/202
+									202401/ 202402/ 202403/ 202404/ 202405/ 202406/ 202407/ 202408/ 202409/ 202410/ 202411/ 202412/ 202501/ 202502/ 
+									[root@iZ94apf5ivnZ ~]# du -sh /home/wwwroot/mytracking/uploads/excel/2024
+									202401/ 202402/ 202403/ 202404/ 202405/ 202406/ 202407/ 202408/ 202409/ 202410/ 202411/ 202412/ 
+									[root@iZ94apf5ivnZ ~]# du -sh /home/wwwroot/mytracking/uploads/excel/2024
+									202401/ 202402/ 202403/ 202404/ 202405/ 202406/ 202407/ 202408/ 202409/ 202410/ 202411/ 202412/ 
+									[root@iZ94apf5ivnZ ~]# ll /home/wwwroot/mytracking/uploads/excel/202401/
+									total 0
+									[root@iZ94apf5ivnZ ~]# ll /home/wwwroot/mytracking/uploads/excel/202402
+									total 0
+									[root@iZ94apf5ivnZ ~]# ll /home/wwwroot/mytracking/uploads/excel/202403
+									total 0
+									[root@iZ94apf5ivnZ ~]# ll /home/wwwroot/mytracking/uploads/excel/202404
+									total 0
+									[root@iZ94apf5ivnZ ~]# ll /home/wwwroot/mytracking/uploads/excel/202405
+									total 0
+									[root@iZ94apf5ivnZ ~]# ll /home/wwwroot/mytracking/uploads/excel/202406
+									total 0
+									[root@iZ94apf5ivnZ ~]# ll /home/wwwroot/mytracking/uploads/excel/202407
+									total 0
+									[root@iZ94apf5ivnZ ~]# ll /home/wwwroot/mytracking/uploads/excel/202408
+									total 0
+									[root@iZ94apf5ivnZ ~]# ll /home/wwwroot/mytracking/uploads/excel/202409
+									total 0
+									[root@iZ94apf5ivnZ ~]# ll /home/wwwroot/mytracking/uploads/excel/202400
+									ls: cannot access /home/wwwroot/mytracking/uploads/excel/202400: No such file or directory
+									[root@iZ94apf5ivnZ ~]# ll /home/wwwroot/mytracking/uploads/excel/202410
+									total 0
+									[root@iZ94apf5ivnZ ~]# ll /home/wwwroot/mytracking/uploads/excel/202411
+									total 0
+									[root@iZ94apf5ivnZ ~]# ll /home/wwwroot/mytracking/uploads/excel/202412
+									total 0
+									[root@iZ94apf5ivnZ ~]# ll /home/wwwroot/mytracking/uploads/excel/ | head
+									total 560
+									drwxr-xr-x 2 root root 36864 Feb  1  2024 202401
+									drwxr-xr-x 2 root root 24576 Mar  1  2024 202402
+									drwxr-xr-x 2 root root 32768 Apr  1  2024 202403
+									drwxr-xr-x 2 root root 32768 May  1  2024 202404
+									drwxr-xr-x 2 root root 32768 Jun  1  2024 202405
+									drwxr-xr-x 2 root root 36864 Jul  1  2024 202406
+									drwxr-xr-x 2 root root 36864 Aug  1  2024 202407
+									drwxr-xr-x 2 root root 36864 Sep  1 03:03 202408
+									drwxr-xr-x 2 root root 36864 Oct  1 03:03 202409
+									[root@iZ94apf5ivnZ ~]# ll /home/wwwroot/mytracking/uploads/excel/ | head -20
+									total 560
+									drwxr-xr-x 2 root root 36864 Feb  1  2024 202401
+									drwxr-xr-x 2 root root 24576 Mar  1  2024 202402
+									drwxr-xr-x 2 root root 32768 Apr  1  2024 202403
+									drwxr-xr-x 2 root root 32768 May  1  2024 202404
+									drwxr-xr-x 2 root root 32768 Jun  1  2024 202405
+									drwxr-xr-x 2 root root 36864 Jul  1  2024 202406
+									drwxr-xr-x 2 root root 36864 Aug  1  2024 202407
+									drwxr-xr-x 2 root root 36864 Sep  1 03:03 202408
+									drwxr-xr-x 2 root root 36864 Oct  1 03:03 202409
+									drwxr-xr-x 2 root root 36864 Nov  1 03:04 202410
+									drwxr-xr-x 2 root root 45056 Dec  1 03:03 202411
+									drwxr-xr-x 2 root root 57344 Jan  1 03:06 202412
+									drwxr-xr-x 2 root root 40960 Feb  1 03:03 202501
+									drwxr-xr-x 2 root root 32768 Feb 11 17:33 202502
+									[root@iZ94apf5ivnZ ~]# ll /home/wwwroot/mytracking/uploads/excel/20250
+									202501/ 202502/ 
+									[root@iZ94apf5ivnZ ~]# ll /home/wwwroot/mytracking/uploads/excel/20250
+									202501/ 202502/ 
+									[root@iZ94apf5ivnZ ~]# ll /home/wwwroot/mytracking/uploads/excel/202501/
+									total 0
+									[root@iZ94apf5ivnZ ~]# ll /home/wwwroot/mytracking/uploads/excel/202502/
+									Display all 320 possibilities? (y or n)
+									01b4a014c7496ea2011fed4f7f493ba9.csv   36e26758d975ca6f6f2944b066fdc9b7.csv   67201af381efa21a98fdb108ec35e47f.csv   921263a5b5ad3d0944e6ff9bc3d68dfb.csv   c4a92ee44a02aa5f964d80587a8182d8.xlsx
+									01e27e618b6d1be7dcda08e9b56c03fa.xlsx  37d21533bb268fc6fe04baef63b90bce.csv   67588bf047d21d184803a61bdc542511.xlsx  927fbb7283923875dff75ecd57dfe87f.xlsx  c5352b3dd475c4d080874f56eb74c706.csv
+									028217b90477fb804611b2918e9dd156.csv   37d24ebc745074df65c6923f696a8017.csv   6827811cfc1339e538f77e52008e1bb6.xlsx  92faa679aa14f348374c311fea533ccc.csv   c59715a37a921b775b4df5a554e30156.xlsx
+									02df62763d0e8a2c5b055ede0cfb125d.xlsx  38823e8ae1e6c17ab979faa0e9156588.csv   687df783a548b165779d1da8c79af5ed.xlsx  935d27f14d31666611f6391c77cb6e8a.csv   c6ef8a16e8df45916bb0c7b721407c3e.csv
+									0488bf1e0a645e5b9ce8285b2c038742.xlsx  38d4f2e0cd14a048f32d7ae43a0e453f.xlsx  68fd28267c2c8ce1f4c1c44d1e0feaac.csv   93a66f12133d32284856ae5d29b30b93.csv   c794ad9c1fad7cc6edfbaff072e7ce00.xlsx
+									0510c2103c6967a3a459d3ee65c1c69a.csv   38d9354ef9ef6f5cdfa883d035a579bb.xlsx  6995d5049c5bc585c98ec88b420d4d49.csv   93a7f312b4dfd81019a7da1edffa560e.csv   c846ff6436b94f1becc1bcef34b6cfb7.csv
+									054528008f32b9f6da83729d00a61b9e.xlsx  3939638c5f922585d0dcac0da9de9151.csv   69a7cdb2a8ca43d5a2106b80c9da41a4.xlsx  940a85102535616b13687575f8786eaf.csv   c8f60003eb05b92339011d4d45ccbb62.xlsx
+									05b08d6f5c47f3223069d4c96ae7c2d8.xlsx  39a41441cf73a3f26391ac9a10c47199.xlsx  69de9f8e21f6bb3f3544775f5f351211.csv   9432aa98acde4fad92b77f1cb847f28b.csv   c9206eca3a47a5dfbd28ef3186ab21b3.xlsx
+									0617fc86dc32c05c8814fc34a5fd523b.csv   39f187827db4c278fd872853c13e09e3.xlsx  6a26ae6ed3a3c886ab274ad8728c0223.csv   94dcdcbf57ab8466fd47afcd13115ad7.xlsx  cdea4e9e3b4d6c267c56f831c0db116c.xlsx
+									06a0b345b7ca0e8b42425ddb1ef040d1.csv   3a380b400d1879d22a9e9b522a3113e5.xlsx  6b9849f7c2955e7e25f83719129fc672.xlsx  95ad6cb2b3eff095b142d6c2550d442b.xlsx  cec8eb9855c2ea1e8ec4e310e55826da.xlsx
+									071a2e15faf7f4425ebec11c854f11aa.csv   3b74fa907b8b8a13d89531ab03e822fc.xlsx  6c24eff066f88192d8ca728f2e1c6ca3.csv   96b96ebb7eaf298516cd61e803905543.xlsx  cedce706e530a5c358cb57f4f29f3fce.xlsx
+									07211b09a96535738a830700ad507365.csv   3c126170587cdc7f0d58330c14dc1412.xlsx  6dab81bb6bfad879ffb75fed4c1211ae.xlsx  98e2f1d583938f6fc4bd9b2a10e7d935.xlsx  cedd3fb27faf9c00139ecddca17ba493.csv
+									07ad220395260fd35d2f9297c9d8dd62.xlsx  3c7a842c9943258bb63ea269e91af677.csv   6db0abe267d633c7b6527e8337df0a88.xlsx  98ee69d11ee3b93867f6d7c9d92ac02e.xlsx  cf094b3b162e3ed244835ce8457b59a1.csv
+									07e6b070b6549c3c7963564d99ec50ca.csv   3e1cda8052b1f6c5f4948dccbba68085.csv   6e589f76cdcc36230d85596067a4fcec.csv   9a7b2d2fda80368a802d717c68b980b1.xlsx  cf2958ead7bf7fda84cd67e99b2cc311.xlsx
+									083b9e3d68a13864704c91a12373f715.csv   3e9cb4d510e08d1039a9440ce424c4cc.xlsx  6ebd5f9276b64d83e663eeaa9bee6e2a.xlsx  9b8b8f670fdb023e5549f03c594acaea.csv   cf56272a5d74ca880728c4055cc350b0.xlsx
+									08d47e19a409fd31809ebae1673fb6f3.xlsx  4170496ae219e4717b1f757d3e78abbb.xlsx  6feab656669c2fd971c6d47d48dfd78b.csv   9bbf9b0fcea5304e427fad283f0b1cb2.xlsx  cffb29c4ee010807111ac07e5d31c0b3.xlsx
+									0bb143d3c0576d8b912fd8a671a7dfe9.xlsx  41938bc7c8342aedf0f653c7c050284e.csv   70a4ef708395ba6f2ac6027aae73903d.xlsx  9bea2f88080d4af3fe4d1c28d163addb.xlsx  d044b3c94195382f6732528e8b3c5a9a.xlsx
+									0c43488728a2ef7260684969b0f81484.csv   42bef1430282a61759103272d8190096.xlsx  70dcdc09b5b7fa2fb65611d16841b8a3.csv   9d8cd363fb039cac7d1d62a34b67ee65.xlsx  d157f0d66a04793e6e26de94e7b10999.xlsx
+									0c43fd73984e860e264cb60337a0beda.csv   449281c4ff7fc2580cdb201908ea9378.xlsx  71cc403b7e5a960175073eb183fdc086.csv   9de8becee0a00bb6f9bff06d30fa5ea4.xlsx  d36efdc27c547bd49e63c02ce9efceaa.csv
+									0cbf4474c364fc956a683d9095201057.csv   458129c62c9e85868d0371453d17fb0c.csv   7300bcfdde9ca1b2417979899c5807b2.csv   9eb1f71ba9fb8674c2edbb755cf54e59.xlsx  d4c6edb3a3c878ba1b13692615e0f3d9.csv
+									0e27f3a897b1d4e5f627014c6505f895.xlsx  45a95695eebfe278c768f2af1b3f3635.csv   73d869e219651b6433fa5f6e9671747e.xlsx  9f432de03695d2c2da5321c695b9fbef.xlsx  d5224c775f75e601d4a9c63ba1713fdf.xlsx
+									102ef017d7354fb97aa1b23ff2db1293.xlsx  485844e1569f201a7a86241e157e8c74.xlsx  742e28c824c37ba0b9bb9826ea07305d.csv   a13a372b4ff334980f8b871decb8ce11.xlsx  d5b8d5e3f8aa66b355c387183c50a6d6.xlsx
+									1070a83a214698ce37b85c08e178ab41.xlsx  4862e39cd6da7624494f64888dabb215.csv   762975a58205b5bf1ba229a04cdde686.xlsx  a186c9036a5a6adf46850ef843884ca9.xlsx  d61b2f3e72a4bdb66d1138563d0b297c.xlsx
+									10be0c9357600b051715ff77ed58fab9.xlsx  48a73690256ae0d9615b040096660d89.xlsx  7671bf78a734ec0f49e07630da462bce.xlsx  a464e2c8d720ce95a08697404a3b5efa.xlsx  d6e48dcfc1aed1ae2a0a7e825cc92feb.csv
+									10c3d28230bb666afd82fc96e7761b6b.xlsx  493c3066bf8bc8cae983a0d1104a5605.xlsx  77432a93cd70a308eefee5dcdf481f0e.csv   a4861b62fdc34ad554bedccde91227e1.csv   d9be759c4f29f14a83dca505b71adc48.csv
+									11f7986b0f4f78c486b95bfa648ddd8b.xlsx  4abb236c610152d6010acf70eb9aeb29.xlsx  776c217a1d094afd573698b9ddda5c14.xlsx  a4a88d3402127f4f814b984a6d06fb46.xlsx  da40f93e089df7f7556c26630547e98d.csv
+									132b1687287feb859e50e1ca9edf3532.csv   4cd61837dcf49787ba8258edbb9210ac.xlsx  77ecd24135407730ba8fabb0a9ddbf16.csv   a5191ca13be4aa6e9519ac3378f5ae43.xlsx  dac86186ff658e7eb2a5043dc2fd15e5.csv
+									176354a4e6c4810b8b00da38fc795cdf.csv   4f882727d1bda8aafae23e2d58e3401d.csv   790382bfcdc08c977cabe869eb411e62.xlsx  a726a4fea2c65e46222f058d5580ae46.xlsx  dba9473c07d43a9d0ed46577d86ba47c.xlsx
+									17985c0045cd2fbcb33a2ecf4cd4ca1d.xlsx  50fc47fa6ee174f837f586f3b9982cff.xlsx  79865cb160d831d4230996051ac56a68.csv   a841ed69ec904def4805ec356329010e.xlsx  dc79c8c8150bec388e08b6be4ce072e7.xlsx
+									17cd165a8a304402ebc2f82efd46a644.csv   518b526deae7860c3e1d81353406da90.xlsx  7aec047b787a216a718b868b7bbd77e6.csv   a8febd9423adcf814213a630bf8704c6.xlsx  dd3f55e598c0f228b417b6d039b69aa7.xlsx
+									17f546bb7ade2f711ddbcb43b1b50759.csv   5197a7111ba92a93be25d3900f1692c4.csv   7b703656080b95acb72bed82b3263675.csv   a9e9573a55e55481857ad0be4acb1da8.csv   df6a37113623e8fac0172bdd70a0e473.xlsx
+									191eaa51c2d9747dc0fb0e510812f116.xlsx  51a3f4cb4762901535cfc1a3c4e5e861.csv   7b85b9e4fd8c5b596dd18163ba448a8f.xlsx  aa5018febeeb2ea15231e9d4d87f4d48.csv   dfd9a505bc68a3b8910a91c65493f7fe.xlsx
+									19df42c13e651f7889b99c209f958051.csv   5204c5942221ce387d78cf1a170e1069.csv   7c03a7c22ba48f7e972571f06b87dba6.xlsx  ab0e633e4bbab23f8701ea8bcc42d1a9.xlsx  e0b9c165890bc0a16d5da649eec98d23.xlsx
+									19fc9dc1e09c9194b71c7cf871feadbd.xlsx  52ece47528368a8f099b572737885cad.xlsx  7c16825143186ba5aa251070c7722a4b.xlsx  ab69a4e8b2e1c6f95858e43c78cdb834.xlsx  e1633061ef78452f938d6f618ff0a5b9.csv
+									1a66b128b3fc954fd5e216681ecdc13e.xlsx  533b2fc9d4caf0f5c432ca26bca7aee8.xlsx  7c8eca3fdaf3e4d2e51f6a8f87507e64.csv   ab6cfc140916cdd9df3680e21f21f088.csv   e165df7f1c10124d1869c4aae7db499c.xlsx
+									1b90460ee6e39da3c02c5597fd5bff0f.xlsx  5399b9055cbee516401cfca84669f5ed.xlsx  7d4aa10cb8b43b54c553a6cd21b3dc06.xlsx  ae422fa369d750f7f38180dc454c9130.csv   e18a6faf142402d2d058800dbc2ddbe5.csv
+									1c4c31cab8cfae7756a8ba83633b2c5b.csv   53b4fd2b6e604c50ee49200e582ae7ae.xlsx  7d956acddf3368b57260a15f7012d408.xlsx  ae7105a3f23488b9b3a370f2dc7edd66.csv   e1ccfdb50e9f7b770bf076e265e1cf8e.xlsx
+									1db8439e844031505020649bf5fd1eeb.xlsx  55204edd5d59aa2958156650ab0fedae.xlsx  7f7f064317e57117ed2bca8bf75730fb.xlsx  afafe81a2da0ce7e38a13bd9c699ae37.csv   e2814fb8aecf64253fec39184959ae0b.csv
+									1f0892d0204fb4b2fef426a8a0f43641.xlsx  5576eead4bbd45b572eae87b8eac8d7c.csv   80eb3253777cf0e1611d09d647b15fb7.xlsx  b06bb1391197b197740c34954148fba3.csv   e35cc5efda997dd35179053508c5618d.csv
+									1f12a318c63b13e3c4732185498a0697.xlsx  566680c9927a3ef4e7467187b42b08e4.xlsx  81816b18a59f96544004d5e53ea673a4.csv   b10c3b37062dd0a0e799f899033234b1.xlsx  e3d7d73734e791c6c026522458e86a5f.csv
+									1f66a3beea573c2794c660671eb7065e.xlsx  5683ec466dd282ddecd02700d71bf3c2.xlsx  81b67f271772a4f0ffda0b7fd7f9fb8f.xlsx  b16377cfefdf28791acc7289e632cf88.xlsx  e3f8424590e68a4c36d6f9cfe5c651ff.xlsx
+									1fe43ff7ce7d921ade70e5ac55df716d.csv   56ac4bfef8c1afd90b70d849ff89df1e.xlsx  8227075f83cead4e5ac62bb4447ad22b.csv   b3fa3f088fd6aeaa29d8b910095141dc.xlsx  e53e72dded5dacfa25d42eb5b8515dfc.csv
+									2072386ef1d923298f6d17270ea8cd18.xlsx  5753ed46fbd602ea7df1eb08bfe4d07a.csv   830f415f6653f3e7bcde33ae5ad8b7cf.csv   b45772affeb6950c29ee48f03e5f3d06.csv   e5535baf1755136192fb4821b08cc130.csv
+									21ba353d9c3aaf6b37906487431e8c6e.xlsx  57cc18d222df3676be63f8d5986edd7d.xlsx  8352dfbfb162250a5db786a78625335e.csv   b48235e39de0636076710f50dcbd8d36.csv   e59f12abed5d7056de8fda1c6cb0e98a.xlsx
+									22d1e2fa729578fa95f489f304592aeb.csv   5835d8343d06626379389b3150874cc2.xlsx  83ca159cba1d85f85c2a08a946be78c4.xlsx  b4bae254bfe7a43b5f96be705245bbc7.xlsx  e5c2d0ff1bf1881be3a5c08d13325edf.csv
+									24fe844b61ca7d05c97f32a14ff151c6.csv   58c20ff3dedc8ee72986a5158dec0c83.xlsx  8448d2590c82eaa7f6ddf7b5f3e0b91d.csv   b572613b6eaf20da56b0eb5997d32b60.csv   e604c2cbaea0ae4acd2b1de75a563e5d.xlsx
+									2538d15d3286047f9ac07d641ed48642.xlsx  5a05a7eefb967fadc26ca684437b0081.csv   857fd5c95f5ee2ecf0e74eef8b227aa9.csv   b82ce1396e54a3f11c116c91be532c2b.csv   e695844ed0bd0fce319b76668df6354e.csv
+									25426444af4a6bc5de212fb91223087c.csv   5b3080c64a5db17305f66976c7265419.xlsx  869c2519c2c1a01e3617380a2a1634e4.csv   b9a71d9e36e191599493fbc18f43d89f.csv   e87c1b4acfe5efd37d03fd799669a0ba.xlsx
+									25821a15e539567956ff8235f446b25d.xlsx  5c43fbfe88508e6fa3e5a41380754920.csv   86f252caac5677610b6f690940a08407.csv   ba3fc900f86d906935e6b090a19d1d8a.xlsx  e90688f423a75b03d2e764e277a545f9.csv
+									269dc4ec9e53b5958aa2bc80bdf08789.xlsx  5c8865d88afe6248c33e42bc1e3a2254.xlsx  87b7dffebc1373d5b9d48273123de965.csv   ba9f4afb528771bd9e514911394a5c98.xlsx  e97ab3fa966c612cbcd0f3bd6c15cd5d.xlsx
+									29307e12b02dc139b1cb0e4af751dd28.xlsx  5d4f1ec3e77655914eab72ab4937c786.xlsx  87e68bdad5193e0ed8fc25a9654a9671.xlsx  bd3fe85bbd8ab883f4475e1f2c3a9b6b.csv   ebc37897d3051dc9a2b845cdad73cd35.csv
+									2acb4ef2713af7956f832f94d301b9ae.xlsx  5e4d25b73492ed45b6e00a78529cd0cd.xlsx  88bfd228186312085ef4bf78df883152.xlsx  bddc61739f76506c3eedb0748c78a23d.csv   edb93f284da616d51c26e7fa1e2df471.csv
+									2c5460901f5a1b288fd8c3411e1060ee.xlsx  5fc79d407443542e90ec9605ef694165.csv   88dcfc663938db8df7928de4e0c142de.xlsx  be91445059644708d77a1744b8d2e759.xlsx  ee2ce277e05ca3cbfcac30a46e3a7f13.csv
+									2d146d3bc240f2078680d8973fa32d07.csv   60c6e3165bb7df2b98f56db276a27133.csv   89abda755410b37661204aef774ca932.xlsx  bf07e240626302a4bac47f1d421c027b.xlsx  ee363b14d15dc86200b3fd183b7216cc.xlsx
+									2d3cfa4e366398d901cdf1767b3dd6d5.xlsx  613aaeb7890dbcc91b14602bdd4b6feb.csv   8c58e6925f14690204e56727af73b45a.csv   bf710dd9a896445510c395918b9717db.xlsx  eecba9b334e11c5c4216f550937a06d0.xlsx
+									2d818eccfc395e68ea5c9878a671661d.xlsx  61fc37858104af597fc815a524f943a8.xlsx  8caff74d1cd5085facec874e67aae3f6.xlsx  bf8d7d23008c2ca2c39f82ba3d3b07d9.xlsx  ef37de50dcce2c97c0fd1e14ec120ee8.csv
+									2db027bc59519f92368b9a0c83715d88.xlsx  62983c39edd5e2f5e2e4c947254439a4.csv   8e32049c19cda9ce445dce7b830ee0b5.xlsx  bff266a882007c979bb9d1b3c6da2013.xlsx  f01ec2dbd7139110d452e2b90df70850.csv
+									2dccf2f832522d5c365ec0bc8e456199.xlsx  62c0738f15620e53d30601044a6ac558.xlsx  8e53512243c9920a3b725a7e86b31745.xlsx  bffe392c1cad968b0f8dc76c146cf63b.csv   f07e87448ab16105c3a2074f01c39d50.csv
+									2ea5a1e73e51881f9fbbdc1c73e1cb9c.xlsx  6378f9e0eb349443af9314b332a54a62.csv   8e8626baf4af3972406410f4319756d5.xlsx  c15b3429d0655608a39665893d370a76.xlsx  f37875cc0b86bd4cad1a218cef71e2c3.csv
+									301ea53d12409d5c10c2818a7666e771.csv   638054e53a0be6890d7f6a42e8c9fb5b.csv   8fb8b8f7d5c35d50f7b11868f824ab90.xlsx  c2ebd65dff49b54e4c5f443ac237b44b.xlsx  f6def524ccfcb3581dd97b879ad20013.csv
+									33d5791419cc8b3ae9db58ecd30809a7.xlsx  645781120c66bbb83c28cab8af8d4ab9.csv   8fd7c4555287ee9ac64ca625d39e4753.xlsx  c35617d4b786dbb07cc3754466f3d68d.xlsx  f9bbacb447891dd3668e7836c0089955.csv
+									33ef8dfdca2593127abb46ead073e325.xlsx  6486bcd449e65538f7ce18a8529abd8f.csv   8feb99a384cf9affebaec186e703ca4a.csv   c36b36a7ae2474a7de31b284d0661acc.xlsx  fb75735352f54ed9b746df4c160b559b.xlsx
+									34d9e9c52a2f429b34405f7c82e5ab10.xlsx  653796ae90221de345edcb85466f4c01.xlsx  90e8df9ef508182e4c16f31d300cc759.xlsx  c428037ca818d6bf42dc0d82a179c7e8.csv   fc646c4e3bc978547583906e94687762.csv
+									361abb9545f565d853e117891f4ee3b0.xlsx  6677f4c7b61644434e74f27a677b8a0b.csv   919142780c7aba8463ef8f08c24fbffd.csv   c48d29d46d6aefaca0ddc1bb52c41f0e.csv   fd681da049ea65c45446a02c21503cd5.xlsx
+									[root@iZ94apf5ivnZ ~]# ll /run/log/home-wwwroot-mytracking-uploads-excel_zip/
+									20240501.zip  20240504.zip  20240507.zip  20240510.zip  20240513.zip  20240516.zip  20240519.zip  20240522.zip  20240525.zip  20240528.zip  20240531.zip  20240803.zip  20240806.zip  ziEETUND
+									20240502.zip  20240505.zip  20240508.zip  20240511.zip  20240514.zip  20240517.zip  20240520.zip  20240523.zip  20240526.zip  20240529.zip  20240801.zip  20240804.zip  20240807.zip  ziFqxqKe
+									20240503.zip  20240506.zip  20240509.zip  20240512.zip  20240515.zip  20240518.zip  20240521.zip  20240524.zip  20240527.zip  20240530.zip  20240802.zip  20240805.zip  20240808.zip  
+									[root@iZ94apf5ivnZ ~]# ll /run/log/home-wwwroot-mytracking-uploads-excel_zip/
+									20240501.zip  20240504.zip  20240507.zip  20240510.zip  20240513.zip  20240516.zip  20240519.zip  20240522.zip  20240525.zip  20240528.zip  20240531.zip  20240803.zip  20240806.zip  ziEETUND
+									20240502.zip  20240505.zip  20240508.zip  20240511.zip  20240514.zip  20240517.zip  20240520.zip  20240523.zip  20240526.zip  20240529.zip  20240801.zip  20240804.zip  20240807.zip  ziFqxqKe
+									20240503.zip  20240506.zip  20240509.zip  20240512.zip  20240515.zip  20240518.zip  20240521.zip  20240524.zip  20240527.zip  20240530.zip  20240802.zip  20240805.zip  20240808.zip  
+									[root@iZ94apf5ivnZ ~]# ll /run/log/home-wwwroot-mytracking-uploads-excel_zip/
+									20240501.zip  20240504.zip  20240507.zip  20240510.zip  20240513.zip  20240516.zip  20240519.zip  20240522.zip  20240525.zip  20240528.zip  20240531.zip  20240803.zip  20240806.zip  ziEETUND
+									20240502.zip  20240505.zip  20240508.zip  20240511.zip  20240514.zip  20240517.zip  20240520.zip  20240523.zip  20240526.zip  20240529.zip  20240801.zip  20240804.zip  20240807.zip  ziFqxqKe
+									20240503.zip  20240506.zip  20240509.zip  20240512.zip  20240515.zip  20240518.zip  20240521.zip  20240524.zip  20240527.zip  20240530.zip  20240802.zip  20240805.zip  20240808.zip  
+									[root@iZ94apf5ivnZ ~]# rm -f /run/log/home-wwwroot-mytracking-uploads-excel_zip/*zip
+									[root@iZ94apf5ivnZ ~]# df -h
+									Filesystem      Size  Used Avail Use% Mounted on
+									/dev/vda1        49G   47G  1.6G  97% /
+									devtmpfs        3.8G     0  3.8G   0% /dev
+									tmpfs           3.8G     0  3.8G   0% /dev/shm
+									tmpfs           3.8G  704M  3.1G  19% /run
+									tmpfs           3.8G     0  3.8G   0% /sys/fs/cgroup
+									tmpfs           768M     0  768M   0% /run/user/0
+									tmpfs           768M     0  768M   0% /run/user/1004
+									[root@iZ94apf5ivnZ ~]# du -sh /home/wwwroot/mytracking/uploads/excel
+									1.7G    /home/wwwroot/mytracking/uploads/excel
+									[root@iZ94apf5ivnZ ~]# du -sh /home/wwwroot/mytracking/uploads/excel
+									excel/     excel_zip/ 
+									[root@iZ94apf5ivnZ ~]# du -sh /home/wwwroot/mytracking/uploads/excel
+									excel/     excel_zip/ 
+									[root@iZ94apf5ivnZ ~]# du -sh /home/wwwroot/mytracking/uploads/excel_zip/202501
+									20250101.zip  20250104.zip  20250107.zip  20250110.zip  20250113.zip  20250116.zip  20250119.zip  20250122.zip  20250125.zip  20250128.zip  20250131.zip  
+									20250102.zip  20250105.zip  20250108.zip  20250111.zip  20250114.zip  20250117.zip  20250120.zip  20250123.zip  20250126.zip  20250129.zip  
+									20250103.zip  20250106.zip  20250109.zip  20250112.zip  20250115.zip  20250118.zip  20250121.zip  20250124.zip  20250127.zip  20250130.zip  
+									[root@iZ94apf5ivnZ ~]# du -sh /home/wwwroot/mytracking/uploads/excel_zip/202501
+									20250101.zip  20250104.zip  20250107.zip  20250110.zip  20250113.zip  20250116.zip  20250119.zip  20250122.zip  20250125.zip  20250128.zip  20250131.zip  
+									20250102.zip  20250105.zip  20250108.zip  20250111.zip  20250114.zip  20250117.zip  20250120.zip  20250123.zip  20250126.zip  20250129.zip  
+									20250103.zip  20250106.zip  20250109.zip  20250112.zip  20250115.zip  20250118.zip  20250121.zip  20250124.zip  20250127.zip  20250130.zip  
+									[root@iZ94apf5ivnZ ~]# du -sh /home/wwwroot/mytracking/uploads/excel_zip/
+									4.6G    /home/wwwroot/mytracking/uploads/excel_zip/
+									[root@iZ94apf5ivnZ ~]# ll /home/wwwroot/mytracking/uploads/excel_zip/202501* -h
+									-rw-r--r-- 1 root root  47M Jan  2 03:03 /home/wwwroot/mytracking/uploads/excel_zip/20250101.zip
+									-rw-r--r-- 1 root root 269M Jan  3 03:08 /home/wwwroot/mytracking/uploads/excel_zip/20250102.zip
+									-rw-r--r-- 1 root root 185M Jan  4 03:05 /home/wwwroot/mytracking/uploads/excel_zip/20250103.zip
+									-rw-r--r-- 1 root root  89M Jan  5 03:03 /home/wwwroot/mytracking/uploads/excel_zip/20250104.zip
+									-rw-r--r-- 1 root root  64M Jan  6 03:03 /home/wwwroot/mytracking/uploads/excel_zip/20250105.zip
+									-rw-r--r-- 1 root root 223M Jan  7 03:06 /home/wwwroot/mytracking/uploads/excel_zip/20250106.zip
+									-rw-r--r-- 1 root root 209M Jan  8 03:06 /home/wwwroot/mytracking/uploads/excel_zip/20250107.zip
+									-rw-r--r-- 1 root root 367M Jan  9 03:09 /home/wwwroot/mytracking/uploads/excel_zip/20250108.zip
+									-rw-r--r-- 1 root root 213M Jan 10 03:06 /home/wwwroot/mytracking/uploads/excel_zip/20250109.zip
+									-rw-r--r-- 1 root root 170M Jan 11 03:05 /home/wwwroot/mytracking/uploads/excel_zip/20250110.zip
+									-rw-r--r-- 1 root root  83M Jan 12 03:03 /home/wwwroot/mytracking/uploads/excel_zip/20250111.zip
+									-rw-r--r-- 1 root root  44M Jan 13 03:03 /home/wwwroot/mytracking/uploads/excel_zip/20250112.zip
+									-rw-r--r-- 1 root root 192M Jan 14 03:06 /home/wwwroot/mytracking/uploads/excel_zip/20250113.zip
+									-rw-r--r-- 1 root root 182M Jan 15 03:06 /home/wwwroot/mytracking/uploads/excel_zip/20250114.zip
+									-rw-r--r-- 1 root root 203M Jan 16 03:06 /home/wwwroot/mytracking/uploads/excel_zip/20250115.zip
+									-rw-r--r-- 1 root root 246M Jan 17 03:07 /home/wwwroot/mytracking/uploads/excel_zip/20250116.zip
+									-rw-r--r-- 1 root root 297M Jan 18 03:09 /home/wwwroot/mytracking/uploads/excel_zip/20250117.zip
+									-rw-r--r-- 1 root root 156M Jan 19 03:04 /home/wwwroot/mytracking/uploads/excel_zip/20250118.zip
+									-rw-r--r-- 1 root root  61M Jan 20 03:03 /home/wwwroot/mytracking/uploads/excel_zip/20250119.zip
+									-rw-r--r-- 1 root root 214M Jan 21 03:06 /home/wwwroot/mytracking/uploads/excel_zip/20250120.zip
+									-rw-r--r-- 1 root root 210M Jan 22 03:06 /home/wwwroot/mytracking/uploads/excel_zip/20250121.zip
+									-rw-r--r-- 1 root root 234M Jan 23 03:07 /home/wwwroot/mytracking/uploads/excel_zip/20250122.zip
+									-rw-r--r-- 1 root root 127M Jan 24 03:04 /home/wwwroot/mytracking/uploads/excel_zip/20250123.zip
+									-rw-r--r-- 1 root root 142M Jan 25 03:04 /home/wwwroot/mytracking/uploads/excel_zip/20250124.zip
+									-rw-r--r-- 1 root root 108M Jan 26 03:03 /home/wwwroot/mytracking/uploads/excel_zip/20250125.zip
+									-rw-r--r-- 1 root root  68M Jan 27 03:03 /home/wwwroot/mytracking/uploads/excel_zip/20250126.zip
+									-rw-r--r-- 1 root root  89M Jan 28 03:03 /home/wwwroot/mytracking/uploads/excel_zip/20250127.zip
+									-rw-r--r-- 1 root root  54M Jan 29 03:03 /home/wwwroot/mytracking/uploads/excel_zip/20250128.zip
+									-rw-r--r-- 1 root root  63M Jan 30 03:03 /home/wwwroot/mytracking/uploads/excel_zip/20250129.zip
+									-rw-r--r-- 1 root root  59M Jan 31 03:03 /home/wwwroot/mytracking/uploads/excel_zip/20250130.zip
+									-rw-r--r-- 1 root root  55M Feb  1 03:03 /home/wwwroot/mytracking/uploads/excel_zip/20250131.zip
+									[root@iZ94apf5ivnZ ~]# du -sh /home/wwwroot/mytracking/uploads/excel_zip/
+									4.6G    /home/wwwroot/mytracking/uploads/excel_zip/
+									[root@iZ94apf5ivnZ ~]# df -h
+									Filesystem      Size  Used Avail Use% Mounted on
+									/dev/vda1        49G   47G  1.6G  97% /
+									devtmpfs        3.8G     0  3.8G   0% /dev
+									tmpfs           3.8G     0  3.8G   0% /dev/shm
+									tmpfs           3.8G  704M  3.1G  19% /run
+									tmpfs           3.8G     0  3.8G   0% /sys/fs/cgroup
+									tmpfs           768M     0  768M   0% /run/user/0
+									tmpfs           768M     0  768M   0% /run/user/1004
+									[root@iZ94apf5ivnZ ~]# find /home/wwwroot/mytracking/uploads/excel_zip/ -type f ! -newermt '2024-08-10' -exec du -b {} + | awk '{total += $1} END {print "Total size:", total / (1024^3), "GB"}'
+									Total size: 0 GB
+									[root@iZ94apf5ivnZ ~]# find /home/wwwroot/mytracking/uploads/excel_zip/ -type f -newermt '2024-08-10' -exec du -b {} + | awk '{total += $1} END {print "Total size:", total / (1024^3), "GB"}'
+									Total size: 4.59763 GB
+									[root@iZ94apf5ivnZ ~]# find /home/wwwroot/mytracking/uploads/excel_zip/ -type f -name '202501*.zip' -newermt '2024-08-10' -exec du -b {} + | awk '{total += $1} END {print "Total size:", total / (1024^3), "GB"}'
+									Total size: 4.59763 GB
+									[root@iZ94apf5ivnZ ~]# rm -f /home/wwwroot/mytracking/uploads/excel_zip/202501*zip[root@iZ94apf5ivnZ ~]# df -h
+									Filesystem      Size  Used Avail Use% Mounted on
+									/dev/vda1        49G   42G  6.2G  88% /
+									devtmpfs        3.8G     0  3.8G   0% /dev
+									tmpfs           3.8G     0  3.8G   0% /dev/shm
+									tmpfs           3.8G  704M  3.1G  19% /run
+									tmpfs           3.8G     0  3.8G   0% /sys/fs/cgroup
+									tmpfs           768M     0  768M   0% /run/user/0
+									tmpfs           768M     0  768M   0% /run/user/1004
+
+									待办：保留时间为7天
 							-- 20250131
 								-www-214-153-tm
 									mkdir /run/log/home-wwwroot-mytracking-uploads-excel_zip
@@ -9795,6 +10173,31 @@
 				ssl证书更新-20240624 · 钉钉文档: https://alidocs.dingtalk.com/i/nodes/Obva6QBXJw1yjXgNCv0R4PmlWn4qY5Pr?corpId=
 
 		阿里云
+			中台数据库指定表授权
+				-- 20250211
+					/*创建账号*/
+					CREATE USER 'cw_data_department'@'47.90.211.22' IDENTIFIED BY 'jwr19hJdfwJE09dsbOh';
+
+					/*正式数据库权限设置*/
+					GRANT SELECT ON `cw_middleground_prod`.`platforms` TO 'cw_data_department'@'47.90.211.22';
+					GRANT SELECT ON `cw_middleground_prod`.`shop_data` TO 'cw_data_department'@'47.90.211.22';
+					GRANT SELECT ON `cw_middleground_prod`.`affiliate_users` TO 'cw_data_department'@'47.90.211.22';
+					GRANT SELECT ON `cw_middleground_prod`.`affiliate_bindings` TO 'cw_data_department'@'47.90.211.22';
+					GRANT SELECT ON `cw_middleground_prod`.`affiliate_links` TO 'cw_data_department'@'47.90.211.22';
+					GRANT SELECT ON `cw_middleground_prod`.`affiliate_link_settings` TO 'cw_data_department'@'47.90.211.22';
+					GRANT SELECT ON `cw_middleground_prod`.`affiliate_commission_details` TO 'cw_data_department'@'47.90.211.22';
+					GRANT SELECT ON `cw_middleground_prod`.`affiliate_subscription_package` TO 'cw_data_department'@'47.90.211.22';
+
+
+					/*测试数据库权限设置*/
+					GRANT SELECT ON `cw_middleground_test`.`platforms` TO 'cw_data_department'@'47.90.211.22';
+					GRANT SELECT ON `cw_middleground_test`.`shop_data` TO 'cw_data_department'@'47.90.211.22';
+					GRANT SELECT ON `cw_middleground_test`.`affiliate_users` TO 'cw_data_department'@'47.90.211.22';
+					GRANT SELECT ON `cw_middleground_test`.`affiliate_bindings` TO 'cw_data_department'@'47.90.211.22';
+					GRANT SELECT ON `cw_middleground_test`.`affiliate_links` TO 'cw_data_department'@'47.90.211.22';
+					GRANT SELECT ON `cw_middleground_test`.`affiliate_link_settings` TO 'cw_data_department'@'47.90.211.22';
+					GRANT SELECT ON `cw_middleground_test`.`affiliate_commission_details` TO 'cw_data_department'@'47.90.211.22';
+					GRANT SELECT ON `cw_middleground_test`.`affiliate_subscription_package` TO 'cw_data_department'@'47.90.211.22';
 			数据库指定表授权增删改
 				-- 20240909
 					表权限调整-20240909 · 钉钉文档: https://alidocs.dingtalk.com/i/nodes/93NwLYZXWy1Lk2jXC5geR2veWkyEqBQm
