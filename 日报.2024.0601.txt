@@ -5157,6 +5157,80 @@
 
 	告警
 		redis节点内存
+			-- 20250215
+				-145
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# tail redis.bigkeys.log
+					Biggest   list found 'resque:queue:airPubQueue' has 456719 items
+					Biggest    set found 'lastRestNumberArr' has 4146161 members
+					Biggest   hash found 'TRACKING_TIME_PREPARE' has 204636 fields
+					Biggest   zset found 'Z_SPE_cache_4px_SET' has 1210533 members
+
+					11989901 strings with 1457279493 bytes (59.73% of keys, avg size 121.54)
+					36 lists with 1195966 items (00.00% of keys, avg size 33221.28)
+					8076831 sets with 32473138 members (40.24% of keys, avg size 4.02)
+					4861 hashs with 10376561 fields (00.02% of keys, avg size 2134.66)
+					1292 zsets with 9328524 members (00.01% of keys, avg size 7220.22)
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# redis info keys Z_SPE_cache_4px_SET
+					^[[AERR syntax error
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# redis info key Z_SPE_cache_4px_SET
+					slot:6656 node_index:3
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# redis memory usage Z_SPE_cache_4px_SET
+					(integer) 204259584
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# php /home/wwwroot/www.trackingmore.com/script/warning_redis.php dfdf 10 | grep ':redis:' -A8
+					string(182) "Foreign:redis:
+					node:0: 71.52% > 10%
+					node:1: 67.16% > 10%
+					node:2: 62.22% > 10%
+					node:3: 95.61% > 10%
+					node:4: 67.52% > 10%
+					node:5: 70.8% > 10%
+					node:6: 71.26% > 10%
+					node:7: 65.81% > 10%
+				-77
+					[root@iz0xibhd8xjxiru8zt5ierz ~]# cat /home/wwwroot/www.trackingmore.com/python_img/redis.bigkey.3.length_10240_.20250215.log | awk -F: '{print $4" "$NF" "$5}' | sort -nrk2 | head -10
+					Mysql_Bak_Set 353321008 set
+					updateNotfoundCourier 9742672 fedex
+					Z_R_P_U_fmx_SET 7185000 zset
+					usps_IP_com 7068128 set
+					Z_R_P_U_cpex_SET 3170494 zset
+					TrackingCompanyData_cn_0 2621520 string
+					TrackingCompanyData_nl_5 2097232 string
+					TrackingCompanyData_nl_1 2097232 string
+					TrackingCompanyData_en_2 1835088 string
+					dhl_count_2024103011 1474331 hash
+				-145
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# redis memory usage Mysql_Bak_Set
+					(integer) 353321008
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# redis randmembers Mysql_Bak_Set
+					(error) ERR unknown command 'RANDMEMBERS'
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# redis rangemembers Mysql_Bak_Set 1
+					(error) ERR unknown command 'RANGEMEMBERS'
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# redis srandmembers Mysql_Bak_Set 1
+					(error) ERR unknown command 'SRANDMEMBERS'
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# redis srandmember Mysql_Bak_Set 1
+					1) "{\"sql\":\"SELECT  * from tr_tracking_info_314501_315000 where id>=270288 and id<271288 and create_time>=1711065600 and create_time<1711238400 order by id asc \",\"dbname\":\"trackingdb\",\"dbkey\":\"prodb\",\"filename\":\"\\/mnt\\/bak\\/scriptbak\\/prodb\\/tr_tracking_info_314501_315000_20240322_20240324.sql\",\"table\":\"tr_tracking_info_314501_315000\"}"
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# redis srandmember Mysql_Bak_Set 1
+					1) "{\"sql\":\"SELECT  * from tr_tracking_info_141001_141500 where id>=526245 and id<527245 and create_time>=1700438400 and create_time<1700611200 order by id asc \",\"dbname\":\"trackingdb\",\"dbkey\":\"prodb\",\"filename\":\"\\/mnt\\/bak\\/scriptbak\\/prodb\\/tr_tracking_info_141001_141500_20231120_20231122.sql\",\"table\":\"tr_tracking_info_141001_141500\"}"
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# redis srandmember Mysql_Bak_Set 1
+					1) "{\"sql\":\"SELECT  * from _tr_tracking_info_58132_58132_old where id>=5998855 and id<5999855 and create_time>=1704585600 and create_time<1704758400 order by id asc \",\"dbname\":\"trackingdb\",\"dbkey\":\"prodb\",\"filename\":\"\\/mnt\\/bak\\/scriptbak\\/prodb\\/_tr_tracking_info_58132_58132_old_20240107_20240109.sql\",\"table\":\"_tr_tracking_info_58132_58132_old\"}"
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# redis srandmember Mysql_Bak_Set 1
+					1) "{\"sql\":\"SELECT  * from tr_tracking_info_47501_48000 where id>=34623276 and id<34624276 and create_time>=1703203200 and create_time<1703376000 order by id asc \",\"dbname\":\"trackingdb\",\"dbkey\":\"prodb\",\"filename\":\"\\/mnt\\/bak\\/scriptbak\\/prodb\\/tr_tracking_info_47501_48000_20231222_20231224.sql\",\"table\":\"tr_tracking_info_47501_48000\"}"
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# redis srandmember Mysql_Bak_Set 1
+					1) "{\"sql\":\"SELECT  * from tr_user_tracknumber_218001_218500 where id>=17230215 and id<17231215 and create_time>=1712448000 and create_time<1712620800 order by id asc \",\"dbname\":\"trackingdb\",\"dbkey\":\"prodb\",\"filename\":\"\\/mnt\\/bak\\/scriptbak\\/prodb\\/tr_user_tracknumber_218001_218500_20240407_20240409.sql\",\"table\":\"tr_user_tracknumber_218001_218500\"}"
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# redis del Mysql_Bak_Set 
+					(integer) 1
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# redis memory usage Mysql_Bak_Set
+					(nil)
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# php /home/wwwroot/www.trackingmore.com/script/warning_redis.php dfdf 10 | grep ':redis:' -A8
+					string(182) "Foreign:redis:
+					node:0: 70.96% > 10%
+					node:1: 66.6% > 10%
+					node:2: 60.91% > 10%
+					node:3: 78.41% > 10%
+					node:4: 67.11% > 10%
+					node:5: 70.33% > 10%
+					node:6: 70.89% > 10%
+					node:7: 65.36% > 10%
 			-- 20241228
 				国外
 					ind_resque-145-44-35-tm
