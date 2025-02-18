@@ -4359,6 +4359,23 @@
 	5，测试环境-分支自动构建触发取消
 
 操作顺序
+	-- 20250217
+		运维
+			dnspod续费
+			独立更新服务器权限-LSJ
+				epacket 队列重启
+			帮忙给我们部门的万如毅开通一个阿里云的账号，主要用来做AI-EDD项目中的数据分析和模型训练。账号权限：dataworks深圳访问sz-51tracking项目和PAI人工智能平台，我在你的阿里云权限文档更新了，强哥有空帮忙弄一下哈https://alidocs.dingtalk.com/i/nodes/qnYMoO1rWx1yNpMkCvajN3zoV47Z3je9?iframeQuery=sheet_range%3Dkgqie6hm_43_0_1_6
+
+			磁盘空间不足导致单号识别数据需要重跑-LAP
+			trackingmore.site 域名服务商-FYT_YY
+				namecheap.com
+				marketing@trackingmore.com
+		本地
+			机房开发服务器声音大-LHP_RS
+			publish.buffer.com使用clash访问才正常-LBH_SW
+			加密去除-TYT
+			https://mp.weixin.qq.com/s/fQdLFSWGhu9wJXh3fuyzLw 访问异常 -Steve
+
 	-- 20250208
 		本地
 			招专门负责这块的同学
