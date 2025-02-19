@@ -6064,6 +6064,51 @@
 								script\queueshell\zipAndRmSpecifyTimeFile.sh
 								script\queueshell\file.to.zip.sh
 						历史数据清理 20240529
+							-- 20250218
+								5-10-79
+									[root@iZwz9ase191uzd1cau4en7Z ~]# df -h
+									Filesystem      Size  Used Avail Use% Mounted on
+									devtmpfs        397M     0  397M   0% /dev
+									tmpfs           411M     0  411M   0% /dev/shm
+									tmpfs           411M  5.6M  405M   2% /run
+									tmpfs           411M     0  411M   0% /sys/fs/cgroup
+									/dev/vda1        40G   40G  1.4M 100% /
+									tmpfs            83M     0   83M   0% /run/user/0
+									tmpfs            83M     0   83M   0% /run/user/1001
+									[root@iZwz9ase191uzd1cau4en7Z ~]# ll test_courier.log 
+									-rw-r--r-- 1 root root 5743 Feb  7 08:04 test_courier.log
+									[root@iZwz9ase191uzd1cau4en7Z ~]# find / -name '*' -type f -size +100M | xargs ls -lh {} | sort -nrk5
+									find: ‘/proc/14787/task/14787/fdinfo/6’: No such file or directory
+									find: ‘/proc/14787/fdinfo/5’: No such file or directory
+									ls: cannot access '{}': No such file or directory
+									-rw-r--r-- 1 root root 196M Feb 18 14:18 /root/trackingSingleQueue123.log
+									-rw-r--r-- 1 root root 133M Feb 18 14:19 /root/emailAndSMSSendFitter.log
+									-r-------- 1 root root 128T Feb 18 04:10 /proc/kcore
+									-rw-r--r-- 1 root root 3.9G Feb 18 14:19 /root/trackingSingleQueue.log
+									-rw-r--r-- 1 root root 3.6G Feb 14 23:59 /root/china-post_test.20250214.log
+									-rw-r--r-- 1 root root 2.7G Feb 15 23:59 /root/china-post_test.20250215.log
+									-rw-r--r-- 1 root root 2.5G Feb 13 23:59 /root/china-post_test.20250213.log
+									-rw-r--r-- 1 root root 2.4G Feb 16 23:59 /root/china-post_test.20250216.log
+									-rw-r--r-- 1 root root 2.2G Feb 17 23:59 /root/china-post_test.20250217.log
+									-rw-r--r-- 1 root root 2.1G Feb  8 23:59 /root/china-post_test.20250208.log
+									-rw-r--r-- 1 root root 2.1G Feb  7 23:59 /root/china-post_test.20250207.log
+									-rw-r--r-- 1 root root 2.1G Feb  6 23:59 /root/china-post_test.20250206.log
+									-rw-r--r-- 1 root root 2.1G Feb 12 23:59 /root/china-post_test.20250212.log
+									-rw-r--r-- 1 root root 2.1G Feb 11 23:59 /root/china-post_test.20250211.log
+									-rw-r--r-- 1 root root 2.1G Feb 10 23:59 /root/china-post_test.20250210.log
+									-rw-r--r-- 1 root root 2.0G Feb  9 23:59 /root/china-post_test.20250209.log
+									-rw-r--r-- 1 root root 1.4G Feb  5 23:59 /root/china-post_test.20250205.log
+									[root@iZwz9ase191uzd1cau4en7Z ~]# echo > /root/trackingSingleQueue.log
+									[root@iZwz9ase191uzd1cau4en7Z ~]# rm -f /root/china-post_test.2025020*
+									[root@iZwz9ase191uzd1cau4en7Z ~]# df -h
+									Filesystem      Size  Used Avail Use% Mounted on
+									devtmpfs        397M     0  397M   0% /dev
+									tmpfs           411M     0  411M   0% /dev/shm
+									tmpfs           411M  444K  411M   1% /run
+									tmpfs           411M     0  411M   0% /sys/fs/cgroup
+									/dev/vda1        40G   27G   14G  68% /
+									tmpfs            83M     0   83M   0% /run/user/0
+									tmpfs            83M     0   83M   0% /run/user/1001
 							-- 20250211
 								-74
 									[root@iZ94apf5ivnZ ~]# df -h
@@ -10712,6 +10757,16 @@
 				10 00 * * * cd /home/wwwroot/mytracking && ./Commands -t timed_export  -n ShipmentsTimedExportExecute > /dev/null 2>&1
 
 		脚本执行中断
+			-- 20250218
+				单号规则用
+					# 文件在77 上打包的，打包文件还在，进行重新传输即可
+						[root@iz0xibhd8xjxiru8zt5ierz ~]# ll tr_tracknumber_effective_for_rule.zip
+						-rw-r--r-- 1 root root 309355923 Feb  1 14:39 tr_tracknumber_effective_for_rule.zip
+					# 45 服务器将导出和清除文件的步骤去掉，进行传输
+						echo '因目标服务器磁盘空间不足导致发送文件失败，进行手动重新执行 sh /home/wwwroot/www.trackingmore.com/script/dumpTableAanSend.sh.temp ' >> /root/getEffectiveTracknumberForRule.test.log
+						sh /home/wwwroot/www.trackingmore.com/script/dumpTableAanSend.sh.temp >> /root/getEffectiveTracknumberForRule.test.log
+					# 确认文件正常后清除导出文件
+					rm -f /root/tr_tracknumber_effective_for_rule.zip
 			-- 20240816
 				成功了，现在需要再执行一遍这个：
 				rename table `tr_faraway_coderange_new` to `tr_faraway_coderange_new_20240816`,`tr_faraway_coderange_new_temp` to  `tr_faraway_coderange_new`;
@@ -10789,6 +10844,54 @@
 		测试服redis服务异常-重启服务器
 
 	本地
+		专线
+			-- 20250218
+				需求
+					需求
+						目前使用50M（两个办公室共用）峰值有超过的情况，按照60M进行测试，可访问海外，访问美国相关服务（领英，ai等），访问shopify（www.shopify.com，shopify.dev）会比较多，整体稳定性需要保证
+
+						办公深圳，两个办公室相互在对面，走廊十几米大概（两边有各自宽带和专线设备）
+
+						目前访问shopify有点慢，做开发的同事有时上传代码会碰到报错
+
+					进一步需求
+						希望有能一些监控数据，比如带宽，终端访问某些URL占用带宽，流量等（方便定位哪个用户访问什么占用了带宽这类问题）
+						dns分流（有时会出现污染情况）
+						流控（避免单台设备导致带宽占满情况）
+
+				上海南捷信息
+					查到实时
+						meterly 600/月
+						forty 
+					hkbn 7 30-40 网速 IDC ISP（ 法国 ）
+						宽度
+						迁云科技
+						chengyu 橙域
+						网域
+						IPS 
+						网速
+						互联通
+
+				夽谷科技
+					线路和服务成本大致64、55开（售后等） 响应时间 故障时间：30'/y 平均响应时间：10-15' 
+						分流
+							应用
+							内外IP
+
+							分流精细（购买路由，团队优化 可能这个之后实际使用带宽会更低）
+								dns
+								可能限制单个终端5M即可（电商200人，50M足够）
+						领英
+							量风控 注册号多 注册后加入多（1-2周养号） 同一出口IP设备多
+
+						成本：13000-15000/月
+
+							sdwan专线成本不大可能 几十/M/月这种
+							国内的专线 50-60/M/月 云主机中港这里走公网
+
+						当前两个
+							成本沟通
+							支持测试
 		-- 20250212
 			网络
 				防火墙型号确认，采购
