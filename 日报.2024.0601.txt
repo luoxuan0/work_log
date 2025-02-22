@@ -5040,6 +5040,22 @@
 				确认申请，定位P0事件 https://devops.aliyun.com/projex/req/TMPX-6053# 《ISO27701 证书申请》
 
 	周末值班
+		-- 20250222
+			#2025年2月22日物流信息事业部值班情况
+			值班人：陈华强
+			1，客诉（国内无新增，国外新增一条非紧急客诉（待跟进））
+			2，更新
+				国内邮政
+					china-post和usps堆积有波动，需要关注
+					china-post批量堆积91万，为切换单查询后遗留单号，已清理
+					usps批量堆积121万，为切换单查询后遗留单号，已清理
+				国内快递从12月10号无堆积信息，还需进一步排查
+				国外邮政
+					usps批量堆积33万，为切换单查询后遗留单号，已清理
+					royal-mail-v2最近一周堆积稍有上升趋势，需要关注
+				国外快递无明显堆积
+			3，磁盘临时处理
+
 		-- 20250104
 			#2025年1月4日物流信息事业部值班情况
 			值班人：陈华强
@@ -6068,6 +6084,200 @@
 								script\queueshell\zipAndRmSpecifyTimeFile.sh
 								script\queueshell\file.to.zip.sh
 						历史数据清理 20240529
+							-- 20250222
+								-77
+									96%
+									[root@iz0xibhd8xjxiru8zt5ierz ~]# find / -name '*' -type f -size +100M | xargs ls -lh {} | sort -nrk5
+									find: ‘/proc/1525/task/1830/fdinfo/5’: No such file or directory
+									find: ‘/proc/1525/task/1839/fdinfo/5’: No such file or directory
+									find: ‘/proc/1525/task/1866/fdinfo/5’: No such file or directory
+									find: ‘/proc/1525/task/1869/fdinfo/5’: No such file or directory
+									find: ‘/proc/1525/task/19124/fdinfo/5’: No such file or directory
+									find: ‘/proc/1525/task/1592/fdinfo/5’: No such file or directory
+									find: ‘/proc/9473/task/9473/fdinfo/6’: No such file or directory
+									find: ‘/proc/9473/fdinfo/5’: No such file or directory
+									find: ‘/proc/13645’: No such file or directory
+									find: ‘/proc/16275’: No such file or directory
+									find: ‘/proc/16280’: No such file or directory
+									find: ‘/proc/16297’: No such file or directory
+									find: ‘/proc/21496’: No such file or directory
+									find: ‘/proc/21499’: No such file or directory
+									find: ‘/proc/21503’: No such file or directory
+									find: ‘/proc/21511’: No such file or directory
+									find: ‘/proc/21527’: No such file or directory
+									find: ‘/proc/21532’: No such file or directory
+									find: ‘/proc/21534’: No such file or directory
+									find: ‘/proc/21537’: No such file or directory
+									-rw-r--r--  1 root root 674M Feb 22 09:12 /home/wwwroot/www.trackingmore.com/script/log/infoIDInsertInfo_br.log
+									-rw-r--r--  1 root root 349M Feb 23 00:36 /root/yunxiao/be-tfpyqa22gtndemstnunakvmq/runner/__flow_logs/runner.log
+									-rw-r--r--  1 root root 296M Feb  1 14:39 /root/tr_tracknumber_effective_for_rule.zip
+									-rw-r--r--  1 root root 214M Feb 23 00:36 /root/test.mem.log
+									-rw-r--r--  1 root root 156M Jun 22  2024 /var/cache/yum/x86_64/7/updates/gen/primary_db.sqlite
+									-rw-r--r--  1 root root 147M Feb 23 00:36 /root/concurrentUpdateDetection.log
+									-rw-r--r--  1 root root 147M Feb 15 02:13 /home/wwwroot/www.trackingmore.com/python_img/redis.bigkey.3.length_1_1024.20250215.log
+									-rw-r--r--  1 root root 140M Feb 23 00:35 /root/trackingSingleQueueNull.log
+									-rw-r--r--  1 root root 139M Apr  3  2024 /var/cache/yum/x86_64/7/updates/gen/filelists_db.sqlite
+									-r--------  1 root root 128T Feb 23 00:36 /proc/kcore
+									-rwxrw-rw-  1 www  www  123M Jan 16 16:46 /home/wwwroot/mytracking/logs/number/create-tracking.log
+									-rw-r--r--  1 root root 113M Dec 28 12:15 /home/wwwroot/www.trackingmore.com/python_img/redis.bigkey.1.length_1_1024.20241228.log
+									-rw-r--r--. 1 root root 110M Aug 27 17:18 /var/lib/rpm/Packages
+									-rw-r--r--  1 root root 104M Dec 15 02:10 /home/wwwroot/www.trackingmore.com/python_img/redis.bigkey.5.length_1_1024.20241215.log
+									-rwxr-xr-x  1 root root 102M Apr 23  2024 /usr/bin/dockerd
+									-rw-r--r--  1 root root 102M Feb 15  2020 /usr/lib/locale/locale-archive
+									-rw-r--r--  1 root root    3 May  2  2022 {}
+									[root@iz0xibhd8xjxiru8zt5ierz ~]# echo > /home/wwwroot/www.trackingmore.com/script/log/infoIDInsertInfo_br.log
+									[root@iz0xibhd8xjxiru8zt5ierz ~]# tail /root/yunxiao/be-tfpyqa22gtndemstnunakvmq/runner/__flow_logs/runner.log
+									INFO[2025-02-23T00:37:17+08:00] [runner] no new job, skip.                    runner=60d5bfc217d8f0c3ab73add5b5458e2f
+									INFO[2025-02-23T00:37:17+08:00] counter current: 0, limit: 50                
+									WARN[2025-02-23T00:37:28+08:00] Response status code: 204 body data:         
+									INFO[2025-02-23T00:37:28+08:00] POST /api/v2/builds/request, time spent 15.26 s 
+									INFO[2025-02-23T00:37:28+08:00] [runner] no new job, skip.                    runner=60d5bfc217d8f0c3ab73add5b5458e2f
+									INFO[2025-02-23T00:37:28+08:00] counter current: 0, limit: 50                
+									WARN[2025-02-23T00:37:32+08:00] Response status code: 204 body data:         
+									INFO[2025-02-23T00:37:32+08:00] POST /api/v2/builds/request, time spent 15.24 s 
+									INFO[2025-02-23T00:37:32+08:00] [runner] no new job, skip.                    runner=60d5bfc217d8f0c3ab73add5b5458e2f
+									INFO[2025-02-23T00:37:32+08:00] counter current: 0, limit: 50                
+									[root@iz0xibhd8xjxiru8zt5ierz ~]# df -h
+									Filesystem      Size  Used Avail Use% Mounted on
+									devtmpfs        7.7G     0  7.7G   0% /dev
+									tmpfs           7.7G     0  7.7G   0% /dev/shm
+									tmpfs           7.7G   13M  7.7G   1% /run
+									tmpfs           7.7G     0  7.7G   0% /sys/fs/cgroup
+									/dev/vda1        40G   37G  2.4G  94% /
+									tmpfs           1.6G     0  1.6G   0% /run/user/0
+									overlay          40G   37G  2.4G  94% /var/lib/docker/overlay2/48adb26931b571f470b3078955289895b5f5d9672e0ae2033c68584032322ea3/merged
+									tmpfs           1.6G     0  1.6G   0% /run/user/1002
+								-27
+									[root@iZ0xifhcadlq8e9t1jngcpZ ~]# echo > /home/wwwlogs/www.trackingmore.com.access.log
+									[root@iZ0xifhcadlq8e9t1jngcpZ ~]# df -h
+									Filesystem      Size  Used Avail Use% Mounted on
+									/dev/vda1        40G   35G  4.6G  89% /
+									devtmpfs        7.8G     0  7.8G   0% /dev
+									tmpfs           7.8G     0  7.8G   0% /dev/shm
+									tmpfs           7.8G  365M  7.5G   5% /run
+									tmpfs           7.8G     0  7.8G   0% /sys/fs/cgroup
+									tmpfs           1.6G     0  1.6G   0% /run/user/0
+									tmpfs           1.6G     0  1.6G   0% /run/user/1002
+									overlay          40G   35G  4.6G  89% /var/lib/docker/overlay2/f1a6d675fff2f20ab57475b5e2eceff6f4af23d2a24687962e515636785c51cf/merged
+								-cainiao-133
+									windows待处理
+								-159-205-tm
+									[root@iz0xif9y7r0fstxmq97t54z ~]# df -h
+									Filesystem      Size  Used Avail Use% Mounted on
+									/dev/vda1        40G   38G  957M  98% /
+									devtmpfs         16G     0   16G   0% /dev
+									tmpfs            16G     0   16G   0% /dev/shm
+									tmpfs            16G  4.4G   11G  30% /run
+									tmpfs            16G     0   16G   0% /sys/fs/cgroup
+									tmpfs           3.1G     0  3.1G   0% /run/user/0
+									tmpfs           3.1G     0  3.1G   0% /run/user/1002
+									overlay          40G   38G  957M  98% /var/lib/docker/overlay2/d2703df78bc816ff68a6a91dd805825fdf41731b86dfb1acd45f001bad32e406/merged
+									overlay          40G   38G  957M  98% /var/lib/docker/overlay2/c043633fbddd7d4d2248284247bf06cc75fa5c740aa1366400bce75bb4168d14/merged
+									overlay          40G   38G  957M  98% /var/lib/docker/overlay2/b47a079dc9b17057739e60cc62794e9a083ef16f31890d897d67b8f31bd7a89a/merged
+									overlay          40G   38G  957M  98% /var/lib/docker/overlay2/83a49448c3e2713448d182eeb258505bdc2ef04eec331ba8b4499705e6ff06ed/merged
+									overlay          40G   38G  957M  98% /var/lib/docker/overlay2/46169c1ebedc71c054485e7a978387aa1d1b216470e539ecf3a12e84fd9c64aa/merged
+									overlay          40G   38G  957M  98% /var/lib/docker/overlay2/5a5d007e804e80f97e67cb993e7c00b6716bab22d40d780b03766a6ae871c4f3/merged
+									overlay          40G   38G  957M  98% /var/lib/docker/overlay2/1c60ac1751f37f5ea647ab8ad054192ec6eb9366d0ecc1b87b8d9d41e8933d98/merged
+									overlay          40G   38G  957M  98% /var/lib/docker/overlay2/eeb9c4ad79ae52e1698640c687ff2ef67360853b151f7ef2c61d8af38bd4a667/merged
+									overlay          40G   38G  957M  98% /var/lib/docker/overlay2/c780375c3d2c9bb41aea4785502cb8c045059b9666dbbfd4ce1b27c170de570b/merged
+									overlay          40G   38G  957M  98% /var/lib/docker/overlay2/5b9c7648f8a3103ae472be96492b4d694f28b9d4636f4a3c7fc28387b15f3c5b/merged
+									overlay          40G   38G  957M  98% /var/lib/docker/overlay2/be0afb28162fb4cbbba3653a35944a6fcc80eb1367426089b3c37dcac0af5053/merged
+									overlay          40G   38G  957M  98% /var/lib/docker/overlay2/b68be4f7b9222815ce8e644673aaef6cb6995ea0f7ebb85900394e898231568e/merged
+									overlay          40G   38G  957M  98% /var/lib/docker/overlay2/b8002b093029398fa675a5f103ad00052abffc8ea71c3d32e987e853a3958baf/merged
+									overlay          40G   38G  957M  98% /var/lib/docker/overlay2/9260ba6e864c36bbffd8248bee952df6b8ae211cbb40a17b954e95c4446b6450/merged
+									overlay          40G   38G  957M  98% /var/lib/docker/overlay2/ed7aa946cad59fe8f785e810a2cc68636ae6ee4aa076d291c674f0a8e780c3bd/merged
+									overlay          40G   38G  957M  98% /var/lib/docker/overlay2/42f90134a9d2925e59000e462681b05b6a399b31228537281a92f25afc8df878/merged
+									overlay          40G   38G  957M  98% /var/lib/docker/overlay2/40d2cb0487f9b57bc2bb10bf1e52d5fc1caca3dd35af46c0ee2f3779028edf2d/merged
+									overlay          40G   38G  957M  98% /var/lib/docker/overlay2/cf95d1b2d1272e586c0196fb584c7a7517890a94206cbca3e7a567756d036aad/merged
+									[root@iz0xif9y7r0fstxmq97t54z ~]# sh disk.20241023.sh /data/server_logs/home/wwwroot/www.trackingmore.com/admin/upload/auto_csv 3 100
+									/data/server_logs/home/wwwroot/www.trackingmore.com/admin/upload/auto_csv: 1122 MB
+									[root@iz0xif9y7r0fstxmq97t54z ~]# ll /data/server_logs/home/wwwroot/www.trackingmore.com/admin/upload/auto_csv | head
+									total 1147884
+									-rw-r--r-- 1 root root  648160 Aug 18  2024 20240818224155.88898-1706803528.csv
+									-rw-r--r-- 1 root root    4912 Aug 18  2024 20240818224155.90617-1706832035.csv
+									-rw-r--r-- 1 root root    4912 Aug 18  2024 20240818224155.90617-1706947242.csv
+									-rw-r--r-- 1 root root  595009 Aug 18  2024 20240818224155.91683-1706832036.csv
+									-rw-r--r-- 1 root root  595207 Aug 18  2024 20240818224155.91683-1706947244.csv
+									-rw-r--r-- 1 root root 1763678 Aug 18  2024 20240818224155.91729-1706947249.csv
+									-rw-r--r-- 1 root root  595184 Aug 18  2024 20240818224155.93320-1706947285.csv
+									-rw-r--r-- 1 root root  592294 Aug 18  2024 20240818224155.95127-1706947257.csv
+									-rw-r--r-- 1 root root  373630 Aug 18  2024 20240818224155.96985-1706803525.csv
+									[root@iz0xif9y7r0fstxmq97t54z ~]# rm -f /data/server_logs/home/wwwroot/www.trackingmore.com/admin/upload/auto_csv/2024*.csv
+									[root@iz0xif9y7r0fstxmq97t54z ~]# df -h
+									Filesystem      Size  Used Avail Use% Mounted on
+									/dev/vda1        40G   37G  2.1G  95% /
+									devtmpfs         16G     0   16G   0% /dev
+									tmpfs            16G     0   16G   0% /dev/shm
+									tmpfs            16G  4.4G   11G  30% /run
+									tmpfs            16G     0   16G   0% /sys/fs/cgroup
+									tmpfs           3.1G     0  3.1G   0% /run/user/0
+									tmpfs           3.1G     0  3.1G   0% /run/user/1002
+									overlay          40G   37G  2.1G  95% /var/lib/docker/overlay2/d2703df78bc816ff68a6a91dd805825fdf41731b86dfb1acd45f001bad32e406/merged
+									overlay          40G   37G  2.1G  95% /var/lib/docker/overlay2/c043633fbddd7d4d2248284247bf06cc75fa5c740aa1366400bce75bb4168d14/merged
+									overlay          40G   37G  2.1G  95% /var/lib/docker/overlay2/b47a079dc9b17057739e60cc62794e9a083ef16f31890d897d67b8f31bd7a89a/merged
+									overlay          40G   37G  2.1G  95% /var/lib/docker/overlay2/83a49448c3e2713448d182eeb258505bdc2ef04eec331ba8b4499705e6ff06ed/merged
+									overlay          40G   37G  2.1G  95% /var/lib/docker/overlay2/46169c1ebedc71c054485e7a978387aa1d1b216470e539ecf3a12e84fd9c64aa/merged
+									overlay          40G   37G  2.1G  95% /var/lib/docker/overlay2/5a5d007e804e80f97e67cb993e7c00b6716bab22d40d780b03766a6ae871c4f3/merged
+									overlay          40G   37G  2.1G  95% /var/lib/docker/overlay2/1c60ac1751f37f5ea647ab8ad054192ec6eb9366d0ecc1b87b8d9d41e8933d98/merged
+									overlay          40G   37G  2.1G  95% /var/lib/docker/overlay2/eeb9c4ad79ae52e1698640c687ff2ef67360853b151f7ef2c61d8af38bd4a667/merged
+									overlay          40G   37G  2.1G  95% /var/lib/docker/overlay2/c780375c3d2c9bb41aea4785502cb8c045059b9666dbbfd4ce1b27c170de570b/merged
+									overlay          40G   37G  2.1G  95% /var/lib/docker/overlay2/5b9c7648f8a3103ae472be96492b4d694f28b9d4636f4a3c7fc28387b15f3c5b/merged
+									overlay          40G   37G  2.1G  95% /var/lib/docker/overlay2/be0afb28162fb4cbbba3653a35944a6fcc80eb1367426089b3c37dcac0af5053/merged
+									overlay          40G   37G  2.1G  95% /var/lib/docker/overlay2/b68be4f7b9222815ce8e644673aaef6cb6995ea0f7ebb85900394e898231568e/merged
+									overlay          40G   37G  2.1G  95% /var/lib/docker/overlay2/b8002b093029398fa675a5f103ad00052abffc8ea71c3d32e987e853a3958baf/merged
+									overlay          40G   37G  2.1G  95% /var/lib/docker/overlay2/9260ba6e864c36bbffd8248bee952df6b8ae211cbb40a17b954e95c4446b6450/merged
+									overlay          40G   37G  2.1G  95% /var/lib/docker/overlay2/ed7aa946cad59fe8f785e810a2cc68636ae6ee4aa076d291c674f0a8e780c3bd/merged
+									overlay          40G   37G  2.1G  95% /var/lib/docker/overlay2/42f90134a9d2925e59000e462681b05b6a399b31228537281a92f25afc8df878/merged
+									overlay          40G   37G  2.1G  95% /var/lib/docker/overlay2/40d2cb0487f9b57bc2bb10bf1e52d5fc1caca3dd35af46c0ee2f3779028edf2d/merged
+									overlay          40G   37G  2.1G  95% /var/lib/docker/overlay2/cf95d1b2d1272e586c0196fb584c7a7517890a94206cbca3e7a567756d036aad/merged
+									[root@iz0xif9y7r0fstxmq97t54z ~]# sh disk.20241023.sh / 3 100
+									du: cannot access ‘/proc/7682’: No such file or directory
+									du: cannot access ‘/proc/7740’: No such file or directory
+									du: cannot access ‘/proc/11157/task/11157/fd/4’: No such file or directory
+									du: cannot access ‘/proc/11157/task/11157/fdinfo/4’: No such file or directory
+									du: cannot access ‘/proc/11157/fd/4’: No such file or directory
+									du: cannot access ‘/proc/11157/fdinfo/4’: No such file or directory
+									du: cannot access ‘/proc/11211’: No such file or directory
+									du: cannot access ‘/proc/12187’: No such file or directory
+									du: cannot access ‘/proc/15155’: No such file or directory
+									du: cannot access ‘/proc/15160’: No such file or directory
+									du: cannot access ‘/proc/23477’: No such file or directory
+									/: 44693 MB
+										//boot: 147 MB
+										//data: 495 MB
+											//data/server_logs: 495 MB
+										//home: 22868 MB
+											//home/wwwroot: 22702 MB
+											//lib/firmware: 172 MB
+											//lib/locale: 102 MB
+									locale-archive: 102 MB
+											//lib64/python2.7: 118 MB
+									du: cannot access ‘//proc/27936/task/27936/fd/4’: No such file or directory
+									du: cannot access ‘//proc/27936/task/27936/fdinfo/4’: No such file or directory
+									du: cannot access ‘//proc/27936/fd/4’: No such file or directory
+									du: cannot access ‘//proc/27936/fdinfo/4’: No such file or directory
+										//root: 189 MB
+										//run: 4494 MB
+											//run/log: 4482 MB
+									171.csv.zip: 717 MB
+									20241204.zip: 672 MB
+									1716.csv.zip: 170 MB
+									1715.csv.zip: 170 MB
+									1714.csv.zip: 169 MB
+									1718.csv.zip: 163 MB
+									1717.csv.zip: 148 MB
+									20241210.zip: 136 MB
+										//usr: 10236 MB
+											//usr/bin: 370 MB
+											//usr/lib: 486 MB
+											//usr/lib64: 250 MB
+											//usr/libexec: 200 MB
+											//usr/local: 8383 MB
+											//usr/share: 476 MB
+										//var: 6148 MB
+											//var/cache: 583 MB
+											//var/lib: 4066 MB
+											//var/log: 1498 MB
 							-- 20250218
 								5-10-79
 									[root@iZwz9ase191uzd1cau4en7Z ~]# df -h
