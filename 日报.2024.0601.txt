@@ -10528,6 +10528,14 @@
 			
 	运维
 		队列
+			-- 20250224
+				redis keys spe_4px_* | wc -l
+				137006
+				redis zcard Z_SPE_cache_4px_SET
+				(integer) 1206430
+				redis keys spe_4px_* | xargs -i redis del {} > /dev/null&
+				redis del Z_SPE_cache_4px_SET
+
 			确认
 				ps -ef | grep syncA
 					国内 resque_140
