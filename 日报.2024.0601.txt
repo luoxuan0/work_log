@@ -10610,6 +10610,10 @@
 					alias killSyncApiLogToSls='/usr/bin/sh /root/cmd.with.param.sh notest killSyncApiLogToSls'
 					alias kill14SyncApiLogToSls='/usr/bin/sh /root/cmd.with.param.sh notest kill14SyncApiLogToSls'
 
+		资源权限
+			-- 20250225
+				授权申请记录方式当前为记录表格（权限管理需要为每位用户设置）
+					待办：后续可改为申请表格的方式（给到统一模版，提交申请后在后台有相应表格记录）
 		资源开通
 			阿里云
 				ECS
