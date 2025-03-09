@@ -7120,6 +7120,181 @@
 									tmpfs           756M     0  756M   0% /run/user/1004
 									tmpfs           756M     0  756M   0% /run/user/0
 								-159-205-tm
+									[root@iz0xif9y7r0fstxmq97t54z queueshell]# df -h
+									Filesystem      Size  Used Avail Use% Mounted on
+									/dev/vda1        40G   38G  1.2G  98% /
+									devtmpfs         16G     0   16G   0% /dev
+									tmpfs            16G     0   16G   0% /dev/shm
+									tmpfs            16G  4.5G   11G  30% /run
+									tmpfs            16G     0   16G   0% /sys/fs/cgroup
+									tmpfs           3.1G     0  3.1G   0% /run/user/0
+									tmpfs           3.1G     0  3.1G   0% /run/user/1002
+									overlay          40G   38G  1.2G  98% /var/lib/docker/overlay2/d2703df78bc816ff68a6a91dd805825fdf41731b86dfb1acd45f001bad32e406/merged
+									overlay          40G   38G  1.2G  98% /var/lib/docker/overlay2/c043633fbddd7d4d2248284247bf06cc75fa5c740aa1366400bce75bb4168d14/merged
+									overlay          40G   38G  1.2G  98% /var/lib/docker/overlay2/b47a079dc9b17057739e60cc62794e9a083ef16f31890d897d67b8f31bd7a89a/merged
+									overlay          40G   38G  1.2G  98% /var/lib/docker/overlay2/83a49448c3e2713448d182eeb258505bdc2ef04eec331ba8b4499705e6ff06ed/merged
+									overlay          40G   38G  1.2G  98% /var/lib/docker/overlay2/46169c1ebedc71c054485e7a978387aa1d1b216470e539ecf3a12e84fd9c64aa/merged
+									overlay          40G   38G  1.2G  98% /var/lib/docker/overlay2/5a5d007e804e80f97e67cb993e7c00b6716bab22d40d780b03766a6ae871c4f3/merged
+									overlay          40G   38G  1.2G  98% /var/lib/docker/overlay2/1c60ac1751f37f5ea647ab8ad054192ec6eb9366d0ecc1b87b8d9d41e8933d98/merged
+									overlay          40G   38G  1.2G  98% /var/lib/docker/overlay2/eeb9c4ad79ae52e1698640c687ff2ef67360853b151f7ef2c61d8af38bd4a667/merged
+									overlay          40G   38G  1.2G  98% /var/lib/docker/overlay2/c780375c3d2c9bb41aea4785502cb8c045059b9666dbbfd4ce1b27c170de570b/merged
+									overlay          40G   38G  1.2G  98% /var/lib/docker/overlay2/5b9c7648f8a3103ae472be96492b4d694f28b9d4636f4a3c7fc28387b15f3c5b/merged
+									overlay          40G   38G  1.2G  98% /var/lib/docker/overlay2/be0afb28162fb4cbbba3653a35944a6fcc80eb1367426089b3c37dcac0af5053/merged
+									overlay          40G   38G  1.2G  98% /var/lib/docker/overlay2/b68be4f7b9222815ce8e644673aaef6cb6995ea0f7ebb85900394e898231568e/merged
+									overlay          40G   38G  1.2G  98% /var/lib/docker/overlay2/b8002b093029398fa675a5f103ad00052abffc8ea71c3d32e987e853a3958baf/merged
+									overlay          40G   38G  1.2G  98% /var/lib/docker/overlay2/9260ba6e864c36bbffd8248bee952df6b8ae211cbb40a17b954e95c4446b6450/merged
+									overlay          40G   38G  1.2G  98% /var/lib/docker/overlay2/ed7aa946cad59fe8f785e810a2cc68636ae6ee4aa076d291c674f0a8e780c3bd/merged
+									overlay          40G   38G  1.2G  98% /var/lib/docker/overlay2/42f90134a9d2925e59000e462681b05b6a399b31228537281a92f25afc8df878/merged
+									overlay          40G   38G  1.2G  98% /var/lib/docker/overlay2/40d2cb0487f9b57bc2bb10bf1e52d5fc1caca3dd35af46c0ee2f3779028edf2d/merged
+									overlay          40G   38G  1.2G  98% /var/lib/docker/overlay2/cf95d1b2d1272e586c0196fb584c7a7517890a94206cbca3e7a567756d036aad/merged
+									# 封装按天处理文件的函数，参数1：目标目录，参数2：文件后缀，参数3：处理文件开始日期，参数4：处理文件结束日期，参数5：测试模式，1表示测试模式不执行删除操作
+									processFilesByDay() {
+										local targetDir=$1
+										local fileSuffix=$2
+										local startDate=${3:-$(date -d "yesterday" '+%Y%m%d')}
+										local endDate=${4:-$(date -d "yesterday" '+%Y%m%d')}
+										local testMode=${5:-0}
+
+										local targetZipDir="${targetDir}_zip"
+										local totalProcessedSize=0  # 记录所有天数累计处理的文件大小（bytes）
+
+										# 确保压缩目录存在
+										if [ ! -d "$targetZipDir" ]; then
+											echo "创建压缩目录: $targetZipDir"
+											mkdir -p "$targetZipDir"
+										fi
+
+										# 遍历指定日期范围
+										currentDate="$startDate"
+										while [[ "$currentDate" -le "$endDate" ]]; do
+											echo "正在处理 ${currentDate} 的文件..."
+
+											# 查找符合日期的文件
+											fileList=$(find "$targetDir" -maxdepth 2 -type f -name "*${fileSuffix}" -newermt "${currentDate}" ! -newermt "$(date -d "$currentDate +1 day" '+%Y%m%d')")
+
+											if [ -z "$fileList" ]; then
+												echo "未找到 ${currentDate} 的文件，跳过..."
+											else
+												zipFile="${targetZipDir}/${currentDate}.${fileSuffix}.zip"
+
+												# 计算压缩前文件总大小（bytes 和 MB）
+												totalSizeBefore=$(du -cb $fileList 2>/dev/null | tail -n1 | awk '{print $1}')
+												totalSizeBeforeMB=$(echo "scale=2; $totalSizeBefore / 1048576" | bc)
+												echo "压缩前待处理文件总大小: ${totalSizeBefore} bytes (${totalSizeBeforeMB} MB)"
+
+												# 组装 zip 命令
+												zipCmd="find \"$targetDir\" -maxdepth 2 -type f -name \"*${fileSuffix}\" -newermt \"${currentDate}\" ! -newermt \"$(date -d "$currentDate +1 day" '+%Y%m%d')\" | zip -q -r \"$zipFile\" -@"
+												echo "执行压缩命令: $zipCmd"
+
+												# 执行压缩
+												eval "$zipCmd"
+
+												# 计算压缩后 ZIP 文件中原文件大小（bytes 和 MB）
+												if [ -f "$zipFile" ]; then
+													totalSizeAfter=$(unzip -l "$zipFile" | tail -n1 | awk '{print $1}')
+												else
+													totalSizeAfter=0
+												fi
+												totalSizeAfterMB=$(echo "scale=2; $totalSizeAfter / 1048576" | bc)
+												echo "压缩后 ZIP 内原文件总大小: ${totalSizeAfter} bytes (${totalSizeAfterMB} MB)"
+
+												# 统计每日总处理大小
+												totalProcessedSize=$((totalProcessedSize + totalSizeBefore))
+
+												# 校验大小是否一致
+												if [ "$totalSizeBefore" -eq "$totalSizeAfter" ]; then
+													echo "文件大小匹配，准备删除原文件..."
+
+													# 组装删除命令
+													deleteCmd="find \"$targetDir\" -maxdepth 2 -type f -name \"*${fileSuffix}\" -newermt \"${currentDate}\" ! -newermt \"$(date -d "$currentDate +1 day" '+%Y%m%d')\" -delete"
+													
+													if [ "$testMode" -eq 1 ]; then
+														echo "[测试模式] 不执行删除，命令: $deleteCmd"
+													else
+														echo "执行删除命令: $deleteCmd"
+														eval "$deleteCmd"
+													fi
+												else
+													echo "文件大小不匹配，跳过删除。"
+												fi
+											fi
+
+											# 递增日期
+											currentDate=$(date -d "$currentDate +1 day" '+%Y%m%d')
+										done
+
+										# 计算并输出总处理大小
+										totalProcessedSizeMB=$(echo "scale=2; $totalProcessedSize / 1048576" | bc)
+										echo "总共处理的文件大小: ${totalProcessedSize} bytes (${totalProcessedSizeMB} MB)"
+									}
+
+									if [[ -n $1 && $1 == 'zipAndRmlogByDay' ]]; then
+										process='zipAndRmlogByDay'
+									fi
+
+									if [[ $process == 'zipAndRmlogByDay' ]]; then
+										# 国外159-205磁盘使用率达到99%，进行/home/wwwroot/www.trackingmore.com/admin/upload/auto_csv目录下csv xls文件压缩清理
+										# d=`date '+%Y%m%d'`;sh zipAndRmSpecifyTimeFile.sh zipAndRmlogByDay /home/wwwroot/www.trackingmore.com/admin/upload/auto_csv 'xls' '20240101' '20250101' >>  /home/wwwlogs/zipAndRmSpecifyTimeFile.sh.${d}.log 2>&1
+										# d=`date '+%Y%m%d'`;sh zipAndRmSpecifyTimeFile.sh zipAndRmlogByDay /home/wwwroot/www.trackingmore.com/admin/upload/auto_csv 'xls' '20250101' '20250301' >>  /home/wwwlogs/zipAndRmSpecifyTimeFile.sh.${d}.log 2>&1
+										# d=`date '+%Y%m%d'`;sh zipAndRmSpecifyTimeFile.sh zipAndRmlogByDay /home/wwwroot/www.trackingmore.com/admin/upload/auto_csv 'csv' '20240101' '20250301' >>  /home/wwwlogs/zipAndRmSpecifyTimeFile.sh.${d}.log 2>&1
+										# 调用函数并传递参数
+										targetDir='/home/wwwroot/www.trackingmore.com/admin/upload/auto_csv'
+										if [[ -n $2 ]]; then
+											targetDir=$2
+										fi
+										fileSuffix='.csv'
+										if [[ -n $3 ]]; then
+											fileSuffix=$3
+										fi
+										dayStart=""
+										if [[ -n $4 ]]; then
+											dayStart=$4
+										fi
+										dayEnd=22
+										if [[ -n $5 ]]; then
+											dayEnd=$5
+										fi
+										isTest=''
+										if [[ -n $6 ]]; then
+											isTest=$6
+										fi
+										processFilesByDay "$targetDir" "$fileSuffix" "$dayStart" "$dayEnd" "$isTest"
+
+										exit
+									fi
+
+									sh zipAndRmSpecifyTimeFile.sh zipAndRmlogByDay /home/wwwroot/www.trackingmore.com/admin/upload/auto_csv 'xls' '20240101' '20250101' >> /home/wwwlogs/zipAndRmSpecifyTimeFile.sh.${d}.log 2>&1
+									sh zipAndRmSpecifyTimeFile.sh zipAndRmlogByDay /home/wwwroot/www.trackingmore.com/admin/upload/auto_csv 'xls' '20250101' '20250301' >> /home/wwwlogs/zipAndRmSpecifyTimeFile.sh.${d}.log 2>&1
+									sh zipAndRmSpecifyTimeFile.sh zipAndRmlogByDay /home/wwwroot/www.trackingmore.com/admin/upload/auto_csv 'csv' '20240101' '20250301' >> /home/wwwlogs/zipAndRmSpecifyTimeFile.sh.${d}.log 2>&1
+
+									[root@iz0xif9y7r0fstxmq97t54z ~]# df -h
+									Filesystem      Size  Used Avail Use% Mounted on
+									/dev/vda1        40G   26G   14G  67% /
+									devtmpfs         16G     0   16G   0% /dev
+									tmpfs            16G     0   16G   0% /dev/shm
+									tmpfs            16G  4.5G   11G  30% /run
+									tmpfs            16G     0   16G   0% /sys/fs/cgroup
+									tmpfs           3.1G     0  3.1G   0% /run/user/0
+									tmpfs           3.1G     0  3.1G   0% /run/user/1002
+									overlay          40G   26G   14G  67% /var/lib/docker/overlay2/d2703df78bc816ff68a6a91dd805825fdf41731b86dfb1acd45f001bad32e406/merged
+									overlay          40G   26G   14G  67% /var/lib/docker/overlay2/c043633fbddd7d4d2248284247bf06cc75fa5c740aa1366400bce75bb4168d14/merged
+									overlay          40G   26G   14G  67% /var/lib/docker/overlay2/b47a079dc9b17057739e60cc62794e9a083ef16f31890d897d67b8f31bd7a89a/merged
+									overlay          40G   26G   14G  67% /var/lib/docker/overlay2/83a49448c3e2713448d182eeb258505bdc2ef04eec331ba8b4499705e6ff06ed/merged
+									overlay          40G   26G   14G  67% /var/lib/docker/overlay2/46169c1ebedc71c054485e7a978387aa1d1b216470e539ecf3a12e84fd9c64aa/merged
+									overlay          40G   26G   14G  67% /var/lib/docker/overlay2/5a5d007e804e80f97e67cb993e7c00b6716bab22d40d780b03766a6ae871c4f3/merged
+									overlay          40G   26G   14G  67% /var/lib/docker/overlay2/1c60ac1751f37f5ea647ab8ad054192ec6eb9366d0ecc1b87b8d9d41e8933d98/merged
+									overlay          40G   26G   14G  67% /var/lib/docker/overlay2/eeb9c4ad79ae52e1698640c687ff2ef67360853b151f7ef2c61d8af38bd4a667/merged
+									overlay          40G   26G   14G  67% /var/lib/docker/overlay2/c780375c3d2c9bb41aea4785502cb8c045059b9666dbbfd4ce1b27c170de570b/merged
+									overlay          40G   26G   14G  67% /var/lib/docker/overlay2/5b9c7648f8a3103ae472be96492b4d694f28b9d4636f4a3c7fc28387b15f3c5b/merged
+									overlay          40G   26G   14G  67% /var/lib/docker/overlay2/be0afb28162fb4cbbba3653a35944a6fcc80eb1367426089b3c37dcac0af5053/merged
+									overlay          40G   26G   14G  67% /var/lib/docker/overlay2/b68be4f7b9222815ce8e644673aaef6cb6995ea0f7ebb85900394e898231568e/merged
+									overlay          40G   26G   14G  67% /var/lib/docker/overlay2/b8002b093029398fa675a5f103ad00052abffc8ea71c3d32e987e853a3958baf/merged
+									overlay          40G   26G   14G  67% /var/lib/docker/overlay2/9260ba6e864c36bbffd8248bee952df6b8ae211cbb40a17b954e95c4446b6450/merged
+									overlay          40G   26G   14G  67% /var/lib/docker/overlay2/ed7aa946cad59fe8f785e810a2cc68636ae6ee4aa076d291c674f0a8e780c3bd/merged
+									overlay          40G   26G   14G  67% /var/lib/docker/overlay2/42f90134a9d2925e59000e462681b05b6a399b31228537281a92f25afc8df878/merged
+									overlay          40G   26G   14G  67% /var/lib/docker/overlay2/40d2cb0487f9b57bc2bb10bf1e52d5fc1caca3dd35af46c0ee2f3779028edf2d/merged
+									overlay          40G   26G   14G  67% /var/lib/docker/overlay2/cf95d1b2d1272e586c0196fb584c7a7517890a94206cbca3e7a567756d036aad/merged
+									待办：自动执行脚本
 								-174-77-tm
 							-- 20250222
 								-77
