@@ -4993,6 +4993,34 @@
 	5，测试环境-分支自动构建触发取消
 
 操作顺序
+	-- 20250308
+		磁盘
+			205-tm
+			www-51-20
+			77-tm
+			www-51-3
+			自动化
+		重要服务告警梳理
+			阿里云
+				服务
+					防火墙
+					负载均衡
+					ecs
+					PolarDB
+					redis
+					es
+					flink
+				阿里云已有告警服务（严重规则会触发电话，已经足够）
+			非阿里云
+				资源
+					充值余额
+				代码发布
+				站点监控
+					监控本身（续费 域名续费）
+		高可用
+			备份节点
+			自动切换（弹性伸缩）
+
 	-- 20250306
 		迁云
 		等保
@@ -6737,6 +6765,362 @@
 								script\queueshell\zipAndRmSpecifyTimeFile.sh
 								script\queueshell\file.to.zip.sh
 						历史数据清理 20240529
+							-- 20250308
+								-www-51-20
+									[root@iZ94apf5ivnZ ~]# df -h
+									Filesystem      Size  Used Avail Use% Mounted on
+									/dev/vda1        49G   46G  2.2G  96% /
+									devtmpfs        3.7G     0  3.7G   0% /dev
+									tmpfs           3.7G     0  3.7G   0% /dev/shm
+									tmpfs           3.7G  788M  3.0G  21% /run
+									tmpfs           3.7G     0  3.7G   0% /sys/fs/cgroup
+									tmpfs           756M     0  756M   0% /run/user/1004
+									tmpfs           756M     0  756M   0% /run/user/0
+									[root@iZ94apf5ivnZ ~]# sh disk.20241023.sh / 3 100
+									sh: disk.20241023.sh: No such file or directory
+									[root@iZ94apf5ivnZ ~]# find / -name '*' -type f -size +100M | xargs ls -lh {} | sort -nrk5
+									^Z
+									[1]+  Stopped                 find / -name '*' -type f -size +100M | xargs ls -lh {} | sort -nrk5
+									[root@iZ94apf5ivnZ ~]# vi disk.20241023.sh
+									[root@iZ94apf5ivnZ ~]# fg
+									find / -name '*' -type f -size +100M | xargs ls -lh {} | sort -nrk5
+									find: ‘/proc/31114/task/31114/fdinfo/6’: No such file or directory
+									find: ‘/proc/31114/fdinfo/5’: No such file or directory
+									ls: cannot access {}: No such file or directory
+									-rw-r--r--  1 www  www  639M Feb 18 16:36 /home/wwwroot/www.51tracking.com/mailwebhook/cn/royalmail_webhook_input.log
+									-rw-r--r--  1 root root 462M Mar  8 15:20 /usr/local/nginx/logs/access.log
+									-rw-r--r--  1 root root 402M Jan 27  2024 /run/log/home-wwwroot-mytracking-logs-send_first_queue/send.log.20231010.20240127.zip
+									-rw-r--r--  1 www  www  385M Mar  8 12:16 /home/wwwroot/www.51tracking.com/export-send-queue.log
+									-rw-r--r--  1 www  www  136M Sep  7  2022 /home/wwwroot/www.51tracking.com/api/v2/trackings/first_track.log
+									-r--------  1 root root 128T Mar  8 15:20 /proc/kcore
+									-rw-r--r--  1 root root 126M Aug 24  2023 /var/cache/yum/x86_64/7/updates/gen/primary_db.sqlite
+									-rw-r--r--. 1 root root 119M Aug 30  2023 /var/lib/rpm/Packages
+									-rw-r--r--  1 root root 118M Aug 31  2020 /usr/local/rasp-php-linux.tar.bz2
+									-rw-r--r--  1 root root 107M Jul 13  2022 /home/wwwroot/www.trackingmore.com/download/K2msSfC9SHV3g32NAtw70TPmgA00O.csv
+									-rw-r--r--  1 root root 102M May 15  2019 /usr/lib/locale/locale-archive
+									-rw-r--r--  1 root root 102M Jul 13  2022 /home/wwwroot/www.trackingmore.com/download/gOl2XfRfiaS2VwX7g8eqy8vmroMpxT8JHEZK8qoAB0RsF.csv
+									-rw-r--r--  1  386  386  91M Mar  8 15:20 /home/wwwroot/www.trackingmore.com/section/carrierspic10.css
+									-rw-r--r--  1 root root 1.6G Mar  8 09:31 /home/wwwlogs/mailwebhook.51tracking.com.log
+									[root@iZ94apf5ivnZ ~]# tail /home/wwwlogs/mailwebhook.51tracking.com.log
+									PHP message: PHP Warning:  mysqli_query(): Error reading result set's header in /home/wwwroot/www.51tracking.com/library/class.MySQL.php on line 234
+									PHP message: PHP Warning:  mysqli_ping(): Couldn't fetch mysqli in /home/wwwroot/www.51tracking.com/library/class.MySQL.php on line 529
+									PHP message: PHP Warning:  mysqli_query(): Couldn't fetch mysqli in /home/wwwroot/www.51tracking.com/library/class.MySQL.php on line 336
+									PHP message: PHP Warning:  mysqli_close(): Couldn't fetch mysqli in /home/wwwroot/www.51tracking.com/library/class.MySQL.php on line 532
+									PHP message: PHP Warning:  mysqli_query(): MySQL server has gone away in /home/wwwroot/www.51tracking.com/library/class.MySQL.php on line 336
+									PHP message: PHP Warning:  mysqli_query(): Error reading result set's header in /home/wwwroot/www.51tracking.com/library/class.MySQL.php on line 336
+									PHP message: PHP Warning:  mysqli_query(): MySQL server has gone away in /home/wwwroot/www.51tracking.com/library/class.MySQL.php on line 336
+									PHP message: PHP Warning:  mysqli_query(): Error reading result set's header in /home/wwwroot/www.51tracking.com/library/class.MySQL.php on line 336
+									PHP message: PHP Warning:  mysqli_query(): MySQL server has gone away in /home/wwwroot/www.51tracking.com/library/class.MySQL.php on line 143
+									PHP message: PHP Warning:  mysqli
+									[root@iZ94apf5ivnZ ~]# head /home/wwwlogs/mailwebhook.51tracking.com.log
+
+									2022/06/13 18:04:23 [error] 7317#0: *4669517454 FastCGI sent in stderr: "PHP message: PHP Warning:  Packets out of order. Expected 1 received 0. Packet size=1 in /home/wwwroot/www.51tracking.com/library/class.MySQL.php on line 138
+									PHP message: PHP Warning:  mysqli_ping(): MySQL server has gone away in /home/wwwroot/www.51tracking.com/library/class.MySQL.php on line 138
+									PHP message: PHP Warning:  mysqli_ping(): Couldn't fetch mysqli in /home/wwwroot/www.51tracking.com/library/class.MySQL.php on line 529
+									PHP message: PHP Warning:  mysqli_query(): Couldn't fetch mysqli in /home/wwwroot/www.51tracking.com/library/class.MySQL.php on line 336
+									PHP message: PHP Warning:  mysqli_close(): Couldn't fetch mysqli in /home/wwwroot/www.51tracking.com/library/class.MySQL.php on line 532
+									PHP message: PHP Warning:  mysqli_set_charset(): Couldn't fetch mysqli in /home/wwwroot/www.51tracking.com/library/class.MySQL.php on line 344" while reading response header from upstream, client: 100.123.31.45, server: mailwebhook.51tracking.com, request: "GET /lgs_cn.php?track_number=LXBVN000031366597&lang=en HTTP/1.1", upstream: "fastcgi://unix:/tmp/php-cgi.sock:", host: "mailwebhookcn.51tracking.com"
+									2022/06/13 18:05:09 [error] 7323#0: *4669533392 FastCGI sent in stderr: "PHP message: PHP Warning:  Packets out of order. Expected 1 received 0. Packet size=15 in /home/wwwroot/www.51tracking.com/library/class.MySQL.php on line 344
+									PHP message: PHP Warning:  mysqli_set_charset(): MySQL server has gone away in /home/wwwroot/www.51tracking.com/library/class.MySQL.php on line 344
+									PHP message: PHP Warning:  mysqli_set_charset(): Error reading result set's header in /home/wwwroot/www.51tracking.com/library/class.MySQL.php on line 344
+									[root@iZ94apf5ivnZ ~]# tail -100 /home/wwwlogs/mailwebhook.51tracking.com.log
+									PHP message: PHP Warning:  mysqli_query(): MySQL server has gone away in /home/wwwroot/www.51tracking.com/library/class.MySQL.php on line 336
+									PHP message: PHP Warning:  mysqli_query(): Error reading result set's header in /home/wwwroot/www.51tracking.com/library/class.MySQL.php on line 336
+									PHP message: PHP Warning:  mysqli_query(): MySQL server has gone away in /home/wwwroot/www.51tracking.com/library/class.MySQL.php on line 336
+									PHP message: PHP Warning:  mysqli_query(): Error reading result set's header in /home/wwwroot/www.51tracking.com/library/class.MySQL.php on line 336
+									PHP message: PHP Warning:  mysqli_query(): MySQL server has gone away in /home/wwwroot/www.51tracking.com/library/class.MySQL.php on line 234
+									PHP message: PHP Warning:  mysqli_query(): Error reading result set's header in /home/wwwroot/www.51tracking.com/library/class.MySQL.php on line 234
+									PHP message: PHP Warning:  mysqli_ping(): Couldn't fetch mysqli in /home/wwwroot/www.51tracking.com/library/class.MySQL.php on line 529
+									PHP message: PHP Warning:  mysqli_query(): Couldn't fetch mysqli in /home/wwwroot/www.51tracking.com/library/class.MySQL.php on line 336
+									PHP message: PHP Warning:  mysqli_close(): Couldn't fetch mysqli in /home/wwwroot/www.51tracking.com/library/class.MySQL.php on line 532
+									PHP message: PHP Warning:  mysqli_query(): MySQL server has gone away in /home/wwwroot/www.51tracking.com/library/class.MySQL.php on line 336
+									PHP message: PHP Warning:  mysqli_query(): Error reading result set's header in /home/wwwroot/www.51tracking.com/library/class.MySQL.php on line 336
+									PHP message: PHP Warning:  mysqli_query(): MySQL server has gone away in /home/wwwroot/www.51tracking.com/library/class.MySQL.php on line 336
+									PHP message: PHP Warning:  mysqli_query(): Error reading result set's header in /home/wwwroot/www.51tracking.com/library/class.MySQL.php on line 336
+									PHP message: PHP Warning:  mysqli_query(): MySQL server has gone away in /home/wwwroot/www.51tracking.com/library/class.MySQL.php on line 143
+									PHP message: PHP Warning:  mysqli
+									2025/03/08 09:31:10 [error] 4596#0: *4688587838 FastCGI sent in stderr: "PHP message: PHP Warning:  mysqli_query(): MySQL server has gone away in /home/wwwroot/www.51tracking.com/library/class.MySQL.php on line 56
+									PHP message: PHP Warning:  mysqli_query(): Error reading result set's header in /home/wwwroot/www.51tracking.com/library/class.MySQL.php on line 56
+									PHP message: PHP Warning:  mysqli_ping(): Couldn't fetch mysqli in /home/wwwroot/www.51tracking.com/library/class.MySQL.php on line 529
+									PHP message: PHP Warning:  mysqli_query(): Couldn't fetch mysqli in /home/wwwroot/www.51tracking.com/library/class.MySQL.php on line 336
+									PHP message: PHP Warning:  mysqli_close(): Couldn't fetch mysqli in /home/wwwroot/www.51tracking.com/library/class.MySQL.php on line 532
+									PHP message: PHP Warning:  mysqli_query(): MySQL server has gone away in /home/wwwroot/www.51tracking.com/library/class.MySQL.php on line 336
+									PHP message: PHP Warning:  mysqli_query(): Error reading result set's header in /home/wwwroot/www.51tracking.com/library/class.MySQL.php on line 336
+									PHP message: PHP Warning:  mysqli_query(): MySQL server has gone away in /home/wwwroot/www.51tracking.com/library/class.MySQL.php on line 336
+									PHP message: PHP Warning:  mysqli_query(): Error reading result set's header in /home/wwwroot/www.51tracking.com/library/class.MySQL.php on line 336
+									PHP message: PHP Warning:  mysqli_query(): MySQL server has gone away in /home/wwwroot/www.51tracking.com/library/class.MySQL.php on line 143
+									PHP message: PHP Warning:  mysqli_query(): Error reading result set's header in /home/wwwroot/www.51tracking.com/library/class.MySQL.php on line 143
+									PHP message: PHP Warning:  mysqli_ping(): Couldn't fetch mysqli in /home/wwwroot/www.51tracking.com/library/class.MySQL.php on line 529
+									PHP message: PHP Warning:  mysqli_query(): Couldn't fetch mysqli in /home/wwwroot/www.51tracking.com/library/class.MySQL.php on line 336
+									PHP message: PHP Warning:  mysqli_close(): Couldn't fetch mysqli in /home/wwwroot/www.51tracking.com/library/class.MySQL.php on line 532
+									PHP message: PHP Warning:  mysqli_query(): MySQL server has gone away in /home/wwwroot/www.51tracking.com/library/class.MySQL.php on line 336
+									PHP message: PHP Warning:  mysqli_query(): Error reading result set's header in /home/wwwroot/www.51tracking.com/library/class.MySQL.php on line 336
+									PHP message: PHP Warning:  mysqli_query(): MySQL server has gone away in /home/wwwroot/www.51tracking.com/library/class.MySQL.php on line 336
+									PHP message: PHP Warning:  mysqli_query(): Error reading result set's header in /home/wwwroot/www.51tracking.com/library/class.MySQL.php on line 336
+									PHP message: PHP Warning:  mysqli_query(): MySQL server has gone away in /home/wwwroot/www.51tracking.com/library/class.MySQL.php on line 234
+									PHP message: PHP Warning:  mysqli_query(): Error reading result set's header in /home/wwwroot/www.51tracking.com/library/class.MySQL.php on line 234
+									PHP message: PHP Warning:  mysqli_ping(): Couldn't fetch mysqli in /home/wwwroot/www.51tracking.com/library/class.MySQL.php on line 529
+									PHP message: PHP Warning:  mysqli_query(): Couldn't fetch mysqli in /home/wwwroot/www.51tracking.com/library/class.MySQL.php on line 336
+									PHP message: PHP Warning:  mysqli_close(): Couldn't fetch mysqli in /home/wwwroot/www.51tracking.com/library/class.MySQL.php on line 532
+									PHP message: PHP Warning:  mysqli_query(): MySQL server has gone away in /home/wwwroot/www.51tracking.com/library/class.MySQL.php on line 336
+									PHP message: PHP Warning:  mysqli_query(): Error reading result set's header in /home/wwwroot/www.51tracking.com/library/class.MySQL.php on line 336
+									PHP message: PHP Warning:  mysqli_query(): MySQL server has gone away in /home/wwwroot/www.51tracking.com/library/class.MySQL.php on line 336
+									PHP message: PHP Warning:  mysqli_query(): Error reading result set's header in /home/wwwroot/www.51tracking.com/library/class.MySQL.php on line 336
+									PHP message: PHP Warning:  mysqli_query(): MySQL server has gone away in /home/wwwroot/www.51tracking.com/library/class.MySQL.php on line 143
+									PHP message: PHP Warning:  mysqli
+									2025/03/08 09:31:11 [error] 4598#0: *4688587872 FastCGI sent in stderr: "PHP message: PHP Warning:  mysqli_query(): MySQL server has gone away in /home/wwwroot/www.51tracking.com/library/class.MySQL.php on line 56
+									PHP message: PHP Warning:  mysqli_query(): Error reading result set's header in /home/wwwroot/www.51tracking.com/library/class.MySQL.php on line 56
+									PHP message: PHP Warning:  mysqli_ping(): Couldn't fetch mysqli in /home/wwwroot/www.51tracking.com/library/class.MySQL.php on line 529
+									PHP message: PHP Warning:  mysqli_query(): Couldn't fetch mysqli in /home/wwwroot/www.51tracking.com/library/class.MySQL.php on line 336
+									PHP message: PHP Warning:  mysqli_close(): Couldn't fetch mysqli in /home/wwwroot/www.51tracking.com/library/class.MySQL.php on line 532
+									PHP message: PHP Warning:  mysqli_query(): MySQL server has gone away in /home/wwwroot/www.51tracking.com/library/class.MySQL.php on line 336
+									PHP message: PHP Warning:  mysqli_query(): Error reading result set's header in /home/wwwroot/www.51tracking.com/library/class.MySQL.php on line 336
+									PHP message: PHP Warning:  mysqli_query(): MySQL server has gone away in /home/wwwroot/www.51tracking.com/library/class.MySQL.php on line 336
+									PHP message: PHP Warning:  mysqli_query(): Error reading result set's header in /home/wwwroot/www.51tracking.com/library/class.MySQL.php on line 336
+									PHP message: PHP Warning:  mysqli_query(): MySQL server has gone away in /home/wwwroot/www.51tracking.com/library/class.MySQL.php on line 143
+									PHP message: PHP Warning:  mysqli_query(): Error reading result set's header in /home/wwwroot/www.51tracking.com/library/class.MySQL.php on line 143
+									PHP message: PHP Warning:  mysqli_ping(): Couldn't fetch mysqli in /home/wwwroot/www.51tracking.com/library/class.MySQL.php on line 529
+									PHP message: PHP Warning:  mysqli_query(): Couldn't fetch mysqli in /home/wwwroot/www.51tracking.com/library/class.MySQL.php on line 336
+									PHP message: PHP Warning:  mysqli_close(): Couldn't fetch mysqli in /home/wwwroot/www.51tracking.com/library/class.MySQL.php on line 532
+									PHP message: PHP Warning:  mysqli_query(): MySQL server has gone away in /home/wwwroot/www.51tracking.com/library/class.MySQL.php on line 336
+									PHP message: PHP Warning:  mysqli_query(): Error reading result set's header in /home/wwwroot/www.51tracking.com/library/class.MySQL.php on line 336
+									PHP message: PHP Warning:  mysqli_query(): MySQL server has gone away in /home/wwwroot/www.51tracking.com/library/class.MySQL.php on line 336
+									PHP message: PHP Warning:  mysqli_query(): Error reading result set's header in /home/wwwroot/www.51tracking.com/library/class.MySQL.php on line 336
+									PHP message: PHP Warning:  mysqli_query(): MySQL server has gone away in /home/wwwroot/www.51tracking.com/library/class.MySQL.php on line 234
+									PHP message: PHP Warning:  mysqli_query(): Error reading result set's header in /home/wwwroot/www.51tracking.com/library/class.MySQL.php on line 234
+									PHP message: PHP Warning:  mysqli_ping(): Couldn't fetch mysqli in /home/wwwroot/www.51tracking.com/library/class.MySQL.php on line 529
+									PHP message: PHP Warning:  mysqli_query(): Couldn't fetch mysqli in /home/wwwroot/www.51tracking.com/library/class.MySQL.php on line 336
+									PHP message: PHP Warning:  mysqli_close(): Couldn't fetch mysqli in /home/wwwroot/www.51tracking.com/library/class.MySQL.php on line 532
+									PHP message: PHP Warning:  mysqli_query(): MySQL server has gone away in /home/wwwroot/www.51tracking.com/library/class.MySQL.php on line 336
+									PHP message: PHP Warning:  mysqli_query(): Error reading result set's header in /home/wwwroot/www.51tracking.com/library/class.MySQL.php on line 336
+									PHP message: PHP Warning:  mysqli_query(): MySQL server has gone away in /home/wwwroot/www.51tracking.com/library/class.MySQL.php on line 336
+									PHP message: PHP Warning:  mysqli_query(): Error reading result set's header in /home/wwwroot/www.51tracking.com/library/class.MySQL.php on line 336" while reading response header from upstream, client: 47.252.1.84, server: mailwebhook.51tracking.com, request: "POST /admin_CRM.php HTTP/1.1", upstream: "fastcgi://unix:/tmp/
+									2025/03/08 09:31:14 [error] 4596#0: *4688587997 FastCGI sent in stderr: "PHP message: PHP Warning:  mysqli_query(): MySQL server has gone away in /home/wwwroot/www.51tracking.com/library/class.MySQL.php on line 56
+									PHP message: PHP Warning:  mysqli_query(): Error reading result set's header in /home/wwwroot/www.51tracking.com/library/class.MySQL.php on line 56
+									PHP message: PHP Warning:  mysqli_ping(): Couldn't fetch mysqli in /home/wwwroot/www.51tracking.com/library/class.MySQL.php on line 529
+									PHP message: PHP Warning:  mysqli_query(): Couldn't fetch mysqli in /home/wwwroot/www.51tracking.com/library/class.MySQL.php on line 336
+									PHP message: PHP Warning:  mysqli_close(): Couldn't fetch mysqli in /home/wwwroot/www.51tracking.com/library/class.MySQL.php on line 532
+									PHP message: PHP Warning:  mysqli_query(): MySQL server has gone away in /home/wwwroot/www.51tracking.com/library/class.MySQL.php on line 336
+									PHP message: PHP Warning:  mysqli_query(): Error reading result set's header in /home/wwwroot/www.51tracking.com/library/class.MySQL.php on line 336
+									PHP message: PHP Warning:  mysqli_query(): MySQL server has gone away in /home/wwwroot/www.51tracking.com/library/class.MySQL.php on line 336
+									PHP message: PHP Warning:  mysqli_query(): Error reading result set's header in /home/wwwroot/www.51tracking.com/library/class.MySQL.php on line 336
+									PHP message: PHP Warning:  mysqli_query(): MySQL server has gone away in /home/wwwroot/www.51tracking.com/library/class.MySQL.php on line 143
+									PHP message: PHP Warning:  mysqli_query(): Error reading result set's header in /home/wwwroot/www.51tracking.com/library/class.MySQL.php on line 143
+									PHP message: PHP Warning:  mysqli_ping(): Couldn't fetch mysqli in /home/wwwroot/www.51tracking.com/library/class.MySQL.php on line 529
+									PHP message: PHP Warning:  mysqli_query(): Couldn't fetch mysqli in /home/wwwroot/www.51tracking.com/library/class.MySQL.php on line 336
+									PHP message: PHP Warning:  mysqli_close(): Couldn't fetch mysqli in /home/wwwroot/www.51tracking.com/library/class.MySQL.php on line 532
+									PHP message: PHP Warning:  mysqli_query(): MySQL server has gone away in /home/wwwroot/www.51tracking.com/library/class.MySQL.php on line 336
+									PHP message: PHP Warning:  mysqli_query(): Error reading result set's header in /home/wwwroot/www.51tracking.com/library/class.MySQL.php on line 336
+									PHP message: PHP Warning:  mysqli_query(): MySQL server has gone away in /home/wwwroot/www.51tracking.com/library/class.MySQL.php on line 336
+									PHP message: PHP Warning:  mysqli_query(): Error reading result set's header in /home/wwwroot/www.51tracking.com/library/class.MySQL.php on line 336
+									PHP message: PHP Warning:  mysqli_query(): MySQL server has gone away in /home/wwwroot/www.51tracking.com/library/class.MySQL.php on line 234
+									PHP message: PHP Warning:  mysqli_query(): Error reading result set's header in /home/wwwroot/www.51tracking.com/library/class.MySQL.php on line 234
+									PHP message: PHP Warning:  mysqli_ping(): Couldn't fetch mysqli in /home/wwwroot/www.51tracking.com/library/class.MySQL.php on line 529
+									PHP message: PHP Warning:  mysqli_query(): Couldn't fetch mysqli in /home/wwwroot/www.51tracking.com/library/class.MySQL.php on line 336
+									PHP message: PHP Warning:  mysqli_close(): Couldn't fetch mysqli in /home/wwwroot/www.51tracking.com/library/class.MySQL.php on line 532
+									PHP message: PHP Warning:  mysqli_query(): MySQL server has gone away in /home/wwwroot/www.51tracking.com/library/class.MySQL.php on line 336
+									PHP message: PHP Warning:  mysqli_query(): Error reading result set's header in /home/wwwroot/www.51tracking.com/library/class.MySQL.php on line 336
+									PHP message: PHP Warning:  mysqli_query(): MySQL server has gone away in /home/wwwroot/www.51tracking.com/library/class.MySQL.php on line 336
+									PHP message: PHP Warning:  mysqli_query(): Error reading result set's header in /home/wwwroot/www.51tracking.com/library/class.MySQL.php on line 336
+									PHP message: PHP Warning:  mysqli_query(): MySQL server has gone away in /home/wwwroot/www.51tracking.com/library/class.MySQL.php on line 143
+									PHP message: PHP Warning:  mysqli
+									[root@iZ94apf5ivnZ ~]#  sh disk.20241023.sh / 3 100
+									du: cannot access ‘/proc/31797/task/31797/fd/4’: No such file or directory
+									du: cannot access ‘/proc/31797/task/31797/fdinfo/4’: No such file or directory
+									du: cannot access ‘/proc/31797/fd/3’: No such file or directory
+									du: cannot access ‘/proc/31797/fdinfo/3’: No such file or directory
+									/: 47275 MB
+										//boot: 162 MB
+										//data: 1357 MB
+											//data/server_logs: 1322 MB
+										//home: 32000 MB
+											//home/wwwlogs: 3102 MB
+									mailwebhook.51tracking.com.log: 1604 MB
+											//home/wwwroot: 28898 MB
+											//lib/firmware: 187 MB
+											//lib/locale: 102 MB
+									locale-archive: 102 MB
+											//lib/modules: 319 MB
+											//lib64/python2.7: 115 MB
+									du: cannot access ‘//proc/17889/task/17889/fd/4’: No such file or directory
+									du: cannot access ‘//proc/17889/task/17889/fdinfo/4’: No such file or directory
+									du: cannot access ‘//proc/17889/fd/3’: No such file or directory
+									du: cannot access ‘//proc/17889/fdinfo/3’: No such file or directory
+										//root: 682 MB
+										//run: 788 MB
+											//run/log: 787 MB
+										//tmp: 100 MB
+										//usr: 11262 MB
+											//usr/bin: 237 MB
+											//usr/lib: 736 MB
+											//usr/lib64: 478 MB
+											//usr/local: 8731 MB
+									rasp-php-linux.tar.bz2: 118 MB
+											//usr/share: 654 MB
+											//usr/src: 203 MB
+										//var: 655 MB
+											//var/cache: 321 MB
+											//var/lib: 194 MB
+											//var/log: 129 MB
+									[root@iZ94apf5ivnZ ~]#  echo > /home/wwwroot/www.51tracking.com/mailwebhook/cn/royalmail_webhook_input.log
+									[root@iZ94apf5ivnZ ~]# df -h
+									Filesystem      Size  Used Avail Use% Mounted on
+									/dev/vda1        49G   45G  2.9G  95% /
+									devtmpfs        3.7G     0  3.7G   0% /dev
+									tmpfs           3.7G     0  3.7G   0% /dev/shm
+									tmpfs           3.7G  788M  3.0G  21% /run
+									tmpfs           3.7G     0  3.7G   0% /sys/fs/cgroup
+									tmpfs           756M     0  756M   0% /run/user/1004
+									tmpfs           756M     0  756M   0% /run/user/0
+									[root@iZ94apf5ivnZ ~]#  echo > /home/wwwlogs/mailwebhook.51tracking.com.log
+									[root@iZ94apf5ivnZ ~]# df -h
+									Filesystem      Size  Used Avail Use% Mounted on
+									/dev/vda1        49G   44G  4.4G  91% /
+									devtmpfs        3.7G     0  3.7G   0% /dev
+									tmpfs           3.7G     0  3.7G   0% /dev/shm
+									tmpfs           3.7G  788M  3.0G  21% /run
+									tmpfs           3.7G     0  3.7G   0% /sys/fs/cgroup
+									tmpfs           756M     0  756M   0% /run/user/1004
+									tmpfs           756M     0  756M   0% /run/user/0
+								-www-51-3
+									[root@iZ94apf5ivnZ ~]# df -h
+									Filesystem      Size  Used Avail Use% Mounted on
+									/dev/vda1        49G   46G  2.3G  96% /
+									devtmpfs        3.7G     0  3.7G   0% /dev
+									tmpfs           3.7G     0  3.7G   0% /dev/shm
+									tmpfs           3.7G  787M  3.0G  21% /run
+									tmpfs           3.7G     0  3.7G   0% /sys/fs/cgroup
+									tmpfs           756M     0  756M   0% /run/user/1004
+									tmpfs           756M     0  756M   0% /run/user/0
+									[root@iZ94apf5ivnZ ~]# sh disk.20241023.sh / 3 100
+									sh: disk.20241023.sh: No such file or directory
+									[root@iZ94apf5ivnZ ~]# find / -name '*' -type f -size +100M | xargs ls -lh {} | sort -nrk5
+									find: ‘/proc/3189/task/3189/fdinfo/6’: No such file or directory
+									find: ‘/proc/3189/fdinfo/5’: No such file or directory
+									ls: cannot access {}: No such file or directory
+									-rw-------  1 root root 523M Mar  8 14:37 /home/wwwlogs/phpslow.log
+									-rw-r--r--  1 root root 469M Mar  8 15:20 /usr/local/nginx/logs/access.log
+									-rw-r--r--  1 root root 448M Mar  8 15:18 /home/wwwroot/www.51tracking.com/script/sync/compare_img_sync.log
+									-rw-r--r--  1 root root 393M Jan  2  2024 /run/log/home-wwwroot-mytracking-logs/send.log.2023.1010.2024.0102.zip
+									-r--------  1 root root 128T Mar  8 15:20 /proc/kcore
+									-rw-r--r--  1 root root 126M Aug 24  2023 /var/cache/yum/x86_64/7/updates/gen/primary_db.sqlite
+									-rw-r--r--. 1 root root 119M Aug 30  2023 /var/lib/rpm/Packages
+									-rw-r--r--  1 root root 118M Feb  4 19:21 /data/server_logs/usr/local/php7.0.33/var/log/20250204175501.php-fpm.log.zip
+									-rw-r--r--  1 root root 118M Aug 31  2020 /usr/local/rasp-php-linux.tar.bz2
+									-rw-r--r--  1 root root 107M Jul 13  2022 /home/wwwroot/www.trackingmore.com/download/K2msSfC9SHV3g32NAtw70TPmgA00O.csv
+									-rw-r--r--  1 root root 104M Aug  1  2022 /home/wwwlogs/host.trackingmore.com.log
+									-rw-r--r--  1 root root 102M May 15  2019 /usr/lib/locale/locale-archive
+									-rw-r--r--  1 root root 102M Jul 13  2022 /home/wwwroot/www.trackingmore.com/download/gOl2XfRfiaS2VwX7g8eqy8vmroMpxT8JHEZK8qoAB0RsF.csv
+									-rw-r--r--  1 root root 1.6G Mar  8 09:31 /home/wwwlogs/mailwebhook.51tracking.com.log
+									-rw-r--r--  1 www  www  1.2G Feb 18 16:36 /home/wwwroot/www.51tracking.com/mailwebhook/cn/royalmail_webhook_input.log
+									[root@iZ94apf5ivnZ ~]# vi disk.20241023.sh
+									[root@iZ94apf5ivnZ ~]# tail /home/wwwlogs/mailwebhook.51tracking.com.log
+									PHP message: PHP Warning:  mysqli_query(): Couldn't fetch mysqli in /home/wwwroot/www.51tracking.com/library/class.MySQL.php on line 336
+									PHP message: PHP Warning:  mysqli_close(): Couldn't fetch mysqli in /home/wwwroot/www.51tracking.com/library/class.MySQL.php on line 532
+									PHP message: PHP Warning:  mysqli_query(): MySQL server has gone away in /home/wwwroot/www.51tracking.com/library/class.MySQL.php on line 336
+									PHP message: PHP Warning:  mysqli_query(): Error reading result set's header in /home/wwwroot/www.51tracking.com/library/class.MySQL.php on line 336
+									PHP message: PHP Warning:  mysqli_query(): MySQL server has gone away in /home/wwwroot/www.51tracking.com/library/class.MySQL.php on line 336
+									PHP message: PHP Warning:  mysqli_query(): Error reading result set's header in /home/wwwroot/www.51tracking.com/library/class.MySQL.php on line 336
+									PHP message: PHP Warning:  mysqli_query(): MySQL server has gone away in /home/wwwroot/www.51tracking.com/library/class.MySQL.php on line 143
+									PHP message: PHP Warning:  mysql
+									2025/03/08 09:31:46 [error] 15824#0: *5648947359 FastCGI sent in stderr: "PHP message: PHP Warning:  mysqli_query(): MySQL server has gone away in /home/wwwroot/www.51tracking.com/library/class.MySQL.php on line 56
+									PHP message: PHP Warning:  mysqli_query(): Error reading result set's header in /home/wwwroot/www.51tracking.com/library/class.MySQL.php on line 56" while reading response header from upstream, client: 100.127.194.234, server: mailwebhook.51tracking.com, request: "GET /wanbexpress_cn.php?track_number=WNBAA0343749229YQ&lang=en HTTP/1.1", upstream: "fastcgi://unix:/tmp/php-cgi.sock:", host: "mailwebhookcn.51tracking.com"
+									[root@iZ94apf5ivnZ ~]# head /home/wwwlogs/mailwebhook.51tracking.com.log
+
+									2022/06/13 18:04:23 [error] 7317#0: *4669517454 FastCGI sent in stderr: "PHP message: PHP Warning:  Packets out of order. Expected 1 received 0. Packet size=1 in /home/wwwroot/www.51tracking.com/library/class.MySQL.php on line 138
+									PHP message: PHP Warning:  mysqli_ping(): MySQL server has gone away in /home/wwwroot/www.51tracking.com/library/class.MySQL.php on line 138
+									PHP message: PHP Warning:  mysqli_ping(): Couldn't fetch mysqli in /home/wwwroot/www.51tracking.com/library/class.MySQL.php on line 529
+									PHP message: PHP Warning:  mysqli_query(): Couldn't fetch mysqli in /home/wwwroot/www.51tracking.com/library/class.MySQL.php on line 336
+									PHP message: PHP Warning:  mysqli_close(): Couldn't fetch mysqli in /home/wwwroot/www.51tracking.com/library/class.MySQL.php on line 532
+									PHP message: PHP Warning:  mysqli_set_charset(): Couldn't fetch mysqli in /home/wwwroot/www.51tracking.com/library/class.MySQL.php on line 344" while reading response header from upstream, client: 100.123.31.45, server: mailwebhook.51tracking.com, request: "GET /lgs_cn.php?track_number=LXBVN000031366597&lang=en HTTP/1.1", upstream: "fastcgi://unix:/tmp/php-cgi.sock:", host: "mailwebhookcn.51tracking.com"
+									2022/06/13 18:05:09 [error] 7323#0: *4669533392 FastCGI sent in stderr: "PHP message: PHP Warning:  Packets out of order. Expected 1 received 0. Packet size=15 in /home/wwwroot/www.51tracking.com/library/class.MySQL.php on line 344
+									PHP message: PHP Warning:  mysqli_set_charset(): MySQL server has gone away in /home/wwwroot/www.51tracking.com/library/class.MySQL.php on line 344
+									PHP message: PHP Warning:  mysqli_set_charset(): Error reading result set's header in /home/wwwroot/www.51tracking.com/library/class.MySQL.php on line 344
+									[root@iZ94apf5ivnZ ~]# tail /home/wwwlogs/mailwebhook.51tracking.com.log
+									PHP message: PHP Warning:  mysqli_query(): Couldn't fetch mysqli in /home/wwwroot/www.51tracking.com/library/class.MySQL.php on line 336
+									PHP message: PHP Warning:  mysqli_close(): Couldn't fetch mysqli in /home/wwwroot/www.51tracking.com/library/class.MySQL.php on line 532
+									PHP message: PHP Warning:  mysqli_query(): MySQL server has gone away in /home/wwwroot/www.51tracking.com/library/class.MySQL.php on line 336
+									PHP message: PHP Warning:  mysqli_query(): Error reading result set's header in /home/wwwroot/www.51tracking.com/library/class.MySQL.php on line 336
+									PHP message: PHP Warning:  mysqli_query(): MySQL server has gone away in /home/wwwroot/www.51tracking.com/library/class.MySQL.php on line 336
+									PHP message: PHP Warning:  mysqli_query(): Error reading result set's header in /home/wwwroot/www.51tracking.com/library/class.MySQL.php on line 336
+									PHP message: PHP Warning:  mysqli_query(): MySQL server has gone away in /home/wwwroot/www.51tracking.com/library/class.MySQL.php on line 143
+									PHP message: PHP Warning:  mysql
+									2025/03/08 09:31:46 [error] 15824#0: *5648947359 FastCGI sent in stderr: "PHP message: PHP Warning:  mysqli_query(): MySQL server has gone away in /home/wwwroot/www.51tracking.com/library/class.MySQL.php on line 56
+									PHP message: PHP Warning:  mysqli_query(): Error reading result set's header in /home/wwwroot/www.51tracking.com/library/class.MySQL.php on line 56" while reading response header from upstream, client: 100.127.194.234, server: mailwebhook.51tracking.com, request: "GET /wanbexpress_cn.php?track_number=WNBAA0343749229YQ&lang=en HTTP/1.1", upstream: "fastcgi://unix:/tmp/php-cgi.sock:", host: "mailwebhookcn.51tracking.com"
+									[root@iZ94apf5ivnZ ~]# sh disk.20241023.sh / 3 100
+									du: cannot access ‘/proc/3875/task/3875/fd/4’: No such file or directory
+									du: cannot access ‘/proc/3875/task/3875/fdinfo/4’: No such file or directory
+									du: cannot access ‘/proc/3875/fd/3’: No such file or directory
+									du: cannot access ‘/proc/3875/fdinfo/3’: No such file or directory
+									/: 47089 MB
+										//boot: 162 MB
+										//data: 1122 MB
+											//data/server_logs: 1087 MB
+										//home: 32755 MB
+											//home/wwwlogs: 3629 MB
+									phpslow.log: 524 MB
+									mailwebhook.51tracking.com.log: 1607 MB
+									host.trackingmore.com.log: 104 MB
+											//home/wwwroot: 29126 MB
+											//lib/firmware: 187 MB
+											//lib/locale: 102 MB
+									locale-archive: 102 MB
+											//lib/modules: 319 MB
+											//lib64/python2.7: 115 MB
+									du: cannot access ‘//proc/22204/task/22204/fd/4’: No such file or directory
+									du: cannot access ‘//proc/22204/task/22204/fdinfo/4’: No such file or directory
+									du: cannot access ‘//proc/22204/fd/3’: No such file or directory
+									du: cannot access ‘//proc/22204/fdinfo/3’: No such file or directory
+										//root: 763 MB
+										//run: 787 MB
+											//run/log: 787 MB
+										//usr: 10670 MB
+											//usr/bin: 237 MB
+											//usr/lib: 736 MB
+											//usr/lib64: 478 MB
+											//usr/local: 8139 MB
+									rasp-php-linux.tar.bz2: 118 MB
+											//usr/share: 654 MB
+											//usr/src: 203 MB
+										//var: 654 MB
+											//var/cache: 321 MB
+											//var/lib: 198 MB
+											//var/log: 124 MB
+									[root@iZ94apf5ivnZ ~]# echo > /home/wwwroot/www.51tracking.com/mailwebhook/cn/royalmail_webhook_input.log
+									[root@iZ94apf5ivnZ ~]# tail /home/wwwroot/www.51tracking.com/mailwebhook/cn/royalmail_webhook_input.log
+
+									[root@iZ94apf5ivnZ ~]# df -h
+									Filesystem      Size  Used Avail Use% Mounted on
+									/dev/vda1        49G   45G  3.5G  93% /
+									devtmpfs        3.7G     0  3.7G   0% /dev
+									tmpfs           3.7G     0  3.7G   0% /dev/shm
+									tmpfs           3.7G  787M  3.0G  21% /run
+									tmpfs           3.7G     0  3.7G   0% /sys/fs/cgroup
+									tmpfs           756M     0  756M   0% /run/user/1004
+									tmpfs           756M     0  756M   0% /run/user/0
+									[root@iZ94apf5ivnZ ~]# tail -1000 /home/wwwlogs/mailwebhook.51tracking.com.log | head
+									PHP message: PHP Warning:  mysqli_ping(): Couldn't fetch mysqli in /home/wwwroot/www.51tracking.com/library/class.MySQL.php on line 529
+									PHP message: PHP Warning:  mysqli_query(): Couldn't fetch mysqli in /home/wwwroot/www.51tracking.com/library/class.MySQL.php on line 336
+									PHP message: PHP Warning:  mysqli_close(): Couldn't fetch mysqli in /home/wwwroot/www.51tracking.com/library/class.MySQL.php on line 532
+									PHP message: PHP Warning:  mysqli_query(): MySQL server has gone away in /home/wwwroot/www.51tracking.com/library/class.MySQL.php on line 336
+									PHP message: PHP Warning:  mysqli_query(): Error reading result set's header in /home/wwwroot/www.51tracking.com/library/class.MySQL.php on line 336
+									PHP message: PHP Warning:  mysqli_query(): MySQL server has gone away in /home/wwwroot/www.51tracking.com/library/class.MySQL.php on line 336
+									PHP message: PHP Warning:  mysqli_query(): Error reading result set's header in /home/wwwroot/www.51tracking.com/library/class.MySQL.php on line 336
+									PHP message: PHP Warning:  mysqli_query(): MySQL server has gone away in /home/wwwroot/www.51tracking.com/library/class.MySQL.php on line 234
+									PHP message: PHP Warning:  mysqli_query(): Error reading result set's header in /home/wwwroot/www.51tracking.com/library/class.MySQL.php on line 234
+									PHP message: PHP Warning:  mysqli_ping(): Couldn't fetch mysqli in /home/wwwroot/www.51tracking.com/library/class.MySQL.php on line 529
+									[root@iZ94apf5ivnZ ~]# echo > /home/wwwlogs/mailwebhook.51tracking.com.log
+									[root@iZ94apf5ivnZ ~]# df -h
+									Filesystem      Size  Used Avail Use% Mounted on
+									/dev/vda1        49G   43G  5.0G  90% /
+									devtmpfs        3.7G     0  3.7G   0% /dev
+									tmpfs           3.7G     0  3.7G   0% /dev/shm
+									tmpfs           3.7G  787M  3.0G  21% /run
+									tmpfs           3.7G     0  3.7G   0% /sys/fs/cgroup
+									tmpfs           756M     0  756M   0% /run/user/1004
+									tmpfs           756M     0  756M   0% /run/user/0
+								-159-205-tm
+								-174-77-tm
 							-- 20250222
 								-77
 									96%
