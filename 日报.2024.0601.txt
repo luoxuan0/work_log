@@ -5721,6 +5721,21 @@
 				确认申请，定位P0事件 https://devops.aliyun.com/projex/req/TMPX-6053# 《ISO27701 证书申请》
 
 	周末值班
+		-- 20250309
+			#2025年3月9日物流信息事业部值班情况
+			值班人：陈华强
+			1，客诉（国内无新增，国外新增一条非紧急客诉（待跟进））
+			2，更新
+				国内邮政
+					china-post和usps和堆积有波动（更新速度有波动），需要关注
+					royal-mail-v2批量堆积9万，为切换单查询后遗留单号，已清理
+				国内快递从12月10号无堆积信息，还需进一步排查
+				国外邮政
+					从预警群看，当前更新间隔会导致邮政更新延迟至12小时以上（从2024年11月23日开始，发送更新间隔从出现降低（从2小时变成6-7小时），2024年11月24日发送更新间隔变成了11+小时，到最近更新间隔是12+小时，发送队列改版前正常应该是4-5小时，改版后能提升到2小时不对数据库有过高负载，需要排查2024年11月23日更新间隔变化原因）
+					royal-mail-v2最近两周堆积稍有上升趋势，需要关注
+				国外快递无明显堆积
+					4px堆积最近一周在1-5w之间波动
+			3，磁盘临时处理
 		-- 20250222
 			#2025年2月22日物流信息事业部值班情况
 			值班人：陈华强
@@ -6765,6 +6780,287 @@
 								script\queueshell\zipAndRmSpecifyTimeFile.sh
 								script\queueshell\file.to.zip.sh
 						历史数据清理 20240529
+							-- 20250309
+								-174-77-tm
+									[root@iz0xibhd8xjxiru8zt5ierz ~]# df -h
+									Filesystem      Size  Used Avail Use% Mounted on
+									devtmpfs        7.7G     0  7.7G   0% /dev
+									tmpfs           7.7G     0  7.7G   0% /dev/shm
+									tmpfs           7.7G  3.0M  7.7G   1% /run
+									tmpfs           7.7G     0  7.7G   0% /sys/fs/cgroup
+									/dev/vda1        40G   37G  1.9G  96% /
+									tmpfs           1.6G     0  1.6G   0% /run/user/0
+									tmpfs           1.6G     0  1.6G   0% /run/user/1002
+									[root@iz0xibhd8xjxiru8zt5ierz ~]# sh disk.20241023.sh / 3 100
+									du: cannot access ‘/proc/6639/task/6639/fd/4’: No such file or directory
+									du: cannot access ‘/proc/6639/task/6639/fdinfo/4’: No such file or directory
+									du: cannot access ‘/proc/6639/fd/3’: No such file or directory
+									du: cannot access ‘/proc/6639/fdinfo/3’: No such file or directory
+									/: 37762 MB
+									dockerd: 102 MB
+										//boot: 178 MB
+										//home: 17983 MB
+											//home/wwwlogs: 604 MB
+											//home/wwwroot: 17236 MB
+											//lib/firmware: 434 MB
+											//lib/locale: 102 MB
+									locale-archive: 102 MB
+											//lib/modules: 124 MB
+											//lib/python2.7: 103 MB
+											//lib64/python2.7: 126 MB
+									du: cannot access ‘//proc/24465’: No such file or directory
+									du: cannot access ‘//proc/24466’: No such file or directory
+									du: cannot access ‘//proc/24479’: No such file or directory
+									du: cannot access ‘//proc/24503’: No such file or directory
+									du: cannot access ‘//proc/24530’: No such file or directory
+									du: cannot access ‘//proc/24532’: No such file or directory
+									du: cannot access ‘//proc/24533’: No such file or directory
+									du: cannot access ‘//proc/24537’: No such file or directory
+									du: cannot access ‘//proc/24652’: No such file or directory
+									du: cannot access ‘//proc/24657’: No such file or directory
+									du: cannot access ‘//proc/24660’: No such file or directory
+									du: cannot access ‘//proc/24750’: No such file or directory
+									du: cannot access ‘//proc/26269’: No such file or directory
+									du: cannot access ‘//proc/26271/task/26271/fd/4’: No such file or directory
+									du: cannot access ‘//proc/26271/task/26271/fdinfo/4’: No such file or directory
+									du: cannot access ‘//proc/26271/fd/3’: No such file or directory
+									du: cannot access ‘//proc/26271/fdinfo/3’: No such file or directory
+									du: cannot access ‘//proc/2488/fd/18’: No such file or directory
+										//root: 4145 MB
+									tr_tracknumber_effective_for_rule.zip: 276 MB
+									test.mem.log: 239 MB
+									concurrentUpdateDetection.log: 220 MB
+									trackingSingleQueueNull.log: 149 MB
+											//root/go: 585 MB
+											//root/yunxiao: 500 MB
+										//usr: 10060 MB
+											//usr/bin: 412 MB
+									dockerd: 102 MB
+											//usr/lib: 890 MB
+											//usr/lib64: 271 MB
+											//usr/libexec: 199 MB
+											//usr/local: 7707 MB
+											//usr/share: 506 MB
+										//var: 5324 MB
+											//var/cache: 594 MB
+											//var/lib: 268 MB
+											//var/log: 4461 MB
+									[root@iz0xibhd8xjxiru8zt5ierz ~]# sh disk.20241023.sh /home/wwwroot 3 100
+									/home/wwwroot: 17250 MB
+										/home/wwwroot/mytracking: 931 MB
+											/home/wwwroot/mytracking/logs: 509 MB
+											/home/wwwroot/mytracking/uploads: 214 MB
+										/home/wwwroot/upload: 6364 MB
+											/home/wwwroot/upload/huaqiang: 5695 MB
+											/home/wwwroot/upload/lipeng: 496 MB
+											/home/wwwroot/upload/shijie: 135 MB
+										/home/wwwroot/www.trackingmore.com: 9740 MB
+											/home/wwwroot/www.trackingmore.com/admin: 1679 MB
+											/home/wwwroot/www.trackingmore.com/api: 181 MB
+											/home/wwwroot/www.trackingmore.com/download: 366 MB
+											/home/wwwroot/www.trackingmore.com/logs: 796 MB
+											/home/wwwroot/www.trackingmore.com/php-resque: 179 MB
+											/home/wwwroot/www.trackingmore.com/python3: 221 MB
+											/home/wwwroot/www.trackingmore.com/python_img: 2103 MB
+									redis.bigkey.3.length_1_1024.20250215.log: 147 MB
+									redis.bigkey.1.length_1_1024.20241228.log: 113 MB
+									redis.bigkey.5.length_1_1024.20241215.log: 104 MB
+											/home/wwwroot/www.trackingmore.com/script: 742 MB
+											/home/wwwroot/www.trackingmore.com/section: 2568 MB
+											/home/wwwroot/www.trackingmore.com/tmzohocrm: 110 MB
+									[root@iz0xibhd8xjxiru8zt5ierz ~]#  find / -name '*' -type f -size +100M | xargs ls -lh {} | sort -nrk5
+									find: ‘/proc/7925’: No such file or directory
+									find: ‘/proc/28564/task/28564/fdinfo/6’: No such file or directory
+									find: ‘/proc/28564/fdinfo/5’: No such file or directory
+									find: ‘/proc/28623’: No such file or directory
+									find: ‘/proc/28729’: No such file or directory
+									find: ‘/proc/29471’: No such file or directory
+									-rw-r--r--  1 root root 390M Mar  8 15:49 /root/yunxiao/be-tfpyqa22gtndemstnunakvmq/runner/__flow_logs/runner.log
+									-rw-r--r--  1 root root 276M Mar  1 14:07 /root/tr_tracknumber_effective_for_rule.zip
+									-rw-r--r--  1 root root 239M Mar  8 15:49 /root/test.mem.log
+									-rw-r--r--  1 root root 221M Mar  8 15:49 /root/concurrentUpdateDetection.log
+									-rw-r--r--  1 root root 213M Mar  8 09:12 /home/wwwroot/www.trackingmore.com/script/log/infoIDInsertInfo_br.log
+									-rw-r--r--  1 root root 156M Jun 22  2024 /var/cache/yum/x86_64/7/updates/gen/primary_db.sqlite
+									-rw-r--r--  1 root root 149M Mar  8 15:49 /root/trackingSingleQueueNull.log
+									-rw-r--r--  1 root root 147M Feb 15 02:13 /home/wwwroot/www.trackingmore.com/python_img/redis.bigkey.3.length_1_1024.20250215.log
+									-rw-r--r--  1 root root 139M Apr  3  2024 /var/cache/yum/x86_64/7/updates/gen/filelists_db.sqlite
+									-r--------  1 root root 128T Mar  8 15:49 /proc/kcore
+									-rwxrw-rw-  1 www  www  123M Jan 16 16:46 /home/wwwroot/mytracking/logs/number/create-tracking.log
+									-rw-r--r--  1 root root 113M Dec 28 12:15 /home/wwwroot/www.trackingmore.com/python_img/redis.bigkey.1.length_1_1024.20241228.log
+									-rw-r--r--. 1 root root 110M Aug 27  2024 /var/lib/rpm/Packages
+									-rw-r--r--  1 root root 104M Dec 15 02:10 /home/wwwroot/www.trackingmore.com/python_img/redis.bigkey.5.length_1_1024.20241215.log
+									-rwxr-xr-x  1 root root 102M Apr 23  2024 /usr/bin/dockerd
+									-rw-r--r--  1 root root 102M Feb 15  2020 /usr/lib/locale/locale-archive
+									-rw-r--r--  1 root root    3 May  2  2022 {}
+
+									[root@iz0xibhd8xjxiru8zt5ierz ~]# echo > /root/trackingSingleQueueNull.log
+									[root@iz0xibhd8xjxiru8zt5ierz ~]# echo > /root/concurrentUpdateDetection.log
+									[root@iz0xibhd8xjxiru8zt5ierz ~]# echo > /root/test.mem.log
+									[root@iz0xibhd8xjxiru8zt5ierz ~]# d=`date '+%Y%m%d'`;sh zipAndRmSpecifyTimeFile.sh zipAndRmlogByDay /home/wwwroot/www.trackingmore.com/python_img 'log' '20200101' '20250301' >>  /home/wwwlogs/zipAndRmSpecifyTimeFile.sh.${d}.log 2>&1
+									[root@iz0xibhd8xjxiru8zt5ierz ~]# cd /home/wwwroot/www.trackingmore.com/script/queueshell/[root@iz0xibhd8xjxiru8zt5ierz queueshell]# d=`date '+%Y%m%d'`;sh zipAndRmSpecifyTimeFile.sh zipAndRmlogByDay /home/wwwroot/www.trackingmore.com/python_img 'log' '20200101' '20250301' >>  /home/wwwlogs/zipAndRmSpecifyTimeFile.sh.${d}.log 2>&1
+									[root@iz0xibhd8xjxiru8zt5ierz queueshell]# df -h
+									Filesystem      Size  Used Avail Use% Mounted on
+									devtmpfs        7.7G     0  7.7G   0% /dev
+									tmpfs           7.7G     0  7.7G   0% /dev/shm
+									tmpfs           7.7G  3.6M  7.7G   1% /run
+									tmpfs           7.7G     0  7.7G   0% /sys/fs/cgroup
+									/dev/vda1        40G   36G  3.8G  91% /
+									tmpfs           1.6G     0  1.6G   0% /run/user/0
+									tmpfs           1.6G     0  1.6G   0% /run/user/1002
+
+									[root@iz0xibhd8xjxiru8zt5ierz ~]# sh disk.20241023.sh /home/wwwroot 3 100
+									/home/wwwroot: 15911 MB
+										/home/wwwroot/mytracking: 931 MB
+											/home/wwwroot/mytracking/logs: 509 MB
+											/home/wwwroot/mytracking/uploads: 214 MB
+										/home/wwwroot/upload: 6364 MB
+											/home/wwwroot/upload/huaqiang: 5695 MB
+											/home/wwwroot/upload/lipeng: 496 MB
+											/home/wwwroot/upload/shijie: 135 MB
+										/home/wwwroot/www.trackingmore.com: 8400 MB
+											/home/wwwroot/www.trackingmore.com/admin: 1679 MB
+											/home/wwwroot/www.trackingmore.com/api: 181 MB
+											/home/wwwroot/www.trackingmore.com/download: 366 MB
+											/home/wwwroot/www.trackingmore.com/logs: 798 MB
+											/home/wwwroot/www.trackingmore.com/php-resque: 179 MB
+											/home/wwwroot/www.trackingmore.com/python3: 221 MB
+											/home/wwwroot/www.trackingmore.com/python_img: 300 MB
+											/home/wwwroot/www.trackingmore.com/python_img_zip: 447 MB
+									20240113.log.zip: 104 MB
+											/home/wwwroot/www.trackingmore.com/script: 757 MB
+											/home/wwwroot/www.trackingmore.com/section: 2568 MB
+											/home/wwwroot/www.trackingmore.com/tmzohocrm: 110 MB
+								www-27-tm
+									[root@iZ0xifhcadlq8e9t1jngcpZ ~]# df -h
+									Filesystem      Size  Used Avail Use% Mounted on
+									/dev/vda1        40G   37G  1.9G  96% /
+									devtmpfs        7.8G     0  7.8G   0% /dev
+									tmpfs           7.8G     0  7.8G   0% /dev/shm
+									tmpfs           7.8G  365M  7.5G   5% /run
+									tmpfs           7.8G     0  7.8G   0% /sys/fs/cgroup
+									tmpfs           1.6G     0  1.6G   0% /run/user/0
+									tmpfs           1.6G     0  1.6G   0% /run/user/1002
+									overlay          40G   37G  1.9G  96% /var/lib/docker/overlay2/444a22f48047ba535fbf882fdb240c3d17943df489dc92896b1190bb0fc15258/merged
+									[root@iZ0xifhcadlq8e9t1jngcpZ ~]# ll -h/home/wwwlogs/www.trackingmore.com.access.log
+									ls: invalid option -- '/'
+									Try 'ls --help' for more information.
+									[root@iZ0xifhcadlq8e9t1jngcpZ ~]# ll -h /home/wwwlogs/www.trackingmore.com.access.log
+									-rw-r--r-- 1 root root 2.5G Mar  9 17:09 /home/wwwlogs/www.trackingmore.com.access.log
+									[root@iZ0xifhcadlq8e9t1jngcpZ ~]# echo > /home/wwwlogs/www.trackingmore.com.access.log
+									[root@iZ0xifhcadlq8e9t1jngcpZ ~]# df -h
+									Filesystem      Size  Used Avail Use% Mounted on
+									/dev/vda1        40G   35G  4.4G  89% /
+									devtmpfs        7.8G     0  7.8G   0% /dev
+									tmpfs           7.8G     0  7.8G   0% /dev/shm
+									tmpfs           7.8G  365M  7.5G   5% /run
+									tmpfs           7.8G     0  7.8G   0% /sys/fs/cgroup
+									tmpfs           1.6G     0  1.6G   0% /run/user/0
+									tmpfs           1.6G     0  1.6G   0% /run/user/1002
+									overlay          40G   35G  4.4G  89% /var/lib/docker/overlay2/444a22f48047ba535fbf882fdb240c3d17943df489dc92896b1190bb0fc15258/merged
+								172.16.10.140-python-region&writeRedisApi-51-59
+									[root@iZwz96q6pj8e3gc3q2r0zmZ ~]# df -h
+									Filesystem      Size  Used Avail Use% Mounted on
+									devtmpfs        908M     0  908M   0% /dev
+									tmpfs           919M     0  919M   0% /dev/shm
+									tmpfs           919M   90M  830M  10% /run
+									tmpfs           919M     0  919M   0% /sys/fs/cgroup
+									/dev/vda1        40G   40G     0 100% /
+									overlay          40G   40G     0 100% /var/lib/docker/overlay2/acd25c0ccbe54c8611f57f99c5d6d6b3da07bdf41e921c0d8d910c99fb9a2cfd/merged
+									overlay          40G   40G     0 100% /var/lib/docker/overlay2/998c3df796e00f2e75d5840e4e326b816512eb634f6165ab3bfe257d79deba57/merged
+									shm              64M     0   64M   0% /var/lib/docker/containers/4b39b3d075195bd208b762b95c0dd3df28f7a441b5e22f288a410a7a1c039c22/mounts/shm
+									overlay          40G   40G     0 100% /var/lib/docker/overlay2/f68015aafd946e0247585c6413d7ae29586bed10b9ed3b2bb3f63d713d26f282/merged
+									shm              64M     0   64M   0% /var/lib/docker/containers/e70db7d91bb49015914d7d809e274fe63f8271bf828f4eab023c8e9290696936/mounts/shm
+									overlay          40G   40G     0 100% /var/lib/docker/overlay2/029c465f5390d26ddf88c709b6b14e3773b0fe3b092e50eeed2e1ecace084185/merged
+									shm              64M     0   64M   0% /var/lib/docker/containers/e3a38c2efcaa25d5da17e04610e9f5cabf4b3e3c78a74ea82eab3012b7f129e6/mounts/shm
+									overlay          40G   40G     0 100% /var/lib/docker/overlay2/f5a0eb137ca51686199217968a0e0eedc6a2b6f10e7c3f64f20d3dcea861b96e/merged
+									shm              64M     0   64M   0% /var/lib/docker/containers/1cd497746e76ebf5e3d7f9d3dd783c378e81b925da787b3c7dac1f5c0ced0f19/mounts/shm
+									shm              64M     0   64M   0% /var/lib/docker/containers/82341f888c94cd1cf5cba50600b307ce2b8e493d41f1e40bae62442984c13bdc/mounts/shm
+									overlay          40G   40G     0 100% /var/lib/docker/overlay2/dc5e50ba44bd69301dbd80911558ebabbce967f0e71b55d7b7934db9037f5297/merged
+									shm              64M     0   64M   0% /var/lib/docker/containers/6da9cffdd9c54b23bae428cd5c1c9157088b62aa72a5c756bcd59f544b89fea8/mounts/shm
+									tmpfs           184M     0  184M   0% /run/user/1000
+									tmpfs           184M     0  184M   0% /run/user/0
+									overlay          40G   40G     0 100% /var/lib/docker/overlay2/b442afa131e0cb6b09d55958c108101c17459bd3ecd1f04111e327a357b77b80/merged
+									shm              64M     0   64M   0% /var/lib/docker/containers/4da1baf40379a2227fe70c5d529e068f48fc9338ec8f5d96d21b44546360661a/mounts/shm
+									[root@iZwz96q6pj8e3gc3q2r0zmZ ~]# find / \* -name '*' -size +100M -type f | xargs ls -lh | sort -nrk6
+									^C
+									[root@iZwz96q6pj8e3gc3q2r0zmZ ~]# find / \* -name '*' -size +100M -type f | xargs ls -lh | sort -nrk6
+									find: ‘/proc/2603/task/2657/fd/5’: No such file or directory
+									find: ‘/proc/12176/task/12176/fdinfo/6’: No such file or directory
+									find: ‘/proc/12176/fdinfo/5’: No such file or directory
+									find: ‘*’: No such file or directory
+									-rw-r--r--  1 root  root            173M Jan  4  2022 /usr/local/jdk-17_linux-x64_bin.tar.gz
+									-rw-r--r--  1 root  root            129M Aug 17  2021 /home/golang/go1.17.linux-amd64.tar.gz
+									-rw-r--r--  1 root  root            102M Feb  8  2022 /usr/lib/locale/locale-archive
+									-rw-r--r--  1 root  root            101M Dec  8 18:27 /var/lib/rpm/Packages
+									-rw-r--r--  1 10668           10668 121M Dec  8  2021 /usr/local/java/lib/modules
+									-rw-r-----+ 1 root  systemd-journal 112M Sep 12 18:40 /var/log/journal/20220208145000711038896885545492/system@7e09898866164a9d935a9a62b1fae665-0000000000000001-000621839bb1767d.journal
+									-rw-r-----+ 1 root  systemd-journal 112M Oct 25  2023 /var/log/journal/20220208145000711038896885545492/system@5abfdce3e67544e59015544c454d115b-0000000000000001-000606248c077592.journal
+									-rw-r-----+ 1 root  systemd-journal 112M Jun 22  2023 /var/log/journal/20220208145000711038896885545492/system@074d6eb9d05a4a8f92c95445ad3850bb-0000000000000001-0005fc507562f472.journal
+									-rw-r-----+ 1 root  systemd-journal 112M Apr  6  2024 /var/log/journal/20220208145000711038896885545492/system@236f4d42f5c141febff892fa1c491d4b-0000000000000001-000615017db94ce6.journal
+									-rw-r-----+ 1 root  systemd-journal 104M Dec 12  2022 /var/log/journal/20220208145000711038896885545492/system@7e18f5db26334e6aa1d7cd49cbc0ad63-0000000000000001-0005edc6b1c222b9.journal
+									-rw-r-----  1 root  root            9.4G Mar  9 17:11 /var/lib/docker/containers/4da1baf40379a2227fe70c5d529e068f48fc9338ec8f5d96d21b44546360661a/4da1baf40379a2227fe70c5d529e068f48fc9338ec8f5d96d21b44546360661a-json.log
+									-rw-r-----  1 root  root            7.5G Mar  9 17:11 /var/lib/docker/containers/82341f888c94cd1cf5cba50600b307ce2b8e493d41f1e40bae62442984c13bdc/82341f888c94cd1cf5cba50600b307ce2b8e493d41f1e40bae62442984c13bdc-json.log
+									-rw-r-----  1 root  root            1.3G Mar  9 17:11 /var/lib/docker/containers/1cd497746e76ebf5e3d7f9d3dd783c378e81b925da787b3c7dac1f5c0ced0f19/1cd497746e76ebf5e3d7f9d3dd783c378e81b925da787b3c7dac1f5c0ced0f19-json.log
+									-rw-r-----  1 root  root            1.3G Mar  9 17:10 /var/lib/docker/containers/e70db7d91bb49015914d7d809e274fe63f8271bf828f4eab023c8e9290696936/e70db7d91bb49015914d7d809e274fe63f8271bf828f4eab023c8e9290696936-json.log
+									-rw-r-----  1 root  root            1.3G Mar  9 17:10 /var/lib/docker/containers/e3a38c2efcaa25d5da17e04610e9f5cabf4b3e3c78a74ea82eab3012b7f129e6/e3a38c2efcaa25d5da17e04610e9f5cabf4b3e3c78a74ea82eab3012b7f129e6-json.log
+									-rw-r-----  1 root  root            127M May 23  2023 /var/lib/docker/containers/4da1baf40379a2227fe70c5d529e068f48fc9338ec8f5d96d21b44546360661a/4da1baf40379a2227fe70c5d529e068f48fc9338ec8f5d96d21b44546360661a-json.log.1
+									-r--------  1 root  root            128T Mar  9 17:11 /proc/kcore
+									[root@iZwz96q6pj8e3gc3q2r0zmZ ~]# head /var/lib/docker/containers/4da1baf40379a2227fe70c5d529e068f48fc9338ec8f5d96d21b44546360661a/4da1baf40379a2227fe70c5d529e068f48fc9338ec8f5d96d21b44546360661a-json.log
+
+									{"log":"120.77.178.12 - - [23/Feb/2025 20:18:02] \"POST /write_redis HTTP/1.1\" 200 -\n","stream":"stderr","time":"2025-02-23T20:18:02.392326226Z"}
+									{"log":"120.77.178.12 - - [23/Feb/2025 20:18:02] \"POST /write_redis HTTP/1.1\" 200 -\n","stream":"stderr","time":"2025-02-23T20:18:02.593594281Z"}
+									{"log":"120.77.178.12 - - [23/Feb/2025 20:18:02] \"POST /write_redis HTTP/1.1\" 200 -\n","stream":"stderr","time":"2025-02-23T20:18:02.593619578Z"}
+									{"log":"120.77.178.12 - - [23/Feb/2025 20:18:02] \"POST /write_redis HTTP/1.1\" 200 -\n","stream":"stderr","time":"2025-02-23T20:18:02.593624093Z"}
+									{"log":"120.77.178.12 - - [23/Feb/2025 20:18:02] \"POST /write_redis HTTP/1.1\" 200 -\n","stream":"stderr","time":"2025-02-23T20:18:02.593627774Z"}
+									{"log":"120.77.178.12 - - [23/Feb/2025 20:18:02] \"POST /write_redis HTTP/1.1\" 200 -\n","stream":"stderr","time":"2025-02-23T20:18:02.593631479Z"}
+									{"log":"120.77.178.12 - - [23/Feb/2025 20:18:02] \"POST /write_redis HTTP/1.1\" 200 -\n","stream":"stderr","time":"2025-02-23T20:18:02.593634981Z"}
+									{"log":"120.77.178.12 - - [23/Feb/2025 20:18:02] \"POST /write_redis HTTP/1.1\" 200 -\n","stream":"stderr","time":"2025-02-23T20:18:02.593638694Z"}
+									{"log":"120.77.178.12 - - [23/Feb/2025 20:18:02] \"POST /write_redis HTTP/1.1\" 200 -\n","stream":"stderr","time":"2025-02-23T20:18:02.59364221Z"}
+									[root@iZwz96q6pj8e3gc3q2r0zmZ ~]# tail /var/lib/docker/containers/4da1baf40379a2227fe70c5d529e068f48fc9338ec8f5d96d21b44546360661a/4da1baf40379a2227fe70c5d529e068f48fc9338ec8f5d96d21b44546360661a-json.log
+									{"log":"{'flag': 'cn', 'operate': 'lpush', 'redis_key': 'courier_jtexpress-my_ticket', 'redis_data': '{\"data\": \"{\\\\\"ticket\\\\\": \\\\\"t03ttIICloN8ianjq9qDuqPTXxwkzURx2wTPGf0PqwRyK0LA65IZZ792B-wKjL3B2mx8Cw-8y5iaysYT8dhEzuNoSpbUFHBWP5Zds8npZf-aEcymT55ttXa8PbUHU9R36pqg-jpcW7PKl0*\\\\\", \\\\\"randstr\\\\\": \\\\\"@Lr7\\\\\"}\", \"mtime\": 1741475346}'}\n","stream":"stdout","time":"2025-03-08T23:09:06.601773989Z"}
+									{"log":"120.77.178.12 - - [08/Mar/2025 23:09:06] \"POST /write_redis HTTP/1.1\" 200 -\n","stream":"stderr","time":"2025-03-08T23:09:06.602295589Z"}
+									{"log":"120.77.178.12 - - [08/Mar/2025 23:09:06] \"POST /write_redis HTTP/1.1\" 200 -\n","stream":"stderr","time":"2025-03-08T23:09:06.614670563Z"}
+									{"log":"47.107.116.64 - - [08/Mar/2025 23:09:06] \"POST /write_redis HTTP/1.1\" 200 -\n","stream":"stderr","time":"2025-03-08T23:09:06.741576863Z"}
+									{"log":"120.77.178.12 - - [08/Mar/2025 23:09:06] \"POST /write_redis HTTP/1.1\" 200 -\n","stream":"stderr","time":"2025-03-08T23:09:06.824834141Z"}
+									{"log":"120.77.178.12 - - [08/Mar/2025 23:09:06] \"POST /write_redis HTTP/1.1\" 200 -\n","stream":"stderr","time":"2025-03-08T23:09:06.836235739Z"}
+									{"log":"47.107.116.64 - - [08/Mar/2025 23:09:07] \"POST /write_redis HTTP/1.1\" 200 -\n","stream":"stderr","time":"2025-03-08T23:09:07.037262423Z"}
+									{"log":"{'flag': 'cn', 'operate': 'lpush', 'redis_key': 'courier_sf-express_ticket', 'redis_data': '{\"data\": {\"status\": \"success\", \"data\": {\"lot_number\": \"e5c5445f0acd4bf187cf05cc8d414d77\", \"result\": \"success\", \"fail_count\": 2, \"seccode\": {\"captcha_id\": \"7aff034c32dd2092ef63d12b86a95aeb\", \"lot_number\": \"e5c5445f0acd4bf187cf05cc8d414d77\", \"pass_token\": \"185b5c1132b21c8edaf0fa361a7f75b60015d80feae62cbc61f4e73e6f39fd75\", \"gen_time\": \"1741475341\", \"captcha_output\": \"M6-qzSwzHmt9hrFSd6yzoXzCKxICVXX1cM5QvjyCPFQc8pS7eKV4Gjyp4c1VmDkwxLG7LKdPSdgmcu0sdBKbRDfaJiFu_HpYdEJ_bXGAn7b8IVv300VNnHfLmBQS-VDlMHAomHWruFWWP1v2_gEsxJm-nMqoPDt2nM_aJxeWfx3NPjVjwUM6GkQ_CAjCckDa_4xp06_Qf-H9JxCqdGBhu06csr6XaTRjDuLGh92SkrKoFQcWKuB7PXNT18hxi09je9miNKMxM7P1nVv1pcmbXEFqFZBgOnBmlTBGprepdbQaoT7OCC-m-c7fOaKdKlkL\"}, \"score\": \"1\", \"payload\": \"AgFD8gWUUuHFx-XvpP7J2a3xYrbhw-4MM0tEyRyOR7YS6gJPhvjKZlpTwq-WjcqebGWNRjR3Dah-0KdPgZsxq4O6sKPgZlAwG6_VTWKrHbZlnbgyLV8bgoE_IJEHFpy7Wlgl-INFBFVAolu6pAbn97T5FwV9QRvZ2rMR50AxYmKYisapcfxasztVVTpEVvLsGJmo1lBxEdy-9fML-vDGRsPIk9_Ym603wjbVZcqfFwfm2IhjudIUcQ2Z5N9dQt_x4CUrtheKzk2yw2ux-c4OSX6TxkdQcG5v4T7dEofXC78ZwUb9JfvT7VWD7bt90kR2x2MZWsPiQ65tQ2lvQx4S_u3GfDIP8YisFx5IIB5eKxE6L2BxQnllBLi-kj8CZlE5dFeOGCXtURtX6hOy1QNCn3Y4KKQnkZ14bXT0TQ95t9XUR-Vl5GQ9PufBP0g6-eOWiCryN_AhFHsN-tYAI0w0csDqnBMk0vaEEz58LyxjAWC2zlWRPY_hIqORcuafPLczg76Gk8v09qGr4LKWG4S90AxMsgQVd2E6JwrdxOhfevnSi7L6TmB8QzejfE5xcM_vvSdzXK5kDCzHgeo5zeoJKBE7x_j7DkePjDiEhNesO_1rsiFilfV6GwVHn6frd7BjOR62_zckpTqxyZDV6I3nCA1v4tpk5oEy3QXsPYreFV2gIHeHrzyz-5RUUe4v_NOq0ULMgAWuvdJyUdXzEcq1ucrXmtTELsTrus0sRpLqgD5WS_ndErNMQpVP8NrToQFGob5In25wx5Kc_Fmi97mjLhFFLGF7qGRROBszLhMjXcSV-oJIE_fKWzEQ1i4R8q3Gy65mEDbvKhl03ALiRGDD67ut7Lnz7FxAyqOZnC_o8aVgDTK9v2bRbgYV1t2qnNGbla36MAo67Rdr8NeF81NIefiHSb3fTH6qY9l8VNkSrPAGGFFyfCHBUhHAq0OKNX1BzDd0muoOaeZQ1yfm_2lVjqFOaalM7-DBLtLKMtosVy6Ft79DGGMyuTiN87_MSCZ_wHzuN8TtLZCV4PWKZ_yWz_EHYxDQGaompVUL9zEG9n8sbDpKsXqID3s_2G95bvGuxzUSPGvyw2L3bfi_mXfkraU9CFrCoApx_bfN9_BbvqbQQMDdrwSro{"log":"120.77.178.12 - - [08/Mar/2025 23:09:25] \"POST /write_redis HTTP/1.1\" 200 -\n","stream":"stderr","time":"2025-03-08T23:09:25.856715111Z"}
+									{"log":"120.77.178.12 - - [08/Mar/2025 23:09:25] \"POST /write_redis HTTP/1.1\" 200 -\n","stream":"stderr","time":"2025-03-08T23:09:25.869268445Z"}
+									{"log":"{'flag': 'cn', 'operate': 'lpush', 'redis_key': 'courier_sf-express_ticket', 'redis_data': '{\"data\": {\"status\": \"success\", \"data\": {\"lot_number\": \"3805e42051c040d281345ecfc4bc9c90\", \"result\": \"success\", \"fail_count\": 2, \"seccode\": {\"captcha_id\": \"7aff034c32dd2092ef63d12b86a95aeb\", \"lot_number\": \"3805e42051c040d281345ecfc4bc9c90\", \"pass_token\": \"e85ac46549cf3a6c603689411092e2b284324f052738e5bdc42e16550dce86a5\", \"gen_time\": \"1741475362\", \"captcha_output\": \"M6-qzSwzHmt9hrFSd6yzoT99Ir6vdGtdJ1RDCaiPBuofoEn302ZrxnLDdwrS14i2A_bNi2Pw9bt6tcqlY5dNvP_FArW3O2wEWAXnTdmUjr9UY0tjTuswG9sEQR_sbAZOxm-DQpdAnuFaBTNgDdkXWIFMpymDR-nttag1B_Ft0jsZHhe-_MvdawdLb6NLeVFuDD75gOcJL4iASEvqm01zMm5aRFi8exLznYgJdxwcJKN2piz9YzgcNl5cf8b0brA3V4cQSs94_lXrVpL5ltXwZIR8S66-GP8wOiJxsg27FcxrzjFg2I_t9g24clxuc8pEJwQB1gujs1zj_bsG3eIIww==\"}, \"score\": \"1\", \"payload\": \"AgFD8gWUUuHFx-XvpP7J2fNnAOXMS-SN7fy1y0BNVQvIueULUc63XGm4y97GGJgOLPc3oHGfRxreY4O15srCF53wrBuGusrWtucv9u09PXYErZMn46qKHBy8Ei-InPs0alA998TzAmocMBN7RjcA6OrChZrpCNoloG1t-zQt32_TgmKUJXrFw06mvSquStwIJWGre75zIh7y2CGfRXXxZbiOxXzx9J7Co2Ksqs_pihX3uBRhIl6WM772fjsrvtI8T3yTiYexudhXMnhwRomWYeq_uLlgS_t14rA5LDl_S31Wf44OPANJStea0wMTt_UiyPtr9OAKU6AaOwpaZTTp7kNXfgcEA5FMjSMgm-58uAnbwrIEQ--Kv2AQwmN_zROEkongySZW28x9d1kxNtYolY-LRugoql1T4dCwFFsE_B5SFyMGBu8BwvFqmOwR8k0wb0wuLIDm2o-YpeJ_H0-NXeqnWEZUAjqLO9DhFAmasecqpDhp_Q9SpcTZTWXm-V-Snw3wY-YIl9dV5_Xtb2VmfRtXLEATlSUEmr82HSYOqu7ZjfrnX6EPJdtix_O_ISjZK2OPBuaNp47SjMEG7oPSwwog1tZlYOUZJ8w28jHHXq3VWZXYbuILnsiCucCzaDO5XkXVjStH6BzW5XLlN8iNYPsS8fMuyn2-T6R3mBu72psfSNkgzcVVBOb0_S8XgbI6e7FPT8z4-nP9B1tNyBrL2f9MPyQJH33PwERBb_Gzg4y9rbvsvJY7kY9IxZb-Q04kvltwyDvuqpu8nhtynB4Dpg9AXxg-jvQtrwkttiGIemDxy685gbguq5B9NtA0tQszkh1fFmezOf4aGaWf-f7GzV97Hbp_R92W4WKpSam7fu5AFskLcBjTKHPa14GS5xMa0He2whz3d72_mPN3v6RqzqF6QnsMyFihdFPZpu6Q2EbnTgNMTMStrKs5fgt8G23pXaMy6NxVxYO6SqdGja38z_qFGOkW-TZtoLHz8F31KfjmUQaOqoHoZSkTAuEExrZ9HpXEn_xqY4VhFRqnzzgQv2cuUrZce_QZVbY5V7BGAbMCYRIYx8dICKV6508z_RygP9-0T40jCVIEJE77mGrU-p4YT8bZfC9hK9nlQrHA6ioY-6bIHedplqnBJCyQSgGH4ULFgiRZdioGqfAXCkXG1TbzX9d6185WzgAO9-VFRhs8eV35GtfQR573PBWgFJOBgdeCjpWKNYi8oJPLxpphBensN9cjB_1ADyHfI-i0TECMrhL2t9OOCldimNZnkqRoxVySSEAmjZzVmgwhFQ-XlXnVT5v2YmZSttwxJ_MQiaAW4kSSs5YM_ejzEdhVAgSxfsL8DCimqCRrXvVIb8Dfqlp_tnsoLhYz_dFU7q_xhB6P-mM5pc-rBX1XYZYguIx45eSsnIbKmR2GZVBlR5D668acLVWW0Yi3HOOOzF9xhBMDSodh2X-VLTZXPDuUj-tHBEV_6TMr2NIF4TvaQZLv79cJOh1PlLch98uoDiUrONzowxWiTW19G4Q9-iaGHrOpzEPf61xaObWvHPxbLUMK2FYwBHLx3oUSX2LvccNb5h1pfGiaoY9fsXTMukohyAdY91-KtLPtjV3_XdFgY_OrPmbaEiiZCilpgquMWlFu9G4dJCqyNRA31FaVzGumR5AHgMooTcBny5fRfnBZPyW2_XoiVc3mZOSmFUB1PfMfZktPfMIsmL9EKFQi1l7HEPSjd9vYd0Ptg1mYPFR2c34RxjSFTd6y7QGKsIPmjMkZYVH65pnl6nuFLZurvS0nF4wWVcOfaU_XSYj3Fbeqv4s3HhnxA3GAwm9Phiz0_Xd4_anSk2YDzp2l7Yez9hf9ub1uS-GKCmj-BSNRG-qJ0JfFbCPzepujgBbJLy79og-8PoujEtJsnup1NZ1ctM_BmuUzj7nkUS3-RyRzTRvRz86rFPZRfYSnwHKjmelCo-i3x8d_OIus2p8rvTivBUo1p3FC8Tm1htVupoaeOnCjHiEgmQvX-VHg2nGXHGSkumX6X_B8rmn3l2X3sXRNHf9njJqUVuCTJZgHAj1RtnvzWF565aB26UpSVFuNJinb0K2rmFXYiCXt510CTDD5eVoHlndQljY6z5TqwkmSJWYW_JSoQ27xZYNgSXb7fvkAiBs-HektfbYFA1X7RQrQ7FA47y0BO79SYGge_0w_KOvAIWfEXJvNSzyo1I5ZoNDFlcUtmt6LWA4leb4IX2zQrgRhLbZcdTdaiBroMOcJ11JyLAuRfnPqrh3FmkB-jjfrzOa_792IIsZqYaBYekbeBsMARAVPic5yCQ1QOkC_xhefSlRu5GlsjEAeU3aI1WocBN0zsWDgsfnqJVmbDs4GvnwlLjmeE63sKr54AD_VBUsLrwAaZw_gFaTGm4yrrEVAPdPCfEJVIt1pZi_e7b2aTqavP85Z0D1BmZjHm_nQdDsqr1gwi2nMYjMVLoBvvx4ZuzXbxtwK4idThfp2y4AEk-bgqn7jJPc9o6VKTzqNjslfGOPRZsFLcG1j7H7-bhqatr2uKLOknH85oQ5CMI-mW4N0-otrtr9DcztGxlv5uHMacNpaOZrWC86oMC7X63jzYLMB8D3tMli9XoGPUzH1Ac1HlYTBHx6l1vJgC84EvTBKGWyVJuSUtaWBSuhumJVhxDlBwbCWpvWrRalE6eAfGJKXOmAx5tJXRs-XfMQ8Gm_-Bi788LVMereuXoA5myWdf7ruoxS_YCZPOUNePIlVtTDaDqPdhaDOLsa4ycQbwkVe4j7TgsUYBhwenQYF8mzBrwPdfDMKTOiPcOIgHWSRw46WVBM-ydH2cJCoxY4SoQUFR0rUHIDc13GM-tnhjgBRyHiGIjwd-0AGWKvKb8tfIXcrbTayhzqAskNyUgD6vPHdwG3MMYmx9p3RvCm_{"log":"{'flag': 'cn', 'operate': 'lpush', 'redis_key': 'courier_sf-express_ticket', 'redis_data': '{\"data\": {\"status\": \"success\", \"data\": {\"lot_number\": \"d2c9f6c0c5834051a8782d9439d241e2\", \"result\": \"success\", \"fail_count\": 1, \"seccode\": {\"captcha_id\": \"7aff034c32dd2092ef63d12b86a95aeb\", \"lot_number\": \"d2c9f6c0c5834051a8782d9439d241e2\", \"pass_token\": \"114b88c3ac682ef69451028ec6d3ee6d008819dc23a214bc502a272bed02865e\", \"gen_time\": \"1741475519\", \"captcha_output\": \"M6-qzSwzHmt9hrFSd6yzoUZxccavtuf0EZNzgXS7o16dbT0GbaqLQnwtrDkB0AS79D-c_ZYo1q4A3sIWgFswTBP4Bvm_3LGdtiq7zdutJrYfTYM1GnQ7gSBlyDKctdk_57F_yITkFy7ZAWqEzZKIuvNs1SPKRxe_ok9x-xHpsivMzISIh95C-MbrD6qSFLVR_0nfRwxfTpYzYO7HIEfQtXyN7m5Y8Qb6gtJ89NL8ZBm0NA_ZwyZdcb1RjD_YoTuMUMJHSsI6vhxOg9NMPTIFDYxf-n6WLTXe5-FisCrluWPwue21pmJAKq__XeDpN42x\"}, \"score\": \"1\", \"payload\": \"AgFD8gWUUuHFx-XvpP7J2Rb9HrHcNyjvUgnbTfXVyuXf2km70ZKzpnjCYSTc3zkjQWTq7PYqooIgtHFlBKKAkT1sAL8zmx0B4pu3vFoHL7LaR10HmMWVLby554vAr3g5FFNV_jDro0ukwveCv9RR4YxxhaRjAf6ipyWP7IHc3NplA6lKLvtJjMEYh_EkMoDhlb8BHAu29iUd8HOwFqU-HWMEFPUbgQJierq27_puVR98EuaVDL73X8FjU050oNvBNQwGVH8z_Z_k17FGFESzWF6SjbJjt5vEookbL_bhVi5oPoTwLw9_zqMKzbbdbKCD_7DgoCM0ZJtZmlOBblbVE3qbyrWcNTcfQxwBhYTgg_VQgOQgabw7cV8tIhHbWQVEKZ42DuIOs54DSmGp5xA87KtA5oDWikqWqfH6RfvUxODHTbTKw6A9r_df8ORM7TruZ8MHohWXoHTbjmmBnLjv10bcSnMh4CcUBOx_2VGXHw4Dk_DYAlaMvRma4KVPiHbSXPx81rsUs-QPHLtI7Y30qzmGpNysL4GrpG1mTPH6wtQFu7OViTQT93mMM5k_6JfF7tE6E9hDXPmGrT0hksAGXUftojEUKQC2rWOleC6ryFg5kUu3_3kyjj5QTeMhnCylsnpsqQUz6fjJz6Ybd9p3bJ8UoSsdSO8tUxkA-eKONE9I05HXdIrtPgZ3NexukZSz1jw1hI4cQ4wTIm-tyd6cVawCGfNVyoUANI0mjXIGwpSqUwntTZCLqNBivGsRqrGG4fuvp16Jr7AnQlZX1CGpcUuHWKEsSdC4iz3sN6ACmun3Vafx75raBIHEExjs4hv4q7bJ7_lR3cfB1-PF_c9_JXIfGlxWCQTjSKZ6WI2Iltlyqw8a6HLdusIhcV3Akq5IJD2IY3nYnIGNo6BeO6ZObQMsWCCWzZZcgm0JtBB8anK7WWjYhCmii9GCMWDGTtnSxOM0qQ0YuJ8ZKceU0uNwS8Mo7JCKyN9gAHboJTcok33K_xuWve97csutcw-DK9xtbNc6VBnwr-H-2EjSqIyMLGFFaiDRcbf0w_oQrg4IjvBzCUS2GnALraG44eL_U8-s6ZU1ZXfcEZ26uyLvRNgXn1qUAPHAPUycyCY0X1jldSgkc6mNbMxFOFucMJr2KjdQBCKLePCiqgrGO_8g5jtvj4qVtzwnJrZH9zISYvmT2u6Q_74yi45Sl80UhKQfp5v2mbWEilunZIM2yW405lEz3kv8mGxS1dbtdcOEUB2pfMvYU4_cTcZiuemSuDoRSgtRN02GIVnYVY92J6WLvSelpdcHNcIBe8vnuR9rVpfQOWoPe1x5dX6JR4xI-kgro6-ngGtXYUe5rf--SHGVWNyHwVTmm1gZE3QPeuR2isp1WaBpR9CJ2BbtGwm2AggaoXQQ0O_jhmFG4sj_IfNnI8C9q6-wuzMjYVMPmZnlp7KmingY_KhfLUKTvJVKS_--gNlJSOFxgFAMTbl-WA4JZER7a3_DFhswav5H3trlvc3GJtEqXl9cNyxdVE8GO15rB3fS3huCqbqEtCaMfKRQQlqKM_cTcizPQHtmHNU08XlOztbH9AbpYmTwARu_IBA_8FIiAGKMaNPwIBg1g2_K_Ul84k3ux69agDjujhxj-s8i2VKQU_zBsDvis4ottDyYxkOZJ5poUxfCtkgX691_iLvXYJ0hCryYdoIhvo8mShnR0sMhLnoj3J8wiBTC-SMWSFE3p_Pv_gln9m4z9ZzB4uILXuFzYLf5PKgXdB-_fSt57LN7YsK2xAZB6NN5yyTiniCDbAq9HNR-YGn8qy1kymm7clF9_EauV82y3UeeCEAjeZ5ogTB9MKSEtLAp6jpQbyaScJDv14BTqZv76H6278CnBIG0U1nk4x2z7iawax4bU5YRxtdAGBiB-YSkYK8BmXjst2b5c6PqA96DPP-CSv3qi5QImkSy7-hCfrRdpUqPlKYUjFpsSiDqw6kWA2I33uUm4pv7bF4eyynlf-ulM3OZl1KrzM1MAc467ngmyhOUBW8BqzussXRDzrGaX8OvCuh76DTS4HfGtyTDEtz55RW8M0inPnvrchSlFVIU9Q3r0Jymnoihu4WQT4XuL4upJspqz_EnKqILUM4CMtLr3fnnKWMTs-mnoVzz0kXMExQiylpHv0MezCm7M1T4o5WiiWtjdNfRumOwYM_s7pefAFHW6BecNRn2Ft26GZgPzBSpp7oEZMnc9Nc4WldVunGHH327Phm3wFXPkfU0srRV3d03D9I9XEpbdDYbXVoP6DEBieWvKDPou_-1jztTTf3M8m_3Q5slgyMGAeTtbLH1Rk4c466FsTIK2yRikcm-7bsgm-8TurGZCXF2724ImaUX8JYwUHjY428dd6QizpG2yL939OhQe1XXozIm65y-NXYCxOUbsQcuyiSbXW5Qw1kagX2n0D32pLZno9gCSu4BYENEjrAAcAOnJ6Vd44TOxAGaBltSx66Mr8kg89rciSe5ZO4yuPG4dxZRBM-92n0hqInOAV5SFnJl-bv52cWhjyJAHtRAzOPxp_3lgW-0aBF8ojqP4CJxMB0KigwY7E9ww3zrX_I_ZwBxDvGg2PmwIANeENhD514SQU6iiqjdO6_IG4ekah3VgxZfjcrUBVd7-Y3wqw7GFuKfMuFQJGVT9aCPuyezCAvf4hjlsamn_r0SAr7Xxp4F4d-0FrwKYKo1gtY1bWNstjFTwe3zJ_RbEQgcXLpWJXOxtAa_xU2K01qOrtkR-M3WQkHlYNj4P8D9Wv1d6K3WEhtYtizSrm0OPsGGtpj48rzwaPejac8bQJWcD62P4IFvo7Scgg83tQ72sYrsLM3Aa7GwRlcc5K1rsGa7A6vKqRlZ7boTaeh7wK0t3IS7ygI2wZWSbguR8-RLDFjaZvWcdSe91cvD64oKKjSuWlvhT9vavz8Bgi83Zr8_tDWR096xMYPoIH2vzfDogSF95GHGr-hwWp41kfGYGCJaiycXZ6mB4wl5p1tt24TWOvEI8XMp4wdFYlcdX4ygrlsPPeb4aUlxJrfalU_TuRBMlotvw73vxkrneVopxXO-zZSejzrqvZAZEwiQ5LtkmNs-uumgGyDSgja-3nRWzm1rI32bRmHInkJJUgqRhEIix-RTEMns7kiZVcKIxb1oEOd--HMjTxwEL87T5r_5cVFTMTjKkrdnilMl2xO9RIbfegPu_2b9cjAJLqLd1IxllAx2GoD8XzJ1YN4z[root@iZwz96q6pj8e3gc3q2r0zmZ ~]# echo  > /var/lib/docker/containers/4da1baf40379a2227fe70c5d529e068f48fc9338ec8f5d96d21b44546360661a/4da1baf40379a2227fe70c5d529e068f48fc9338ec8f5d96d21b44546360661a-json.log
+									[root@iZwz96q6pj8e3gc3q2r0zmZ ~]# head /var/lib/docker/containers/82341f888c94cd1cf5cba50600b307ce2b8e493d41f1e40bae62442984c13bdc/82341f888c94cd1cf5cba50600b307ce2b8e493d41f1e40bae62442984c13bdc-json.log
+									{"log":"47.90.208.60 - - [27/Sep/2024:03:56:17 +0000] \"GET /countries?city-name=Bengaluru HTTP/1.1\" 200 33 \"https://www.delhivery.com/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36\" \"-\"\r\n","stream":"stdout","time":"2024-09-27T03:56:17.335057134Z"}
+									{"log":"47.90.137.227 - - [27/Sep/2024:03:56:17 +0000] \"GET /countries?city-name=Khorda HTTP/1.1\" 200 33 \"https://www.delhivery.com/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36\" \"-\"\r\n","stream":"stdout","time":"2024-09-27T03:56:17.37479761Z"}
+									{"log":"47.90.139.151 - - [27/Sep/2024:03:56:17 +0000] \"GET /countries?city-name=Surat HTTP/1.1\" 200 188 \"https://www.delhivery.com/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36\" \"-\"\r\n","stream":"stdout","time":"2024-09-27T03:56:17.88770148Z"}
+									{"log":"47.252.16.221 - - [27/Sep/2024:03:56:18 +0000] \"GET /countries?city-name=chaat.+murti+E0 HTTP/1.1\" 200 33 \"https://www.delhivery.com/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36\" \"-\"\r\n","stream":"stdout","time":"2024-09-27T03:56:18.012795511Z"}
+									{"log":"47.252.5.182 - - [27/Sep/2024:03:56:18 +0000] \"GET /countries?city-name=Thane HTTP/1.1\" 200 188 \"https://www.delhivery.com/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36\" \"-\"\r\n","stream":"stdout","time":"2024-09-27T03:56:18.281477126Z"}
+									{"log":"47.90.247.131 - - [27/Sep/2024:03:56:18 +0000] \"GET /countries?city-name=Patna HTTP/1.1\" 200 106 \"https://www.delhivery.com/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36\" \"-\"\r\n","stream":"stdout","time":"2024-09-27T03:56:18.291637049Z"}
+									{"log":"47.89.189.173 - - [27/Sep/2024:03:56:18 +0000] \"GET /countries?city-name=Surat HTTP/1.1\" 200 188 \"https://www.delhivery.com/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36\" \"-\"\r\n","stream":"stdout","time":"2024-09-27T03:56:18.626032Z"}
+									{"log":"47.90.204.205 - - [27/Sep/2024:03:56:18 +0000] \"GET /countries?city-name=Hyderabad HTTP/1.1\" 200 186 \"https://www.bluedart.com/web/guest/tracking\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36\" \"-\"\r\n","stream":"stdout","time":"2024-09-27T03:56:18.76366369Z"}
+									{"log":"47.253.34.61 - - [27/Sep/2024:03:56:19 +0000] \"GET /countries?city-name=Mumbai HTTP/1.1\" 200 106 \"https://www.delhivery.com/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36\" \"-\"\r\n","stream":"stdout","time":"2024-09-27T03:56:19.048962447Z"}
+									{"log":"47.90.137.227 - - [27/Sep/2024:03:56:19 +0000] \"GET /countries?city-name=North+West+Delhi HTTP/1.1\" 200 33 \"https://www.delhivery.com/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36\" \"-\"\r\n","stream":"stdout","time":"2024-09-27T03:56:19.090787065Z"}
+									[root@iZwz96q6pj8e3gc3q2r0zmZ ~]# df -h
+									Filesystem      Size  Used Avail Use% Mounted on
+									devtmpfs        908M     0  908M   0% /dev
+									tmpfs           919M     0  919M   0% /dev/shm
+									tmpfs           919M   93M  826M  11% /run
+									tmpfs           919M     0  919M   0% /sys/fs/cgroup
+									/dev/vda1        40G   30G  7.5G  81% /
+									overlay          40G   30G  7.5G  81% /var/lib/docker/overlay2/acd25c0ccbe54c8611f57f99c5d6d6b3da07bdf41e921c0d8d910c99fb9a2cfd/merged
+									overlay          40G   30G  7.5G  81% /var/lib/docker/overlay2/998c3df796e00f2e75d5840e4e326b816512eb634f6165ab3bfe257d79deba57/merged
+									shm              64M     0   64M   0% /var/lib/docker/containers/4b39b3d075195bd208b762b95c0dd3df28f7a441b5e22f288a410a7a1c039c22/mounts/shm
+									overlay          40G   30G  7.5G  81% /var/lib/docker/overlay2/f68015aafd946e0247585c6413d7ae29586bed10b9ed3b2bb3f63d713d26f282/merged
+									shm              64M     0   64M   0% /var/lib/docker/containers/e70db7d91bb49015914d7d809e274fe63f8271bf828f4eab023c8e9290696936/mounts/shm
+									overlay          40G   30G  7.5G  81% /var/lib/docker/overlay2/029c465f5390d26ddf88c709b6b14e3773b0fe3b092e50eeed2e1ecace084185/merged
+									shm              64M     0   64M   0% /var/lib/docker/containers/e3a38c2efcaa25d5da17e04610e9f5cabf4b3e3c78a74ea82eab3012b7f129e6/mounts/shm
+									overlay          40G   30G  7.5G  81% /var/lib/docker/overlay2/f5a0eb137ca51686199217968a0e0eedc6a2b6f10e7c3f64f20d3dcea861b96e/merged
+									shm              64M     0   64M   0% /var/lib/docker/containers/1cd497746e76ebf5e3d7f9d3dd783c378e81b925da787b3c7dac1f5c0ced0f19/mounts/shm
+									shm              64M     0   64M   0% /var/lib/docker/containers/82341f888c94cd1cf5cba50600b307ce2b8e493d41f1e40bae62442984c13bdc/mounts/shm
+									overlay          40G   30G  7.5G  81% /var/lib/docker/overlay2/dc5e50ba44bd69301dbd80911558ebabbce967f0e71b55d7b7934db9037f5297/merged
+									shm              64M     0   64M   0% /var/lib/docker/containers/6da9cffdd9c54b23bae428cd5c1c9157088b62aa72a5c756bcd59f544b89fea8/mounts/shm
+									tmpfs           184M     0  184M   0% /run/user/1000
+									tmpfs           184M     0  184M   0% /run/user/0
+									overlay          40G   30G  7.5G  81% /var/lib/docker/overlay2/b442afa131e0cb6b09d55958c108101c17459bd3ecd1f04111e327a357b77b80/merged
+									shm              64M     0   64M   0% /var/lib/docker/containers/4da1baf40379a2227fe70c5d529e068f48fc9338ec8f5d96d21b44546360661a/mounts/shm
 							-- 20250308
 								-www-51-20
 									[root@iZ94apf5ivnZ ~]# df -h
@@ -7294,8 +7590,60 @@
 									overlay          40G   26G   14G  67% /var/lib/docker/overlay2/42f90134a9d2925e59000e462681b05b6a399b31228537281a92f25afc8df878/merged
 									overlay          40G   26G   14G  67% /var/lib/docker/overlay2/40d2cb0487f9b57bc2bb10bf1e52d5fc1caca3dd35af46c0ee2f3779028edf2d/merged
 									overlay          40G   26G   14G  67% /var/lib/docker/overlay2/cf95d1b2d1272e586c0196fb584c7a7517890a94206cbca3e7a567756d036aad/merged
+									[root@iz0xif9y7r0fstxmq97t54z ~]# sh disk.20241023.sh / 3 100
+									du: cannot access ‘/proc/32324/task/32324/fd/4’: No such file or directory
+									du: cannot access ‘/proc/32324/task/32324/fdinfo/4’: No such file or directory
+									du: cannot access ‘/proc/32324/fd/4’: No such file or directory
+									du: cannot access ‘/proc/32324/fdinfo/4’: No such file or directory
+									/: 33469 MB
+										//boot: 147 MB
+										//data: 742 MB
+											//data/server_logs: 742 MB
+										//home: 11163 MB
+											//home/wwwroot: 10996 MB
+											//lib/firmware: 172 MB
+											//lib/locale: 102 MB
+									locale-archive: 102 MB
+											//lib64/python2.7: 118 MB
+									du: cannot access ‘//proc/16737/task/16737/fd/4’: No such file or directory
+									du: cannot access ‘//proc/16737/task/16737/fdinfo/4’: No such file or directory
+									du: cannot access ‘//proc/16737/fd/4’: No such file or directory
+									du: cannot access ‘//proc/16737/fdinfo/4’: No such file or directory
+										//root: 196 MB
+										//run: 4544 MB
+											//run/log: 4533 MB
+									171.csv.zip: 717 MB
+									20241204.zip: 672 MB
+									1716.csv.zip: 170 MB
+									1715.csv.zip: 170 MB
+									1714.csv.zip: 169 MB
+									1718.csv.zip: 163 MB
+									1717.csv.zip: 148 MB
+									20241210.zip: 136 MB
+										//usr: 10472 MB
+											//usr/bin: 370 MB
+											//usr/lib: 486 MB
+											//usr/lib64: 250 MB
+											//usr/libexec: 200 MB
+											//usr/local: 8619 MB
+											//usr/share: 476 MB
+										//var: 6088 MB
+											//var/cache: 583 MB
+											//var/lib: 4066 MB
+											//var/log: 1439 MB
+									[root@iz0xif9y7r0fstxmq97t54z ~]# sh disk.20241023.sh /home/wwwroot 3 100
+									/home/wwwroot: 10996 MB
+										/home/wwwroot/upload: 4873 MB
+											/home/wwwroot/upload/huaqiang: 4389 MB
+											/home/wwwroot/upload/lipeng: 415 MB
+										/home/wwwroot/www.trackingmore.com: 6103 MB
+											/home/wwwroot/www.trackingmore.com/admin: 4160 MB
+											/home/wwwroot/www.trackingmore.com/logs: 246 MB
+											/home/wwwroot/www.trackingmore.com/python3: 221 MB
+											/home/wwwroot/www.trackingmore.com/python_img: 300 MB
+											/home/wwwroot/www.trackingmore.com/script: 207 MB
+											/home/wwwroot/www.trackingmore.com/section: 505 MB
 									待办：自动执行脚本
-								-174-77-tm
 							-- 20250222
 								-77
 									96%
