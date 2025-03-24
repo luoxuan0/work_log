@@ -6140,6 +6140,23 @@
 				确认申请，定位P0事件 https://devops.aliyun.com/projex/req/TMPX-6053# 《ISO27701 证书申请》
 
 	周末值班
+		-- 20250323
+			#2025年3月23日物流信息事业部值班情况
+			值班人：陈华强
+			1，国内外项目运作正常，国内外无新增客诉，巡检查询项目3次
+			
+			2，更新
+				国内邮政
+					usps线路正常，存在堆积（最后一次巡检79w），需要关注
+				国内快递
+					dhl线路正常，存在堆积（最后一次巡检76w），需要关注
+					ups线路正常，存在堆积（最后一次巡检62w），需要关注
+					yunexpress线路正常，存在堆积（最后一次巡检42w），需要关注
+				国外邮政
+					预警群同0309待接入准确数据
+					royal-mail-v2线路正常，存在堆积（最后一次巡检38w）持续，需要关注
+				国外快递无明显堆积
+			3，磁盘临时处理
 		-- 20250309
 			#2025年3月9日物流信息事业部值班情况
 			值班人：陈华强
@@ -7199,6 +7216,273 @@
 								script\queueshell\zipAndRmSpecifyTimeFile.sh
 								script\queueshell\file.to.zip.sh
 						历史数据清理 20240529
+							-- 20250323
+								-51-140
+									# df -h
+									Filesystem      Size  Used Avail Use% Mounted on
+									/dev/vda1        49G   46G  2.2G  96% /
+									devtmpfs         16G     0   16G   0% /dev
+									tmpfs            16G     0   16G   0% /dev/shm
+									tmpfs            16G  1.2G   15G   8% /run
+									tmpfs            16G     0   16G   0% /sys/fs/cgroup
+									tmpfs           3.1G     0  3.1G   0% /run/user/0
+									tmpfs           3.1G     0  3.1G   0% /run/user/1003
+									[root@izwz908uhtm6wdcqcg9bqez ~]
+									# find / -name '*' -type f -size +100M | xargs ls -lh {} | sort -nrk5
+									find: ‘/proc/7199’: No such file or directory
+									find: ‘/proc/7367’: No such file or directory
+									find: ‘/proc/7371’: No such file or directory
+									find: ‘/proc/9742’: No such file or directory
+									find: ‘/proc/9909’: No such file or directory
+									find: ‘/proc/9931’: No such file or directory
+									find: ‘/proc/12963/task/12963/fdinfo/6’: No such file or directory
+									find: ‘/proc/12963/fdinfo/5’: No such file or directory
+									find: ‘/proc/29259’: No such file or directory
+									find: ‘/proc/29281’: No such file or directory
+									ls: cannot access {}: No such file or directory
+									-rw-------  1 root root 716M Oct 16  2018 /var/crash/127.0.0.1-2018-10-16-16:57:30/vmcore
+									-rw-r--r--  1 root root 380M Mar 23 22:34 /home/wwwroot/www.trackingmore.com/section/carrierspic10.css
+									-rw-r--r--  1  386  386 380M Mar 18 00:36 /home/wwwroot/www.51tracking.com/section/carrierspic10.css
+									-rw-r--r--  1 root root 211M Sep 22  2021 /home/tidb/tidb-toolkit-v5.0.1-linux-amd64.tar.gz
+									-rw-r--r--  1 root root 210M Apr  7  2021 /usr/local/tidb-toolkit-v5.0.0-linux-amd64.tar.gz
+									-rw-r--r--  1 root root 165M Jan 28 00:11 /run/log/root/test_courier.20250127.log.zip
+									-rw-rw-r--  1 tidb tidb 162M May 12  2021 /home/tidb/.tiup/storage/cluster/packages/tikv-v5.0.0-linux-amd64.tar.gz
+									-rw-r--r--  1 root root 148M Mar 23 21:11 /data/server_logs/root/20250323211102.test_courier.log
+									-rw-r--r--  1 root root 148M Jan 30 00:11 /run/log/root/test_courier.20250129.log.zip
+									-rwxr-xr-x  1 root root 137M Apr  4  2019 /opt/google/chrome/chrome
+									-rw-r--r--  1 root root 132M Jan 27 00:11 /run/log/root/test_courier.20250126.log.zip
+									-rwxr-xr-x  1 tidb tidb 130M Sep 27  2021 /home/tidb/.tiup/components/ctl/v5.2.1/tikv-ctl
+									-r--------  1 root root 128T Mar 23 22:34 /proc/kcore
+									-rw-r--r--  1 root root 127M Jan 25 00:11 /run/log/root/test_courier.20250124.log.zip
+									-rw-r--r--  1 root root 127M Feb  5 01:22 /data/server_logs/root/20250205011229.remove_redis.log.zip
+									-rw-r--r--  1 root root 126M Aug 24  2023 /var/cache/yum/x86_64/7/updates/gen/primary_db.sqlite
+									-rwxr-xr-x  1 tidb tidb 124M Sep 27  2021 /home/tidb/.tiup/components/ctl/v5.2.1/cdc
+									-rw-r--r--  1 root root 123M Jan 24 00:11 /run/log/root/test_courier.20250123.log.zip
+									-rwxr-xr-x  1 tidb tidb 120M May 17  2021 /home/tidb/.tiup/components/tidb/v5.0.1/tidb-server
+									-rw-r--r--. 1 root root 114M Aug 28  2023 /var/lib/rpm/Packages
+									-rw-------  1 root root 105M Mar 10 03:45 /var/log/cron-20250310
+									-rw-r--r--  1 root root 102M Nov 29  2022 /usr/lib/locale/locale-archive
+									-rw-------  1 root root 102M Mar 23 22:34 /var/log/cron
+									[root@izwz908uhtm6wdcqcg9bqez ~]
+									# rm -f   /data/server_logs/root/202501*trackingSingleQueue.log.zip
+									[root@izwz908uhtm6wdcqcg9bqez ~]
+									# rm -f   /data/server_logs/root/202502*trackingSingleQueue.log.zip
+									[root@izwz908uhtm6wdcqcg9bqez ~]
+									# rm -f   /data/server_logs/root/2025030*trackingSingleQueue.log.zip
+									[root@izwz908uhtm6wdcqcg9bqez ~]
+									# rm -f   /data/server_logs/root/2025031*trackingSingleQueue.log.zip
+									[root@izwz908uhtm6wdcqcg9bqez ~]
+									# rm -f   /data/server_logs/root/202501*emailAndSMSSendFitter.log.zip
+									[root@izwz908uhtm6wdcqcg9bqez ~]
+									# rm -f   /data/server_logs/root/202502*emailAndSMSSendFitter.log.zip
+									[root@izwz908uhtm6wdcqcg9bqez ~]
+									# rm -f   /data/server_logs/root/2025030*emailAndSMSSendFitter.log.zip
+									[root@izwz908uhtm6wdcqcg9bqez ~]
+									# rm -f   /data/server_logs/root/2025031*emailAndSMSSendFitter.log.zip
+									[root@izwz908uhtm6wdcqcg9bqez ~]
+									# rm -f   /data/server_logs/root/*test_courier.log.zip
+									[root@izwz908uhtm6wdcqcg9bqez ~]
+									# rm -f   /data/server_logs/root/*spendtimetltle_s.log.zip
+									[root@izwz908uhtm6wdcqcg9bqez ~]
+									# df -h
+									Filesystem      Size  Used Avail Use% Mounted on
+									/dev/vda1        49G   38G   11G  79% /
+									devtmpfs         16G     0   16G   0% /dev
+									tmpfs            16G     0   16G   0% /dev/shm
+									tmpfs            16G  1.2G   15G   8% /run
+									tmpfs            16G     0   16G   0% /sys/fs/cgroup
+									tmpfs           3.1G     0  3.1G   0% /run/user/0
+									tmpfs           3.1G     0  3.1G   0% /run/user/1003
+								-27-tm
+									[root@iZ0xifhcadlq8e9t1jngcpZ ~]# df -h
+									Filesystem      Size  Used Avail Use% Mounted on
+									/dev/vda1        40G   38G  860M  98% /
+									devtmpfs        7.8G     0  7.8G   0% /dev
+									tmpfs           7.8G     0  7.8G   0% /dev/shm
+									tmpfs           7.8G  365M  7.5G   5% /run
+									tmpfs           7.8G     0  7.8G   0% /sys/fs/cgroup
+									tmpfs           1.6G     0  1.6G   0% /run/user/0
+									tmpfs           1.6G     0  1.6G   0% /run/user/1002
+									overlay          40G   38G  860M  98% /var/lib/docker/overlay2/444a22f48047ba535fbf882fdb240c3d17943df489dc92896b1190bb0fc15258/merged
+									[root@iZ0xifhcadlq8e9t1jngcpZ ~]# df -h
+									Filesystem      Size  Used Avail Use% Mounted on
+									/dev/vda1        40G   38G  854M  98% /
+									devtmpfs        7.8G     0  7.8G   0% /dev
+									tmpfs           7.8G     0  7.8G   0% /dev/shm
+									tmpfs           7.8G  365M  7.5G   5% /run
+									tmpfs           7.8G     0  7.8G   0% /sys/fs/cgroup
+									tmpfs           1.6G     0  1.6G   0% /run/user/0
+									tmpfs           1.6G     0  1.6G   0% /run/user/1002
+									overlay          40G   38G  854M  98% /var/lib/docker/overlay2/444a22f48047ba535fbf882fdb240c3d17943df489dc92896b1190bb0fc15258/merged
+									[root@iZ0xifhcadlq8e9t1jngcpZ ~]# find / -name '*' -type f -size +100M | xargs ls -lh {} | sort -nrk5
+									find: ‘/proc/22212/task/22212/fdinfo/6’: No such file or directory
+									find: ‘/proc/22212/fdinfo/6’: No such file or directory
+									ls: cannot access {}: No such file or directory
+									-rw-r----- 1 root root 220M Mar 23 22:36 /var/lib/docker/containers/cc03fc86cc44562f5f32ab4312143b174dd5e76b3e6a68fb84a5424130807df1/cc03fc86cc44562f5f32ab4312143b174dd5e76b3e6a68fb84a5424130807df1-json.log
+									-rw-r--r-- 1 root root 174M Nov 26 18:58 /run/log/home-wwwroot-www.trackingmore.com-mailwehook-en/easypost_webhook_input.log.saveto.20250216.2g.zip
+									-rw-r--r-- 1 root root 164M Dec 18 23:55 /run/log/home-wwwroot-www.trackingmore.com-mailwehook-en/royalmail_webhook_input.log.20241115.20241218.1.5g.zip
+									-rw-r--r-- 1 root root 147M Apr  3  2024 /var/cache/yum/x86_64/7/updates/gen/primary_db.sqlite
+									-rw-r--r-- 1 root root 139M Apr  3  2024 /var/cache/yum/x86_64/7/updates/gen/filelists_db.sqlite
+									-r-------- 1 root root 128T Mar 23 22:36 /proc/kcore
+									-rw-r--r-- 1 root root 118M Sep  1  2020 /usr/local/rasp-php-linux.tar.bz2
+									-rwxr-xr-x 1 root root 102M Apr 23  2024 /usr/bin/dockerd
+									-rw-r--r-- 1 root root 102M Mar 16  2018 /usr/lib/locale/locale-archive
+									-rw-r--r-- 1 root root 3.2G Mar 13 16:47 /home/wwwlogs/www.trackingmore.com.access.log
+									[root@iZ0xifhcadlq8e9t1jngcpZ ~]# echo > /home/wwwlogs/www.trackingmore.com.access.log
+									[root@iZ0xifhcadlq8e9t1jngcpZ ~]# df -h
+									Filesystem      Size  Used Avail Use% Mounted on
+									/dev/vda1        40G   35G  4.0G  90% /
+									devtmpfs        7.8G     0  7.8G   0% /dev
+									tmpfs           7.8G     0  7.8G   0% /dev/shm
+									tmpfs           7.8G  365M  7.5G   5% /run
+									tmpfs           7.8G     0  7.8G   0% /sys/fs/cgroup
+									tmpfs           1.6G     0  1.6G   0% /run/user/0
+									tmpfs           1.6G     0  1.6G   0% /run/user/1002
+									overlay          40G   35G  4.0G  90% /var/lib/docker/overlay2/444a22f48047ba535fbf882fdb240c3d17943df489dc92896b1190bb0fc15258/merged
+								c-ind-87-0-9-191-172.16.21.190-tm
+									[root@iZ0xi5xgeh5qxvn2k3cnxnZ ~]# df -h
+									Filesystem      Size  Used Avail Use% Mounted on
+									devtmpfs        1.8G     0  1.8G   0% /dev
+									tmpfs           1.8G     0  1.8G   0% /dev/shm
+									tmpfs           1.8G  588K  1.8G   1% /run
+									tmpfs           1.8G     0  1.8G   0% /sys/fs/cgroup
+									/dev/vda1        40G   39G  1.8G  96% /
+									tmpfs           360M     0  360M   0% /run/user/0
+									tmpfs           360M     0  360M   0% /run/user/1001
+									[root@iZ0xi5xgeh5qxvn2k3cnxnZ ~]# ll test
+									test.1.sh               test_courier.log        test.redis.webhook.log  test.sh                 
+									[root@iZ0xi5xgeh5qxvn2k3cnxnZ ~]# ll test
+									test.1.sh               test_courier.log        test.redis.webhook.log  test.sh                 
+									[root@iZ0xi5xgeh5qxvn2k3cnxnZ ~]# ll test
+									test.1.sh               test_courier.log        test.redis.webhook.log  test.sh                 
+									[root@iZ0xi5xgeh5qxvn2k3cnxnZ ~]# ll test* -h
+									-rw-r--r-- 1 root root 1.4K Nov 25 15:17 test.1.sh
+									-rw-r--r-- 1 root root 8.7M Mar 23 22:24 test_courier.log
+									-rw-r--r-- 1 root root 5.5M Mar 23 22:31 test.redis.webhook.log
+									-rw-r--r-- 1 root root  129 Feb 10  2022 test.sh
+									[root@iZ0xi5xgeh5qxvn2k3cnxnZ ~]# ll  -h | grep china-post
+									[root@iZ0xi5xgeh5qxvn2k3cnxnZ ~]# du -sh ~
+									28G     /root
+									[root@iZ0xi5xgeh5qxvn2k3cnxnZ ~]# ll | head
+									total 28913588
+									drwxr-xr-x 5 root root          53 Mar 13  2021 20210313
+									drwxr-xr-x 5 root root          53 Mar 13  2021 2021031321
+									-rw-r--r-- 1 root root         961 Dec 11  2020 cmd.1.sh
+									-rw-r--r-- 1 root root         957 Dec 21  2020 cmd.sh
+									-rw-r--r-- 1 root root        1019 Dec 18 16:24 cmd.with.param.sh
+									-rw-r--r-- 1 root root       18092 Nov  5  2021 courier_empty_value.log
+									-rw-r--r-- 1 root root  1378195029 Mar 23 22:32 curl.api.trackingmore.com.time.log
+									-rw-r--r-- 1 root root         255 Feb 10  2022 curl.api.trackingmore.com.time.sh
+									-rw-r--r-- 1 root root  5272373227 Mar 23 22:32 emailAndSMSSendFitter.log
+									[root@iZ0xi5xgeh5qxvn2k3cnxnZ ~]# ll -h | head 
+									total 28G
+									drwxr-xr-x 5 root root   53 Mar 13  2021 20210313
+									drwxr-xr-x 5 root root   53 Mar 13  2021 2021031321
+									-rw-r--r-- 1 root root  961 Dec 11  2020 cmd.1.sh
+									-rw-r--r-- 1 root root  957 Dec 21  2020 cmd.sh
+									-rw-r--r-- 1 root root 1019 Dec 18 16:24 cmd.with.param.sh
+									-rw-r--r-- 1 root root  18K Nov  5  2021 courier_empty_value.log
+									-rw-r--r-- 1 root root 1.3G Mar 23 22:32 curl.api.trackingmore.com.time.log
+									-rw-r--r-- 1 root root  255 Feb 10  2022 curl.api.trackingmore.com.time.sh
+									-rw-r--r-- 1 root root 5.0G Mar 23 22:32 emailAndSMSSendFitter.log
+									[root@iZ0xi5xgeh5qxvn2k3cnxnZ ~]# ll -h | head -30
+									total 28G
+									drwxr-xr-x 5 root root   53 Mar 13  2021 20210313
+									drwxr-xr-x 5 root root   53 Mar 13  2021 2021031321
+									-rw-r--r-- 1 root root  961 Dec 11  2020 cmd.1.sh
+									-rw-r--r-- 1 root root  957 Dec 21  2020 cmd.sh
+									-rw-r--r-- 1 root root 1019 Dec 18 16:24 cmd.with.param.sh
+									-rw-r--r-- 1 root root  18K Nov  5  2021 courier_empty_value.log
+									-rw-r--r-- 1 root root 1.3G Mar 23 22:32 curl.api.trackingmore.com.time.log
+									-rw-r--r-- 1 root root  255 Feb 10  2022 curl.api.trackingmore.com.time.sh
+									-rw-r--r-- 1 root root 5.0G Mar 23 22:32 emailAndSMSSendFitter.log
+									-rw-r--r-- 1 root root  601 Mar 13  2021 exclude.list
+									drwxr-xr-x 2 root root    6 Sep 14  2020 jdk1.8.0_73
+									-rw-r--r-- 1 root root  670 Feb 23  2021 jpush.log
+									-rw-r--r-- 1 root root  709 Dec 12  2020 resq_track_sql_err.20201212.log
+									-rw-r--r-- 1 root root  26K Dec 19  2020 resq_track_sql_err.20201219.log
+									-rw-r--r-- 1 root root 9.7K Dec 20  2020 resq_track_sql_err.20201220.log
+									-rw-r--r-- 1 root root  14K Dec 21  2020 resq_track_sql_err.20201221.log
+									-rw-r--r-- 1 root root 8.4K Dec 22  2020 resq_track_sql_err.20201222.log
+									-rw-r--r-- 1 root root 9.1K Dec 23  2020 resq_track_sql_err.20201223.log
+									-rw-r--r-- 1 root root 4.2K Dec 24  2020 resq_track_sql_err.20201224.log
+									-rw-r--r-- 1 root root  664 Dec 28  2020 resq_track_sql_err.20201228.log
+									-rw-r--r-- 1 root root  664 Jan  2  2021 resq_track_sql_err.20210102.log
+									-rw-r--r-- 1 root root  662 Jan  9  2021 resq_track_sql_err.20210109.log
+									-rw-r--r-- 1 root root  664 Jan 23  2021 resq_track_sql_err.20210123.log
+									-rw-r--r-- 1 root root  664 Feb  1  2021 resq_track_sql_err.20210201.log
+									-rw-r--r-- 1 root root  694 Feb  6  2021 resq_track_sql_err.20210206.log
+									-rw-r--r-- 1 root root  664 Feb  7  2021 resq_track_sql_err.20210207.log
+									-rw-r--r-- 1 root root  265 Feb 15  2021 resq_track_sql_err.20210215.log
+									-rw-r--r-- 1 root root  664 Feb 23  2021 resq_track_sql_err.20210223.log
+									-rw-r--r-- 1 root root  350 Feb 28  2021 resq_track_sql_err.20210228.log
+									[root@iZ0xi5xgeh5qxvn2k3cnxnZ ~]# tail curl.api.trackingmore.com.time.log
+									20250323 22:33:28 0.000756::0.002129::0.002146::0.039871::0.039922::2128.000
+									20250323 22:33:29 0.001386::0.002761::0.002778::0.036590::0.036665::2305.000
+									20250323 22:33:30 0.002008::0.003184::0.003202::0.057013::0.057074::1456.000
+									20250323 22:33:31 0.000780::0.002358::0.002387::0.041867::0.041925::2024.000
+									20250323 22:33:32 0.004097::0.005476::0.005498::0.047600::0.047668::1765.000
+									20250323 22:33:33 0.000844::0.001848::0.001866::0.033932::0.033986::2515.000
+									20250323 22:33:34 0.004098::0.005181::0.005198::0.047160::0.047214::1765.000
+									20250323 22:33:35 0.000790::0.001872::0.001898::0.031146::0.031200::2677.000
+									20250323 22:33:36 0.000984::0.001959::0.001977::0.030489::0.030541::2766.000
+									20250323 22:33:37 0.000817::0.002166::0.002183::0.041914::0.041964::2024.000
+									[root@iZ0xi5xgeh5qxvn2k3cnxnZ ~]# ehad emailAndSMSSendFitter.log
+									-bash: ehad: command not found
+									[root@iZ0xi5xgeh5qxvn2k3cnxnZ ~]# head emailAndSMSSendFitter.log
+									user 47740 's 33604910743 status has not change 
+									user 47740 's 33604915875 status has not change 
+									user 47740 's 33604910382 status has not change 
+									user 47740 's 31668652606 status has not change 
+									user 47740 's 33604914490 status has not change 
+									user 47740 's 31668620653 status has not change 
+									user 47740 's 33604908330 status has not change 
+									user 47740 's 33604915422 status has not change 
+									user 47740 's 31668664974 status has not change 
+									user 47740 's 33604915606 status has not change 
+									[root@iZ0xi5xgeh5qxvn2k3cnxnZ ~]# tail emailAndSMSSendFitter.log
+									user 16338 's 9200190374179022992103 status has not change 
+									user 74677 's LY577225349DE status has not change 
+									user 114779 's 9200190382010604447538 status has not change 
+									user 256499 's LV678414196US status has not change 
+									user 114779 's 4200805313539200190376610804022529 status has not change 
+									user 58132 's 9234690382010700498672 status has not change 
+									user 81160 's RB017668315CZ status has not change 
+									user 114779 's 420852969200190374179023557660 status has not change 
+									user 114779 's 4208592969919200190374179425812022 status has not change 
+									user 114779 's 420852059200190374179425758788 status has not change 
+									(failed reverse-i-search)`100M':  grep '^C0%' wpa.20250205.log
+									[root@iZ0xi5xgeh5qxvn2k3cnxnZ ~]# df -h
+									Filesystem      Size  Used Avail Use% Mounted on
+									devtmpfs        1.8G     0  1.8G   0% /dev
+									tmpfs           1.8G     0  1.8G   0% /dev/shm
+									tmpfs           1.8G  564K  1.8G   1% /run
+									tmpfs           1.8G     0  1.8G   0% /sys/fs/cgroup
+									/dev/vda1        40G   39G  1.8G  96% /
+									tmpfs           360M     0  360M   0% /run/user/0
+									tmpfs           360M     0  360M   0% /run/user/1001
+									[root@iZ0xi5xgeh5qxvn2k3cnxnZ ~]# find / -name '*' -type f -size +100M | xargs ls -lh {} | sort -nrk5
+									find: ‘/proc/30791’: No such file or directory
+									find: ‘/proc/30796/task/30796/fdinfo/6’: No such file or directory
+									find: ‘/proc/30796/fdinfo/5’: No such file or directory
+									ls: cannot access '{}': No such file or directory
+									-rw-r--r-- 1 root root 198M Mar 23 22:34 /root/trackingSingleQueue123.log
+									-r-------- 1 root root 128T Mar 19 08:07 /proc/kcore
+									-rw-r--r-- 1 root root 117M Mar 23 22:34 /root/track_post_Job.log
+									-rw-r--r-- 1 root root  21G Mar 23 22:34 /root/trackingSingleQueue.log
+									-rw-r--r-- 1 root root 5.0G Mar 23 22:34 /root/emailAndSMSSendFitter.log
+									-rw-r--r-- 1 root root 1.3G Mar 23 22:34 /root/curl.api.trackingmore.com.time.log
+									[root@iZ0xi5xgeh5qxvn2k3cnxnZ ~]# echo > /root/trackingSingleQueue.log
+									[root@iZ0xi5xgeh5qxvn2k3cnxnZ ~]# echo > /root/emailAndSMSSendFitter.log
+									[root@iZ0xi5xgeh5qxvn2k3cnxnZ ~]# df -h
+									Filesystem      Size  Used Avail Use% Mounted on
+									devtmpfs        1.8G     0  1.8G   0% /dev
+									tmpfs           1.8G     0  1.8G   0% /dev/shm
+									tmpfs           1.8G  580K  1.8G   1% /run
+									tmpfs           1.8G     0  1.8G   0% /sys/fs/cgroup
+									/dev/vda1        40G   14G   27G  34% /
+									tmpfs           360M     0  360M   0% /run/user/0
+									tmpfs           360M     0  360M   0% /run/user/1001
 							-- 20250309
 								-174-77-tm
 									[root@iz0xibhd8xjxiru8zt5ierz ~]# df -h
