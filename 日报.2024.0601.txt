@@ -5539,6 +5539,41 @@
 日常响应
 3，后续优先级、应对
 
+===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== =====
+20250328
+【运维】
+1，海外销售入云效-权限（目前拉为成员则对18个公共项目可见）@FXM @GC
+2，客户api接口限速调整 @LSJ
+3，容器化-队列相关 @GC
+4，aws成本
+【本地桌面运维】
+5，vscode连不上开发服务器-CPU高暂未发现原因-重新换机器 @CZH
+
+原计划：
+本地
+1，网络优化相关-整体梳理&推进
+1-1，外网服务商D-全量测试（回访收集）
+1-2，外网服务商C-全量测试（带宽实际最大值）
+1-3，原外网服务商-后续测试对接
+1-4，线上会议（国外&国内）不稳定（602AP新增&回访收集）
+1-5，开发服务器新建
+运维
+2，等保复测相关
+日常响应
+3，后续优先级、应对
+
+计划：
+本地
+1，网络优化相关-整体梳理&推进
+1-1，外网服务商D-全量测试（回访收集）
+1-2，外网服务商C-全量测试（带宽实际最大值）
+1-3，原外网服务商-后续测试对接
+1-4，线上会议（国外&国内）不稳定（602AP新增&回访收集）
+运维
+2，重要服务高等级告警覆盖
+日常响应
+3，后续优先级、应对
+
 
 近期复盘
 	3，工作项梳理
@@ -5582,6 +5617,13 @@
 	5，测试环境-分支自动构建触发取消
 
 操作顺序
+		-- 20250328
+			api
+			云成本
+			专线
+				美国
+				新加坡
+				香港
 		-- 20250326
 			本地
 				无法vscode连接
@@ -13308,6 +13350,19 @@
 
 		数据库相关
 			云效
+				-- 20250328
+					https://devops.aliyun.com/projex/task/TMPX-7977# 《【API rate limit request】180826 用户 v4/trackings/create 接口提速到 10qps》
+						https://alidocs.dingtalk.com/i/nodes/lyQod3RxJKoxq159sKpd7kLbJkb4Mw9r?utm_scene=team_space&iframeQuery=anchorId%3Duu_m8sngm98c2257q4z2ge
+						# 国外在 ind_resque-145-44-35-tm 执行
+						# 切换到项目目录 cd ${PTM}
+
+						# 180826create接口限速调整流程
+						# 查看180826create接口限速配置情况（数据库和redis）
+						sh script/queueshell/apiV4getAndInsertData.sh 180826 create getData
+						# 写入180826create接口限速配置每秒60次
+						sh script/queueshell/apiV4getAndInsertData.sh 180826 create insert 10
+						# 查看180826create接口限速配置情况（数据库和redis）以确认执行效果
+						sh script/queueshell/apiV4getAndInsertData.sh 180826 create getData
 				-- 20240924
 					# 定义项目路径变量
 					PTM=/home/wwwroot/www.trackingmore.com/
