@@ -5815,6 +5815,36 @@
 3，后续优先级、应对
 
 
+===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== =====
+20250404
+【运维】
+1，国内外redis节点内存
+2，服务器磁盘临时处理
+3，vscode连不上开发服务器-接入堡垒机
+
+原计划：
+本地
+1，网络优化相关-整体梳理&推进
+1-1，专线后续测试对接
+1-2，线上会议（国外&国内）不稳定（602AP新增&回访收集）
+1-3，vscode连不上开发服务器
+运维
+2，重要服务高等级告警覆盖
+日常响应
+3，后续优先级、应对
+
+计划：
+本地
+1，网络优化相关-整体梳理&推进
+1-1，专线后续测试对接
+1-2，线上会议（国外&国内）不稳定（602AP新增&回访收集）
+1-3，vscode连不上开发服务器
+运维
+2，重要服务高等级告警覆盖
+日常响应
+3，后续优先级、应对
+
+
 近期复盘
 	3，工作项梳理
 		方向
@@ -7853,6 +7883,89 @@
 								script\queueshell\zipAndRmSpecifyTimeFile.sh
 								script\queueshell\file.to.zip.sh
 						历史数据清理 20240529
+							-- 20250404
+								-188-51
+									[root@iZwz9cz3p7ggnclmncoa6bZ ~]# df -h
+									Filesystem      Size  Used Avail Use% Mounted on
+									/dev/vda1        59G   59G     0 100% /
+									devtmpfs        1.9G     0  1.9G   0% /dev
+									tmpfs           1.9G     0  1.9G   0% /dev/shm
+									tmpfs           1.9G  700K  1.9G   1% /run
+									tmpfs           1.9G     0  1.9G   0% /sys/fs/cgroup
+									tmpfs           379M     0  379M   0% /run/user/1004
+									overlay          59G   59G     0 100% /var/lib/docker/overlay2/136334689affd93ed0b42cc73fd1ab5ae104700ab3b7002c1861c0e1fb68d046/merged
+									overlay          59G   59G     0 100% /var/lib/docker/overlay2/38020e1e19a12da1957b1374ba2850146c1f902dce1fc9594850e5d43ba2784c/merged
+									[root@iZwz9cz3p7ggnclmncoa6bZ ~]# uptime
+									23:26:28 up 450 days, 12:32,  1 user,  load average: 8.40, 6.24, 3.16
+									[root@iZwz9cz3p7ggnclmncoa6bZ ~]# find / -name '*' -type f -size +100M | xargs ls -lh {} | sort -nrk5
+									find: ‘/proc/11975/fdinfo/7’: No such file or directory
+									find: ‘/proc/32767/task/32767/fdinfo/6’: No such file or directory
+									find: ‘/proc/32767/fdinfo/5’: No such file or directory
+									ls: cannot access {}: No such file or directory
+									-rw-r--r--  1 root  root  771M Mar 12 11:31 /etc/redis/appendonly.aof
+									-rw-r--r--  1 root  root  530M Feb 11 22:09 /appendonly.aof
+									-r-xr-xr-x  1 root  root  499M Aug 29  2024 /usr/bin/clickhouse
+									-rwxr-xr-x  1 root  root  499M Aug 29  2024 /root/clickhouse
+									-rw-r--r--  1 root  root  425M Feb 11 22:06 /dump.rdb
+									-rw-r--r--  1 root  root  410M Feb 12 00:48 /etc/redis/dump.rdb
+									-rw-r--r--  1 root  root  407M Feb 11 20:07 /temp-24714.rdb
+									-rw-r--r--  1 www   www   398M Jan 10  2024 /home/wwwroot/www.trackingmore.com/section/carrierspic10.css
+									-rw-r-----  1 root  root  270M Nov 30 07:29 /var/lib/clickhouse/store/b22/b2253b17-72f0-4a24-a81f-4ffaccc9ba3f/202410_372219_726906_993/message.bin
+									-rwxr-xr-x  1 root  root  245M Oct 11  2023 /usr/sbin/mysqld
+									-rwxr-xr-x  1 root  root  241M Aug 21  2024 /var/lib/docker/overlay2/136334689affd93ed0b42cc73fd1ab5ae104700ab3b7002c1861c0e1fb68d046/merged/usr/share/grafana/bin/grafana
+									-rwxr-xr-x  1 root  root  241M Aug 21  2024 /var/lib/docker/overlay2/01862126aaf51aae62dce06cb05e3ea1d91c1bd024088dc4e9da338f5d460754/diff/usr/share/grafana/bin/grafana
+									-rwxr-xr-x  1 root  root  240M Aug 20  2019 /usr/local/lib/python3.6/site-packages/tensorflow/python/_pywrap_tensorflow_internal.so
+									-rw-r-----  1 root  root  183M Sep 22  2024 /var/lib/clickhouse/store/b22/b2253b17-72f0-4a24-a81f-4ffaccc9ba3f/202409_26840_267508_957/message.bin
+									-rw-r-----  1 mysql mysql 172M Apr  2 15:14 /var/lib/mysql/mysql/innodb_index_stats.ibd
+									-rwxr-xr-x  1 root  root  166M Oct 11  2023 /usr/sbin/mysqld-debug
+									-rw-r--r--  1 root  root  154M Feb 24 16:19 /home/wwwroot/www.51tracking.com/admin/myshopify/web/node_modules.zip
+									-rw-r-----  1 root  root  147M Oct 14 02:45 /var/lib/clickhouse/store/c24/c24df15e-ea43-41a0-8e46-f18ee4b74799/202409_28753_397537_5165/value.bin
+									-rw-r--r--  1 root  root  143M Feb 21  2024 /var/cache/yum/x86_64/7/updates/gen/primary_db.sqlite
+									-rw-r-----  1 mysql mysql 140M Apr  4 20:01 /var/lib/mysql/ibdata1
+									-r--------  1 root  root  128T Apr  4 23:33 /proc/kcore
+									-rw-r-----  1 root  root  124M Jan  6 18:45 /var/lib/clickhouse/store/c24/c24df15e-ea43-41a0-8e46-f18ee4b74799/202412_1088946_1410135_5424/value.bin
+									-r-xr-xr-x  1 root  root  114M Aug 29  2024 /usr/bin/clickhouse.old
+									-rw-r--r--. 1 root  root  114M Feb 24  2024 /var/lib/rpm/Packages
+									-rw-r-----  1 root  root  112M Oct 23 13:35 /var/lib/clickhouse/store/c24/c24df15e-ea43-41a0-8e46-f18ee4b74799/202410_398775_676656_5065/value.bin
+									-rwxr-xr-x  1 root  root  104M Sep  8  2023 /usr/local/cloudmonitor/bin/argusagent
+									-rw-r--r--  1 root  root  104M Jan 28  2023 /var/cache/yum/x86_64/7/updates/gen/filelists_db.sqlite
+									-rw-r--r--  1 root  root  102M May 15  2019 /usr/lib/locale/locale-archive
+									-rwxr-xr-x  1 www   www   6.0G Apr  4 23:33 /home/wwwroot/mytracking/logs/redis_queue/consumer/export.log
+									-rwxr-xr-x  1 www   www   5.9G Apr  4 23:33 /home/wwwroot/mytracking/logs/redis_queue/consumer/import.log
+									[root@iZwz9cz3p7ggnclmncoa6bZ ~]# head /home/wwwroot/mytracking/logs/redis_queue/consumer/export.log
+
+									2025/03/30 20:09:20 reconnect redis timeout
+									2025/03/30 20:09:20 reconnect redis timeout
+									2025/03/30 20:09:20 reconnect redis timeout
+									2025/03/30 20:09:20 reconnect redis timeout
+									2025/03/30 20:09:20 reconnect redis timeout
+									2025/03/30 20:09:20 reconnect redis timeout
+									2025/03/30 20:09:20 reconnect redis timeout
+									2025/03/30 20:09:20 reconnect redis timeout
+									2025/03/30 20:09:20 reconnect redis timeout
+									[root@iZwz9cz3p7ggnclmncoa6bZ ~]# crontab -e
+									/tmp/crontab.U6ARce: No space left on device
+									[root@iZwz9cz3p7ggnclmncoa6bZ ~]# echo > /home/wwwroot/mytracking/logs/redis_queue/consumer/export.log
+									[root@iZwz9cz3p7ggnclmncoa6bZ ~]# echo > /home/wwwroot/mytracking/logs/redis_queue/consumer/import.log 
+									[root@iZwz9cz3p7ggnclmncoa6bZ ~]# crontab -e
+									crontab: installing new crontab
+									[root@iZwz9cz3p7ggnclmncoa6bZ ~]# crontab -l | tail -2
+									02 * * * * echo > /home/wwwroot/mytracking/logs/redis_queue/consumer/export.log > /dev/null 2>&1
+									12 * * * * echo > /home/wwwroot/mytracking/logs/redis_queue/consumer/import.log > /dev/null 2>&1
+									[root@iZwz9cz3p7ggnclmncoa6bZ ~]# crontab -l | tail -3
+									# 每小时清理一次 huaqiang 20250404
+									02 * * * * echo > /home/wwwroot/mytracking/logs/redis_queue/consumer/export.log > /dev/null 2>&1
+									12 * * * * echo > /home/wwwroot/mytracking/logs/redis_queue/consumer/import.log > /dev/null 2>&1
+									[root@iZwz9cz3p7ggnclmncoa6bZ ~]# df -h
+									Filesystem      Size  Used Avail Use% Mounted on
+									/dev/vda1        59G   48G   12G  81% /
+									devtmpfs        1.9G     0  1.9G   0% /dev
+									tmpfs           1.9G     0  1.9G   0% /dev/shm
+									tmpfs           1.9G  700K  1.9G   1% /run
+									tmpfs           1.9G     0  1.9G   0% /sys/fs/cgroup
+									tmpfs           379M     0  379M   0% /run/user/1004
+									overlay          59G   48G   12G  81% /var/lib/docker/overlay2/136334689affd93ed0b42cc73fd1ab5ae104700ab3b7002c1861c0e1fb68d046/merged
+									overlay          59G   48G   12G  81% /var/lib/docker/overlay2/38020e1e19a12da1957b1374ba2850146c1f902dce1fc9594850e5d43ba2784c/merged
 							-- 20250331
 								ind_front_87_101_172.16.10.170-resque-download-51-74
 									[root@iZ94apf5ivnZ ~]# find / -name '*' -type f -size +100M | xargs ls -lh {} | sort -nrk5
