@@ -5690,21 +5690,20 @@
 ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== =====
 20250401
 【运维】
-1，BI需按月续费 @WTB
-2，专业运维招聘沟通 @ZW
+1，安全合规-当前系统情况 @CHQ
 【本地桌面运维】
-3，桌面运维面试
-4，面板更换&网段调整相关
+2，专线后续测试
+3，vscode连不上开发服务器-重新创建机器-跑go服务报错 @CZH
+【沟通相关】
+4，周会
 
 原计划：
 本地
 1，网络优化相关-整体梳理&推进
-1-1，外网服务商D-全量测试（回访收集）
-1-2，外网服务商C-全量测试（带宽实际最大值）
-1-3，原外网服务商-后续测试对接
-1-4，线上会议（国外&国内）不稳定（602AP新增&回访收集）
-1-5，开发服务器新建
-1-6，桌面运维面试
+1-1，专线后续测试对接
+1-2，线上会议（国外&国内）不稳定（602AP新增&回访收集）
+1-3，vscode连不上开发服务器
+1-4，桌面运维面试-评价
 运维
 2，重要服务高等级告警覆盖
 日常响应
@@ -5788,7 +5787,7 @@
 5，访问指定URL不稳定-chatgpt访问异常-代理影响 https://alidocs.dingtalk.com/i/nodes/bxgzX5wq4YoJPeQyemQw8Ry2OB79ALPD?utm_scene=team_space&iframeQuery=anchorId%3D1791141497900
 6，天耘专线试用情况相关记录 https://alidocs.dingtalk.com/i/nodes/G1DKw2zgV2pYGaDnso2wnDon8B5r9YAn?utm_scene=team_space&iframeQuery=anchorId%3Duu_m9156s7ak59ehlrbv9
 【沟通相关】
-绩效面谈
+7，绩效面谈
 
 原计划：
 本地
@@ -5813,7 +5812,6 @@
 2，重要服务高等级告警覆盖
 日常响应
 3，后续优先级、应对
-
 
 ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== =====
 20250404
@@ -5844,6 +5842,83 @@
 日常响应
 3，后续优先级、应对
 
+===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== =====
+本周最重要的事件(不超过三件)
+20250331-20250404
+【运维】
+1，告警和其他协同】
+
+【本地桌面运维】
+2，专线与网络稳定安全相关
+
+【人力支持】
+3，招聘
+
+如何解决？结果怎样？
+【运维】
+【运维-告警】
+1-1，国内外redis节点内存告警
+1-2，服务器磁盘临时处理
+1-3，BI需按月续费-已经按季度续费 @WTB
+【运维-其他协同】
+1-4，多邮箱功能第一期数据库操作 @LAP
+1-5，部分发票搜集（10%） @XHH
+1-6，充值梳理提交
+1-7，安全合规-当前系统情况 @CHQ
+1-8，vscode连不上开发服务器-重新创建机器（跑go服务报错-未解决）&接入堡垒机 @CZH
+
+【本地桌面运维】
+2，专线与网络稳定安全相关
+2-1，记录服务商测试情况（天耘专线试用情况相关记录 https://alidocs.dingtalk.com/i/nodes/G1DKw2zgV2pYGaDnso2wnDon8B5r9YAn?utm_scene=team_space&iframeQuery=anchorId%3Duu_m9156s7ak59ehlrbv9）
+2-2，各服务商费用沟通确认
+2-3，专线后续测试（跑2家，先跑新的一家，再跑原来的）
+2-4，共识需要QoS支持 @LB
+2-5，共识防火墙先上规则以确认效果 @LB
+
+【人力支持】
+3，招聘
+3-1，专业运维招聘需求沟通 @ZW
+3-2，桌面运维面试（2位候选人）
+
+总结反思（做的好的&待提升的）
+1，桌面运维招聘相关反馈及时性待提升&集中更多候选人进行待提升
+2，迁云优先级需提升
+
+其他同步事项（选填）
+下周计划
+1，本地网络相关
+	人员招聘
+	任务拆分
+2，迁云相关
+
+===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== =====
+20250404
+【运维-迁云】 @GC@LSJ
+1，队列容器化
+2，独立更新配置同步仓库
+【运维】
+3，发票 @XHH
+4，vscode连不上开发服务器-新服务器80等端口内网不通 @CZH
+
+原计划：
+本地
+1，网络优化相关-整体梳理&推进
+1-1，专线后续测试对接
+1-2，线上会议（国外&国内）不稳定（602AP新增&回访收集）
+1-3，vscode连不上开发服务器
+运维
+2，重要服务高等级告警覆盖
+日常响应
+3，后续优先级、应对
+
+计划：
+本地
+1，网络优化相关-整体梳理&推进
+运维
+2，重要服务高等级告警覆盖
+3，项目分账
+日常响应
+4，后续优先级、应对
 
 近期复盘
 	3，工作项梳理
@@ -7883,6 +7958,59 @@
 								script\queueshell\zipAndRmSpecifyTimeFile.sh
 								script\queueshell\file.to.zip.sh
 						历史数据清理 20240529
+							-- 20250407
+								ind-122-7-7-97-172.16.30.86-51
+									[root@iZwz97z6zoc0bzmia2h7rqZ ~]# df -h
+									Filesystem      Size  Used Avail Use% Mounted on
+									devtmpfs        397M     0  397M   0% /dev
+									tmpfs           411M     0  411M   0% /dev/shm
+									tmpfs           411M  492K  410M   1% /run
+									tmpfs           411M     0  411M   0% /sys/fs/cgroup
+									/dev/vda1        40G   40G  204M 100% /
+									tmpfs            83M     0   83M   0% /run/user/0
+									tmpfs            83M     0   83M   0% /run/user/1001
+									(failed reverse-i-search)`100M': ^C
+									[root@iZwz97z6zoc0bzmia2h7rqZ ~]#  find / -name '*' -type f -size +100M | xargs ls -lh {} | sort -nrk5
+									find: ‘/proc/7887/task/7887/fdinfo/6’: No such file or directory
+									find: ‘/proc/7887/fdinfo/5’: No such file or directory
+									ls: cannot access '{}': No such file or directory
+									-rw-r--r-- 1 root root 682M Apr  7 10:54 /root/emailAndSMSSendFitter.log
+									-rw-r--r-- 1 root root 144M Apr  7 10:59 /root/trackingSingleQueue123.log
+									-r-------- 1 root root 128T Apr  7 11:00 /proc/kcore
+									-rw-r--r-- 1 root root  23G Apr  7 11:00 /root/test_courier.log
+									-rw-r--r-- 1 root root  11G Apr  7 10:59 /root/trackingSingleQueue.log
+									[root@iZwz97z6zoc0bzmia2h7rqZ ~]# head /root/trackingSingleQueue.log
+									2020-07-29 22:30:22 http://sync.dianxiaomi.com/tracking/webHookData.json has been send to webhookQueue
+									2020-07-29 22:30:26 http://sync.dianxiaomi.com/tracking/webHookData.json has been send to webhookQueue
+									2020-07-29 22:30:26 http://sync.dianxiaomi.com/tracking/webHookData.json has been send to webhookQueue
+									2020-07-29 22:30:30 http://sync.dianxiaomi.com/tracking/webHookData.json has been send to webhookQueue
+									2020-07-29 22:30:40 http://sync.dianxiaomi.com/tracking/webHookData.json has been send to webhookQueue
+									2020-07-29 22:30:41 http://sync.dianxiaomi.com/tracking/webHookData.json has been send to webhookQueue
+									2020-07-29 22:30:51 http://sync.dianxiaomi.com/tracking/webHookData.json has been send to webhookQueue
+									2020-07-29 22:30:55 http://sync.dianxiaomi.com/tracking/webHookData.json has been send to webhookQueue
+									2020-07-29 22:30:55 http://sync.dianxiaomi.com/tracking/webHookData.json has been send to webhookQueue
+									2020-07-29 22:31:05 http://sync.dianxiaomi.com/tracking/webHookData.json has been send to webhookQueue
+									[root@iZwz97z6zoc0bzmia2h7rqZ ~]# tail /root/trackingSingleQueue.log
+									userid: 140548  hct : 1723219514total time 10.451389074326
+									userid: 120423  hct : 8596500942total time 9.8413660526276
+									userid: 139589  hct : 1210472244total time 10.369765043259
+									userid: 93151  hct : 8596492505total time 15.534075975418
+									userid: 124856  ceva-logistics : AZN2662336total time 3.9490060806274
+									userid: 90521  zto : 78895311675962total time 0.44111299514771
+									userid: 90521  zto : 78895312371527total time 0.50345396995544
+									userid: 90521  zto : 78895312844026total time 0.50647115707397
+									userid: 90521  zto : 78895313463744total time 0.46251392364502
+									userid: 139589  hct : 1210374281total time 17.053382158279
+									[root@iZwz97z6zoc0bzmia2h7rqZ ~]# echo > /root/trackingSingleQueue.log
+									[root@iZwz97z6zoc0bzmia2h7rqZ ~]# df -h
+									Filesystem      Size  Used Avail Use% Mounted on
+									devtmpfs        397M     0  397M   0% /dev
+									tmpfs           411M     0  411M   0% /dev/shm
+									tmpfs           411M  492K  410M   1% /run
+									tmpfs           411M     0  411M   0% /sys/fs/cgroup
+									/dev/vda1        40G   29G   12G  73% /
+									tmpfs            83M     0   83M   0% /run/user/0
+									tmpfs            83M     0   83M   0% /run/user/1001
 							-- 20250404
 								-188-51
 									[root@iZwz9cz3p7ggnclmncoa6bZ ~]# df -h
@@ -15041,6 +15169,37 @@
 
 			待办：具体需要再看下备用金需要多少
 
+	服务梳理充值-发票
+
+		20250407
+			深圳畅销家：
+			1、阿里云发票开具！
+				12月已开57,607.13
+			2、腾讯云iOA-TM：开具11775元发票
+				开票中 24小时内
+			3、腾讯云dnspod续费（trackingmore.com域名续费）：开票1288元
+				历史有有一笔2021没开票的（2021-02-06 13:40:45）（目前不开）
+				续费 - DNS 解析(dnspod)
+					开票中 24小时内
+			4、中国移动SD-WAN付款（月付）：开票21000元 √
+				企微中
+			5、桌面运维服务费：开票15610.04元
+				待开票
+			6、第三方验证码服务（谷歌验证码）：1000元
+				确认是否2次一块，历史有一次1000的
+					那个不用开票，当时用支付宝付的
+				已提供给对方发票信息（包括邮箱）
+			7、办公室网络安全加固-采购华为防火墙：13950元
+				待重发
+					已重发企微
+			8、专线付款-天耘：7000元
+				取消+发票
+			
+			执尚：
+			1、阿里云发票开具！！
+			2、青果代理44880元
+			3、国内欣易辰充值3000元
+			4、闪达（sendcloud短信）1000元
 	数据表字段调整
 		-- 20240510
 			字段调整维护一个文档
