@@ -5952,16 +5952,20 @@
 
 ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== =====
 20250409
+【运维】
+1，gitlab账号被锁 XHX
+2，微软大模型接口调用异常 LDB
+3，磁盘临时处理 LDB
 【运维-迁云】
-1，整体相关梳理
+4，python接口迁移k8s WYK
 【本地桌面运维-安全】
-2，602防火墙上线策略-同外包对接确认计划
-3，iOA拦截激活软件
-4，lastpass忘记密码相关记录
+5，专线D合同-细节确认&提交财务反馈走律师流程
+6，防火墙上线后策略优化等相关跟进
 【本地桌面运维】
-5，人员招聘-需求&进展对接 @CXW
+7，南陵不合作追试用费用-合同用印
 【沟通协作】
-6，维护记录相关约定 维护记录约定 · 钉钉文档: https://alidocs.dingtalk.com/i/nodes/gvNG4YZ7Jn30n4qoURYeExRA82LD0oRE?corpId=ding15b0edd43fcaaac235c2f4657eb6378f&utm_medium=im_card&iframeQuery=utm_medium%3Dim_card%26utm_source%3Dim&utm_scene=team_space&utm_source=im
+8，绩效&岗位调整 @ZW
+9，团队技术规划 @ZW
 
 原计划：
 本地
@@ -6012,6 +6016,85 @@
 日常响应
 4，后续优先级、应对
 
+===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== =====
+20250411
+【安全】
+1，安永访谈
+【运维】
+2，云效开通-重新绑定组织 @ZW
+3，cainiao异常高频请求-服务器授权 @LSJ
+4，zhishangit账号挖矿安全事件-待进一步跟进
+5，k8s集群授权（未完成） @LSJ
+【运维-告警】
+6，新版查询系统redis慢甚至报错 @WCG
+【本地桌面运维】
+7，vscode连不上开发服务器-新服务器80等端口内网不通-确认解决（不能指定端口-待跟进） @CZH
+【沟通协作】
+8，运维经理画像 @ZW
+9，激励政策&迭代和客诉协作流程 @ZPL
+10，技术分享会 ZPL
+
+原计划：
+本地
+1，网络优化相关-整体梳理&推进
+运维
+2，项目分账
+3，14117-安永访谈
+日常响应
+4，后续优先级、应对
+
+计划：
+本地
+1，网络优化相关-整体梳理&推进
+运维
+2，项目分账
+日常响应
+3，后续优先级、应对
+
+===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== =====
+20250412
+【运维】
+1，阿里云k8s权限 @LSJ
+2，项目分账 @XHH
+
+原计划：
+本地
+1，网络优化相关-整体梳理&推进
+运维
+2，项目分账
+日常响应
+3，后续优先级、应对
+
+计划：
+本地
+1，网络优化相关-整体梳理&推进
+运维
+2，项目分账
+3，迁云
+日常响应
+4，后续优先级、应对
+
+===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== =====
+20250414
+
+原计划：
+本地
+1，网络优化相关-整体梳理&推进
+运维
+2，项目分账
+3，迁云
+日常响应
+4，后续优先级、应对
+
+计划：
+本地
+1，网络优化相关-整体梳理&推进
+运维
+2，厦门国际需求-51的单号识别数据更新
+3，迁云
+日常响应
+4，后续优先级、应对
+
 
 近期复盘
 	3，工作项梳理
@@ -6055,6 +6138,34 @@
 	5，测试环境-分支自动构建触发取消
 
 操作顺序
+		-- 20250414
+			客诉 JT
+				120912这个用户的导出，有40w数据，没有生成链接，1月到3月的，royal-mail-v2有40w数据左右，导出的链接强哥能看下吗
+					https://upload-public-shenzhen.oss-cn-shenzhen.aliyuncs.com/51tracking/2025/01/51tracking_export_shipments_20250103151435_w7gri4q7.csv?Expires=1736493297&OSSAccessKeyId=LTAI5tJWy6RFCVpCJvfKTSjU&Signature=Fibnp%2BsY6s0rq8%2F5VGo9El3cifw%3D
+					oss链接保存时间是只有7天的，现在超过这个时间 了，导出链接在后台不会显示，实际oss中也过期删除了
+			客诉 LAP
+				厦门国际需求，其中需要更新国内单号识别数据
+			迁云
+			周报
+			
+		-- 20250411
+			aws
+			招聘
+				经验-专项能力
+					完全
+					部分（需要接入）
+				软实力（负责人）
+				
+			挖矿-
+			单号识别数据
+			账单
+			域名解析
+			分账
+
+			开发服务器
+
+
+			iOA TSVNCache.exe
 		-- 20250403
 			桌面
 			网络
@@ -6842,6 +6953,25 @@
 				确认申请，定位P0事件 https://devops.aliyun.com/projex/req/TMPX-6053# 《ISO27701 证书申请》
 
 	周末值班
+		-- 20250413
+			#2025年4月13日物流信息事业部值班情况
+			值班人：陈华强
+			1，国内外项目运作正常，国内外无新增客诉（存量2，已处理1，1待跟进），巡检查询项目3次
+			
+			2，更新
+				国内邮政
+					china-post查询线路正常，存在堆积（最后一次巡检72w），待慢慢消化，需要关注
+					usps查询线路正常，存在堆积（最后一次巡检71w），待慢慢消化，需要关注
+					colissimo查询线路正常，存在堆积（最后一次巡检13w），待慢慢消化，需要关注
+					an-post查询线路正常，存在堆积（最后一次巡检13w），待慢慢消化，需要关注
+				国内快递
+					ups查询线路正常，存在堆积（最后一次巡检96w），待慢慢消化，需要关注
+					dhl查询线路正常，存在堆积（最后一次巡检88w），待慢慢消化，需要关注
+					dhl-uk查询线路正常，存在堆积（最后一次巡检16w），待慢慢消化，需要关注
+					fedex查询线路正常，存在堆积（最后一次巡检14w），待慢慢消化，需要关注
+				国外邮政
+					royal-mail-v2存在堆积（最后一次巡检55w）持续，查询线路正常，待慢慢消化，需要关注
+				国外快递无明显堆积
 		-- 20250323
 			#2025年3月23日物流信息事业部值班情况
 			值班人：陈华强
@@ -8051,6 +8181,222 @@
 								script\queueshell\zipAndRmSpecifyTimeFile.sh
 								script\queueshell\file.to.zip.sh
 						历史数据清理 20240529
+							-- 20250414
+								upload-46-tm
+									zip /home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/04/mailgun20240430.log.zip /home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/04/mailgun20240430.log
+									rm -f /home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/04/mailgun20240430.log
+									root@iZ0xiatx34i386h8eslisjZ:~# df -h
+									Filesystem      Size  Used Avail Use% Mounted on
+									tmpfs           169M  2.1M  167M   2% /run
+									/dev/vda3        40G   38G  208M 100% /
+									tmpfs           841M   71M  770M   9% /dev/shm
+									tmpfs           5.0M     0  5.0M   0% /run/lock
+									/dev/vda2       197M  6.1M  191M   4% /boot/efi
+									tmpfs            50M     0   50M   0% /usr/local/aegis/cgroup
+									overlay          40G   38G  208M 100% /var/lib/docker/overlay2/3b7dd24fd79e0362c0b275b13480378ab3018183db9b98d0231644a99d270ed9/merged
+									overlay          40G   38G  208M 100% /var/lib/docker/overlay2/356345bb73b491c602f52654c0f7d63271b3df045c95e436fccefce83de6f474/merged
+									tmpfs           169M  4.0K  169M   1% /run/user/1000
+									overlay          40G   38G  208M 100% /var/lib/docker/overlay2/4c033bf52c4de6f3abb21e503adab6947ff55b1593a2b6235b673971280cf782/merged
+									overlay          40G   38G  208M 100% /var/lib/docker/overlay2/f2c36a828b4c2d1700cfcbfcfb99790662c0a9d8286365ec4bfe10b51c6ec306/merged
+									overlay          40G   38G  208M 100% /var/lib/docker/overlay2/9d8ef1653b8762b65c610ac2fe4cd15d79a30a6d269691f7d589e975986b8160/merged
+									overlay          40G   38G  208M 100% /var/lib/docker/overlay2/ae929d321313ded7d52d63cfa031432822bc6ced867adb4d33043e86fef6242e/merged
+									overlay          40G   38G  208M 100% /var/lib/docker/overlay2/e3c3f89696f734f487acf56e0c7dea88bbe4abe703c7c71b74b4cdff19849060/merged
+									overlay          40G   38G  208M 100% /var/lib/docker/overlay2/057a6789e90dfbb78f90be45f9026db38908a53013a6cc7453d6aa3bdd61b19a/merged
+									root@iZ0xiatx34i386h8eslisjZ:~# find /home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/ -name 'mailgun2024040*log' -type f | head -1 | xargs -i zip {}.zip {}
+									adding: home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/04/mailgun20240407.log (deflated 90%)
+									root@iZ0xiatx34i386h8eslisjZ:~# find /home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/ -name 'mailgun2024040*log' -type f | xargs -i zip {}.zip {}
+									updating: home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/04/mailgun20240407.log (deflated 90%)
+									adding: home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/04/mailgun20240406.log (deflated 90%)
+									adding: home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/04/mailgun20240404.log (deflated 90%)
+									adding: home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/04/mailgun20240409.log (deflated 90%)
+									adding: home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/04/mailgun20240405.log (deflated 90%)
+									adding: home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/04/mailgun20240408.log (deflated 90%)
+									adding: home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/04/mailgun20240403.log (deflated 90%)
+									adding: home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/04/mailgun20240401.log (deflated 90%)
+									adding: home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/04/mailgun20240402.log (deflated 90%)
+									root@iZ0xiatx34i386h8eslisjZ:~# find /home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/ -name 'mailgun2024040*log*' -type f
+									/home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/04/mailgun20240407.log
+									/home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/04/mailgun20240406.log
+									/home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/04/mailgun20240408.log.zip
+									/home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/04/mailgun20240404.log
+									/home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/04/mailgun20240407.log.zip
+									/home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/04/mailgun20240409.log.zip
+									/home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/04/mailgun20240405.log.zip
+									/home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/04/mailgun20240409.log
+									/home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/04/mailgun20240405.log
+									/home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/04/mailgun20240408.log
+									/home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/04/mailgun20240401.log.zip
+									/home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/04/mailgun20240402.log.zip
+									/home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/04/mailgun20240404.log.zip
+									/home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/04/mailgun20240403.log
+									/home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/04/mailgun20240401.log
+									/home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/04/mailgun20240402.log
+									/home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/04/mailgun20240403.log.zip
+									/home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/04/mailgun20240406.log.zip
+									root@iZ0xiatx34i386h8eslisjZ:~# find /home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/ -name 'mailgun2024040*log' -type f | xargs -i rm -f {}
+									root@iZ0xiatx34i386h8eslisjZ:~# df -h
+									Filesystem      Size  Used Avail Use% Mounted on
+									tmpfs           169M  2.1M  167M   2% /run
+									/dev/vda3        40G   37G  925M  98% /
+									tmpfs           841M   71M  770M   9% /dev/shm
+									tmpfs           5.0M     0  5.0M   0% /run/lock
+									/dev/vda2       197M  6.1M  191M   4% /boot/efi
+									tmpfs            50M     0   50M   0% /usr/local/aegis/cgroup
+									overlay          40G   37G  925M  98% /var/lib/docker/overlay2/3b7dd24fd79e0362c0b275b13480378ab3018183db9b98d0231644a99d270ed9/merged
+									overlay          40G   37G  925M  98% /var/lib/docker/overlay2/356345bb73b491c602f52654c0f7d63271b3df045c95e436fccefce83de6f474/merged
+									tmpfs           169M  4.0K  169M   1% /run/user/1000
+									overlay          40G   37G  925M  98% /var/lib/docker/overlay2/4c033bf52c4de6f3abb21e503adab6947ff55b1593a2b6235b673971280cf782/merged
+									overlay          40G   37G  925M  98% /var/lib/docker/overlay2/f2c36a828b4c2d1700cfcbfcfb99790662c0a9d8286365ec4bfe10b51c6ec306/merged
+									overlay          40G   37G  925M  98% /var/lib/docker/overlay2/9d8ef1653b8762b65c610ac2fe4cd15d79a30a6d269691f7d589e975986b8160/merged
+									overlay          40G   37G  925M  98% /var/lib/docker/overlay2/ae929d321313ded7d52d63cfa031432822bc6ced867adb4d33043e86fef6242e/merged
+									overlay          40G   37G  925M  98% /var/lib/docker/overlay2/e3c3f89696f734f487acf56e0c7dea88bbe4abe703c7c71b74b4cdff19849060/merged
+									overlay          40G   37G  925M  98% /var/lib/docker/overlay2/057a6789e90dfbb78f90be45f9026db38908a53013a6cc7453d6aa3bdd61b19a/merged
+									root@iZ0xiatx34i386h8eslisjZ:~# find /home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/ -name 'mailgun202404*log' -type f | xargs -i zip {}.zip {}
+									adding: home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/04/mailgun20240428.log (deflated 90%)
+									adding: home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/04/mailgun20240419.log (deflated 90%)
+									adding: home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/04/mailgun20240420.log (deflated 89%)
+									adding: home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/04/mailgun20240422.log (deflated 90%)
+									adding: home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/04/mailgun20240411.log (deflated 90%)
+									adding: home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/04/mailgun20240429.log (deflated 90%)
+									adding: home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/04/mailgun20240424.log (deflated 90%)
+									adding: home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/04/mailgun20240426.log (deflated 90%)
+									adding: home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/04/mailgun20240416.log (deflated 90%)
+									adding: home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/04/mailgun20240413.log (deflated 90%)
+									adding: home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/04/mailgun20240427.log (deflated 90%)
+									adding: home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/04/mailgun20240421.log (deflated 90%)
+									adding: home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/04/mailgun20240425.log (deflated 90%)
+									adding: home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/04/mailgun20240415.log (deflated 90%)
+									adding: home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/04/mailgun20240412.log (deflated 90%)
+									adding: home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/04/mailgun20240417.log (deflated 90%)
+									adding: home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/04/mailgun20240418.log (deflated 89%)
+									adding: home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/04/mailgun20240410.log (deflated 90%)
+									adding: home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/04/mailgun20240414.log (deflated 90%)
+									adding: home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/04/mailgun20240423.log (deflated 90%)
+									root@iZ0xiatx34i386h8eslisjZ:~# find /home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/ -name 'mailgun202404*log' -type f | xargs -i rm -f {}
+									root@iZ0xiatx34i386h8eslisjZ:~# df -h
+									Filesystem      Size  Used Avail Use% Mounted on
+									tmpfs           169M  2.1M  167M   2% /run
+									/dev/vda3        40G   35G  2.9G  93% /
+									tmpfs           841M   71M  770M   9% /dev/shm
+									tmpfs           5.0M     0  5.0M   0% /run/lock
+									/dev/vda2       197M  6.1M  191M   4% /boot/efi
+									tmpfs            50M     0   50M   0% /usr/local/aegis/cgroup
+									overlay          40G   35G  2.9G  93% /var/lib/docker/overlay2/3b7dd24fd79e0362c0b275b13480378ab3018183db9b98d0231644a99d270ed9/merged
+									overlay          40G   35G  2.9G  93% /var/lib/docker/overlay2/356345bb73b491c602f52654c0f7d63271b3df045c95e436fccefce83de6f474/merged
+									tmpfs           169M  4.0K  169M   1% /run/user/1000
+									overlay          40G   35G  2.9G  93% /var/lib/docker/overlay2/4c033bf52c4de6f3abb21e503adab6947ff55b1593a2b6235b673971280cf782/merged
+									overlay          40G   35G  2.9G  93% /var/lib/docker/overlay2/f2c36a828b4c2d1700cfcbfcfb99790662c0a9d8286365ec4bfe10b51c6ec306/merged
+									overlay          40G   35G  2.9G  93% /var/lib/docker/overlay2/9d8ef1653b8762b65c610ac2fe4cd15d79a30a6d269691f7d589e975986b8160/merged
+									overlay          40G   35G  2.9G  93% /var/lib/docker/overlay2/ae929d321313ded7d52d63cfa031432822bc6ced867adb4d33043e86fef6242e/merged
+									overlay          40G   35G  2.9G  93% /var/lib/docker/overlay2/e3c3f89696f734f487acf56e0c7dea88bbe4abe703c7c71b74b4cdff19849060/merged
+									overlay          40G   35G  2.9G  93% /var/lib/docker/overlay2/057a6789e90dfbb78f90be45f9026db38908a53013a6cc7453d6aa3bdd61b19a/merged
+									root@iZ0xiatx34i386h8eslisjZ:~# find /home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/ -name 'mailgun2024*log' -type f | xargs -i zip {}.zip {}
+									adding: home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/07/mailgun20240701.log (deflated 90%)
+									adding: home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/07/mailgun20240726.log (deflated 90%)
+									adding: home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/07/mailgun20240709.log (deflated 89%)
+									adding: home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/07/mailgun20240722.log (deflated 90%)
+									adding: home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/07/mailgun20240716.log (deflated 90%)
+									adding: home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/07/mailgun20240725.log (deflated 90%)
+									adding: home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/07/mailgun20240705.log (deflated 90%)
+									adding: home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/07/mailgun20240702.log (deflated 90%)
+									adding: home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/07/mailgun20240713.log (deflated 90%)
+									adding: home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/07/mailgun20240712.log (deflated 90%)
+									adding: home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/07/mailgun20240720.log (deflated 90%)
+									adding: home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/07/mailgun20240719.log (deflated 90%)
+									adding: home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/07/mailgun20240704.log (deflated 90%)
+									adding: home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/07/mailgun20240717.log (deflated 90%)
+									adding: home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/07/mailgun20240727.log (deflated 90%)
+									adding: home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/07/mailgun20240723.log (deflated 90%)
+									adding: home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/07/mailgun20240724.log (deflated 90%)
+									adding: home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/07/mailgun20240703.log (deflated 90%)
+									adding: home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/07/mailgun20240714.log (deflated 90%)
+									adding: home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/07/mailgun20240721.log (deflated 90%)
+									adding: home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/07/mailgun20240707.log (deflated 90%)
+									adding: home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/07/mailgun20240708.log (deflated 89%)
+									adding: home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/07/mailgun20240711.log (deflated 90%)
+									adding: home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/07/mailgun20240706.log (deflated 89%)
+									adding: home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/07/mailgun20240715.log (deflated 90%)
+									adding: home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/07/mailgun20240718.log (deflated 90%)
+									adding: home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/07/mailgun20240710.log (deflated 89%)
+									adding: home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/06/mailgun20240626.log (deflated 90%)
+									adding: home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/06/mailgun20240612.log (deflated 90%)
+									adding: home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/06/mailgun20240616.log (deflated 90%)
+									adding: home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/06/mailgun20240610.log (deflated 90%)
+									adding: home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/06/mailgun20240618.log (deflated 90%)
+									adding: home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/06/mailgun20240623.log (deflated 90%)
+									adding: home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/06/mailgun20240620.log (deflated 90%)
+									adding: home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/06/mailgun20240624.log (deflated 90%)
+									adding: home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/06/mailgun20240611.log (deflated 90%)
+									adding: home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/06/mailgun20240606.log (deflated 90%)
+									adding: home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/06/mailgun20240601.log (deflated 90%)
+									adding: home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/06/mailgun20240621.log (deflated 90%)
+									adding: home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/06/mailgun20240628.log (deflated 90%)
+									adding: home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/06/mailgun20240608.log (deflated 90%)
+									adding: home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/06/mailgun20240603.log (deflated 90%)
+									adding: home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/06/mailgun20240625.log (deflated 90%)
+									adding: home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/06/mailgun20240602.log (deflated 90%)
+									adding: home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/06/mailgun20240614.log (deflated 90%)
+									adding: home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/06/mailgun20240619.log (deflated 90%)
+									adding: home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/06/mailgun20240630.log (deflated 90%)
+									adding: home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/06/mailgun20240613.log (deflated 90%)
+									adding: home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/06/mailgun20240604.log (deflated 90%)
+									adding: home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/06/mailgun20240622.log (deflated 90%)
+									adding: home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/06/mailgun20240627.log (deflated 90%)
+									adding: home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/06/mailgun20240617.log (deflated 90%)
+									adding: home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/06/mailgun20240605.log (deflated 90%)
+									adding: home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/06/mailgun20240615.log (deflated 90%)
+									adding: home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/06/mailgun20240629.log (deflated 90%)
+									adding: home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/06/mailgun20240607.log (deflated 90%)
+									adding: home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/06/mailgun20240609.log (deflated 90%)
+									adding: home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/05/mailgun20240513.log (deflated 89%)
+									adding: home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/05/mailgun20240505.log (deflated 90%)
+									adding: home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/05/mailgun20240504.log (deflated 89%)
+									adding: home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/05/mailgun20240510.log (deflated 90%)
+									adding: home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/05/mailgun20240521.log (deflated 90%)
+									adding: home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/05/mailgun20240522.log (deflated 90%)
+									adding: home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/05/mailgun20240514.log (deflated 89%)
+									adding: home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/05/mailgun20240507.log (deflated 89%)
+									adding: home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/05/mailgun20240506.log (deflated 90%)
+									adding: home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/05/mailgun20240503.log (deflated 89%)
+									adding: home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/05/mailgun20240508.log (deflated 89%)
+									adding: home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/05/mailgun20240517.log (deflated 90%)
+									adding: home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/05/mailgun20240511.log (deflated 90%)
+									adding: home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/05/mailgun20240509.log (deflated 88%)
+									adding: home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/05/mailgun20240515.log (deflated 90%)
+									adding: home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/05/mailgun20240523.log (deflated 90%)
+									adding: home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/05/mailgun20240527.log (deflated 90%)
+									adding: home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/05/mailgun20240528.log (deflated 90%)
+									adding: home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/05/mailgun20240512.log (deflated 89%)
+									adding: home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/05/mailgun20240531.log (deflated 90%)
+									adding: home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/05/mailgun20240526.log (deflated 90%)
+									adding: home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/05/mailgun20240520.log (deflated 90%)
+									adding: home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/05/mailgun20240516.log (deflated 90%)
+									adding: home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/05/mailgun20240518.log (deflated 90%)
+									adding: home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/05/mailgun20240525.log (deflated 90%)
+									adding: home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/05/mailgun20240524.log (deflated 90%)
+									adding: home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/05/mailgun20240529.log (deflated 90%)
+									adding: home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/05/mailgun20240519.log (deflated 90%)
+									adding: home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/05/mailgun20240501.log (deflated 89%)
+									adding: home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/05/mailgun20240530.log (deflated 90%)
+									adding: home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/05/mailgun20240502.log (deflated 89%)
+									root@iZ0xiatx34i386h8eslisjZ:~# find /home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/ -name 'mailgun2024*log' -type f | xargs -i rm -f {}
+									root@iZ0xiatx34i386h8eslisjZ:~# df -h
+									Filesystem      Size  Used Avail Use% Mounted on
+									tmpfs           169M  2.1M  167M   2% /run
+									/dev/vda3        40G   28G   10G  74% /
+									tmpfs           841M   71M  770M   9% /dev/shm
+									tmpfs           5.0M     0  5.0M   0% /run/lock
+									/dev/vda2       197M  6.1M  191M   4% /boot/efi
+									tmpfs            50M     0   50M   0% /usr/local/aegis/cgroup
+									overlay          40G   28G   10G  74% /var/lib/docker/overlay2/3b7dd24fd79e0362c0b275b13480378ab3018183db9b98d0231644a99d270ed9/merged
+									overlay          40G   28G   10G  74% /var/lib/docker/overlay2/356345bb73b491c602f52654c0f7d63271b3df045c95e436fccefce83de6f474/merged
+									tmpfs           169M  4.0K  169M   1% /run/user/1000
+									overlay          40G   28G   10G  74% /var/lib/docker/overlay2/4c033bf52c4de6f3abb21e503adab6947ff55b1593a2b6235b673971280cf782/merged
+									overlay          40G   28G   10G  74% /var/lib/docker/overlay2/f2c36a828b4c2d1700cfcbfcfb99790662c0a9d8286365ec4bfe10b51c6ec306/merged
+									overlay          40G   28G   10G  74% /var/lib/docker/overlay2/9d8ef1653b8762b65c610ac2fe4cd15d79a30a6d269691f7d589e975986b8160/merged
+									overlay          40G   28G   10G  74% /var/lib/docker/overlay2/ae929d321313ded7d52d63cfa031432822bc6ced867adb4d33043e86fef6242e/merged
+									overlay          40G   28G   10G  74% /var/lib/docker/overlay2/e3c3f89696f734f487acf56e0c7dea88bbe4abe703c7c71b74b4cdff19849060/merged
+									overlay          40G   28G   10G  74% /var/lib/docker/overlay2/057a6789e90dfbb78f90be45f9026db38908a53013a6cc7453d6aa3bdd61b19a/merged
 							-- 20250409
 								ind_front_87_101_172.16.10.170-resque-download-51-74
 									相关数据： 使用空间：96
@@ -14689,6 +15035,14 @@
 					表权限调整-20240909 · 钉钉文档: https://alidocs.dingtalk.com/i/nodes/93NwLYZXWy1Lk2jXC5geR2veWkyEqBQm
 
 			分账
+				-- 20250415
+					手动转到 （后续改自动）
+					51-ai
+						资源id
+							56816eb8-1e16-4b22-b4db-797f6c99255b
+					tm-ai
+						资源id
+							56816eb8-1e16-4b22-b4db-797f6c99255b
 				-- 20250107
 					费用与成本: https://usercenter2.aliyun.com/finance/finance-unit/list#/main 相关说明
 						新创建的资源及标签信息，明细账单出具后6小时可在财务单元-所有资源中查看实例ID及标签。
