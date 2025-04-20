@@ -6224,6 +6224,27 @@
 日常响应
 4，后续优先级、应对
 
+===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== =====
+20250419
+
+原计划：
+本地
+1，14117相关整改
+运维
+2，厦门国际需求-51的单号识别数据更新
+3，迁云-整体梳理
+日常响应
+4，后续优先级、应对
+
+计划：
+安全
+1，14117相关整改
+运维
+2，厦门国际需求-51的单号识别数据更新
+3，迁云-整体梳理
+日常响应
+4，后续优先级、应对
+
 
 近期复盘
 	3，工作项梳理
@@ -6267,6 +6288,25 @@
 	5，测试环境-分支自动构建触发取消
 
 操作顺序
+		-- 20250419
+			
+			告警？
+
+			厦门国际
+				具体点
+			14117
+
+			处理运维事项-方式
+				抽象，自动化（需要提取关键信息点）
+					优先
+					时间
+
+				跑单元测试
+				最小实例
+
+				当前事项梳理
+					接入实践
+
 		-- 20250416
 			专线合同
 			迁云
@@ -7345,6 +7385,17 @@
 
 	客诉
 		厦门国际需求-51的单号识别数据更新
+			-- 202504019
+				分割任务，多进程处理以提升速度（不会同时处理一个区间）
+					分割生产任务
+					消费任务
+
+					处理任务
+					统计任务
+					通知任务
+					日志任务
+					监控任务
+				通过队列的形式，让处理兼顾速度与 cpu 资源的使用率，提升处理效率，减少人工干预，提升效率
 			-- 202504018
 				redis srem scanning_success_table_SET_20250417_seperated_tr_tracking_info_90501_91000 "[\"28638112\",29438111]"
 				redis srem scanning_success_table_SET_20250417_seperated_tr_tracking_info_90501_91000 "[29438112,30238111]"
@@ -7371,6 +7422,58 @@
 
 	告警
 		redis节点内存
+			-- 20250419
+				-77
+					[root@iz0xibhd8xjxiru8zt5ierz ~]# ll /home/wwwroot/www.trackingmore.com/python_img/redis.bigkey.3* | grep 202504
+					-rw-r--r-- 1 root root      1547 Apr  4 23:59 /home/wwwroot/www.trackingmore.com/python_img/redis.bigkey.3.length_0_1.20250404.log
+					-rw-r--r-- 1 root root      5526 Apr  5 01:01 /home/wwwroot/www.trackingmore.com/python_img/redis.bigkey.3.length_0_1.20250405.log
+					-rw-r--r-- 1 root root      8399 Apr 19 02:29 /home/wwwroot/www.trackingmore.com/python_img/redis.bigkey.3.length_0_1.20250419.log
+					-rw-r--r-- 1 root root     94510 Apr  4 23:59 /home/wwwroot/www.trackingmore.com/python_img/redis.bigkey.3.length_10240_.20250404.log
+					-rw-r--r-- 1 root root    209956 Apr  5 01:01 /home/wwwroot/www.trackingmore.com/python_img/redis.bigkey.3.length_10240_.20250405.log
+					-rw-r--r-- 1 root root    309591 Apr 19 02:29 /home/wwwroot/www.trackingmore.com/python_img/redis.bigkey.3.length_10240_.20250419.log
+					-rw-r--r-- 1 root root    102047 Apr  4 23:59 /home/wwwroot/www.trackingmore.com/python_img/redis.bigkey.3.length_1024_10240.20250404.log
+					-rw-r--r-- 1 root root    216927 Apr  5 01:01 /home/wwwroot/www.trackingmore.com/python_img/redis.bigkey.3.length_1024_10240.20250405.log
+					-rw-r--r-- 1 root root    320756 Apr 19 02:29 /home/wwwroot/www.trackingmore.com/python_img/redis.bigkey.3.length_1024_10240.20250419.log
+					-rw-r--r-- 1 root root  59624738 Apr  4 23:59 /home/wwwroot/www.trackingmore.com/python_img/redis.bigkey.3.length_1_1024.20250404.log
+					-rw-r--r-- 1 root root 126925827 Apr  5 01:01 /home/wwwroot/www.trackingmore.com/python_img/redis.bigkey.3.length_1_1024.20250405.log
+					-rw-r--r-- 1 root root 196944128 Apr 19 02:29 /home/wwwroot/www.trackingmore.com/python_img/redis.bigkey.3.length_1_1024.20250419.log
+					[root@iz0xibhd8xjxiru8zt5ierz ~]# cat /home/wwwroot/www.trackingmore.com/python_img/redis.bigkey.3.length_10240_.20250419.log | awk -F: '{print $4" "$NF" "$5}' | sort -nrk2 | head
+					Mysql_Bak_Set 273772840 set
+					Z_SPE_cache_4px_SET 64610750 zset
+					C_S_N_S1_SET 59992409 set
+					updateNotfoundCourier 50964608 usps
+					Z_R_P_U_ekart_SET 35980945 zset
+					Z_P_O_pitneybowes_B_SET 30353555 zset
+					python_set_taiwan_post 25198600 set
+					C_S_N_S3_SET 23780051 set
+					lp_rule_content5_othernum 15226320 set
+					updateNotfoundCourier 9742672 fedex
+					[root@iz0xibhd8xjxiru8zt5ierz ~]# php /home/wwwroot/www.trackingmore.com/script/warning_redis.php dfdf 10 | grep ':redis:' -A8  string(182) "Foreign:redis:
+					node:0: 79.76% > 10%
+					node:1: 79.36% > 10%
+					node:2: 75.57% > 10%
+					node:3: 95.37% > 10%
+					node:4: 79.41% > 10%
+					node:5: 86.4% > 10%
+					node:6: 90.75% > 10%
+					node:7: 77.87% > 10%
+					[root@iz0xibhd8xjxiru8zt5ierz ~]# redis del Mysql_Bak_Set
+					-bash: redis: command not found
+				-145
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# redis del Mysql_Bak_Set
+					(integer) 1
+				-77
+					[root@iz0xibhd8xjxiru8zt5ierz ~]# php /home/wwwroot/www.trackingmore.com/script/warning_redis.php dfdf 10 | grep ':redis:' -A8
+					string(183) "Foreign:redis:
+					node:0: 79.75% > 10%
+					node:1: 79.39% > 10%
+					node:2: 75.62% > 10%
+					node:3: 82.42% > 10%
+					node:4: 79.44% > 10%
+					node:5: 85.84% > 10%
+					node:6: 90.76% > 10%
+					node:7: 77.91% > 10%
+					[root@iz0xibhd8xjxiru8zt5ierz ~]#
 			-- 20250331
 				-145
 					[root@iz0xibhd8xjxiru8zt5ietz ~]# tail -100 redis.bigkeys.log
@@ -8336,6 +8439,123 @@
 								script\queueshell\zipAndRmSpecifyTimeFile.sh
 								script\queueshell\file.to.zip.sh
 						历史数据清理 20240529
+							-- 20250419
+								ind_resque_49_172.16.10.167-resque-51-140
+									参考历史处理
+										/data/server_logs/root/ 下的带以下关键词压缩文件，保留7天
+											trackingSingleQueue.log
+											emailAndSMSSendFitter.log
+											test_courier.log
+											spendtimetltle_s.log
+
+										temp.rm.file.sh
+											# 临时清理压缩文件，后续需要整理梳理
+											find /data/server_logs/root/ -type f -name '*trackingSingleQueue.log*.zip' -mtime +7 | xargs -i rm -f {}
+											find /data/server_logs/root/ -type f -name '*emailAndSMSSendFitter.log*.zip' -mtime +7 | xargs -i rm -f {}
+											find /data/server_logs/root/ -type f -name '*test_courier.log*.zip' -mtime +7 | xargs -i rm -f {}
+											find /data/server_logs/root/ -type f -name '*spendtimetltle_s.log*.zip' -mtime +7 | xargs -i rm -f {}
+								
+										[root@izwz908uhtm6wdcqcg9bqez ~]
+										# df -h
+										Filesystem      Size  Used Avail Use% Mounted on
+										/dev/vda1        49G   47G  1.6G  97% /
+										devtmpfs         16G     0   16G   0% /dev
+										tmpfs            16G     0   16G   0% /dev/shm
+										tmpfs            16G  1.2G   14G   8% /run
+										tmpfs            16G     0   16G   0% /sys/fs/cgroup
+										tmpfs           3.1G     0  3.1G   0% /run/user/0
+										tmpfs           3.1G     0  3.1G   0% /run/user/1003
+										[root@izwz908uhtm6wdcqcg9bqez ~]
+										# sh /home/wwwroot/www.trackingmore.com/script/queueshell/temp.rm.file.sh
+										[root@izwz908uhtm6wdcqcg9bqez ~]
+										# df -h
+										Filesystem      Size  Used Avail Use% Mounted on
+										/dev/vda1        49G   41G  6.9G  86% /
+										devtmpfs         16G     0   16G   0% /dev
+										tmpfs            16G     0   16G   0% /dev/shm
+										tmpfs            16G  1.2G   14G   8% /run
+										tmpfs            16G     0   16G   0% /sys/fs/cgroup
+										tmpfs           3.1G     0  3.1G   0% /run/user/0
+										tmpfs           3.1G     0  3.1G   0% /run/user/1003
+									待办： /data/server_logs/ 下文件分类，保留时间指定
+								ind_resque-174-77-tm
+									扩容
+									记录各目录空间，以作为后续磁盘增量对比参考
+
+									临时处理
+										mkdir /run/log/home-wwwroot-www.trackingmore.com-python_img
+										find /home/wwwroot/www.trackingmore.com/python_img/ -name '*.log' -size +100M | xargs -i mv {} /run/log/home-wwwroot-www.trackingmore.com-python_img/
+
+										[root@iz0xibhd8xjxiru8zt5ierz ~]# df -h
+										Filesystem      Size  Used Avail Use% Mounted on
+										devtmpfs        7.7G     0  7.7G   0% /dev
+										tmpfs           7.7G     0  7.7G   0% /dev/shm
+										tmpfs           7.7G  8.9M  7.7G   1% /run
+										tmpfs           7.7G     0  7.7G   0% /sys/fs/cgroup
+										/dev/vda1        40G   39G     0 100% /
+										tmpfs           1.6G     0  1.6G   0% /run/user/0
+										overlay          40G   39G     0 100% /var/lib/docker/overlay2/59ca7e38d5053a3062bce79ba5dd8934e5abe477125dd0fbf0aae1019223218d/merged
+										tmpfs           1.6G     0  1.6G   0% /run/user/1002
+										[root@iz0xibhd8xjxiru8zt5ierz ~]#  find /home/wwwroot/www.trackingmore.com/python_img/ -name '*.log' -size +100M
+										/home/wwwroot/www.trackingmore.com/python_img/redis.bigkey.3.length_1_1024.20250405.log
+										/home/wwwroot/www.trackingmore.com/python_img/redis.bigkey.6.length_1_1024.20250405.log
+										/home/wwwroot/www.trackingmore.com/python_img/redis.bigkey.4.length_1_1024.20250405.log
+										/home/wwwroot/www.trackingmore.com/python_img/redis.bigkey.0.length_1_1024.20250418.log
+										/home/wwwroot/www.trackingmore.com/python_img/redis.bigkey.7.length_1_1024.20250405.log
+										/home/wwwroot/www.trackingmore.com/python_img/redis.bigkey.2.length_1_1024.20250418.log
+										/home/wwwroot/www.trackingmore.com/python_img/redis.bigkey.4.length_1_1024.20250419.log
+										/home/wwwroot/www.trackingmore.com/python_img/redis.bigkey.1.length_1_1024.20250418.log
+										/home/wwwroot/www.trackingmore.com/python_img/redis.bigkey.5.length_1_1024.20250405.log
+										/home/wwwroot/www.trackingmore.com/python_img/redis.bigkey.7.length_1_1024.20250419.log
+										/home/wwwroot/www.trackingmore.com/python_img/redis.bigkey.1.length_1_1024.20250404.log
+										/home/wwwroot/www.trackingmore.com/python_img/redis.bigkey.0.length_1_1024.20250404.log
+										/home/wwwroot/www.trackingmore.com/python_img/redis.bigkey.2.length_1_1024.20250404.log
+										/home/wwwroot/www.trackingmore.com/python_img/redis.bigkey.5.length_1_1024.20250419.log
+										/home/wwwroot/www.trackingmore.com/python_img/redis.bigkey.6.length_1_1024.20250419.log
+										/home/wwwroot/www.trackingmore.com/python_img/redis.bigkey.3.length_1_1024.20250419.log
+										[root@iz0xibhd8xjxiru8zt5ierz ~]# find /home/wwwroot/www.trackingmore.com/python_img/ -name '*.log' -size +100M | xargs mv {} /run/log/home-wwwroot-www.trackingmore.com-python_img
+										mv: target ‘/home/wwwroot/www.trackingmore.com/python_img/redis.bigkey.3.length_1_1024.20250419.log’ is not a directory
+										[root@iz0xibhd8xjxiru8zt5ierz ~]# find /home/wwwroot/www.trackingmore.com/python_img/ -name '*.log' -size +100M | xargs -i mv {} /run/log/home-wwwroot-www.trackingmore.com-python_img/
+										[root@iz0xibhd8xjxiru8zt5ierz ~]# df -h
+										Filesystem      Size  Used Avail Use% Mounted on
+										devtmpfs        7.7G     0  7.7G   0% /dev
+										tmpfs           7.7G     0  7.7G   0% /dev/shm
+										tmpfs           7.7G  2.7G  5.0G  36% /run
+										tmpfs           7.7G     0  7.7G   0% /sys/fs/cgroup
+										/dev/vda1        40G   37G  2.7G  94% /
+										tmpfs           1.6G     0  1.6G   0% /run/user/0
+										overlay          40G   37G  2.7G  94% /var/lib/docker/overlay2/59ca7e38d5053a3062bce79ba5dd8934e5abe477125dd0fbf0aae1019223218d/merged
+										tmpfs           1.6G     0  1.6G   0% /run/user/1002
+								ind_front_87_101_172.16.10.170-resque-download-51-74
+									参考历史处理
+										temp.rm.file.sh
+										临时清理压缩文件，后续需要整理梳理
+										# 将 /home/wwwroot/mytracking/uploads/excel_zip 下的压缩文件 *.zip 保留3天
+										find /home/wwwroot/mytracking/uploads/excel_zip/ -type f -name '*.zip' -mtime +3 | xargs -i rm -f {}
+
+										已经有相应定时任务，需要做调整，root.141.74
+										 7 --> +2
+									
+									[root@iZ94apf5ivnZ ~]# df -h
+									Filesystem      Size  Used Avail Use% Mounted on
+									/dev/vda1        49G   46G  1.9G  97% /
+									devtmpfs        3.8G     0  3.8G   0% /dev
+									tmpfs           3.8G     0  3.8G   0% /dev/shm
+									tmpfs           3.8G  697M  3.1G  19% /run
+									tmpfs           3.8G     0  3.8G   0% /sys/fs/cgroup
+									tmpfs           768M     0  768M   0% /run/user/0
+									tmpfs           768M     0  768M   0% /run/user/1004
+									[root@iZ94apf5ivnZ ~]# /bin/find /home/wwwroot/mytracking/uploads/excel_zip/ -type f -name '*.zip' -mtime +2 | xargs -i rm -fr {}
+									[root@iZ94apf5ivnZ ~]# df -h
+									Filesystem      Size  Used Avail Use% Mounted on
+									/dev/vda1        49G   44G  3.8G  93% /
+									devtmpfs        3.8G     0  3.8G   0% /dev
+									tmpfs           3.8G     0  3.8G   0% /dev/shm
+									tmpfs           3.8G  697M  3.1G  19% /run
+									tmpfs           3.8G     0  3.8G   0% /sys/fs/cgroup
+									tmpfs           768M     0  768M   0% /run/user/0
+									tmpfs           768M     0  768M   0% /run/user/1004
+
 							-- 20250414
 								upload-46-tm
 									zip /home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/04/mailgun20240430.log.zip /home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/04/mailgun20240430.log
@@ -14803,6 +15023,22 @@
 					3，增加负载均衡，带备份节点会更稳定
 			
 	运维
+		常用操作
+			定时任务
+				-- 20250419
+					diffCrontabFile.sh
+					IPSuff=`curl -s icanhazip.com | cut -d'.' -f3,4`
+					# 确认国内外
+					PTM=/home/wwwroot/www.trackingmore.com/
+					grep "'IS_FOREIGN', 0" ${PTM}config/consume.php | grep -v '//'
+					if [ $? -eq 0 ]; then
+						IS_FOREIGN=0
+						crontabFile=${PTM}crontab/home/root.${IPSuff}
+					else
+						IS_FOREIGN=1
+						crontabFile=${PTM}crontab/foreign/root.${IPSuff}
+					fi
+					diff /var/spool/cron/root ${crontabFile}
 		队列
 			-- 20250224
 				redis keys spe_4px_* | wc -l
