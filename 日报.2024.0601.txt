@@ -6245,6 +6245,27 @@
 日常响应
 4，后续优先级、应对
 
+===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== =====
+20250420
+
+原计划：
+本地
+1，14117相关整改
+运维
+2，厦门国际需求-51的单号识别数据更新
+3，迁云-整体梳理
+日常响应
+4，后续优先级、应对
+
+计划：
+安全
+1，14117相关整改-资料提供
+运维
+2，厦门国际需求-51的单号识别数据更新
+3，迁云-整体梳理
+日常响应
+4，后续优先级、应对
+
 
 近期复盘
 	3，工作项梳理
@@ -6288,6 +6309,14 @@
 	5，测试环境-分支自动构建触发取消
 
 操作顺序
+		-- 20250420
+			告警
+			14117
+			迁云
+			方式
+				抽象，自动化
+				当前事项
+					接入实践
 		-- 20250419
 			
 			告警？
@@ -7385,6 +7414,14 @@
 
 	客诉
 		厦门国际需求-51的单号识别数据更新
+			-- 202504020
+				第一批数据发detect服务器
+				sh ${PTM}script/dumpTableAanSend.sh '' '' 119.23.240.151 172.16.10.167
+				第二批数据发detect服务器
+				获取第二批数据（风险评估，属于导出的数据，可重新继续导出，没有脚本进行主动操作正常不存在高并发场景，rename table不涉及数据的实际移动或复制，仅仅更改了表文件的名称和内部元数据，通畅速度较快，性能影响低，如果表很大，文件系统的重命名操作可能会稍微增加一些延迟）
+					rename table tr_tracknumber_effective_for_rule to tr_tracknumber_effective_for_rule_20250418_115050_bk04181454_origin_20250420;
+					rename table tr_tracknumber_effective_for_rule_20250418_115050_bk04181454 to tr_tracknumber_effective_for_rule;
+				sh ${PTM}script/dumpTableAanSend.sh '' '' 119.23.240.151 172.16.10.167
 			-- 202504019
 				分割任务，多进程处理以提升速度（不会同时处理一个区间）
 					分割生产任务
@@ -8439,6 +8476,74 @@
 								script\queueshell\zipAndRmSpecifyTimeFile.sh
 								script\queueshell\file.to.zip.sh
 						历史数据清理 20240529
+							-- 20250420
+								c-ind-0-10-116-172.16.30.38-51
+									清除文件，按天分割，压缩，删除（保留14天）
+										[root@iZwz99iedtsm0dzywyl4yqZ ~]# df -h
+										Filesystem      Size  Used Avail Use% Mounted on
+										devtmpfs        3.8G     0  3.8G   0% /dev
+										tmpfs           3.8G  124K  3.8G   1% /dev/shm
+										tmpfs           3.8G  608K  3.8G   1% /run
+										tmpfs           3.8G     0  3.8G   0% /sys/fs/cgroup
+										/dev/vda1        40G   39G  2.0G  96% /
+										tmpfs           777M     0  777M   0% /run/user/0
+										tmpfs           777M     0  777M   0% /run/user/1001
+										[root@iZwz99iedtsm0dzywyl4yqZ ~]# ll -h test_courier.log
+										-rw-r--r-- 1 root root 21G Apr 20 16:13 test_courier.log
+										[root@iZwz99iedtsm0dzywyl4yqZ ~]# echo > test_courier.log 
+										[root@iZwz99iedtsm0dzywyl4yqZ ~]# df -h
+										Filesystem      Size  Used Avail Use% Mounted on
+										devtmpfs        3.8G     0  3.8G   0% /dev
+										tmpfs           3.8G  124K  3.8G   1% /dev/shm
+										tmpfs           3.8G  600K  3.8G   1% /run
+										tmpfs           3.8G     0  3.8G   0% /sys/fs/cgroup
+										/dev/vda1        40G   18G   23G  45% /
+										tmpfs           777M     0  777M   0% /run/user/0
+										tmpfs           777M     0  777M   0% /run/user/1001
+
+										# 20250420
+										# 定时任务 每天0点执行 按天分割日志
+										00 00 * * * sh /home/wwwroot/www.trackingmore.com/script/queueshell/logSplitByDay.sh 2>&1
+										# 每天压缩 运输商队列更新前一天test日志 /root/test_courier*log 并清除原日志
+										11 00 * * * sh /home/wwwroot/www.trackingmore.com/script/queueshell/zipAndRmFile.sh /root/ /run/log/root/ log test_courier >> /home/wwwroot/www.trackingmore.com/script/log/queueshell-zipAndRmFile.test_courier.log 2>&1
+										# 临时清理压缩文件，后续需要整理梳理
+										20 2 * * * sh /home/wwwroot/www.trackingmore.com/script/queueshell/temp.rm.file.sh > /dev/null 2>&1
+										# 2025042
+								待办： test_courier.log文件处理（保留时间，分割压缩 删除，文件或oss等格式）
+								172.16.10.140-python-region&writeRedisApi-51-59
+									[root@iZwz96q6pj8e3gc3q2r0zmZ ~]# df -h
+									Filesystem      Size  Used Avail Use% Mounted on
+									devtmpfs        908M     0  908M   0% /dev
+									tmpfs           919M     0  919M   0% /dev/shm
+									tmpfs           919M   90M  830M  10% /run
+									tmpfs           919M     0  919M   0% /sys/fs/cgroup
+									/dev/vda1        40G   40G     0 100% /
+									overlay          40G   40G     0 100% /var/lib/docker/overlay2/acd25c0ccbe54c8611f57f99c5d6d6b3da07bdf41e921c0d8d910c99fb9a2cfd/merged
+									overlay          40G   40G     0 100% /var/lib/docker/overlay2/998c3df796e00f2e75d5840e4e326b816512eb634f6165ab3bfe257d79deba57/merged
+									shm              64M     0   64M   0% /var/lib/docker/containers/4b39b3d075195bd208b762b95c0dd3df28f7a441b5e22f288a410a7a1c039c22/mounts/shm
+									overlay          40G   40G     0 100% /var/lib/docker/overlay2/f68015aafd946e0247585c6413d7ae29586bed10b9ed3b2bb3f63d713d26f282/merged
+									shm              64M     0   64M   0% /var/lib/docker/containers/e70db7d91bb49015914d7d809e274fe63f8271bf828f4eab023c8e9290696936/mounts/shm
+									overlay          40G   40G     0 100% /var/lib/docker/overlay2/029c465f5390d26ddf88c709b6b14e3773b0fe3b092e50eeed2e1ecace084185/merged
+									shm              64M     0   64M   0% /var/lib/docker/containers/e3a38c2efcaa25d5da17e04610e9f5cabf4b3e3c78a74ea82eab3012b7f129e6/mounts/shm
+									overlay          40G   40G     0 100% /var/lib/docker/overlay2/f5a0eb137ca51686199217968a0e0eedc6a2b6f10e7c3f64f20d3dcea861b96e/merged
+									shm              64M     0   64M   0% /var/lib/docker/containers/1cd497746e76ebf5e3d7f9d3dd783c378e81b925da787b3c7dac1f5c0ced0f19/mounts/shm
+									shm              64M     0   64M   0% /var/lib/docker/containers/82341f888c94cd1cf5cba50600b307ce2b8e493d41f1e40bae62442984c13bdc/mounts/shm
+									overlay          40G   40G     0 100% /var/lib/docker/overlay2/dc5e50ba44bd69301dbd80911558ebabbce967f0e71b55d7b7934db9037f5297/merged
+									shm              64M     0   64M   0% /var/lib/docker/containers/6da9cffdd9c54b23bae428cd5c1c9157088b62aa72a5c756bcd59f544b89fea8/mounts/shm
+									tmpfs           184M     0  184M   0% /run/user/1000
+									tmpfs           184M     0  184M   0% /run/user/0
+									overlay          40G   40G     0 100% /var/lib/docker/overlay2/b442afa131e0cb6b09d55958c108101c17459bd3ecd1f04111e327a357b77b80/merged
+									shm              64M     0   64M   0% /var/lib/docker/containers/4da1baf40379a2227fe70c5d529e068f48fc9338ec8f5d96d21b44546360661a/mounts/shm
+									# 清理文件
+									echo > 4da1baf40379a2227fe70c5d529e068f48fc9338ec8f5d96d21b44546360661a-json.log
+								
+								待办：docker日志文件 分割 压缩 保留时间设定（删除历史文件）
+									4da1baf40379 registry.cn-hangzhou.aliyuncs.com/crawler_service/redis_api:crawler_service_redis_master
+										12天达到7G
+										docker run -d --name redis_api -p 30000:5000 --restart always registry.cn-hangzhou.aliyuncs.com/crawler_service/redis_api:crawler_service_redis_master
+									82341f888c94 nginx
+										/var/lib/docker/containers/82341f888c94cd1cf5cba50600b307ce2b8e493d41f1e40bae62442984c13bdc/82341f888c94cd1cf5cba50600b307ce2b8e493d41f1e40bae62442984c13bdc-json.log
+										已经 8.9G
 							-- 20250419
 								ind_resque_49_172.16.10.167-resque-51-140
 									参考历史处理
@@ -16017,6 +16122,12 @@
 			A2中的数据在G2:G95中是否存在，存在（双方都支持）
 			=IF(ISERROR(MATCH(A2,$G$2:$G$95,0)),"我们A2支持对方G2:G95不支持","双方都支持")
 
+	迁云
+		-- 20250420
+			按照服务-对应资源（服务器，数据库等）-切割方式（回滚）-测试-切换-观察
+			非功能性
+				对应关系（原服务-新服务）
+				分账标签
 	上线超管后台优化修改运输商逻辑优化-队列启动（开启数量小于10的队列）
 		source /home/wwwroot/www.trackingmore.com/script/queueshell/start_queue_min.sh
 			echo $hostAlia
