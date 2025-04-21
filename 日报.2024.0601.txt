@@ -6287,6 +6287,45 @@
 					也属于运维中资源创建
 				20240820 
 
+===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== =====
+本周最重要的事件(不超过三件)
+20250414-20250420
+
+【运维-客户需求】
+1，厦门国际相关需求
+
+【迁云】
+2，迁云相关
+
+【本地桌面运维】
+3，本地海外访问
+
+如何解决？结果怎样？
+
+【运维-客户需求】
+1，厦门国际相关需求
+国内单号识别维护停滞，需要跑有效单号进行单号识别规则更新，参考国内脚本进行改造，并支持多进程以提升速度（国内数据量大，按以往方式需要几天时间），
+
+【迁云】
+2，迁云相关
+通过参考历史，会议沟通@GC@LSJ@ZW，讨论迁移方案；调研不停服方案；按服务资源等维度梳理涉及内容 https://alidocs.dingtalk.com/i/nodes/AR4GpnMqJz16XzNpCpm6pyBlVKe0xjE3?utm_scene=team_space&iframeQuery=anchorId%3Duu_m98lia83jp4796q99j；目前仍需进一步梳理确保完整性；
+
+【本地桌面运维】
+3，本地海外访问
+内部沟通专线合同需求，已经经过律师审核修改，其他对方已经同意，还有一点我们需同@YKK确认；使用细节调整；协作相关（后续桌面同学更多协助推进）
+
+
+总结反思（做的好的&待提升的）
+1，导出有效单号上，可以将历史操作做抽象，后续给到分割任务规则，消化任务定义步骤，既可进行兼顾效率和负载地执行大数据量相关操作
+2，迁云相关推进缓慢，有部分原因在于历史债务（之前的定时任务、配置等未及时同步版本库导致线上与仓库不一致，这里的更进一步原因在于自动化实现落后于实际需要），需要跟进一致性；
+
+其他同步事项（选填）
+下周计划
+1，迁云相关
+2，本地网络相关
+	任务拆分推进
+
+
 近期待办
 	国庆前 - dataworks和maxcompute权限 WTB
 	prometheus 授权
@@ -7420,6 +7459,8 @@
 				第二批数据发detect服务器
 				获取第二批数据（风险评估，属于导出的数据，可重新继续导出，没有脚本进行主动操作正常不存在高并发场景，rename table不涉及数据的实际移动或复制，仅仅更改了表文件的名称和内部元数据，通畅速度较快，性能影响低，如果表很大，文件系统的重命名操作可能会稍微增加一些延迟）
 					rename table tr_tracknumber_effective_for_rule to tr_tracknumber_effective_for_rule_20250418_115050_bk04181454_origin_20250420;
+					-- 名字太长报错 ERROR 1059 (42000): Identifier name 'tr_tracknumber_effective_for_rule_20250418_115050_bk04181454_origin_20250420' is too long
+					rename table tr_tracknumber_effective_for_rule to tr_tracknumber_effective_for_rule_20250421_bak;
 					rename table tr_tracknumber_effective_for_rule_20250418_115050_bk04181454 to tr_tracknumber_effective_for_rule;
 				sh ${PTM}script/dumpTableAanSend.sh '' '' 119.23.240.151 172.16.10.167
 			-- 202504019
