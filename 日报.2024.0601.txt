@@ -6304,6 +6304,27 @@
 2，本地网络相关
 	任务拆分推进
 
+===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== =====
+20250421
+
+原计划：
+本地
+1，14117相关整改-资料提供
+运维
+2，厦门国际需求-51的单号识别数据更新
+3，迁云-整体梳理
+日常响应
+4，后续优先级、应对
+
+计划：
+安全
+1，14117相关整改-资料提供
+运维
+2，厦门国际需求-51的单号识别数据更新
+3，迁云-整体梳理
+日常响应
+4，后续优先级、应对
+
 
 近期复盘
 	3，工作项梳理
@@ -7454,7 +7475,7 @@
 
 	客诉
 		厦门国际需求-51的单号识别数据更新
-			-- 202504020
+			-- 20250420
 				第一批数据发detect服务器
 				sh ${PTM}script/dumpTableAanSend.sh '' '' 119.23.240.151 172.16.10.167
 				第二批数据发detect服务器
@@ -7464,7 +7485,7 @@
 					rename table tr_tracknumber_effective_for_rule to tr_tracknumber_effective_for_rule_20250421_bak;
 					rename table tr_tracknumber_effective_for_rule_20250418_115050_bk04181454 to tr_tracknumber_effective_for_rule;
 				sh ${PTM}script/dumpTableAanSend.sh '' '' 119.23.240.151 172.16.10.167
-			-- 202504019
+			-- 20250419
 				分割任务，多进程处理以提升速度（不会同时处理一个区间）
 					分割生产任务
 					消费任务
@@ -7475,14 +7496,14 @@
 					日志任务
 					监控任务
 				通过队列的形式，让处理兼顾速度与 cpu 资源的使用率，提升处理效率，减少人工干预，提升效率
-			-- 202504018
+			-- 20250418
 				redis srem scanning_success_table_SET_20250417_seperated_tr_tracking_info_90501_91000 "[\"28638112\",29438111]"
 				redis srem scanning_success_table_SET_20250417_seperated_tr_tracking_info_90501_91000 "[29438112,30238111]"
 				redis srem scanning_success_table_SET_20250417_seperated_tr_tracking_info_90501_91000 "[30238112,31038111]"
 				redis srem scanning_success_table_SET_20250417_seperated_tr_tracking_info_90501_91000 "[31038112,31838111]"
 				redis srem scanning_success_table_SET_20250417_seperated_tr_tracking_info_90501_91000 "[31838112,32638111]"
 				redis srem scanning_success_table_SET_20250417_seperated_tr_tracking_info_90501_91000 "[32638112,33438111]"
-			-- 202504017
+			-- 20250417
 				通过多进程提升速度
 
 				查看最新数据确认写入数据是否正确（在进行，first_tracking_info_time 时间是否在3月份中）
