@@ -6287,7 +6287,7 @@
 
 【迁云】
 2，迁云相关
-通过参考历史，会议沟通@GC@LSJ@ZW，讨论迁移方案；调研不停服方案；按服务资源等维度梳理涉及内容 https://alidocs.dingtalk.com/i/nodes/AR4GpnMqJz16XzNpCpm6pyBlVKe0xjE3?utm_scene=team_space&iframeQuery=anchorId%3Duu_m98lia83jp4796q99j；目前仍需进一步梳理确保完整性；
+通过参考历史，会议沟通@GC@LSJ@ZW，讨论迁移方案；调研不停服方案；按服务资源等维度梳理涉及内容； https://alidocs.dingtalk.com/i/nodes/AR4GpnMqJz16XzNpCpm6pyBlVKe0xjE3?utm_scene=team_space&iframeQuery=anchorId%3Duu_m98lia83jp4796q99j 目前仍需进一步梳理确保完整性；
 
 【本地桌面运维】
 3，本地海外访问
