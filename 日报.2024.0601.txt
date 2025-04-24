@@ -6347,6 +6347,29 @@
 日常响应
 4，后续优先级、应对
 
+===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== =====
+20250423
+
+原计划：
+本地
+1，14117相关整改-资料提供
+运维
+2，厦门国际需求-51的单号识别数据更新
+3，迁云-整体梳理
+日常响应
+4，后续优先级、应对
+
+计划：
+安全
+1，14117相关整改-资料提供
+运维
+2，充值梳理提交
+3，ssl证书更新
+4，厦门国际需求-51的单号识别数据更新
+5，迁云-整体梳理
+日常响应
+6，后续优先级、应对
+
 
 近期复盘
 	3，工作项梳理
@@ -7496,6 +7519,72 @@
 					后续待办：关注更新异常率，及时处理跟进
 
 	客诉
+		dhl更新速度不足
+			-- 20250423
+				. /home/wwwroot/www.trackingmore.com/script/queueshell/host_conf.sh; ls /home/wwwroot/www.trackingmore.com/script/queueshell/track_queue_conf_update_independent_${hostAlia}.sh ;cp /home/wwwroot/www.trackingmore.com/script/queueshell/track_queue_conf_update_independent_${hostAlia}.sh /tmp/track_queue_conf_update_independent_${hostAlia}.sh
+				
+				# 测试当前ansible命令
+					[root@iZwz99iedtsm0dzywyl4yqZ ~]# ps -ef | grep ans
+					root      127731  127730  0 19:07 pts/2    00:00:00 su - ansible -c ansible ali -m copy -a "src=/home/wwwroot/upload/huaqiang/ansible.test.1.sh dest=/home/wwwroot/upload/huaqiang/    mode=600" -b
+					ansible   127732  127731  6 19:07 ?        00:00:10 /usr/libexec/platform-python /usr/bin/ansible ali -m copy -a src=/home/wwwroot/upload/huaqiang/ansible.test.1.sh dest=/home/wwwroot/upload/huaqiang/    mode=600 -b
+					ansible   129101       1  0 19:08 ?        00:00:00 ssh: /home/ansible/.ansible/cp/9f94dff77e [mux]
+					ansible   129103       1  0 19:08 ?        00:00:00 ssh: /home/ansible/.ansible/cp/fce9cc589e [mux]
+					ansible   129141       1  0 19:08 ?        00:00:00 ssh: /home/ansible/.ansible/cp/3aa67c3afb [mux]
+					ansible   129145       1  0 19:08 ?        00:00:00 ssh: /home/ansible/.ansible/cp/d94d00a113 [mux]
+					ansible   129175       1  0 19:09 ?        00:00:00 ssh: /home/ansible/.ansible/cp/e979966f46 [mux]
+					ansible   129242       1  0 19:09 ?        00:00:00 ssh: /home/ansible/.ansible/cp/239253e873 [mux]
+					ansible   129312       1  0 19:09 ?        00:00:00 ssh: /home/ansible/.ansible/cp/f90f70e1b0 [mux]
+					ansible   129322       1  0 19:09 ?        00:00:00 ssh: /home/ansible/.ansible/cp/3691fbf9cc [mux]
+					ansible   129356       1  0 19:09 ?        00:00:00 ssh: /home/ansible/.ansible/cp/945f63829b [mux]
+					ansible   129369       1  0 19:09 ?        00:00:00 ssh: /home/ansible/.ansible/cp/f2d6868382 [mux]
+					ansible   129405       1  0 19:09 ?        00:00:00 ssh: /home/ansible/.ansible/cp/efe9ccec61 [mux]
+					ansible   129411       1  0 19:09 ?        00:00:00 ssh: /home/ansible/.ansible/cp/3cc6f42f38 [mux]
+					ansible   129425       1  0 19:09 ?        00:00:00 ssh: /home/ansible/.ansible/cp/f529b87818 [mux]
+					ansible   129454       1  0 19:09 ?        00:00:00 ssh: /home/ansible/.ansible/cp/9210556975 [mux]
+					ansible   129493       1  0 19:09 ?        00:00:00 ssh: /home/ansible/.ansible/cp/c11d1813d8 [mux]
+					ansible   129497       1  0 19:09 ?        00:00:00 ssh: /home/ansible/.ansible/cp/e01db1646a [mux]
+					ansible   129515       1  0 19:09 ?        00:00:00 ssh: /home/ansible/.ansible/cp/76d83eb541 [mux]
+					ansible   129521       1  0 19:09 ?        00:00:00 ssh: /home/ansible/.ansible/cp/10d492813d [mux]
+					ansible   129557       1  0 19:09 ?        00:00:00 ssh: /home/ansible/.ansible/cp/95794c18e5 [mux]
+					ansible   129583       1  0 19:09 ?        00:00:00 ssh: /home/ansible/.ansible/cp/5aa6cdbc2e [mux]
+					ansible   129588       1  0 19:09 ?        00:00:00 ssh: /home/ansible/.ansible/cp/ecec6978d1 [mux]
+					ansible   129593       1  0 19:09 ?        00:00:00 ssh: /home/ansible/.ansible/cp/c1f75790f8 [mux]
+					ansible   129638       1  0 19:09 ?        00:00:00 ssh: /home/ansible/.ansible/cp/f21c3d7e6e [mux]
+					ansible   129668  127732  0 19:09 ?        00:00:00 /usr/libexec/platform-python /usr/bin/ansible ali -m copy -a src=/home/wwwroot/upload/huaqiang/ansible.test.1.sh dest=/home/wwwroot/upload/huaqiang/    mode=600 -b
+					ansible   129695  127732  0 19:09 ?        00:00:00 /usr/libexec/platform-python /usr/bin/ansible ali -m copy -a src=/home/wwwroot/upload/huaqiang/ansible.test.1.sh dest=/home/wwwroot/upload/huaqiang/    mode=600 -b
+					ansible   129696       1  0 19:09 ?        00:00:00 ssh: /home/ansible/.ansible/cp/1aa9749e05 [mux]
+					ansible   129699  127732 28 19:09 ?        00:00:03 /usr/libexec/platform-python /usr/bin/ansible ali -m copy -a src=/home/wwwroot/upload/huaqiang/ansible.test.1.sh dest=/home/wwwroot/upload/huaqiang/    mode=600 -b
+					ansible   129716  127732  8 19:09 ?        00:00:00 /usr/libexec/platform-python /usr/bin/ansible ali -m copy -a src=/home/wwwroot/upload/huaqiang/ansible.test.1.sh dest=/home/wwwroot/upload/huaqiang/    mode=600 -b
+					ansible   129718       1  0 19:09 ?        00:00:00 ssh: /home/ansible/.ansible/cp/25bdddcfec [mux]
+					ansible   129760       1  0 19:09 ?        00:00:00 ssh: /home/ansible/.ansible/cp/e5b89bc080 [mux]
+					ansible   129765       1  0 19:09 ?        00:00:00 ssh: /home/ansible/.ansible/cp/2742c4beef [mux]
+					ansible   129766  127732  0 19:09 ?        00:00:00 /usr/libexec/platform-python /usr/bin/ansible ali -m copy -a src=/home/wwwroot/upload/huaqiang/ansible.test.1.sh dest=/home/wwwroot/upload/huaqiang/    mode=600 -b
+					ansible   129772  129695  0 19:09 ?        00:00:00 sftp -b - -C -o ControlMaster=auto -o ControlPersist=60s -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o ConnectTimeout=10 -o ControlPath=/home/ansible/.ansible/cp/25bdddcfec [172.16.30.57]
+					ansible   129776  129772  0 19:09 ?        00:00:00 /usr/bin/ssh -oForwardX11 no -oForwardAgent no -oPermitLocalCommand no -oClearAllForwardings yes -obatchmode yes -C -o ControlMaster=auto -o ControlPersist=60s -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o ConnectTimeout=10 -o ControlPath=/home/ansible/.ansible/cp/25bdddcfec -oProtocol 2 -s -- 172.16.30.57 sftp
+					ansible   129778  129668  0 19:09 ?        00:00:00 ssh -C -o ControlMaster=auto -o ControlPersist=60s -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o ConnectTimeout=10 -o ControlPath=/home/ansible/.ansible/cp/1aa9749e05 172.16.30.77 /bin/sh -c 'chmod u+x /home/ansible/.ansible/tmp/ansible-tmp-1745406586.7561922-129668-55971574159398/ /home/ansible/.ansible/tmp/ansible-tmp-1745406586.7561922-129668-55971574159398/AnsiballZ_file.py && sleep 0'
+					ansible   129779  129766  0 19:09 ?        00:00:00 ssh -C -o ControlMaster=auto -o ControlPersist=60s -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o ConnectTimeout=10 -o ControlPath=/home/ansible/.ansible/cp/81e86c0d75 172.16.30.76 /bin/sh -c 'echo ~ && sleep 0'
+					ansible   129780  129699  0 19:09 ?        00:00:00 /usr/libexec/platform-python /usr/bin/ansible ali -m copy -a src=/home/wwwroot/upload/huaqiang/ansible.test.1.sh dest=/home/wwwroot/upload/huaqiang/    mode=600 -b
+					root      129783  129724  0 19:10 pts/12   00:00:00 grep --color=auto ans
+					root     1503946       1  0 Apr07 ?        00:00:00 su - ansible -c ansible ali -m shell -a " sh /home/wwwroot/upload/huaqiang/ansible.test.1.sh 'test' ''" -b
+					ansible  1503947 1503946 14 Apr07 ?        2-06:57:48 /usr/libexec/platform-python /usr/bin/ansible ali -m shell -a  sh /home/wwwroot/upload/huaqiang/ansible.test.1.sh 'test' '' -b
+					ansible  1503978 1503947  0 Apr07 ?        00:00:14 /usr/libexec/platform-python /usr/bin/ansible ali -m shell -a  sh /home/wwwroot/upload/huaqiang/ansible.test.1.sh 'test' '' -b
+					ansible  1503980 1503947  0 Apr07 ?        00:00:14 /usr/libexec/platform-python /usr/bin/ansible ali -m shell -a  sh /home/wwwroot/upload/huaqiang/ansible.test.1.sh 'test' '' -b
+					ansible  1503982 1503947  0 Apr07 ?        00:00:13 /usr/libexec/platform-python /usr/bin/ansible ali -m shell -a  sh /home/wwwroot/upload/huaqiang/ansible.test.1.sh 'test' '' -b
+					ansible  1503983 1503947  0 Apr07 ?        00:00:12 /usr/libexec/platform-python /usr/bin/ansible ali -m shell -a  sh /home/wwwroot/upload/huaqiang/ansible.test.1.sh 'test' '' -b
+					ansible  1503985 1503947  0 Apr07 ?        00:00:11 /usr/libexec/platform-python /usr/bin/ansible ali -m shell -a  sh /home/wwwroot/upload/huaqiang/ansible.test.1.sh 'test' '' -b
+					ansible  1503995       1  0 Apr07 ?        00:00:00 ssh: /home/ansible/.ansible/cp/1aaed3a7ba [mux]
+					ansible  1503998       1  0 Apr07 ?        00:00:00 ssh: /home/ansible/.ansible/cp/f9341a2b77 [mux]
+					ansible  1504001       1  0 Apr07 ?        00:00:01 ssh: /home/ansible/.ansible/cp/d4ac7da082 [mux]
+					ansible  1504004       1  0 Apr07 ?        00:00:00 ssh: /home/ansible/.ansible/cp/5ddd7fc327 [mux]
+					ansible  1504007       1  0 Apr07 ?        00:00:00 ssh: /home/ansible/.ansible/cp/6d72e4d352 [mux]
+					ansible  1504036 1503982  0 Apr07 ?        00:00:00 ssh -C -o ControlMaster=auto -o ControlPersist=60s -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o ConnectTimeout=10 -o ControlPath=/home/ansible/.ansible/cp/5ddd7fc327 -tt 172.16.30.20 /bin/sh -c 'sudo -H -S -n  -u root /bin/sh -c '"'"'echo BECOME-SUCCESS-cqcfuteyecwxjezmnbbmjeiuoqjvwzoa ; /usr/libexec/platform-python /home/ansible/.ansible/tmp/ansible-tmp-1744023356.6840656-1503982-93445469152640/AnsiballZ_command.py'"'"' && sleep 0'
+					ansible  1504040 1503978  0 Apr07 ?        00:00:00 ssh -C -o ControlMaster=auto -o ControlPersist=60s -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o ConnectTimeout=10 -o ControlPath=/home/ansible/.ansible/cp/1aaed3a7ba -tt 172.16.30.17 /bin/sh -c 'sudo -H -S -n  -u root /bin/sh -c '"'"'echo BECOME-SUCCESS-spddmdconxaztsopawsvnrkahfdymrwz ; /usr/libexec/platform-python /home/ansible/.ansible/tmp/ansible-tmp-1744023356.5673048-1503978-224402636323528/AnsiballZ_command.py'"'"' && sleep 0'
+					ansible  1504041 1503980  0 Apr07 ?        00:00:00 ssh -C -o ControlMaster=auto -o ControlPersist=60s -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o ConnectTimeout=10 -o ControlPath=/home/ansible/.ansible/cp/d4ac7da082 -tt 172.16.30.19 /bin/sh -c 'sudo -H -S -n  -u root /bin/sh -c '"'"'echo BECOME-SUCCESS-kyntnsbhoniseflsvzjrligztmkkysjo ; /usr/libexec/platform-python /home/ansible/.ansible/tmp/ansible-tmp-1744023356.6580024-1503980-124020996129296/AnsiballZ_command.py'"'"' && sleep 0'
+					ansible  1504042 1503983  0 Apr07 ?        00:00:00 ssh -C -o ControlMaster=auto -o ControlPersist=60s -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o ConnectTimeout=10 -o ControlPath=/home/ansible/.ansible/cp/6d72e4d352 -tt 172.16.30.23 /bin/sh -c 'sudo -H -S -n  -u root /bin/sh -c '"'"'echo BECOME-SUCCESS-dorcucilpkzifvjmuojdswftdbleheeg ; /usr/libexec/platform-python /home/ansible/.ansible/tmp/ansible-tmp-1744023356.7133985-1503983-114424249029648/AnsiballZ_command.py'"'"' && sleep 0'
+					ansible  1504043 1503985  0 Apr07 ?        00:00:00 ssh -C -o ControlMaster=auto -o ControlPersist=60s -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o ConnectTimeout=10 -o ControlPath=/home/ansible/.ansible/cp/f9341a2b77 -tt 172.16.30.26 /bin/sh -c 'sudo -H -S -n  -u root /bin/sh -c '"'"'echo BECOME-SUCCESS-aigxuzoqdveggffrmlpynxyybfdkzbom ; /usr/libexec/platform-python /home/ansible/.ansible/tmp/ansible-tmp-1744023356.6580188-1503985-26767905007869/AnsiballZ_command.py'"'"' && sleep 0'
+				部分卡住的关掉
+					kill -s 14 `ps -ef | grep ansible | grep -v grep | awk '{print $2}'`
+
 		厦门国际需求-51的单号识别数据更新
 			-- 20250420
 				第一批数据发detect服务器
