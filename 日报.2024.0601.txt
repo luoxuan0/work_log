@@ -6413,7 +6413,7 @@
 3，后续优先级、应对
 
 ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== =====
-20250425
+20250426
 
 原计划：
 运维
@@ -6428,6 +6428,25 @@
 2，迁云-数据库同步测试&整体梳理
 日常响应
 3，后续优先级、应对
+
+===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== =====
+20250427
+
+原计划：
+运维
+1，ssl证书更新-tm
+2，迁云-数据库同步测试&整体梳理
+日常响应
+3，后续优先级、应对
+
+计划：
+安全
+1，14117相关整改-资料提供
+运维
+2，ssl证书更新-tm
+3，迁云-数据库同步测试&整体梳理
+日常响应
+4，后续优先级、应对
 
 
 近期复盘
@@ -8709,6 +8728,48 @@
 								script\queueshell\zipAndRmSpecifyTimeFile.sh
 								script\queueshell\file.to.zip.sh
 						历史数据清理 20240529
+							-- 20250427
+								www-214-153-tm
+									[root@iz0xigjdatfp2x5ez15cpuz ~]# df -h
+									Filesystem      Size  Used Avail Use% Mounted on
+									/dev/vda1        40G   37G  2.0G  95% /
+									devtmpfs        7.8G     0  7.8G   0% /dev
+									tmpfs           7.8G     0  7.8G   0% /dev/shm
+									tmpfs           7.8G  3.2G  4.7G  41% /run
+									tmpfs           7.8G     0  7.8G   0% /sys/fs/cgroup
+									tmpfs           1.6G     0  1.6G   0% /run/user/1002
+									tmpfs           1.6G     0  1.6G   0% /run/user/0
+									[root@iz0xigjdatfp2x5ez15cpuz ~]# sh disk.20241023.sh /home/wwwroot/mytracking 3 100
+									/home/wwwroot/mytracking: 6716 MB
+										/home/wwwroot/mytracking/downloads: 2375 MB
+											/home/wwwroot/mytracking/downloads/excel: 2375 MB
+										/home/wwwroot/mytracking/logs: 1345 MB
+											/home/wwwroot/mytracking/logs/routes: 1236 MB
+										/home/wwwroot/mytracking/uploads: 2842 MB
+											/home/wwwroot/mytracking/uploads/excel: 880 MB
+											/home/wwwroot/mytracking/uploads/excel_zip: 1963 MB
+									temp.rm.file.sh
+										# 临时清理压缩文件，后续需要整理梳理
+										# 214-153
+										find /home/wwwroot/mytracking/uploads/excel_zip/ -type f -name '*.zip' -mtime +7 | xargs -i rm -f {}
+									root.7.145 更新定时任务
+										# 20250427
+										# 临时清理压缩文件，后续需要整理梳理
+										20 2 * * * sh /home/wwwroot/www.trackingmore.com/script/queueshell/temp.rm.file.sh > /dev/null 2>&1
+										# 20250427
+									find /home/wwwroot/mytracking/uploads/excel_zip/ -type f -name '*.zip' -mtime +7 | xargs -i ls -l {} | awk '{sum+=$5} END {print sum/1024/1024 " MB"}'
+									find /home/wwwroot/mytracking/uploads/excel_zip/ -type f -name '*.zip' -mtime +7 | xargs -i rm -f {}
+									[root@iz0xigjdatfp2x5ez15cpuz ~]# df -h
+									Filesystem      Size  Used Avail Use% Mounted on
+									/dev/vda1        40G   36G  3.8G  91% /
+									devtmpfs        7.8G     0  7.8G   0% /dev
+									tmpfs           7.8G     0  7.8G   0% /dev/shm
+									tmpfs           7.8G  3.2G  4.7G  41% /run
+									tmpfs           7.8G     0  7.8G   0% /sys/fs/cgroup
+									tmpfs           1.6G     0  1.6G   0% /run/user/1002
+									tmpfs           1.6G     0  1.6G   0% /run/user/0
+
+									待办： 1，增加清理日志，包含大小，时间等，2，将/home/wwwroot/mytracking中可加入压缩目录进行加入，或直接按保留时间清除
 							-- 20250420
 								c-ind-0-10-116-172.16.30.38-51
 									清除文件，按天分割，压缩，删除（保留14天）
@@ -15364,7 +15425,11 @@
 		常用操作
 			定时任务
 				-- 20250419
-					diffCrontabFile.sh
+					PCR=${PTM}crontab/
+					sh ${PCR}deploy.sh toUpdate
+					diffCrontabFile.sh toUpdate
+					. /etc/bashrc
+
 					IPSuff=`curl -s icanhazip.com | cut -d'.' -f3,4`
 					# 确认国内外
 					PTM=/home/wwwroot/www.trackingmore.com/
@@ -15376,7 +15441,16 @@
 						IS_FOREIGN=1
 						crontabFile=${PTM}crontab/foreign/root.${IPSuff}
 					fi
+					echo "diff /var/spool/cron/root ${crontabFile}"
 					diff /var/spool/cron/root ${crontabFile}
+
+					if [[ $1 == toUpdate ]]; then
+						# 更新定时任务
+						crontab ${crontabFile}
+						# 确认更新情况
+						echo "diff /var/spool/cron/root ${crontabFile}"
+						diff /var/spool/cron/root ${crontabFile}
+					fi
 		队列
 			-- 20250224
 				redis keys spe_4px_* | wc -l
