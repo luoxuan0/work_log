@@ -6514,6 +6514,31 @@
 日常响应
 3，后续优先级、应对
 
+===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== =====
+20250429
+【运维】
+1，ssl证书更新-tm
+2，磁盘处理（docker下日志轮转、压缩配置）-待进一步确认效果
+【迁云】
+3，容器化-国外redis节点内存告警 @LSJ
+
+原计划：
+安全
+运维
+1，ssl证书更新-tm
+2，迁云-整体梳理
+日常响应
+3，后续优先级、应对
+
+计划：
+运维
+1，ssl证书更新-tm-dnspod方向上再次验证
+2，充值梳理提交
+迁云
+3，容器化-国外redis节点内存告警
+日常响应
+4，后续优先级、应对
+
 
 近期复盘
 	3，工作项梳理
@@ -7786,6 +7811,338 @@
 
 	告警
 		redis节点内存
+			-- 20250429
+				-145-35
+					96) "{\"failed_at\":\"Tue Apr 29 06:37:02  2025\",\"payload\":{\"class\":\"trackExpressjob\",\"args\":[{\"n\":\"Z_T_N_Express_SET\",\"e\":\"Z_T_N_Express_SET\",\"u\":\"\"}],\"id\":\"15216db5acaad4baab56c61145cf49af\"},\"exception\":\"RedisException\",\"error\":\"OOM command not allowed when used memory > 'maxmemory'.\",\"backtrace\":[\"#0 \\/home\\/wwwroot\\/www.trackingmore.com\\/library\\/tools\\/getDataListFromTable.php(56): Redis->set('cl_C_L', '{\\\"singapore-pos...', 86400)\",\"#1 \\/home\\/wwwroot\\/www.trackingmore.com\\/library\\/resque\\/getConcurrencyDataListFromTable.php(18): getDataListFromTable(Array)\",\"#2 \\/home\\/wwwroot\\/www.trackingmore.com\\/php-resque\\/perform\\/perform_trackExpress.php(71): getConcurrencyDataListFromTable(Array)\",\"#3 \\/home\\/wwwroot\\/www.trackingmore.com\\/php-resque\\/trackExpress\\/trackExpressjob.php(41): require_once('\\/home\\/wwwroot\\/w...')\",\"#4 \\/home\\/wwwroot\\/www.trackingmore.com\\/php-resque\\/lib\\/Resque\\/Job.php(184): trackExpressjob->perform()\",\"#5 \\/home\\/wwwroot\\/www.trackingmore.com\\/php-resque\\/lib\\/Resque\\/Worker.php(242): Resque_Job->perform()\",\"#6 \\/home\\/wwwroot\\/www.trackingmore.com\\/php-resque\\/lib\\/Resque\\/Worker.php(204): Resque_Worker->perform(Object(Resque_Job))\",\"#7 \\/home\\/wwwroot\\/www.trackingmore.com\\/php-resque\\/resque.php(79): Resque_Worker->work(5)\",\"#8 \\/home\\/wwwroot\\/www.trackingmore.com\\/php-resque\\/trackExpress\\/resque.php(15): require('\\/home\\/wwwroot\\/w...')\",\"#9 {main}\"],\"worker\":\"t-q-i-136-191-598c685468-rff97:196:trackExpressQueue\",\"queue\":\"trackExpressQueue\"}"
+					97) "{\"failed_at\":\"Tue Apr 29 06:37:02  2025\",\"payload\":{\"class\":\"trackExpressjob\",\"args\":[{\"n\":\"Z_T_N_Express_SET\",\"e\":\"Z_T_N_Express_SET\",\"u\":\"\"}],\"id\":\"625b30f6e489696af0eccf79379fd2b0\"},\"exception\":\"RedisException\",\"error\":\"OOM command not allowed when used memory > 'maxmemory'.\",\"backtrace\":[\"#0 \\/home\\/wwwroot\\/www.trackingmore.com\\/library\\/tools\\/getDataListFromTable.php(56): Redis->set('cl_C_L', '{\\\"singapore-pos...', 86400)\",\"#1 \\/home\\/wwwroot\\/www.trackingmore.com\\/library\\/resque\\/getConcurrencyDataListFromTable.php(18): getDataListFromTable(Array)\",\"#2 \\/home\\/wwwroot\\/www.trackingmore.com\\/php-resque\\/perform\\/perform_trackExpress.php(71): getConcurrencyDataListFromTable(Array)\",\"#3 \\/home\\/wwwroot\\/www.trackingmore.com\\/php-resque\\/trackExpress\\/trackExpressjob.php(41): require_once('\\/home\\/wwwroot\\/w...')\",\"#4 \\/home\\/wwwroot\\/www.trackingmore.com\\/php-resque\\/lib\\/Resque\\/Job.php(184): trackExpressjob->perform()\",\"#5 \\/home\\/wwwroot\\/www.trackingmore.com\\/php-resque\\/lib\\/Resque\\/Worker.php(242): Resque_Job->perform()\",\"#6 \\/home\\/wwwroot\\/www.trackingmore.com\\/php-resque\\/lib\\/Resque\\/Worker.php(204): Resque_Worker->perform(Object(Resque_Job))\",\"#7 \\/home\\/wwwroot\\/www.trackingmore.com\\/php-resque\\/resque.php(60): Resque_Worker->work(5)\",\"#8 \\/home\\/wwwroot\\/www.trackingmore.com\\/php-resque\\/trackExpress3\\/resque.php(15): require('\\/home\\/wwwroot\\/w...')\",\"#9 {main}\"],\"worker\":\"t-q-35-6b7d44ddd4-zgcpp:4921:trackExpressQueue\",\"queue\":\"trackExpressQueue\"}"
+					98) "{\"failed_at\":\"Tue Apr 29 06:37:02  2025\",\"payload\":{\"class\":\"trackExpressjob\",\"args\":[{\"n\":\"Z_T_N_Express_SET\",\"e\":\"Z_T_N_Express_SET\",\"u\":\"\"}],\"id\":\"b31f4d2f3dcdda236128ce78aab96dbe\"},\"exception\":\"RedisException\",\"error\":\"OOM command not allowed when used memory > 'maxmemory'.\",\"backtrace\":[\"#0 \\/home\\/wwwroot\\/www.trackingmore.com\\/library\\/tools\\/getDataListFromTable.php(56): Redis->set('cl_C_L', '{\\\"singapore-pos...', 86400)\",\"#1 \\/home\\/wwwroot\\/www.trackingmore.com\\/library\\/resque\\/getConcurrencyDataListFromTable.php(18): getDataListFromTable(Array)\",\"#2 \\/home\\/wwwroot\\/www.trackingmore.com\\/php-resque\\/perform\\/perform_trackExpress.php(71): getConcurrencyDataListFromTable(Array)\",\"#3 \\/home\\/wwwroot\\/www.trackingmore.com\\/php-resque\\/trackExpress\\/trackExpressjob.php(41): require_once('\\/home\\/wwwroot\\/w...')\",\"#4 \\/home\\/wwwroot\\/www.trackingmore.com\\/php-resque\\/lib\\/Resque\\/Job.php(184): trackExpressjob->perform()\",\"#5 \\/home\\/wwwroot\\/www.trackingmore.com\\/php-resque\\/lib\\/Resque\\/Worker.php(242): Resque_Job->perform()\",\"#6 \\/home\\/wwwroot\\/www.trackingmore.com\\/php-resque\\/lib\\/Resque\\/Worker.php(204): Resque_Worker->perform(Object(Resque_Job))\",\"#7 \\/home\\/wwwroot\\/www.trackingmore.com\\/php-resque\\/resque.php(60): Resque_Worker->work(5)\",\"#8 \\/home\\/wwwroot\\/www.trackingmore.com\\/php-resque\\/trackExpress3\\/resque.php(15): require('\\/home\\/wwwroot\\/w...')\",\"#9 {main}\"],\"worker\":\"t-q-35-6b7d44ddd4-zgcpp:4922:trackExpressQueue\",\"queue\":\"trackExpressQueue\"}"
+					99) "{\"failed_at\":\"Tue Apr 29 06:37:02  2025\",\"payload\":{\"class\":\"trackExpressjob\",\"args\":[{\"n\":\"Z_T_N_Express_SET\",\"e\":\"Z_T_N_Express_SET\",\"u\":\"\"}],\"id\":\"bb53ca07c888bf91933c64ff80dfecd4\"},\"exception\":\"RedisException\",\"error\":\"OOM command not allowed when used memory > 'maxmemory'.\",\"backtrace\":[\"#0 \\/home\\/wwwroot\\/www.trackingmore.com\\/library\\/tools\\/getDataListFromTable.php(56): Redis->set('cl_C_L', '{\\\"singapore-pos...', 86400)\",\"#1 \\/home\\/wwwroot\\/www.trackingmore.com\\/library\\/resque\\/getConcurrencyDataListFromTable.php(18): getDataListFromTable(Array)\",\"#2 \\/home\\/wwwroot\\/www.trackingmore.com\\/php-resque\\/perform\\/perform_trackExpress.php(71): getConcurrencyDataListFromTable(Array)\",\"#3 \\/home\\/wwwroot\\/www.trackingmore.com\\/php-resque\\/trackExpress\\/trackExpressjob.php(41): require_once('\\/home\\/wwwroot\\/w...')\",\"#4 \\/home\\/wwwroot\\/www.trackingmore.com\\/php-resque\\/lib\\/Resque\\/Job.php(184): trackExpressjob->perform()\",\"#5 \\/home\\/wwwroot\\/www.trackingmore.com\\/php-resque\\/lib\\/Resque\\/Worker.php(242): Resque_Job->perform()\",\"#6 \\/home\\/wwwroot\\/www.trackingmore.com\\/php-resque\\/lib\\/Resque\\/Worker.php(204): Resque_Worker->perform(Object(Resque_Job))\",\"#7 \\/home\\/wwwroot\\/www.trackingmore.com\\/php-resque\\/resque.php(60): Resque_Worker->work(5)\",\"#8 \\/home\\/wwwroot\\/www.trackingmore.com\\/php-resque\\/trackExpress3\\/resque.php(15): require('\\/home\\/wwwroot\\/w...')\",\"#9 {main}\"],\"worker\":\"t-q-35-6b7d44ddd4-zgcpp:5721:trackExpressQueue\",\"queue\":\"trackExpressQueue\"}"
+					100) "{\"failed_at\":\"Tue Apr 29 06:37:02  2025\",\"payload\":{\"class\":\"trackExpressjob\",\"args\":[{\"n\":\"Z_T_N_Express_SET\",\"e\":\"Z_T_N_Express_SET\",\"u\":\"\"}],\"id\":\"ae16c3e6b55f68cb71ef01a5afe5638b\"},\"exception\":\"RedisException\",\"error\":\"OOM command not allowed when used memory > 'maxmemory'.\",\"backtrace\":[\"#0 \\/home\\/wwwroot\\/www.trackingmore.com\\/library\\/tools\\/getDataListFromTable.php(56): Redis->set('cl_C_L', '{\\\"singapore-pos...', 86400)\",\"#1 \\/home\\/wwwroot\\/www.trackingmore.com\\/library\\/resque\\/getConcurrencyDataListFromTable.php(18): getDataListFromTable(Array)\",\"#2 \\/home\\/wwwroot\\/www.trackingmore.com\\/php-resque\\/perform\\/perform_trackExpress.php(71): getConcurrencyDataListFromTable(Array)\",\"#3 \\/home\\/wwwroot\\/www.trackingmore.com\\/php-resque\\/trackExpress\\/trackExpressjob.php(41): require_once('\\/home\\/wwwroot\\/w...')\",\"#4 \\/home\\/wwwroot\\/www.trackingmore.com\\/php-resque\\/lib\\/Resque\\/Job.php(184): trackExpressjob->perform()\",\"#5 \\/home\\/wwwroot\\/www.trackingmore.com\\/php-resque\\/lib\\/Resque\\/Worker.php(242): Resque_Job->perform()\",\"#6 \\/home\\/wwwroot\\/www.trackingmore.com\\/php-resque\\/lib\\/Resque\\/Worker.php(204): Resque_Worker->perform(Object(Resque_Job))\",\"#7 \\/home\\/wwwroot\\/www.trackingmore.com\\/php-resque\\/resque.php(60): Resque_Worker->work(5)\",\"#8 \\/home\\/wwwroot\\/www.trackingmore.com\\/php-resque\\/trackExpress3\\/resque.php(15): require('\\/home\\/wwwroot\\/w...')\",\"#9 {main}\"],\"worker\":\"t-q-35-6b7d44ddd4-zgcpp:2745:trackExpressQueue\",\"queue\":\"trackExpressQueue\"}"
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# redis
+					r-0xiyxblxonjb1bm3ri.redis.rds.aliyuncs.com:6379> zcard Z_R_P_U_china-ems_SET 
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# redis lrange resque:failed -1000 -1>1.log
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# redis info key resque:failed
+					slot:11219 node_index:5
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# php /home/wwwroot/www.trackingmore.com/script/warning_redis.php dfdf 10 | grep ':redis:' -A8
+					string(182) "Foreign:redis:
+					node:0: 83.1% > 10%
+					node:1: 82.44% > 10%
+					node:2: 80.44% > 10%
+					node:3: 88.98% > 10%
+					node:4: 81.97% > 10%
+					node:5: 96.09% > 10%
+					node:6: 99.99% > 10%
+					node:7: 80.15% > 10%
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# tail -100 redis.bigkeys.log
+
+					12490642 strings with 1310640502 bytes (46.42% of keys, avg size 104.93)
+					38 lists with 1367883 items (00.00% of keys, avg size 35996.92)
+					14411590 sets with 38194040 members (53.56% of keys, avg size 2.65)
+					5394 hashs with 10464927 fields (00.02% of keys, avg size 1940.11)
+					1340 zsets with 10090477 members (00.00% of keys, avg size 7530.21)
+
+					# Scanning the entire keyspace to find biggest keys as well as
+					# average sizes per key type.  You can use -i 0.1 to sleep 0.1 sec
+					# per 100 SCAN commands (not usually needed).
+
+					[00.00%] Biggest string found so far 'NotFound_Retrack_224763_179057263' with 92 bytes
+					[00.00%] Biggest set    found so far 'server_9200190349451108914617_usps_SET' with 1 members
+					[00.00%] Biggest set    found so far 'pitneybowes45.42.177.43:3128' with 2 members
+					[00.00%] Biggest string found so far 'NotFound_Retrack_224763_179028704' with 93 bytes
+					[00.00%] Biggest set    found so far 'S_API_AS_V4_1739962800' with 249 members
+					[00.00%] Biggest string found so far 'rule_content_new_0_1302_0' with 42641 bytes
+					[00.01%] Biggest set    found so far 'updateNotfoundCourier:wearepro:existSpecifyCourier' with 5531 members
+					[00.03%] Biggest hash   found so far 'dhl_count_2025021403' with 5 fields
+					[00.09%] Biggest hash   found so far 'dhl_count_2024093005' with 1265 fields
+					[00.11%] Biggest zset   found so far 'Z_R_P_U_moldova-post_SET' with 535 members
+					[00.15%] Biggest hash   found so far 'dhl_count_2024112109' with 13695 fields
+					[00.23%] Biggest set    found so far 'updateNotfoundCourier:delhivery:updatedNumber:updateNotfoundCourier:delhivery:overOneNumberNotIncludedSpecifyCourier' with 8977 members
+					[00.25%] Biggest hash   found so far 'dhl_count_2024112609' with 17974 fields
+					[00.26%] Biggest string found so far 'mem_page_lang_detail_tw' with 458477 bytes
+					[00.26%] Biggest set    found so far 'updateNotfoundCourier:asendia-usa:updatedNumberWithOldCourier:updateNotfoundCourier:asendia-usa:overOneNumberNotIncludedSpecifyCourier' with 32160 members
+					[00.28%] Biggest string found so far 'rule_content_new_0_92_4' with 2742784 bytes
+					[00.37%] Biggest zset   found so far 'Z_R_P_U_auspost_SET' with 2409 members
+					[00.61%] Biggest zset   found so far 'Z_R_P_U_hhexp_SET' with 576190 members
+					[01.05%] Biggest set    found so far 'notfound_courier_code_dhlglobalmail' with 33718 members
+					[02.24%] Biggest string found so far '260086_Import_20230520150043' with 3284089 bytes
+					[02.42%] Biggest hash   found so far 'dhl_count_2024102316' with 26683 fields
+					[02.55%] Biggest list   found so far 'resque:queue:trackFQueue' with 9 items
+					[02.89%] Biggest string found so far 'TrackingCompanyData_ru_0' with 5970280 bytes
+					[03.68%] Sampled 1000000 keys so far
+					[04.36%] Biggest list   found so far 'resque:queue:shopifyWebhookQueue' with 30 items
+					[06.91%] Biggest hash   found so far 'dhl_count_2024110220' with 28882 fields
+					[07.35%] Sampled 2000000 keys so far
+					[07.56%] Biggest hash   found so far 'dhl_count_2024110316' with 42122 fields
+					[08.21%] Biggest list   found so far 'resque:queue:updateInIndependentServer4pxRedisForeignToHomeReceiveDataQueue' with 80 items
+					[10.02%] Biggest set    found so far 'lbcexpress_IP_lbcexpress.com' with 35984 members
+					[10.54%] Biggest hash   found so far 'dhl_count_2024091812' with 62314 fields
+					[11.03%] Sampled 3000000 keys so far
+					[13.52%] Biggest set    found so far 'R_P_U_ukraine-post_SET' with 55533 members
+					[13.83%] Biggest list   found so far 'courier_jtexpress-ae_ticket' with 137 items
+					[14.70%] Sampled 4000000 keys so far
+					[16.96%] Biggest set    found so far 'quiqup_input' with 67439 members
+					[18.12%] Biggest hash   found so far 'dhl_count_2024091710' with 62423 fields
+					[18.38%] Sampled 5000000 keys so far
+					[18.74%] Biggest list   found so far 'resque:queue:platefromWishQueue' with 13999 items
+					[22.06%] Sampled 6000000 keys so far
+					[22.41%] Biggest set    found so far 'updateNotfoundCourier:fedex:updatedNumber:updateNotfoundCourier:fedex:overOneNumberNotIncludedSpecifyCourier' with 69104 members
+					[22.45%] Biggest hash   found so far 'TRACKING_TIME_PREPARE' with 204636 fields
+					[25.73%] Sampled 7000000 keys so far
+					[29.41%] Sampled 8000000 keys so far
+					[33.08%] Sampled 9000000 keys so far
+					[35.78%] Biggest set    found so far 'cainiao_IP_global.cainiao.com' with 291412 members
+					[36.76%] Sampled 10000000 keys so far
+					[40.43%] Sampled 11000000 keys so far
+					[42.53%] Biggest set    found so far 'updateNotfoundCourier:usps:updatedNumberWithOldCourier' with 760282 members
+					[42.71%] Biggest zset   found so far 'Z_SPE_cache_4px_SET' with 581427 members
+					[44.11%] Sampled 12000000 keys so far
+					[45.88%] Biggest set    found so far 'C_S_N_S1_SET' with 1040396 members
+					[47.79%] Sampled 13000000 keys so far
+					[51.46%] Sampled 14000000 keys so far
+					[54.25%] Biggest set    found so far 'U_S_N_NO_SET' with 1090338 members
+					[55.14%] Sampled 15000000 keys so far
+					[58.81%] Sampled 16000000 keys so far
+					[62.49%] Sampled 17000000 keys so far
+					[66.17%] Sampled 18000000 keys so far
+					[69.01%] Biggest list   found so far 'resque:queue:airSendQueue' with 92921 items
+					[69.84%] Sampled 19000000 keys so far
+					[73.52%] Sampled 20000000 keys so far
+					[75.62%] Biggest set    found so far 'lastRestNumberArr' with 4257194 members
+					[76.36%] Biggest list   found so far 'resque:queue:airPubQueue' with 536942 items
+					[77.19%] Sampled 21000000 keys so far
+					[78.26%] Biggest zset   found so far 'Z_R_P_U_royal-mail-v2_SET' with 662924 members
+					[80.87%] Sampled 22000000 keys so far
+					[84.54%] Sampled 23000000 keys so far
+					[88.22%] Sampled 24000000 keys so far
+					[91.90%] Sampled 25000000 keys so far
+					[95.57%] Sampled 26000000 keys so far
+					[99.25%] Sampled 27000000 keys so far
+
+					-------- summary -------
+
+					Sampled 27150317 keys in the keyspace!
+					Total key length in bytes is 1093954342 (avg len 40.29)
+
+					Biggest string found 'TrackingCompanyData_ru_0' has 5970280 bytes
+					Biggest   list found 'resque:queue:airPubQueue' has 536942 items
+					Biggest    set found 'lastRestNumberArr' has 4257194 members
+					Biggest   hash found 'TRACKING_TIME_PREPARE' has 204636 fields
+					Biggest   zset found 'Z_R_P_U_royal-mail-v2_SET' has 662924 members
+
+					12536690 strings with 1469163949 bytes (46.18% of keys, avg size 117.19)
+					36 lists with 1376282 items (00.00% of keys, avg size 38230.06)
+					14606876 sets with 38115744 members (53.80% of keys, avg size 2.61)
+					5389 hashs with 10465200 fields (00.02% of keys, avg size 1941.96)
+					1326 zsets with 10074337 members (00.00% of keys, avg size 7597.54)
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# redis info key Mysql_Bak_Set
+					slot:7941 node_index:3
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# 
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# redis info key resque:queue:airPubQueue
+					slot:13705 node_index:6
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# redis memoryusage resque:queue:airPubQueue
+					(error) ERR unknown command 'MEMORYUSAGE'
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# redis memory  usages resque:queue:airPubQueue
+					(error) ERR Unknown subcommand or wrong number of arguments for 'usages'. Try MEMORY HELP
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# redis memory  usage resque:queue:airPubQueue
+					(integer) 57408362
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# redis del resque:queue:airPubQueue
+					(integer) 1
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# php /home/wwwroot/www.trackingmore.com/script/warning_redis.php dfdf 10 | grep ':redis:' -A8
+					string(183) "Foreign:redis:
+					node:0: 83.19% > 10%
+					node:1: 82.52% > 10%
+					node:2: 80.66% > 10%
+					node:3: 89.03% > 10%
+					node:4: 82.05% > 10%
+					node:5: 97.85% > 10%
+					node:6: 97.35% > 10%
+					node:7: 80.15% > 10%
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# redis info key resque:failed
+					slot:11219 node_index:5
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# redis memory usage resque:failed
+					(integer) 166334530
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# redis del resque:failed
+					(integer) 1
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# php /home/wwwroot/www.trackingmore.com/script/warning_redis.php dfdf 10 | grep ':redis:' -A8
+					string(183) "Foreign:redis:
+					node:0: 83.26% > 10%
+					node:1: 82.42% > 10%
+					node:2: 79.21% > 10%
+					node:3: 89.04% > 10%
+					node:4: 82.14% > 10%
+					node:5: 89.39% > 10%
+					node:6: 97.44% > 10%
+					node:7: 80.13% > 10%
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# php /home/wwwroot/www.trackingmore.com/script/warning_redis.php dfdf 10 | grep ':redis:' -A8
+					string(182) "Foreign:redis:
+					node:0: 83.32% > 10%
+					node:1: 81.84% > 10%
+					node:2: 78.2% > 10%
+					node:3: 88.62% > 10%
+					node:4: 82.19% > 10%
+					node:5: 89.27% > 10%
+					node:6: 97.26% > 10%
+					node:7: 80.21% > 10%
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# php /home/wwwroot/www.trackingmore.com/script/warning_redis.php dfdf 10 | grep ':redis:' -A8
+					string(180) "Foreign:redis:
+					node:0: 83.25% > 10%
+					node:1: 81.98% > 10%
+					node:2: 78.29% > 10%
+					node:3: 88.38% > 10%
+					node:4: 82.18% > 10%
+					node:5: 89% > 10%
+					node:6: 97.33% > 10%
+					node:7: 80.25% > 10%
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# redis memory usage resque:queue:airRetryQueue
+					(integer) 41735077
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# redis info key resque:queue:airRetryQueue
+					slot:13526 node_index:6
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# redis del resque:queue:airRetryQueue
+					(integer) 1
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# php /home/wwwroot/www.trackingmore.com/script/warning_redis.php dfdf 10 | grep ':redis:' -A8
+					string(183) "Foreign:redis:
+					node:0: 83.42% > 10%
+					node:1: 81.95% > 10%
+					node:2: 78.34% > 10%
+					node:3: 88.45% > 10%
+					node:4: 82.38% > 10%
+					node:5: 89.09% > 10%
+					node:6: 95.19% > 10%
+					node:7: 80.43% > 10%
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# php /home/wwwroot/www.trackingmore.com/script/warning_redis.php dfdf 10 | grep ':redis:' -A8
+					string(183) "Foreign:redis:
+					node:0: 83.72% > 10%
+					node:1: 82.14% > 10%
+					node:2: 78.54% > 10%
+					node:3: 88.69% > 10%
+					node:4: 82.52% > 10%
+					node:5: 89.11% > 10%
+					node:6: 96.02% > 10%
+					node:7: 80.54% > 10%
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# php /home/wwwroot/www.trackingmore.com/script/warning_redis.php dfdf 10 | grep ':redis:' -A8
+					string(183) "Foreign:redis:
+					node:0: 83.66% > 10%
+					node:1: 82.23% > 10%
+					node:2: 78.57% > 10%
+					node:3: 88.65% > 10%
+					node:4: 82.35% > 10%
+					node:5: 89.15% > 10%
+					node:6: 96.33% > 10%
+					node:7: 80.52% > 10%
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# php /home/wwwroot/www.trackingmore.com/script/warning_redis.php dfdf 10 | grep ':redis:' -A8
+					string(183) "Foreign:redis:
+					node:0: 83.72% > 10%
+					node:1: 82.32% > 10%
+					node:2: 78.55% > 10%
+					node:3: 88.96% > 10%
+					node:4: 82.43% > 10%
+					node:5: 89.38% > 10%
+					node:6: 97.52% > 10%
+					node:7: 80.59% > 10%
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# redis info key Z_R_P_U_royal-mail-v2_SET
+					slot:12784 node_index:6
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# redis memory usage Z_R_P_U_royal-mail-v2_SET
+					(integer) 113158812
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# redis del resque:queue:airRetryQueue
+					(integer) 1
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# php /home/wwwroot/www.trackingmore.com/script/warning_redis.php dfdf 10 | grep ':redis:' -A8
+					string(182) "Foreign:redis:
+					node:0: 83.58% > 10%
+					node:1: 82.28% > 10%
+					node:2: 78.5% > 10%
+					node:3: 88.62% > 10%
+					node:4: 82.33% > 10%
+					node:5: 89.25% > 10%
+					node:6: 97.62% > 10%
+					node:7: 80.58% > 10%
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# redis memory usage resque:queue:airRetryQueue
+					(nil)
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# redis memory  usage resque:queue:airPubQueue
+					(integer) 1982
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# php /home/wwwroot/www.trackingmore.com/script/warning_redis.php dfdf 10 | grep ':redis:' -A8
+					string(181) "Foreign:redis:
+					node:0: 83.56% > 10%
+					node:1: 82.25% > 10%
+					node:2: 78.28% > 10%
+					node:3: 88.8% > 10%
+					node:4: 82.36% > 10%
+					node:5: 89.27% > 10%
+					node:6: 97.68% > 10%
+					node:7: 80.5% > 10%
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# php /home/wwwroot/www.trackingmore.com/script/warning_redis.php dfdf 10 | grep ':redis:' -A8
+					string(182) "Foreign:redis:
+					node:0: 83.7% > 10%
+					node:1: 82.13% > 10%
+					node:2: 78.28% > 10%
+					node:3: 88.81% > 10%
+					node:4: 82.32% > 10%
+					node:5: 89.36% > 10%
+					node:6: 97.61% > 10%
+					node:7: 80.49% > 10%
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# php /home/wwwroot/www.trackingmore.com/script/warning_redis.php dfdf 10 | grep ':redis:' -A8
+					string(183) "Foreign:redis:
+					node:0: 83.68% > 10%
+					node:1: 81.81% > 10%
+					node:2: 78.29% > 10%
+					node:3: 88.77% > 10%
+					node:4: 82.34% > 10%
+					node:5: 89.47% > 10%
+					node:6: 96.72% > 10%
+					node:7: 80.42% > 10%
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# redis llen resque:failed
+					(integer) 173
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# php /home/wwwroot/www.trackingmore.com/script/warning_redis.php dfdf 10 | grep ':redis:' -A8
+					string(183) "Foreign:redis:
+					node:0: 83.69% > 10%
+					node:1: 81.82% > 10%
+					node:2: 78.25% > 10%
+					node:3: 88.71% > 10%
+					node:4: 82.26% > 10%
+					node:5: 89.26% > 10%
+					node:6: 96.64% > 10%
+					node:7: 80.38% > 10%
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# php /home/wwwroot/www.trackingmore.com/script/warning_redis.php dfdf 10 | grep ':redis:' -A8
+					string(182) "Foreign:redis:
+					node:0: 83.79% > 10%
+					node:1: 81.9% > 10%
+					node:2: 78.38% > 10%
+					node:3: 88.88% > 10%
+					node:4: 82.35% > 10%
+					node:5: 89.47% > 10%
+					node:6: 96.68% > 10%
+					node:7: 80.43% > 10%
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# php /home/wwwroot/www.trackingmore.com/script/warning_redis.php dfdf 10 | grep ':redis:' -A8
+					string(180) "Foreign:redis:
+					node:0: 83.7% > 10%
+					node:1: 81.8% > 10%
+					node:2: 78.84% > 10%
+					node:3: 88.87% > 10%
+					node:4: 82.43% > 10%
+					node:5: 89.4% > 10%
+					node:6: 96.07% > 10%
+					node:7: 80.48% > 10%
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# php /home/wwwroot/www.trackingmore.com/script/warning_redis.php dfdf 10 | grep ':redis:' -A8
+					string(183) "Foreign:redis:
+					node:0: 83.54% > 10%
+					node:1: 81.94% > 10%
+					node:2: 78.32% > 10%
+					node:3: 88.97% > 10%
+					node:4: 82.38% > 10%
+					node:5: 89.44% > 10%
+					node:6: 96.72% > 10%
+					node:7: 80.46% > 10%
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# php /home/wwwroot/www.trackingmore.com/script/warning_redis.php dfdf 10 | grep ':redis:' -A8
+					string(181) "Foreign:redis:
+					node:0: 83.48% > 10%
+					node:1: 81.85% > 10%
+					node:2: 78.36% > 10%
+					node:3: 88.84% > 10%
+					node:4: 82.4% > 10%
+					node:5: 89.35% > 10%
+					node:6: 96.7% > 10%
+					node:7: 80.44% > 10%
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# grep -v 'memory'  1.log 
+					{"failed_at":"Tue Apr 29 06:40:06 CST 2025","payload":{"class":"redisForeignToHomeSendData_chinapost_Job","args":[{"e":1}],"id":"5a10ac3d53cad97148c5876c287ff098"},"exception":"RedisException","error":"read error on connection","backtrace":["#0 \/home\/wwwroot\/www.trackingmore.com\/php-resque\/inIndependentServerUpdate\/redisForeignToHomeSendData_chinapost_Job.php(37): Redis->select(4)","#1 \/home\/wwwroot\/www.trackingmore.com\/php-resque\/lib\/Resque\/Job.php(184): redisForeignToHomeSendData_chinapost_Job->perform()","#2 \/home\/wwwroot\/www.trackingmore.com\/php-resque\/lib\/Resque\/Worker.php(242): Resque_Job->perform()","#3 \/home\/wwwroot\/www.trackingmore.com\/php-resque\/lib\/Resque\/Worker.php(204): Resque_Worker->perform(Object(Resque_Job))","#4 \/home\/wwwroot\/www.trackingmore.com\/php-resque\/resque.php(60): Resque_Worker->work(5)","#5 \/home\/wwwroot\/www.trackingmore.com\/php-resque\/inIndependentServerUpdate\/resque.php(13): require('\/home\/wwwroot\/w...')","#6 {main}"],"worker":"iz0xif9y7r0fstxmq97t54z:18609:redisForeignToHomeSendDataChinapostQueue","queue":"redisForeignToHomeSendDataChinapostQueue"}
 			-- 20250419
 				-77
 					[root@iz0xibhd8xjxiru8zt5ierz ~]# ll /home/wwwroot/www.trackingmore.com/python_img/redis.bigkey.3* | grep 202504
@@ -8803,6 +9160,95 @@
 								script\queueshell\zipAndRmSpecifyTimeFile.sh
 								script\queueshell\file.to.zip.sh
 						历史数据清理 20240529
+							-- 20250429
+								172.16.10.140-python-region&writeRedisApi-51-59
+									[root@iZwz96q6pj8e3gc3q2r0zmZ ~]# df -h
+									Filesystem      Size  Used Avail Use% Mounted on
+									devtmpfs        908M     0  908M   0% /dev
+									tmpfs           919M     0  919M   0% /dev/shm
+									tmpfs           919M 1016K  918M   1% /run
+									tmpfs           919M     0  919M   0% /sys/fs/cgroup
+									/dev/vda1        40G   39G     0 100% /
+									overlay          40G   39G     0 100% /var/lib/docker/overlay2/acd25c0ccbe54c8611f57f99c5d6d6b3da07bdf41e921c0d8d910c99fb9a2cfd/merged
+									overlay          40G   39G     0 100% /var/lib/docker/overlay2/998c3df796e00f2e75d5840e4e326b816512eb634f6165ab3bfe257d79deba57/merged
+									shm              64M     0   64M   0% /var/lib/docker/containers/4b39b3d075195bd208b762b95c0dd3df28f7a441b5e22f288a410a7a1c039c22/mounts/shm
+									overlay          40G   39G     0 100% /var/lib/docker/overlay2/f68015aafd946e0247585c6413d7ae29586bed10b9ed3b2bb3f63d713d26f282/merged
+									shm              64M     0   64M   0% /var/lib/docker/containers/e70db7d91bb49015914d7d809e274fe63f8271bf828f4eab023c8e9290696936/mounts/shm
+									overlay          40G   39G     0 100% /var/lib/docker/overlay2/029c465f5390d26ddf88c709b6b14e3773b0fe3b092e50eeed2e1ecace084185/merged
+									shm              64M     0   64M   0% /var/lib/docker/containers/e3a38c2efcaa25d5da17e04610e9f5cabf4b3e3c78a74ea82eab3012b7f129e6/mounts/shm
+									overlay          40G   39G     0 100% /var/lib/docker/overlay2/f5a0eb137ca51686199217968a0e0eedc6a2b6f10e7c3f64f20d3dcea861b96e/merged
+									shm              64M     0   64M   0% /var/lib/docker/containers/1cd497746e76ebf5e3d7f9d3dd783c378e81b925da787b3c7dac1f5c0ced0f19/mounts/shm
+									overlay          40G   39G     0 100% /var/lib/docker/overlay2/dc5e50ba44bd69301dbd80911558ebabbce967f0e71b55d7b7934db9037f5297/merged
+									shm              64M     0   64M   0% /var/lib/docker/containers/6da9cffdd9c54b23bae428cd5c1c9157088b62aa72a5c756bcd59f544b89fea8/mounts/shm
+									tmpfs           184M     0  184M   0% /run/user/1000
+									tmpfs           184M     0  184M   0% /run/user/0
+									overlay          40G   39G     0 100% /var/lib/docker/overlay2/b442afa131e0cb6b09d55958c108101c17459bd3ecd1f04111e327a357b77b80/merged
+									shm              64M     0   64M   0% /var/lib/docker/containers/4da1baf40379a2227fe70c5d529e068f48fc9338ec8f5d96d21b44546360661a/mounts/shm
+									shm              64M     0   64M   0% /var/lib/docker/containers/82341f888c94cd1cf5cba50600b307ce2b8e493d41f1e40bae62442984c13bdc/mounts/shm
+									[root@iZwz96q6pj8e3gc3q2r0zmZ ~]# find /var -name '*' -type f -size +100M | xargs ls -lh {} | sort -nrk5
+									ls: cannot access {}: No such file or directory
+									-rw-r-----  1 root root            127M May 23  2023 /var/lib/docker/containers/4da1baf40379a2227fe70c5d529e068f48fc9338ec8f5d96d21b44546360661a/4da1baf40379a2227fe70c5d529e068f48fc9338ec8f5d96d21b44546360661a-json.log.1
+									-rw-r-----+ 1 root systemd-journal 112M Sep 12  2024 /var/log/journal/20220208145000711038896885545492/system@7e09898866164a9d935a9a62b1fae665-0000000000000001-000621839bb1767d.journal
+									-rw-r-----+ 1 root systemd-journal 112M Oct 25  2023 /var/log/journal/20220208145000711038896885545492/system@5abfdce3e67544e59015544c454d115b-0000000000000001-000606248c077592.journal
+									-rw-r-----+ 1 root systemd-journal 112M Mar 14 15:28 /var/log/journal/20220208145000711038896885545492/system@e53efcf57e4642098c510f4dff730c28-0000000000000001-00062fe359de8e32.journal
+									-rw-r-----+ 1 root systemd-journal 112M Jun 22  2023 /var/log/journal/20220208145000711038896885545492/system@074d6eb9d05a4a8f92c95445ad3850bb-0000000000000001-0005fc507562f472.journal
+									-rw-r-----+ 1 root systemd-journal 112M Apr  6  2024 /var/log/journal/20220208145000711038896885545492/system@236f4d42f5c141febff892fa1c491d4b-0000000000000001-000615017db94ce6.journal
+									-rw-r-----+ 1 root systemd-journal 112M Apr  5 02:23 /var/log/journal/20220208145000711038896885545492/system@c3ccb08d93c240e9a710f593a3bba0e1-0000000000000001-0006318c7508fb06.journal
+									-rw-r-----+ 1 root systemd-journal 112M Apr 25 19:27 /var/log/journal/20220208145000711038896885545492/system@e21886c7c9614449a437778359b23289-0000000000000001-00063330a2b682ce.journal
+									-rw-r--r--  1 root root            101M Dec  8 18:27 /var/lib/rpm/Packages
+									-rw-r-----  1 root root            9.1G Apr 29 17:42 /var/lib/docker/containers/82341f888c94cd1cf5cba50600b307ce2b8e493d41f1e40bae62442984c13bdc/82341f888c94cd1cf5cba50600b307ce2b8e493d41f1e40bae62442984c13bdc-json.log
+									-rw-r-----  1 root root            5.7G Apr 29 17:42 /var/lib/docker/containers/4da1baf40379a2227fe70c5d529e068f48fc9338ec8f5d96d21b44546360661a/4da1baf40379a2227fe70c5d529e068f48fc9338ec8f5d96d21b44546360661a-json.log.20250420
+									-rw-r-----  1 root root            1.5G Apr 29 17:42 /var/lib/docker/containers/e70db7d91bb49015914d7d809e274fe63f8271bf828f4eab023c8e9290696936/e70db7d91bb49015914d7d809e274fe63f8271bf828f4eab023c8e9290696936-json.log
+									-rw-r-----  1 root root            1.5G Apr 29 17:42 /var/lib/docker/containers/e3a38c2efcaa25d5da17e04610e9f5cabf4b3e3c78a74ea82eab3012b7f129e6/e3a38c2efcaa25d5da17e04610e9f5cabf4b3e3c78a74ea82eab3012b7f129e6-json.log
+									-rw-r-----  1 root root            1.5G Apr 29 17:42 /var/lib/docker/containers/1cd497746e76ebf5e3d7f9d3dd783c378e81b925da787b3c7dac1f5c0ced0f19/1cd497746e76ebf5e3d7f9d3dd783c378e81b925da787b3c7dac1f5c0ced0f19-json.log
+									[root@iZwz96q6pj8e3gc3q2r0zmZ ~]# head /var/lib/docker/containers/82341f888c94cd1cf5cba50600b307ce2b8e493d41f1e40bae62442984c13bdc/82341f888c94cd1cf5cba50600b307ce2b8e493d41f1e40bae62442984c13bdc-json.log
+									{"log":"47.90.208.60 - - [27/Sep/2024:03:56:17 +0000] \"GET /countries?city-name=Bengaluru HTTP/1.1\" 200 33 \"https://www.delhivery.com/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36\" \"-\"\r\n","stream":"stdout","time":"2024-09-27T03:56:17.335057134Z"}
+									{"log":"47.90.137.227 - - [27/Sep/2024:03:56:17 +0000] \"GET /countries?city-name=Khorda HTTP/1.1\" 200 33 \"https://www.delhivery.com/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36\" \"-\"\r\n","stream":"stdout","time":"2024-09-27T03:56:17.37479761Z"}
+									{"log":"47.90.139.151 - - [27/Sep/2024:03:56:17 +0000] \"GET /countries?city-name=Surat HTTP/1.1\" 200 188 \"https://www.delhivery.com/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36\" \"-\"\r\n","stream":"stdout","time":"2024-09-27T03:56:17.88770148Z"}
+									{"log":"47.252.16.221 - - [27/Sep/2024:03:56:18 +0000] \"GET /countries?city-name=chaat.+murti+E0 HTTP/1.1\" 200 33 \"https://www.delhivery.com/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36\" \"-\"\r\n","stream":"stdout","time":"2024-09-27T03:56:18.012795511Z"}
+									{"log":"47.252.5.182 - - [27/Sep/2024:03:56:18 +0000] \"GET /countries?city-name=Thane HTTP/1.1\" 200 188 \"https://www.delhivery.com/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36\" \"-\"\r\n","stream":"stdout","time":"2024-09-27T03:56:18.281477126Z"}
+									{"log":"47.90.247.131 - - [27/Sep/2024:03:56:18 +0000] \"GET /countries?city-name=Patna HTTP/1.1\" 200 106 \"https://www.delhivery.com/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36\" \"-\"\r\n","stream":"stdout","time":"2024-09-27T03:56:18.291637049Z"}
+									{"log":"47.89.189.173 - - [27/Sep/2024:03:56:18 +0000] \"GET /countries?city-name=Surat HTTP/1.1\" 200 188 \"https://www.delhivery.com/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36\" \"-\"\r\n","stream":"stdout","time":"2024-09-27T03:56:18.626032Z"}
+									{"log":"47.90.204.205 - - [27/Sep/2024:03:56:18 +0000] \"GET /countries?city-name=Hyderabad HTTP/1.1\" 200 186 \"https://www.bluedart.com/web/guest/tracking\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36\" \"-\"\r\n","stream":"stdout","time":"2024-09-27T03:56:18.76366369Z"}
+									{"log":"47.253.34.61 - - [27/Sep/2024:03:56:19 +0000] \"GET /countries?city-name=Mumbai HTTP/1.1\" 200 106 \"https://www.delhivery.com/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36\" \"-\"\r\n","stream":"stdout","time":"2024-09-27T03:56:19.048962447Z"}
+									{"log":"47.90.137.227 - - [27/Sep/2024:03:56:19 +0000] \"GET /countries?city-name=North+West+Delhi HTTP/1.1\" 200 33 \"https://www.delhivery.com/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36\" \"-\"\r\n","stream":"stdout","time":"2024-09-27T03:56:19.090787065Z"}
+									[root@iZwz96q6pj8e3gc3q2r0zmZ ~]# head /var/lib/docker/containers/4da1baf40379a2227fe70c5d529e068f48fc9338ec8f5d96d21b44546360661a/4da1baf40379a2227fe70c5d529e068f48fc9338ec8f5d96d21b44546360661a-json.log.20250420
+
+									{"log":"47.107.116.64 - - [20/Apr/2025 08:50:05] \"POST /write_redis HTTP/1.1\" 200 -\n","stream":"stderr","time":"2025-04-20T08:50:05.385946069Z"}
+									{"log":"{'flag': 'cn', 'operate': 'lpush', 'redis_key': 'courier_sf-express_ticket', 'redis_data': '{\"data\": {\"status\": \"success\", \"data\": {\"lot_number\": \"7d597c69ad364aaf87c87563adba754f\", \"result\": \"success\", \"fail_count\": 4, \"seccode\": {\"captcha_id\": \"7aff034c32dd2092ef63d12b86a95aeb\", \"lot_number\": \"7d597c69ad364aaf87c87563adba754f\", \"pass_token\": \"51097213ad0e8c844c130bc5ebe97da88039d4771fcde31e770e7ab9dd4fcc67\", \"gen_time\": \"1745138997\", \"captcha_output\": \"M6-qzSwzHmt9hrFSd6yzoTyb2BUPDLC_JsHaWLpy8_Dl35W5wVyZfGuOv5RiHULCNYlfrBjuvlxaibt7hEMLX9QU2nVdQMgeSsHGKsY-drRH5u3CIkondht3hcbGcFwn5UstrmBhFib3GVQXEE68m_NDToGQHpwbGfdiim_T7bbc8UY3O-kW6GsKmzRKwiTzFc15SPPDPH5tKhSw99af6CZx4tDore0lwm4O6NqLNDkSJXiPXgcmaDjGoXiaNLyGUQwmPo6nDV7IAcfDJGm31xCHlk49YSE2B1T67o7STXUjJUwm-Slem4DIrvDy3pyy\"}, \"score\": \"1\", \"payload\": \"AgFD8gWUUuHFx-XvpP7J2RCtlNnACd1tLwyrJmJUH2rs75_sWg6BhsiNzCVAMkWsBbe5OEpdxb_10LENHYS5Pno5sbMNHaHIsiE9EnQz2MBFdrBBfA-nEF9I1pk12eikNF8ERgg2ve0NU0fP2ZGvWhYrqwvUP0BdVtnj9ZyHiC_5pEAnmJU1gUdwQ-inU8nzCV-tj8kh_KzFK91-beDjiOC9xkD1mGFUzNYUprjiaYGjOML7-mZYmC6B5qQZObyZvHipVeUs8b1dUfIo3KhFx2HeexDzxVWbWauOLRBcSs3KywJaDyzNVZ6ZNipm0hAHMC4J0Z_v-y_TmTXrp6xC9vIqux3kBg6KGeFxjE7vfJXlWf-vCxnpUWG4xWru3dfvzF-BTalUQJBP9_ZdwLvF4LVz20uZzkE77NCiXJsNc7tF0TINumV8NbVNRTLNGnto5S0tVj7E3FtsnKgWG-8XTrEw2BLjlf2V7wwvyyZSWVtq3p8zQxcCNKr9fgstF31MqgJlU65CTqbi-c7FMAd7ubbg15UEBCrJZWa1I_xfq6lx8TiqzwasiQtssEst8dDV9aSZspmMrMF0YvMH1bWAkhe75wiEIFdgEEF2FJ4n-OGDxgDTHd7Oymf9yjS-DBhO-RLEuko-eIen7S7i9-uQEjcDpQElcW99OtgKdO_3dAj-CAA6RYyem_iz1GCBurRN7eBzKhe3mRKiQ1gPe9jeVfFuC7cNruCpn1JXi_Elu4ehYLkhso3ZAlVrTcE5pDG44KgJmENZnYP-lMOXSHjh1n_Eqri-SWRPKf6EvEojl-Oh1_osVmW3ctUhrckOeL_yTu7AHAfH7H-1nDBIa-9J6oNRvgD4zOSCXu25ry2C8LZNsJihrVrTpQvLhOlofE_mb3vleTYZUf-PL6lurMtMhlWlVJ_OcJ8fhqoP5FN3NQZycuq7D9XYNgUPvx86UpwuT_ozQD4_qNEJq8B_HPWxhnb-e8vPK6DXYPxjZswyJEbpQvU3ACZWsMOMCalygm-Vn8QLxxUQ6PqMHgYe8xFrc4ld6JTyEoVrJdGfBcVlq7K5lYS40iVOZq6MSVGavDtonWtb9sBHkStI3WbRtVJs8YiY_2Hs4hSw8sMd1-rOU2U147VoN4zBm_tPQ67VJEzUehXDzJwxeyuuxvrw10xLZ_5yYcT1110Uny79PROrmCUv8MlAeI2hivqZshjdfzIBVlezlWyz83V94QkgLxqqrO52DnFLxEkoK0VssuNEmlCmDCsKqr2qCjVbboHehZR0VqCfUQlHD6CmXHUl-qYXPcQDfVxeEej9spCGW1sLgJzSfaU421G-099lHyNCnDiqqIwNwJPqe96nl89VZzmp6zHhNwIdYUTLsEAqf27Z4_-arydFRytgLuoWXG4AbNVbK_BGxSQbRlhPZY40JKyll2Xq3Xq-KT5BDIcmwJlYqzXJBfvf_7M2tCOuRYTymTeUNcvWX_Dm_zZKtb8krqTV5LGuQekmOC6mzYBmufuOjs_dXhsy04OBKx4q9DhER3O7hrayv9CxQLOCDHM2bcufWmRD56KCh30oGd7OlvpHeSx-6jdxmePg24-dQHm0QxZdirfq93bnBYlKAgEYCYnloGEeEyTE4xhE0MqEjoRy6pdUkA1Mtu6Ojy99QhiAm2t-F0uUqUFe8Rji7UnX1g2xpW8QHMO5sGBVwDkc4SKJL1fOCnK3warmhNXe7uynvvS4rlkhb0l2T-3DVnTBE3hAFOzReq3aV02sC56EbpARbZC0emZPzZ195j1lfrHGH4BQ6z2Vj9iVDW2lNFM3Dke864T0_4NCCKxZ3TOkifG_MfU1njpBtSxXJmARR3ICj5lZO9NJRJh2K08o3dELu0Oe5a1CoO6IpN7uewMe-Y6Jix1nivdIPRjoRwK2ZcrZbL0qJy8FcuXTT-aL7pFuJuK0BMgAzIoSjaZ478RSvuZvymOCteECl3HZSkjooU2PWVWwl3-NpN8eO8E3o32joE08IpTXrifDTdKLJ9ACT5iTof0Ey6BDe5fvQGdAiRW8AjeuWNxrsa_uf4K3prXJ5tvDxaJf1iner2_MhyTFIs57KrQ1Vo1d5lr_QdV4G8gi2Td768LjoEYadVCVUFlXXaejNiuocca1R1BdPttBouZSI8b4uWMoXol0xQ3Mi5rYcqjeMOEUxoQIY62aOZk5n1iS3ofgqv0zsRbuJCRsz1ZE94vkHzxCCl5-qYCC6PPYsk_066Z67qyRd_2awYPgy5IppZLhKtHMgp_dQpPKjMmF5qKQ-mUVqNwk-T4EOYh3LQ9YZJFrj_EbdGCTmb7FS4w_8T1ceYIKOpfKYiufmZftkbBGQm7ZvmxNwNqPFiu4A1HtejbnHsfbIUeKYBhplte8IRXwrWQZ3qLx5BmS-lNAaYqVIN4t1qSMF6YFkGGbCzttpQXQXupKtzNv-lk3a_74LM3zYUeIJYsPT-OcVt1gvLkxS3GR5hqYl0HGjHf4jfb8NjP9ikUK2fwL2lrqlzdaGxteUauOMc2cHGRPBcQcjuSSuyC8HSpZl1VxGvkNFvA3owNsEI3ZDfA6_Kh3WGpCPv2FrDlmTW423aLfDeE8XSb43s_HpiEZNCXAdqK7mqjdN209mYgc2IeAtQqe5d477xqvw2-uYnum_8Av8V-iUXqRROeu-yop3evDQzLpSB2Sx4s3WlKxc3YrKiNooY4flw2shOyaGOpBG1EedsM6SwZUUpUc1GK6_63GKnhXvbEEC1rTnzJfEGtZ7rU8lMBctOyMgKrfYyNIZF-Xhi4a93_pLPmHFuFwmZhwCbeWMucqXv_YanrsCMoqJBPNP8bdWchPEyyEp0S1thbRbcPgv8reKM7eTmFEMyb1DiBk_6F-9Whs3OFZmWJqJIJurdK0y6x7qkungnvmff8_OWklfEBSt8bUwcPfp2VT-4SoPq9BF_pZsyRQuYgNb8I6xO_KaqBIkX1Ns9-gID6MtNjW72iVyGDwol6U8_0Jori1FmUAzznLv-AiEEP_Kew4aK2UWjklUiBbeoMbWqZaF8RJIBs6WEq7M0cboDyr6nXFAj8TQsvNX5NDFeOere8gXXM-Gk5xtxYEojG5mvDMTQv4RuKYkPRDiYgrYSTYgPzVsTaDiR2iA6lNfxTC-ynvwxWMwgEYJExC2SBnuEI1ypxkaStaBNvubAs6q1cHiWWhCnplyKzjDkEWTOkFjZmESBTiV-DxaC_izNjCNOZUxVMsIWIHtlktxwBy2ijOVWOV_BN4KWaSml7lU5zN2WfqkSyHV0bSg5nILC21QEdn4UzU51JVki5FhtT0HVc4qVMaFPMdBhEvkzpDjpCJIto5qxd1k2VCFLl37G-takzV31RbF9SVOcWGg9LLA2arkTY8ou7Dw3XBMBeydjjGjMYbUYqdnwTyJh3sxuZeswnzDGFARtdm9yR7QbJi9ke4pAEDttAPybidXssTnHtWiyOomNxpyS_431OTB9yyWPw7M5XpyD8=\", \"process_token\": \"1b87e5a54835842afd3048560dc43da9fedd88400ed375620b12e38001ac7532\", \"payload_protocol\": 1}}, \"mtime\": 1745139004}'}\n","stream":"stdout","time":"2025-04-20T08:50:05.60188052Z"}
+									{"log":"{'flag': 'cn', 'operate': 'get', 'redis_key': 'courier_sf-express_config', 'redis_data': ''}\n","stream":"stdout","time":"2025-04-20T08:50:05.601929731Z"}
+									{"log":"{'flag': 'cn', 'operate': 'get', 'redis_key': 'courier_sf-express_config', 'redis_data': ''}\n","stream":"stdout","time":"2025-04-20T08:50:05.601934323Z"}
+									{"log":"{'flag': 'us', 'operate': 'lpush', 'redis_key': 'courier_jtexpress-ph_ticket', 'redis_data': '{\"data\": \"{\\\\\"ticket\\\\\": \\\\\"t03F8vCkUvWrHeq0L894DVknm504IOhu1Q7WvJUH3daUtK7Qa_gVror3fXIEkdeIcO-e8HXg68GL9mD3VmgiStdTqBAJnXs2acwzsHAWMXoM2B2w2iFusAJAcORdn9rWCcaq3VFNXwyFGo*\\\\\", \\\\\"randstr\\\\\": \\\\\"@AGE\\\\\"}\", \"mtime\": 1745139004}'}\n","stream":"stdout","time":"2025-04-20T08:50:05.60193788Z"}
+									{"log":"{'flag': 'cn', 'operate': 'set', 'redis_data': '{\"pattern\":\"{\\\\\"(n[12:17])+.+(n[8:9]+n[28:29])\\\\\":\\\\\"n[4:7]\\\\\"}\",\"token\":\"{\\\\\"uyZG\\\\\":\\\\\"ICwc\\\\\"}\"}', 'redis_key': 'courier_sf-express_config'}\n","stream":"stdout","time":"2025-04-20T08:50:05.601942789Z"}
+									{"log":"{'flag': 'cn', 'operate': 'get', 'redis_key': 'courier_sf-express_config', 'redis_data': ''}\n","stream":"stdout","time":"2025-04-20T08:50:05.601947467Z"}
+									{"log":"{'flag': 'cn', 'operate': 'get', 'redis_key': 'courier_sf-express_config', 'redis_data': ''}\n","stream":"stdout","time":"2025-04-20T08:50:05.601951Z"}
+									{"log":"{'flag': 'us', 'operate': 'lpush', 'redis_key': 'courier_jtexpress-ae_ticket', 'redis_data': '{\"data\": \"{\\\\\"ticket\\\\\": \\\\\"t03GAGKXJ1M9xfzC6f6JysQFQOwAZEro8ZV2DuJ1wF7Dxnj7fM3j598nSAmtcnu89dJyK7Sg2frQu7cILbOGHwUK0AjGa8pR3ODq8ysxbN1r08wUYE_3RrE-6HjO0zuZbQunrjZihp05pc*\\\\\", \\\\\"randstr\\\\\": \\\\\"@URl\\\\\"}\", \"mtime\": 1745139005}'}\n","stream":"stdout","time":"2025-04-20T08:50:05.601954474Z"}
+									[root@iZwz96q6pj8e3gc3q2r0zmZ ~]# echo > /var/lib/docker/containers/82341f888c94cd1cf5cba50600b307ce2b8e493d41f1e40bae62442984c13bdc/82341f888c94cd1cf5cba50600b307ce2b8e493d41f1e40bae62442984c13bdc-json.log
+									[root@iZwz96q6pj8e3gc3q2r0zmZ ~]# df -h
+									Filesystem      Size  Used Avail Use% Mounted on
+									devtmpfs        908M     0  908M   0% /dev
+									tmpfs           919M     0  919M   0% /dev/shm
+									tmpfs           919M 1016K  918M   1% /run
+									tmpfs           919M     0  919M   0% /sys/fs/cgroup
+									/dev/vda1        40G   30G  8.4G  78% /
+									overlay          40G   30G  8.4G  78% /var/lib/docker/overlay2/acd25c0ccbe54c8611f57f99c5d6d6b3da07bdf41e921c0d8d910c99fb9a2cfd/merged
+									overlay          40G   30G  8.4G  78% /var/lib/docker/overlay2/998c3df796e00f2e75d5840e4e326b816512eb634f6165ab3bfe257d79deba57/merged
+									shm              64M     0   64M   0% /var/lib/docker/containers/4b39b3d075195bd208b762b95c0dd3df28f7a441b5e22f288a410a7a1c039c22/mounts/shm
+									overlay          40G   30G  8.4G  78% /var/lib/docker/overlay2/f68015aafd946e0247585c6413d7ae29586bed10b9ed3b2bb3f63d713d26f282/merged
+									shm              64M     0   64M   0% /var/lib/docker/containers/e70db7d91bb49015914d7d809e274fe63f8271bf828f4eab023c8e9290696936/mounts/shm
+									overlay          40G   30G  8.4G  78% /var/lib/docker/overlay2/029c465f5390d26ddf88c709b6b14e3773b0fe3b092e50eeed2e1ecace084185/merged
+									shm              64M     0   64M   0% /var/lib/docker/containers/e3a38c2efcaa25d5da17e04610e9f5cabf4b3e3c78a74ea82eab3012b7f129e6/mounts/shm
+									overlay          40G   30G  8.4G  78% /var/lib/docker/overlay2/f5a0eb137ca51686199217968a0e0eedc6a2b6f10e7c3f64f20d3dcea861b96e/merged
+									shm              64M     0   64M   0% /var/lib/docker/containers/1cd497746e76ebf5e3d7f9d3dd783c378e81b925da787b3c7dac1f5c0ced0f19/mounts/shm
+									overlay          40G   30G  8.4G  78% /var/lib/docker/overlay2/dc5e50ba44bd69301dbd80911558ebabbce967f0e71b55d7b7934db9037f5297/merged
+									shm              64M     0   64M   0% /var/lib/docker/containers/6da9cffdd9c54b23bae428cd5c1c9157088b62aa72a5c756bcd59f544b89fea8/mounts/shm
+									tmpfs           184M     0  184M   0% /run/user/1000
+									tmpfs           184M     0  184M   0% /run/user/0
+									overlay          40G   30G  8.4G  78% /var/lib/docker/overlay2/b442afa131e0cb6b09d55958c108101c17459bd3ecd1f04111e327a357b77b80/merged
+									shm              64M     0   64M   0% /var/lib/docker/containers/4da1baf40379a2227fe70c5d529e068f48fc9338ec8f5d96d21b44546360661a/mounts/shm
+									shm              64M     0   64M   0% /var/lib/docker/containers/82341f888c94cd1cf5cba50600b307ce2b8e493d41f1e40bae62442984c13bdc/mounts/shm
+
+									待办：如历史 20250420
 							-- 20250427
 								www-214-153-tm
 									[root@iz0xigjdatfp2x5ez15cpuz ~]# df -h
@@ -8845,6 +9291,51 @@
 									tmpfs           1.6G     0  1.6G   0% /run/user/0
 
 									待办： 1，增加清理日志，包含大小，时间等，2，将/home/wwwroot/mytracking中可加入压缩目录进行加入，或直接按保留时间清除
+
+									docker info | grep Loggin
+									Logging Driver: json-file
+									/etc/logrotate.d/docker-container-logs
+										/var/lib/docker/containers/*/*.log {
+											rotate 5
+											size 100M
+											compress
+											delaycompress
+											copytruncate
+											missingok
+											notifempty
+										}
+									# 测试
+									[root@iZwz96q6pj8e3gc3q2r0zmZ ~]# logrotate -d /etc/logrotate.d/docker-container-logs
+									reading config file /etc/logrotate.d/docker-container-logs
+									Allocating hash table for state file, size 15360 B
+
+									Handling 1 logs
+
+									rotating pattern: /var/lib/docker/containers/*/*.log  after 1 days (5 rotations)
+									empty log files are not rotated, old logs are removed
+									considering log /var/lib/docker/containers/1cd497746e76ebf5e3d7f9d3dd783c378e81b925da787b3c7dac1f5c0ced0f19/1cd497746e76ebf5e3d7f9d3dd783c378e81b925da787b3c7dac1f5c0ced0f19-json.log
+									log does not need rotating (log has been already rotated)considering log /var/lib/docker/containers/4b39b3d075195bd208b762b95c0dd3df28f7a441b5e22f288a410a7a1c039c22/4b39b3d075195bd208b762b95c0dd3df28f7a441b5e22f288a410a7a1c039c22-json.log
+									log does not need rotating (log has been already rotated)considering log /var/lib/docker/containers/4da1baf40379a2227fe70c5d529e068f48fc9338ec8f5d96d21b44546360661a/4da1baf40379a2227fe70c5d529e068f48fc9338ec8f5d96d21b44546360661a-json.log
+									log does not need rotating (log has been already rotated)considering log /var/lib/docker/containers/6da9cffdd9c54b23bae428cd5c1c9157088b62aa72a5c756bcd59f544b89fea8/6da9cffdd9c54b23bae428cd5c1c9157088b62aa72a5c756bcd59f544b89fea8-json.log
+									log does not need rotating (log has been already rotated)considering log /var/lib/docker/containers/82341f888c94cd1cf5cba50600b307ce2b8e493d41f1e40bae62442984c13bdc/82341f888c94cd1cf5cba50600b307ce2b8e493d41f1e40bae62442984c13bdc-json.log
+									log does not need rotating (log has been already rotated)considering log /var/lib/docker/containers/e3a38c2efcaa25d5da17e04610e9f5cabf4b3e3c78a74ea82eab3012b7f129e6/e3a38c2efcaa25d5da17e04610e9f5cabf4b3e3c78a74ea82eab3012b7f129e6-json.log
+									log does not need rotating (log has been already rotated)considering log /var/lib/docker/containers/e70db7d91bb49015914d7d809e274fe63f8271bf828f4eab023c8e9290696936/e70db7d91bb49015914d7d809e274fe63f8271bf828f4eab023c8e9290696936-json.log
+									# 强制执行
+									[root@iZwz96q6pj8e3gc3q2r0zmZ ~]# logrotate -f /etc/logrotate.d/docker-container-logs
+									[root@iZwz96q6pj8e3gc3q2r0zmZ ~]# ll /var/lib/docker/containers/*/*log* -h
+									-rw-r----- 1 root root 1017 Apr 29 18:16 /var/lib/docker/containers/1cd497746e76ebf5e3d7f9d3dd783c378e81b925da787b3c7dac1f5c0ced0f19/1cd497746e76ebf5e3d7f9d3dd783c378e81b925da787b3c7dac1f5c0ced0f19-json.log
+									-rw-r----- 1 root root 1.5G Apr 29 18:15 /var/lib/docker/containers/1cd497746e76ebf5e3d7f9d3dd783c378e81b925da787b3c7dac1f5c0ced0f19/1cd497746e76ebf5e3d7f9d3dd783c378e81b925da787b3c7dac1f5c0ced0f19-json.log.1
+									-rw-r----- 1 root root    0 Sep 27  2024 /var/lib/docker/containers/4b39b3d075195bd208b762b95c0dd3df28f7a441b5e22f288a410a7a1c039c22/4b39b3d075195bd208b762b95c0dd3df28f7a441b5e22f288a410a7a1c039c22-json.log
+									-rw-r--r-- 1 root root    0 Apr 20 16:50 /var/lib/docker/containers/4da1baf40379a2227fe70c5d529e068f48fc9338ec8f5d96d21b44546360661a/4da1baf40379a2227fe70c5d529e068f48fc9338ec8f5d96d21b44546360661a-json.log
+									-rw-r----- 1 root root 127M May 23  2023 /var/lib/docker/containers/4da1baf40379a2227fe70c5d529e068f48fc9338ec8f5d96d21b44546360661a/4da1baf40379a2227fe70c5d529e068f48fc9338ec8f5d96d21b44546360661a-json.log.1
+									-rw-r----- 1 root root 5.7G Apr 29 18:17 /var/lib/docker/containers/4da1baf40379a2227fe70c5d529e068f48fc9338ec8f5d96d21b44546360661a/4da1baf40379a2227fe70c5d529e068f48fc9338ec8f5d96d21b44546360661a-json.log.20250420
+									-rw-r----- 1 root root    0 Sep 27  2024 /var/lib/docker/containers/6da9cffdd9c54b23bae428cd5c1c9157088b62aa72a5c756bcd59f544b89fea8/6da9cffdd9c54b23bae428cd5c1c9157088b62aa72a5c756bcd59f544b89fea8-json.log
+									-rw-r----- 1 root root 6.5K Apr 29 18:16 /var/lib/docker/containers/82341f888c94cd1cf5cba50600b307ce2b8e493d41f1e40bae62442984c13bdc/82341f888c94cd1cf5cba50600b307ce2b8e493d41f1e40bae62442984c13bdc-json.log
+									-rw-r----- 1 root root 508K Apr 29 18:15 /var/lib/docker/containers/82341f888c94cd1cf5cba50600b307ce2b8e493d41f1e40bae62442984c13bdc/82341f888c94cd1cf5cba50600b307ce2b8e493d41f1e40bae62442984c13bdc-json.log.1
+									-rw-r----- 1 root root  674 Apr 29 18:16 /var/lib/docker/containers/e3a38c2efcaa25d5da17e04610e9f5cabf4b3e3c78a74ea82eab3012b7f129e6/e3a38c2efcaa25d5da17e04610e9f5cabf4b3e3c78a74ea82eab3012b7f129e6-json.log
+									-rw-r----- 1 root root 1.5G Apr 29 18:15 /var/lib/docker/containers/e3a38c2efcaa25d5da17e04610e9f5cabf4b3e3c78a74ea82eab3012b7f129e6/e3a38c2efcaa25d5da17e04610e9f5cabf4b3e3c78a74ea82eab3012b7f129e6-json.log.1
+									-rw-r----- 1 root root  500 Apr 29 18:16 /var/lib/docker/containers/e70db7d91bb49015914d7d809e274fe63f8271bf828f4eab023c8e9290696936/e70db7d91bb49015914d7d809e274fe63f8271bf828f4eab023c8e9290696936-json.log
+									-rw-r----- 1 root root 1.5G Apr 29 18:16 /var/lib/docker/containers/e70db7d91bb49015914d7d809e274fe63f8271bf828f4eab023c8e9290696936/e70db7d91bb49015914d7d809e274fe63f8271bf828f4eab023c8e9290696936-json.log.1
 							-- 20250420
 								c-ind-0-10-116-172.16.30.38-51
 									清除文件，按天分割，压缩，删除（保留14天）
@@ -15879,6 +16370,651 @@
 				Environment="HTTPS_PROXY=http://61.145.163.103:7890"
 
 		ssl证书更新
+			-- 20250429
+				位置
+					阿里云等服务后台
+					服务器列表
+						ssh远程打通
+						证书上传
+						同步各服务器
+						更新证书
+						重载nginx以生效证书
+						检查证书
+						看情况撤回ssh远程（外网部分）
+				脚本 （-145-35）
+					# 前置需要能远程ssh到各服务器
+
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# sh sslUpdate.sh '' trackingmore '' '172.16.21.188'
+					使用证书目录: /etc/ssl/private/
+					证书前缀: trackingmore
+					是否测试模式: 否
+					远程服务器列表: 172.16.21.188
+					nginx执行路径: /usr/local/nginx/sbin/nginx
+					==== 开始处理本地服务器 ====
+					本地未找到备份，进行备份...
+					准备从/tmp/更新新证书...
+					新证书已覆盖，开始检查 nginx 配置语法...
+					nginx: the configuration file /usr/local//nginx/conf/nginx.conf syntax is ok
+					nginx: configuration file /usr/local//nginx/conf/nginx.conf test is successful
+					同步前本地 nginx 进程信息：
+					root      8409     1  0  2023 ?        00:00:01 nginx: master process /usr/local/nginx/sbin/nginx
+					www      15174  8409  0  2024 ?        00:42:40 nginx: worker process
+					www      15175  8409  0  2024 ?        00:42:55 nginx: worker process
+					www      15176  8409  0  2024 ?        00:41:57 nginx: worker process
+					www      15177  8409  0  2024 ?        00:42:33 nginx: worker process
+					www      15179  8409  0  2024 ?        00:42:43 nginx: worker process
+					www      15180  8409  0  2024 ?        00:42:43 nginx: worker process
+					www      15181  8409  0  2024 ?        00:42:48 nginx: worker process
+					www      15182  8409  0  2024 ?        00:42:49 nginx: worker process
+					www      15183  8409  0  2024 ?        00:42:25 nginx: worker process
+					www      15184  8409  0  2024 ?        00:42:30 nginx: worker process
+					www      15185  8409  0  2024 ?        00:42:28 nginx: worker process
+					www      15186  8409  0  2024 ?        00:42:18 nginx: worker process
+					root     31777 31760  0 22:29 pts/0    00:00:00 grep nginx
+					重载本地 nginx...
+					同步后本地 nginx 进程信息：
+					root      8409     1  0  2023 ?        00:00:01 nginx: master process /usr/local/nginx/sbin/nginx
+					www      15174  8409  0  2024 ?        00:42:40 nginx: worker process
+					www      15175  8409  0  2024 ?        00:42:55 nginx: worker process
+					www      15176  8409  0  2024 ?        00:41:57 nginx: worker process
+					www      15177  8409  0  2024 ?        00:42:33 nginx: worker process
+					www      15179  8409  0  2024 ?        00:42:43 nginx: worker process
+					www      15180  8409  0  2024 ?        00:42:43 nginx: worker process
+					www      15181  8409  0  2024 ?        00:42:48 nginx: worker process
+					www      15182  8409  0  2024 ?        00:42:49 nginx: worker process
+					www      15183  8409  0  2024 ?        00:42:25 nginx: worker process
+					www      15184  8409  0  2024 ?        00:42:30 nginx: worker process
+					www      15185  8409  0  2024 ?        00:42:28 nginx: worker process
+					www      15186  8409  0  2024 ?        00:42:18 nginx: worker process
+					root     31780 31760  0 22:29 pts/0    00:00:00 grep nginx
+					==== 开始处理远程服务器: 172.16.21.188 ====
+					检查远程是否已有当天备份...
+					ssh: connect to host 172.16.21.188 port 22: No route to host
+					远程备份旧证书...
+					ssh: connect to host 172.16.21.188 port 22: No route to host
+					ssh: connect to host 172.16.21.188 port 22: No route to host
+					同步新证书到远程...
+					ssh: connect to host 172.16.21.188 port 22: No route to host
+					rsync: connection unexpectedly closed (0 bytes received so far) [sender]
+					rsync error: unexplained error (code 255) at io.c(226) [sender=3.1.2]
+					ssh: connect to host 172.16.21.188 port 22: No route to host
+					rsync: connection unexpectedly closed (0 bytes received so far) [sender]
+					rsync error: unexplained error (code 255) at io.c(226) [sender=3.1.2]
+					检查 nginx 配置语法（使用 /usr/local/nginx/sbin/nginx -t）...
+					ssh: connect to host 172.16.21.188 port 22: No route to host
+					远程服务器 172.16.21.188 的 nginx 配置检查失败，终止操作！
+
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# sh sslUpdate.sh '' trackingmore '' '172.16.21.188'
+					使用证书目录: /etc/ssl/private/
+					证书前缀: trackingmore
+					是否测试模式: 否
+					远程服务器列表: 172.16.21.188
+					远程SSH端口: 20480
+					nginx执行路径: /usr/local/nginx/sbin/nginx
+					==== 开始处理本地服务器 ====
+					本地已存在备份：/etc/ssl/private/trackingmore.crt.20250429，跳过本地更新。
+					==== 开始处理远程服务器: 172.16.21.188 ====
+					检查远程是否已有当天备份...
+					远程备份旧证书...
+					同步新证书到远程...
+					sending incremental file list
+					trackingmore.crt
+
+					sent 2,811 bytes  received 95 bytes  5,812.00 bytes/sec
+					total size is 7,881  speedup is 2.71
+					sending incremental file list
+					trackingmore.key
+
+					sent 1,411 bytes  received 53 bytes  2,928.00 bytes/sec
+					total size is 1,705  speedup is 1.16
+					检查 nginx 配置语法（使用 /usr/local/nginx/sbin/nginx -t）...
+					nginx: the configuration file /usr/local//nginx/conf/nginx.conf syntax is ok
+					nginx: configuration file /usr/local//nginx/conf/nginx.conf test is successful
+					同步前 nginx 进程信息：
+					root     11191 11188  0 22:32 ?        00:00:00 bash -c ps -ef | grep nginx
+					root     11197 11191  0 22:32 ?        00:00:00 grep nginx
+					root     18440     1  0  2022 ?        00:00:00 nginx: master process /usr/local/nginx/sbin/nginx
+					www      24020 18440  0  2024 ?        00:29:38 nginx: worker process
+					www      24021 18440  0  2024 ?        00:29:34 nginx: worker process
+					www      24022 18440  0  2024 ?        00:30:14 nginx: worker process
+					www      24023 18440  0  2024 ?        00:29:52 nginx: worker process
+					重载 nginx...
+					同步后 nginx 进程信息：
+					www      11209 18440  1 22:32 ?        00:00:00 nginx: worker process
+					www      11210 18440  1 22:32 ?        00:00:00 nginx: worker process
+					www      11211 18440  1 22:32 ?        00:00:00 nginx: worker process
+					www      11212 18440  1 22:32 ?        00:00:00 nginx: worker process
+					root     11213 11207  0 22:32 ?        00:00:00 bash -c ps -ef | grep nginx
+					root     11219 11213  0 22:32 ?        00:00:00 grep nginx
+					root     18440     1  0  2022 ?        00:00:00 nginx: master process /usr/local/nginx/sbin/nginx
+					完成 172.16.21.188 的处理。
+					🎯 本地+所有远程服务器 证书更新流程完成！
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# ps -ef | grep nginx
+					root      6102  7208  0 22:33 pts/0    00:00:00 grep --color=auto nginx
+					root      8409     1  0  2023 ?        00:00:01 nginx: master process /usr/local/nginx/sbin/nginx
+					www      31781  8409  0 22:29 ?        00:00:00 nginx: worker process
+					www      31782  8409  0 22:29 ?        00:00:00 nginx: worker process
+					www      31783  8409  0 22:29 ?        00:00:00 nginx: worker process
+					www      31784  8409  0 22:29 ?        00:00:00 nginx: worker process
+					www      31785  8409  0 22:29 ?        00:00:00 nginx: worker process
+					www      31786  8409  0 22:29 ?        00:00:00 nginx: worker process
+					www      31787  8409  0 22:29 ?        00:00:00 nginx: worker process
+					www      31788  8409  0 22:29 ?        00:00:00 nginx: worker process
+					www      31789  8409  0 22:29 ?        00:00:00 nginx: worker process
+					www      31790  8409  0 22:29 ?        00:00:00 nginx: worker process
+					www      31791  8409  0 22:29 ?        00:00:00 nginx: worker process
+					www      31792  8409  0 22:29 ?        00:00:00 nginx: worker process
+
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# sh sslUpdate.sh '' trackingmore '' '172.16.21.188'
+					使用证书目录: /etc/ssl/private/
+					证书前缀: trackingmore
+					是否测试模式: 否
+					远程服务器列表: 172.16.21.188
+					远程SSH端口: 20480
+					nginx执行路径: /usr/local/nginx/sbin/nginx
+					==== 开始处理本地服务器 ====
+					本地已存在备份：/etc/ssl/private/trackingmore.crt.20250429，跳过本地更新。
+					==== 开始处理远程服务器: 172.16.21.188 ====
+					检查远程是否已有当天备份...
+					远程服务器 172.16.21.188 已存在 /etc/ssl/private/trackingmore.crt.20250429，跳过同步更新。
+					🎯 本地+所有远程服务器 证书更新流程完成！
+
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# ping 172.16.11.200
+					PING 172.16.11.200 (172.16.11.200) 56(84) bytes of data.
+					64 bytes from 172.16.11.200: icmp_seq=1 ttl=64 time=0.491 ms
+					64 bytes from 172.16.11.200: icmp_seq=2 ttl=64 time=0.399 ms
+					^C
+					--- 172.16.11.200 ping statistics ---
+					2 packets transmitted, 2 received, 0% packet loss, time 999ms
+					rtt min/avg/max/mdev = 0.399/0.445/0.491/0.046 ms
+
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# sh sslUpdate.sh '' trackingmore '' '47.242.228.28 172.16.11.200'
+					使用证书目录: /etc/ssl/private/
+					证书前缀: trackingmore
+					是否测试模式: 否
+					远程服务器列表: 47.242.228.28 172.16.11.200
+					远程SSH端口: 20480
+					nginx执行路径: /usr/local/nginx/sbin/nginx
+					==== 开始处理本地服务器 ====
+					本地已存在备份：/etc/ssl/private/trackingmore.crt.20250429，跳过本地更新。
+					==== 开始处理远程服务器: 47.242.228.28 ====
+					检查远程是否已有当天备份...
+					The authenticity of host '[47.242.228.28]:20480 ([47.242.228.28]:20480)' can't be established.
+					ECDSA key fingerprint is SHA256:hbBO3zxTXXQKgBgI8vFC2J9kretGF1R9QTsuDSgW4Ts.
+					ECDSA key fingerprint is MD5:2b:9f:e3:eb:52:be:49:34:c7:75:a2:1b:78:b8:5c:58.
+					Are you sure you want to continue connecting (yes/no)? yes
+					Warning: Permanently added '[47.242.228.28]:20480' (ECDSA) to the list of known hosts.
+					root@47.242.228.28's password: 
+
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# sh sslUpdate.sh '' trackingmore '' '47.242.228.28 172.16.11.200'
+					使用证书目录: /etc/ssl/private/
+					证书前缀: trackingmore
+					是否测试模式: 否
+					远程服务器列表: 47.242.228.28 172.16.11.200
+					远程SSH端口: 20480
+					nginx执行路径: /usr/local/nginx/sbin/nginx
+					==== 开始处理本地服务器 ====
+					本地已存在备份：/etc/ssl/private/trackingmore.crt.20250429，跳过本地更新。
+					==== 开始处理远程服务器: 47.242.228.28 ====
+					检查远程是否已有当天备份...
+					远程备份旧证书...
+					同步新证书到远程...
+					sending incremental file list
+					trackingmore.crt
+
+					sent 2,811 bytes  received 95 bytes  645.78 bytes/sec
+					total size is 7,881  speedup is 2.71
+					sending incremental file list
+					trackingmore.key
+
+					sent 1,411 bytes  received 53 bytes  418.29 bytes/sec
+					total size is 1,705  speedup is 1.16
+					检查 nginx 配置语法（使用 /usr/local/nginx/sbin/nginx -t）...
+					nginx: the configuration file /usr/local//nginx/conf/nginx.conf syntax is ok
+					nginx: configuration file /usr/local//nginx/conf/nginx.conf test is successful
+					同步前 nginx 进程信息：
+					root      2063     1  0  2022 ?        00:00:00 nginx: master process /usr/local/nginx/sbin/nginx
+					root     21018 21016  0 22:37 ?        00:00:00 bash -c ps -ef | grep nginx
+					root     21032 21018  0 22:37 ?        00:00:00 grep nginx
+					www      23356  2063  0  2024 ?        08:20:15 nginx: worker process
+					www      23357  2063  0  2024 ?        08:21:45 nginx: worker process
+					重载 nginx...
+					同步后 nginx 进程信息：
+					root      2063     1  0  2022 ?        00:00:00 nginx: master process /usr/local/nginx/sbin/nginx
+					www      21053  2063  0 22:37 ?        00:00:00 nginx: worker process
+					www      21054  2063  0 22:37 ?        00:00:00 nginx: worker process
+					root     21060 21058  0 22:37 ?        00:00:00 bash -c ps -ef | grep nginx
+					root     21074 21060  0 22:37 ?        00:00:00 grep nginx
+					www      23356  2063  0  2024 ?        08:20:15 nginx: worker process is shutting down
+					完成 47.242.228.28 的处理。
+					==== 开始处理远程服务器: 172.16.11.200 ====
+					检查远程是否已有当天备份...
+					远程备份旧证书...
+					同步新证书到远程...
+					sending incremental file list
+					trackingmore.crt
+
+					sent 2,811 bytes  received 95 bytes  1,937.33 bytes/sec
+					total size is 7,881  speedup is 2.71
+					sending incremental file list
+					trackingmore.key
+
+					sent 1,411 bytes  received 53 bytes  976.00 bytes/sec
+					total size is 1,705  speedup is 1.16
+					检查 nginx 配置语法（使用 /usr/local/nginx/sbin/nginx -t）...
+					nginx: the configuration file /usr/local//nginx/conf/nginx.conf syntax is ok
+					nginx: configuration file /usr/local//nginx/conf/nginx.conf test is successful
+					同步前 nginx 进程信息：
+					root      2991  2989  3 22:37 ?        00:00:00 bash -c ps -ef | grep nginx
+					root      3249  2991  0 22:37 ?        00:00:00 grep nginx
+					root      9698     1  0 Jan08 ?        00:00:09 nginx: master process /usr/local/nginx/sbin/nginx
+					www      13522  9698  0 Mar25 ?        00:02:43 nginx: worker process
+					www      13523  9698  0 Mar25 ?        00:02:35 nginx: worker process
+					重载 nginx...
+					同步后 nginx 进程信息：
+					www       3466  9698  2 22:37 ?        00:00:00 nginx: worker process
+					www       3467  9698  3 22:37 ?        00:00:00 nginx: worker process
+					root      3468  3462  0 22:37 ?        00:00:00 bash -c ps -ef | grep nginx
+					root      3706  3468  0 22:37 ?        00:00:00 grep nginx
+					root      9698     1  0 Jan08 ?        00:00:09 nginx: master process /usr/local/nginx/sbin/nginx
+					完成 172.16.11.200 的处理。
+					🎯 本地+所有远程服务器 证书更新流程完成！
+
+					# www服务器
+					#!/bin/bash
+					# 企业版 SSL证书更新脚本，支持本地+远程统一流程，日志记录，邮件通知
+
+					set -e
+
+					# ================= 初始化参数 ==================
+					inputSslDir=$1             # 第一参数：证书目录 (可选)
+					tmOr51=${2:-51tracking}    # 第二参数：证书名前缀，默认51tracking
+					testMode=$3                # 第三参数：是否测试模式
+					remoteServerListInput=$4   # 第四参数：远程IP列表（空格分隔）
+
+					remoteSSHPort=20480
+
+					# 邮件相关（可选）
+					emailNotifyEnable=true
+					emailRecipients="admin@example.com"
+
+					# 日志文件
+					logDir="/var/log/ssl_update"
+					logFile="${logDir}/update_ssl_$(date +%Y%m%d_%H%M%S).log"
+					mkdir -p "$logDir"
+					touch "$logFile"
+
+					# 成功失败收集
+					successServers=()
+					failedServers=()
+
+					# ================= 基础检测 ==================
+					log() {
+						echo -e "$(date +'%F %T') | $*" | tee -a "$logFile"
+					}
+
+					runCmd() {
+						if [ "$testMode" == "test" ]; then
+							log "[测试模式] $*"
+						else
+							eval "$*"
+						fi
+					}
+
+					# 检测 nginx 进程
+					nginxBin=$(ps -ef | grep nginx | grep master | awk '{print $NF}')
+					nginxBin=${nginxBin:-/usr/local/nginx/sbin/nginx}
+
+					# 自动推断ssl目录
+					sslDir="$inputSslDir"
+					if [ -z "$sslDir" ]; then
+						nginxConf=$($nginxBin -t 2>&1 | grep "configuration file" | awk '{print $NF}')
+						if [ -f "$nginxConf" ]; then
+							confFiles=$(grep -E '^\s*include\s+.*;' "$nginxConf" | awk '{print $2}' | sed 's/;//' | sed "s#^#$(dirname $nginxConf)/#")
+							confFiles="$nginxConf $confFiles"
+							for file in $confFiles; do
+								[ -f "$file" ] || continue
+								sslPath=$(grep -E "ssl_certificate.*${tmOr51}" "$file" | head -n1 | awk '{print $2}' | sed 's/;//')
+								if [ -n "$sslPath" ]; then
+									sslDir=$(dirname "$sslPath")
+									break
+								fi
+							done
+						fi
+					fi
+					sslDir=${sslDir:-/etc/ssl/private}
+					sslDir="${sslDir%/}/"
+
+					# 远程服务器列表
+					defaultRemoteServerList="192.168.1.1 192.168.1.2 192.168.1.3"
+					remoteServerList=${remoteServerListInput:-$defaultRemoteServerList}
+
+					# 当前日期
+					d=$(date +%Y%m%d)
+					crtFile="${sslDir}${tmOr51}.crt"
+					keyFile="${sslDir}${tmOr51}.key"
+					tmpCrtFile="/tmp/${tmOr51}.crt"
+					tmpKeyFile="/tmp/${tmOr51}.key"
+
+					# ============== 本地处理 ================
+					log "开始处理本地服务器"
+
+					if [ -f "${crtFile}.${d}" ]; then
+						log "本地已存在备份，跳过本地更新"
+					else
+						if [ ! -f "$tmpCrtFile" ] || [ ! -f "$tmpKeyFile" ]; then
+							log "本地/tmp下找不到新证书，退出"
+							exit 1
+						fi
+						runCmd "cp ${crtFile} ${crtFile}.${d}"
+						runCmd "cp ${keyFile} ${keyFile}.${d}"
+						runCmd "cp ${tmpCrtFile} ${crtFile}"
+						runCmd "cp ${tmpKeyFile} ${keyFile}"
+						runCmd "$nginxBin -t"
+						runCmd "ps -ef | grep nginx"
+						runCmd "$nginxBin -s reload"
+						runCmd "ps -ef | grep nginx"
+					fi
+
+					# ============== 远程处理 ================
+					for remoteServer in $remoteServerList; do
+						log "开始处理远程服务器：$remoteServer"
+
+						remoteCrtFile="$crtFile"
+						remoteKeyFile="$keyFile"
+						remoteBackupCrt="${remoteCrtFile}.${d}"
+						remoteBackupKey="${remoteKeyFile}.${d}"
+
+						# 检查远程备份是否存在
+						if runCmd "ssh -p $remoteSSHPort root@$remoteServer '[ -f $remoteBackupCrt ]'"; then
+							log "远程服务器 $remoteServer 已存在备份，跳过"
+							successServers+=("$remoteServer")
+							continue
+						fi
+
+						{   # 尝试整体处理，出错不中断
+							runCmd "ssh -p $remoteSSHPort root@$remoteServer 'rsync -a $remoteCrtFile $remoteBackupCrt'"
+							runCmd "ssh -p $remoteSSHPort root@$remoteServer 'rsync -a $remoteKeyFile $remoteBackupKey'"
+							runCmd "rsync -avz -e 'ssh -p $remoteSSHPort' $crtFile root@$remoteServer:$remoteCrtFile"
+							runCmd "rsync -avz -e 'ssh -p $remoteSSHPort' $keyFile root@$remoteServer:$remoteKeyFile"
+							runCmd "ssh -p $remoteSSHPort root@$remoteServer '$nginxBin -t'"
+							runCmd "ssh -p $remoteSSHPort root@$remoteServer 'ps -ef | grep nginx'"
+							runCmd "ssh -p $remoteSSHPort root@$remoteServer '$nginxBin -s reload'"
+							runCmd "ssh -p $remoteSSHPort root@$remoteServer 'ps -ef | grep nginx'"
+							successServers+=("$remoteServer")
+						} || {
+							log "远程服务器 $remoteServer 操作失败"
+							failedServers+=("$remoteServer")
+							continue
+						}
+
+					done
+
+					# ============== 执行总结 ================
+					log "本次操作完成！"
+					log "成功服务器：${successServers[*]}"
+					log "失败服务器：${failedServers[*]}"
+
+					# ============== 邮件通知（可选） ================
+					if $emailNotifyEnable && [ "$testMode" != "test" ]; then
+						reportFile="${logDir}/ssl_update_report_$(date +%Y%m%d_%H%M%S).txt"
+						echo "证书更新报告 - $(date +%F %T)" > "$reportFile"
+						echo "-----------------------------------------" >> "$reportFile"
+						echo "成功服务器：${successServers[*]}" >> "$reportFile"
+						echo "失败服务器：${failedServers[*]}" >> "$reportFile"
+						echo "详细日志见：$logFile" >> "$reportFile"
+
+						if command -v mailx >/dev/null 2>&1; then
+							cat "$reportFile" | mailx -s "SSL证书更新报告" $emailRecipients
+							log "邮件通知已发送"
+						else
+							log "mailx命令不存在，无法发送邮件"
+						fi
+					fi
+
+					exit 0
+
+
+
+
+
+					# api服务器
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# sh sslUpdate.sh '' trackingmore '' '172.16.21.178 172.16.21.179 172.16.21.180'
+					2025-04-29 22:50:10 | 开始处理本地服务器
+					2025-04-29 22:50:10 | 本地已存在备份，跳过本地更新
+					2025-04-29 22:50:10 | 开始处理远程服务器：172.16.21.178
+					sending incremental file list
+					trackingmore.crt
+
+					sent 2,811 bytes  received 95 bytes  5,812.00 bytes/sec
+					total size is 7,881  speedup is 2.71
+					sending incremental file list
+					trackingmore.key
+
+					sent 1,411 bytes  received 53 bytes  2,928.00 bytes/sec
+					total size is 1,705  speedup is 1.16
+					nginx: the configuration file /usr/local//nginx/conf/nginx.conf syntax is ok
+					nginx: configuration file /usr/local//nginx/conf/nginx.conf test is successful
+					www       2592  3854  0 Feb27 ?        08:12:29 nginx: worker process
+					root      3854     1  0  2022 ?        00:00:00 nginx: master process /usr/local/nginx/sbin/nginx
+					www      22844  3854  0  2024 ?        2-01:51:15 nginx: worker process
+					www      22845  3854  0  2024 ?        2-02:06:36 nginx: worker process
+					www      22847  3854  0  2024 ?        2-02:00:51 nginx: worker process
+					root     24471 24467  0 22:50 ?        00:00:00 bash -c ps -ef | grep nginx
+					root     24478 24471  0 22:50 ?        00:00:00 grep nginx
+					root      3854     1  0  2022 ?        00:00:00 nginx: master process /usr/local/nginx/sbin/nginx
+					www      22844  3854  0  2024 ?        2-01:51:15 nginx: worker process is shutting down
+					www      22845  3854  0  2024 ?        2-02:06:36 nginx: worker process is shutting down
+					www      22847  3854  0  2024 ?        2-02:00:51 nginx: worker process is shutting down
+					www      24492  3854  0 22:50 ?        00:00:00 nginx: worker process
+					www      24493  3854  0 22:50 ?        00:00:00 nginx: worker process
+					www      24494  3854  0 22:50 ?        00:00:00 nginx: worker process
+					www      24495  3854  0 22:50 ?        00:00:00 nginx: worker process
+					root     24497 24490  0 22:50 ?        00:00:00 bash -c ps -ef | grep nginx
+					root     24503 24497  0 22:50 ?        00:00:00 grep nginx
+					2025-04-29 22:50:12 | 开始处理远程服务器：172.16.21.179
+					sending incremental file list
+					trackingmore.crt
+
+					sent 2,811 bytes  received 95 bytes  5,812.00 bytes/sec
+					total size is 7,881  speedup is 2.71
+					sending incremental file list
+					trackingmore.key
+
+					sent 1,411 bytes  received 53 bytes  2,928.00 bytes/sec
+					total size is 1,705  speedup is 1.16
+					nginx: the configuration file /usr/local//nginx/conf/nginx.conf syntax is ok
+					nginx: configuration file /usr/local//nginx/conf/nginx.conf test is successful
+					root      3656     1  0  2022 ?        00:00:00 nginx: master process /usr/local/nginx/sbin/nginx
+					www      21859  3656  0  2024 ?        1-11:54:50 nginx: worker process
+					www      21860  3656  0  2024 ?        1-11:59:44 nginx: worker process
+					root     23580 23575  0 22:50 ?        00:00:00 bash -c ps -ef | grep nginx
+					root     23586 23580  0 22:50 ?        00:00:00 grep nginx
+					www      31387  3656  0  2024 ?        1-12:38:40 nginx: worker process
+					www      31389  3656  0  2024 ?        1-12:40:35 nginx: worker process
+					root      3656     1  0  2022 ?        00:00:00 nginx: master process /usr/local/nginx/sbin/nginx
+					www      21859  3656  0  2024 ?        1-11:54:50 nginx: worker process is shutting down
+					www      21860  3656  0  2024 ?        1-11:59:44 nginx: worker process is shutting down
+					www      23600  3656  0 22:50 ?        00:00:00 nginx: worker process
+					www      23601  3656  0 22:50 ?        00:00:00 nginx: worker process
+					www      23602  3656  0 22:50 ?        00:00:00 nginx: worker process
+					www      23603  3656  0 22:50 ?        00:00:00 nginx: worker process
+					root     23604 23597  0 22:50 ?        00:00:00 bash -c ps -ef | grep nginx
+					root     23610 23604  0 22:50 ?        00:00:00 grep nginx
+					www      31389  3656  0  2024 ?        1-12:40:35 nginx: worker process is shutting down
+					2025-04-29 22:50:13 | 开始处理远程服务器：172.16.21.180
+					sending incremental file list
+					trackingmore.crt
+
+					sent 2,811 bytes  received 95 bytes  1,937.33 bytes/sec
+					total size is 7,881  speedup is 2.71
+					sending incremental file list
+					trackingmore.key
+
+					sent 1,411 bytes  received 53 bytes  2,928.00 bytes/sec
+					total size is 1,705  speedup is 1.16
+					nginx: the configuration file /usr/local//nginx/conf/nginx.conf syntax is ok
+					nginx: configuration file /usr/local//nginx/conf/nginx.conf test is successful
+					root      3021     1  0  2022 ?        00:00:00 nginx: master process /usr/local/nginx/sbin/nginx
+					www       6256  3021  0  2024 ?        1-21:53:02 nginx: worker process
+					www       6257  3021  0  2024 ?        1-21:52:23 nginx: worker process
+					root     15809 15807  0 22:50 ?        00:00:00 bash -c ps -ef | grep nginx
+					root     15815 15809  0 22:50 ?        00:00:00 grep nginx
+					root      3021     1  0  2022 ?        00:00:00 nginx: master process /usr/local/nginx/sbin/nginx
+					www       6257  3021  0  2024 ?        1-21:52:23 nginx: worker process is shutting down
+					www      15828  3021  0 22:50 ?        00:00:00 nginx: worker process
+					www      15829  3021  0 22:50 ?        00:00:00 nginx: worker process
+					root     15830 15826  0 22:50 ?        00:00:00 bash -c ps -ef | grep nginx
+					root     15837 15830  0 22:50 ?        00:00:00 grep nginx
+					2025-04-29 22:50:14 | 本次操作完成！
+					2025-04-29 22:50:14 | 成功服务器：172.16.21.178 172.16.21.179 172.16.21.180
+					2025-04-29 22:50:14 | 失败服务器：
+
+					# 非独立更新服务器
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# sh sslUpdate.sh '' trackingmore '' '172.16.21.183 172.16.21.184 172.16.21.186 172.16.21.236'
+					2025-04-29 22:52:45 | 开始处理本地服务器
+					2025-04-29 22:52:45 | 本地已存在备份，跳过本地更新
+					2025-04-29 22:52:45 | 开始处理远程服务器：172.16.21.183
+					sending incremental file list
+					trackingmore.crt
+
+					sent 2,811 bytes  received 95 bytes  5,812.00 bytes/sec
+					total size is 7,881  speedup is 2.71
+					sending incremental file list
+					trackingmore.key
+
+					sent 1,411 bytes  received 53 bytes  2,928.00 bytes/sec
+					total size is 1,705  speedup is 1.16
+					nginx: the configuration file /usr/local//nginx/conf/nginx.conf syntax is ok
+					nginx: configuration file /usr/local//nginx/conf/nginx.conf test is successful
+					root      9393  9391  0 22:52 ?        00:00:00 bash -c ps -ef | grep nginx
+					root      9399  9393  0 22:52 ?        00:00:00 grep nginx
+					root     22942     1  0  2022 ?        00:00:00 nginx: master process /usr/local/nginx/sbin/nginx
+					www      24836 22942  0  2024 ?        00:33:08 nginx: worker process
+					www      24837 22942  0  2024 ?        00:32:24 nginx: worker process
+					www      24838 22942  0  2024 ?        00:31:08 nginx: worker process
+					www      24839 22942  0  2024 ?        00:31:48 nginx: worker process
+					www       9411 22942  0 22:52 ?        00:00:00 nginx: worker process
+					www       9412 22942  0 22:52 ?        00:00:00 nginx: worker process
+					www       9413 22942  0 22:52 ?        00:00:00 nginx: worker process
+					www       9414 22942  0 22:52 ?        00:00:00 nginx: worker process
+					root      9415  9409  0 22:52 ?        00:00:00 bash -c ps -ef | grep nginx
+					root      9421  9415  0 22:52 ?        00:00:00 grep nginx
+					root     22942     1  0  2022 ?        00:00:00 nginx: master process /usr/local/nginx/sbin/nginx
+					2025-04-29 22:52:46 | 开始处理远程服务器：172.16.21.184
+					sending incremental file list
+					trackingmore.crt
+
+					sent 2,811 bytes  received 95 bytes  1,937.33 bytes/sec
+					total size is 7,881  speedup is 2.71
+					sending incremental file list
+					trackingmore.key
+
+					sent 1,411 bytes  received 53 bytes  2,928.00 bytes/sec
+					total size is 1,705  speedup is 1.16
+					nginx: the configuration file /usr/local//nginx/conf/nginx.conf syntax is ok
+					nginx: configuration file /usr/local//nginx/conf/nginx.conf test is successful
+					root      2523     1  0 Feb27 ?        00:00:45 nginx: master process /usr/local/nginx/sbin/nginx
+					www      11840  2523  0 11:16 ?        00:01:22 nginx: worker process
+					www      11841  2523  0 11:16 ?        00:01:20 nginx: worker process
+					www      11842  2523  0 11:16 ?        00:01:19 nginx: worker process
+					www      11843  2523  0 11:16 ?        00:01:16 nginx: worker process
+					root     25394 25392  0 22:52 ?        00:00:00 bash -c ps -ef | grep nginx
+					root     25401 25394  0 22:52 ?        00:00:00 grep nginx
+					root      2523     1  0 Feb27 ?        00:00:45 nginx: master process /usr/local/nginx/sbin/nginx
+					www      11841  2523  0 11:16 ?        00:01:20 [nginx]
+					www      25414  2523  0 22:52 ?        00:00:00 nginx: worker process
+					www      25415  2523  0 22:52 ?        00:00:00 nginx: worker process
+					www      25416  2523  0 22:52 ?        00:00:00 nginx: worker process
+					www      25417  2523  0 22:52 ?        00:00:00 nginx: worker process
+					root     25418 25412  0 22:52 ?        00:00:00 bash -c ps -ef | grep nginx
+					root     25425 25418  0 22:52 ?        00:00:00 grep nginx
+					2025-04-29 22:52:48 | 开始处理远程服务器：172.16.21.186
+					sending incremental file list
+					trackingmore.crt
+
+					sent 2,811 bytes  received 95 bytes  5,812.00 bytes/sec
+					total size is 7,881  speedup is 2.71
+					sending incremental file list
+					trackingmore.key
+
+					sent 1,411 bytes  received 53 bytes  2,928.00 bytes/sec
+					total size is 1,705  speedup is 1.16
+					nginx: the configuration file /usr/local//nginx/conf/nginx.conf syntax is ok
+					nginx: configuration file /usr/local//nginx/conf/nginx.conf test is successful
+					www       1996 27913  0 Jan31 ?        00:07:31 nginx: worker process
+					www       1997 27913  0 Jan31 ?        00:07:25 nginx: worker process
+					www       1999 27913  0 Jan31 ?        00:07:27 nginx: worker process
+					www       2001 27913  0 Jan31 ?        00:07:29 nginx: worker process
+					www       2002 27913  0 Jan31 ?        00:07:27 nginx: worker process
+					www       2004 27913  0 Jan31 ?        00:07:36 nginx: worker process
+					www       2005 27913  0 Jan31 ?        00:07:30 nginx: worker process
+					www       2007 27913  0 Jan31 ?        00:07:35 nginx: worker process
+					www      13152 27913  0 Jan27 ?        00:07:42 nginx: worker process
+					www      15375 27913  0 Feb03 ?        00:07:14 nginx: worker process
+					www      15378 27913  0 Feb03 ?        00:07:24 nginx: worker process
+					www      15379 27913  0 Feb03 ?        00:07:07 nginx: worker process
+					www      15380 27913  0 Feb03 ?        00:07:07 nginx: worker process
+					www      27666 27913  0 Feb02 ?        00:07:15 nginx: worker process
+					www      27668 27913  0 Feb02 ?        00:07:19 nginx: worker process
+					www      27672 27913  0 Feb02 ?        00:07:17 nginx: worker process
+					root     27913     1  0  2022 ?        00:00:00 nginx: master process /usr/local/nginx/sbin/nginx
+					root     27948 27946  0 22:52 ?        00:00:00 bash -c ps -ef | grep nginx
+					root     27955 27948  0 22:52 ?        00:00:00 grep nginx
+					www       1996 27913  0 Jan31 ?        00:07:31 [nginx]
+					www       1997 27913  0 Jan31 ?        00:07:25 [nginx]
+					www       1999 27913  0 Jan31 ?        00:07:27 [nginx]
+					www       2001 27913  0 Jan31 ?        00:07:29 nginx: worker process is shutting down
+					www       2002 27913  0 Jan31 ?        00:07:27 [nginx]
+					www       2004 27913  0 Jan31 ?        00:07:36 [nginx]
+					www       2005 27913  0 Jan31 ?        00:07:30 [nginx]
+					www       2007 27913  0 Jan31 ?        00:07:35 [nginx]
+					www      13152 27913  0 Jan27 ?        00:07:42 [nginx]
+					root     27913     1  0  2022 ?        00:00:00 nginx: master process /usr/local/nginx/sbin/nginx
+					www      27986 27913  0 22:52 ?        00:00:00 nginx: worker process
+					www      27987 27913  0 22:52 ?        00:00:00 nginx: worker process
+					www      27988 27913  0 22:52 ?        00:00:00 nginx: worker process
+					www      27989 27913  0 22:52 ?        00:00:00 nginx: worker process
+					www      27990 27913  0 22:52 ?        00:00:00 nginx: worker process
+					www      27991 27913  0 22:52 ?        00:00:00 nginx: worker process
+					www      27992 27913  0 22:52 ?        00:00:00 nginx: worker process
+					www      27993 27913  0 22:52 ?        00:00:00 nginx: worker process
+					www      27994 27913  0 22:52 ?        00:00:00 nginx: worker process
+					www      27995 27913  0 22:52 ?        00:00:00 nginx: worker process
+					www      27996 27913  0 22:52 ?        00:00:00 nginx: worker process
+					www      27997 27913  0 22:52 ?        00:00:00 nginx: worker process
+					www      27998 27913  0 22:52 ?        00:00:00 nginx: worker process
+					www      27999 27913  0 22:52 ?        00:00:00 nginx: worker process
+					www      28000 27913  0 22:52 ?        00:00:00 nginx: worker process
+					www      28001 27913  0 22:52 ?        00:00:00 nginx: worker process
+					root     28002 27984  0 22:52 ?        00:00:00 bash -c ps -ef | grep nginx
+					root     28008 28002  0 22:52 ?        00:00:00 grep nginx
+					2025-04-29 22:52:49 | 开始处理远程服务器：172.16.21.236
+					sending incremental file list
+					trackingmore.crt
+
+					sent 2,811 bytes  received 95 bytes  5,812.00 bytes/sec
+					total size is 7,881  speedup is 2.71
+					sending incremental file list
+					trackingmore.key
+
+					sent 1,411 bytes  received 53 bytes  2,928.00 bytes/sec
+					total size is 1,705  speedup is 1.16
+					nginx: the configuration file /usr/local//nginx/conf/nginx.conf syntax is ok
+					nginx: configuration file /usr/local//nginx/conf/nginx.conf test is successful
+					root      7375     1  0  2023 ?        00:00:00 nginx: master process /usr/local/nginx/sbin/nginx
+					root     22692 22690  0 22:52 ?        00:00:00 bash -c ps -ef | grep nginx
+					root     22698 22692  0 22:52 ?        00:00:00 grep nginx
+					www      30514  7375  0  2024 ?        00:21:32 nginx: worker process
+					www      30515  7375  0  2024 ?        00:21:23 nginx: worker process
+					root      7375     1  0  2023 ?        00:00:00 nginx: master process /usr/local/nginx/sbin/nginx
+					www      22710  7375  0 22:52 ?        00:00:00 nginx: worker process
+					www      22711  7375  0 22:52 ?        00:00:00 nginx: worker process
+					root     22712 22708  0 22:52 ?        00:00:00 bash -c ps -ef | grep nginx
+					root     22718 22712  0 22:52 ?        00:00:00 grep nginx
+					2025-04-29 22:52:50 | 本次操作完成！
+					2025-04-29 22:52:50 | 成功服务器：172.16.21.183 172.16.21.184 172.16.21.186 172.16.21.236
+					2025-04-29 22:52:50 | 失败服务器：
 			-- 20240822
 				ssl证书更新-20240624 · 钉钉文档: https://alidocs.dingtalk.com/i/nodes/Obva6QBXJw1yjXgNCv0R4PmlWn4qY5Pr?corpId=
 
