@@ -6523,7 +6523,6 @@
 3，容器化-国外redis节点内存告警 @LSJ
 
 原计划：
-安全
 运维
 1，ssl证书更新-tm
 2，迁云-整体梳理
@@ -6538,6 +6537,28 @@
 3，容器化-国外redis节点内存告警
 日常响应
 4，后续优先级、应对
+
+===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== =====
+20250430
+【运维】
+【迁云】
+
+原计划：
+运维
+1，ssl证书更新-tm-dnspod方向上再次验证
+2，充值梳理提交
+迁云
+3，容器化-国外redis节点内存告警
+日常响应
+4，后续优先级、应对
+
+计划：
+运维
+1，告警处理
+迁云
+2，容器化-国外redis节点内存告警
+日常响应
+3，后续优先级、应对
 
 
 近期复盘
@@ -7697,6 +7718,10 @@
 					后续待办：关注更新异常率，及时处理跟进
 
 	客诉
+		https://devops.aliyun.com/projex/task/TRACK-4303# 《141453-将csv导入量从一万增加到两万》
+			-- 20250430
+				-140
+				redis sadd ImportAllow20000SET 141453
 		dhl更新速度不足
 			-- 20250423
 				. /home/wwwroot/www.trackingmore.com/script/queueshell/host_conf.sh; ls /home/wwwroot/www.trackingmore.com/script/queueshell/track_queue_conf_update_independent_${hostAlia}.sh ;cp /home/wwwroot/www.trackingmore.com/script/queueshell/track_queue_conf_update_independent_${hostAlia}.sh /tmp/track_queue_conf_update_independent_${hostAlia}.sh
