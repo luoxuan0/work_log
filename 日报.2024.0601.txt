@@ -6652,6 +6652,35 @@
 日常响应
 6，后续优先级、应对
 
+===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== =====
+20250508
+【运维】
+【迁云】
+
+原计划：
+告警
+1，webhook推送延迟
+运维
+2，本地桌面运维相关事项计划推进
+3，国外ssl证书更新-文档完善
+迁云
+4，容器化IP标识需要更新相关了解
+5，问题点&解决方案向上同步沟通
+日常响应
+6，后续优先级、应对
+
+计划：
+告警
+1，webhook推送延迟
+2，磁盘告警处理
+运维
+3，本地桌面运维相关事项计划推进
+4，国外ssl证书更新-文档完善
+协作
+5，月度复盘
+日常响应
+6，后续优先级、应对
+
 近期复盘
 	后续优先级、应对
 		4月份
@@ -7894,11 +7923,15 @@
 
 					# 重启队列
 					kill -s 14 `ps -ef | grep Webhoo | grep -v grep | awk '{print $2}'`
+			-- 20250508
+				8小时更新间隔
 
 		https://devops.aliyun.com/projex/task/TRACK-4303# 《141453-将csv导入量从一万增加到两万》
 			-- 20250430
 				-140
 				redis sadd ImportAllow20000SET 141453
+			-- 20250508
+				redis sadd ImportAllow20000SET 154826
 		dhl更新速度不足
 			-- 20250423
 				. /home/wwwroot/www.trackingmore.com/script/queueshell/host_conf.sh; ls /home/wwwroot/www.trackingmore.com/script/queueshell/track_queue_conf_update_independent_${hostAlia}.sh ;cp /home/wwwroot/www.trackingmore.com/script/queueshell/track_queue_conf_update_independent_${hostAlia}.sh /tmp/track_queue_conf_update_independent_${hostAlia}.sh
@@ -19537,3 +19570,4 @@
 	协同
 	--文档--
 		时间？
+		
