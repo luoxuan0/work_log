@@ -6681,6 +6681,33 @@
 日常响应
 6，后续优先级、应对
 
+===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== =====
+20250509
+【运维】
+【迁云】
+
+原计划：
+告警
+1，webhook推送延迟
+2，磁盘告警处理
+运维
+3，本地桌面运维相关事项计划推进
+4，国外ssl证书更新-文档完善
+协作
+5，月度复盘
+日常响应
+6，后续优先级、应对
+
+计划：
+告警
+1，webhook推送延迟
+2，磁盘告警处理
+运维
+3，国外ssl证书更新-文档完善
+4，财务分账
+日常响应
+5，后续优先级、应对
+
 近期复盘
 	后续优先级、应对
 		4月份
@@ -6767,6 +6794,14 @@
 	5，测试环境-分支自动构建触发取消
 
 操作顺序
+		-- 20250509
+			充值梳理
+			客诉
+			磁盘
+			协同
+				授权
+				本地
+				
 		-- 20250506
 			新版查询系统
 			webhook
@@ -9742,6 +9777,67 @@
 								script\queueshell\zipAndRmSpecifyTimeFile.sh
 								script\queueshell\file.to.zip.sh
 						历史数据清理 20240529
+							-- 20250509
+								webhook-api-15-172.16.21.176-tm
+									root@iZ0xidbcvl7qgzulwfvdr6Z:~# df -h
+									Filesystem      Size  Used Avail Use% Mounted on
+									tmpfs           169M  1.5M  167M   1% /run
+									/dev/vda3        79G   74G  1.5G  99% /
+									tmpfs           841M     0  841M   0% /dev/shm
+									tmpfs           5.0M     0  5.0M   0% /run/lock
+									/dev/vda2       197M  282K  197M   1% /boot/efi
+									tmpfs            50M     0   50M   0% /usr/local/aegis/cgroup
+									overlay          79G   74G  1.5G  99% /var/lib/docker/overlay2/d2967a28026a583eac35a8e3dbcf30f06367406f8f47c8eaadc1b3f48df2eb48/merged
+									tmpfs           169M  4.0K  169M   1% /run/user/1000
+									(failed reverse-i-search)`100Mfind / -name '*' -type f -size +100M | xargs ls -lh {} | sort -nrk5': telnet 172.17.52.138 ^C050
+									root@iZ0xidbcvl7qgzulwfvdr6Z:~# find / -name '*' -type f -size +100M | xargs ls -lh {} | sort -nrk5
+									find: ‘/proc/1117379/task/1117379/fdinfo/6’: No such file or directory
+									find: ‘/proc/1117379/fdinfo/5’: No such file or directory
+									ls: cannot access '{}': No such file or directory
+									-rw-r--r-- 1 root root 153M Oct  8  2023 /tmp/webhook_51.tar
+									-r-------- 1 root root 128T Aug 21  2023 /proc/kcore
+									-rw-r----- 1 root root  68G May 10 01:50 /var/lib/docker/containers/13e5de2c83f3c66cf017cfe2ffa566090f35c2cacaa45c002a0602a43295ba54/13e5de2c83f3c66cf017cfe2ffa566090f35c2cacaa45c002a0602a43295ba54-json.log
+									root@iZ0xidbcvl7qgzulwfvdr6Z:~# vi /etc/logrotate.d/docker-container-logs
+									root@iZ0xidbcvl7qgzulwfvdr6Z:~# logrotate
+									logrotate 3.19.0 - Copyright (C) 1995-2001 Red Hat, Inc.
+									This may be freely redistributed under the terms of the GNU General Public License
+
+									Usage: logrotate [-dfv?] [-d|--debug] [-f|--force] [-m|--mail=command] [-s|--state=statefile] [--skip-state-lock] [-v|--verbose] [-l|--log=logfile] [--version] [-?|--help] [--usage]
+											[OPTION...] <configfile>
+									root@iZ0xidbcvl7qgzulwfvdr6Z:~# head /var/lib/docker/containers/13e5de2c83f3c66cf017cfe2ffa566090f35c2cacaa45c002a0602a43295ba54/13e5de2c83f3c66cf017cfe2ffa566090f35c2cacaa45c002a0602a43295ba54-json.log
+									{"log":"172.16.21.190:33220 {url TM https://shipping-webhook-handler.returngo.ai/v1/tracking-more 4 0 map[courier:usps push_method:Auto track_number:9400136206574276312497 track_status:2 userid:325282]  true 13 1742204825}\n","stream":"stdout","time":"2025-03-17T09:47:05.202101488Z"}
+									{"log":"172.16.21.226:35188 {url TM https://webhook.parcelpanel.com/info 4 0 map[courier:royal-mail push_method:Auto track_number:OJ841374525GB track_status:4 userid:58126]  true 13 1742204825}\n","stream":"stdout","time":"2025-03-17T09:47:05.662500733Z"}
+									{"log":"172.16.21.190:33222 {url TM https://app-api.route.com/track/webhooks/trackingmore 4 0 map[courier:usps push_method:Auto track_number:9434636106092279112805 track_status:2 userid:224763]  true 13 1742204825}\n","stream":"stdout","time":"2025-03-17T09:47:05.662516937Z"}
+									{"log":"172.16.21.193:47468 {url TM https://teehunter.xyz/trackmore-webhook 2 0 map[courier:usps push_method:Auto track_number:9400136105660282106983 track_status:2 userid:219400]  false 13 1742204825}\n","stream":"stdout","time":"2025-03-17T09:47:05.662521575Z"}
+									{"log":"172.16.21.184:50158 {url TM https://webhook.parcelpanel.com/info 4 0 map[courier:australia-post push_method:Auto track_number:33MHM209078701000931504 track_status:4 userid:58126]  true 13 1742204825}\n","stream":"stdout","time":"2025-03-17T09:47:05.66252545Z"}
+									{"log":"172.16.21.184:50162 {url TM https://d9cnss1uu9.execute-api.us-east-1.amazonaws.com/v1/apps/tracktor/webhooks/trackingmore.json?apikey=LOY8fohrcR920wzEW1O4p8WGmpdAcMp858P1TOdB 4 0 map[courier:australia-post push_method:Auto track_number:X2M230597101000930302 track_status:2 userid:47740]  true 13 1742204825}\n","stream":"stdout","time":"2025-03-17T09:47:05.662529209Z"}
+									{"log":"172.16.21.190:33224 {url TM https://webhook.parcelpanel.com/info 4 0 map[courier:usps push_method:Auto track_number:420481979261290339603310570926 track_status:2 userid:58126]  true 13 1742204825}\n","stream":"stdout","time":"2025-03-17T09:47:05.662533282Z"}
+									{"log":"172.16.21.190:33226 {url TM https://app-api.route.com/track/webhooks/trackingmore 4 0 map[courier:usps push_method:Auto track_number:9405536109687274550035 track_status:2 userid:224763]  true 13 1742204825}\n","stream":"stdout","time":"2025-03-17T09:47:05.662553166Z"}
+									{"log":"172.16.21.190:33228 {url TM https://app-api.route.com/track/webhooks/trackingmore 4 0 map[courier:usps push_method:Auto track_number:9434636106028278181955 track_status:2 userid:224763]  true 13 1742204825}\n","stream":"stdout","time":"2025-03-17T09:47:05.662556765Z"}
+									{"log":"172.16.21.190:33230 {url TM https://webhook.parcelpanel.com/info 4 0 map[courier:usps push_method:Auto track_number:9400136208326298941531 track_status:2 userid:58126]  true 13 1742204825}\n","stream":"stdout","time":"2025-03-17T09:47:05.66255935Z"}
+									root@iZ0xidbcvl7qgzulwfvdr6Z:~# tail /var/lib/docker/containers/13e5de2c83f3c66cf017cfe2ffa566090f35c2cacaa45c002a0602a43295ba54/13e5de2c83f3c66cf017cfe2ffa566090f35c2cacaa45c002a0602a43295ba54-json.log
+									{"log":"172.16.11.182:46570 {url TM https://d9cnss1uu9.execute-api.us-east-1.amazonaws.com/v1/apps/tracktor/webhooks/trackingmore.json?apikey=LOY8fohrcR920wzEW1O4p8WGmpdAcMp858P1TOdB 4 0 map[courier:royal-mail push_method:Auto track_number:FB739631934GB track_status:2 userid:47740]  true 13 1746813112}\n","stream":"stdout","time":"2025-05-09T17:51:52.378990221Z"}
+									{"log":"172.16.11.119:59700 {url TM https://webhook.parcelpanel.com/info 4 0 map[courier:fedex push_method:Auto track_number:881130995749 track_status:2 userid:58126]  true 13 1746813112}\n","stream":"stdout","time":"2025-05-09T17:51:52.42149749Z"}
+									{"log":"172.16.11.117:42392 {url TM https://app-api.route.com/track/webhooks/trackingmore 4 0 map[courier:usps push_method:Auto track_number:9434636106092280698381 track_status:2 userid:224763]  true 13 1746813112}\n","stream":"stdout","time":"2025-05-09T17:51:52.432990308Z"}
+									{"log":"172.16.11.149:43208 {url TM https://wrqnmf9e62.execute-api.us-east-1.amazonaws.com/Prod/tracking_more_webhook 2 0 map[courier:amazon push_method:Auto track_number:TBA321234943092 track_status:2 userid:218491]  false 13 1746813112}\n","stream":"stdout","time":"2025-05-09T17:51:52.79077285Z"}
+									{"log":"172.16.11.182:46574 {url TM https://webhook.parcelpanel.com/info 4 0 map[courier:ekart push_method:Auto track_number:TDAP0509114642 track_status:2 userid:58126]  true 13 1746813112}\n","stream":"stdout","time":"2025-05-09T17:51:52.852980367Z"}
+									{"log":"172.16.11.178:45904 {url TM https://monkfish-app-s7idc.ondigitalocean.app/trackingmore 4 0 map[courier:dhl-germany push_method:Auto track_number:CD852454247DE track_status:2 userid:390076]  true 13 1746813113}\n","stream":"stdout","time":"2025-05-09T17:51:53.048665038Z"}
+									{"log":"172.16.11.178:45914 {url TM https://webhook.parcelpanel.com/info 4 0 map[courier:laposte push_method:Auto track_number:6A02220058380 track_status:8 userid:58126]  true 13 1746813113}\n","stream":"stdout","time":"2025-05-09T17:51:53.186186812Z"}
+									{"log":"172.16.11.117:42398 {url TM https://app-api.route.com/track/webhooks/trackingmore 4 0 map[courier:usps push_method:Auto track_number:9400136106028296570463 track_status:4 userid:224763]  true 13 1746813113}\n","stream":"stdout","time":"2025-05-09T17:51:53.211002362Z"}
+									{"log":"172.16.11.117:42402 {url TM https://webhook.parcelpanel.com/info 4 0 map[courier:usps push_method:Auto track_number:9405511206208811336487 track_status:4 userid:58126]  true 13 1746813113}\n","stream":"stdout","time":"2025-05-09T17:51:53.215935934Z"}
+									{"log":"172.16.11.117:42412 {url TM https://app-api.route.com/track/webhooks/trackingmore 4 0 map[courier:usps push_method:Auto track_number:9449011206208810512041 track_status:2 userid:224763]  true 13 1746813113}\n","stream":"stdout","time":"2025-05-09T17:51:53.288793369Z"}
+									root@iZ0xidbcvl7qgzulwfvdr6Z:~# echo > /var/lib/docker/containers/13e5de2c83f3c66cf017cfe2ffa566090f35c2cacaa45c002a0602a43295ba54/13e5de2c83f3c66cf017cfe2ffa566090f35c2cacaa45c002a0602a43295ba54-json.log
+									root@iZ0xidbcvl7qgzulwfvdr6Z:~# df -h
+									Filesystem      Size  Used Avail Use% Mounted on
+									tmpfs           169M  1.5M  167M   1% /run
+									/dev/vda3        79G  6.0G   70G   8% /
+									tmpfs           841M     0  841M   0% /dev/shm
+									tmpfs           5.0M     0  5.0M   0% /run/lock
+									/dev/vda2       197M  282K  197M   1% /boot/efi
+									tmpfs            50M     0   50M   0% /usr/local/aegis/cgroup
+									overlay          79G  6.0G   70G   8% /var/lib/docker/overlay2/d2967a28026a583eac35a8e3dbcf30f06367406f8f47c8eaadc1b3f48df2eb48/merged
+									tmpfs           169M  4.0K  169M   1% /run/user/1000
+									
 							-- 20250504
 								upload-test-177-172.16.21.169
 									root@iZ0xi60yimvc2jwvywy8gdZ:~# find / -name '*' -type f -size +100M | xargs ls -lh {} | sort -nrk5
@@ -10493,6 +10589,247 @@
 										overlay          40G   37G  2.8G  94% /var/lib/docker/overlay2/59ca7e38d5053a3062bce79ba5dd8934e5abe477125dd0fbf0aae1019223218d/merged
 										tmpfs           1.6G     0  1.6G   0% /run/user/1002
 								ind_front_87_101_172.16.10.170-resque-download-51-74
+									-- 20250510
+										[root@iZ94apf5ivnZ ~]# df -h
+										Filesystem      Size  Used Avail Use% Mounted on
+										/dev/vda1        49G   47G  1.3G  98% /
+										devtmpfs        3.8G     0  3.8G   0% /dev
+										tmpfs           3.8G     0  3.8G   0% /dev/shm
+										tmpfs           3.8G  707M  3.1G  19% /run
+										tmpfs           3.8G     0  3.8G   0% /sys/fs/cgroup
+										tmpfs           768M     0  768M   0% /run/user/0
+										tmpfs           768M     0  768M   0% /run/user/1004
+										[root@iZ94apf5ivnZ ~]# find / -name '*' -type f -size +100M | xargs ls -lh {} | sort -nrk5
+										find: ‘/proc/836/task/836/fdinfo/6’: No such file or directory
+										find: ‘/proc/836/fdinfo/5’: No such file or directory
+										ls: cannot access {}: No such file or directory
+										-rw-r--r--  1 root root 252M May  7 03:05 /home/wwwroot/mytracking/uploads/excel_zip/20250506.zip
+										-rw-r--r--  1 root root 194M Dec 20  2023 /home/wwwroot/www.trackingmore.com/download/2022.csv
+										-rw-r--r--  1 root root 189M May  9 03:04 /home/wwwroot/mytracking/uploads/excel_zip/20250508.zip
+										-rw-r--r--  1 root root 181M May 10 01:18 /home/wwwroot/www.51tracking.com/script/sync/compare_img_sync.log
+										-rw-r--r--  1 root root 162M May  8 03:04 /home/wwwroot/mytracking/uploads/excel_zip/20250507.zip
+										-rw-r--r--  1  386  386 158M May 10 01:20 /home/wwwroot/www.51tracking.com/section/carrierspic10.css
+										-rw-r--r--  1 root root 156M May  9 09:44 /home/wwwroot/www.trackingmore.com/download/0pHT3qvqanlc9UdAQcLoPAbIKZhkMB5x0ZHY0.csv
+										-r--------  1 root root 128T May 10 01:20 /proc/kcore
+										-rw-r--r--  1 root root 126M Aug 24  2023 /var/cache/yum/x86_64/7/updates/gen/primary_db.sqlite
+										-rw-r--r--. 1 root root 119M Aug 28  2023 /var/lib/rpm/Packages
+										-rw-r--r--  1 root root 118M Aug 31  2020 /usr/local/rasp-php-linux.tar.bz2
+										-rwxr-xr-x  1 root root 108M May  9 15:48 /home/wwwroot/mytracking/uploads/excel/202505/aefac7ff33596644ced9d10d8e8838d8.csv
+										-rw-r--r--  1 root root 102M Nov 29  2022 /usr/lib/locale/locale-archive
+										-rw-r--r--  1 root root 102M May  7 17:09 /home/wwwroot/www.trackingmore.com/download/5bcDB42PtkpcFciaZgDbZEmSwNyDjahORgGDS.csv
+										[root@iZ94apf5ivnZ ~]# sh /home/wwwroot/www.trackingmore.com/script/queueshell/temp.rm.file.sh
+										[root@iZ94apf5ivnZ ~]# df -h
+										Filesystem      Size  Used Avail Use% Mounted on
+										/dev/vda1        49G   46G  1.8G  97% /
+										devtmpfs        3.8G     0  3.8G   0% /dev
+										tmpfs           3.8G     0  3.8G   0% /dev/shm
+										tmpfs           3.8G  715M  3.1G  19% /run
+										tmpfs           3.8G     0  3.8G   0% /sys/fs/cgroup
+										tmpfs           768M     0  768M   0% /run/user/0
+										tmpfs           768M     0  768M   0% /run/user/1004
+										[root@iZ94apf5ivnZ ~]# ll /home/wwwroot/mytracking/uploads/excel_zip/ | head
+										total 706456
+										-rw-r--r-- 1 root root  92632735 May  6 03:03 20250505.zip
+										-rw-r--r-- 1 root root 263922002 May  7 03:05 20250506.zip
+										-rw-r--r-- 1 root root 169317204 May  8 03:04 20250507.zip
+										-rw-r--r-- 1 root root 197502498 May  9 03:04 20250508.zip
+										[root@iZ94apf5ivnZ ~]# ll /home/wwwroot/mytracking/uploads/excel_zip/ | wc -l
+										5
+										[root@iZ94apf5ivnZ ~]# du -sh /home/wwwroot/mytracking/uploads/
+										1.9G    /home/wwwroot/mytracking/uploads/
+										[root@iZ94apf5ivnZ ~]# du -sh /home/wwwroot/mytracking/uploads/excel
+										excel/     excel_zip/ 
+										[root@iZ94apf5ivnZ ~]# du -sh /home/wwwroot/mytracking/uploads/excel
+										excel/     excel_zip/ 
+										[root@iZ94apf5ivnZ ~]# du -sh /home/wwwroot/mytracking/uploads/excel
+										1.2G    /home/wwwroot/mytracking/uploads/excel
+										[root@iZ94apf5ivnZ ~]# ll /home/wwwroot/mytracking/uploads/excel
+										excel/     excel_zip/ 
+										[root@iZ94apf5ivnZ ~]# ll /home/wwwroot/mytracking/uploads/excel/ | wc -l
+										18
+										[root@iZ94apf5ivnZ ~]# ll /home/wwwroot/mytracking/uploads/excel/ 
+										total 704
+										drwxr-xr-x 2 root root 36864 Feb  1  2024 202401
+										drwxr-xr-x 2 root root 24576 Mar  1  2024 202402
+										drwxr-xr-x 2 root root 32768 Apr  1  2024 202403
+										drwxr-xr-x 2 root root 32768 May  1  2024 202404
+										drwxr-xr-x 2 root root 32768 Jun  1  2024 202405
+										drwxr-xr-x 2 root root 36864 Jul  1  2024 202406
+										drwxr-xr-x 2 root root 36864 Aug  1  2024 202407
+										drwxr-xr-x 2 root root 36864 Sep  1  2024 202408
+										drwxr-xr-x 2 root root 36864 Oct  1  2024 202409
+										drwxr-xr-x 2 root root 36864 Nov  1  2024 202410
+										drwxr-xr-x 2 root root 45056 Dec  1 03:03 202411
+										drwxr-xr-x 2 root root 57344 Jan  1 03:06 202412
+										drwxr-xr-x 2 root root 40960 Feb  1 03:03 202501
+										drwxr-xr-x 2 root root 36864 Mar  1 03:04 202502
+										drwxr-xr-x 2 root root 36864 Apr  1 03:05 202503
+										drwxr-xr-x 2 root root 49152 May  1 03:03 202504
+										drwxr-xr-x 2 root root 45056 May 10 01:31 202505
+										[root@iZ94apf5ivnZ ~]# sh disk.20241023.sh /home/wwwroot/mytracking/uploads 3 100
+										/home/wwwroot/mytracking/uploads: 1887 MB
+											/home/wwwroot/mytracking/uploads/excel: 1198 MB
+												/home/wwwroot/mytracking/uploads/excel/202505: 1197 MB
+										aefac7ff33596644ced9d10d8e8838d8.csv: 108 MB
+											/home/wwwroot/mytracking/uploads/excel_zip: 690 MB
+										20250508.zip: 189 MB
+										20250507.zip: 162 MB
+										20250506.zip: 252 MB
+										[root@iZ94apf5ivnZ ~]# ll home/wwwroot/mytracking/uploads/excel/202505 | ead
+										-bash: ead: command not found
+										ls: cannot access home/wwwroot/mytracking/uploads/excel/202505: Not a directory
+										[root@iZ94apf5ivnZ ~]# ll home/wwwroot/mytracking/uploads/excel/202505 | head
+										ls: cannot access home/wwwroot/mytracking/uploads/excel/202505: Not a directory
+										[root@iZ94apf5ivnZ ~]# ll /home/wwwroot/mytracking/uploads/excel/202505 | head
+										total 1225116
+										-rwxr-xr-x 1 root root    286412 May  9 13:08 0004dfca8e05e0800bda70ea8206208e.csv
+										-rwxr-xr-x 1 root root    792682 May  9 10:40 00ae92abd57435f01012d14e3c41d122.csv
+										-rwxr-xr-x 1 root root     62465 May  9 10:55 0121752e61770e02b17d966dd26ba4ff.xlsx
+										-rwxr-xr-x 1 root root     82495 May  9 20:09 0171bf57036554f826f10411f824d687.xlsx
+										-rwxr-xr-x 1 root root     52426 May  9 20:38 03ee0e6aa0b2f51f8fbfadfece92f847.xlsx
+										-rwxr-xr-x 1 root root    478654 May  9 14:24 04222529c086f2120f70948ecf6127e7.csv
+										-rwxr-xr-x 1 root root     98902 May  9 17:03 0442a45bf4be3c82b48679676783056c.xlsx
+										-rwxr-xr-x 1 root root     53679 May  9 17:19 052d24caa130968bf74b44896247d5f4.xlsx
+										-rwxr-xr-x 1 root root    116902 May  9 09:32 05645db48e1788a36181b9028d916c2a.xlsx
+										[root@iZ94apf5ivnZ ~]# ll /home/wwwroot/mytracking/uploads/excel/202505 | tail
+										-rwxr-xr-x 1 root root    243816 May  9 23:32 fbcae8ca250a6ed62fa277ea5e29c889.csv
+										-rwxr-xr-x 1 root root     52339 May  9 21:27 fbfb9459b05c0ff9001c6dda68ef311a.xlsx
+										-rwxr-xr-x 1 root root    260085 May  9 18:48 fc060ec5e18bb827fe39e394066023cd.csv
+										-rwxr-xr-x 1 root root     54242 May  9 17:30 fc3a61d1c856b88704062af531f5b78a.xlsx
+										-rwxr-xr-x 1 root root     52825 May  9 17:22 fcf81b2125be21efd6451ed5e6f56606.xlsx
+										-rwxr-xr-x 1 root root     85452 May  9 17:52 fe32d00b7b8eaa6fbd18567afc7e5979.xlsx
+										-rwxr-xr-x 1 root root     53266 May  9 17:29 fe75540695df794fc51dca38337cf0e1.xlsx
+										-rwxr-xr-x 1 root root   6176373 May  9 20:55 feb71230cd715a25930a002e1ad84cf6.csv
+										-rwxr-xr-x 1 root root    341244 May  9 14:19 ff492600e8284c568aab8eb41e4b6120.xlsx
+										-rwxr-xr-x 1 root root    425285 May  9 17:32 fffde6f2a52bbe135ddb4dd002ea3e9d.csv
+										[root@iZ94apf5ivnZ ~]# ll /home/wwwroot/mytracking/uploads/excel/202505 | grep -v 'May  9' | tail
+										total 1225116
+										-rwxr-xr-x 1 root root   1952630 May 10 00:36 124f1af841a8376d327dc1833e02e347.csv
+										-rwxr-xr-x 1 root root     54156 May 10 01:31 c40fb7c41a0fd705ddbd6a97b4b87246.xlsx
+										[root@iZ94apf5ivnZ ~]# vi /home/wwwroot/www.trackingmore.com/script/queueshell/temp.rm.file.sh
+										[root@iZ94apf5ivnZ ~]# sh /home/wwwroot/www.trackingmore.com/script/queueshell/temp.rm.file.sh
+										[root@iZ94apf5ivnZ ~]# df -h
+										Filesystem      Size  Used Avail Use% Mounted on
+										/dev/vda1        49G   46G  1.8G  97% /
+										devtmpfs        3.8G     0  3.8G   0% /dev
+										tmpfs           3.8G     0  3.8G   0% /dev/shm
+										tmpfs           3.8G  715M  3.1G  19% /run
+										tmpfs           3.8G     0  3.8G   0% /sys/fs/cgroup
+										tmpfs           768M     0  768M   0% /run/user/0
+										tmpfs           768M     0  768M   0% /run/user/1004
+										[root@iZ94apf5ivnZ ~]# vi /home/wwwroot/www.trackingmore.com/script/queueshell/temp.rm.file.sh
+										[root@iZ94apf5ivnZ ~]# sh /home/wwwroot/www.trackingmore.com/script/queueshell/temp.rm.file.sh
+										[root@iZ94apf5ivnZ ~]# vi /home/wwwroot/www.trackingmore.com/script/queueshell/temp.rm.file.sh
+										[root@iZ94apf5ivnZ ~]# df -h
+										Filesystem      Size  Used Avail Use% Mounted on
+										/dev/vda1        49G   46G  2.0G  96% /
+										devtmpfs        3.8G     0  3.8G   0% /dev
+										tmpfs           3.8G     0  3.8G   0% /dev/shm
+										tmpfs           3.8G  715M  3.1G  19% /run
+										tmpfs           3.8G     0  3.8G   0% /sys/fs/cgroup
+										tmpfs           768M     0  768M   0% /run/user/0
+										tmpfs           768M     0  768M   0% /run/user/1004
+										[root@iZ94apf5ivnZ ~]# du -sh  /home/wwwroot/mytracking/logs/number/
+										17M     /home/wwwroot/mytracking/logs/number/
+										[root@iZ94apf5ivnZ ~]# rm -fr /home/wwwroot/mytracking/uploads/excel/2024*
+										[root@iZ94apf5ivnZ ~]# df -h
+										Filesystem      Size  Used Avail Use% Mounted on
+										/dev/vda1        49G   46G  2.0G  96% /
+										devtmpfs        3.8G     0  3.8G   0% /dev
+										tmpfs           3.8G     0  3.8G   0% /dev/shm
+										tmpfs           3.8G  715M  3.1G  19% /run
+										tmpfs           3.8G     0  3.8G   0% /sys/fs/cgroup
+										tmpfs           768M     0  768M   0% /run/user/0
+										tmpfs           768M     0  768M   0% /run/user/1004
+										[root@iZ94apf5ivnZ ~]# ll /home/wwwroot/mytracking/uploads/excel/
+										total 224
+										drwxr-xr-x 2 root root 40960 Feb  1 03:03 202501
+										drwxr-xr-x 2 root root 36864 Mar  1 03:04 202502
+										drwxr-xr-x 2 root root 36864 Apr  1 03:05 202503
+										drwxr-xr-x 2 root root 49152 May  1 03:03 202504
+										drwxr-xr-x 2 root root 45056 May 10 01:31 202505
+										[root@iZ94apf5ivnZ ~]# rm -fr /home/wwwroot/mytracking/uploads/excel/202501*
+										[root@iZ94apf5ivnZ ~]# rm -fr /home/wwwroot/mytracking/uploads/excel/202502*
+										[root@iZ94apf5ivnZ ~]# rm -fr /home/wwwroot/mytracking/uploads/excel/202503*
+										[root@iZ94apf5ivnZ ~]# rm -fr /home/wwwroot/mytracking/uploads/excel/202503*
+										[root@iZ94apf5ivnZ ~]# rm -fr /home/wwwroot/mytracking/uploads/excel/202504*
+										[root@iZ94apf5ivnZ ~]# df -h
+										Filesystem      Size  Used Avail Use% Mounted on
+										/dev/vda1        49G   46G  2.0G  96% /
+										devtmpfs        3.8G     0  3.8G   0% /dev
+										tmpfs           3.8G     0  3.8G   0% /dev/shm
+										tmpfs           3.8G  715M  3.1G  19% /run
+										tmpfs           3.8G     0  3.8G   0% /sys/fs/cgroup
+										tmpfs           768M     0  768M   0% /run/user/0
+										tmpfs           768M     0  768M   0% /run/user/1004
+										[root@iZ94apf5ivnZ ~]# sh disk.20241023.sh / 3 100
+										du: cannot access ‘/proc/19716/task/19716/fd/4’: No such file or directory
+										du: cannot access ‘/proc/19716/task/19716/fdinfo/4’: No such file or directory
+										du: cannot access ‘/proc/19716/fd/3’: No such file or directory
+										du: cannot access ‘/proc/19716/fdinfo/3’: No such file or directory
+										/: 47274 MB
+											//boot: 162 MB
+											//data: 2283 MB
+												//data/server_logs: 2167 MB
+											//home: 32891 MB
+												//home/wwwlogs: 497 MB
+												//home/wwwroot: 32394 MB
+												//lib/firmware: 187 MB
+												//lib/locale: 102 MB
+										locale-archive: 102 MB
+												//lib/modules: 319 MB
+												//lib64/python2.7: 115 MB
+										du: cannot access ‘//proc/5435/task/5435/fd/4’: No such file or directory
+										du: cannot access ‘//proc/5435/task/5435/fdinfo/4’: No such file or directory
+										du: cannot access ‘//proc/5435/fd/3’: No such file or directory
+										du: cannot access ‘//proc/5435/fdinfo/3’: No such file or directory
+											//root: 384 MB
+											//run: 715 MB
+												//run/log: 712 MB
+											//usr: 10057 MB
+												//usr/bin: 239 MB
+												//usr/lib: 736 MB
+												//usr/lib64: 486 MB
+												//usr/local: 7514 MB
+										rasp-php-linux.tar.bz2: 118 MB
+												//usr/share: 656 MB
+												//usr/src: 203 MB
+											//var: 542 MB
+												//var/cache: 321 MB
+												//var/lib: 191 MB
+										[root@iZ94apf5ivnZ ~]# sh disk.20241023.sh /data/server_logs 3 100
+										/data/server_logs: 2167 MB
+											/data/server_logs/home: 2065 MB
+												/data/server_logs/home/wwwroot: 2065 MB
+											/data/server_logs/root: 103 MB
+										[root@iZ94apf5ivnZ ~]# sh disk.20241023.sh /data/server_logs/home/wwwroot 3 100
+										/data/server_logs/home/wwwroot: 2065 MB
+											/data/server_logs/home/wwwroot/mytracking: 1906 MB
+												/data/server_logs/home/wwwroot/mytracking/logs: 1906 MB
+											/data/server_logs/home/wwwroot/www.trackingmore.com: 154 MB
+												/data/server_logs/home/wwwroot/www.trackingmore.com/logs: 113 MB
+										[root@iZ94apf5ivnZ ~]# head /data/server_logs/home/wwwroot/mytracking/logs/
+										head: error reading ‘/data/server_logs/home/wwwroot/mytracking/logs/’: Is a directory
+										[root@iZ94apf5ivnZ ~]# ll /data/server_logs/home/wwwroot/mytracking/logs/ | head
+										total 88
+										drwxr-xr-x 2 root root  4096 May  6 13:21 jobs
+										drwxr-xr-x 3 root root  4096 Feb  5 01:11 kafka_queue
+										drwxr-xr-x 2 root root 57344 May 10 01:21 number
+										drwxr-xr-x 2 root root  4096 Apr 16 13:21 oss
+										drwxr-xr-x 2 root root  4096 Feb  5 01:21 routes
+										drwxr-xr-x 2 root root 12288 May  9 19:21 send_first_queue
+										[root@iZ94apf5ivnZ ~]# vi /home/wwwroot/www.trackingmore.com/script/queueshell/temp.rm.file.sh
+										[root@iZ94apf5ivnZ ~]# 
+										[root@iZ94apf5ivnZ ~]# sh /home/wwwroot/www.trackingmore.com/script/queueshell/temp.rm.file.sh
+										[root@iZ94apf5ivnZ ~]# df -h
+										Filesystem      Size  Used Avail Use% Mounted on
+										/dev/vda1        49G   44G  3.8G  93% /
+										devtmpfs        3.8G     0  3.8G   0% /dev
+										tmpfs           3.8G     0  3.8G   0% /dev/shm
+										tmpfs           3.8G  715M  3.1G  19% /run
+										tmpfs           3.8G     0  3.8G   0% /sys/fs/cgroup
+										tmpfs           768M     0  768M   0% /run/user/0
+										tmpfs           768M     0  768M   0% /run/user/1004
 									参考历史处理
 										temp.rm.file.sh
 										临时清理压缩文件，后续需要整理梳理
@@ -16993,6 +17330,7 @@
 			定时任务
 				-- 20250419
 					PCR=${PTM}crontab/
+					PCR=${PTM}crontab/
 					sh ${PCR}deploy.sh toUpdate
 					diffCrontabFile.sh toUpdate
 					. /etc/bashrc
@@ -18700,6 +19038,18 @@
 			/_next/static/media/printify-logo-tab.c498fef9.webp
 
 	ISO 
+		-- 20250509
+			6月17日过期，2-3周，版本更换13-22，6000（监督 再认证）
+
+			步骤
+				是否还是之前那家合作（之前超哥提到有一家陪跑的，这个还需要想老板汇报是否用这家，费用相应也会更高）
+
+				之前的方式：
+				确认合同
+				对接咨询机构，搜集更新资料等
+				对接审核机构，吃住报销，到现场几天进行审核（老板，及各相关部门会议沟通）
+
+
 		-- 20240524
 			现场审核资料
 			考虑上仓库管理
@@ -19375,6 +19725,12 @@
 			国外数据库CPU告警
 
 			本地
+				协作
+					-- 20250509
+						a，文档（1，问题单 https://alidocs.dingtalk.com/i/nodes/bxgzX5wq4YoJPeQyemQw8Ry2OB79ALPD?utm_scene=team_space&iframeQuery=anchorId%3D1478140712649，2，一些不是一两步解决问题的细节记录（https://alidocs.dingtalk.com/i/nodes/YndMj49yWjRBz1OASQ9Qm0ozW3pmz5aA?utm_scene=team_space 在这个文档下面） https://alidocs.dingtalk.com/i/nodes/YndMj49yWjRBz1OASQ9Qm0ozW3pmz5aA?utm_scene=team_space，3，待优化计划 https://alidocs.dingtalk.com/i/nodes/dpYLaezmVNoxw1BMsaXvgNpnJrMqPxX6?utm_scene=team_space）
+						b，每天跟进问题单（记录情况文档），计划事项（相关文档）
+						
+
 				AC
 					-- 20240516
 						外网访问慢-针对域名进行限速 https://alidocs.dingtalk.com/i/nodes/P7QG4Yx2Jp1PK9B4Cz7Pzalz89dEq3XD?utm_scene=team_space
