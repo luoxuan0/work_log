@@ -6794,6 +6794,11 @@
 	5，测试环境-分支自动构建触发取消
 
 操作顺序
+		-- 20250510
+			处理流程
+			日志规范
+			。。
+
 		-- 20250509
 			充值梳理
 			客诉
@@ -9837,6 +9842,48 @@
 									tmpfs            50M     0   50M   0% /usr/local/aegis/cgroup
 									overlay          79G  6.0G   70G   8% /var/lib/docker/overlay2/d2967a28026a583eac35a8e3dbcf30f06367406f8f47c8eaadc1b3f48df2eb48/merged
 									tmpfs           169M  4.0K  169M   1% /run/user/1000
+
+									-- 20250510
+										# 创建专用 Cron 任务
+										vi /etc/cron.d/logrotate-docker
+											# 每小时运行一次docker日志轮转
+											02 * * * * root /usr/sbin/logrotate -v /etc/logrotate.d/docker-container-logs >> /var/log/logrotate-docker.log 2>&1
+
+										# 创建日志轮转配置文件
+										vi /etc/logrotate.d/docker-container-logs
+											# 配置日志轮转规则
+											/var/lib/docker/containers/*/*.log {
+												rotate 720               
+											# 保留720个归档日志，大概是2个月
+												size 100M              
+											# 单个日志文件到100M时轮转
+											#    daily                  
+											# 每天检查一次（配合 size 更合理） 优先级高于size，因此注释掉
+												compress               
+											# 轮转后压缩旧日志（生成 .gz 文件）
+												delaycompress          
+											# 压缩的是前一天轮转的日志
+												missingok             
+											# 忽略不存在的日志文件
+												copytruncate           
+											# 复制当前日志内容并清空原文件（适合不停服务的容器）
+												notifempty             
+											# 如果日志为空，则不轮转
+												dateext
+											# 在轮转后的文件名中添加日期扩展名
+												dateformat -%Y%m%d%H%M%S
+											# 指定日期格式
+											}
+										
+										待办：
+											1，观察日志轮转情况（压缩率，日志大小，日志数量），并根据情况调整日志轮转规则。
+											2，根据1的情况后续做自动调整（或转统一存储位置，在统一存储位置统一管理磁盘资源），监控告警
+											3，复制到其他服务器大文件处理
+											4，将复制脚本（需要根据磁盘大小，日志增长速度，配置轮转规则）加入 Cron 任务
+											5，对/var/log/logrotate-docker.log做类似轮转处理
+
+											再次对比之前的定时脚本方案（定时检查目录文件，超过一定大小则改为带时间标识的归档文件，并按时压缩清除原文件，对压缩文件按时间保留）
+
 									
 							-- 20250504
 								upload-test-177-172.16.21.169
@@ -10479,6 +10526,103 @@
 										overlay          40G   37G  2.7G  94% /var/lib/docker/overlay2/59ca7e38d5053a3062bce79ba5dd8934e5abe477125dd0fbf0aae1019223218d/merged
 										tmpfs           1.6G     0  1.6G   0% /run/user/1002
 										[root@iz0xibhd8xjxiru8zt5ierz ~]# df -h
+									-- 20250510
+										find / -name '*' -type f -size +100M | xargs ls -lh {} | sort -nrk5
+										-rwxr-xr-x  1 root root 526M May 10 17:46 /home/wwwroot/mytracking/logs/redis_queue/consumer/translate.log
+										-rwxr-xr-x  1 root root 409M May 10 17:46 /home/wwwroot/mytracking/logs/jobs/translateJobs.log
+										-rw-r--r--  1 root root 328M Apr  1 17:05 /root/tr_tracknumber_effective_for_rule.zip
+										-rw-r--r--  1 root root 193M Apr 30 08:03 /home/wwwroot/www.trackingmore.com/python_img/redis.bigkey.6.length_1_1024.20250430.log
+										-rw-r--r--  1 root root 193M Apr 19 03:47 /run/log/home-wwwroot-www.trackingmore.com-python_img/redis.bigkey.4.length_1_1024.20250419.log
+										-rw-r--r--  1 root root 190M Apr 29 10:38 /home/wwwroot/www.trackingmore.com/python_img/redis.bigkey.6.length_1_1024.20250429.log
+										-rw-r--r--  1 root root 190M Apr 18 21:56 /run/log/home-wwwroot-www.trackingmore.com-python_img/redis.bigkey.0.length_1_1024.20250418.log
+										-rw-r--r--  1 root root 188M Apr 19 02:29 /run/log/home-wwwroot-www.trackingmore.com-python_img/redis.bigkey.3.length_1_1024.20250419.log
+										-rw-r--r--  1 root root 187M Apr 18 23:08 /run/log/home-wwwroot-www.trackingmore.com-python_img/redis.bigkey.1.length_1_1024.20250418.log
+										-rw-r--r--  1 root root 186M Apr 19 05:09 /run/log/home-wwwroot-www.trackingmore.com-python_img/redis.bigkey.5.length_1_1024.20250419.log
+										-rw-r--r--  1 root root 185M Apr 19 06:28 /run/log/home-wwwroot-www.trackingmore.com-python_img/redis.bigkey.6.length_1_1024.20250419.log
+										-rw-r--r--  1 root root 183M Apr  5 02:52 /run/log/home-wwwroot-www.trackingmore.com-python_img/redis.bigkey.4.length_1_1024.20250405.log
+										-rw-r--r--  1 root root 180M Apr  4 20:51 /run/log/home-wwwroot-www.trackingmore.com-python_img/redis.bigkey.0.length_1_1024.20250404.log
+										-rw-r--r--  1 root root 177M Apr  4 23:38 /run/log/home-wwwroot-www.trackingmore.com-python_img/redis.bigkey.2.length_1_1024.20250404.log
+										-rw-r--r--  1 root root 177M Apr  4 22:28 /run/log/home-wwwroot-www.trackingmore.com-python_img/redis.bigkey.1.length_1_1024.20250404.log
+										-rw-r--r--  1 root root 176M Apr  5 05:27 /run/log/home-wwwroot-www.trackingmore.com-python_img/redis.bigkey.6.length_1_1024.20250405.log
+										-rw-r--r--  1 root root 176M Apr  5 04:06 /run/log/home-wwwroot-www.trackingmore.com-python_img/redis.bigkey.5.length_1_1024.20250405.log
+										-rw-r--r--  1 root root 171M Apr 19 07:47 /run/log/home-wwwroot-www.trackingmore.com-python_img/redis.bigkey.7.length_1_1024.20250419.log
+										-rw-r--r--  1 root root 161M Apr  5 06:50 /run/log/home-wwwroot-www.trackingmore.com-python_img/redis.bigkey.7.length_1_1024.20250405.log
+										-rw-r--r--  1 root root 156M Jun 22  2024 /var/cache/yum/x86_64/7/updates/gen/primary_db.sqlite
+										-rw-r--r--  1 root root 139M Apr  3  2024 /var/cache/yum/x86_64/7/updates/gen/filelists_db.sqlite
+										-r--------  1 root root 128T May 10 17:46 /proc/kcore
+										-rw-r--r--  1 root root 122M Apr  5 01:01 /run/log/home-wwwroot-www.trackingmore.com-python_img/redis.bigkey.3.length_1_1024.20250405.log
+										-rw-r--r--. 1 root root 110M Aug 27  2024 /var/lib/rpm/Packages
+										-rw-r--r--  1 root root 107M May 10 09:07 /home/wwwroot/www.trackingmore.com/script/log/infoIDInsertInfo_br.log
+										-rw-r--r--  1 root root 104M Mar  9 16:59 /home/wwwroot/www.trackingmore.com/python_img_zip/20240113.log.zip
+										-rw-r--r--  1 root root 104M Apr 18 23:59 /run/log/home-wwwroot-www.trackingmore.com-python_img/redis.bigkey.2.length_1_1024.20250418.log
+										-rwxr-xr-x  1 root root 102M Apr 23  2024 /usr/bin/dockerd
+										-rw-r--r--  1 root root 102M Feb 15  2020 /usr/lib/locale/locale-archive
+										-rw-r--r--  1 root root    3 May  2  2022 {}
+										cat /home/wwwroot/www.trackingmore.com/script/log/queue_diskTree.log 
+										Sat May 10 17:46:17 CST 2025
+										├── /: 40975 MB
+										│   ├── /home: 18956 MB
+										│   │   ├── /home/wwwroot: 17737 MB
+										│   │   ├── /home/wwwlogs: 1068 MB
+										│   ├── /root: 3204 MB
+										│   │   └── tr_tracknumber_effective_for_rule.zip: 328 MB
+										│   │   ├── /root/yunxiao: 145 MB
+										│   │   ├── /root/go: 585 MB
+										│   ├── /run: 2763 MB
+										│   │   ├── /run/log: 2756 MB
+										│   ├── /boot: 178 MB
+										│   ├── /var: 5443 MB
+										│   │   ├── /var/cache: 594 MB
+										│   │   ├── /var/lib: 404 MB
+										│   │   ├── /var/log: 4444 MB
+										│   ├── /usr: 10357 MB
+										│   │   ├── /usr/lib: 890 MB
+										│   │   ├── /usr/lib64: 271 MB
+										│   │   ├── /usr/local: 8004 MB
+										│   │   ├── /usr/bin: 412 MB
+										│   │   │   └── dockerd: 102 MB
+										│   │   ├── /usr/libexec: 199 MB
+										│   │   ├── /usr/share: 506 MB
+										│   │   └── kcore: 134217727 MB
+										├── /home/wwwroot: 17738 MB
+										│   ├── /home/wwwroot/mytracking: 1766 MB
+										│   │   ├── /home/wwwroot/mytracking/logs: 1343 MB
+										│   │   ├── /home/wwwroot/mytracking/uploads: 214 MB
+										│   ├── /home/wwwroot/upload: 6417 MB
+										│   │   ├── /home/wwwroot/upload/shijie: 135 MB
+										│   │   ├── /home/wwwroot/upload/huaqiang: 5748 MB
+										│   │   ├── /home/wwwroot/upload/lipeng: 496 MB
+										│   ├── /home/wwwroot/www.trackingmore.com: 8982 MB
+										│   │   ├── /home/wwwroot/www.trackingmore.com/tmzohocrm: 113 MB
+										│   │   ├── /home/wwwroot/www.trackingmore.com/api: 181 MB
+										│   │   ├── /home/wwwroot/www.trackingmore.com/python_img: 833 MB
+										│   │   │   └── redis.bigkey.6.length_1_1024.20250430.log: 193 MB
+										│   │   │   └── redis.bigkey.6.length_1_1024.20250429.log: 190 MB
+										│   │   ├── /home/wwwroot/www.trackingmore.com/section: 2685 MB
+										│   │   ├── /home/wwwroot/www.trackingmore.com/php-resque: 179 MB
+										│   │   ├── /home/wwwroot/www.trackingmore.com/logs: 812 MB
+										│   │   ├── /home/wwwroot/www.trackingmore.com/admin: 1713 MB
+										│   │   ├── /home/wwwroot/www.trackingmore.com/python_img_zip: 447 MB
+										│   │   │   └── 20240113.log.zip: 104 MB
+										│   │   ├── /home/wwwroot/www.trackingmore.com/script: 637 MB
+										│   │   ├── /home/wwwroot/www.trackingmore.com/download: 366 MB
+										│   │   ├── /home/wwwroot/www.trackingmore.com/python3: 221 MB
+										│   ├── /home/wwwroot/trackingmore: 336 MB
+										│   │   ├── /home/wwwroot/trackingmore/section: 240 MB
+
+										[root@iz0xibhd8xjxiru8zt5ierz ~]# echo > /home/wwwroot/mytracking/logs/redis_queue/consumer/translate.log
+										[root@iz0xibhd8xjxiru8zt5ierz ~]# 
+										[root@iz0xibhd8xjxiru8zt5ierz ~]# echo > /home/wwwroot/mytracking/logs/jobs/translateJobs.log
+										[root@iz0xibhd8xjxiru8zt5ierz ~]# df -h
+										Filesystem      Size  Used Avail Use% Mounted on
+										devtmpfs        7.7G     0  7.7G   0% /dev
+										tmpfs           7.7G     0  7.7G   0% /dev/shm
+										tmpfs           7.7G  2.7G  5.0G  36% /run
+										tmpfs           7.7G     0  7.7G   0% /sys/fs/cgroup
+										/dev/vda1        40G   37G  2.6G  94% /
+										tmpfs           1.6G     0  1.6G   0% /run/user/0
+										overlay          40G   37G  2.6G  94% /var/lib/docker/overlay2/59ca7e38d5053a3062bce79ba5dd8934e5abe477125dd0fbf0aae1019223218d/merged
+										tmpfs           1.6G     0  1.6G   0% /run/user/1002
 									-- 20250503
 										Filesystem      Size  Used Avail Use% Mounted on
 										devtmpfs        7.7G     0  7.7G   0% /dev
@@ -10830,6 +10974,7 @@
 										tmpfs           3.8G     0  3.8G   0% /sys/fs/cgroup
 										tmpfs           768M     0  768M   0% /run/user/0
 										tmpfs           768M     0  768M   0% /run/user/1004
+
 									参考历史处理
 										temp.rm.file.sh
 										临时清理压缩文件，后续需要整理梳理
@@ -12844,6 +12989,108 @@
 									tmpfs           3.7G     0  3.7G   0% /sys/fs/cgroup
 									tmpfs           756M     0  756M   0% /run/user/1004
 									tmpfs           756M     0  756M   0% /run/user/0
+
+									-- 20250510
+										df -h
+											96%
+										[root@iZ94apf5ivnZ ~]# find / -name '*' -type f -size +100M | xargs ls -lh {} | sort -nrk5
+										find: ‘/proc/14660/task/14660/fdinfo/6’: No such file or directory
+										find: ‘/proc/14660/fdinfo/5’: No such file or directory
+										ls: cannot access {}: No such file or directory
+										-rw-r--r--  1 root root 578M May 10 17:18 /home/wwwroot/www.51tracking.com/script/sync/compare_img_sync.log
+										-rw-------  1 root root 526M May 10 15:46 /home/wwwlogs/phpslow.log
+										-rw-r--r--  1 root root 393M Jan  2  2024 /run/log/home-wwwroot-mytracking-logs/send.log.2023.1010.2024.0102.zip
+										-r--------  1 root root 128T May 10 17:19 /proc/kcore
+										-rw-r--r--  1 root root 126M Aug 24  2023 /var/cache/yum/x86_64/7/updates/gen/primary_db.sqlite
+										-rw-r--r--. 1 root root 119M Aug 30  2023 /var/lib/rpm/Packages
+										-rw-r--r--  1 root root 118M Feb  4 19:21 /data/server_logs/usr/local/php7.0.33/var/log/20250204175501.php-fpm.log.zip
+										-rw-r--r--  1 root root 118M Aug 31  2020 /usr/local/rasp-php-linux.tar.bz2
+										-rw-r--r--  1 root root 107M Jul 13  2022 /home/wwwroot/www.trackingmore.com/download/K2msSfC9SHV3g32NAtw70TPmgA00O.csv
+										-rw-r--r--  1 root root 104M Aug  1  2022 /home/wwwlogs/host.trackingmore.com.log
+										-rw-r--r--  1 root root 102M May 15  2019 /usr/lib/locale/locale-archive
+										-rw-r--r--  1 root root 102M Jul 13  2022 /home/wwwroot/www.trackingmore.com/download/gOl2XfRfiaS2VwX7g8eqy8vmroMpxT8JHEZK8qoAB0RsF.csv
+										[root@iZ94apf5ivnZ ~]#  bash diskCheck.sh /home/wwwroot/www.51tracking.com/script 3 100
+										├── /home/wwwroot/www.51tracking.com/script: 589 MB
+										│   ├── /home/wwwroot/www.51tracking.com/script/sync: 579 MB
+										│   │   └── compare_img_sync.log: 578 MB
+										[root@iZ94apf5ivnZ ~]# bash diskCheck.sh / 3 100
+										├── /: 46965 MB
+										│   ├── /root: 763 MB
+										│   │   ├── /root/.cache: 136 MB
+										│   ├── /boot: 162 MB
+										│   ├── /data: 1348 MB
+										│   │   ├── /data/server_logs: 1313 MB
+										│   ├── /var: 658 MB
+										│   │   ├── /var/log: 129 MB
+										│   │   ├── /var/lib: 198 MB
+										│   │   ├── /var/cache: 321 MB
+										│   ├── /run: 789 MB
+										│   │   ├── /run/log: 788 MB
+										│   ├── /home: 32065 MB
+										│   │   ├── /home/wwwroot: 29972 MB
+										│   │   ├── /home/wwwlogs: 2093 MB
+										│   │   │   └── phpslow.log: 526 MB
+										│   │   │   └── host.trackingmore.com.log: 104 MB
+										│   ├── /usr: 10936 MB
+										│   │   ├── /usr/lib64: 478 MB
+										│   │   ├── /usr/lib: 736 MB
+										│   │   ├── /usr/share: 654 MB
+										│   │   ├── /usr/bin: 237 MB
+										│   │   ├── /usr/local: 8405 MB
+										│   │   │   └── rasp-php-linux.tar.bz2: 118 MB
+										│   │   ├── /usr/src: 203 MB
+										│   │   └── kcore: 134217727 MB
+										[root@iZ94apf5ivnZ ~]# bash diskCheck.sh /data/server_logs 3 100
+										├── /data/server_logs: 1313 MB
+										│   ├── /data/server_logs/home: 1121 MB
+										│   │   ├── /data/server_logs/home/wwwroot: 1121 MB
+										│   ├── /data/server_logs/usr: 126 MB
+										│   │   ├── /data/server_logs/usr/local: 126 MB
+										[root@iZ94apf5ivnZ ~]# bash diskCheck.sh /data/server_logs 5 100
+										├── /data/server_logs: 1313 MB
+										│   ├── /data/server_logs/home: 1121 MB
+										│   │   ├── /data/server_logs/home/wwwroot: 1121 MB
+										│   │   │   ├── /data/server_logs/home/wwwroot/mytracking: 1062 MB
+										│   │   │   │   ├── /data/server_logs/home/wwwroot/mytracking/logs: 1062 MB
+										│   ├── /data/server_logs/usr: 126 MB
+										│   │   ├── /data/server_logs/usr/local: 126 MB
+										│   │   │   ├── /data/server_logs/usr/local/php7.0.33: 126 MB
+										│   │   │   │   ├── /data/server_logs/usr/local/php7.0.33/var: 126 MB
+										[root@iZ94apf5ivnZ ~]# bash diskCheck.sh /home/wwwroot 3 100
+										├── /home/wwwroot: 30011 MB
+										│   ├── /home/wwwroot/upload: 731 MB
+										│   │   ├── /home/wwwroot/upload/lipeng: 583 MB
+										│   ├── /home/wwwroot/www.51tracking.com: 8470 MB
+										│   │   ├── /home/wwwroot/www.51tracking.com/admin: 6003 MB
+										│   │   ├── /home/wwwroot/www.51tracking.com/section: 333 MB
+										│   │   ├── /home/wwwroot/www.51tracking.com/script: 589 MB
+										│   │   ├── /home/wwwroot/www.51tracking.com/logs: 107 MB
+										│   ├── /home/wwwroot/www.trackingmore.com: 7571 MB
+										│   │   ├── /home/wwwroot/www.trackingmore.com/php-resque: 116 MB
+										│   │   ├── /home/wwwroot/www.trackingmore.com/python3: 199 MB
+										│   │   ├── /home/wwwroot/www.trackingmore.com/admin: 111 MB
+										│   │   ├── /home/wwwroot/www.trackingmore.com/section: 438 MB
+										│   │   ├── /home/wwwroot/www.trackingmore.com/script: 1857 MB
+										│   │   ├── /home/wwwroot/www.trackingmore.com/download: 2647 MB
+										│   │   │   └── K2msSfC9SHV3g32NAtw70TPmgA00O.csv: 107 MB
+										│   │   │   └── gOl2XfRfiaS2VwX7g8eqy8vmroMpxT8JHEZK8qoAB0RsF.csv: 102 MB
+										│   │   ├── /home/wwwroot/www.trackingmore.com/api: 930 MB
+										│   │   ├── /home/wwwroot/www.trackingmore.com/logs: 199 MB
+										│   │   ├── /home/wwwroot/www.trackingmore.com/python_img: 245 MB
+										│   ├── /home/wwwroot/mytracking: 13239 MB
+										│   │   ├── /home/wwwroot/mytracking/downloads: 480 MB
+										│   │   ├── /home/wwwroot/mytracking/uploads: 8294 MB
+										│   │   ├── /home/wwwroot/mytracking/logs: 4375 MB
+
+										[root@iZ94apf5ivnZ ~]# df -h
+										Filesystem      Size  Used Avail Use% Mounted on
+										/dev/vda1        49G   46G  2.5G  95% /
+										devtmpfs        3.7G     0  3.7G   0% /dev
+										tmpfs           3.7G     0  3.7G   0% /dev/shm
+										tmpfs           3.7G  773M  3.0G  21% /run
+										tmpfs           3.7G     0  3.7G   0% /sys/fs/cgroup
+										tmpfs           756M     0  756M   0% /run/user/1004
+										tmpfs           756M     0  756M   0% /run/user/0
 								-159-205-tm
 									[root@iz0xif9y7r0fstxmq97t54z queueshell]# df -h
 									Filesystem      Size  Used Avail Use% Mounted on
