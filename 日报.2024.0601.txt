@@ -8086,6 +8086,444 @@
 
 	告警
 		redis节点内存
+			-- 20250511
+				ind_resque-145-44-35-tm
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# tail -100 redis.bigkeys.log
+
+					# Scanning the entire keyspace to find biggest keys as well as
+					# average sizes per key type.  You can use -i 0.1 to sleep 0.1 sec
+					# per 100 SCAN commands (not usually needed).
+
+					[00.00%] Biggest string found so far 'API_AS_V4_create_283408_1691200800_APIB_V4' with 3 bytes
+					[00.00%] Biggest string found so far 'spe_4px_58126_4PX3001665562619CN' with 14 bytes
+					[00.00%] Biggest set    found so far 'server_9200190349451108914617_usps_SET' with 1 members
+					[00.00%] Biggest set    found so far 'pitneybowes45.42.177.43:3128' with 2 members
+					[00.00%] Biggest string found so far 'resque:job:66189ba09dd314a13784c85089ce7f20:status' with 33 bytes
+					[00.00%] Biggest string found so far 'NotFound_Retrack_231324_4543611' with 94 bytes
+					[00.00%] Biggest set    found so far 'S_API_AS_V4_1739962800' with 249 members
+					[00.00%] Biggest string found so far 'NotFound_Retrack_224763_180314664' with 106 bytes
+					[00.00%] Biggest string found so far 'resque:worker:t-q-205-6f9fd845fc-kjz6k:7228:trackExpressQueueShein' with 232 bytes
+					[00.00%] Biggest string found so far 'rule_content_new_0_1302_0' with 42641 bytes
+					[00.01%] Biggest set    found so far 'updateNotfoundCourier:wearepro:existSpecifyCourier' with 5531 members
+					[00.03%] Biggest hash   found so far 'dhl_count_2025021403' with 5 fields
+					[00.03%] Biggest hash   found so far 'Analytics_Count_Key_206523_1746849600' with 121 fields
+					[00.09%] Biggest hash   found so far 'dhl_count_2024093005' with 1265 fields
+					[00.11%] Biggest zset   found so far 'Z_R_P_U_moldova-post_SET' with 537 members
+					[00.15%] Biggest hash   found so far 'dhl_count_2024112109' with 13695 fields
+					[00.23%] Biggest set    found so far 'updateNotfoundCourier:delhivery:updatedNumber:updateNotfoundCourier:delhivery:overOneNumberNotIncludedSpecifyCourier' with 8977 members
+					[00.26%] Biggest hash   found so far 'dhl_count_2024112609' with 17974 fields
+					[00.26%] Biggest string found so far 'mem_page_lang_detail_tw' with 458477 bytes
+					[00.26%] Biggest set    found so far 'updateNotfoundCourier:asendia-usa:updatedNumberWithOldCourier:updateNotfoundCourier:asendia-usa:overOneNumberNotIncludedSpecifyCourier' with 32160 members
+					[00.28%] Biggest string found so far 'rule_content_new_0_92_4' with 2742784 bytes
+					[00.37%] Biggest zset   found so far 'Z_R_P_U_auspost_SET' with 2409 members
+					[00.61%] Biggest zset   found so far 'Z_R_P_U_hhexp_SET' with 583619 members
+					[01.05%] Biggest set    found so far 'notfound_courier_code_dhlglobalmail' with 33718 members
+					[01.11%] Biggest set    found so far 'R_P_O_yanwen_SET' with 35574 members
+					[02.25%] Biggest string found so far '260086_Import_20230520150043' with 3284089 bytes
+					[02.43%] Biggest hash   found so far 'dhl_count_2024102316' with 26683 fields
+					[02.56%] Biggest list   found so far 'resque:queue:trackFQueue' with 20 items
+					[02.90%] Biggest string found so far 'TrackingCompanyData_ru_0' with 5976952 bytes
+					[03.47%] Sampled 1000000 keys so far
+					[04.37%] Biggest list   found so far 'resque:queue:shopifyWebhookQueue' with 30 items
+					[06.93%] Biggest hash   found so far 'dhl_count_2024110220' with 28882 fields
+					[06.93%] Sampled 2000000 keys so far
+					[07.58%] Biggest hash   found so far 'dhl_count_2024110316' with 42122 fields
+					[08.23%] Biggest list   found so far 'resque:queue:updateInIndependentServer4pxRedisForeignToHomeReceiveDataQueue' with 80 items
+					[10.04%] Biggest set    found so far 'lbcexpress_IP_lbcexpress.com' with 35984 members
+					[10.40%] Sampled 3000000 keys so far
+					[10.56%] Biggest hash   found so far 'dhl_count_2024091812' with 62314 fields
+					[13.56%] Biggest set    found so far 'R_P_U_ukraine-post_SET' with 55533 members
+					[13.86%] Sampled 4000000 keys so far
+					[13.87%] Biggest list   found so far 'courier_jtexpress-ae_ticket' with 115 items
+					[17.02%] Biggest set    found so far 'quiqup_input' with 68611 members
+					[17.33%] Sampled 5000000 keys so far
+					[18.18%] Biggest hash   found so far 'dhl_count_2024091710' with 62423 fields
+					[18.80%] Biggest list   found so far 'resque:queue:platefromWishQueue' with 14047 items
+					[20.80%] Sampled 6000000 keys so far
+					[22.48%] Biggest set    found so far 'updateNotfoundCourier:fedex:updatedNumber:updateNotfoundCourier:fedex:overOneNumberNotIncludedSpecifyCourier' with 69104 members
+					[22.52%] Biggest hash   found so far 'TRACKING_TIME_PREPARE' with 204636 fields
+					[24.26%] Sampled 7000000 keys so far
+					[27.73%] Sampled 8000000 keys so far
+					[31.19%] Sampled 9000000 keys so far
+					[34.66%] Sampled 10000000 keys so far
+					[35.89%] Biggest set    found so far 'cainiao_IP_global.cainiao.com' with 291412 members
+					[38.13%] Sampled 11000000 keys so far
+					[41.59%] Sampled 12000000 keys so far
+					[42.54%] Biggest set    found so far 'updateNotfoundCourier:usps:updatedNumberWithOldCourier' with 760282 members
+					[42.71%] Biggest zset   found so far 'Z_SPE_cache_4px_SET' with 762235 members
+					[45.06%] Sampled 13000000 keys so far
+					[45.78%] Biggest set    found so far 'C_S_N_S1_SET' with 1040396 members
+					[48.53%] Sampled 14000000 keys so far
+					[51.99%] Sampled 15000000 keys so far
+					[54.00%] Biggest set    found so far 'U_S_N_NO_SET' with 1090338 members
+					[55.46%] Sampled 16000000 keys so far
+					[58.92%] Sampled 17000000 keys so far
+					[62.39%] Sampled 18000000 keys so far
+					[65.86%] Sampled 19000000 keys so far
+					[68.80%] Biggest list   found so far 'resque:queue:airSendQueue' with 93969 items
+					[69.32%] Sampled 20000000 keys so far
+					[72.79%] Sampled 21000000 keys so far
+					[75.43%] Biggest set    found so far 'lastRestNumberArr' with 4287584 members
+					[76.25%] Sampled 22000000 keys so far
+					[79.72%] Sampled 23000000 keys so far
+					[83.19%] Sampled 24000000 keys so far
+					[86.14%] Biggest list   found so far 'resque:queue:airWebhookQueue' with 184455 items
+					[86.65%] Sampled 25000000 keys so far
+					[90.12%] Sampled 26000000 keys so far
+					[93.58%] Sampled 27000000 keys so far
+					[97.05%] Sampled 28000000 keys so far
+
+					-------- summary -------
+
+					Sampled 28796091 keys in the keyspace!
+					Total key length in bytes is 1161644739 (avg len 40.34)
+
+					Biggest string found 'TrackingCompanyData_ru_0' has 5976952 bytes
+					Biggest   list found 'resque:queue:airWebhookQueue' has 184455 items
+					Biggest    set found 'lastRestNumberArr' has 4287584 members
+					Biggest   hash found 'TRACKING_TIME_PREPARE' has 204636 fields
+					Biggest   zset found 'Z_SPE_cache_4px_SET' has 762235 members
+
+					12694701 strings with 1479803415 bytes (44.08% of keys, avg size 116.57)
+					36 lists with 419509 items (00.00% of keys, avg size 11653.03)
+					16094589 sets with 40136155 members (55.89% of keys, avg size 2.49)
+					5396 hashs with 10491107 fields (00.02% of keys, avg size 1944.24)
+					1369 zsets with 10152008 members (00.00% of keys, avg size 7415.64)
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# php /home/wwwroot/www.trackingmore.com/script/warning_redis.php dfdf 10 | grep ':redis:' -A8
+					string(179) "Foreign:redis:
+					node:0: 84.37% > 10%
+					node:1: 84% > 10%
+					node:2: 81.54% > 10%
+					node:3: 95.15% > 10%
+					node:4: 84.8% > 10%
+					node:5: 91.73% > 10%
+					node:6: 85.71% > 10%
+					node:7: 82.03% > 10%
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# tail -100 redis.bigkeys.log
+
+					# Scanning the entire keyspace to find biggest keys as well as
+					# average sizes per key type.  You can use -i 0.1 to sleep 0.1 sec
+					# per 100 SCAN commands (not usually needed).
+
+					[00.00%] Biggest string found so far 'API_AS_V4_create_283408_1691200800_APIB_V4' with 3 bytes
+					[00.00%] Biggest string found so far 'spe_4px_58126_4PX3001665562619CN' with 14 bytes
+					[00.00%] Biggest set    found so far 'server_9200190349451108914617_usps_SET' with 1 members
+					[00.00%] Biggest set    found so far 'pitneybowes45.42.177.43:3128' with 2 members
+					[00.00%] Biggest string found so far 'resque:job:66189ba09dd314a13784c85089ce7f20:status' with 33 bytes
+					[00.00%] Biggest string found so far 'NotFound_Retrack_231324_4543611' with 94 bytes
+					[00.00%] Biggest set    found so far 'S_API_AS_V4_1739962800' with 249 members
+					[00.00%] Biggest string found so far 'NotFound_Retrack_224763_180314664' with 106 bytes
+					[00.00%] Biggest string found so far 'resque:worker:t-q-205-6f9fd845fc-kjz6k:7228:trackExpressQueueShein' with 232 bytes
+					[00.00%] Biggest string found so far 'rule_content_new_0_1302_0' with 42641 bytes
+					[00.01%] Biggest set    found so far 'updateNotfoundCourier:wearepro:existSpecifyCourier' with 5531 members
+					[00.03%] Biggest hash   found so far 'dhl_count_2025021403' with 5 fields
+					[00.03%] Biggest hash   found so far 'Analytics_Count_Key_206523_1746849600' with 121 fields
+					[00.09%] Biggest hash   found so far 'dhl_count_2024093005' with 1265 fields
+					[00.11%] Biggest zset   found so far 'Z_R_P_U_moldova-post_SET' with 537 members
+					[00.15%] Biggest hash   found so far 'dhl_count_2024112109' with 13695 fields
+					[00.23%] Biggest set    found so far 'updateNotfoundCourier:delhivery:updatedNumber:updateNotfoundCourier:delhivery:overOneNumberNotIncludedSpecifyCourier' with 8977 members
+					[00.26%] Biggest hash   found so far 'dhl_count_2024112609' with 17974 fields
+					[00.26%] Biggest string found so far 'mem_page_lang_detail_tw' with 458477 bytes
+					[00.26%] Biggest set    found so far 'updateNotfoundCourier:asendia-usa:updatedNumberWithOldCourier:updateNotfoundCourier:asendia-usa:overOneNumberNotIncludedSpecifyCourier' with 32160 members
+					[00.28%] Biggest string found so far 'rule_content_new_0_92_4' with 2742784 bytes
+					[00.37%] Biggest zset   found so far 'Z_R_P_U_auspost_SET' with 2409 members
+					[00.61%] Biggest zset   found so far 'Z_R_P_U_hhexp_SET' with 583619 members
+					[01.05%] Biggest set    found so far 'notfound_courier_code_dhlglobalmail' with 33718 members
+					[01.11%] Biggest set    found so far 'R_P_O_yanwen_SET' with 35574 members
+					[02.25%] Biggest string found so far '260086_Import_20230520150043' with 3284089 bytes
+					[02.43%] Biggest hash   found so far 'dhl_count_2024102316' with 26683 fields
+					[02.56%] Biggest list   found so far 'resque:queue:trackFQueue' with 20 items
+					[02.90%] Biggest string found so far 'TrackingCompanyData_ru_0' with 5976952 bytes
+					[03.47%] Sampled 1000000 keys so far
+					[04.37%] Biggest list   found so far 'resque:queue:shopifyWebhookQueue' with 30 items
+					[06.93%] Biggest hash   found so far 'dhl_count_2024110220' with 28882 fields
+					[06.93%] Sampled 2000000 keys so far
+					[07.58%] Biggest hash   found so far 'dhl_count_2024110316' with 42122 fields
+					[08.23%] Biggest list   found so far 'resque:queue:updateInIndependentServer4pxRedisForeignToHomeReceiveDataQueue' with 80 items
+					[10.04%] Biggest set    found so far 'lbcexpress_IP_lbcexpress.com' with 35984 members
+					[10.40%] Sampled 3000000 keys so far
+					[10.56%] Biggest hash   found so far 'dhl_count_2024091812' with 62314 fields
+					[13.56%] Biggest set    found so far 'R_P_U_ukraine-post_SET' with 55533 members
+					[13.86%] Sampled 4000000 keys so far
+					[13.87%] Biggest list   found so far 'courier_jtexpress-ae_ticket' with 115 items
+					[17.02%] Biggest set    found so far 'quiqup_input' with 68611 members
+					[17.33%] Sampled 5000000 keys so far
+					[18.18%] Biggest hash   found so far 'dhl_count_2024091710' with 62423 fields
+					[18.80%] Biggest list   found so far 'resque:queue:platefromWishQueue' with 14047 items
+					[20.80%] Sampled 6000000 keys so far
+					[22.48%] Biggest set    found so far 'updateNotfoundCourier:fedex:updatedNumber:updateNotfoundCourier:fedex:overOneNumberNotIncludedSpecifyCourier' with 69104 members
+					[22.52%] Biggest hash   found so far 'TRACKING_TIME_PREPARE' with 204636 fields
+					[24.26%] Sampled 7000000 keys so far
+					[27.73%] Sampled 8000000 keys so far
+					[31.19%] Sampled 9000000 keys so far
+					[34.66%] Sampled 10000000 keys so far
+					[35.89%] Biggest set    found so far 'cainiao_IP_global.cainiao.com' with 291412 members
+					[38.13%] Sampled 11000000 keys so far
+					[41.59%] Sampled 12000000 keys so far
+					[42.54%] Biggest set    found so far 'updateNotfoundCourier:usps:updatedNumberWithOldCourier' with 760282 members
+					[42.71%] Biggest zset   found so far 'Z_SPE_cache_4px_SET' with 762235 members
+					[45.06%] Sampled 13000000 keys so far
+					[45.78%] Biggest set    found so far 'C_S_N_S1_SET' with 1040396 members
+					[48.53%] Sampled 14000000 keys so far
+					[51.99%] Sampled 15000000 keys so far
+					[54.00%] Biggest set    found so far 'U_S_N_NO_SET' with 1090338 members
+					[55.46%] Sampled 16000000 keys so far
+					[58.92%] Sampled 17000000 keys so far
+					[62.39%] Sampled 18000000 keys so far
+					[65.86%] Sampled 19000000 keys so far
+					[68.80%] Biggest list   found so far 'resque:queue:airSendQueue' with 93969 items
+					[69.32%] Sampled 20000000 keys so far
+					[72.79%] Sampled 21000000 keys so far
+					[75.43%] Biggest set    found so far 'lastRestNumberArr' with 4287584 members
+					[76.25%] Sampled 22000000 keys so far
+					[79.72%] Sampled 23000000 keys so far
+					[83.19%] Sampled 24000000 keys so far
+					[86.14%] Biggest list   found so far 'resque:queue:airWebhookQueue' with 184455 items
+					[86.65%] Sampled 25000000 keys so far
+					[90.12%] Sampled 26000000 keys so far
+					[93.58%] Sampled 27000000 keys so far
+					[97.05%] Sampled 28000000 keys so far
+
+					-------- summary -------
+
+					Sampled 28796091 keys in the keyspace!
+					Total key length in bytes is 1161644739 (avg len 40.34)
+
+					Biggest string found 'TrackingCompanyData_ru_0' has 5976952 bytes
+					Biggest   list found 'resque:queue:airWebhookQueue' has 184455 items
+					Biggest    set found 'lastRestNumberArr' has 4287584 members
+					Biggest   hash found 'TRACKING_TIME_PREPARE' has 204636 fields
+					Biggest   zset found 'Z_SPE_cache_4px_SET' has 762235 members
+
+					12694701 strings with 1479803415 bytes (44.08% of keys, avg size 116.57)
+					36 lists with 419509 items (00.00% of keys, avg size 11653.03)
+					16094589 sets with 40136155 members (55.89% of keys, avg size 2.49)
+					5396 hashs with 10491107 fields (00.02% of keys, avg size 1944.24)
+					1369 zsets with 10152008 members (00.00% of keys, avg size 7415.64)
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# sh redisMemory.sh resque:queue:airWebhookQueue
+					2025-05-11 21:29:55
+					redis memory usage resque:queue:airWebhookQueue
+					(integer) 20671947
+					redis info key resque:queue:airWebhookQueue
+					slot:13598 node_index:6
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# sh redisMemory.sh Z_SPE_cache_4px_SET
+					2025-05-11 21:30:29
+					redis memory usage Z_SPE_cache_4px_SET
+					(integer) 123693579
+					redis info key Z_SPE_cache_4px_SET
+					slot:6656 node_index:3
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# sh redisMemory.sh updateNotfoundCourier:usps:updatedNumberWithOldCourier
+					2025-05-11 21:31:02
+					redis memory usage updateNotfoundCourier:usps:updatedNumberWithOldCourier
+					(integer) 50964608
+					redis info key updateNotfoundCourier:usps:updatedNumberWithOldCourier
+					slot:8124 node_index:3
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# sh redisMemory.sh U_S_N_NO_SET'
+					> ^C
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# sh redisMemory.sh U_S_N_NO_SET
+					2025-05-11 21:35:28
+					redis memory usage U_S_N_NO_SET
+					(integer) 89713993
+					redis info key U_S_N_NO_SET
+					slot:9668 node_index:4
+					(reverse-i-search)`.7': rsync -avz root@172.16.21.179:/var/spool/cron/root /tmp/root.87^C2 -e 'ssh -p 20480'
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# ping 47.90.136.77
+					PING 47.90.136.77 (47.90.136.77) 56(84) bytes of data.
+					64 bytes from 47.90.136.77: icmp_seq=1 ttl=63 time=0.700 ms
+					64 bytes from 47.90.136.77: icmp_seq=2 ttl=63 time=0.604 ms
+					64 bytes from 47.90.136.77: icmp_seq=3 ttl=63 time=0.680 ms
+					^C
+					--- 47.90.136.77 ping statistics ---
+					3 packets transmitted, 3 received, 0% packet loss, time 2000ms
+					rtt min/avg/max/mdev = 0.604/0.661/0.700/0.046 ms
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# vi /etc/host
+					host.conf    hostname     hosts        hosts.allow  hosts.deny   
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# vi /etc/an
+					anacrontab  ansible/    
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# vi /etc/an
+					anacrontab  ansible/    
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# vi /etc/ansible/hosts
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# wp resque_174_77 php-resque/ttt
+					/usr/lib/python2.7/site-packages/requests/__init__.py:80: RequestsDependencyWarning: urllib3 (1.22) or chardet (2.2.1) doesn't match a supported version!
+					RequestsDependencyWarning)
+					resque_174_77 | CHANGED => {
+						"ansible_facts": {
+							"discovered_interpreter_python": "/usr/bin/python"
+						}, 
+						"changed": true, 
+						"checksum": "ea50ab47f95cccf2e4131aabb668bdd7450bb630", 
+						"dest": "/home/wwwroot/upload/huaqiang/ansible.test.1.sh", 
+						"gid": 0, 
+						"group": "root", 
+						"md5sum": "bf4b2fd288ea243eae670b8f7abd0628", 
+						"mode": "0600", 
+						"owner": "root", 
+						"size": 27651, 
+						"src": "/home/ansible/.ansible/tmp/ansible-tmp-1746971006.36-22583-33303602006144/source", 
+						"state": "file", 
+						"uid": 0
+					}
+					/usr/lib/python2.7/site-packages/requests/__init__.py:80: RequestsDependencyWarning: urllib3 (1.22) or chardet (2.2.1) doesn't match a supported version!
+					RequestsDependencyWarning)
+					resque_174_77 | CHANGED | rc=0 >>
+					ps -ef | grep php-resque/ttt | grep -v 'grep\|ansible.test'
+					num:
+					ps -ef | grep php-resque/ttt | grep -v 'grep\|ansible.test' | wc -l
+					0ls: cannot access /home/wwwroot/mytracking/uploads/excel_*: No such file or directory
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# vians
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# wp resque_174_77 php-resque/ttt
+					/usr/lib/python2.7/site-packages/requests/__init__.py:80: RequestsDependencyWarning: urllib3 (1.22) or chardet (2.2.1) doesn't match a supported version!
+					RequestsDependencyWarning)
+					resque_174_77 | CHANGED => {
+						"ansible_facts": {
+							"discovered_interpreter_python": "/usr/bin/python"
+						}, 
+						"changed": true, 
+						"checksum": "3dbfb92d9a6f715af5885f5ea6f1b4a68b65b74b", 
+						"dest": "/home/wwwroot/upload/huaqiang/ansible.test.1.sh", 
+						"gid": 0, 
+						"group": "root", 
+						"md5sum": "0e874b7ca44a0734c0b8ee23a1e0a58a", 
+						"mode": "0600", 
+						"owner": "root", 
+						"size": 27696, 
+						"src": "/home/ansible/.ansible/tmp/ansible-tmp-1746971053.6-23722-235366247952566/source", 
+						"state": "file", 
+						"uid": 0
+					}
+					/usr/lib/python2.7/site-packages/requests/__init__.py:80: RequestsDependencyWarning: urllib3 (1.22) or chardet (2.2.1) doesn't match a supported version!
+					RequestsDependencyWarning)
+					resque_174_77 | CHANGED | rc=0 >>
+					-rw-r--r-- 1 root root 1.6K Apr  4 23:59 /home/wwwroot/www.trackingmore.com/python_img/redis.bigkey.3.length_0_1.20250404.log
+					-rw-r--r-- 1 root root 5.4K Apr  5 01:01 /home/wwwroot/www.trackingmore.com/python_img/redis.bigkey.3.length_0_1.20250405.log
+					-rw-r--r-- 1 root root 8.3K Apr 19 02:29 /home/wwwroot/www.trackingmore.com/python_img/redis.bigkey.3.length_0_1.20250419.log
+					-rw-r--r-- 1 root root  93K Apr  4 23:59 /home/wwwroot/www.trackingmore.com/python_img/redis.bigkey.3.length_10240_.20250404.log
+					-rw-r--r-- 1 root root 206K Apr  5 01:01 /home/wwwroot/www.trackingmore.com/python_img/redis.bigkey.3.length_10240_.20250405.log
+					-rw-r--r-- 1 root root 303K Apr 19 02:29 /home/wwwroot/www.trackingmore.com/python_img/redis.bigkey.3.length_10240_.20250419.log
+					-rw-r--r-- 1 root root 100K Apr  4 23:59 /home/wwwroot/www.trackingmore.com/python_img/redis.bigkey.3.length_1024_10240.20250404.log
+					-rw-r--r-- 1 root root 212K Apr  5 01:01 /home/wwwroot/www.trackingmore.com/python_img/redis.bigkey.3.length_1024_10240.20250405.log
+					-rw-r--r-- 1 root root 314K Apr 19 02:29 /home/wwwroot/www.trackingmore.com/python_img/redis.bigkey.3.length_1024_10240.20250419.log
+					-rw-r--r-- 1 root root  57M Apr  4 23:59 /home/wwwroot/www.trackingmore.com/python_img/redis.bigkey.3.length_1_1024.20250404.log
+					ps -ef | grep php-resque/ttt | grep -v 'grep\|ansible.test'
+					num:
+					ps -ef | grep php-resque/ttt | grep -v 'grep\|ansible.test' | wc -l
+					0
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# vians
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# wp resque_174_77 php-resque/ttt
+					/usr/lib/python2.7/site-packages/requests/__init__.py:80: RequestsDependencyWarning: urllib3 (1.22) or chardet (2.2.1) doesn't match a supported version!
+					RequestsDependencyWarning)
+					resque_174_77 | CHANGED => {
+						"ansible_facts": {
+							"discovered_interpreter_python": "/usr/bin/python"
+						}, 
+						"changed": true, 
+						"checksum": "c62fe6fb1942a8553e7dded9936004ec668046e4", 
+						"dest": "/home/wwwroot/upload/huaqiang/ansible.test.1.sh", 
+						"gid": 0, 
+						"group": "root", 
+						"md5sum": "9a876494924ca4d11c3f8d2e29733723", 
+						"mode": "0600", 
+						"owner": "root", 
+						"size": 27846, 
+						"src": "/home/ansible/.ansible/tmp/ansible-tmp-1746971182.12-26629-268814128573527/source", 
+						"state": "file", 
+						"uid": 0
+					}
+					/usr/lib/python2.7/site-packages/requests/__init__.py:80: RequestsDependencyWarning: urllib3 (1.22) or chardet (2.2.1) doesn't match a supported version!
+					RequestsDependencyWarning)
+					resque_174_77 | CHANGED | rc=0 >>
+					-rw-r--r-- 1 root root 1.6K Apr  4 23:59 /home/wwwroot/www.trackingmore.com/python_img/redis.bigkey.3.length_0_1.20250404.log
+					-rw-r--r-- 1 root root 5.4K Apr  5 01:01 /home/wwwroot/www.trackingmore.com/python_img/redis.bigkey.3.length_0_1.20250405.log
+					-rw-r--r-- 1 root root 8.3K Apr 19 02:29 /home/wwwroot/www.trackingmore.com/python_img/redis.bigkey.3.length_0_1.20250419.log
+					-rw-r--r-- 1 root root  93K Apr  4 23:59 /home/wwwroot/www.trackingmore.com/python_img/redis.bigkey.3.length_10240_.20250404.log
+					-rw-r--r-- 1 root root 206K Apr  5 01:01 /home/wwwroot/www.trackingmore.com/python_img/redis.bigkey.3.length_10240_.20250405.log
+					-rw-r--r-- 1 root root 303K Apr 19 02:29 /home/wwwroot/www.trackingmore.com/python_img/redis.bigkey.3.length_10240_.20250419.log
+					-rw-r--r-- 1 root root 100K Apr  4 23:59 /home/wwwroot/www.trackingmore.com/python_img/redis.bigkey.3.length_1024_10240.20250404.log
+					-rw-r--r-- 1 root root 212K Apr  5 01:01 /home/wwwroot/www.trackingmore.com/python_img/redis.bigkey.3.length_1024_10240.20250405.log
+					-rw-r--r-- 1 root root 314K Apr 19 02:29 /home/wwwroot/www.trackingmore.com/python_img/redis.bigkey.3.length_1024_10240.20250419.log
+					-rw-r--r-- 1 root root  57M Apr  4 23:59 /home/wwwroot/www.trackingmore.com/python_img/redis.bigkey.3.length_1_1024.20250404.log
+					Mysql_Bak_Set 273772840 set
+					Z_SPE_cache_4px_SET 64610750 zset
+					C_S_N_S1_SET 59992409 set
+					updateNotfoundCourier 50964608 usps
+					Z_R_P_U_ekart_SET 35980945 zset
+					Z_P_O_pitneybowes_B_SET 30353555 zset
+					python_set_taiwan_post 25198600 set
+					C_S_N_S3_SET 23780051 set
+					lp_rule_content5_othernum 15226320 set
+					updateNotfoundCourier 9742672 fedex
+					Z_R_P_U_old-dominion_SET 8392544 zset
+					taiwan-post_ocr_success_log 7609968 set
+					Z_R_P_U_fmx_SET 7386168 zset
+					usps_IP_com 7068128 set
+					Z_R_P_U_phlpost_SET 5939577 zset
+					Z_R_P_U_zim_SET 5642174 zset
+					resque 5074664 workers
+					air_098_log 4896352 set
+					260086_Import_20230503015013 3670096 string
+					Z_R_P_U_cpex_SET 3248216 zset
+					ps -ef | grep php-resque/ttt | grep -v 'grep\|ansible.test'
+					num:
+					ps -ef | grep php-resque/ttt | grep -v 'grep\|ansible.test' | wc -l
+					0
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# redis ttl Mem_waring_cipan_time_log_47.90.136.771^C
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# sh redisMemory.sh Mysql_Bak_Set 
+					2025-05-11 21:47:27
+					redis memory usage Mysql_Bak_Set
+					(integer) 113646616
+					redis info key Mysql_Bak_Set
+					slot:7941 node_index:3
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# redis srandmmeber Mysql_Bak_Set 10
+					(error) ERR unknown command 'SRANDMMEBER'
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# redis srandmember Mysql_Bak_Set 10
+					1) "{\"sql\":\"SELECT  * from tr_tracking_info_224501_225000 where id>=156758501 and id<156759501 and create_time>=1729468800 and create_time<1729641600 order by id asc \",\"dbname\":\"trackingdb\",\"dbkey\":\"prodb\",\"filename\":\"\\/mnt\\/bak\\/scriptbak\\/prodb\\/tr_tracking_info_224501_225000_20241021_20241023.sql\",\"table\":\"tr_tracking_info_224501_225000\"}"
+					2) "{\"sql\":\"SELECT  * from tr_tracking_info_224501_225000 where id>=165124401 and id<165125401 and create_time>=1729555200 and create_time<1729728000 order by id asc \",\"dbname\":\"trackingdb\",\"dbkey\":\"prodb\",\"filename\":\"\\/mnt\\/bak\\/scriptbak\\/prodb\\/tr_tracking_info_224501_225000_20241022_20241024.sql\",\"table\":\"tr_tracking_info_224501_225000\"}"
+					3) "{\"sql\":\"SELECT  * from tr_tracking_info_224501_225000 where id>=158847725 and id<158848725 and create_time>=1730505600 and create_time<1730678400 order by id asc \",\"dbname\":\"trackingdb\",\"dbkey\":\"prodb\",\"filename\":\"\\/mnt\\/bak\\/scriptbak\\/prodb\\/tr_tracking_info_224501_225000_20241102_20241104.sql\",\"table\":\"tr_tracking_info_224501_225000\"}"
+					4) "{\"sql\":\"SELECT  * from tr_tracking_info_224501_225000 where id>=161556237 and id<161557237 and create_time>=1730332800 and create_time<1730505600 order by id asc \",\"dbname\":\"trackingdb\",\"dbkey\":\"prodb\",\"filename\":\"\\/mnt\\/bak\\/scriptbak\\/prodb\\/tr_tracking_info_224501_225000_20241031_20241102.sql\",\"table\":\"tr_tracking_info_224501_225000\"}"
+					5) "{\"sql\":\"SELECT  * from tr_tracking_info_224501_225000 where id>=152721332 and id<152722332 and create_time>=1730073600 and create_time<1730246400 order by id asc \",\"dbname\":\"trackingdb\",\"dbkey\":\"prodb\",\"filename\":\"\\/mnt\\/bak\\/scriptbak\\/prodb\\/tr_tracking_info_224501_225000_20241028_20241030.sql\",\"table\":\"tr_tracking_info_224501_225000\"}"
+					6) "{\"sql\":\"SELECT  * from tr_tracking_info_224501_225000 where id>=176619184 and id<176620184 and create_time>=1730160000 and create_time<1730332800 order by id asc \",\"dbname\":\"trackingdb\",\"dbkey\":\"prodb\",\"filename\":\"\\/mnt\\/bak\\/scriptbak\\/prodb\\/tr_tracking_info_224501_225000_20241029_20241031.sql\",\"table\":\"tr_tracking_info_224501_225000\"}"
+					7) "{\"sql\":\"SELECT  * from tr_tracking_info_224501_225000 where id>=161505121 and id<161506121 and create_time>=1729555200 and create_time<1729728000 order by id asc \",\"dbname\":\"trackingdb\",\"dbkey\":\"prodb\",\"filename\":\"\\/mnt\\/bak\\/scriptbak\\/prodb\\/tr_tracking_info_224501_225000_20241022_20241024.sql\",\"table\":\"tr_tracking_info_224501_225000\"}"
+					8) "{\"sql\":\"SELECT  * from tr_tracking_info_224501_225000 where id>=159893611 and id<159894611 and create_time>=1730073600 and create_time<1730246400 order by id asc \",\"dbname\":\"trackingdb\",\"dbkey\":\"prodb\",\"filename\":\"\\/mnt\\/bak\\/scriptbak\\/prodb\\/tr_tracking_info_224501_225000_20241028_20241030.sql\",\"table\":\"tr_tracking_info_224501_225000\"}"
+					9) "{\"sql\":\"SELECT  * from tr_tracking_info_224501_225000 where id>=179557030 and id<179558030 and create_time>=1730505600 and create_time<1730678400 order by id asc \",\"dbname\":\"trackingdb\",\"dbkey\":\"prodb\",\"filename\":\"\\/mnt\\/bak\\/scriptbak\\/prodb\\/tr_tracking_info_224501_225000_20241102_20241104.sql\",\"table\":\"tr_tracking_info_224501_225000\"}"
+					10) "{\"sql\":\"SELECT  * from tr_tracking_info_224501_225000 where id>=169106815 and id<169107815 and create_time>=1730592000 and create_time<1730764800 order by id asc \",\"dbname\":\"trackingdb\",\"dbkey\":\"prodb\",\"filename\":\"\\/mnt\\/bak\\/scriptbak\\/prodb\\/tr_tracking_info_224501_225000_20241103_20241105.sql\",\"table\":\"tr_tracking_info_224501_225000\"}"
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# redis srandmember Mysql_Bak_Set 10
+					1) "{\"sql\":\"SELECT  * from tr_tracking_info_224501_225000 where id>=154114229 and id<154115229 and create_time>=1729987200 and create_time<1730160000 order by id asc \",\"dbname\":\"trackingdb\",\"dbkey\":\"prodb\",\"filename\":\"\\/mnt\\/bak\\/scriptbak\\/prodb\\/tr_tracking_info_224501_225000_20241027_20241029.sql\",\"table\":\"tr_tracking_info_224501_225000\"}"
+					2) "{\"sql\":\"SELECT  * from tr_tracking_info_224501_225000 where id>=150093807 and id<150094807 and create_time>=1729382400 and create_time<1729555200 order by id asc \",\"dbname\":\"trackingdb\",\"dbkey\":\"prodb\",\"filename\":\"\\/mnt\\/bak\\/scriptbak\\/prodb\\/tr_tracking_info_224501_225000_20241020_20241022.sql\",\"table\":\"tr_tracking_info_224501_225000\"}"
+					3) "{\"sql\":\"SELECT  * from tr_user_tracknumber_218001_218500 where id>=18816089 and id<18817089 and create_time>=1730073600 and create_time<1730246400 order by id asc \",\"dbname\":\"trackingdb\",\"dbkey\":\"prodb\",\"filename\":\"\\/mnt\\/bak\\/scriptbak\\/prodb\\/tr_user_tracknumber_218001_218500_20241028_20241030.sql\",\"table\":\"tr_user_tracknumber_218001_218500\"}"
+					4) "{\"sql\":\"SELECT  * from tr_user_tracknumber_218001_218500 where id>=28559752 and id<28560752 and create_time>=1729555200 and create_time<1729728000 order by id asc \",\"dbname\":\"trackingdb\",\"dbkey\":\"prodb\",\"filename\":\"\\/mnt\\/bak\\/scriptbak\\/prodb\\/tr_user_tracknumber_218001_218500_20241022_20241024.sql\",\"table\":\"tr_user_tracknumber_218001_218500\"}"
+					5) "{\"sql\":\"SELECT  * from tr_tracking_info_224501_225000 where id>=168473456 and id<168474456 and create_time>=1730419200 and create_time<1730592000 order by id asc \",\"dbname\":\"trackingdb\",\"dbkey\":\"prodb\",\"filename\":\"\\/mnt\\/bak\\/scriptbak\\/prodb\\/tr_tracking_info_224501_225000_20241101_20241103.sql\",\"table\":\"tr_tracking_info_224501_225000\"}"
+					6) "{\"sql\":\"SELECT  * from tr_tracking_info_58126_58126 where id>=120530448 and id<120531448 and create_time>=1729641600 and create_time<1729814400 order by id asc \",\"dbname\":\"trackingdb\",\"dbkey\":\"prodb\",\"filename\":\"\\/mnt\\/bak\\/scriptbak\\/prodb\\/tr_tracking_info_58126_58126_20241023_20241025.sql\",\"table\":\"tr_tracking_info_58126_58126\"}"
+					7) "{\"sql\":\"SELECT  * from tr_tracking_info_224501_225000 where id>=158656535 and id<158657535 and create_time>=1730764800 and create_time<1730937600 order by id asc \",\"dbname\":\"trackingdb\",\"dbkey\":\"prodb\",\"filename\":\"\\/mnt\\/bak\\/scriptbak\\/prodb\\/tr_tracking_info_224501_225000_20241105_20241107.sql\",\"table\":\"tr_tracking_info_224501_225000\"}"
+					8) "{\"sql\":\"SELECT  * from tr_tracking_info_224501_225000 where id>=155637826 and id<155638826 and create_time>=1730505600 and create_time<1730678400 order by id asc \",\"dbname\":\"trackingdb\",\"dbkey\":\"prodb\",\"filename\":\"\\/mnt\\/bak\\/scriptbak\\/prodb\\/tr_tracking_info_224501_225000_20241102_20241104.sql\",\"table\":\"tr_tracking_info_224501_225000\"}"
+					9) "{\"sql\":\"SELECT  * from tr_tracking_info_224501_225000 where id>=158521309 and id<158522309 and create_time>=1729987200 and create_time<1730160000 order by id asc \",\"dbname\":\"trackingdb\",\"dbkey\":\"prodb\",\"filename\":\"\\/mnt\\/bak\\/scriptbak\\/prodb\\/tr_tracking_info_224501_225000_20241027_20241029.sql\",\"table\":\"tr_tracking_info_224501_225000\"}"
+					10) "{\"sql\":\"SELECT  * from tr_tracking_info_224501_225000 where id>=160752985 and id<160753985 and create_time>=1730592000 and create_time<1730764800 order by id asc \",\"dbname\":\"trackingdb\",\"dbkey\":\"prodb\",\"filename\":\"\\/mnt\\/bak\\/scriptbak\\/prodb\\/tr_tracking_info_224501_225000_20241103_20241105.sql\",\"table\":\"tr_tracking_info_224501_225000\"}"
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# redis scard Mysql_Bak_Set 
+					(integer) 263125
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# redis srandmember Mysql_Bak_Set 1
+					1) "{\"sql\":\"SELECT  * from tr_tracking_info_224501_225000 where id>=170534115 and id<170535115 and create_time>=1730073600 and create_time<1730246400 order by id asc \",\"dbname\":\"trackingdb\",\"dbkey\":\"prodb\",\"filename\":\"\\/mnt\\/bak\\/scriptbak\\/prodb\\/tr_tracking_info_224501_225000_20241028_20241030.sql\",\"table\":\"tr_tracking_info_224501_225000\"}"
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# redis srandmmeber Mysql_Bak_Set 100 >> Mysql_Bak_Set.20250511.log
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# php /home/wwwroot/www.trackingmore.com/script/warning_redis.php dfdf 10 | grep ':redis:' -A8
+					string(183) "Foreign:redis:
+					node:0: 84.45% > 10%
+					node:1: 84.01% > 10%
+					node:2: 81.66% > 10%
+					node:3: 95.11% > 10%
+					node:4: 84.95% > 10%
+					node:5: 91.71% > 10%
+					node:6: 85.79% > 10%
+					node:7: 82.23% > 10%
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# redis del Mysql_Bak_Set 
+					(integer) 1
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# php /home/wwwroot/www.trackingmore.com/script/warning_redis.php dfdf 10 | grep ':redis:' -A8
+					string(182) "Foreign:redis:
+					node:0: 84.46% > 10%
+					node:1: 84.03% > 10%
+					node:2: 81.67% > 10%
+					node:3: 89.83% > 10%
+					node:4: 84.96% > 10%
+					node:5: 91.74% > 10%
+					node:6: 85.8% > 10%
+					node:7: 82.24% > 10%
 			-- 20250506
 				-ind_resque_49_172.16.10.167-resque-51-140
 					[root@iz0xibhd8xjxiru8zt5ietz ~]# tail -100 redis.bigkeys.log
@@ -13091,6 +13529,93 @@
 										tmpfs           3.7G     0  3.7G   0% /sys/fs/cgroup
 										tmpfs           756M     0  756M   0% /run/user/1004
 										tmpfs           756M     0  756M   0% /run/user/0
+									-- 20250511
+										[root@iZ94apf5ivnZ ~]# df -h
+										Filesystem      Size  Used Avail Use% Mounted on
+										/dev/vda1        49G   46G  2.3G  96% /
+										devtmpfs        3.7G     0  3.7G   0% /dev
+										tmpfs           3.7G     0  3.7G   0% /dev/shm
+										tmpfs           3.7G  781M  3.0G  21% /run
+										tmpfs           3.7G     0  3.7G   0% /sys/fs/cgroup
+										tmpfs           756M     0  756M   0% /run/user/1004
+										tmpfs           756M     0  756M   0% /run/user/0
+										(reverse-i-search)`': ^C
+										[root@iZ94apf5ivnZ ~]# find / -name '*' -type f -size +100M | xargs ls -lh {} | sort -nrk5
+										find: ‘/proc/13156/task/13156/fdinfo/6’: No such file or directory
+										find: ‘/proc/13156/fdinfo/5’: No such file or directory
+										ls: cannot access {}: No such file or directory
+										-rw-r--r--  1 root root 581M May 11 22:21 /home/wwwroot/www.51tracking.com/script/sync/compare_img_sync.log
+										-rw-------  1 root root 526M May 11 22:09 /home/wwwlogs/phpslow.log
+										-rw-r--r--  1 root root 393M Jan  2  2024 /run/log/home-wwwroot-mytracking-logs/send.log.2023.1010.2024.0102.zip
+										-rw-r--r--  1 root root 294M May 11 22:22 /usr/local/nginx/logs/access.log
+										-r--------  1 root root 128T May 11 22:22 /proc/kcore
+										-rw-r--r--  1 root root 126M Aug 24  2023 /var/cache/yum/x86_64/7/updates/gen/primary_db.sqlite
+										-rw-r--r--. 1 root root 119M Aug 30  2023 /var/lib/rpm/Packages
+										-rw-r--r--  1 root root 118M Feb  4 19:21 /data/server_logs/usr/local/php7.0.33/var/log/20250204175501.php-fpm.log.zip
+										-rw-r--r--  1 root root 118M Aug 31  2020 /usr/local/rasp-php-linux.tar.bz2
+										-rw-r--r--  1 root root 107M Jul 13  2022 /home/wwwroot/www.trackingmore.com/download/K2msSfC9SHV3g32NAtw70TPmgA00O.csv
+										-rw-r--r--  1 root root 104M Aug  1  2022 /home/wwwlogs/host.trackingmore.com.log
+										-rw-r--r--  1 root root 102M May 15  2019 /usr/lib/locale/locale-archive
+										-rw-r--r--  1 root root 102M Jul 13  2022 /home/wwwroot/www.trackingmore.com/download/gOl2XfRfiaS2VwX7g8eqy8vmroMpxT8JHEZK8qoAB0RsF.csv
+										[root@iZ94apf5ivnZ ~]# echo > /home/wwwroot/www.trackingmore.com/python_img/redis.bigkey.3.length
+										[root@iZ94apf5ivnZ ~]# df -h
+										Filesystem      Size  Used Avail Use% Mounted on
+										/dev/vda1        49G   46G  2.3G  96% /
+										devtmpfs        3.7G     0  3.7G   0% /dev
+										tmpfs           3.7G     0  3.7G   0% /dev/shm
+										tmpfs           3.7G  781M  3.0G  21% /run
+										tmpfs           3.7G     0  3.7G   0% /sys/fs/cgroup
+										tmpfs           756M     0  756M   0% /run/user/1004
+										tmpfs           756M     0  756M   0% /run/user/0
+										[root@iZ94apf5ivnZ ~]# 
+										[root@iZ94apf5ivnZ ~]# echo > /home/wwwroot/www.trackingmore.com/python_img/redis.bigkey.3.length
+										[root@iZ94apf5ivnZ ~]# df -h
+										Filesystem      Size  Used Avail Use% Mounted on
+										/dev/vda1        49G   46G  2.3G  96% /
+										devtmpfs        3.7G     0  3.7G   0% /dev
+										tmpfs           3.7G     0  3.7G   0% /dev/shm
+										tmpfs           3.7G  781M  3.0G  21% /run
+										tmpfs           3.7G     0  3.7G   0% /sys/fs/cgroup
+										tmpfs           756M     0  756M   0% /run/user/1004
+										tmpfs           756M     0  756M   0% /run/user/0
+										[root@iZ94apf5ivnZ ~]# echo > /home/wwwroot/www.51tracking.com/script/sync/compare_img_sync.
+										compare_img_sync.log  compare_img_sync.php  
+										[root@iZ94apf5ivnZ ~]# echo > /home/wwwroot/www.51tracking.com/script/sync/compare_img_sync.
+										compare_img_sync.log  compare_img_sync.php  
+										[root@iZ94apf5ivnZ ~]# echo > /home/wwwroot/www.51tracking.com/script/sync/compare_img_sync.
+										compare_img_sync.log  compare_img_sync.php  
+										[root@iZ94apf5ivnZ ~]# echo > /home/wwwroot/www.51tracking.com/script/sync/compare_img_sync.log 
+										[root@iZ94apf5ivnZ ~]# df -h
+										Filesystem      Size  Used Avail Use% Mounted on
+										/dev/vda1        49G   45G  2.8G  95% /
+										devtmpfs        3.7G     0  3.7G   0% /dev
+										tmpfs           3.7G     0  3.7G   0% /dev/shm
+										tmpfs           3.7G  781M  3.0G  21% /run
+										tmpfs           3.7G     0  3.7G   0% /sys/fs/cgroup
+										tmpfs           756M     0  756M   0% /run/user/1004
+										tmpfs           756M     0  756M   0% /run/user/0
+										[root@iZ94apf5ivnZ ~]# head /home/wwwlogs/phpslow.log
+
+
+										[30-Mar-2021 11:58:09]  [pool www] pid 25311
+										script_filename = /home/wwwroot/www.51tracking.com/gettracedetail.php
+										[0x00007fbecda14a30] curl_exec() /home/wwwroot/www.51tracking.com/library/tools/curl_post.php:43
+										[0x00007fbecda148d0] curl_post() /home/wwwroot/www.51tracking.com/library/smallorbigtrackresult.php:6109
+										[0x00007fbecda142b0] getChinaEmsDataFromWeb() /home/wwwroot/www.51tracking.com/library/smallorbigtrackresult.php:5589
+										[0x00007fbecda13f20] trackChinaemsOne() /home/wwwroot/www.51tracking.com/library/smallorbigtrackresult.php:4560
+										[0x00007fbecda13c30] trackChinaEmsQuery() /home/wwwroot/www.51tracking.com/library/tools.php:269
+										[0x00007fbecda13a60] trackingOriginNumber() /home/wwwroot/www.51tracking.com/gettracedetail.php:907
+										[root@iZ94apf5ivnZ ~]# head /usr/local/nginx/logs/access.log
+
+										00.123.22.114 - - [11/May/2025:16:00:01 +0800] "HEAD / HTTP/1.0" 200 0 "-" "-"
+										100.127.195.10 - - [11/May/2025:16:00:01 +0800] "HEAD / HTTP/1.0" 200 0 "-" "-"
+										100.122.251.87 - - [11/May/2025:16:00:01 +0800] "HEAD / HTTP/1.0" 200 0 "-" "-"
+										100.127.194.59 - - [11/May/2025:16:00:01 +0800] "HEAD / HTTP/1.0" 200 0 "-" "-"
+										100.127.195.84 - - [11/May/2025:16:00:01 +0800] "HEAD / HTTP/1.0" 200 0 "-" "-"
+										100.127.194.192 - - [11/May/2025:16:00:01 +0800] "HEAD / HTTP/1.0" 200 0 "-" "-"
+										100.123.21.202 - - [11/May/2025:16:00:01 +0800] "HEAD / HTTP/1.0" 200 0 "-" "-"
+										100.127.195.55 - - [11/May/2025:16:00:01 +0800] "HEAD / HTTP/1.0" 200 0 "-" "-"
+										100.127.194.155 - - [11/May/2025:16:00:01 +0800] "HEAD / HTTP/1.0" 200 0 "-" "-"
 								-159-205-tm
 									[root@iz0xif9y7r0fstxmq97t54z queueshell]# df -h
 									Filesystem      Size  Used Avail Use% Mounted on
