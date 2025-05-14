@@ -6711,7 +6711,7 @@
 ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== =====
 本周最重要的事件(不超过三件)
 
-20250506-20250512
+20250506-20250511
 
 【迁云】
 【客诉告警】
@@ -6745,7 +6745,7 @@
 国外ssl证书更新-文档完善
 
 ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== =====
-20250511
+20250512
 【客诉】
 1，webhook推送延迟
 【运维】
@@ -8005,6 +8005,498 @@
 
 	客诉
 		https://devops.aliyun.com/projex/bug/TMPX-8194# 《Webhook delays issue》
+			-- 20250513
+				结合ai做脚本分析
+					测试智能体2
+					完成脚本实现以下需求
+					核心数据需求：
+					目录：D:\xampp\htdocs\trackingmore\trunknk_git\shell
+					输入文件：test_air_webhook_courier_202505*.log
+					目标单号：157-02579813（需完整7条记录），其他单号按需显示（可选输出，当前需要输出的单号数据是包含17-25小时，26小时以上这两个区间的所有单号完整数据）
+					每组以“___”为分割符，关键字段提取：
+					第一行时间戳（如：2025-05-08 02:06:17）
+					last_event时间（如：2025-05-07 22:56:00）
+					完整last_event内容
+					处理逻辑要求：
+					日志分组：每3行为一组完整记录，增加时间差记录为4行一组
+					时间差计算：精确到分钟级
+					时间区间分类：
+					8小时以内
+					8-16小时
+					17-25小时
+					26小时以上
+					输出格式规范：
+					统计头部：时间差分布统计
+					详细记录展示（组数以实际为准，至少一组，按照第一行时间进行升序排序）：
+					Track Number： [单号]
+					[时间区间标签] 第一行时间 Last Event时间 (时间差)
+					完整last_event内容
+					...
+					Track Number： [单号]
+					[时间区间标签] 第一行时间 Last Event时间 (时间差)
+					完整last_event内容
+
+					单号分组显示
+					验证要求：
+					必须包含7条157-02579813记录
+					时间差计算准确
+					无数据丢失或截断
+					支持多文件合并处理
+
+
+
+					test_air_webhook_courier_20250512.log:2025-05-12 06:02:31 userid:396064 code:157 tracking_number:157-02579813
+					test_air_webhook_courier_20250512.log:  'track_number' => '157-02579813',
+					test_air_webhook_courier_20250512.log:  'content' => '{"awb_number":"157-02579813","awb_status":"Arrived","awb_substatus":"ARR","weight":"2138","piece":"107","origin":"PVG","destination":"LHR","flight_way_station":["PVG","DOH","LHR","DOH","LHR","DOH","LHR"],"last_event":"2025-05-11 20:10:00, Arrived in LHR  on  QR 0015\\/11-May-2025, LHR","note":"","flight_info":{"QR-0109":{"depart_station":"DOH","arrival_station":"LHR","plan_depart_time":"2025-05-12 08:50:00","depart_time":null,"plan_arrival_time":"2025-05-12 14:05:00","arrival_time":null},"QR-null":{"depart_station":"DOH","arrival_station":"LHR","plan_depart_time":null,"depart_time":null,"plan_arrival_time":null,"arrival_time":null},"QR-8963":{"depart_station":"PVG","arrival_station":"DOH","plan_depart_time":null,"depart_time":"2025-05-10 04:17:00","plan_arrival_time":null,"arrival_time":"2025-05-10 09:15:00"},"QR-0015":{"depart_station":"DOH","arrival_station":"LHR","plan_depart_time":null,"depart_time":"2025-05-11 15:06:00","plan_arrival_time":null,"arrival_time":"2025-05-11 20:10:00"}},"flight_info_new":[{"flight_number":"QR-8963","depart_station":"PVG","arrival_station":"DOH","plan_depart_time":null,"depart_time":"2025-05-10 04:17:00","plan_arrival_time":null,"arrival_time":"2025-05-10 09:15:00","piece":"107","weight":"2138.0","status":"Departed"},{"flight_number":"QR-0015","depart_station":"DOH","arrival_station":"LHR","plan_depart_time":null,"depart_time":"2025-05-11 15:06:00","plan_arrival_time":null,"arrival_time":"2025-05-11 20:10:00","piece":"43","weight":"859.39","status":"Departed"},{"flight_number":"QR-0109","depart_station":"DOH","arrival_station":"LHR","plan_depart_time":"2025-05-12 08:50:00","depart_time":null,"plan_arrival_time":"2025-05-12 14:05:00","arrival_time":null,"piece":"24","weight":"479.48","status":"Booked"},{"flight_number":"QR-null","depart_station":"DOH","arrival_station":"LHR","plan_depart_time":null,"depart_time":null,"plan_arrival_time":null,"arrival_time":null,"piece":"40","weight":"799.13","status":"Pending"}],"track_info":[{"plan_date":"2025-05-11 20:10:00","actual_date":"2025-05-11 20:10:00","event":"Arrived in LHR  on  QR 0015\\/11-May-2025","station":"LHR","flight_number":"","status":"ARR","piece":"43","weight":"2138","checkpoint_status":"Arrived","checkpoint_substatus":"ARR"},{"plan_date":"2025-05-11 20:10:00","actual_date":"2025-05-11 20:10:00","event":"Arrived in LHR  on  QR 0015\\/11-May-2025","station":"LHR","flight_number":"","status":"ARR","piece":"43","weight":"859.39","checkpoint_status":"Arrived","checkpoint_substatus":"ARR"},{"plan_date":"2025-05-11 20:10:00","actual_date":"2025-05-11 20:10:00","event":"Arrived in LHR  on  QR 0015\\/11-May-2025","station":"LHR","flight_number":"","status":"ARR","piece":"43","weight":"859.39","checkpoint_status":"Arrived","checkpoint_substatus":"ARR"},{"plan_date":"2025-05-11 20:10:00","actual_date":"2025-05-11 20:10:00","event":"Arrived in LHR  on  QR 0015\\/11-May-2025","station":"LHR","flight_number":"","status":"ARR","piece":"43","weight":"859.39","checkpoint_status":"Arrived","checkpoint_substatus":"ARR"},{"plan_date":"2025-05-11 20:10:00","actual_date":"2025-05-11 20:10:00","event":"Arrived in LHR  on  QR 0015\\/11-May-2025","station":"LHR","flight_number":"","status":"ARR","piece":"43","weight":"859.39","checkpoint_status":"Arrived","checkpoint_substatus":"ARR"},{"plan_date":"2025-05-11 15:06:00","actual_date":"2025-05-11 15:06:00","event":"Departed from DOH on QR0015\\/11-May-2025","station":"DOH","flight_number":"QR-0015","status":"DEP","piece":"43","weight":"859.39","checkpoint_status":"Transit","checkpoint_substatus":"DEP"},{"plan_date":"2025-05-10 22:29:00","actual_date":"2025-05-10 22:29:00","event":"Received in DOH","station":"DOH","flight_number":"","status":"RCF","piece":"92","weight":"1838","checkpoint_status":"Arrived","checkpoint_substatus":"RCF"},{"plan_date":"2025-05-10 19:24:00","actual_date":"2025-05-10 19:24:00","event":"Received in DOH","station":"DOH","flight_number":"","status":"RCF","piece":"8","weight":"160","checkpoint_status":"Arrived","checkpoint_substatus":"RCF"},{"plan_date":"2025-05-10 19:20:00","actual_date":"2025-05-10 19:20:00","event":"Received in DOH","station":"DOH","flight_number":"","status":"RCF","piece":"7","weight":"140","checkpoint_status":"Arrived","checkpoint_substatus":"RCF"},{"plan_date":"2025-05-10 09:15:00","actual_date":"2025-05-10 09:15:00","event":"Arrived in DOH  on  QR 8963\\/10-May-2025","station":"DOH","flight_number":"","status":"ARR","piece":"107","weight":"2138","checkpoint_status":"Arrived","checkpoint_substatus":"ARR"},{"plan_date":"2025-05-10 04:17:00","actual_date":"2025-05-10 04:17:00","event":"Departed from PVG on QR8963\\/10-May-2025","station":"PVG","flight_number":"QR-8963","status":"DEP","piece":"107","weight":"2138","checkpoint_status":"Transit","checkpoint_substatus":"DEP"},{"plan_date":"2025-05-09 22:06:00","actual_date":"2025-05-09 22:06:00","event":"Received from shipper in PVG","station":"PVG","flight_number":"","status":"RCS","piece":"107","weight":"2138","checkpoint_status":"Received","checkpoint_substatus":"RCS"}],"airline_info":{"name":"Qatar Airways Cargo","url":"https:\\/\\/qrcargo.com","track_url":"https:\\/\\/www.qrcargo.com\\/s\\/track-your-shipment","trackpage_url":"https:\\/\\/www.trackingmore.com\\/aircargo\\/157-02579813"}}',
+
+
+
+
+
+
+					Track Number: 157-03220884
+					[Over 26h] 2025-05-09 18:26:44 2025-05-08 10:03:00 (32.4h)
+					2025-05-08 10:03:00, Delivered in DEL, DEL
+					Track Number: 157-03756594
+					[Over 26h] 2025-05-12 13:03:12 2025-05-10 10:36:00 (50.5h)
+					2025-05-10 10:36:00, Notified consignee, AMD
+					Track Number: 157-08725603
+					[Over 26h] 2025-05-09 18:28:47 2025-05-08 10:10:00 (32.3h)
+					2025-05-08 10:10:00, Delivered in DEL, DEL
+					Track Number: 157-08725640
+					[Over 26h] 2025-05-12 13:07:14 2025-05-11 02:43:00 (34.4h)
+					2025-05-11 02:43:00, Notified consignee, AMD
+					Track Number: 157-35396852
+					[Over 26h] 2025-05-10 06:02:24 2025-05-07 20:00:00 (58.0h)
+					2025-05-07 20:00:00, Departed from BRU on QR9087-V/07-May-2025, BRU, QR-9087-V
+					[Over 26h] 2025-05-12 14:42:00 2025-05-07 20:00:00 (114.7h)
+					2025-05-07 20:00:00, Departed from BRU on QR9087-V/07-May-2025, BRU, QR-9087-V
+					Track Number: 157-06335162
+					[Over 26h] 2025-05-10 08:36:33 2025-05-08 18:58:00 (37.6h)
+					2025-05-08 18:58:00, Received from shipper in IAH, IAH
+					[Over 26h] 2025-05-12 08:01:10 2025-05-11 02:45:00 (29.3h)
+					2025-05-11 02:45:00, Received in DOH, DOH
+					Track Number: 045-12199110
+					[Over 26h] 2025-05-11 08:00:59 2025-05-09 18:49:00 (37.2h)
+					2025-05-09 18:49:00, Booking Confirmed, MIA, UC1105
+					Track Number: 045-12199121
+					[Over 26h] 2025-05-11 08:02:01 2025-05-09 18:48:00 (37.2h)
+					2025-05-09 18:48:00, Booking Confirmed, MIA, UC1105
+					Track Number: 157-08193846
+					[Over 26h] 2025-05-12 13:33:21 2025-05-05 17:35:00 (164.0h)
+					2025-05-05 17:35:00, Delivered in MUC, MUC
+					Track Number: 157-09864282
+					[Over 26h] 2025-05-12 21:32:47 2025-05-09 07:18:00 (86.2h)
+					2025-05-09 07:18:00, Notified consignee, BOM
+					[Over 26h] 2025-05-13 13:52:12 2025-05-09 07:18:00 (102.6h)
+					2025-05-09 07:18:00, Notified consignee, BOM
+					Track Number: 157-07316175
+					[Over 26h] 2025-05-12 22:05:07 2025-05-11 19:01:00 (27.1h)
+					2025-05-11 19:01:00, Received in LAX, LAX
+					[Over 26h] 2025-05-13 11:05:43 2025-05-11 19:01:00 (40.1h)
+					2025-05-11 19:01:00, Notified consignee, LAX
+					[Over 26h] 2025-05-13 15:05:51 2025-05-11 19:01:00 (44.1h)
+					2025-05-11 19:01:00, Received in LAX, LAX
+
+					=== Complete Data for Records (17-25h) ===
+					Track Number: 045-11366316
+					[17-25h] 2025-05-08 00:46:16 2025-05-07 06:42:00 (18.1h)
+					2025-05-07 06:42:00, Flight Arrived, GUA
+					[17-25h] 2025-05-08 05:31:37 2025-05-07 10:20:00 (19.2h)
+					2025-05-07 10:20:00, Agent Notified, GUA
+					[17-25h] 2025-05-08 12:01:09 2025-05-07 18:49:00 (17.2h)
+					2025-05-07 18:49:00, Shipment Delivered, GUA
+					Track Number: 157-04178823
+					[17-25h] 2025-05-08 13:29:35 2025-05-07 18:58:00 (18.5h)
+					2025-05-07 18:58:00, Received from shipper in DEL, DEL
+					[17-25h] 2025-05-09 12:46:45 2025-05-08 14:32:00 (22.2h)
+					2025-05-08 14:32:00, Received in DOH, DOH
+					Track Number: 157-04178834
+					[17-25h] 2025-05-09 12:48:46 2025-05-08 17:21:00 (19.4h)
+					2025-05-08 17:21:00, Notified consignee, JED
+					Track Number: 157-63412484
+					[17-25h] 2025-05-08 12:42:25 2025-05-07 16:59:00 (19.7h)
+					2025-05-07 16:59:00, Received in DOH, DOH
+					Track Number: 157-07186841
+					[17-25h] 2025-05-08 04:32:29 2025-05-07 11:08:00 (17.4h)
+					2025-05-07 11:08:00, Received from shipper in YYZ, YYZ
+					[17-25h] 2025-05-09 13:34:31 2025-05-08 20:33:00 (17.0h)
+					2025-05-08 20:33:00, Received in DOH, DOH
+					Track Number: 157-07186863
+					[17-25h] 2025-05-10 05:32:00 2025-05-09 11:11:00 (18.4h)
+					2025-05-09 11:11:00, Received from shipper in YYZ, YYZ
+					Track Number: 157-01748132
+					[17-25h] 2025-05-10 07:02:49 2025-05-09 06:53:00 (24.1h)
+					2025-05-09 06:53:00, Received from shipper in DEL, DEL
+					[17-25h] 2025-05-13 13:02:32 2025-05-12 19:23:00 (17.6h)
+					2025-05-12 19:23:00, Received in DOH, DOH
+					Track Number: 045-12199110
+					[17-25h] 2025-05-13 08:01:14 2025-05-12 10:31:00 (21.5h)
+					2025-05-12 10:31:00, Booking Confirmed, MIA, UC1105
+					Track Number: 045-12199121
+					[17-25h] 2025-05-13 08:01:14 2025-05-12 10:41:00 (21.3h)
+					2025-05-12 10:41:00, Booking Confirmed, MIA, UC1105
+					Track Number: 157-38153301
+					[17-25h] 2025-05-12 21:04:27 2025-05-12 02:18:00 (18.8h)
+					2025-05-12 02:18:00, Notified consignee, LHR
+					Track Number: 157-07188160
+					[17-25h] 2025-05-12 21:24:41 2025-05-11 20:55:00 (24.5h)
+					2025-05-11 20:55:00, Departed from YYZ on QR0768/11-May-2025, YYZ, QR-0768
+					[17-25h] 2025-05-13 15:24:53 2025-05-12 22:00:00 (17.4h)
+					2025-05-12 22:00:00, Received in DOH, DOH
+					Track Number: 157-01748143
+					[17-25h] 2025-05-12 21:32:45 2025-05-11 23:14:00 (22.3h)
+					2025-05-11 23:14:00, Received from shipper in DEL, DEL
+					Track Number: 157-22825946
+					[17-25h] 2025-05-13 15:25:55 2025-05-12 20:38:00 (18.8h)
+					2025-05-12 20:38:00, Received from shipper in DXB, DXB
+					Track Number: 157-92790213
+					[17-25h] 2025-05-13 16:08:31 2025-05-12 15:53:00 (24.2h)
+					2025-05-12 15:53:00, Delivered in MAA, MAA
+
+					Additional Tracking Number Examples (Partial):
+					Track Number: 157-02798810
+					[[Under 8h]] 2025-05-08 00:46:12 2025-05-07 18:10:00 (6.6小时)
+					2025-05-07 18:10:00, Received from shipper in SIN, SIN
+					[[Under 8h]] 2025-05-08 06:33:55 2025-05-08 03:06:00 (3.5小时)
+					2025-05-08 03:06:00, Departed from SIN on QR0945/08-May-2025, SIN, QR-0945
+					[[Under 8h]] 2025-05-08 13:02:29 2025-05-08 06:51:00 (6.2小时)
+					2025-05-08 06:51:00, Received in DOH, DOH
+					[[Under 8h]] 2025-05-09 02:01:31 2025-05-08 21:30:00 (4.5小时)
+					2025-05-08 21:30:00, Arrived in DXB  on  QR 1014/08-May-2025, DXB
+					[[8-16h]] 2025-05-09 08:31:40 2025-05-09 00:28:00 (8.1小时)
+					2025-05-09 00:28:00, Notified consignee, DXB
+					[[Under 8h]] 2025-05-09 21:33:46 2025-05-09 14:38:00 (6.9小时)
+					2025-05-09 14:38:00, Delivered in DXB, DXB
+
+					Complete data for tracking numbers with over 25h records:
+
+					Track Number: 045-10948254 (Total 63 records)
+					[Over 26h] webhook time: 2025-05-08 02:05:15 Last event time: 2025-04-22 13:34:00 Time difference: 372.52h
+					Content: 2025-04-22 13:34:00, Booking Confirmed, GRU, LA3296
+					[Over 26h] webhook time: 2025-05-08 02:05:16 Last event time: 2025-04-22 13:34:00 Time difference: 372.52h
+					Content: 2025-04-22 13:34:00, Booking Confirmed, GRU, LA3296
+					[Over 26h] webhook time: 2025-05-08 02:05:16 Last event time: 2025-04-22 13:34:00 Time difference: 372.52h
+					Content: 2025-04-22 13:34:00, Booking Confirmed, GRU, LA3296
+					[Over 26h] webhook time: 2025-05-08 08:36:24 Last event time: 2025-04-22 13:34:00 Time difference: 379.03h
+					Content: 2025-04-22 13:34:00, Booking Confirmed, GRU, LA3296
+					[Over 26h] webhook time: 2025-05-08 08:36:24 Last event time: 2025-04-22 13:34:00 Time difference: 379.03h
+					Content: 2025-04-22 13:34:00, Booking Confirmed, GRU, LA3296
+					[Over 26h] webhook time: 2025-05-08 08:36:24 Last event time: 2025-04-22 13:34:00 Time difference: 379.03h
+					Content: 2025-04-22 13:34:00, Booking Confirmed, GRU, LA3296
+					[Over 26h] webhook time: 2025-05-08 15:04:01 Last event time: 2025-04-22 13:34:00 Time difference: 385.50h
+					Content: 2025-04-22 13:34:00, Booking Confirmed, GRU, LA3296
+					[Over 26h] webhook time: 2025-05-08 15:04:01 Last event time: 2025-04-22 13:34:00 Time difference: 385.50h
+					Content: 2025-04-22 13:34:00, Booking Confirmed, GRU, LA3296
+					[Over 26h] webhook time: 2025-05-08 15:04:01 Last event time: 2025-04-22 13:34:00 Time difference: 385.50h
+					Content: 2025-04-22 13:34:00, Booking Confirmed, GRU, LA3296
+					[Over 26h] webhook time: 2025-05-08 21:32:36 Last event time: 2025-04-22 13:34:00 Time difference: 391.97h
+					Content: 2025-04-22 13:34:00, Booking Confirmed, GRU, LA3296
+					[Over 26h] webhook time: 2025-05-08 21:32:37 Last event time: 2025-04-22 13:34:00 Time difference: 391.97h
+					Content: 2025-04-22 13:34:00, Booking Confirmed, GRU, LA3296
+					[Over 26h] webhook time: 2025-05-08 21:32:37 Last event time: 2025-04-22 13:34:00 Time difference: 391.97h
+					Content: 2025-04-22 13:34:00, Booking Confirmed, GRU, LA3296
+					[Over 26h] webhook time: 2025-05-09 04:05:22 Last event time: 2025-04-22 13:34:00 Time difference: 398.52h
+					Content: 2025-04-22 13:34:00, Booking Confirmed, GRU, LA3296
+					[Over 26h] webhook time: 2025-05-09 04:05:22 Last event time: 2025-04-22 13:34:00 Time difference: 398.52h
+					Content: 2025-04-22 13:34:00, Booking Confirmed, GRU, LA3296
+					[Over 26h] webhook time: 2025-05-09 04:05:23 Last event time: 2025-04-22 13:34:00 Time difference: 398.52h
+					Content: 2025-04-22 13:34:00, Booking Confirmed, GRU, LA3296
+					[Over 26h] webhook time: 2025-05-09 10:32:11 Last event time: 2025-04-22 13:34:00 Time difference: 404.97h
+					Content: 2025-04-22 13:34:00, Booking Confirmed, GRU, LA3296
+					[Over 26h] webhook time: 2025-05-09 10:32:11 Last event time: 2025-04-22 13:34:00 Time difference: 404.97h
+					Content: 2025-04-22 13:34:00, Booking Confirmed, GRU, LA3296
+					[Over 26h] webhook time: 2025-05-09 10:32:12 Last event time: 2025-04-22 13:34:00 Time difference: 404.97h
+					Content: 2025-04-22 13:34:00, Booking Confirmed, GRU, LA3296
+					[Over 26h] webhook time: 2025-05-09 17:04:35 Last event time: 2025-04-22 13:34:00 Time difference: 411.50h
+					Content: 2025-04-22 13:34:00, Booking Confirmed, GRU, LA3296
+					[Over 26h] webhook time: 2025-05-09 17:04:35 Last event time: 2025-04-22 13:34:00 Time difference: 411.50h
+					Content: 2025-04-22 13:34:00, Booking Confirmed, GRU, LA3296
+					[Over 26h] webhook time: 2025-05-09 17:04:36 Last event time: 2025-04-22 13:34:00 Time difference: 411.50h
+					Content: 2025-04-22 13:34:00, Booking Confirmed, GRU, LA3296
+					[Over 26h] webhook time: 2025-05-09 23:32:10 Last event time: 2025-04-22 13:34:00 Time difference: 417.97h
+					Content: 2025-04-22 13:34:00, Booking Confirmed, GRU, LA3296
+					[Over 26h] webhook time: 2025-05-09 23:32:11 Last event time: 2025-04-22 13:34:00 Time difference: 417.97h
+					Content: 2025-04-22 13:34:00, Booking Confirmed, GRU, LA3296
+					[Over 26h] webhook time: 2025-05-09 23:32:11 Last event time: 2025-04-22 13:34:00 Time difference: 417.97h
+					Content: 2025-04-22 13:34:00, Booking Confirmed, GRU, LA3296
+					[Over 26h] webhook time: 2025-05-10 06:01:16 Last event time: 2025-04-22 13:34:00 Time difference: 424.45h
+					Content: 2025-04-22 13:34:00, Booking Confirmed, GRU, LA3296
+					[Over 26h] webhook time: 2025-05-10 06:01:16 Last event time: 2025-04-22 13:34:00 Time difference: 424.45h
+					Content: 2025-04-22 13:34:00, Booking Confirmed, GRU, LA3296
+					[Over 26h] webhook time: 2025-05-10 06:01:17 Last event time: 2025-04-22 13:34:00 Time difference: 424.45h
+					Content: 2025-04-22 13:34:00, Booking Confirmed, GRU, LA3296
+					[Over 26h] webhook time: 2025-05-10 12:33:01 Last event time: 2025-04-22 13:34:00 Time difference: 430.98h
+					Content: 2025-04-22 13:34:00, Booking Confirmed, GRU, LA3296
+					[Over 26h] webhook time: 2025-05-10 12:33:01 Last event time: 2025-04-22 13:34:00 Time difference: 430.98h
+					Content: 2025-04-22 13:34:00, Booking Confirmed, GRU, LA3296
+					[Over 26h] webhook time: 2025-05-10 12:33:02 Last event time: 2025-04-22 13:34:00 Time difference: 430.98h
+					Content: 2025-04-22 13:34:00, Booking Confirmed, GRU, LA3296
+					[Over 26h] webhook time: 2025-05-10 19:05:42 Last event time: 2025-04-22 13:34:00 Time difference: 437.52h
+					Content: 2025-04-22 13:34:00, Booking Confirmed, GRU, LA3296
+					[Over 26h] webhook time: 2025-05-10 19:05:42 Last event time: 2025-04-22 13:34:00 Time difference: 437.52h
+					Content: 2025-04-22 13:34:00, Booking Confirmed, GRU, LA3296
+					[Over 26h] webhook time: 2025-05-10 19:05:43 Last event time: 2025-04-22 13:34:00 Time difference: 437.52h
+					Content: 2025-04-22 13:34:00, Booking Confirmed, GRU, LA3296
+					[Over 26h] webhook time: 2025-05-11 01:31:52 Last event time: 2025-04-22 13:34:00 Time difference: 443.95h
+					Content: 2025-04-22 13:34:00, Booking Confirmed, GRU, LA3296
+					[Over 26h] webhook time: 2025-05-11 01:31:53 Last event time: 2025-04-22 13:34:00 Time difference: 443.95h
+					Content: 2025-04-22 13:34:00, Booking Confirmed, GRU, LA3296
+					[Over 26h] webhook time: 2025-05-11 01:31:53 Last event time: 2025-04-22 13:34:00 Time difference: 443.95h
+					Content: 2025-04-22 13:34:00, Booking Confirmed, GRU, LA3296
+					[Over 26h] webhook time: 2025-05-11 08:03:10 Last event time: 2025-04-22 13:34:00 Time difference: 450.48h
+					Content: 2025-04-22 13:34:00, Booking Confirmed, GRU, LA3296
+					[Over 26h] webhook time: 2025-05-11 08:03:11 Last event time: 2025-04-22 13:34:00 Time difference: 450.48h
+					Content: 2025-04-22 13:34:00, Booking Confirmed, GRU, LA3296
+					[Over 26h] webhook time: 2025-05-11 08:03:11 Last event time: 2025-04-22 13:34:00 Time difference: 450.48h
+					Content: 2025-04-22 13:34:00, Booking Confirmed, GRU, LA3296
+					[Over 26h] webhook time: 2025-05-11 14:32:16 Last event time: 2025-04-22 13:34:00 Time difference: 456.97h
+					Content: 2025-04-22 13:34:00, Booking Confirmed, GRU, LA3296
+					[Over 26h] webhook time: 2025-05-11 14:32:16 Last event time: 2025-04-22 13:34:00 Time difference: 456.97h
+					Content: 2025-04-22 13:34:00, Booking Confirmed, GRU, LA3296
+					[Over 26h] webhook time: 2025-05-11 14:32:17 Last event time: 2025-04-22 13:34:00 Time difference: 456.97h
+					Content: 2025-04-22 13:34:00, Booking Confirmed, GRU, LA3296
+					[Over 26h] webhook time: 2025-05-11 21:05:43 Last event time: 2025-04-22 13:34:00 Time difference: 463.52h
+					Content: 2025-04-22 13:34:00, Booking Confirmed, GRU, LA3296
+					[Over 26h] webhook time: 2025-05-11 21:05:43 Last event time: 2025-04-22 13:34:00 Time difference: 463.52h
+					Content: 2025-04-22 13:34:00, Booking Confirmed, GRU, LA3296
+					[Over 26h] webhook time: 2025-05-11 21:05:43 Last event time: 2025-04-22 13:34:00 Time difference: 463.52h
+					Content: 2025-04-22 13:34:00, Booking Confirmed, GRU, LA3296
+					[Over 26h] webhook time: 2025-05-12 03:32:36 Last event time: 2025-04-22 13:34:00 Time difference: 469.97h
+					Content: 2025-04-22 13:34:00, Booking Confirmed, GRU, LA3296
+					[Over 26h] webhook time: 2025-05-12 03:32:37 Last event time: 2025-04-22 13:34:00 Time difference: 469.97h
+					Content: 2025-04-22 13:34:00, Booking Confirmed, GRU, LA3296
+					[Over 26h] webhook time: 2025-05-12 03:32:37 Last event time: 2025-04-22 13:34:00 Time difference: 469.97h
+					Content: 2025-04-22 13:34:00, Booking Confirmed, GRU, LA3296
+					[Over 26h] webhook time: 2025-05-12 10:03:00 Last event time: 2025-04-22 13:34:00 Time difference: 476.48h
+					Content: 2025-04-22 13:34:00, Booking Confirmed, GRU, LA3296
+					[Over 26h] webhook time: 2025-05-12 10:03:01 Last event time: 2025-04-22 13:34:00 Time difference: 476.48h
+					Content: 2025-04-22 13:34:00, Booking Confirmed, GRU, LA3296
+					[Over 26h] webhook time: 2025-05-12 10:03:01 Last event time: 2025-04-22 13:34:00 Time difference: 476.48h
+					Content: 2025-04-22 13:34:00, Booking Confirmed, GRU, LA3296
+					[Over 26h] webhook time: 2025-05-12 16:33:10 Last event time: 2025-04-22 13:34:00 Time difference: 482.98h
+					Content: 2025-04-22 13:34:00, Booking Confirmed, GRU, LA3296
+					[Over 26h] webhook time: 2025-05-12 16:33:10 Last event time: 2025-04-22 13:34:00 Time difference: 482.98h
+					Content: 2025-04-22 13:34:00, Booking Confirmed, GRU, LA3296
+					[Over 26h] webhook time: 2025-05-12 16:33:11 Last event time: 2025-04-22 13:34:00 Time difference: 482.98h
+					Content: 2025-04-22 13:34:00, Booking Confirmed, GRU, LA3296
+					[Over 26h] webhook time: 2025-05-12 23:07:35 Last event time: 2025-04-22 13:34:00 Time difference: 489.55h
+					Content: 2025-04-22 13:34:00, Booking Confirmed, GRU, LA3296
+					[Over 26h] webhook time: 2025-05-12 23:07:36 Last event time: 2025-04-22 13:34:00 Time difference: 489.55h
+					Content: 2025-04-22 13:34:00, Booking Confirmed, GRU, LA3296
+					[Over 26h] webhook time: 2025-05-12 23:07:36 Last event time: 2025-04-22 13:34:00 Time difference: 489.55h
+					Content: 2025-04-22 13:34:00, Booking Confirmed, GRU, LA3296
+					[Over 26h] webhook time: 2025-05-13 05:32:09 Last event time: 2025-04-22 13:34:00 Time difference: 495.97h
+					Content: 2025-04-22 13:34:00, Booking Confirmed, GRU, LA3296
+					[Over 26h] webhook time: 2025-05-13 05:32:09 Last event time: 2025-04-22 13:34:00 Time difference: 495.97h
+					Content: 2025-04-22 13:34:00, Booking Confirmed, GRU, LA3296
+					[Over 26h] webhook time: 2025-05-13 05:32:10 Last event time: 2025-04-22 13:34:00 Time difference: 495.97h
+					Content: 2025-04-22 13:34:00, Booking Confirmed, GRU, LA3296
+					[Over 26h] webhook time: 2025-05-13 12:02:11 Last event time: 2025-04-22 13:34:00 Time difference: 502.47h
+					Content: 2025-04-22 13:34:00, Booking Confirmed, GRU, LA3296
+					[Over 26h] webhook time: 2025-05-13 12:02:11 Last event time: 2025-04-22 13:34:00 Time difference: 502.47h
+					Content: 2025-04-22 13:34:00, Booking Confirmed, GRU, LA3296
+					[Over 26h] webhook time: 2025-05-13 12:02:11 Last event time: 2025-04-22 13:34:00 Time difference: 502.47h
+					Content: 2025-04-22 13:34:00, Booking Confirmed, GRU, LA3296
+
+					Track Number: 157-89006153 (Total 2 records)
+					[Over 26h] webhook time: 2025-05-08 12:50:28 Last event time: 2025-05-07 09:08:00 Time difference: 27.70h
+					Content: 2025-05-07 09:08:00, Received in MXP, MXP
+					[Over 26h] webhook time: 2025-05-09 12:40:44 Last event time: 2025-05-07 09:08:00 Time difference: 51.53h
+					Content: 2025-05-07 09:08:00, Received in MXP, MXP
+
+					Track Number: 157-06803985 (Total 1 records)
+					[Over 26h] webhook time: 2025-05-08 15:41:09 Last event time: 2025-05-04 19:03:00 Time difference: 92.63h
+					Content: 2025-05-04 19:03:00, Delivered in MAA, MAA
+
+					Track Number: 157-02798784 (Total 4 records)
+					[8-16h] webhook time: 2025-05-08 00:46:09 Last event time: 2025-05-07 12:54:00 Time difference: 11.87h
+					Content: 2025-05-07 12:54:00, Notified consignee, DXB
+					[17-25h] webhook time: 2025-05-08 05:32:42 Last event time: 2025-05-07 12:54:00 Time difference: 16.63h
+					Content: 2025-05-07 12:54:00, Received in DXB, DXB
+					[Over 26h] webhook time: 2025-05-08 18:32:51 Last event time: 2025-05-07 12:54:00 Time difference: 29.63h
+					Content: 2025-05-07 12:54:00, Notified consignee, DXB
+					[Under 8h] webhook time: 2025-05-09 01:01:07 Last event time: 2025-05-08 18:41:00 Time difference: 6.33h
+					Content: 2025-05-08 18:41:00, Delivered in DXB, DXB
+
+					Track Number: 157-04178845 (Total 8 records)
+					[Under 8h] webhook time: 2025-05-08 01:31:52 Last event time: 2025-05-07 18:52:00 Time difference: 6.65h
+					Content: 2025-05-07 18:52:00, Received from shipper in DEL, DEL
+					[Under 8h] webhook time: 2025-05-08 08:02:16 Last event time: 2025-05-08 04:31:00 Time difference: 3.52h
+					Content: 2025-05-08 04:31:00, Departed from DEL on QR0579/08-May-2025, DEL, QR-0579
+					[Under 8h] webhook time: 2025-05-08 13:28:34 Last event time: 2025-05-08 06:31:00 Time difference: 6.95h
+					Content: 2025-05-08 06:31:00, Arrived in DOH  on  QR 0579/08-May-2025, DOH
+					[8-16h] webhook time: 2025-05-08 19:34:08 Last event time: 2025-05-08 09:38:00 Time difference: 9.93h
+					Content: 2025-05-08 09:38:00, Received in DOH, DOH
+					[Over 26h] webhook time: 2025-05-09 13:45:58 Last event time: 2025-05-08 09:38:00 Time difference: 28.12h
+					Content: 2025-05-08 09:38:00, Received in DOH, DOH
+					[Under 8h] webhook time: 2025-05-10 09:05:53 Last event time: 2025-05-10 03:00:00 Time difference: 6.08h
+					Content: 2025-05-10 03:00:00, Arrived in JED  on  QR 1184/10-May-2025, JED
+					[8-16h] webhook time: 2025-05-10 15:35:21 Last event time: 2025-05-10 06:32:00 Time difference: 9.05h
+					Content: 2025-05-10 06:32:00, Notified consignee, JED
+					[Over 26h] webhook time: 2025-05-12 14:49:02 Last event time: 2025-05-10 06:32:00 Time difference: 56.28h
+					Content: 2025-05-10 06:32:00, Notified consignee, JED
+
+					Track Number: 157-03220884 (Total 1 records)
+					[Over 26h] webhook time: 2025-05-09 18:26:44 Last event time: 2025-05-08 10:03:00 Time difference: 32.38h
+					Content: 2025-05-08 10:03:00, Delivered in DEL, DEL
+
+					Track Number: 157-08725603 (Total 1 records)
+					[Over 26h] webhook time: 2025-05-09 18:28:47 Last event time: 2025-05-08 10:10:00 Time difference: 32.30h
+					Content: 2025-05-08 10:10:00, Delivered in DEL, DEL
+
+					Track Number: 157-35396852 (Total 3 records)
+					[Over 26h] webhook time: 2025-05-10 06:02:24 Last event time: 2025-05-07 20:00:00 Time difference: 58.03h
+					Content: 2025-05-07 20:00:00, Departed from BRU on QR9087-V/07-May-2025, BRU, QR-9087-V
+					[Over 26h] webhook time: 2025-05-12 14:42:00 Last event time: 2025-05-07 20:00:00 Time difference: 114.70h
+					Content: 2025-05-07 20:00:00, Departed from BRU on QR9087-V/07-May-2025, BRU, QR-9087-V
+					[8-16h] webhook time: 2025-05-13 16:31:40 Last event time: 2025-05-13 08:23:00 Time difference: 8.13h
+					Content: 2025-05-13 08:23:00, Notified consignee, ARN
+
+					Track Number: 157-06335162 (Total 2 records)
+					[Over 26h] webhook time: 2025-05-10 08:36:33 Last event time: 2025-05-08 18:58:00 Time difference: 37.63h
+					Content: 2025-05-08 18:58:00, Received from shipper in IAH, IAH
+					[Over 26h] webhook time: 2025-05-12 08:01:10 Last event time: 2025-05-11 02:45:00 Time difference: 29.27h
+					Content: 2025-05-11 02:45:00, Received in DOH, DOH
+
+					Track Number: 045-12199110 (Total 2 records)
+					[Over 26h] webhook time: 2025-05-11 08:00:59 Last event time: 2025-05-09 18:49:00 Time difference: 37.18h
+					Content: 2025-05-09 18:49:00, Booking Confirmed, MIA, UC1105
+					[17-25h] webhook time: 2025-05-13 08:01:14 Last event time: 2025-05-12 10:31:00 Time difference: 21.50h
+					Content: 2025-05-12 10:31:00, Booking Confirmed, MIA, UC1105
+
+					Track Number: 045-12199121 (Total 2 records)
+					[Over 26h] webhook time: 2025-05-11 08:02:01 Last event time: 2025-05-09 18:48:00 Time difference: 37.23h
+					Content: 2025-05-09 18:48:00, Booking Confirmed, MIA, UC1105
+					[17-25h] webhook time: 2025-05-13 08:01:14 Last event time: 2025-05-12 10:41:00 Time difference: 21.33h
+					Content: 2025-05-12 10:41:00, Booking Confirmed, MIA, UC1105
+
+					Track Number: 157-03756594 (Total 4 records)
+					[8-16h] webhook time: 2025-05-09 18:27:46 Last event time: 2025-05-09 05:01:00 Time difference: 13.43h
+					Content: 2025-05-09 05:01:00, Received in DOH, DOH
+					[Under 8h] webhook time: 2025-05-10 07:00:45 Last event time: 2025-05-09 23:32:00 Time difference: 7.47h
+					Content: 2025-05-09 23:32:00, Departed from DOH on QR8612/09-May-2025, DOH, QR-8612
+					[Under 8h] webhook time: 2025-05-10 13:35:40 Last event time: 2025-05-10 10:36:00 Time difference: 2.98h
+					Content: 2025-05-10 10:36:00, Notified consignee, AMD
+					[Over 26h] webhook time: 2025-05-12 13:03:12 Last event time: 2025-05-10 10:36:00 Time difference: 50.45h
+					Content: 2025-05-10 10:36:00, Notified consignee, AMD
+
+					Track Number: 157-08725640 (Total 5 records)
+					[Under 8h] webhook time: 2025-05-09 18:31:52 Last event time: 2025-05-09 10:33:00 Time difference: 7.97h
+					Content: 2025-05-09 10:33:00, Received in DOH, DOH
+					[Under 8h] webhook time: 2025-05-11 03:03:11 Last event time: 2025-05-10 20:23:00 Time difference: 6.67h
+					Content: 2025-05-10 20:23:00, Departed from DOH on QR0534/10-May-2025, DOH, QR-0534
+					[Under 8h] webhook time: 2025-05-11 09:32:26 Last event time: 2025-05-11 02:43:00 Time difference: 6.82h
+					Content: 2025-05-11 02:43:00, Notified consignee, AMD
+					[Over 26h] webhook time: 2025-05-12 13:07:14 Last event time: 2025-05-11 02:43:00 Time difference: 34.40h
+					Content: 2025-05-11 02:43:00, Notified consignee, AMD
+					[Under 8h] webhook time: 2025-05-12 19:33:29 Last event time: 2025-05-12 14:07:00 Time difference: 5.43h
+					Content: 2025-05-12 14:07:00, Delivered in AMD, AMD
+
+					Track Number: 157-08193846 (Total 1 records)
+					[Over 26h] webhook time: 2025-05-12 13:33:21 Last event time: 2025-05-05 17:35:00 Time difference: 163.97h
+					Content: 2025-05-05 17:35:00, Delivered in MUC, MUC
+
+					Track Number: 157-04178823 (Total 7 records)
+					[Under 8h] webhook time: 2025-05-08 01:31:53 Last event time: 2025-05-07 18:58:00 Time difference: 6.55h
+					Content: 2025-05-07 18:58:00, Received from shipper in DEL, DEL
+					[17-25h] webhook time: 2025-05-08 13:29:35 Last event time: 2025-05-07 18:58:00 Time difference: 18.52h
+					Content: 2025-05-07 18:58:00, Received from shipper in DEL, DEL
+					[Under 8h] webhook time: 2025-05-08 19:34:09 Last event time: 2025-05-08 14:32:00 Time difference: 5.03h
+					Content: 2025-05-08 14:32:00, Received in DOH, DOH
+					[17-25h] webhook time: 2025-05-09 12:46:45 Last event time: 2025-05-08 14:32:00 Time difference: 22.23h
+					Content: 2025-05-08 14:32:00, Received in DOH, DOH
+					[Under 8h] webhook time: 2025-05-10 08:01:24 Last event time: 2025-05-10 00:49:00 Time difference: 7.20h
+					Content: 2025-05-10 00:49:00, Departed from DOH on QR1184/10-May-2025, DOH, QR-1184
+					[8-16h] webhook time: 2025-05-10 14:34:53 Last event time: 2025-05-10 06:21:00 Time difference: 8.22h
+					Content: 2025-05-10 06:21:00, Notified consignee, JED
+					[Over 26h] webhook time: 2025-05-12 14:48:02 Last event time: 2025-05-10 06:21:00 Time difference: 56.45h
+					Content: 2025-05-10 06:21:00, Notified consignee, JED
+
+					Track Number: 157-09864282 (Total 2 records)
+					[Over 26h] webhook time: 2025-05-12 21:32:47 Last event time: 2025-05-09 07:18:00 Time difference: 86.23h
+					Content: 2025-05-09 07:18:00, Notified consignee, BOM
+					[Over 26h] webhook time: 2025-05-13 13:52:12 Last event time: 2025-05-09 07:18:00 Time difference: 102.57h
+					Content: 2025-05-09 07:18:00, Notified consignee, BOM
+
+					Track Number: 157-07316175 (Total 3 records)
+					[Over 26h] webhook time: 2025-05-12 22:05:07 Last event time: 2025-05-11 19:01:00 Time difference: 27.07h
+					Content: 2025-05-11 19:01:00, Received in LAX, LAX
+					[Over 26h] webhook time: 2025-05-13 11:05:43 Last event time: 2025-05-11 19:01:00 Time difference: 40.07h
+					Content: 2025-05-11 19:01:00, Notified consignee, LAX
+					[Over 26h] webhook time: 2025-05-13 15:05:51 Last event time: 2025-05-11 19:01:00 Time difference: 44.07h
+					Content: 2025-05-11 19:01:00, Received in LAX, LAX
+
+					=== Specific tracking number 157-02579813 complete records ===
+					Debug: Found 11 records
+					Record 1: [Under 8h] 2025-05-08 04:56:33 2025-05-07 11:08:00 (-1.0h)
+
+					Record 2: [Under 8h] 2025-05-10 02:03:25 2025-05-09 22:06:00 (4.0h)
+					2025-05-09 22:06:00, Received from shipper in PVG, PVG
+					Record 3: [Under 8h] 2025-05-10 08:32:33 2025-05-10 04:17:00 (4.2h)
+					2025-05-10 04:17:00, Departed from PVG on QR8963/10-May-2025, PVG, QR-8963
+					Record 4: [Under 8h] 2025-05-10 15:03:13 2025-05-10 09:15:00 (5.8h)
+					2025-05-10 09:15:00, Arrived in DOH  on  QR 8963/10-May-2025, DOH
+					Record 5: [Under 8h] 2025-05-11 04:02:27 2025-05-10 22:29:00 (5.5h)
+					2025-05-10 22:29:00, Received in DOH, DOH
+					Record 6: [8-16h] 2025-05-11 23:33:43 2025-05-11 15:06:00 (8.4h)
+					2025-05-11 15:06:00, Departed from DOH on QR0015/11-May-2025, DOH, QR-0015
+					Record 7: [8-16h] 2025-05-12 06:02:31 2025-05-11 20:10:00 (9.9h)
+					2025-05-11 20:10:00, Arrived in LHR  on  QR 0015/11-May-2025, LHR
+					Record 8: [8-16h] 2025-05-12 12:32:55 2025-05-11 21:42:00 (14.8h)
+					2025-05-11 21:42:00, Notified consignee, LHR
+					Record 9: [8-16h] 2025-05-12 19:04:22 2025-05-12 08:55:00 (10.2h)
+					2025-05-12 08:55:00, Departed from DOH on QR0109/12-May-2025, DOH, QR-0109
+					Record 10: [8-16h] 2025-05-13 01:34:40 2025-05-12 16:53:00 (8.7h)
+					2025-05-12 16:53:00, Notified consignee, LHR
+					Record 11: [8-16h] 2025-05-13 08:01:22 2025-05-12 18:36:00 (13.4h)
+					2025-05-12 18:36:00, Delivered in LHR, LHR
+
+					Warning: Tracking number 157-02579813 has 11 records
+
+					Complete Tracking Number List (First 10): 157-02798784, 157-02798810, 045-11366316, 157-02798821, 157-09186100, 157-03245561, 157-04178845, 157-04178823, 157-03245550, 045-10948254...
+					(Total tracking numbers: 59)
+
+
+
+
+
+
+					情况1
+					045-10948254 超过25小时，渠道300小时以上，原因是之前获取到信息（最新的物流信息时间是2025-04-22 13:34:00），后面没获取到信息，出现信息不一致的情况，因此每次更新都进行推送，之前已经存在的逻辑是没获取到信息是不推送的，这里将没获取到信息的情况进行调整，覆盖到当前的情况，即历史有信息，当前没信息，不进行推送，修改后观察看是否还有类似情况，再反馈
+						这种情况不能说明有实际明显延迟，可能的问题是，因为每次推送的都是之前获取到的数据，即每次都是2025-04-22 13:34:00这个时间对应的物流信息，客户看到的推送信息距离接收到推送的时间间隔越来越长，实际2025-04-22 13:34:00这个时间对应的物流信息之前已经推送过去，
+
+
+					情况2（非客户单号）
+					Track Number: 157-89006153 (Total 2 records)
+					[Over 26h] webhook time: 2025-05-08 12:50:28 Last event time: 2025-05-07 09:08:00 Time difference: 27.70h
+					Content: 2025-05-07 09:08:00, Received in MXP, MXP
+					[Over 26h] webhook time: 2025-05-09 12:40:44 Last event time: 2025-05-07 09:08:00 Time difference: 51.53h
+					Content: 2025-05-07 09:08:00, Received in MXP, MXP
+					这个单号没有更新记录，但有推送记录，因此可能是触发了重推，但是从推送返回的结果看，即使重推也是成功的，这部分重推机制需要再进一步排查确认
+						这种的延迟也是表面延迟，同情况1
+
+
+					情况3（非客户单号）
+					Track Number: 157-06803985 (Total 1 records)
+					[Over 26h] webhook time: 2025-05-08 15:41:09 Last event time: 2025-05-04 19:03:00 Time difference: 92.63h
+					Content: 2025-05-04 19:03:00, Delivered in MAA, MAA
+					这个单号创建时间是2025-05-08 15:40:40
+						这种延迟也是表面延迟，客户刚创建的单号，我们在1分钟内拿到了数据，但因为创建时间比最新物流信息时间慢了差不多92.6，因此才有看起来的推送延迟情况，实际我们获取物流信息是及时的
+
+
+					情况4（非客户单号）
+					Track Number: 157-02798784 (Total 4 records)
+					[8-16h] webhook time: 2025-05-08 00:46:09 Last event time: 2025-05-07 12:54:00 Time difference: 11.87h
+					Content: 2025-05-07 12:54:00, Notified consignee, DXB
+					[17-25h] webhook time: 2025-05-08 05:32:42 Last event time: 2025-05-07 12:54:00 Time difference: 16.63h
+					Content: 2025-05-07 12:54:00, Received in DXB, DXB
+					[Over 26h] webhook time: 2025-05-08 18:32:51 Last event time: 2025-05-07 12:54:00 Time difference: 29.63h
+					Content: 2025-05-07 12:54:00, Notified consignee, DXB
+					[Under 8h] webhook time: 2025-05-09 01:01:07 Last event time: 2025-05-08 18:41:00 Time difference: 6.33h
+					Content: 2025-05-08 18:41:00, Delivered in DXB, DXB
+					这个单号更新过程中，最新物流信息的时间不变，但是其中的物流信息却发生了变化，因为最新物流信息发生变化，触发了推送，这种最新物流信息中的非时间信息变化但时间不变的情况，如果以物流信息中的时间为依据判断，就会出现推送延迟的表现，实际我们是有获取到信息进行推送的
+						这种情况也是表面推送延迟
 			-- 20250506
 				用户
 				空运简码
