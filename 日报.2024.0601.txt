@@ -6808,6 +6808,33 @@
 日常响应
 6，后续优先级、应对
 
+===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== =====
+20250514
+【客诉】
+【迁云】
+
+原计划：
+告警
+1，webhook推送延迟
+2，磁盘告警处理
+3，redis节点内存-国外节点3
+运维
+4，财务充值梳理提交
+5，国外ssl证书更新-文档完善
+日常响应
+6，后续优先级、应对
+
+计划：
+告警
+1，webhook推送延迟
+2，磁盘告警处理
+3，redis节点内存-国外节点3
+运维
+4，财务充值梳理提交
+5，国外ssl证书更新-文档完善
+日常响应
+6，后续优先级、应对
+
 近期复盘
 	后续优先级、应对
 		4月份
@@ -8678,6 +8705,1046 @@
 
 	告警
 		redis节点内存
+			-- 20250514
+				ind_resque-145-44-35-tm
+					[00.26%] Biggest string found so far 'mem_page_lang_detail_tw' with 458477 bytes
+					[00.26%] Biggest set    found so far 'updateNotfoundCourier:asendia-usa:updatedNumberWithOldCourier:updateNotfoundCourier:asendia-usa:overOneNumberNotIncludedSpecifyCourier' with 32160 members
+					[00.28%] Biggest string found so far 'rule_content_new_0_92_4' with 2742784 bytes
+					[00.37%] Biggest zset   found so far 'Z_R_P_U_auspost_SET' with 2409 members
+					[00.61%] Biggest zset   found so far 'Z_R_P_U_hhexp_SET' with 587934 members
+					[01.05%] Biggest set    found so far 'notfound_courier_code_dhlglobalmail' with 33718 members
+					[01.10%] Biggest set    found so far 'R_P_O_yanwen_SET' with 43121 members
+					[02.25%] Biggest string found so far '260086_Import_20230520150043' with 3284089 bytes
+					[02.43%] Biggest hash   found so far 'dhl_count_2024102316' with 26683 fields
+					[02.55%] Biggest list   found so far 'resque:queue:trackFQueue' with 1 items
+					[02.90%] Biggest string found so far 'TrackingCompanyData_ru_0' with 5976952 bytes
+					[03.44%] Sampled 1000000 keys so far
+					[04.37%] Biggest list   found so far 'resque:queue:shopifyWebhookQueue' with 30 items
+					[06.88%] Sampled 2000000 keys so far
+					[06.92%] Biggest hash   found so far 'dhl_count_2024110220' with 28882 fields
+					[07.57%] Biggest hash   found so far 'dhl_count_2024110316' with 42122 fields
+					[08.23%] Biggest list   found so far 'resque:queue:updateInIndependentServer4pxRedisForeignToHomeReceiveDataQueue' with 80 items
+					[10.32%] Sampled 3000000 keys so far
+					[10.55%] Biggest hash   found so far 'dhl_count_2024091812' with 62314 fields
+					[13.54%] Biggest set    found so far 'R_P_U_ukraine-post_SET' with 55533 members
+					[13.76%] Sampled 4000000 keys so far
+					[13.86%] Biggest list   found so far 'courier_jtexpress-ae_ticket' with 110 items
+					[17.00%] Biggest set    found so far 'quiqup_input' with 68789 members
+					[17.20%] Sampled 5000000 keys so far
+					[18.16%] Biggest hash   found so far 'dhl_count_2024091710' with 62423 fields
+					[18.78%] Biggest list   found so far 'resque:queue:platefromWishQueue' with 14059 items
+					[20.64%] Sampled 6000000 keys so far
+					[22.45%] Biggest set    found so far 'updateNotfoundCourier:fedex:updatedNumber:updateNotfoundCourier:fedex:overOneNumberNotIncludedSpecifyCourier' with 69104 members
+					[22.50%] Biggest hash   found so far 'TRACKING_TIME_PREPARE' with 204636 fields
+					[24.08%] Sampled 7000000 keys so far
+					[27.52%] Sampled 8000000 keys so far
+					[30.96%] Sampled 9000000 keys so far
+					[34.40%] Sampled 10000000 keys so far
+					[35.85%] Biggest set    found so far 'cainiao_IP_global.cainiao.com' with 291412 members
+					[37.84%] Sampled 11000000 keys so far
+					[41.28%] Sampled 12000000 keys so far
+					[42.50%] Biggest set    found so far 'updateNotfoundCourier:usps:updatedNumberWithOldCourier' with 760282 members
+					[42.68%] Biggest zset   found so far 'Z_SPE_cache_4px_SET' with 809609 members
+					[44.72%] Sampled 13000000 keys so far
+					[45.75%] Biggest set    found so far 'C_S_N_S1_SET' with 1040396 members
+					[48.16%] Sampled 14000000 keys so far
+					[51.60%] Sampled 15000000 keys so far
+					[53.98%] Biggest set    found so far 'U_S_N_NO_SET' with 1090338 members
+					[55.04%] Sampled 16000000 keys so far
+					[58.48%] Sampled 17000000 keys so far
+					[61.91%] Sampled 18000000 keys so far
+					[65.35%] Sampled 19000000 keys so far
+					[68.76%] Biggest list   found so far 'resque:queue:airSendQueue' with 94183 items
+					[68.79%] Sampled 20000000 keys so far
+					[72.23%] Sampled 21000000 keys so far
+					[75.39%] Biggest set    found so far 'lastRestNumberArr' with 4291970 members
+					[75.67%] Sampled 22000000 keys so far
+					[79.11%] Sampled 23000000 keys so far
+					[82.55%] Sampled 24000000 keys so far
+					[85.99%] Sampled 25000000 keys so far
+					[86.11%] Biggest list   found so far 'resque:queue:airWebhookQueue' with 192526 items
+					[89.43%] Sampled 26000000 keys so far
+					[92.87%] Sampled 27000000 keys so far
+					[96.31%] Sampled 28000000 keys so far
+					[99.75%] Sampled 29000000 keys so far
+
+					-------- summary -------
+
+					Sampled 29004588 keys in the keyspace!
+					Total key length in bytes is 1169882652 (avg len 40.33)
+
+					Biggest string found 'TrackingCompanyData_ru_0' has 5976952 bytes
+					Biggest   list found 'resque:queue:airWebhookQueue' has 192526 items
+					Biggest    set found 'lastRestNumberArr' has 4291970 members
+					Biggest   hash found 'TRACKING_TIME_PREPARE' has 204636 fields
+					Biggest   zset found 'Z_SPE_cache_4px_SET' has 809609 members
+
+					12765462 strings with 1481298396 bytes (44.01% of keys, avg size 116.04)
+					35 lists with 438594 items (00.00% of keys, avg size 12531.26)
+					16232347 sets with 39857511 members (55.96% of keys, avg size 2.46)
+					5405 hashs with 10492823 fields (00.02% of keys, avg size 1941.32)
+					1339 zsets with 10681019 members (00.00% of keys, avg size 7976.86)
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# sh redis
+					redis.1355             redis.bigkey.clear.sh  redis.bigkeys.log      redis.cpu.sh           redis.keys.log         redisMemory.sh         redis.ttl.log          
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# sh redis
+					redis.1355             redis.bigkey.clear.sh  redis.bigkeys.log      redis.cpu.sh           redis.keys.log         redisMemory.sh         redis.ttl.log          
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# sh redisMemory.sh air_999_ocr_success_log
+					2025-05-14 16:47:31
+					redis memory usage air_999_ocr_success_log
+					(integer) 51636784
+					redis info key air_999_ocr_success_log
+					slot:1694 node_index:0
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# sh redisMemory.sh Z_R_P_U_hhexp_SET
+					2025-05-14 16:47:49
+					redis memory usage Z_R_P_U_hhexp_SET
+					(integer) 108337118
+					redis info key Z_R_P_U_hhexp_SET
+					slot:1924 node_index:0
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# sh redisMemory.sh brazil-correios_ocr_success_log
+					2025-05-14 16:48:13
+					redis memory usage brazil-correios_ocr_success_log
+					(integer) 22151400
+					redis info key brazil-correios_ocr_success_log
+					slot:621 node_index:0
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# redis srandmembers air_999_ocr_success_log 2
+					(error) ERR unknown command 'SRANDMEMBERS'
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# redis srangemembers air_999_ocr_success_log 2
+					(error) ERR unknown command 'SRANGEMEMBERS'
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# redis srandmember air_999_ocr_success_log 2
+					1) "{\"img_base64\":\"\\/9j\\/4AAQSkZJRgABAgAAAQABAAD\\/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL\\/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL\\/wAARCAAtAJwDASIAAhEBAxEB\\/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL\\/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6\\/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL\\/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6\\/9oADAMBAAIRAxEAPwCKWaUXEgErgBjgbj609ZZf+ej\\/APfRqKUf6RL\\/AL5\\/nWdr93e2GiXF1YIjzRDcQ4zhe5x7da+lhTpRoqTitu3kfQwp0o0VJxW3byNtZH\\/vt+dTKzH+I\\/nWJ4a1Zda0WC6yPNxslA7OOv59fxrcQUKnSlFSUVZ+QKFKUVJRWvkSrn1NTKKo385ttOuJVOHVDs\\/3jwP1xXMeA7\\/UNQuLpri5kmSMAN5jZ65xj8jWkcFGdKdVJWjbp3OepKlGpGny6vyO7VF9B+VTLGh\\/gX8qp3t0bKxluAm9kGQpOM\\/j6DqfYVS8PeJbfXtwhhkRk5bd0HJxz3Jwfyrn+rJwc1DRb6CkqKkotK78je8uJVLMqBQMkkDAFTrBF\\/zyT\\/vkV574w1u9s9Tht4HEaO+wndz2z7Dg9+gYd847+1mVdPinlkCp5YZnc4wMdTnH61NXCKFONRxVpXt8jGLpSk4qOxZW2gP\\/ACxj\\/wC+RUq2tv8A88Iv++BXCa18StPsb2O10pv7SlY7StuuV3Z4w+cfgAfqO+jbW\\/i7xHBHNc6hbaLZSKGEdiPNmZT6yHhfqorjlCCSaje\\/kQ\\/Zt2SudcbeziQvJFAijqzKABWXd+JvB+n5+1anpSsOqq6Ow\\/BcmvLPG+gaTpVxDY2Yku7pm+ee6uWkcPwSGB+UZDLzjua6j4URWzG8t57G2S5h7mFFYEEhgMDJxlcn3FdcsqqrC\\/Wmopduva+xzOpB1PZ8qN1fHPhuf\\/kG6TqGq\\/8AXlpjMD+LACpV1jXLz\\/kH\\/D0hD0kv7iGDH1UZNdBr2tL4f0iXUpLaSeKEAusZGcEgd\\/rUHhDxfZ+LreeW1hkh8lgrLIRnnvxXD9TnKk6yj7q0vYbUObldr+hlLpHji++9F4W0xD\\/zzt3uJB+eFrW0LwdfWWoC71bXF1MbCv2cafDBFk98KCcj61yfxQ8XalaapY+H9CuJYryTDSNAcMSxwqf1\\/EV6R4csLzTdEtrbULyW8uwuZZZG3Et359Kuvl3saEK87e\\/sutu\\/oZLkcnFLYurpWnf8+Fr\\/AN+V\\/wAK4\\/xdbwW2qxJBDHEpgBKxqFGdzc8V3qCuH8bf8hmH\\/r3X\\/wBCavFxkUqeiOfFxSp6I4OQf6RJ\\/vn+dO2K6lWAKsMEHoRRIP8ASJP94\\/zp6CvsKX8KPoj6yl\\/Dj6I4Gwi1Xwbq9\\/5Gm3F5pbsCDHyQOoI69ASDXS2fjvw\\/cRbnu2t3HWOaMgj8sj9a6BRQllai5a5FtCJ2GGkCDcR7nrXOqM6ekJadmc6pSp6Qenmcxrfi\\/RrnRLqK0uJJpWT5SkEmAfqRil+G4C292cf6wqfyz\\/jXQ67bNd6HdQIMl07e3P8ASuE8LeLNP8O2lzHdiSSZ3+SKJcseOnoOa9GnNwwFXnkt4+X6nDWbjioSm+jO\\/wDE5K+H7gltsWMTHvsPBx+lcP4W8TaX4dtZbi8lBfJAjRcyNkAnA6dQOTgdal1u88V+INMdpbdNI0uQhRG\\/MsnpnuBke341a+Gei2KNJdy2gkuVwElcbtoOTnnoeMcVywqVZYOfJHS61f6Lf8iKkufER5e3UxdY1a\\/1jxFbyW9m9qchoWuzk7eWU7cnnknr3+lehaf4It7uCCbXr671aQKGWKdykSemIxxn1zmuY8Txm38TJdzRo2W4IGG2gjaVBxyOM16BpOq2psUXcoMakkIh6DvjqP5e9LFUP3NKTbenXa9\\/68yaKXtJqR5vr9tAPFSRRwwQRKxRIUCgKAOmB24Ix2PSvYLBhBpMUkrnasW9mcYIGM5Pv615FrapceKonWTescnmB4+U2\\/eGSQMkkDke9ej+IdTNn4WdmjZXngKnJzsJGCD3zzj61pjIOUKFNdv1IpSSc5HFaJbnxP4wuZL2JZYVBTI\\/jKHeP5gVL4KuH0v4nalZTt\\/rDKCT2JYMcfjgfhWH4W0bxZcxTnQrkwQM24ylwrMDkA\\/3udtQ3tlrPhXxXa3utTbpHcOZd+7zB3r25UITnVw8akXeNlFb3X6\\/M4+dpRm099z3zU9PTVNKubGThJ4yh\\/GvGfAep\\/8ACI+N76xvj5UOJEYHtt5H8q9vs51urSG4T7kqK659CM14\\/wDGXQorO7tNYh+U3JMcgHdgM5\\/KvEyWpGpKeCq\\/DUX3NG+JTSVSPQufDbT38U+NtS8V3q7o4pT5OR\\/EeB+S4r2tRXG\\/DC0gtvAGmNCuPOQyOfViTn+Vdogrzs3xHtsVJLSMfdS7JaCpR5YLzJVFcN43\\/wCQzD\\/17r\\/6E1d2grhfHH\\/Iah\\/69l\\/9Cavn8Z\\/DOfGfwzhZB+\\/k\\/wB4\\/wA6cCFUsxAA5JParDWe52bf1JPSqOteH4da0x7GaZkVmVg6ryCDn\\/63417kc3wkaSSlql2f+R7Uc1wsaaSlql2f+RQvfGGhadkS38cjj+CH5z+nA\\/E1hyfEW5vJDDoeizXD9mkBY\\/iq\\/wCNben+ANBsME2xuXH8Vwd36dP0rpILeK2jEcMaRoOiooUD8BXO80pT3qJeif8Akc7zOnPeol6J\\/wCRwUWmeOfEEqjULv8As6zY\\/OsbBW29wAvJ+jGr8vw3htDDPo9y8VxFg75jks2RzkdO\\/wCldoHx2qQT4\\/h\\/WtKGZ4ShNVIzvLzTf5oiWKwUlaU2\\/v8A8jzTUoPGFzGNPu4pZEBGCvIOOByPzrvfCGiPo2kqkwAnclmA7dOP0B+pNaIu8f8ALP8AWpBf4\\/5Zf+Pf\\/WrtxPEdCtSVJWir30TV2Z08RhIT5\\/aNvzv\\/AJFbVvDdrqoLMirISCWABB57g8H69fzIrmZPCGpWKH7OnmxghgBCkoXjoA7b1+qkn0rshqeP+WP\\/AI9\\/9anjV8f8sP8Ax\\/8A+tXLTzylTXLGenZp2\\/IdTFYSbvza+j\\/yOEsPDd1d619ouUlwWYrnzXYfdwMOowQQfvHOCODjNdH460+5l0aC1srdzuKxKEyfmJ4yc5wBuYnnkL71uDW8f8u\\/\\/j\\/\\/ANanjX8f8uv\\/AJE\\/+tVTz+lKrGo5fDto\\/wDIy+sYZRcVLfyYngrSpdJ0CKC4QpMeWBGMDHA6ntyfcmq3j7wlN4n0mMWQiF7E3ymQ4yh5IHvkL+vrV0eI8f8ALp\\/5E\\/8ArVIPFGP+XP8A8i\\/\\/AFq5o51CFf6xGfvXvs\\/8glicM4cnNp8xfAf9ow+G4LHVbaSG8tMxtv6MMnbgjg8YH4Vm\\/FbQr7XvDdpBptpJc3KXattQfw7WBz6DJHNag8WY\\/wCXL\\/yL\\/wDWqQeMMf8ALj\\/5G\\/8AsaUM5p08T9Zg1e97Wdv+GIliaDhyc35\\/5FrwDpV9ovgvTtO1KNY7qEOHVXDYBdiORx0IrqUFcePGmP8AmH\\/+Rv8A7Gnjxxj\\/AJh3\\/kf\\/AOxrkr5hSrVJVJPVtvZ9RLE0UrJ\\/mdogrg\\/HP\\/Iag\\/69l\\/8AQmq4PHmP+Yb\\/AOR\\/\\/sawdd1j+2r1LnyPJ2xiPbv3ZwSc5wPWuHE16c4WizmxFeE4Wiz\\/2Q==\",\"code\":\"uuay\"}"
+					2) "{\"img_base64\":\"\\/9j\\/4AAQSkZJRgABAgAAAQABAAD\\/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL\\/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL\\/wAARCAAtAJwDASIAAhEBAxEB\\/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL\\/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6\\/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL\\/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6\\/9oADAMBAAIRAxEAPwCKWaUXEgErgBjgbj60v2ho03STFVHdnwKZKP8ASJf98\\/zqpqulRazpr2U0skaOQSY8Z4OR1r6WFKHsU1FN2X5H0MKUPZJqKbsaqSOf42P41MrMf4j+deejwXrmm\\/No+tsFHIjcsg\\/IZBqzaX\\/jy0lMU2mQ3gAzvJVc\\/QggfpmufmgtJ0rfJP8AIw5orSdK3yud+ufU1MoriP8AhJ\\/EkKnzvCc7cdYpc4\\/IGsWx1nxHqd88mnzS5YgiFnBAyCcc+wP5V2YTBwxfNyJLlV3dWX5GNavQg0uS7fkerqi+g\\/KpljQ\\/wL+VcRpfi3Uo7yOy1bTHjkPWQKR29O5OQPxFd2grGvg1RdpxX4P8iqbo1FeK\\/AXy4lUsyoFAySQMAVMsUG4KUj3HoCBk15xrusak\\/iVdLtp9gfO4kgFOCc8HAG3kZ6A5POcIkV7ZRCa\\/3s8jboM+Sg3cZIEnJJyORhjV\\/wBmrli5WXMrpHNKrTu0obeR6ettAf8AljH\\/AN8ipVtbf\\/nhF\\/3wK53wr4gTVYWgIZpIm2M23HPPBG5iOAec4\\/lXTSzR21vJPMwSONSzMewFcNXDKnNwlHX0LSpyjzJIctnbf8+8X\\/fAqZbG1\\/59of8Av2K8vvfFOv8Ai3U5LHwxG0drEwDXHTv1J7DilttV8Z+FdTtodTjkv7aTauEUvyQcAHsc8fhXY8lklZuKla\\/LfX\\/h\\/I5XVpX0jp3seqrYWf8Az6Qf9+xUy6dZf8+dv\\/37H+FOhO9FbGMjODWB4w8a2XhGzTzF8+9mB8m3Xv7n0FeZSwrr1FTpRu2XNU4q7SOjXTbH\\/nyt\\/wDv0v8AhUy6XYf8+Nt\\/36X\\/AArxG\\/8AHfj7SLi11PVLb7PZTtmOExBVI649c49a9y066W+0+2vI\\/uTxLKv0YAj+da43K54SMZz5WpdVrtujCMqc20l+A5dK07\\/nwtf+\\/K\\/4Vx\\/i63gttViSCGOJTACVjUKM7m54rvUFcP42\\/wCQzD\\/17r\\/6E1eFjIpU9Ec+LilT0Rwcg\\/0iT\\/fP86ZPdW9lAZ7qZIYgQC7nAqWQf6RJ\\/vH+dV7\\/AE221Wya0u0LQsQSA2Ohz1r6+DfsY8u9l+R9XBv2KtvZFb\\/hLNBT72qQfgSf5U0+OPDcfXUlP0ic\\/wDstQx+BPDo62Bb6zP\\/AI1cj8FeHV6aXEfqzH+ZrnbxP938TnbxHl+JUn8f6A8EkUF4xlZSFLRMozj1Irj9B1a40uZriyiiucHOM7sdRnAOehNehP4a8N2kDSzaXZrGvVmQHH51Vj8F+EdXhE1vaJhv4oZWGPwzj9K7MLi8RQpyjKEZRla+628zjr0KtSabkk12NHw74ks\\/EMZSSJYrqMgmNuec9QfqK6fDCNtgBYD5QT1NeH6p4ei0nxAsWnXl1boJCoZZPnTBHORj1Brto\\/DfjG2h8zTfFxuOuFuoeuO2W3VhjFKDU1TtGSuldP8AyYqNebTjJXa3scxq9+mn+IpJ0iBcEurAgq2TkHnnGcn3zWxdeOJtS0meLL28mzCrn5WHTGSp3E9eSOnWubS21KXX\\/s0j6bcTbdpaQsqHHbPY8egrqNQXWWsJIf7DsGRlJdbW7dMDuduBgZGeeO9enPF4aPslVpS5klr\\/AMDW5wxVR8zi9C\\/8NNNvI5\\/tk8RELBmQlOBnjIPbPGR0Ix6Ve+JOsSxQJpcQkV5mAAHV+hBH44Fcv4I8YanpLy2DaVcXsQ\\/hilVimPQk4pPHus3N5qdpfHR9VsDbgY+02\\/B+bOcgkdSBWTrQlmvNW0V7q6a6aaNXHzJYa0T0rwvBYeG\\/CiXA3CKTMjbRkg7QCP8Ax00af8S\\/C2oTrE1zJA7MAvnwkAntyMgfjXP6P8QNLvdGWwTQdUvgo2bIbcFCMdyWAGea4TxmXi1CGe28OLpKceWhmQlsY5KqTzn+Yriw0aGJryhX5nKWzWv3qzbKqVHCCcLWPpGF0lRXjZXRhkMpyCK8J8W3cum\\/FKO91WJpbeCVGVSMhkByMfjXdad\\/wnjaHbyrceH7C0ECur7JZpApGec4WuJ0mz1f4neJptP1fXWazs1L7obWOJiM4GOD39SaWUVZUJ1Kzg5QUWpbJq\\/r1JxHvJRW5p+M\\/FWm+Pb7RtG0+cRW5m8yaacbApxjH5E17XYJa2dtbafDKn7qFURNwyVUAA4\\/KvB\\/iD8MND8K+HkvrS\\/vpLgyhNlzKp3g9cBVHSu4+DWg6TH4Zt9Yj0yKLUSzxG55LsuR3J70sfH2mBp1aKtSi2rN3d3rfa34mcG1NqW56iorhvG\\/\\/IZh\\/wCvdf8A0Jq7tBXC+OP+Q1D\\/ANey\\/wDoTV8rjP4ZljP4Zwsg\\/fyf7x\\/nT0FTtZ7nZt\\/Uk9KcLbH8f6V7tPNsGqcU59F0f+R7dPNMIoJOfTs\\/8hqCp0FIIsd\\/0p4GKHm2D\\/n\\/AAf+QPNcJ\\/P+D\\/yIb7TodTs3tbjd5b9cHFcrN4FvrV2fSNSeIE52MxX044\\/H9K7MPjtUgnx\\/D+tbUeIKVBWp1NO1m1+KOWti8DVd5S19H\\/kcDpXgnVZNXjutUZWRJAzZfJbHP\\/1q9OiTairknAxk9TVIXeP4P1qQX+P+WX\\/j3\\/1qjF5\\/RxUlKpPbsn\\/kRSxWDopqMt\\/J\\/wCRxuq+DtS1PXmvreRoRu2HdgMB2YEcMOcc4OAOpzTh4U1S1G9YfOj4YL5KOF4xjDMGU+6kmuzGp4\\/5Y\\/8Aj3\\/1qeNXx\\/yw\\/wDH\\/wD61L\\/WCFkudWSt8P8AwDJ18Hdvm39f8jk\\/DPhaVNZW9kVlTzzKBJJISCMcEMi85zy3Y9D1ruNZ0Cz1+xe2uwQGUqGU4I9PyOD9QKrjW8f8u\\/8A4\\/8A\\/Wp41\\/H\\/AC6\\/+RP\\/AK1YVs7p1Kiq8+q23\\/yCOKwsY8vN+D\\/yOHb4Q3UbubXV9q4JUYI55wP\\/AEH9acvwgvZtouNVDbWO3gnjKjv7A\\/pXcjxHj\\/l0\\/wDIn\\/1qkHijH\\/Ln\\/wCRf\\/rV0viqte\\/tf\\/Jf+AYOeD7\\/AJmxaaasekDTpTviCGMY4wnRR+AwPwryW68A+L\\/DviK4vfDbl45XJV0cAhSc4IP+eK9FHizH\\/Ll\\/5F\\/+tUg8YY\\/5cf8AyN\\/9jXJhM9jhXJwaalumm0x1K+Hnb3tvU4uy+GHiTxJex3njLVmZF6QJJuYe3A2r+FevaZp1rpVhDZWcQit4l2og7VzA8aY\\/5h\\/\\/AJG\\/+xp48cY\\/5h3\\/AJH\\/APsayxmdvFJRnK0VskrJfImNehHZ\\/mdogrg\\/HP8AyGoP+vZf\\/Qmq4PHmP+Yb\\/wCR\\/wD7GsHXdY\\/tq9S58jydsYj2792cEnOcD1ryMTXpzhaLMMRXhOFos\\/\\/Z\",\"code\":\"5bg8\"}"
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# redis del air_999_ocr_success_log 
+					(integer) 1
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# php /home/wwwroot/www.trackingmore.com/script/warning_redis.php dfdf 10 | grep ':redis:' -A8
+					string(184) "Foreign:redis:
+					node:0: 97.61% > 10%
+					node:1: 85.73% > 10%
+					node:2: 83.06% > 10%
+					node:3: 91.53% > 10%
+					node:4: 84.67% > 10%
+					node:5: 100.01% > 10%
+					node:6: 86.72% > 10%
+					node:7: 82.88% > 10%
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# sh redisMemory.sh lastRestNumberArr
+					2025-05-14 16:51:46
+					redis memory usage lastRestNumberArr
+					(integer) 272396104
+					redis info key lastRestNumberArr
+					slot:10648 node_index:5
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# sh redisMemory.sh courier_usps_app_x_ticket
+					2025-05-14 16:52:02
+					redis memory usage courier_usps_app_x_ticket
+					(integer) 27398009
+					redis info key courier_usps_app_x_ticket
+					slot:11358 node_index:5
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# redis del ourier_usps_app_x_ticket
+					(integer) 0
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# php /home/wwwroot/www.trackingmore.com/script/warning_redis.php dfdf 10 | grep ':redis:' -A8
+					string(183) "Foreign:redis:
+					node:0: 98.07% > 10%
+					node:1: 86.06% > 10%
+					node:2: 83.49% > 10%
+					node:3: 91.7% > 10%
+					node:4: 84.84% > 10%
+					node:5: 100.02% > 10%
+					node:6: 87.01% > 10%
+					node:7: 83.17% > 10%
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# redis srandmember ourier_usps_app_x_ticket 1
+					(empty list or set)
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# sh redisMemory.sh courier_usps_app_x_ticket
+					2025-05-14 16:55:03
+					redis memory usage courier_usps_app_x_ticket
+					(integer) 27398009
+					redis info key courier_usps_app_x_ticket
+					slot:11358 node_index:5
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# sh redisMemory.sh china-ems_IP_cookie_com.cn_scapre_fail
+					2025-05-14 16:55:44
+					redis memory usage china-ems_IP_cookie_com.cn_scapre_fail
+					(integer) 21290688
+					redis info key china-ems_IP_cookie_com.cn_scapre_fail
+					slot:11125 node_index:5
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# redis srandmember china-ems_IP_cookie_com.cn_scapre_fail 1
+					1) "125.166.122.252:8080"
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# redis del china-ems_IP_cookie_com.cn_scapre_fail
+					(integer) 1
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# php /home/wwwroot/www.trackingmore.com/script/warning_redis.php dfdf 10 | grep ':redis:' -A8
+					string(181) "Foreign:redis:
+					node:0: 98.22% > 10%
+					node:1: 86.1% > 10%
+					node:2: 83.5% > 10%
+					node:3: 91.76% > 10%
+					node:4: 84.85% > 10%
+					node:5: 99.02% > 10%
+					node:6: 87.07% > 10%
+					node:7: 83.19% > 10%
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# redis ttl Z_P_O_newgistics_B_SET
+					(integer) 259119
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# sh redisMemory.sh Z_P_O_newgistics_B_SET
+					2025-05-14 16:58:12
+					redis memory usage Z_P_O_newgistics_B_SET
+					(integer) 15422
+					redis info key Z_P_O_newgistics_B_SET
+					slot:10691 node_index:5
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# sh redisMemory.sh Z_R_P_U_hhexp_SET
+					2025-05-14 17:15:48
+					redis memory usage Z_R_P_U_hhexp_SET
+					(integer) 108338136
+					redis info key Z_R_P_U_hhexp_SET
+					slot:1924 node_index:0
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# redis zcard Z_R_P_U_hhexp_SET
+					(integer) 589320
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# redis del Z_R_P_U_hhexp_SET
+					(integer) 1
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# php /home/wwwroot/www.trackingmore.com/script/warning_redis.php dfdf 10 | grep ':redis:' -A8
+					string(182) "Foreign:redis:
+					node:0: 95.09% > 10%
+					node:1: 86.85% > 10%
+					node:2: 84.27% > 10%
+					node:3: 92.06% > 10%
+					node:4: 85.1% > 10%
+					node:5: 100.03% > 10%
+					node:6: 89.7% > 10%
+					node:7: 83.81% > 10%
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# vians
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# wpa php-resque/ttt
+					/usr/lib/python2.7/site-packages/requests/__init__.py:80: RequestsDependencyWarning: urllib3 (1.22) or chardet (2.2.1) doesn't match a supported version!
+					RequestsDependencyWarning)
+					notest_10_10 | CHANGED => {
+						"ansible_facts": {
+							"discovered_interpreter_python": "/usr/bin/python"
+						}, 
+						"changed": true, 
+						"checksum": "bf91afffd74a6ac6930bb060cd25d89d8dcd6ecd", 
+						"dest": "/home/wwwroot/upload/huaqiang/ansible.test.1.sh", 
+						"gid": 0, 
+						"group": "root", 
+						"md5sum": "de8a44fb07b0cda582dd0ff7b022a942", 
+						"mode": "0600", 
+						"owner": "root", 
+						"size": 27884, 
+						"src": "/home/ansible/.ansible/tmp/ansible-tmp-1747214367.85-1867-144063315152490/source", 
+						"state": "file", 
+						"uid": 0
+					}
+					notest_159_205 | CHANGED => {
+						"ansible_facts": {
+							"discovered_interpreter_python": "/usr/bin/python"
+						}, 
+						"changed": true, 
+						"checksum": "bf91afffd74a6ac6930bb060cd25d89d8dcd6ecd", 
+						"dest": "/home/wwwroot/upload/huaqiang/ansible.test.1.sh", 
+						"gid": 0, 
+						"group": "root", 
+						"md5sum": "de8a44fb07b0cda582dd0ff7b022a942", 
+						"mode": "0600", 
+						"owner": "root", 
+						"size": 27884, 
+						"src": "/home/ansible/.ansible/tmp/ansible-tmp-1747214367.87-1875-246790886002216/source", 
+						"state": "file", 
+						"uid": 0
+					}
+					notest_27 | CHANGED => {
+						"ansible_facts": {
+							"discovered_interpreter_python": "/usr/bin/python"
+						}, 
+						"changed": true, 
+						"checksum": "bf91afffd74a6ac6930bb060cd25d89d8dcd6ecd", 
+						"dest": "/home/wwwroot/upload/huaqiang/ansible.test.1.sh", 
+						"gid": 0, 
+						"group": "root", 
+						"md5sum": "de8a44fb07b0cda582dd0ff7b022a942", 
+						"mode": "0600", 
+						"owner": "root", 
+						"size": 27884, 
+						"src": "/home/ansible/.ansible/tmp/ansible-tmp-1747214367.88-1869-124526923569531/source", 
+						"state": "file", 
+						"uid": 0
+					}
+					notest_214_153 | CHANGED => {
+						"ansible_facts": {
+							"discovered_interpreter_python": "/usr/bin/python"
+						}, 
+						"changed": true, 
+						"checksum": "bf91afffd74a6ac6930bb060cd25d89d8dcd6ecd", 
+						"dest": "/home/wwwroot/upload/huaqiang/ansible.test.1.sh", 
+						"gid": 0, 
+						"group": "root", 
+						"md5sum": "de8a44fb07b0cda582dd0ff7b022a942", 
+						"mode": "0600", 
+						"owner": "root", 
+						"size": 27884, 
+						"src": "/home/ansible/.ansible/tmp/ansible-tmp-1747214367.87-1871-110025605521889/source", 
+						"state": "file", 
+						"uid": 0
+					}
+					notest_145_44_35 | SUCCESS => {
+						"ansible_facts": {
+							"discovered_interpreter_python": "/usr/bin/python"
+						}, 
+						"changed": false, 
+						"checksum": "bf91afffd74a6ac6930bb060cd25d89d8dcd6ecd", 
+						"dest": "/home/wwwroot/upload/huaqiang/ansible.test.1.sh", 
+						"gid": 1001, 
+						"group": "ansible", 
+						"mode": "0600", 
+						"owner": "ansible", 
+						"path": "/home/wwwroot/upload/huaqiang/ansible.test.1.sh", 
+						"size": 27884, 
+						"state": "file", 
+						"uid": 1001
+					}
+					notest_234_72 | CHANGED => {
+						"ansible_facts": {
+							"discovered_interpreter_python": "/usr/bin/python"
+						}, 
+						"changed": true, 
+						"checksum": "bf91afffd74a6ac6930bb060cd25d89d8dcd6ecd", 
+						"dest": "/home/wwwroot/upload/huaqiang/ansible.test.1.sh", 
+						"gid": 0, 
+						"group": "root", 
+						"md5sum": "de8a44fb07b0cda582dd0ff7b022a942", 
+						"mode": "0600", 
+						"owner": "root", 
+						"size": 27884, 
+						"src": "/home/ansible/.ansible/tmp/ansible-tmp-1747214368.89-2122-138949936322589/source", 
+						"state": "file", 
+						"uid": 0
+					}
+					notest_228_84 | CHANGED => {
+						"ansible_facts": {
+							"discovered_interpreter_python": "/usr/bin/python"
+						}, 
+						"changed": true, 
+						"checksum": "bf91afffd74a6ac6930bb060cd25d89d8dcd6ecd", 
+						"dest": "/home/wwwroot/upload/huaqiang/ansible.test.1.sh", 
+						"gid": 0, 
+						"group": "root", 
+						"md5sum": "de8a44fb07b0cda582dd0ff7b022a942", 
+						"mode": "0600", 
+						"owner": "root", 
+						"size": 27884, 
+						"src": "/home/ansible/.ansible/tmp/ansible-tmp-1747214368.91-2146-140119061013200/source", 
+						"state": "file", 
+						"uid": 0
+					}
+					notest_46_56 | CHANGED => {
+						"ansible_facts": {
+							"discovered_interpreter_python": "/usr/bin/python"
+						}, 
+						"changed": true, 
+						"checksum": "bf91afffd74a6ac6930bb060cd25d89d8dcd6ecd", 
+						"dest": "/home/wwwroot/upload/huaqiang/ansible.test.1.sh", 
+						"gid": 0, 
+						"group": "root", 
+						"md5sum": "de8a44fb07b0cda582dd0ff7b022a942", 
+						"mode": "0600", 
+						"owner": "root", 
+						"size": 27884, 
+						"src": "/home/ansible/.ansible/tmp/ansible-tmp-1747214368.85-2117-255856188455424/source", 
+						"state": "file", 
+						"uid": 0
+					}
+					notest_151_7 | CHANGED => {
+						"ansible_facts": {
+							"discovered_interpreter_python": "/usr/bin/python"
+						}, 
+						"changed": true, 
+						"checksum": "bf91afffd74a6ac6930bb060cd25d89d8dcd6ecd", 
+						"dest": "/home/wwwroot/upload/huaqiang/ansible.test.1.sh", 
+						"gid": 0, 
+						"group": "root", 
+						"md5sum": "de8a44fb07b0cda582dd0ff7b022a942", 
+						"mode": "0600", 
+						"owner": "root", 
+						"size": 27884, 
+						"src": "/home/ansible/.ansible/tmp/ansible-tmp-1747214368.85-2120-25431741535584/source", 
+						"state": "file", 
+						"uid": 0
+					}
+					notest_148_56 | CHANGED => {
+						"ansible_facts": {
+							"discovered_interpreter_python": "/usr/bin/python"
+						}, 
+						"changed": true, 
+						"checksum": "bf91afffd74a6ac6930bb060cd25d89d8dcd6ecd", 
+						"dest": "/home/wwwroot/upload/huaqiang/ansible.test.1.sh", 
+						"gid": 0, 
+						"group": "root", 
+						"md5sum": "de8a44fb07b0cda582dd0ff7b022a942", 
+						"mode": "0600", 
+						"owner": "root", 
+						"size": 27884, 
+						"src": "/home/ansible/.ansible/tmp/ansible-tmp-1747214368.9-2124-186762852349274/source", 
+						"state": "file", 
+						"uid": 0
+					}
+					notest_105 | CHANGED => {
+						"ansible_facts": {
+							"discovered_interpreter_python": "/usr/bin/python"
+						}, 
+						"changed": true, 
+						"checksum": "bf91afffd74a6ac6930bb060cd25d89d8dcd6ecd", 
+						"dest": "/home/wwwroot/upload/huaqiang/ansible.test.1.sh", 
+						"gid": 0, 
+						"group": "root", 
+						"md5sum": "de8a44fb07b0cda582dd0ff7b022a942", 
+						"mode": "0600", 
+						"owner": "root", 
+						"size": 27884, 
+						"src": "/home/ansible/.ansible/tmp/ansible-tmp-1747214369.77-2250-41523266811812/source", 
+						"state": "file", 
+						"uid": 0
+					}
+					/usr/lib/python2.7/site-packages/requests/__init__.py:80: RequestsDependencyWarning: urllib3 (1.22) or chardet (2.2.1) doesn't match a supported version!
+					RequestsDependencyWarning)
+					notest_10_10 | CHANGED | rc=0 >>
+					ps -ef | grep php-resque/ttt | grep -v 'grep\|ansible.test'
+					num:
+					ps -ef | grep php-resque/ttt | grep -v 'grep\|ansible.test' | wc -l
+					0
+					notest_214_153 | CHANGED | rc=0 >>
+					ps -ef | grep php-resque/ttt | grep -v 'grep\|ansible.test'
+					num:
+					ps -ef | grep php-resque/ttt | grep -v 'grep\|ansible.test' | wc -l
+					0
+					notest_159_205 | CHANGED | rc=0 >>
+					#*/1 * * * *    /usr/local/php7/bin/php -q /home/wwwroot/www.trackingmore.com/script/allInfoSyncToTime.php   >> /home/wwwroot/www.trackingmore.com/script/allInfoSyncToTime.log
+					ps -ef | grep php-resque/ttt | grep -v 'grep\|ansible.test'
+					num:
+					ps -ef | grep php-resque/ttt | grep -v 'grep\|ansible.test' | wc -l
+					0
+					notest_145_44_35 | CHANGED | rc=0 >>
+					ps -ef | grep php-resque/ttt | grep -v 'grep\|ansible.test'
+					root      1823 26447  0 17:19 pts/0    00:00:00 /usr/bin/sh /root/cmd.with.param.sh notest php-resque/ttt
+					num:
+					ps -ef | grep php-resque/ttt | grep -v 'grep\|ansible.test' | wc -l
+					1
+					notest_27 | CHANGED | rc=0 >>
+					ps -ef | grep php-resque/ttt | grep -v 'grep\|ansible.test'
+					num:
+					ps -ef | grep php-resque/ttt | grep -v 'grep\|ansible.test' | wc -l
+					0
+					notest_234_72 | CHANGED | rc=0 >>
+					ps -ef | grep php-resque/ttt | grep -v 'grep\|ansible.test'
+					num:
+					ps -ef | grep php-resque/ttt | grep -v 'grep\|ansible.test' | wc -l
+					0
+					notest_151_7 | CHANGED | rc=0 >>
+					ps -ef | grep php-resque/ttt | grep -v 'grep\|ansible.test'
+					num:
+					ps -ef | grep php-resque/ttt | grep -v 'grep\|ansible.test' | wc -l
+					0
+					notest_228_84 | CHANGED | rc=0 >>
+					ps -ef | grep php-resque/ttt | grep -v 'grep\|ansible.test'
+					num:
+					ps -ef | grep php-resque/ttt | grep -v 'grep\|ansible.test' | wc -l
+					0
+					notest_148_56 | CHANGED | rc=0 >>
+					ps -ef | grep php-resque/ttt | grep -v 'grep\|ansible.test'
+					num:
+					ps -ef | grep php-resque/ttt | grep -v 'grep\|ansible.test' | wc -l
+					0
+					notest_46_56 | CHANGED | rc=0 >>
+					ps -ef | grep php-resque/ttt | grep -v 'grep\|ansible.test'
+					num:
+					ps -ef | grep php-resque/ttt | grep -v 'grep\|ansible.test' | wc -l
+					0
+					notest_105 | CHANGED | rc=0 >>
+					ps -ef | grep php-resque/ttt | grep -v 'grep\|ansible.test'
+					num:
+					ps -ef | grep php-resque/ttt | grep -v 'grep\|ansible.test' | wc -l
+					0
+					[root@iz0xibhd8xjxiru8zt5ietz ~]#  uptime
+					17:20:55 up 665 days, 23:46,  1 user,  load average: 0.22, 0.18, 0.18
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# sh redisMemory.sh courier_usps_app_x_ticket
+					2025-05-14 17:22:36
+					redis memory usage courier_usps_app_x_ticket
+					(integer) 27398009
+					redis info key courier_usps_app_x_ticket
+					slot:11358 node_index:5
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# sh llen courier_usps_app_x_ticket
+					sh: llen: No such file or directory
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# redis llen courier_usps_app_x_ticket
+					(error) WRONGTYPE Operation against a key holding the wrong kind of value
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# redis scard courier_usps_app_x_ticket
+					(integer) 4578
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# redis del courier_usps_app_x_ticket
+					(integer) 1
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# sh redisMemory.sh courier_usps_app_x_ticket
+					2025-05-14 17:23:22
+					redis memory usage courier_usps_app_x_ticket
+					(nil)
+					redis info key courier_usps_app_x_ticket
+					slot:11358 node_index:5
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# php /home/wwwroot/www.trackingmore.com/script/warning_redis.php dfdf 10 | grep ':redis:' -A8
+					string(181) "Foreign:redis:
+					node:0: 96.3% > 10%
+					node:1: 87.59% > 10%
+					node:2: 84.93% > 10%
+					node:3: 92.57% > 10%
+					node:4: 85.59% > 10%
+					node:5: 99.11% > 10%
+					node:6: 90.5% > 10%
+					node:7: 84.19% > 10%
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# redis memory usage courier_usps_app_x_ticket
+					(nil)
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# sh redisMemory.sh courier_usps_app_x_ticket
+					2025-05-14 17:32:39
+					redis memory usage courier_usps_app_x_ticket
+					(nil)
+					redis info key courier_usps_app_x_ticket
+					slot:11358 node_index:5
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# sh redisMemory.sh brazil-correios_ocr_success_log
+					2025-05-14 17:33:14
+					redis memory usage brazil-correios_ocr_success_log
+					(integer) 22151400
+					redis info key brazil-correios_ocr_success_log
+					slot:621 node_index:0
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# sh redisMemory.sh lastRestNumberArr
+					2025-05-14 17:34:17
+					redis memory usage lastRestNumberArr
+					(integer) 272396104
+					redis info key lastRestNumberArr
+					slot:10648 node_index:5
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# redis del lastRestNumberArr
+					(integer) 1
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# php /home/wwwroot/www.trackingmore.com/script/warning_redis.php dfdf 10 | grep ':redis:' -A8
+					string(182) "Foreign:redis:
+					node:0: 99.94% > 10%
+					node:1: 86.01% > 10%
+					node:2: 83.37% > 10%
+					node:3: 92.3% > 10%
+					node:4: 85.33% > 10%
+					node:5: 86.45% > 10%
+					node:6: 89.81% > 10%
+					node:7: 83.36% > 10%
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# php /home/wwwroot/www.trackingmore.com/script/warning_redis.php dfdf 10 | grep ':redis:' -A8
+					string(183) "Foreign:redis:
+					node:0: 100.01% > 10%
+					node:1: 86.9% > 10%
+					node:2: 85.77% > 10%
+					node:3: 92.47% > 10%
+					node:4: 85.71% > 10%
+					node:5: 92.63% > 10%
+					node:6: 92.65% > 10%
+					node:7: 83.92% > 10%
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# redis monitor | grep lpop | tail -1000 | > lpop.20250514.log
+					^C
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# redis monitor | grep lpop | tail -1000 | >> lpop.20250514.log
+					^C
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# tail lpop.20250514.log
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# redis monitor | grep lpop  >> lpop.20250514.log
+					^C
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# tail lpop.20250514.log
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# redis monitor | tail -1000 >> lpop.20250514.log
+					^C
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# tail lpop.20250514.log
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# redis monitor >> lpop.20250514.log
+					^C
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# grep lpop lpop.20250514.log | tail
+					[root@iz0xibhd8xjxiru8zt5ietz ~]#  tail lpop.20250514.log 
+					1747218318.590638 [0 11.204.194.48:55454] "ZCARD" "Z_R_P_U_dhlecommerce-asia_SET"
+					1747218318.590934 [0 10.127.1.145:43842] "SMEMBERS" "xpoweb_IP_172.16.11.81_cr_SET"
+					1747218318.590967 [0 11.204.194.48:55792] "SCARD" "SPENDTIMETOTLE_T_Q_SET"
+					1747218318.590837 [0 26.49.116.130:45670] "GET" "resque:job:e486f607142b5c4c6d67b31994d2bb86:status"
+					1747218318.586654 [0 11.204.194.48:42450] "ZCARD" "Z_R_P_U_correos-mexico_SET"
+					1747218318.590999 [0 10.223.232.8:48462] "SISMEMBER" "IdentifyStatusV2_O" "58136"
+					1747218318.586802 [0 26.49.116.130:61364] "GET" "company_info_usps_en"
+					1747218318.591073 [0 10.127.1.145:41084] "GET" "bigorsmallruleForServer"
+					1747218318.586833 [0 26.49.116.130:51106] "TYPE" "server_9305520111411032868828_usps_SET"
+					1747218318.591317 [0 11.204.194.48:55792] "SCARD" "SPENDTIMETOTLE_T_Q_SET"
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# redis monitor | grep SMEMBERS | tail -1000 | >> lpop.20250514.log
+					^C
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# redis monitor | grep SMEMBERS | tail -1000 | > lpop.20250514.log
+					^C
+					[root@iz0xibhd8xjxiru8zt5ietz ~]#  tail lpop.20250514.log 
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# redis monitor | grep SMEMBERS | lpop.20250514.log
+					-bash: lpop.20250514.log: command not found
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# redis monitor | grep SMEMBERS > lpop.20250514.log
+					^C
+					[root@iz0xibhd8xjxiru8zt5ietz ~]#  tail lpop.20250514.log 
+					1747218453.873654 [0 11.204.194.48:46066] "SMEMBERS" "ninjavan_IP_172.16.11.89_cr_SET"
+					1747218453.878655 [0 11.204.194.48:55664] "SMEMBERS" "ninjavan_IP_172.16.11.183_cr_SET"
+					1747218453.878620 [0 11.204.194.48:55788] "SMEMBERS" "ninjavan_IP_172.16.21.14_cr_SET"
+					1747218453.880325 [0 11.204.194.48:55396] "SMEMBERS" "sfcservice_IP_172.16.11.12_cr_SET"
+					1747218453.876775 [0 11.204.194.48:42450] "SMEMBERS" "sfcservice_IP_172.16.11.39_cr_SET"
+					1747218453.881981 [0 11.204.194.48:55788] "SMEMBERS" "sfcservice_IP_172.16.11.11_cr_SET"
+					1747218453.878440 [0 11.204.194.48:42450] "SMEMBERS" "sfcservice_IP_172.16.11.71_cr_SET"
+					1747218453.879187 [0 11.204.194.48:42450] "SMEMBERS" "sfcservice_IP_172.16.11.9_cr_SET"
+					1747218453.879904 [0 11.204.194.48:65212] "SMEMBERS" "sfcservice_IP_172.16.11.90_cr_SET"
+					1747218453.881890 [0 11.204.194.48redis monitor >> lpop.20250514.log^Cg
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# redis monitor | grep lpop | tail -10 >> lpop.20250514.log
+					^C
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# redis monitor | grep lpop | tail -10 > lpop.20250514.log
+					^C
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# redis monitor | grep LPOP | tail -10 > lpop.20250514.log
+					^C
+					[root@iz0xibhd8xjxiru8zt5ietz ~]#  tail lpop.20250514.log 
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# redis monitor | grep -i LPOP | tail -10 > lpop.20250514.log
+					^C
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# redis memory usage Z_R_P_U_royal-mail-v2_SET
+					(integer) 26125664
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# redis memory usage courier_sf-international_ticket
+					(integer) 3854716
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# php /home/wwwroot/www.trackingmore.com/script/warning_redis.php dfdf 10 | grep ':redis:' -A8
+					string(184) "Foreign:redis:
+					node:0: 100.02% > 10%
+					node:1: 92.78% > 10%
+					node:2: 86.73% > 10%
+					node:3: 94.08% > 10%
+					node:4: 86.68% > 10%
+					node:5: 90.49% > 10%
+					node:6: 99.82% > 10%
+					node:7: 88.06% > 10%
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# redis memory usage brazil-correios_ocr_success_log
+					(integer) 22151400
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# redis memory usage brazil-correios_ocr_success_log
+					(integer) 22151400
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# redis del brazil-correios_ocr_success_log
+					(integer) 1
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# php /home/wwwroot/www.trackingmore.com/script/warning_redis.php dfdf 10 | grep ':redis:' -A8
+					string(182) "Foreign:redis:
+					node:0: 99.04% > 10%
+					node:1: 93.2% > 10%
+					node:2: 86.77% > 10%
+					node:3: 94.09% > 10%
+					node:4: 86.71% > 10%
+					node:5: 91.26% > 10%
+					node:6: 99.87% > 10%
+					node:7: 88.23% > 10%
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# redis hrange dhl_count_2024091812
+					(error) ERR unknown command 'HRANGE'
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# redis hrandemembers dhl_count_2024091812 1
+					(error) ERR unknown command 'HRANDEMEMBERS'
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# redis 
+					r-0xiyxblxonjb1bm3ri.redis.rds.aliyuncs.com:6379> 
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# php /home/wwwroot/www.trackingmore.com/script/warning_redis.php dfdf 10 | grep ':redis:' -A8
+					string(182) "Foreign:redis:
+					node:0: 99.91% > 10%
+					node:1: 93.38% > 10%
+					node:2: 88.83% > 10%
+					node:3: 94.27% > 10%
+					node:4: 87.06% > 10%
+					node:5: 91.27% > 10%
+					node:6: 99.8% > 10%
+					node:7: 87.45% > 10%
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# redis hscan dhl_count_2024091812 0 match '*' count 100
+					1) "17920"
+					2)   1) "420774789261290316858723802549"
+						2) "2"
+						3) "9261290260148903883898"
+						4) "2"
+						5) "92612902103303000128632050"
+						6) "1"
+						7) "33872409120026628"
+						8) "1"
+						9) "420970249261290336141014540669"
+						10) "2"
+						11) "9261290357481900920230"
+						12) "1"
+						13) "420284589261290339603809916662"
+						14) "2"
+						15) "9261290335949230133938"
+						16) "2"
+						17) "9261290249331943322329"
+						18) "1"
+						19) "3SWLT0033504527"
+						20) "1"
+						21) "420331309261290336141014522313"
+						22) "1"
+						23) "420939509261290339613109116921"
+						24) "1"
+						25) "420685079261290336141014455765"
+						26) "2"
+						27) "9261290335949229630363"
+						28) "1"
+						29) "420024949261290357477001340046"
+						30) "1"
+						31) "202409161753OLBG8C"
+						32) "1"
+						33) "9261290335949230154858"
+						34) "2"
+						35) "420307079261290326129413698900"
+						36) "2"
+						37) "9261290316844308890933"
+						38) "1"
+						39) "420770849261290339607815132979"
+						40) "1"
+						41) "92612903574627200000616305"
+						42) "1"
+						43) "420936119261290339603809916723"
+						44) "1"
+						45) "420172259261290326147806645102"
+						46) "1"
+						47) "420458149261290326129413710299"
+						48) "1"
+						49) "420104689261290326129409949382"
+						50) "1"
+						51) "420563309261290326129413681087"
+						52) "2"
+						53) "420083609261290336141014522962"
+						54) "1"
+						55) "AUFFA_E758BEBA51B94108B65"
+						56) "2"
+						57) "420341199261290326129413705905"
+						58) "2"
+						59) "420917639261290367765900420202"
+						60) "1"
+						61) "420708089261290326129413688321"
+						62) "2"
+						63) "420058519261290339604605890187"
+						64) "2"
+						65) "420926129261290336128706690949"
+						66) "1"
+						67) "420109179261290339613109137346"
+						68) "1"
+						69) "420281059261290326129413714433"
+						70) "1"
+						71) "420317219261290326139109070118"
+						72) "2"
+						73) "420050699261290339613109315409"
+						74) "2"
+						75) "420275189261290326129413672795"
+						76) "2"
+						77) "9261299991773707690258"
+						78) "2"
+						79) "420347479261290316858723827924"
+						80) "2"
+						81) "92612903574627200000616336"
+						82) "1"
+						83) "AUFFA_76CF96DD71374521898"
+						84) "2"
+						85) "9261299991773707690388"
+						86) "2"
+						87) "92612903261152000017602625"
+						88) "1"
+						89) "9261290260132704137663"
+						90) "1"
+						91) "420113779261290326129413722322"
+						92) "1"
+						93) "420787599261290336141014522757"
+						94) "1"
+						95) "GM533396755333666603"
+						96) "1"
+						97) "420958279261290304413702445541"
+						98) "1"
+						99) "9261290223363319955192"
+					100) "1"
+					101) "GMBC288FB538624BDA858A"
+					102) "1"
+					103) "6101160904395834"
+					104) "1"
+					105) "420222079261290326129410966064"
+					106) "1"
+					107) "420497819261290326129413660396"
+					108) "2"
+					109) "202409091354ZYKVSZ"
+					110) "1"
+					111) "420972539261290260127415596380"
+					112) "1"
+					113) "420687019261290326139108947114"
+					114) "1"
+					115) "420325419261290326129413716956"
+					116) "1"
+					117) "420630269261290339609506190091"
+					118) "2"
+					119) "GM69767EE80E824D23889E"
+					120) "1"
+					121) "420193659261290326123904391264"
+					122) "1"
+					123) "9261290335949229808458"
+					124) "2"
+					125) "420229119261290326129413717632"
+					126) "1"
+					127) "420974789261290326129413684514"
+					128) "2"
+					129) "9261290357481900886420"
+					130) "2"
+					131) "420221539261290326139109161304"
+					132) "1"
+					133) "9261290335949230037298"
+					134) "2"
+					135) "9261290260132704098995"
+					136) "1"
+					137) "420483099261290336141014542649"
+					138) "1"
+					139) "202409091306S739VC"
+					140) "1"
+					141) "GMD455904D4F774425B996"
+					142) "1"
+					143) "602000389711"
+					144) "1"
+					145) "9261290249315910348086"
+					146) "2"
+					147) "420402169261290336141014527417"
+					148) "1"
+					149) "420495259261290326129413740838"
+					150) "1"
+					151) "3SMPK20787306"
+					152) "2"
+					153) "420857429261290326139108346603"
+					154) "1"
+					155) "9261290316844308880934"
+					156) "1"
+					157) "9400111206207020728479"
+					158) "1"
+					159) "AUFFWRTS93075856INC002T"
+					160) "1"
+					161) "420193019261290326129413673099"
+					162) "2"
+					163) "AUFFA_8285489639AA4338AA1"
+					164) "1"
+					165) "420236629261290326129413736640"
+					166) "1"
+					167) "9261290260120007125708"
+					168) "2"
+					169) "9261290335949230159952"
+					170) "2"
+					171) "AUFFWRTS92838966INC002T"
+					172) "1"
+					173) "420371229261290326129413702218"
+					174) "2"
+					175) "9261290249331943217021"
+					176) "1"
+					177) "420662079261290304431204786658"
+					178) "1"
+					179) "AUFFWRTS93425635INC001T"
+					180) "1"
+					181) "9261290304448208146470"
+					182) "2"
+					183) "9261290335949229630103"
+					184) "1"
+					185) "9261290335949229990689"
+					186) "2"
+					187) "420980129261290326147807035087"
+					188) "2"
+					189) "6101140904570614"
+					190) "1"
+					191) "420945339261290326139109161144"
+					192) "1"
+					193) "9DWR0TZ2ZOWUU3ZECKSI0DKCE"
+					194) "2"
+					195) "420949549261290260127415596144"
+					196) "1"
+					197) "420034469261290357477001375420"
+					198) "1"
+					199) "9261290335949230053205"
+					200) "2"
+					201) "420115309261290326129413746489"
+					202) "1"
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# redis del dhl_count_2024091812 
+					(integer) 1
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# redis hscan dhl_count_2024091812 0 match '*' count 100
+					1) "0"
+					2) (empty list or set)
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# redis hscan dhl_count_2024091812 0 match '*' count 100
+					1) "0"
+					2) (empty list or set)
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# php /home/wwwroot/www.trackingmore.com/script/warning_redis.php dfdf 10 | grep ':redis:' -A8
+					string(181) "Foreign:redis:
+					node:0: 100% > 10%
+					node:1: 93.28% > 10%
+					node:2: 90.24% > 10%
+					node:3: 94.34% > 10%
+					node:4: 87.04% > 10%
+					node:5: 93.39% > 10%
+					node:6: 99.63% > 10%
+					node:7: 86.81% > 10%
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# redis del Z_R_P_U_hhexp_SET
+					(integer) 1
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# redis del Z_R_P_U_fastway-ie_SET
+					(integer) 1
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# redis del Z_R_P_U_india-post_SET
+					(integer) 1
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# redis del Z_R_P_U_lgs_SET
+					(integer) 1
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# redis del Z_R_P_U_fzrexp_SET
+					(integer) 1
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# redis del Z_R_P_U_dhlink_SET
+					(integer) 1
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# redis del Z_R_P_U_huahai_SET
+					(integer) 1
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# redis del Z_P_U_4px_B_SET
+					(integer) 1
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# redis del Z_R_P_U_zip-ph_SET
+					(integer) 1
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# redis del dhl_count_2024091812
+					(integer) 0
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# php /home/wwwroot/www.trackingmore.com/script/warning_redis.php dfdf 10 | grep ':redis:' -A8
+					string(180) "Foreign:redis:
+					node:0: 96.41% > 10%
+					node:1: 93.29% > 10%
+					node:2: 90.22% > 10%
+					node:3: 94.36% > 10%
+					node:4: 87% > 10%
+					node:5: 93.59% > 10%
+					node:6: 99.65% > 10%
+					node:7: 86.78% > 10%
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# redis scard Express_M_C_S
+					(integer) 4219615
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# redis scard Express_M_C_S
+					(integer) 4262197
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# php /home/wwwroot/www.trackingmore.com/script/warning_redis.php dfdf 10 | grep ':redis:' -A8
+					string(181) "Foreign:redis:
+					node:0: 84.8% > 10%
+					node:1: 93.31% > 10%
+					node:2: 90.87% > 10%
+					node:3: 94.29% > 10%
+					node:4: 86.9% > 10%
+					node:5: 96.53% > 10%
+					node:6: 100.01% > 10%
+					node:7: 86.1% > 10%
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# php /home/wwwroot/www.trackingmore.com/script/warning_redis.php dfdf 10 | grep ':redis:' -A8
+					string(180) "Foreign:redis:
+					node:0: 70.7% > 10%
+					node:1: 93.38% > 10%
+					node:2: 90.87% > 10%
+					node:3: 94.27% > 10%
+					node:4: 86.91% > 10%
+					node:5: 97.08% > 10%
+					node:6: 100% > 10%
+					node:7: 86.12% > 10%
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# redis scard Express_M_C_S
+					(integer) 4
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# redis scard Express_M_C_S
+					(integer) 2
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# php /home/wwwroot/www.trackingmore.com/script/warning_redis.php dfdf 10 | grep ':redis:' -A8
+					string(180) "Foreign:redis:
+					node:0: 70.73% > 10%
+					node:1: 93.46% > 10%
+					node:2: 90.85% > 10%
+					node:3: 94.3% > 10%
+					node:4: 86.91% > 10%
+					node:5: 98.07% > 10%
+					node:6: 100% > 10%
+					node:7: 86.05% > 10%
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# sh redisMemory.sh 
+					Display all 1559 possibilities? (y or n)
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# sh redisMemory.sh Z_R_P_U_royal-mail-v2_SET
+					2025-05-14 19:09:35
+					redis memory usage Z_R_P_U_royal-mail-v2_SET
+					(integer) 26891424
+					redis info key Z_R_P_U_royal-mail-v2_SET
+					slot:12784 node_index:6
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# redis del  Z_R_P_U_royal-mail-v2_SET
+					(integer) 1
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# php /home/wwwroot/www.trackingmore.com/script/warning_redis.php dfdf 10 | grep ':redis:' -A8
+					string(182) "Foreign:redis:
+					node:0: 70.72% > 10%
+					node:1: 93.71% > 10%
+					node:2: 90.9% > 10%
+					node:3: 94.29% > 10%
+					node:4: 86.92% > 10%
+					node:5: 98.68% > 10%
+					node:6: 98.73% > 10%
+					node:7: 86.04% > 10%
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# php /home/wwwroot/www.trackingmore.com/script/warning_redis.php dfdf 10 | grep ':redis:' -A8
+					string(183) "Foreign:redis:
+					node:0: 71.27% > 10%
+					node:1: 94.27% > 10%
+					node:2: 91.11% > 10%
+					node:3: 94.81% > 10%
+					node:4: 87.56% > 10%
+					node:5: 99.02% > 10%
+					node:6: 99.29% > 10%
+					node:7: 84.98% > 10%
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# redis llen courier_sf-international_ticket
+					(integer) 9018
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# sh redisMemory.sh courier_sf-international_ticket
+					2025-05-14 19:14:56
+					redis memory usage courier_sf-international_ticket
+					(integer) 4309335
+					redis info key courier_sf-international_ticket
+					slot:13849 node_index:6
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# redis llen courier_sf-international_ticket
+					(integer) 9029
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# redis llen courier_sf-international_ticket
+					(integer) 9045
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# php /home/wwwroot/www.trackingmore.com/script/warning_redis.php dfdf 10 | grep ':redis:' -A8
+					string(182) "Foreign:redis:
+					node:0: 71.33% > 10%
+					node:1: 93.29% > 10%
+					node:2: 92.17% > 10%
+					node:3: 94.74% > 10%
+					node:4: 87.5% > 10%
+					node:5: 98.71% > 10%
+					node:6: 99.13% > 10%
+					node:7: 84.89% > 10%
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# php /home/wwwroot/www.trackingmore.com/script/warning_redis.php dfdf 10 | grep ':redis:' -A8
+					string(182) "Foreign:redis:
+					node:0: 71.36% > 10%
+					node:1: 93.1% > 10%
+					node:2: 92.12% > 10%
+					node:3: 94.64% > 10%
+					node:4: 87.37% > 10%
+					node:5: 98.52% > 10%
+					node:6: 99.07% > 10%
+					node:7: 84.76% > 10%
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# php /home/wwwroot/www.trackingmore.com/script/warning_redis.php dfdf 10 | grep ':redis:' -A8
+					string(181) "Foreign:redis:
+					node:0: 71.14% > 10%
+					node:1: 92.8% > 10%
+					node:2: 91.87% > 10%
+					node:3: 94.42% > 10%
+					node:4: 87.2% > 10%
+					node:5: 98.25% > 10%
+					node:6: 98.88% > 10%
+					node:7: 84.63% > 10%
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# php /home/wwwroot/www.trackingmore.com/script/warning_redis.php dfdf 10 | grep ':redis:' -A8
+					string(183) "Foreign:redis:
+					node:0: 71.43% > 10%
+					node:1: 92.82% > 10%
+					node:2: 92.11% > 10%
+					node:3: 94.66% > 10%
+					node:4: 87.45% > 10%
+					node:5: 98.44% > 10%
+					node:6: 99.03% > 10%
+					node:7: 84.88% > 10%
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# sh redisMemory.sh error_push_to_eta
+					2025-05-14 19:19:24
+					redis memory usage error_push_to_eta
+					(integer) 12682134
+					redis info key error_push_to_eta
+					slot:12533 node_index:6
+
+					开启节点0扫描任务
+					开启节点5扫描任务
+					开启节点6扫描任务
+
+					cat /home/wwwroot/www.trackingmore.com/python_img/redis.bigkey.0.length_10240_.20250404.log | awk -F: '{print $4" "$NF" "$5}' | sort -nrk2 | head -20
+
+						Z_R_P_U_hhexp_SET 103729182 zset
+						air_999_ocr_success_log 51636784 set
+						Z_R_P_U_fastway-ie_SET 34644849 zset
+						brazil-correios_ocr_success_log 22151400 set
+						Z_R_P_U_india-post_SET 14587686 zset
+						Z_R_P_U_lgs_SET 11579908 zset
+						Z_R_P_U_fzrexp_SET 8715694 zset
+						Z_R_P_U_dhlink_SET 7642920 zset
+						Z_R_P_U_huahai_SET 7308225 zset
+						Z_P_U_4px_B_SET 7128756 zset
+						TrackingCompanyData_ru_8 6291536 string
+						TrackingCompanyData_ru_4 6291536 string
+						TrackingCompanyData_ru_0 6291536 string
+						Z_R_P_U_zip-ph_SET 4974392 zset
+						dhl_count_2024091812 4213444 hash
+						TrackingCompanyData_ar_8 4194384 string
+						TrackingCompanyData_ar_4 4194384 string
+						TrackingCompanyData_ar_0 4194384 string
+						TrackingCompanyData_ja_8 3670096 string
+						TrackingCompanyData_ja_4 3670096 string
+					
+					redis del Z_R_P_U_hhexp_SET
+					redis del Z_R_P_U_fastway-ie_SET
+					redis del Z_R_P_U_india-post_SET
+					redis del Z_R_P_U_lgs_SET
+					redis del Z_R_P_U_fzrexp_SET
+					redis del Z_R_P_U_dhlink_SET
+					redis del Z_R_P_U_huahai_SET
+					redis del Z_P_U_4px_B_SET
+					redis del Z_R_P_U_zip-ph_SET
+					redis del dhl_count_2024091812
+
 			-- 20250511
 				ind_resque-145-44-35-tm
 					[root@iz0xibhd8xjxiru8zt5ietz ~]# tail -100 redis.bigkeys.log
