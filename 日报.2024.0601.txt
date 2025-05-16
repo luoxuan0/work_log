@@ -15560,6 +15560,85 @@
 										100.123.21.202 - - [11/May/2025:16:00:01 +0800] "HEAD / HTTP/1.0" 200 0 "-" "-"
 										100.127.195.55 - - [11/May/2025:16:00:01 +0800] "HEAD / HTTP/1.0" 200 0 "-" "-"
 										100.127.194.155 - - [11/May/2025:16:00:01 +0800] "HEAD / HTTP/1.0" 200 0 "-" "-"
+									--20250516
+										[root@iZ94apf5ivnZ ~]# find / -name '*' -type f -size +100M | xargs ls -lh {} | sort -nrk5
+										find: ‘/proc/21228/task/21228/fdinfo/6’: No such file or directory
+										find: ‘/proc/21228/fdinfo/5’: No such file or directory
+										ls: cannot access {}: No such file or directory
+										-rw-------  1 root root 526M May 16 21:22 /home/wwwlogs/phpslow.log
+										-rw-r--r--  1 root root 393M Jan  2  2024 /run/log/home-wwwroot-mytracking-logs/send.log.2023.1010.2024.0102.zip
+										-r--------  1 root root 128T May 17 00:03 /proc/kcore
+										-rw-r--r--  1 root root 126M Aug 24  2023 /var/cache/yum/x86_64/7/updates/gen/primary_db.sqlite
+										-rw-r--r--. 1 root root 119M Aug 30  2023 /var/lib/rpm/Packages
+										-rw-r--r--  1 root root 118M Feb  4 19:21 /data/server_logs/usr/local/php7.0.33/var/log/20250204175501.php-fpm.log.zip
+										-rw-r--r--  1 root root 118M Aug 31  2020 /usr/local/rasp-php-linux.tar.bz2
+										-rw-r--r--  1 root root 107M Jul 13  2022 /home/wwwroot/www.trackingmore.com/download/K2msSfC9SHV3g32NAtw70TPmgA00O.csv
+										-rw-r--r--  1 root root 104M Aug  1  2022 /home/wwwlogs/host.trackingmore.com.log
+										-rw-r--r--  1 root root 102M May 15  2019 /usr/lib/locale/locale-archive
+										-rw-r--r--  1 root root 102M Jul 13  2022 /home/wwwroot/www.trackingmore.com/download/gOl2XfRfiaS2VwX7g8eqy8vmroMpxT8JHEZK8qoAB0RsF.csv
+										[root@iZ94apf5ivnZ ~]# df -h
+										Filesystem      Size  Used Avail Use% Mounted on
+										/dev/vda1        49G   45G  2.8G  95% /
+										devtmpfs        3.7G     0  3.7G   0% /dev
+										tmpfs           3.7G     0  3.7G   0% /dev/shm
+										tmpfs           3.7G  781M  3.0G  21% /run
+										tmpfs           3.7G     0  3.7G   0% /sys/fs/cgroup
+										tmpfs           756M     0  756M   0% /run/user/1004
+										tmpfs           756M     0  756M   0% /run/user/0
+										[root@iZ94apf5ivnZ ~]# bash diskCheck.sh / 3 100; bash diskCheck.sh /data/server_logs 3 100;bash diskCheck.sh /home/wwwroot 3 100
+										├── /: 46869 MB
+										│   ├── /root: 763 MB
+										│   │   ├── /root/.cache: 136 MB
+										│   ├── /boot: 162 MB
+										│   ├── /data: 1376 MB
+										│   │   ├── /data/server_logs: 1340 MB
+										│   ├── /var: 653 MB
+										│   │   ├── /var/log: 123 MB
+										│   │   ├── /var/lib: 199 MB
+										│   │   ├── /var/cache: 321 MB
+										│   ├── /run: 781 MB
+										│   │   ├── /run/log: 781 MB
+										│   ├── /home: 31898 MB
+										│   │   ├── /home/wwwroot: 29774 MB
+										│   │   ├── /home/wwwlogs: 2124 MB
+										│   │   │   └── phpslow.log: 526 MB
+										│   │   │   └── host.trackingmore.com.log: 104 MB
+										│   ├── /usr: 10981 MB
+										│   │   ├── /usr/lib64: 478 MB
+										│   │   ├── /usr/lib: 736 MB
+										│   │   ├── /usr/share: 654 MB
+										│   │   ├── /usr/bin: 237 MB
+										│   │   ├── /usr/local: 8450 MB
+										│   │   │   └── rasp-php-linux.tar.bz2: 118 MB
+										│   │   ├── /usr/src: 203 MB
+										│   │   └── kcore: 134217727 MB
+										├── /data/server_logs: 1340 MB
+										│   ├── /data/server_logs/home: 1149 MB
+										│   │   ├── /data/server_logs/home/wwwroot: 1149 MB
+										│   ├── /data/server_logs/usr: 126 MB
+										│   │   ├── /data/server_logs/usr/local: 126 MB
+										├── /home/wwwroot: 29680 MB
+										│   ├── /home/wwwroot/upload: 731 MB
+										│   │   ├── /home/wwwroot/upload/lipeng: 583 MB
+										│   ├── /home/wwwroot/www.51tracking.com: 7885 MB
+										│   │   ├── /home/wwwroot/www.51tracking.com/admin: 6011 MB
+										│   │   ├── /home/wwwroot/www.51tracking.com/section: 321 MB
+										│   ├── /home/wwwroot/www.trackingmore.com: 7577 MB
+										│   │   ├── /home/wwwroot/www.trackingmore.com/php-resque: 116 MB
+										│   │   ├── /home/wwwroot/www.trackingmore.com/python3: 199 MB
+										│   │   ├── /home/wwwroot/www.trackingmore.com/admin: 111 MB
+										│   │   ├── /home/wwwroot/www.trackingmore.com/section: 445 MB
+										│   │   ├── /home/wwwroot/www.trackingmore.com/script: 1858 MB
+										│   │   ├── /home/wwwroot/www.trackingmore.com/download: 2647 MB
+										│   │   │   └── K2msSfC9SHV3g32NAtw70TPmgA00O.csv: 107 MB
+										│   │   │   └── gOl2XfRfiaS2VwX7g8eqy8vmroMpxT8JHEZK8qoAB0RsF.csv: 102 MB
+										│   │   ├── /home/wwwroot/www.trackingmore.com/api: 930 MB
+										│   │   ├── /home/wwwroot/www.trackingmore.com/logs: 199 MB
+										│   │   ├── /home/wwwroot/www.trackingmore.com/python_img: 245 MB
+										│   ├── /home/wwwroot/mytracking: 13487 MB
+										│   │   ├── /home/wwwroot/mytracking/downloads: 490 MB
+										│   │   ├── /home/wwwroot/mytracking/uploads: 8491 MB
+										│   │   ├── /home/wwwroot/mytracking/logs: 4414 MB
 								-159-205-tm
 									[root@iz0xif9y7r0fstxmq97t54z queueshell]# df -h
 									Filesystem      Size  Used Avail Use% Mounted on
