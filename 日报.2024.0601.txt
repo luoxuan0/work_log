@@ -8089,6 +8089,13 @@
 
 	客诉
 		https://devops.aliyun.com/projex/bug/TMPX-8194# 《Webhook delays issue》
+			-- 20250516
+				情况1调整后跟进
+					整体说明文档
+				整体优化
+					展示webhook记录
+					展示延迟时间（进一步展示上次记录，用以展示官网延迟放出信息的情况）
+
 			-- 20250513
 				结合ai做脚本分析
 					测试智能体2
@@ -8731,6 +8738,159 @@
 
 	告警
 		redis节点内存
+			-- 20250516
+				ind_resque-145-44-35-tm
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# php /home/wwwroot/www.trackingmore.com/script/warning_redis.php dfdf 10 | grep ':redis:' -A8
+					string(182) "Foreign:redis:
+					node:0: 73.83% > 10%
+					node:1: 85.47% > 10%
+					node:2: 83.37% > 10%
+					node:3: 99.46% > 10%
+					node:4: 85.8% > 10%
+					node:5: 77.94% > 10%
+					node:6: 86.16% > 10%
+					node:7: 83.76% > 10%
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# tail -100 redis.bigkeys.log
+					[00.00%] Biggest set    found so far 'server_9200190349451108914617_usps_SET' with 1 members
+					[00.00%] Biggest set    found so far 'pitneybowes45.42.177.43:3128' with 2 members
+					[00.00%] Biggest string found so far 'API_AS_create_245180_1678089600_APIB' with 4 bytes
+					[00.00%] Biggest string found so far 'resque:job:66189ba09dd314a13784c85089ce7f20:status' with 33 bytes
+					[00.00%] Biggest string found so far 'NotFound_Retrack_218491_52512830' with 115 bytes
+					[00.00%] Biggest set    found so far 'S_API_AS_V4_1739962800' with 249 members
+					[00.00%] Biggest string found so far 'NotFound_Retrack_224763_180805731' with 130 bytes
+					[00.00%] Biggest string found so far 'rule_content_new_0_1302_0' with 42641 bytes
+					[00.01%] Biggest zset   found so far 'air_track_count:232-59299542' with 1 members
+					[00.01%] Biggest zset   found so far 'air_track_count:235-93604663' with 5 members
+					[00.01%] Biggest set    found so far 'updateNotfoundCourier:wearepro:existSpecifyCourier' with 5531 members
+					[00.02%] Biggest zset   found so far 'air_track_count:125-14580274' with 33 members
+					[00.03%] Biggest hash   found so far 'dhl_count_2025021403' with 5 fields
+					[00.07%] Biggest zset   found so far 'air_track_count:784-08113545' with 151 members
+					[00.09%] Biggest hash   found so far 'dhl_count_2024093005' with 1265 fields
+					[00.11%] Biggest zset   found so far 'Z_R_P_U_moldova-post_SET' with 537 members
+					[00.12%] Biggest string found so far '99minutos_14_17_18_N_BIT' with 62226 bytes
+					[00.15%] Biggest hash   found so far 'dhl_count_2024112109' with 13695 fields
+					[00.23%] Biggest set    found so far 'updateNotfoundCourier:delhivery:updatedNumber:updateNotfoundCourier:delhivery:overOneNumberNotIncludedSpecifyCourier' with 8977 members
+					[00.23%] Biggest string found so far 'fastway-au_16_12_25_N_BIT' with 71457 bytes
+					[00.25%] Biggest hash   found so far 'dhl_count_2024112609' with 17974 fields
+					[00.25%] Biggest string found so far 'mem_page_lang_detail_tw' with 458477 bytes
+					[00.25%] Biggest set    found so far 'updateNotfoundCourier:asendia-usa:updatedNumberWithOldCourier:updateNotfoundCourier:asendia-usa:overOneNumberNotIncludedSpecifyCourier' with 32160 members
+					[00.27%] Biggest string found so far 'rule_content_new_0_92_4' with 2742784 bytes
+					[00.36%] Biggest zset   found so far 'Z_R_P_U_auspost_SET' with 2409 members
+					[00.59%] Biggest zset   found so far 'Z_R_P_U_hhexp_SET' with 4701 members
+					[00.64%] Biggest zset   found so far 'Z_R_P_U_usps_track123_SET_real_2024121722' with 5066 members
+					[00.70%] Biggest zset   found so far 'Z_R_P_U_gzxdgyl_SET' with 6011 members
+					[01.02%] Biggest set    found so far 'notfound_courier_code_dhlglobalmail' with 33718 members
+					[01.36%] Biggest zset   found so far 'Z_R_P_U_sdhexpress_SET' with 63314 members
+					[02.19%] Biggest string found so far '260086_Import_20230520150043' with 3284089 bytes
+					[02.36%] Biggest hash   found so far 'dhl_count_2024102316' with 26683 fields
+					[02.48%] Biggest list   found so far 'resque:queue:trackFQueue' with 10 items
+					[02.82%] Biggest string found so far 'TrackingCompanyData_ru_0' with 5990265 bytes
+					[03.46%] Sampled 1000000 keys so far
+					[04.25%] Biggest list   found so far 'resque:queue:shopifyWebhookQueue' with 30 items
+					[06.73%] Biggest hash   found so far 'dhl_count_2024110220' with 28882 fields
+					[06.92%] Sampled 2000000 keys so far
+					[07.32%] Biggest zset   found so far 'Z_R_P_U_india-post_SET' with 85968 members
+					[07.36%] Biggest hash   found so far 'dhl_count_2024110316' with 42122 fields
+					[08.00%] Biggest list   found so far 'resque:queue:updateInIndependentServer4pxRedisForeignToHomeReceiveDataQueue' with 80 items
+					[09.75%] Biggest set    found so far 'lbcexpress_IP_lbcexpress.com' with 35984 members
+					[10.38%] Sampled 3000000 keys so far
+					[13.19%] Biggest set    found so far 'R_P_U_ukraine-post_SET' with 55533 members
+					[13.51%] Biggest list   found so far 'courier_jtexpress-ae_ticket' with 126 items
+					[13.84%] Sampled 4000000 keys so far
+					[16.67%] Biggest set    found so far 'quiqup_input' with 69208 members
+					[17.30%] Sampled 5000000 keys so far
+					[17.84%] Biggest hash   found so far 'dhl_count_2024091710' with 62423 fields
+					[18.46%] Biggest list   found so far 'resque:queue:platefromWishQueue' with 14071 items
+					[20.76%] Sampled 6000000 keys so far
+					[21.08%] Biggest zset   found so far 'Z_R_P_U_couriers-please_SET' with 239065 members
+					[22.21%] Biggest hash   found so far 'TRACKING_TIME_PREPARE' with 204636 fields
+					[24.22%] Sampled 7000000 keys so far
+					[27.68%] Sampled 8000000 keys so far
+					[27.74%] Biggest zset   found so far 'Z_P_U_australia-post_B_SET_ERROR' with 539747 members
+					[31.14%] Sampled 9000000 keys so far
+					[34.60%] Sampled 10000000 keys so far
+					[35.66%] Biggest set    found so far 'cainiao_IP_global.cainiao.com' with 291412 members
+					[38.06%] Sampled 11000000 keys so far
+					[41.52%] Sampled 12000000 keys so far
+					[42.35%] Biggest set    found so far 'updateNotfoundCourier:usps:updatedNumberWithOldCourier' with 760282 members
+					[42.53%] Biggest zset   found so far 'Z_SPE_cache_4px_SET' with 868913 members
+					[44.97%] Sampled 13000000 keys so far
+					[45.62%] Biggest set    found so far 'C_S_N_S1_SET' with 1040396 members
+					[48.43%] Sampled 14000000 keys so far
+					[51.89%] Sampled 15000000 keys so far
+					[53.90%] Biggest set    found so far 'U_S_N_NO_SET' with 1090338 members
+					[55.35%] Sampled 16000000 keys so far
+					[58.81%] Sampled 17000000 keys so far
+					[62.27%] Sampled 18000000 keys so far
+					[65.73%] Sampled 19000000 keys so far
+					[68.71%] Biggest list   found so far 'resque:queue:airSendQueue' with 94449 items
+					[69.19%] Sampled 20000000 keys so far
+					[72.65%] Sampled 21000000 keys so far
+					[76.11%] Sampled 22000000 keys so far
+					[79.57%] Sampled 23000000 keys so far
+					[83.03%] Sampled 24000000 keys so far
+					[86.06%] Biggest list   found so far 'resque:queue:airWebhookQueue' with 199840 items
+					[86.49%] Sampled 25000000 keys so far
+					[89.95%] Sampled 26000000 keys so far
+					[93.41%] Sampled 27000000 keys so far
+					[96.87%] Sampled 28000000 keys so far
+
+					-------- summary -------
+
+					Sampled 28851524 keys in the keyspace!
+					Total key length in bytes is 1165471007 (avg len 40.40)
+
+					Biggest string found 'TrackingCompanyData_ru_0' has 5990265 bytes
+					Biggest   list found 'resque:queue:airWebhookQueue' has 199840 items
+					Biggest    set found 'U_S_N_NO_SET' has 1090338 members
+					Biggest   hash found 'TRACKING_TIME_PREPARE' has 204636 fields
+					Biggest   zset found 'Z_SPE_cache_4px_SET' has 868913 members
+
+					12603020 strings with 1416151937 bytes (43.68% of keys, avg size 112.37)
+					40 lists with 451451 items (00.00% of keys, avg size 11286.27)
+					16231321 sets with 35230764 members (56.26% of keys, avg size 2.17)
+					5417 hashs with 10436256 fields (00.02% of keys, avg size 1926.57)
+					11726 zsets with 10223046 members (00.04% of keys, avg size 871.83)
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# redis zcard Z_SPE_cache_4px_SET
+					(integer) 877474
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# tail -1000 redis.bigkeys.log | grep Z_SPE_cache_4px_SET
+					[42.71%] Biggest zset   found so far 'Z_SPE_cache_4px_SET' with 581427 members
+					[42.69%] Biggest zset   found so far 'Z_SPE_cache_4px_SET' with 636049 members
+					Biggest   zset found 'Z_SPE_cache_4px_SET' has 636049 members
+					[42.65%] Biggest zset   found so far 'Z_SPE_cache_4px_SET' with 676089 members
+					Biggest   zset found 'Z_SPE_cache_4px_SET' has 676089 members
+					[42.66%] Biggest zset   found so far 'Z_SPE_cache_4px_SET' with 719636 members
+					Biggest   zset found 'Z_SPE_cache_4px_SET' has 719636 members
+					[42.71%] Biggest zset   found so far 'Z_SPE_cache_4px_SET' with 762235 members
+					Biggest   zset found 'Z_SPE_cache_4px_SET' has 762235 members
+					[42.68%] Biggest zset   found so far 'Z_SPE_cache_4px_SET' with 809609 members
+					Biggest   zset found 'Z_SPE_cache_4px_SET' has 809609 members
+					[42.53%] Biggest zset   found so far 'Z_SPE_cache_4px_SET' with 868913 members
+					Biggest   zset found 'Z_SPE_cache_4px_SET' has 868913 members
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# redis keys Z_R_P_U_usps_track123_SET_real_* | wc -l
+					378
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# redis keys Z_R_P_U_usps_track123_SET_real_2024* | wc -l
+					378
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# redis zrange Z_R_P_U_usps_track123_SET_real_2024121722 0 0
+					1) "{\"track_number\":\"CN123456789US\",\"courier\":\"usps\",\"userid\":\"428773\"}"
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# sh redisMemory.sh Z_SPE_cache_4px_SET
+					2025-05-16 23:51:18
+					redis memory usage Z_SPE_cache_4px_SET
+					(integer) 137558641
+					redis info key Z_SPE_cache_4px_SET
+					slot:6656 node_index:3
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# redis del Z_SPE_cache_4px_SET
+					(integer) 1
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# php /home/wwwroot/www.trackingmore.com/script/warning_redis.php dfdf 10 | grep ':redis:' -A8
+					string(183) "Foreign:redis:
+					node:0: 73.67% > 10%
+					node:1: 85.22% > 10%
+					node:2: 83.15% > 10%
+					node:3: 92.62% > 10%
+					node:4: 85.56% > 10%
+					node:5: 77.69% > 10%
+					node:6: 85.88% > 10%
+					node:7: 83.62% > 10%
 			-- 20250514
 				ind_resque-145-44-35-tm
 					[00.26%] Biggest string found so far 'mem_page_lang_detail_tw' with 458477 bytes
@@ -12649,6 +12809,105 @@
 										overlay          40G   37G  2.7G  94% /var/lib/docker/overlay2/59ca7e38d5053a3062bce79ba5dd8934e5abe477125dd0fbf0aae1019223218d/merged
 										tmpfs           1.6G     0  1.6G   0% /run/user/1002
 										[root@iz0xibhd8xjxiru8zt5ierz ~]# df -h
+									-- 20250516
+										[root@iz0xibhd8xjxiru8zt5ierz ~]# find / -name '*' -type f -size +100M | xargs ls -lh {} | sort -nrk5
+										find: ‘/proc/8875/task/8875/fdinfo/6’: No such file or directory
+										find: ‘/proc/8875/fdinfo/5’: No such file or directory
+										-rwxr-xr-x  1 root root 512M May 16 12:19 /home/wwwroot/mytracking/logs/redis_queue/consumer/translate.log
+										-rwxr-xr-x  1 root root 399M May 16 12:19 /home/wwwroot/mytracking/logs/jobs/translateJobs.log
+										-rw-r--r--  1 root root 328M Apr  1 17:05 /root/tr_tracknumber_effective_for_rule.zip
+										-rw-r--r--  1 root root 203M May 14 21:01 /home/wwwroot/www.trackingmore.com/python_img/redis.bigkey.6.length_1_1024.20250514.log
+										-rw-r--r--  1 root root 203M May 14 18:51 /home/wwwroot/www.trackingmore.com/python_img/redis.bigkey.0.length_1_1024.20250514.log
+										-rw-r--r--  1 root root 202M May 14 20:52 /home/wwwroot/www.trackingmore.com/python_img/redis.bigkey.5.length_1_1024.20250514.log
+										-rw-r--r--  1 root root 199M May 16 09:08 /home/wwwroot/www.trackingmore.com/script/log/infoIDInsertInfo_br.log
+										-rw-r--r--  1 root root 193M Apr 30 08:03 /home/wwwroot/www.trackingmore.com/python_img/redis.bigkey.6.length_1_1024.20250430.log
+										-rw-r--r--  1 root root 193M Apr 19 03:47 /run/log/home-wwwroot-www.trackingmore.com-python_img/redis.bigkey.4.length_1_1024.20250419.log
+										-rw-r--r--  1 root root 190M Apr 29 10:38 /home/wwwroot/www.trackingmore.com/python_img/redis.bigkey.6.length_1_1024.20250429.log
+										-rw-r--r--  1 root root 190M Apr 18 21:56 /run/log/home-wwwroot-www.trackingmore.com-python_img/redis.bigkey.0.length_1_1024.20250418.log
+										-rw-r--r--  1 root root 188M Apr 19 02:29 /run/log/home-wwwroot-www.trackingmore.com-python_img/redis.bigkey.3.length_1_1024.20250419.log
+										-rw-r--r--  1 root root 187M Apr 18 23:08 /run/log/home-wwwroot-www.trackingmore.com-python_img/redis.bigkey.1.length_1_1024.20250418.log
+										-rw-r--r--  1 root root 186M Apr 19 05:09 /run/log/home-wwwroot-www.trackingmore.com-python_img/redis.bigkey.5.length_1_1024.20250419.log
+										-rw-r--r--  1 root root 185M Apr 19 06:28 /run/log/home-wwwroot-www.trackingmore.com-python_img/redis.bigkey.6.length_1_1024.20250419.log
+										-rw-r--r--  1 root root 183M Apr  5 02:52 /run/log/home-wwwroot-www.trackingmore.com-python_img/redis.bigkey.4.length_1_1024.20250405.log
+										-rw-r--r--  1 root root 180M Apr  4 20:51 /run/log/home-wwwroot-www.trackingmore.com-python_img/redis.bigkey.0.length_1_1024.20250404.log
+										-rw-r--r--  1 root root 177M Apr  4 23:38 /run/log/home-wwwroot-www.trackingmore.com-python_img/redis.bigkey.2.length_1_1024.20250404.log
+										-rw-r--r--  1 root root 177M Apr  4 22:28 /run/log/home-wwwroot-www.trackingmore.com-python_img/redis.bigkey.1.length_1_1024.20250404.log
+										-rw-r--r--  1 root root 176M Apr  5 05:27 /run/log/home-wwwroot-www.trackingmore.com-python_img/redis.bigkey.6.length_1_1024.20250405.log
+										-rw-r--r--  1 root root 176M Apr  5 04:06 /run/log/home-wwwroot-www.trackingmore.com-python_img/redis.bigkey.5.length_1_1024.20250405.log
+										-rw-r--r--  1 root root 171M Apr 19 07:47 /run/log/home-wwwroot-www.trackingmore.com-python_img/redis.bigkey.7.length_1_1024.20250419.log
+										-rw-r--r--  1 root root 161M Apr  5 06:50 /run/log/home-wwwroot-www.trackingmore.com-python_img/redis.bigkey.7.length_1_1024.20250405.log
+										-rw-r--r--  1 root root 156M Jun 22  2024 /var/cache/yum/x86_64/7/updates/gen/primary_db.sqlite
+										-rw-r--r--  1 root root 139M Apr  3  2024 /var/cache/yum/x86_64/7/updates/gen/filelists_db.sqlite
+										-r--------  1 root root 128T May 16 12:19 /proc/kcore
+										-rw-r--r--  1 root root 122M Apr  5 01:01 /run/log/home-wwwroot-www.trackingmore.com-python_img/redis.bigkey.3.length_1_1024.20250405.log
+										-rw-r--r--. 1 root root 110M Aug 27  2024 /var/lib/rpm/Packages
+										-rw-r--r--  1 root root 104M Mar  9 16:59 /home/wwwroot/www.trackingmore.com/python_img_zip/20240113.log.zip
+										-rw-r--r--  1 root root 104M Apr 18 23:59 /run/log/home-wwwroot-www.trackingmore.com-python_img/redis.bigkey.2.length_1_1024.20250418.log
+										-rwxr-xr-x  1 root root 102M Apr 23  2024 /usr/bin/dockerd
+										-rw-r--r--  1 root root 102M Feb 15  2020 /usr/lib/locale/locale-archive
+										-rw-r--r--  1 root root    3 May  2  2022 {}
+										[root@iz0xibhd8xjxiru8zt5ierz ~]# echo > /home/wwwroot/mytracking/logs/redis_queue/consumer/translate.log
+										[root@iz0xibhd8xjxiru8zt5ierz ~]# echo > /home/wwwroot/mytracking/logs/jobs/translateJobs.log
+										[root@iz0xibhd8xjxiru8zt5ierz ~]# df -h
+										Filesystem      Size  Used Avail Use% Mounted on
+										devtmpfs        7.7G     0  7.7G   0% /dev
+										tmpfs           7.7G     0  7.7G   0% /dev/shm
+										tmpfs           7.7G  2.7G  5.0G  36% /run
+										tmpfs           7.7G     0  7.7G   0% /sys/fs/cgroup
+										/dev/vda1        40G   38G  1.7G  96% /
+										tmpfs           1.6G     0  1.6G   0% /run/user/0
+										overlay          40G   38G  1.7G  96% /var/lib/docker/overlay2/59ca7e38d5053a3062bce79ba5dd8934e5abe477125dd0fbf0aae1019223218d/merged
+										tmpfs           1.6G     0  1.6G   0% /run/user/1002
+
+										97%
+										[root@iz0xibhd8xjxiru8zt5ierz ~]# ll -h /home/wwwroot/www.trackingmore.com/python_img/redis.bigkey.* | grep ' M'
+										-rw-r--r-- 1 root root 4.5K May 14 18:51 /home/wwwroot/www.trackingmore.com/python_img/redis.bigkey.0.length_0_1.20250514.log
+										-rw-r--r-- 1 root root 287K May 14 18:51 /home/wwwroot/www.trackingmore.com/python_img/redis.bigkey.0.length_10240_.20250514.log
+										-rw-r--r-- 1 root root 279K May 14 18:51 /home/wwwroot/www.trackingmore.com/python_img/redis.bigkey.0.length_1024_10240.20250514.log
+										-rw-r--r-- 1 root root 203M May 14 18:51 /home/wwwroot/www.trackingmore.com/python_img/redis.bigkey.0.length_1_1024.20250514.log
+										-rw-r--r-- 1 root root 8.1K May 16 19:53 /home/wwwroot/www.trackingmore.com/python_img/redis.bigkey.3.length_0_1.20250516.log
+										-rw-r--r-- 1 root root 306K May 16 19:54 /home/wwwroot/www.trackingmore.com/python_img/redis.bigkey.3.length_10240_.20250516.log
+										-rw-r--r-- 1 root root 315K May 16 19:54 /home/wwwroot/www.trackingmore.com/python_img/redis.bigkey.3.length_1024_10240.20250516.log
+										-rw-r--r-- 1 root root 203M May 16 19:54 /home/wwwroot/www.trackingmore.com/python_img/redis.bigkey.3.length_1_1024.20250516.log
+										-rw-r--r-- 1 root root  13K May 14 20:52 /home/wwwroot/www.trackingmore.com/python_img/redis.bigkey.5.length_0_1.20250514.log
+										-rw-r--r-- 1 root root 285K May 14 20:52 /home/wwwroot/www.trackingmore.com/python_img/redis.bigkey.5.length_10240_.20250514.log
+										-rw-r--r-- 1 root root 305K May 14 20:52 /home/wwwroot/www.trackingmore.com/python_img/redis.bigkey.5.length_1024_10240.20250514.log
+										-rw-r--r-- 1 root root 202M May 14 20:52 /home/wwwroot/www.trackingmore.com/python_img/redis.bigkey.5.length_1_1024.20250514.log
+										-rw-r--r-- 1 root root  12K May 14 21:01 /home/wwwroot/www.trackingmore.com/python_img/redis.bigkey.6.length_0_1.20250514.log
+										-rw-r--r-- 1 root root 292K May 14 21:01 /home/wwwroot/www.trackingmore.com/python_img/redis.bigkey.6.length_10240_.20250514.log
+										-rw-r--r-- 1 root root 305K May 14 21:01 /home/wwwroot/www.trackingmore.com/python_img/redis.bigkey.6.length_1024_10240.20250514.log
+										-rw-r--r-- 1 root root 203M May 14 21:01 /home/wwwroot/www.trackingmore.com/python_img/redis.bigkey.6.length_1_1024.20250514.log
+										-rw-r--r-- 1 root root  33K May  3  2023 /home/wwwroot/www.trackingmore.com/python_img/redis.bigkey.7.length_10240_.20230503.log.1
+										-rw-r--r-- 1 root root 151K May 16 19:54 /home/wwwroot/www.trackingmore.com/python_img/redis.bigkey.memory.log
+										[root@iz0xibhd8xjxiru8zt5ierz ~]# ll -h /home/wwwroot/www.trackingmore.com/python_img/redis.bigkey.* | grep 'M '
+										-rw-r--r-- 1 root root 203M May 14 18:51 /home/wwwroot/www.trackingmore.com/python_img/redis.bigkey.0.length_1_1024.20250514.log
+										-rw-r--r-- 1 root root  83M Apr 19 00:43 /home/wwwroot/www.trackingmore.com/python_img/redis.bigkey.2.length_1_1024.20250419.log
+										-rw-r--r-- 1 root root  57M Apr  4 23:59 /home/wwwroot/www.trackingmore.com/python_img/redis.bigkey.3.length_1_1024.20250404.log
+										-rw-r--r-- 1 root root 203M May 16 19:54 /home/wwwroot/www.trackingmore.com/python_img/redis.bigkey.3.length_1_1024.20250516.log
+										-rw-r--r-- 1 root root 202M May 14 20:52 /home/wwwroot/www.trackingmore.com/python_img/redis.bigkey.5.length_1_1024.20250514.log
+										-rw-r--r-- 1 root root 190M Apr 29 10:38 /home/wwwroot/www.trackingmore.com/python_img/redis.bigkey.6.length_1_1024.20250429.log
+										-rw-r--r-- 1 root root 193M Apr 30 08:03 /home/wwwroot/www.trackingmore.com/python_img/redis.bigkey.6.length_1_1024.20250430.log
+										-rw-r--r-- 1 root root 203M May 14 21:01 /home/wwwroot/www.trackingmore.com/python_img/redis.bigkey.6.length_1_1024.20250514.log
+										[root@iz0xibhd8xjxiru8zt5ierz ~]# find /home/wwwroot/www.trackingmore.com/python_img/ -name redis.bigkey.* -size +50M
+										/home/wwwroot/www.trackingmore.com/python_img/redis.bigkey.3.length_1_1024.20250516.log
+										/home/wwwroot/www.trackingmore.com/python_img/redis.bigkey.5.length_1_1024.20250514.log
+										/home/wwwroot/www.trackingmore.com/python_img/redis.bigkey.6.length_1_1024.20250429.log
+										/home/wwwroot/www.trackingmore.com/python_img/redis.bigkey.6.length_1_1024.20250514.log
+										/home/wwwroot/www.trackingmore.com/python_img/redis.bigkey.6.length_1_1024.20250430.log
+										/home/wwwroot/www.trackingmore.com/python_img/redis.bigkey.3.length_1_1024.20250404.log
+										/home/wwwroot/www.trackingmore.com/python_img/redis.bigkey.0.length_1_1024.20250514.log
+										/home/wwwroot/www.trackingmore.com/python_img/redis.bigkey.2.length_1_1024.20250419.log
+										[root@iz0xibhd8xjxiru8zt5ierz ~]# find /home/wwwroot/www.trackingmore.com/python_img/ -name redis.bigkey.* -size +50M | xargs -i mv {} /run/log/home-wwwroot-www.trackingmore.com-python_img/
+										[root@iz0xibhd8xjxiru8zt5ierz ~]# df -h
+										Filesystem      Size  Used Avail Use% Mounted on
+										devtmpfs        7.7G     0  7.7G   0% /dev
+										tmpfs           7.7G     0  7.7G   0% /dev/shm
+										tmpfs           7.7G  4.1G  3.7G  53% /run
+										tmpfs           7.7G     0  7.7G   0% /sys/fs/cgroup
+										/dev/vda1        40G   37G  2.7G  94% /
+										tmpfs           1.6G     0  1.6G   0% /run/user/0
+										overlay          40G   37G  2.7G  94% /var/lib/docker/overlay2/59ca7e38d5053a3062bce79ba5dd8934e5abe477125dd0fbf0aae1019223218d/merged
+										tmpfs           1.6G     0  1.6G   0% /run/user/1002
 									-- 20250510
 										find / -name '*' -type f -size +100M | xargs ls -lh {} | sort -nrk5
 										-rwxr-xr-x  1 root root 526M May 10 17:46 /home/wwwroot/mytracking/logs/redis_queue/consumer/translate.log
