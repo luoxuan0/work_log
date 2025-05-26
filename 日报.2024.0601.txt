@@ -9002,8 +9002,11 @@
 				排查流程自动触发
 					触发扫描脚本 指定节点
 					筛选指定key（比如>50M）
+						跑完扫描任务后执行
+						刷选后压缩小key文件
 					发送群里（24小时） （处理后清除记录24小时）
-					
+						标识同节点和时间相关（触发告警时配置24小时标识）
+
 			-- 20250516
 				ind_resque-174-77-tm
 					[root@iz0xibhd8xjxiru8zt5ierz ~]#  php /home/wwwroot/www.trackingmore.com/script/warning_redis.php dfdf 10 | grep ':redis:' -A8
