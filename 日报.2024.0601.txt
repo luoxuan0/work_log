@@ -7168,6 +7168,35 @@
 日常响应
 5，后续优先级、应对
 
+===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== =====
+20250528
+【告警】
+【客诉】
+【迁云】
+【桌面运维】
+【运维】
+
+原计划：
+运维
+1，bff服务部署
+2，ISO27001相关跟进-服务商&后续计划
+运维-迁云
+3，全景资源构思&初步梳理
+4，数据库同步测试方案
+日常响应
+5，后续优先级、应对
+
+计划：
+运维
+1，bff服务部署
+2，iOA相关同步
+3，充值梳理提交
+运维-迁云
+4，全景资源构思&初步梳理
+5，VPN打通GCP托管服务（db，redis等），计算GCP VPN的流量费用，研究VPN的限速设置。
+日常响应
+6，后续优先级、应对
+
 
 近期复盘
 	后续优先级、应对
@@ -7255,6 +7284,7 @@
 	5，测试环境-分支自动构建触发取消
 
 操作顺序
+		-- 20250523
 		-- 20250523
 			wyk
 				https://courierapi.51tracking.com/courier 所在容器
@@ -16341,7 +16371,7 @@
 										100.123.21.202 - - [11/May/2025:16:00:01 +0800] "HEAD / HTTP/1.0" 200 0 "-" "-"
 										100.127.195.55 - - [11/May/2025:16:00:01 +0800] "HEAD / HTTP/1.0" 200 0 "-" "-"
 										100.127.194.155 - - [11/May/2025:16:00:01 +0800] "HEAD / HTTP/1.0" 200 0 "-" "-"
-									--20250516
+									-- 20250516
 										[root@iZ94apf5ivnZ ~]# find / -name '*' -type f -size +100M | xargs ls -lh {} | sort -nrk5
 										find: ‘/proc/21228/task/21228/fdinfo/6’: No such file or directory
 										find: ‘/proc/21228/fdinfo/5’: No such file or directory
@@ -16420,6 +16450,93 @@
 										│   │   ├── /home/wwwroot/mytracking/downloads: 490 MB
 										│   │   ├── /home/wwwroot/mytracking/uploads: 8491 MB
 										│   │   ├── /home/wwwroot/mytracking/logs: 4414 MB
+									-- 20250528
+										cat /home/wwwroot/www.trackingmore.com/script/log/queue_diskTree.20250527.log
+										2025-05-27 20:00:09
+										-rw-------  1 root root 526M May 27 15:35 /home/wwwlogs/phpslow.log
+										-rw-r--r--  1 root root 393M Jan  2  2024 /run/log/home-wwwroot-mytracking-logs/send.log.2023.1010.2024.0102.zip
+										-rw-r--r--  1 root root 317M May 27 20:01 /usr/local/nginx/logs/access.log
+										-rw-r--r--  1  386  386 169M May 27 19:59 /home/wwwroot/www.trackingmore.com/section/carrierspic10.css
+										-rw-r--r--  1  386  386 160M May 27 19:59 /home/wwwroot/www.51tracking.com/section/carrierspic10.css
+										-r--------  1 root root 128T May 27 20:01 /proc/kcore
+										-rw-r--r--  1 root root 126M Aug 24  2023 /var/cache/yum/x86_64/7/updates/gen/primary_db.sqlite
+										-rw-r--r--. 1 root root 119M Aug 30  2023 /var/lib/rpm/Packages
+										-rw-r--r--  1 root root 118M Feb  4 19:21 /data/server_logs/usr/local/php7.0.33/var/log/20250204175501.php-fpm.log.zip
+										-rw-r--r--  1 root root 118M Aug 31  2020 /usr/local/rasp-php-linux.tar.bz2
+										-rw-r--r--  1 root root 107M Jul 13  2022 /home/wwwroot/www.trackingmore.com/download/K2msSfC9SHV3g32NAtw70TPmgA00O.csv
+										-rw-r--r--  1 root root 104M Aug  1  2022 /home/wwwlogs/host.trackingmore.com.log
+										-rw-r--r--  1 root root 102M May 15  2019 /usr/lib/locale/locale-archive
+										-rw-r--r--  1 root root 102M Jul 13  2022 /home/wwwroot/www.trackingmore.com/download/gOl2XfRfiaS2VwX7g8eqy8vmroMpxT8JHEZK8qoAB0RsF.csv
+										├── /: 47858 MB
+										│   ├── /root: 763 MB
+										│   │   ├── /root/.cache: 136 MB
+										│   ├── /boot: 162 MB
+										│   ├── /data: 1407 MB
+										│   │   ├── /data/server_logs: 1372 MB
+										│   ├── /var: 650 MB
+										│   │   ├── /var/log: 119 MB
+										│   │   ├── /var/lib: 200 MB
+										│   │   ├── /var/cache: 321 MB
+										│   ├── /run: 781 MB
+										│   │   ├── /run/log: 781 MB
+										│   ├── /home: 32460 MB
+										│   │   ├── /home/wwwroot: 30333 MB
+										│   │   ├── /home/wwwlogs: 2127 MB
+										│   │   │   └── phpslow.log: 526 MB
+										│   │   │   └── host.trackingmore.com.log: 104 MB
+										│   ├── /usr: 11422 MB
+										│   │   ├── /usr/lib64: 478 MB
+										│   │   ├── /usr/lib: 736 MB
+										│   │   ├── /usr/share: 654 MB
+										│   │   ├── /usr/bin: 237 MB
+										│   │   ├── /usr/local: 8891 MB
+										│   │   │   └── rasp-php-linux.tar.bz2: 118 MB
+										│   │   ├── /usr/src: 203 MB
+										│   │   └── kcore: 134217727 MB
+										├── /data/server_logs: 1372 MB
+										│   ├── /data/server_logs/home: 1179 MB
+										│   │   ├── /data/server_logs/home/wwwroot: 1179 MB
+										│   │   │   ├── /data/server_logs/home/wwwroot/mytracking: 1118 MB
+										│   │   │   │   ├── /data/server_logs/home/wwwroot/mytracking/logs: 1118 MB
+										│   ├── /data/server_logs/usr: 128 MB
+										│   │   ├── /data/server_logs/usr/local: 128 MB
+										│   │   │   ├── /data/server_logs/usr/local/php7.0.33: 128 MB
+										│   │   │   │   ├── /data/server_logs/usr/local/php7.0.33/var: 128 MB
+										├── /home/wwwroot: 30333 MB
+										│   ├── /home/wwwroot/upload: 731 MB
+										│   │   ├── /home/wwwroot/upload/lipeng: 583 MB
+										│   ├── /home/wwwroot/www.51tracking.com: 8046 MB
+										│   │   ├── /home/wwwroot/www.51tracking.com/admin: 6016 MB
+										│   │   ├── /home/wwwroot/www.51tracking.com/section: 440 MB
+										│   │   │   └── carrierspic10.css: 160 MB
+										│   │   ├── /home/wwwroot/www.51tracking.com/logs: 109 MB
+										│   ├── /home/wwwroot/www.trackingmore.com: 7702 MB
+										│   │   ├── /home/wwwroot/www.trackingmore.com/php-resque: 116 MB
+										│   │   ├── /home/wwwroot/www.trackingmore.com/python3: 199 MB
+										│   │   ├── /home/wwwroot/www.trackingmore.com/admin: 111 MB
+										│   │   ├── /home/wwwroot/www.trackingmore.com/section: 400 MB
+										│   │   ├── /home/wwwroot/www.trackingmore.com/script: 1859 MB
+										│   │   ├── /home/wwwroot/www.trackingmore.com/download: 2647 MB
+										│   │   │   └── K2msSfC9SHV3g32NAtw70TPmgA00O.csv: 107 MB
+										│   │   │   └── gOl2XfRfiaS2VwX7g8eqy8vmroMpxT8JHEZK8qoAB0RsF.csv: 102 MB
+										│   │   ├── /home/wwwroot/www.trackingmore.com/api: 930 MB
+										│   │   ├── /home/wwwroot/www.trackingmore.com/logs: 199 MB
+										│   │   ├── /home/wwwroot/www.trackingmore.com/python_img: 245 MB
+										│   ├── /home/wwwroot/mytracking: 13855 MB
+										│   │   ├── /home/wwwroot/mytracking/downloads: 506 MB
+										│   │   ├── /home/wwwroot/mytracking/uploads: 8747 MB
+										│   │   ├── /home/wwwroot/mytracking/logs: 4511 MB
+										sh /home/wwwroot/www.trackingmore.com/script/zipAndRmlog.mon.sh '' '' 1000 >> ~/zipAndRmlog.mon.sh.log 2>&1 & tail -f ~/zipAndRmlog.mon.sh.log
+										[root@iZ94apf5ivnZ ~]# df -h
+										Filesystem      Size  Used Avail Use% Mounted on
+										/dev/vda1        49G   42G  6.0G  88% /
+										devtmpfs        3.7G     0  3.7G   0% /dev
+										tmpfs           3.7G     0  3.7G   0% /dev/shm
+										tmpfs           3.7G  782M  3.0G  21% /run
+										tmpfs           3.7G     0  3.7G   0% /sys/fs/cgroup
+										tmpfs           756M     0  756M   0% /run/user/1004
+										tmpfs           756M     0  756M   0% /run/user/0
+
 								-159-205-tm
 									[root@iz0xif9y7r0fstxmq97t54z queueshell]# df -h
 									Filesystem      Size  Used Avail Use% Mounted on
@@ -22432,6 +22549,9 @@
 						IPS 
 						网速
 						互联通
+					-- 20250528
+						日本100+香港20	7200+800
+						美国120	1500
 
 				夽谷科技
 					线路和服务成本大致64、55开（售后等） 响应时间 故障时间：30'/y 平均响应时间：10-15' 
