@@ -7197,6 +7197,38 @@
 日常响应
 6，后续优先级、应对
 
+===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== =====
+20250529
+【告警】
+【客诉】
+【迁云】
+【桌面运维】
+【运维】
+
+原计划：
+运维
+1，bff服务部署
+2，iOA相关同步
+3，充值梳理提交
+运维-迁云
+4，全景资源构思&初步梳理
+5，VPN打通GCP托管服务（db，redis等），计算GCP VPN的流量费用，研究VPN的限速设置。
+日常响应
+6，后续优先级、应对
+
+计划：
+运维
+1，iOA相关同步
+2，单号识别
+3，bff服务部署
+运维-迁云
+4，全景资源构思&初步梳理
+5，计算GCP VPN的流量费用，研究VPN的限速设置。
+本地桌面运维
+6，上线面板AP
+日常响应
+7，后续优先级、应对
+
 
 近期复盘
 	后续优先级、应对
@@ -22573,6 +22605,25 @@
 						当前两个
 							成本沟通
 							支持测试
+		-- 20250529
+			AirEngine5762S-12SW
+				3台
+				489（539-50）
+			AirEngine6761S-21T
+				1台
+				2158
+
+			为了提升会议室无线体验，增加采购AP以提高信号覆盖率
+
+			面板AP每一台下单前先领50元优惠券，
+			手机端 50元优惠券 https://coupon.m.jd.com/coupons/show.action?key=c1m2c6s9o7ac470a84118086fee85644&roleId=185535446&to=https://shop.m.jd.com/?utm_campaign=t_335139774&utm_term=CopyURL&utm_medium=appshare&shopId=1000308282 
+			电脑端 50元优惠http://coupon.m.jd.com/coupons/show.action?key=c1m2c6s9o7ac470a84118086fee85644&roleId=185535446&to=https://shop.m.jd.com/?utm_campaign=t_335139774&utm_term=CopyURL&utm_medium=appshare&shopId=1000308282
+			下单位置 https://item.jd.com/100028835048.html?sdx=ehi-lLxFuZiE6JnIYYFUhMUlsDSZRHtmwmtNsq5NY9WJPe_RLJlU4nTsok7hU2eR
+			交货日期：2025-05-30 （23:10前付款，明天到）
+
+			吸顶AP
+			下单位置 https://item.jd.com/100097791858.html
+			交货日期：预计6月2日24:00前送达
 		-- 20250302
 			防火墙
 				待优化
