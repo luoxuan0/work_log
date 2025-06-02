@@ -9269,6 +9269,74 @@
 					script\notfound\update_courier.php
 
 	告警
+		redis节点CPU
+			-- 20250601
+				. /etc/bashrc
+				minTime=`date '+%Y%m%d.%H%M'` ;
+				timeout 6 redis monitor >> monitor.log.${minTime}
+				zip monitor.log.${minTime}.zip monitor.log.${minTime}
+				rm -f monitor.log.${minTime}
+
+
+				minTime=`date '+%H%M'`
+				if [[ ${minTime} == '2035' ]] || [[ ${minTime} == '2135' ]] || [[ ${minTime} == '2235' ]]; then
+						year=`date '+%Y'`
+						today=`date '+%Y%m%d'`
+						lastday=`date -d'-1 day' '+%Y%m%d'`
+						find . -name monitor.log.${year}\*zip  | grep -v "${today}\|${lastday}" | xargs -i rm -f {}
+						#a=`find . -name monitor.log.${year}\*zip  | grep -v "${today}\|${lastday}" | wc -l`
+						#echo $a
+				fi
+
+				# 
+				find / -name 'monitor.log.*' -type f ! -newermt '2023-09-01' -exec du -b {} + | awk '{total += $1} END {print "Total size:", total / (1024^3), "GB"}'
+				find / -name 'monitor.log.*' -type f -exec du -b {} + | awk '{total += $1} END {print "Total size:", total / (1024^3), "GB"}'
+				Total size: 1.67873 GB
+				find / -name 'monitor.log.*zip' -type f -exec du -b {} + | awk '{total += $1} END {print "Total size:", total / (1024^3), "GB"}'
+				Total size: 1.44332 GB
+
+				[root@iz0xibhd8xjxiru8zt5ietz ~]# find / -name 'monitor.log.2023*zip' | wc -l
+0
+[root@iz0xibhd8xjxiru8zt5ietz ~]# find / -name 'monitor.log.2023*' | wc -l
+22
+[root@iz0xibhd8xjxiru8zt5ietz ~]# find / -name 'monitor.log.2023*' -type f -exec du -b {} + | awk '{total += $1} END {print "Total size:", total / (1024^3), "GB"}'
+Total size: 0.20963 GB
+[root@iz0xibhd8xjxiru8zt5ietz ~]# find / -name 'monitor.log.2023*' | xargs -i rm -f {}
+[root@iz0xibhd8xjxiru8zt5ietz ~]# find / -name 'monitor.log.2024*zip' | xargs -i rm -f {}
+[root@iz0xibhd8xjxiru8zt5ietz ~]# find / -name 'monitor.log.*zip' -type f -exec du -b {} + | awk '{total += $1} END {print "Total size:", total / (1024^3), "GB"}'
+Total size: 0 GB
+[root@iz0xibhd8xjxiru8zt5ietz ~]# df -h
+Filesystem      Size  Used Avail Use% Mounted on
+devtmpfs         12G  4.0K   12G   1% /dev
+tmpfs            12G     0   12G   0% /dev/shm
+tmpfs            12G  3.2G  8.2G  29% /run
+tmpfs            12G     0   12G   0% /sys/fs/cgroup
+/dev/vda1        40G   32G  7.6G  81% /
+tmpfs           2.3G     0  2.3G   0% /run/user/0
+overlay          40G   32G  7.6G  81% /var/lib/docker/overlay2/f32f1a66a724922b4b6e3b3025bf7c26702d2acd8c9cdb4483c57405e4c1f944/merged
+overlay          40G   32G  7.6G  81% /var/lib/docker/overlay2/3bc24f2e1f02be2da94aaa45204fde4cfae4723e190c4a093ee0061039f7914d/merged
+overlay          40G   32G  7.6G  81% /var/lib/docker/overlay2/a1450f72c102025794e3a1854eed67304fc338bf57308a68687105ad6a8e0523/merged
+overlay          40G   32G  7.6G  81% /var/lib/docker/overlay2/f47e87ac2faec4bca2c5f5af763200c42f5e2abffafd8d5c9f6e3c9746bf8b33/merged
+overlay          40G   32G  7.6G  81% /var/lib/docker/overlay2/d68fb40923d5526fb9dcb18fa13392d9bfd34a778c7613bd246b724e33ec8d28/merged
+overlay          40G   32G  7.6G  81% /var/lib/docker/overlay2/9cfa905c1ee2a08387bef1e63d31a7829de8b72976db5fd631772ade7991f273/merged
+overlay          40G   32G  7.6G  81% /var/lib/docker/overlay2/42269d276137de374266bd0384ab49d701a5eab0d36d53d47f5dedf19f5468dd/merged
+overlay          40G   32G  7.6G  81% /var/lib/docker/overlay2/bc9e4c0ba99e5eea457c3213b25013c977cffda5de52e96c2b67bfb3d782a060/merged
+overlay          40G   32G  7.6G  81% /var/lib/docker/overlay2/106d2f39d28ba0ccf0ba824f5c8afae4291386cbedd9da83016551318fd13ee9/merged
+overlay          40G   32G  7.6G  81% /var/lib/docker/overlay2/622341e4442b12d79faf8acb4fca31f843e81b9ad7ed44cf04f5ca18a8e2fd41/merged
+overlay          40G   32G  7.6G  81% /var/lib/docker/overlay2/a202e929b22b6072bc0d7ceddfd1cfdece1d65a793010cce5baef8b6d06480c4/merged
+overlay          40G   32G  7.6G  81% /var/lib/docker/overlay2/d84d991b31d78d89f4ab89de6ed5b3ed55219cafbc59cc10724dfda757d3d29e/merged
+overlay          40G   32G  7.6G  81% /var/lib/docker/overlay2/2f76cb191a8db2ea1eef0c32a31ddd6a2ac7938a5330aac90a5b49372b65dc5c/merged
+overlay          40G   32G  7.6G  81% /var/lib/docker/overlay2/45c7a8f0840352e35f4e839a4a8972085934473d449e5484fd94692c83e60c0a/merged
+overlay          40G   32G  7.6G  81% /var/lib/docker/overlay2/c0523133d8a45896117674a96206555ecf15a8f2c6a08533aa92b76fe7a2e1b7/merged
+overlay          40G   32G  7.6G  81% /var/lib/docker/overlay2/138729e3105c2c2de8cb298b175134cdec0115a2e4f55117046f5f2aee1acad6/merged
+overlay          40G   32G  7.6G  81% /var/lib/docker/overlay2/4fd12a13c8ddd80f348dadf0537b4afd99903b4692d23e119f114b41c85009b7/merged
+overlay          40G   32G  7.6G  81% /var/lib/docker/overlay2/cf7fc074fc31a7d91600a34db842944b8a7937b7a5d9e48f8afc9a7cd3212a81/merged
+tmpfs           2.3G     0  2.3G   0% /run/user/1002
+# 开启CPU定位扫描任务
+[root@iz0xibhd8xjxiru8zt5ietz ~]# crontab -l | grep redis.cpu
+* * * * * sh redis.cpu.sh > /dev/null 2>&1
+
+
 		redis节点内存
 			-- 20250519
 				排查流程自动触发
@@ -21219,7 +21287,108 @@
 									find ${pwd} -type f -name '*.sql' | head -${num} | awk '{print "zip",$1".zip",$1";rm -f",$1}' | sh
 								fi
 
+						磁盘扩容
+							-- 20250601
+								数据库备份-tm
+									阿里云磁盘在线扩容文档思路
+										阿里云后台下单磁盘空间扩容
+										磁盘扩容文档
+											确保实例满足以下条件
+												状态为运行中（Running）
+												Linux实例的操作系统是Alibaba Cloud Linux 2/3、CentOS 6及以上、Debian 8及以上或者Ubuntu14及以上版本。
+											确保云盘满足以下条件
+												状态为使用中（In_use）
+												系统盘使用率未达到100%
+											准备工作
+												创建云盘快照
+											# 查看分区信息
+											fdisk -lu
 
+											# 扩容分区
+											type growpart || yum install -y cloud-utils-growpart
+											LC_ALL=en_US.UTF-8 growpart /dev/vdb 1
+
+											# 扩容文件系统
+											# 查看文件系统类型
+											df -Th
+											resize2fs /dev/vdb1
+											df -Th
+
+											mkdir -p /mnt/chen/root/
+											find /root -name tr_trackinfo_effective_for_rule_*.tar.gz | xargs -i cp {} /mnt/chen/root/
+
+											rsync -avz --dry-run /root/tr_tracking_info_20220627_20220629.sql /mnt/chen/root/
+											rsync -avz /root/tr_tracking_info_20220627_20220629.sql /mnt/chen/root/
+										根目录处理
+											
+											# 需要更详细的输出（包括文件大小），可以使用
+											find / -path /mnt -prune -o -type f -size +100M -exec ls -lh {} \; | sort -nrk5
+											# /mnt是挂载点，也可以使用-xdev选项不跨越文件系统边界
+											find / -xdev -name '*' -type f -size +100M | xargs ls -lh {} | sort -nrk5
+											# 对于更复杂的排除（如多个目录），可以使用
+											find / \( -path /mnt -o -path /home \) -prune -o -type f -size +100M -exec ls -lh {} \; | sort -nrk5
+
+									实际操作
+										-- 20250601
+											[root@iZ0xi790ree5mt68o62ef6Z ~]# df -h
+											Filesystem      Size  Used Avail Use% Mounted on
+											devtmpfs        909M     0  909M   0% /dev
+											tmpfs           919M     0  919M   0% /dev/shm
+											tmpfs           919M  612K  919M   1% /run
+											tmpfs           919M     0  919M   0% /sys/fs/cgroup
+											/dev/vda1        40G   37G  690M  99% /
+											/dev/vdb1       985G  985G     0 100% /mnt
+											tmpfs           184M     0  184M   0% /run/user/1000
+											tmpfs           184M     0  184M   0% /run/user/0
+											tmpfs           184M     0  184M   0% /run/user/1002
+											[root@iZ0xi790ree5mt68o62ef6Z ~]# isk -lu
+											-bash: isk: command not found
+											[root@iZ0xi790ree5mt68o62ef6Z ~]# fdisk -lu
+
+											Disk /dev/vda: 42.9 GB, 42949672960 bytes, 83886080 sectors
+											Units = sectors of 1 * 512 = 512 bytes
+											Sector size (logical/physical): 512 bytes / 512 bytes
+											I/O size (minimum/optimal): 512 bytes / 512 bytes
+											Disk label type: dos
+											Disk identifier: 0x000a57df
+
+											Device Boot      Start         End      Blocks   Id  System
+											/dev/vda1   *        2048    83886046    41941999+  83  Linux
+
+											Disk /dev/vdb: 1649.3 GB, 1649267441664 bytes, 3221225472 sectors
+											Units = sectors of 1 * 512 = 512 bytes
+											Sector size (logical/physical): 512 bytes / 512 bytes
+											I/O size (minimum/optimal): 512 bytes / 512 bytes
+											Disk label type: dos
+											Disk identifier: 0x5c1af1a4
+
+											Device Boot      Start         End      Blocks   Id  System
+											/dev/vdb1            2048  2097151999  1048574976   83  Linux
+											[root@iZ0xi790ree5mt68o62ef6Z ~]# type growpart || yum install -y cloud-utils-growpart
+											growpart is /bin/growpart
+											[root@iZ0xi790ree5mt68o62ef6Z ~]# LC_ALL=en_US.UTF-8 growpart /dev/vdb 1
+											CHANGED: partition=1 start=2048 old: size=2097149952 end=2097152000 new: size=3221223391 end=3221225439
+											[root@iZ0xi790ree5mt68o62ef6Z ~]# fdisk -lu
+
+											Disk /dev/vda: 42.9 GB, 42949672960 bytes, 83886080 sectors
+											Units = sectors of 1 * 512 = 512 bytes
+											Sector size (logical/physical): 512 bytes / 512 bytes
+											I/O size (minimum/optimal): 512 bytes / 512 bytes
+											Disk label type: dos
+											Disk identifier: 0x000a57df
+
+											Device Boot      Start         End      Blocks   Id  System
+											/dev/vda1   *        2048    83886046    41941999+  83  Linux
+											[root@iZ0xi790ree5mt68o62ef6Z ~]# ll tr_trackinfo_effective_for_rule_dhlglobalmail_202401-04.tar.gz
+											ls: cannot access tr_trackinfo_effective_for_rule_dhlglobalmail_202401-04.tar.gz: No such file or directory
+											[root@iZ0xi790ree5mt68o62ef6Z ~]# ll /tr_trackinfo_effective_for_rule_dhlglobalmail_202401-04.tar.gz
+											ls: cannot access /tr_trackinfo_effective_for_rule_dhlglobalmail_202401-04.tar.gz: No such file or directory
+											[root@iZ0xi790ree5mt68o62ef6Z ~]#  rsync -avz --dry-run /root/tr_tracking_info_20220627_20220629.sql /mnt/chen/root/
+											sending incremental file list
+											tr_tracking_info_20220627_20220629.sql
+
+											sent 81 bytes  received 19 bytes  200.00 bytes/sec
+											total size is 1,116,419,718  speedup is 11,164,197.18 (DRY RUN)
 			分级
 				敏感重要节点冗余备份
 					多人电话告警人工介入修复
