@@ -9296,45 +9296,45 @@
 				Total size: 1.44332 GB
 
 				[root@iz0xibhd8xjxiru8zt5ietz ~]# find / -name 'monitor.log.2023*zip' | wc -l
-0
-[root@iz0xibhd8xjxiru8zt5ietz ~]# find / -name 'monitor.log.2023*' | wc -l
-22
-[root@iz0xibhd8xjxiru8zt5ietz ~]# find / -name 'monitor.log.2023*' -type f -exec du -b {} + | awk '{total += $1} END {print "Total size:", total / (1024^3), "GB"}'
-Total size: 0.20963 GB
-[root@iz0xibhd8xjxiru8zt5ietz ~]# find / -name 'monitor.log.2023*' | xargs -i rm -f {}
-[root@iz0xibhd8xjxiru8zt5ietz ~]# find / -name 'monitor.log.2024*zip' | xargs -i rm -f {}
-[root@iz0xibhd8xjxiru8zt5ietz ~]# find / -name 'monitor.log.*zip' -type f -exec du -b {} + | awk '{total += $1} END {print "Total size:", total / (1024^3), "GB"}'
-Total size: 0 GB
-[root@iz0xibhd8xjxiru8zt5ietz ~]# df -h
-Filesystem      Size  Used Avail Use% Mounted on
-devtmpfs         12G  4.0K   12G   1% /dev
-tmpfs            12G     0   12G   0% /dev/shm
-tmpfs            12G  3.2G  8.2G  29% /run
-tmpfs            12G     0   12G   0% /sys/fs/cgroup
-/dev/vda1        40G   32G  7.6G  81% /
-tmpfs           2.3G     0  2.3G   0% /run/user/0
-overlay          40G   32G  7.6G  81% /var/lib/docker/overlay2/f32f1a66a724922b4b6e3b3025bf7c26702d2acd8c9cdb4483c57405e4c1f944/merged
-overlay          40G   32G  7.6G  81% /var/lib/docker/overlay2/3bc24f2e1f02be2da94aaa45204fde4cfae4723e190c4a093ee0061039f7914d/merged
-overlay          40G   32G  7.6G  81% /var/lib/docker/overlay2/a1450f72c102025794e3a1854eed67304fc338bf57308a68687105ad6a8e0523/merged
-overlay          40G   32G  7.6G  81% /var/lib/docker/overlay2/f47e87ac2faec4bca2c5f5af763200c42f5e2abffafd8d5c9f6e3c9746bf8b33/merged
-overlay          40G   32G  7.6G  81% /var/lib/docker/overlay2/d68fb40923d5526fb9dcb18fa13392d9bfd34a778c7613bd246b724e33ec8d28/merged
-overlay          40G   32G  7.6G  81% /var/lib/docker/overlay2/9cfa905c1ee2a08387bef1e63d31a7829de8b72976db5fd631772ade7991f273/merged
-overlay          40G   32G  7.6G  81% /var/lib/docker/overlay2/42269d276137de374266bd0384ab49d701a5eab0d36d53d47f5dedf19f5468dd/merged
-overlay          40G   32G  7.6G  81% /var/lib/docker/overlay2/bc9e4c0ba99e5eea457c3213b25013c977cffda5de52e96c2b67bfb3d782a060/merged
-overlay          40G   32G  7.6G  81% /var/lib/docker/overlay2/106d2f39d28ba0ccf0ba824f5c8afae4291386cbedd9da83016551318fd13ee9/merged
-overlay          40G   32G  7.6G  81% /var/lib/docker/overlay2/622341e4442b12d79faf8acb4fca31f843e81b9ad7ed44cf04f5ca18a8e2fd41/merged
-overlay          40G   32G  7.6G  81% /var/lib/docker/overlay2/a202e929b22b6072bc0d7ceddfd1cfdece1d65a793010cce5baef8b6d06480c4/merged
-overlay          40G   32G  7.6G  81% /var/lib/docker/overlay2/d84d991b31d78d89f4ab89de6ed5b3ed55219cafbc59cc10724dfda757d3d29e/merged
-overlay          40G   32G  7.6G  81% /var/lib/docker/overlay2/2f76cb191a8db2ea1eef0c32a31ddd6a2ac7938a5330aac90a5b49372b65dc5c/merged
-overlay          40G   32G  7.6G  81% /var/lib/docker/overlay2/45c7a8f0840352e35f4e839a4a8972085934473d449e5484fd94692c83e60c0a/merged
-overlay          40G   32G  7.6G  81% /var/lib/docker/overlay2/c0523133d8a45896117674a96206555ecf15a8f2c6a08533aa92b76fe7a2e1b7/merged
-overlay          40G   32G  7.6G  81% /var/lib/docker/overlay2/138729e3105c2c2de8cb298b175134cdec0115a2e4f55117046f5f2aee1acad6/merged
-overlay          40G   32G  7.6G  81% /var/lib/docker/overlay2/4fd12a13c8ddd80f348dadf0537b4afd99903b4692d23e119f114b41c85009b7/merged
-overlay          40G   32G  7.6G  81% /var/lib/docker/overlay2/cf7fc074fc31a7d91600a34db842944b8a7937b7a5d9e48f8afc9a7cd3212a81/merged
-tmpfs           2.3G     0  2.3G   0% /run/user/1002
-# 开启CPU定位扫描任务
-[root@iz0xibhd8xjxiru8zt5ietz ~]# crontab -l | grep redis.cpu
-* * * * * sh redis.cpu.sh > /dev/null 2>&1
+				0
+				[root@iz0xibhd8xjxiru8zt5ietz ~]# find / -name 'monitor.log.2023*' | wc -l
+				22
+				[root@iz0xibhd8xjxiru8zt5ietz ~]# find / -name 'monitor.log.2023*' -type f -exec du -b {} + | awk '{total += $1} END {print "Total size:", total / (1024^3), "GB"}'
+				Total size: 0.20963 GB
+				[root@iz0xibhd8xjxiru8zt5ietz ~]# find / -name 'monitor.log.2023*' | xargs -i rm -f {}
+				[root@iz0xibhd8xjxiru8zt5ietz ~]# find / -name 'monitor.log.2024*zip' | xargs -i rm -f {}
+				[root@iz0xibhd8xjxiru8zt5ietz ~]# find / -name 'monitor.log.*zip' -type f -exec du -b {} + | awk '{total += $1} END {print "Total size:", total / (1024^3), "GB"}'
+				Total size: 0 GB
+				[root@iz0xibhd8xjxiru8zt5ietz ~]# df -h
+				Filesystem      Size  Used Avail Use% Mounted on
+				devtmpfs         12G  4.0K   12G   1% /dev
+				tmpfs            12G     0   12G   0% /dev/shm
+				tmpfs            12G  3.2G  8.2G  29% /run
+				tmpfs            12G     0   12G   0% /sys/fs/cgroup
+				/dev/vda1        40G   32G  7.6G  81% /
+				tmpfs           2.3G     0  2.3G   0% /run/user/0
+				overlay          40G   32G  7.6G  81% /var/lib/docker/overlay2/f32f1a66a724922b4b6e3b3025bf7c26702d2acd8c9cdb4483c57405e4c1f944/merged
+				overlay          40G   32G  7.6G  81% /var/lib/docker/overlay2/3bc24f2e1f02be2da94aaa45204fde4cfae4723e190c4a093ee0061039f7914d/merged
+				overlay          40G   32G  7.6G  81% /var/lib/docker/overlay2/a1450f72c102025794e3a1854eed67304fc338bf57308a68687105ad6a8e0523/merged
+				overlay          40G   32G  7.6G  81% /var/lib/docker/overlay2/f47e87ac2faec4bca2c5f5af763200c42f5e2abffafd8d5c9f6e3c9746bf8b33/merged
+				overlay          40G   32G  7.6G  81% /var/lib/docker/overlay2/d68fb40923d5526fb9dcb18fa13392d9bfd34a778c7613bd246b724e33ec8d28/merged
+				overlay          40G   32G  7.6G  81% /var/lib/docker/overlay2/9cfa905c1ee2a08387bef1e63d31a7829de8b72976db5fd631772ade7991f273/merged
+				overlay          40G   32G  7.6G  81% /var/lib/docker/overlay2/42269d276137de374266bd0384ab49d701a5eab0d36d53d47f5dedf19f5468dd/merged
+				overlay          40G   32G  7.6G  81% /var/lib/docker/overlay2/bc9e4c0ba99e5eea457c3213b25013c977cffda5de52e96c2b67bfb3d782a060/merged
+				overlay          40G   32G  7.6G  81% /var/lib/docker/overlay2/106d2f39d28ba0ccf0ba824f5c8afae4291386cbedd9da83016551318fd13ee9/merged
+				overlay          40G   32G  7.6G  81% /var/lib/docker/overlay2/622341e4442b12d79faf8acb4fca31f843e81b9ad7ed44cf04f5ca18a8e2fd41/merged
+				overlay          40G   32G  7.6G  81% /var/lib/docker/overlay2/a202e929b22b6072bc0d7ceddfd1cfdece1d65a793010cce5baef8b6d06480c4/merged
+				overlay          40G   32G  7.6G  81% /var/lib/docker/overlay2/d84d991b31d78d89f4ab89de6ed5b3ed55219cafbc59cc10724dfda757d3d29e/merged
+				overlay          40G   32G  7.6G  81% /var/lib/docker/overlay2/2f76cb191a8db2ea1eef0c32a31ddd6a2ac7938a5330aac90a5b49372b65dc5c/merged
+				overlay          40G   32G  7.6G  81% /var/lib/docker/overlay2/45c7a8f0840352e35f4e839a4a8972085934473d449e5484fd94692c83e60c0a/merged
+				overlay          40G   32G  7.6G  81% /var/lib/docker/overlay2/c0523133d8a45896117674a96206555ecf15a8f2c6a08533aa92b76fe7a2e1b7/merged
+				overlay          40G   32G  7.6G  81% /var/lib/docker/overlay2/138729e3105c2c2de8cb298b175134cdec0115a2e4f55117046f5f2aee1acad6/merged
+				overlay          40G   32G  7.6G  81% /var/lib/docker/overlay2/4fd12a13c8ddd80f348dadf0537b4afd99903b4692d23e119f114b41c85009b7/merged
+				overlay          40G   32G  7.6G  81% /var/lib/docker/overlay2/cf7fc074fc31a7d91600a34db842944b8a7937b7a5d9e48f8afc9a7cd3212a81/merged
+				tmpfs           2.3G     0  2.3G   0% /run/user/1002
+				# 开启CPU定位扫描任务
+				[root@iz0xibhd8xjxiru8zt5ietz ~]# crontab -l | grep redis.cpu
+				* * * * * sh redis.cpu.sh > /dev/null 2>&1
 
 
 		redis节点内存
@@ -21389,6 +21389,107 @@ tmpfs           2.3G     0  2.3G   0% /run/user/1002
 
 											sent 81 bytes  received 19 bytes  200.00 bytes/sec
 											total size is 1,116,419,718  speedup is 11,164,197.18 (DRY RUN)
+											[root@iZ0xi790ree5mt68o62ef6Z ~]# ll /root/tr_tracking_info_20220627_20220629.sql /mnt/chen/root/
+											-rw-r--r-- 1 root root 1116419718 Dec 31  2022 /root/tr_tracking_info_20220627_20220629.sql
+
+											/mnt/chen/root/:
+											total 1091328
+											-rw-r--r-- 1 root root 1116419718 Dec 31  2022 tr_tracking_info_20220627_20220629.sql
+											[root@iZ0xi790ree5mt68o62ef6Z ~]# rm -f /root/tr_tracking_info_20220627_20220629.sql
+											[root@iZ0xi790ree5mt68o62ef6Z ~]# df -h
+											Filesystem      Size  Used Avail Use% Mounted on
+											devtmpfs        909M     0  909M   0% /dev
+											tmpfs           919M     0  919M   0% /dev/shm
+											tmpfs           919M  612K  919M   1% /run
+											tmpfs           919M     0  919M   0% /sys/fs/cgroup
+											/dev/vda1        40G   36G  1.8G  96% /
+											/dev/vdb1       1.5T  993G  448G  69% /mnt
+											tmpfs           184M     0  184M   0% /run/user/1000
+											tmpfs           184M     0  184M   0% /run/user/0
+											tmpfs           184M     0  184M   0% /run/user/1002
+											[root@iZ0xi790ree5mt68o62ef6Z ~]# find / -xdev -name '*' -type f -size +100M | xargs ls -lh {} | sort -nrk5
+											ls: cannot access {}: No such file or directory
+											-rw-r-----  1 mysql mysql 968M Jun 24  2020 /var/lib/mysql/mycat1/tr_user_tracknumber_58125_58125#P#p8.ibd
+											-rw-r-----  1 mysql mysql 916M Jun 24  2020 /var/lib/mysql/mycat1/tr_user_tracknumber_58125_58125#P#p11.ibd
+											-rw-r-----  1 mysql mysql 916M Jun 24  2020 /var/lib/mysql/mycat1/tr_user_tracknumber_58125_58125#P#p10.ibd
+											-rw-r-----  1 mysql mysql 904M Jun 24  2020 /var/lib/mysql/mycat1/tr_user_tracknumber_58125_58125#P#p9.ibd
+											-rw-r-----  1 mysql mysql 760M Jun 24  2020 /var/lib/mysql/mycat1/tr_user_tracknumber_58125_58125#P#p7.ibd
+											-rw-r-----  1 mysql mysql 748M Jun 24  2020 /var/lib/mysql/mycat1/tr_user_tracknumber_58125_58125#P#p15.ibd
+											-rw-r--r--  1 root  root  738M Jun  2 13:00 /home/wwwroot/script/table_data_sync_scan_fill.log
+											-rw-r-----  1 mysql mysql 668M Jun 24  2020 /var/lib/mysql/mycat1/tr_user_tracknumber_58125_58125#P#p3.ibd
+											-rw-r-----  1 mysql mysql 664M Jun 24  2020 /var/lib/mysql/mycat1/tr_user_tracknumber_58125_58125#P#p5.ibd
+											-rw-r-----  1 mysql mysql 652M Jun 24  2020 /var/lib/mysql/mycat1/tr_user_tracknumber_58125_58125#P#p6.ibd
+											-rw-r-----  1 mysql mysql 604M Jun 24  2020 /var/lib/mysql/mycat1/tr_user_tracknumber_58125_58125#P#p4.ibd
+											-rw-r-----  1 mysql mysql 512M Jun 24  2020 /var/lib/mysql/mycat1/tr_user_tracknumber_58125_58125#P#p20.ibd
+											-rw-r-----  1 mysql mysql 512M Jun 24  2020 /var/lib/mysql/mycat1/tr_user_tracknumber_58125_58125#P#p16.ibd
+											-rw-r-----  1 root  root  501M Nov 17  2023 /home/chen/mysql-bin.050793
+											-rw-r-----  1 root  root  501M Nov 17  2023 /home/chen/mysql-bin.050792
+											-rw-r-----  1 mysql mysql 472M Jun 24  2020 /var/lib/mysql/mycat1/tr_user_tracknumber_58125_58125#P#p2.ibd
+											-rw-r-----  1 mysql mysql 408M Jun 24  2020 /var/lib/mysql/mycat1/tr_user_tracknumber_58125_58125#P#p23.ibd
+											-r--r--r--  1 root  root  392M Aug 11  2020 /var/lib/docker/overlay2/16441ebd150d812e89e63a3f2b8d6484e053b43d659aca22ce663c4368bb7873/diff/php-src/.git/objects/pack/pack-aa0f465da88c1fc6f21fde4279587c1c271073fd.pack
+											-rw-r-----  1 mysql mysql 384M Jun 24  2020 /var/lib/mysql/mycat1/tr_user_tracknumber_58125_58125#P#p17.ibd
+											-rw-r-----  1 mysql mysql 360M Jun 24  2020 /var/lib/mysql/mycat1/tr_user_tracknumber_58125_58125#P#p22.ibd
+											-rw-r-----  1 mysql mysql 352M Jun 24  2020 /var/lib/mysql/mycat1/tr_user_tracknumber_58125_58125#P#p21.ibd
+											-rw-r-----  1 mysql mysql 352M Jun 24  2020 /var/lib/mysql/mycat1/tr_user_tracknumber_58125_58125#P#p19.ibd
+											-rw-r-----  1 mysql mysql 340M Jun 24  2020 /var/lib/mysql/mycat1/tr_user_tracknumber_58125_58125#P#p18.ibd
+											-rw-r-----  1 mysql mysql 312M Jun 24  2020 /var/lib/mysql/mycat1/tr_user_tracknumber_58125_58125#P#p24.ibd
+											-rw-r--r--  1 root  root  286M Feb 23  2023 /root/dump.rdb
+											-rw-r-----  1 mysql mysql 284M Jun 24  2020 /var/lib/mysql/mycat1/tr_user_tracknumber_58125_58125#P#p1.ibd
+											-rwxr-xr-x  1 root  root  241M Jun  2  2020 /usr/sbin/mysqld
+											-rw-r-----  1 mysql mysql 164M Jun 24  2020 /var/lib/mysql/mycat1/tr_user_tracknumber_58125_58125#P#p26.ibd
+											-rwxr-xr-x  1 root  root  163M Jun  2  2020 /usr/sbin/mysqld-debug
+											-rw-r--r--  1 root  root  149M Jul 22  2020 /usr/share/elasticsearch/jdk/lib/modules
+											-rw-r--r--. 1 root  root  140M Feb 25  2022 /var/lib/rpm/Packages
+											-rw-r-----  1 mysql mysql 128M Jun 24  2020 /var/lib/mysql/mycat1/tr_user_tracknumber_58125_58125#P#p29.ibd
+											-rw-r-----  1 mysql mysql 124M Jun 24  2020 /var/lib/mysql/mycat1/tr_user_tracknumber_58125_58125#P#p30.ibd
+											-rw-r-----  1 mysql mysql 120M Jun 24  2020 /var/lib/mysql/mycat1/tr_user_tracknumber_58125_58125#P#p28.ibd
+											-rw-r-----  1 mysql mysql 120M Jun 24  2020 /var/lib/mysql/mycat1/tr_user_tracknumber_58125_58125#P#p27.ibd
+											-rw-r--r--  1 root  root  109M Jan 29  2019 /usr/local/elasticsearch-6.6.0.tar.gz
+											-rw-r-----  1 mysql mysql 108M Jun 24  2020 /var/lib/mysql/mycat1/tr_user_tracknumber_58125_58125#P#p25.ibd
+											-rw-r--r--  1 root  root  107M Jun  2 22:38 /root/yunxiao/be-tfpyqa22gtndemstnunakvmq/runner/__flow_logs/runner.log
+											-rw-r--r--  1 root  root  102M Feb  5  2021 /usr/lib/locale/locale-archive
+											-rw-r--r--  1 root  root  2.3G Jun  2 09:05 /home/wwwroot/script/table_data_sync_scan.log
+											-rw-r-----  1 mysql mysql 1.5G Jun 24  2020 /var/lib/mysql/mycat1/tr_user_tracknumber_58125_58125#P#p14.ibd
+											-rw-r-----  1 mysql mysql 1.2G Jun 24  2020 /var/lib/mysql/mycat1/tr_user_tracknumber_58125_58125#P#p13.ibd
+											-rw-r-----  1 mysql mysql 1.2G Jun 24  2020 /var/lib/mysql/mycat1/tr_user_tracknumber_58125_58125#P#p12.ibd
+											[root@iZ0xi790ree5mt68o62ef6Z ~]# rsync -avz --dry-run /home/wwwroot/script/table_data_sync_scan.log /mnt/chen/
+											sending incremental file list
+											table_data_sync_scan.log
+
+											sent 67 bytes  received 19 bytes  172.00 bytes/sec
+											total size is 2,430,547,046  speedup is 28,262,174.95 (DRY RUN)
+											[root@iZ0xi790ree5mt68o62ef6Z ~]# rsync -avz /home/wwwroot/script/table_data_sync_scan.log /mnt/chen/
+											sending incremental file list
+											table_data_sync_scan.log
+
+											sent 138,309,449 bytes  received 35 bytes  2,286,107.17 bytes/sec
+											total size is 2,430,547,046  speedup is 17.57
+											[root@iZ0xi790ree5mt68o62ef6Z ~]# df -h
+											Filesystem      Size  Used Avail Use% Mounted on
+											devtmpfs        909M     0  909M   0% /dev
+											tmpfs           919M     0  919M   0% /dev/shm
+											tmpfs           919M  644K  919M   1% /run
+											tmpfs           919M     0  919M   0% /sys/fs/cgroup
+											/dev/vda1        40G   36G  1.7G  96% /
+											/dev/vdb1       1.5T  989G  453G  69% /mnt
+											tmpfs           184M     0  184M   0% /run/user/1000
+											tmpfs           184M     0  184M   0% /run/user/0
+											tmpfs           184M     0  184M   0% /run/user/1002
+											[root@iZ0xi790ree5mt68o62ef6Z ~]# ll /home/wwwroot/script/table_data_sync_scan.log /mnt/chen/table_data_sync_scan.log
+											-rw-r--r-- 1 root root 2430547046 Jun  2 09:05 /home/wwwroot/script/table_data_sync_scan.log
+											-rw-r--r-- 1 root root 2430547046 Jun  2 09:05 /mnt/chen/table_data_sync_scan.log
+											[root@iZ0xi790ree5mt68o62ef6Z ~]# echo > /home/wwwroot/script/table_data_sync_scan.log
+											[root@iZ0xi790ree5mt68o62ef6Z ~]# df -h
+											Filesystem      Size  Used Avail Use% Mounted on
+											devtmpfs        909M     0  909M   0% /dev
+											tmpfs           919M     0  919M   0% /dev/shm
+											tmpfs           919M  604K  919M   1% /run
+											tmpfs           919M     0  919M   0% /sys/fs/cgroup
+											/dev/vda1        40G   34G  4.0G  90% /
+											/dev/vdb1       1.5T  989G  453G  69% /mnt
+											tmpfs           184M     0  184M   0% /run/user/1000
+											tmpfs           184M     0  184M   0% /run/user/0
+											tmpfs           184M     0  184M   0% /run/user/1002
 			分级
 				敏感重要节点冗余备份
 					多人电话告警人工介入修复
