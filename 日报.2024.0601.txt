@@ -7296,6 +7296,39 @@
 日常响应
 6，后续优先级、应对
 
+===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== =====
+20250605
+【告警】
+【客诉】
+【迁云】
+【桌面运维】
+【运维】
+
+原计划：
+运维
+1，bff服务部署
+2，充值梳理提交
+运维-迁云
+3，架构图&全景资源构思&初步梳理
+4，计算GCP VPN的流量费用，研究VPN的限速设置。
+本地桌面运维
+5，上线面板AP
+日常响应
+6，后续优先级、应对
+
+计划：
+运维
+1，bff服务部署
+告警
+2，redis节点CPU
+运维-迁云
+3，架构图&全景资源构思&初步梳理
+4，计算GCP VPN的流量费用，研究VPN的限速设置。
+本地桌面运维
+5，上线面板AP
+日常响应
+6，后续优先级、应对
+
 
 近期复盘
 	后续优先级、应对
@@ -22007,6 +22040,64 @@
 				网络规划（原本还是重新规划）
 					专线还是VPN
 					谷歌有dns服务，可以托管，不用管ip
+
+		七牛云迁移
+			nick
+				-- 20250605
+					七牛这边有一台服务器，nginx放了这些域名，47.251.36.152
+					# 以下域名无需迁移，域名已到期
+					www.wdpress.com wdpress.com
+					www.ainol-novo.com ainol-novo.com
+					www.cubotmall.com cubotmall.com
+
+					部分header头带windows 
+						Sec-Ch-Ua-Platform:"Windows"
+					www.focalall.com focalall.com
+						laravel5框架页面
+					www.doogeemobile.com doogeemobile.com
+						样式乱了，电商网站
+					www.electricunicycleonline.com electricunicycleonline.com
+						跳转 https://www.safetymanagement.net/
+					www.iandroidtvbox.com iandroidtvbox.com
+						样式乱了，电商网站
+					www.inewmobile.com inewmobile.com
+						解析到我们的IP
+						样式乱了
+						有个连接跳转到了ordertracking
+					www.inspection-in-china.com  inspection-in-china.com
+						空白页面
+					www.jiayu-store.com jiayu-store.com
+						样式乱了，电商网站
+						有个连接跳转到了ordertracking
+					www.nubiamobileshop.com nubiamobileshop.com
+						样式乱了，电商网站
+						有个连接跳转到了ordertracking
+					www.onda-tablet.com onda-tablet.com
+						样式乱了，电商网站
+					www.pompmall.com pompmall.com
+						样式乱了
+						有个连接跳转到了ordertracking
+					www.thlmobilestore.com thlmobilestore.com
+						空白页面
+					www.zukmobile.cc zukmobile.cc
+						503
+
+						www.ainol-novo.com.conf
+						www.analysis.com.conf
+						www.cubotmall.com.conf
+
+						www.inewmobile.com.conf
+						www.iandroidtvbox.com.conf
+						www.doogeemobile.com.conf
+						www.electricunicycleonline.com.conf
+						www.inspection-in-china.com.conf
+						www.jiayu-store.com.conf
+						www.nubiamobileshop.com.conf
+						www.onda-tablet.com.conf
+						www.pompmall.com.conf
+						www.thlmobilestore.com.conf
+					
+					经@LB确认，服务已经没用，直接释放
 		磁盘统一处理
 			-- 20241109
 				-105
