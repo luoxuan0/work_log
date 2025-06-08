@@ -13542,6 +13542,432 @@
 									
 							-- 20250504
 								upload-test-177-172.16.21.169
+									-- 20250607
+										root@iZ0xi60yimvc2jwvywy8gdZ:~# df -h
+										Filesystem      Size  Used Avail Use% Mounted on
+										tmpfs           169M  1.7M  167M   1% /run
+										/dev/vda3        40G   38G     0 100% /
+										tmpfs           841M     0  841M   0% /dev/shm
+										tmpfs           5.0M     0  5.0M   0% /run/lock
+										/dev/vda2       197M  6.1M  191M   4% /boot/efi
+										overlay          40G   38G     0 100% /var/lib/docker/overlay2/9caebff522fc2dd46993c9872a03a1e8c5cd7f41f24b512f8455ce42d4188d8d/merged
+										overlay          40G   38G     0 100% /var/lib/docker/overlay2/37a3332742b2c675c211fde83cffe638db49c50a31dec398591f5a78ca02af79/merged
+										overlay          40G   38G     0 100% /var/lib/docker/overlay2/6a0833b189b5c3464c137e4c9d0bff3554c81301d9120a5dc9f74e09abed8b12/merged
+										overlay          40G   38G     0 100% /var/lib/docker/overlay2/f62a6fc3780e3cb7c5d8a72f410f8c07cc18f9a7b650e5b5169da7fe219a92c0/merged
+										overlay          40G   38G     0 100% /var/lib/docker/overlay2/4d2b15af316bc2baf734a422e6f968590592e169fd34b5628582e0afe1b8034b/merged
+										overlay          40G   38G     0 100% /var/lib/docker/overlay2/e627d9fe10bfd183d2a2828b70d216b49905fcb4c1dd119e8e4610e92af43229/merged
+										overlay          40G   38G     0 100% /var/lib/docker/overlay2/5c27e23bc90cef4b5ad503ec41e2a24298d93ec8d6619e6ef2c459e9bd258add/merged
+										tmpfs           169M  4.0K  169M   1% /run/user/1000
+										root@iZ0xi60yimvc2jwvywy8gdZ:~# find / -name '*' -type f -size +100M | xargs ls -lh {} | sort -nrk5
+										find: ‘/proc/44280/task/44280/fdinfo/6’: No such file or directory
+										find: ‘/proc/44280/fdinfo/5’: No such file or directory
+										ls: cannot access '{}': No such file or directory
+										-rw-r--r-- 1 root root 885M Jun  7 22:48 /home/data/logs/mail/logs/mail.log
+										-rw-r--r-- 1 root root 505M Jun  7 22:48 /root/nginx/logs/mailwebhook.access.log
+										-rw------- 1 root root 410M Aug 22  2023 /var/lib/docker/overlay2/f62a6fc3780e3cb7c5d8a72f410f8c07cc18f9a7b650e5b5169da7fe219a92c0/merged/tmp/multipart-3539220014
+										-rw------- 1 root root 410M Aug 22  2023 /var/lib/docker/overlay2/f62a6fc3780e3cb7c5d8a72f410f8c07cc18f9a7b650e5b5169da7fe219a92c0/diff/tmp/multipart-3539220014
+										-rw------- 1 root root 410M Aug 21  2023 /var/lib/docker/overlay2/f62a6fc3780e3cb7c5d8a72f410f8c07cc18f9a7b650e5b5169da7fe219a92c0/merged/tmp/multipart-3105524436
+										-rw------- 1 root root 410M Aug 21  2023 /var/lib/docker/overlay2/f62a6fc3780e3cb7c5d8a72f410f8c07cc18f9a7b650e5b5169da7fe219a92c0/diff/tmp/multipart-3105524436
+										-rw-r----- 1 root root 234M May  6 00:00 /var/lib/docker/containers/ec9db2d3f0430f10d895e30625b66e73948ca52d585b6e402c2c901e432b9933/ec9db2d3f0430f10d895e30625b66e73948ca52d585b6e402c2c901e432b9933-json.log.1
+										-rw-r--r-- 1 root root 176M Jun  6 17:12 /home/admin/app/package-test.tgz
+										-rw-r--r-- 1 root root 166M Jun  7 22:49 /root/yunxiao/be-tfpyqa22gtndemstnunakvmq/runner/__flow_logs/runner.log
+										-rw-r--r-- 1 root root 142M Sep  7  2022 /home/docker/go1.19.1.linux-amd64.tar.gz
+										-rwxr-xr-x 1 root root 129M Feb 12  2023 /var/lib/docker/overlay2/708684e9b2eacb774bf1c13e53f43052ecc3b543d785072f9f2fa4b6826af407/diff/usr/share/filebeat/filebeat
+										-rw-r----- 1 1001 1001 128M Oct 12  2022 /root/mysql_data/ib_logfile1
+										-rw-r----- 1 1001 1001 128M Jun  7  2022 /var/lib/docker/overlay2/15e0b0ac5222ee0c62f6a13535984920679677153e61a4d76df5f2c970edd530/diff/www/server/data/ib_logfile1
+										-rw-r----- 1 1001 1001 128M Jun  7  2022 /var/lib/docker/overlay2/15e0b0ac5222ee0c62f6a13535984920679677153e61a4d76df5f2c970edd530/diff/www/server/data/ib_logfile0
+										-rw-r----- 1 1001 1001 128M Aug 22  2023 /root/mysql_data/ib_logfile0
+										-r-------- 1 root root 128T Jun  7 11:29 /proc/kcore
+										-rwxr-xr-x 2 root root 118M May 10  2024 /root/node_modules/workerd/bin/workerd
+										-rwxr-xr-x 2 root root 118M May 10  2024 /root/node_modules/@cloudflare/workerd-linux-64/bin/workerd
+										-rw------- 1 root root 112M Sep 13  2023 /var/lib/docker/overlay2/f62a6fc3780e3cb7c5d8a72f410f8c07cc18f9a7b650e5b5169da7fe219a92c0/merged/tmp/multipart-3451269813
+										-rw------- 1 root root 112M Sep 13  2023 /var/lib/docker/overlay2/f62a6fc3780e3cb7c5d8a72f410f8c07cc18f9a7b650e5b5169da7fe219a92c0/merged/tmp/multipart-2718775450
+										-rw------- 1 root root 112M Sep 13  2023 /var/lib/docker/overlay2/f62a6fc3780e3cb7c5d8a72f410f8c07cc18f9a7b650e5b5169da7fe219a92c0/merged/tmp/multipart-2372992208
+										-rw------- 1 root root 112M Sep 13  2023 /var/lib/docker/overlay2/f62a6fc3780e3cb7c5d8a72f410f8c07cc18f9a7b650e5b5169da7fe219a92c0/merged/tmp/multipart-2240062091
+										-rw------- 1 root root 112M Sep 13  2023 /var/lib/docker/overlay2/f62a6fc3780e3cb7c5d8a72f410f8c07cc18f9a7b650e5b5169da7fe219a92c0/diff/tmp/multipart-3451269813
+										-rw------- 1 root root 112M Sep 13  2023 /var/lib/docker/overlay2/f62a6fc3780e3cb7c5d8a72f410f8c07cc18f9a7b650e5b5169da7fe219a92c0/diff/tmp/multipart-2718775450
+										-rw------- 1 root root 112M Sep 13  2023 /var/lib/docker/overlay2/f62a6fc3780e3cb7c5d8a72f410f8c07cc18f9a7b650e5b5169da7fe219a92c0/diff/tmp/multipart-2372992208
+										-rw------- 1 root root 112M Sep 13  2023 /var/lib/docker/overlay2/f62a6fc3780e3cb7c5d8a72f410f8c07cc18f9a7b650e5b5169da7fe219a92c0/diff/tmp/multipart-2240062091
+										-rw------- 1 root root 112M Sep 12  2023 /var/lib/docker/overlay2/f62a6fc3780e3cb7c5d8a72f410f8c07cc18f9a7b650e5b5169da7fe219a92c0/merged/tmp/multipart-3135289178
+										-rw------- 1 root root 112M Sep 12  2023 /var/lib/docker/overlay2/f62a6fc3780e3cb7c5d8a72f410f8c07cc18f9a7b650e5b5169da7fe219a92c0/merged/tmp/multipart-1516733489
+										-rw------- 1 root root 112M Sep 12  2023 /var/lib/docker/overlay2/f62a6fc3780e3cb7c5d8a72f410f8c07cc18f9a7b650e5b5169da7fe219a92c0/diff/tmp/multipart-3135289178
+										-rw------- 1 root root 112M Sep 12  2023 /var/lib/docker/overlay2/f62a6fc3780e3cb7c5d8a72f410f8c07cc18f9a7b650e5b5169da7fe219a92c0/diff/tmp/multipart-1516733489
+										-rwxr-xr-x 1 root root 107M May 10  2024 /usr/local/node/bin/node
+										-rw-r--r-- 1 root root 101M Jun  7 22:49 /root/nginx/logs/error.log
+										root@iZ0xi60yimvc2jwvywy8gdZ:~# vi diskTree.sh
+										root@iZ0xi60yimvc2jwvywy8gdZ:~# diskTree.sh / 2 100
+										diskTree.sh: command not found
+										root@iZ0xi60yimvc2jwvywy8gdZ:~# ./diskTree.sh / 2 100
+										-bash: ./diskTree.sh: Permission denied
+										root@iZ0xi60yimvc2jwvywy8gdZ:~# bash ./diskTree.sh / 2 100
+										├── /: 46144 MB
+										│   │   └── kcore: 134217713 MB
+										│   ├── /var: 17306 MB
+										│   ├── /boot: 105 MB
+										│   ├── /root: 8645 MB
+										│   ├── /home: 14577 MB
+										│   ├── /snap: 1312 MB
+										│   ├── /usr: 4147 MB
+										root@iZ0xi60yimvc2jwvywy8gdZ:~# bash ./diskTree.sh /var 2 100
+										├── /var: 17307 MB
+										│   ├── /var/log: 844 MB
+										│   ├── /var/cache: 125 MB
+										│   ├── /var/lib: 16337 MB
+										root@iZ0xi60yimvc2jwvywy8gdZ:~# bash ./diskTree.sh /var/lib 3 100
+										├── /var/lib: 16337 MB
+										│   ├── /var/lib/apt: 315 MB
+										│   │   ├── /var/lib/apt/lists: 315 MB
+										│   ├── /var/lib/snapd: 804 MB
+										│   │   ├── /var/lib/snapd/seed: 187 MB
+										│   │   ├── /var/lib/snapd/cache: 439 MB
+										│   │   ├── /var/lib/snapd/snaps: 400 MB
+										│   ├── /var/lib/docker: 15153 MB
+										│   │   ├── /var/lib/docker/containers: 440 MB
+										│   │   ├── /var/lib/docker/overlay2: 14698 MB
+										root@iZ0xi60yimvc2jwvywy8gdZ:~# bash ./diskTree.sh /var/lib/docker/overlay2 3 100
+										├── /var/lib/docker/overlay2: 14698 MB
+										│   ├── /var/lib/docker/overlay2/e627d9fe10bfd183d2a2828b70d216b49905fcb4c1dd119e8e4610e92af43229: 659 MB
+										│   │   ├── /var/lib/docker/overlay2/e627d9fe10bfd183d2a2828b70d216b49905fcb4c1dd119e8e4610e92af43229/merged: 659 MB
+										│   ├── /var/lib/docker/overlay2/3eeea8a993b825e4238bcec45716006c3bfdbae07e2cb67b5da088a9185d9cd1: 369 MB
+										│   │   ├── /var/lib/docker/overlay2/3eeea8a993b825e4238bcec45716006c3bfdbae07e2cb67b5da088a9185d9cd1/diff: 369 MB
+										│   ├── /var/lib/docker/overlay2/73371f6a3292c14552e9259fce71305777df8d981ed95197e4954e22dc2a2079: 261 MB
+										│   │   ├── /var/lib/docker/overlay2/73371f6a3292c14552e9259fce71305777df8d981ed95197e4954e22dc2a2079/diff: 261 MB
+										│   ├── /var/lib/docker/overlay2/6a0833b189b5c3464c137e4c9d0bff3554c81301d9120a5dc9f74e09abed8b12: 151 MB
+										│   │   ├── /var/lib/docker/overlay2/6a0833b189b5c3464c137e4c9d0bff3554c81301d9120a5dc9f74e09abed8b12/merged: 149 MB
+										│   ├── /var/lib/docker/overlay2/52228f6a97ef8ae10626b7282ba1f2dec62715993103fea44e3bb560afa4ba54: 261 MB
+										│   │   ├── /var/lib/docker/overlay2/52228f6a97ef8ae10626b7282ba1f2dec62715993103fea44e3bb560afa4ba54/diff: 261 MB
+										│   ├── /var/lib/docker/overlay2/708684e9b2eacb774bf1c13e53f43052ecc3b543d785072f9f2fa4b6826af407: 153 MB
+										│   │   ├── /var/lib/docker/overlay2/708684e9b2eacb774bf1c13e53f43052ecc3b543d785072f9f2fa4b6826af407/diff: 153 MB
+										│   ├── /var/lib/docker/overlay2/37a3332742b2c675c211fde83cffe638db49c50a31dec398591f5a78ca02af79: 658 MB
+										│   │   ├── /var/lib/docker/overlay2/37a3332742b2c675c211fde83cffe638db49c50a31dec398591f5a78ca02af79/merged: 658 MB
+										│   ├── /var/lib/docker/overlay2/eb24162bfc50d7c1c6870077fdac3a26ade67957e71cf3bd1208187ea0be8a74: 135 MB
+										│   │   ├── /var/lib/docker/overlay2/eb24162bfc50d7c1c6870077fdac3a26ade67957e71cf3bd1208187ea0be8a74/diff: 135 MB
+										│   ├── /var/lib/docker/overlay2/6133502f2b27851436922d8cbce8808d62b8bebe5b5321a0927d2753b042345b: 280 MB
+										│   │   ├── /var/lib/docker/overlay2/6133502f2b27851436922d8cbce8808d62b8bebe5b5321a0927d2753b042345b/diff: 280 MB
+										│   ├── /var/lib/docker/overlay2/f62a6fc3780e3cb7c5d8a72f410f8c07cc18f9a7b650e5b5169da7fe219a92c0: 4248 MB
+										│   │   ├── /var/lib/docker/overlay2/f62a6fc3780e3cb7c5d8a72f410f8c07cc18f9a7b650e5b5169da7fe219a92c0/merged: 2756 MB
+										│   │   ├── /var/lib/docker/overlay2/f62a6fc3780e3cb7c5d8a72f410f8c07cc18f9a7b650e5b5169da7fe219a92c0/diff: 1492 MB
+										│   ├── /var/lib/docker/overlay2/15e0b0ac5222ee0c62f6a13535984920679677153e61a4d76df5f2c970edd530: 2650 MB
+										│   │   ├── /var/lib/docker/overlay2/15e0b0ac5222ee0c62f6a13535984920679677153e61a4d76df5f2c970edd530/diff: 2650 MB
+										│   ├── /var/lib/docker/overlay2/0d672d27392d4d2bf8584728c50301d692e395fc7fe691ad9e6284c288c9c3a6: 244 MB
+										│   │   ├── /var/lib/docker/overlay2/0d672d27392d4d2bf8584728c50301d692e395fc7fe691ad9e6284c288c9c3a6/diff: 244 MB
+										│   ├── /var/lib/docker/overlay2/8cf6acf2c6ea56bd93e8680c4cfe45e74400d48d016b087e498f3c715cbd9e5d: 217 MB
+										│   │   ├── /var/lib/docker/overlay2/8cf6acf2c6ea56bd93e8680c4cfe45e74400d48d016b087e498f3c715cbd9e5d/diff: 217 MB
+										│   ├── /var/lib/docker/overlay2/94dbef55e740ebe4e87a87a765d14297b565df87d8f64b000b6120dd1bfa5ec7: 477 MB
+										│   │   ├── /var/lib/docker/overlay2/94dbef55e740ebe4e87a87a765d14297b565df87d8f64b000b6120dd1bfa5ec7/diff: 477 MB
+										│   ├── /var/lib/docker/overlay2/9caebff522fc2dd46993c9872a03a1e8c5cd7f41f24b512f8455ce42d4188d8d: 659 MB
+										│   │   ├── /var/lib/docker/overlay2/9caebff522fc2dd46993c9872a03a1e8c5cd7f41f24b512f8455ce42d4188d8d/merged: 659 MB
+										│   ├── /var/lib/docker/overlay2/ecac3be7645bd898200fb2b05dad7efffb162acbb3e844d38bab2f044282026b: 280 MB
+										│   │   ├── /var/lib/docker/overlay2/ecac3be7645bd898200fb2b05dad7efffb162acbb3e844d38bab2f044282026b/diff: 280 MB
+										│   ├── /var/lib/docker/overlay2/8f30528d721acab74b90f2d6602f69ecf3217e2a0545490f67c4ecc41cb4dd1a: 226 MB
+										│   │   ├── /var/lib/docker/overlay2/8f30528d721acab74b90f2d6602f69ecf3217e2a0545490f67c4ecc41cb4dd1a/diff: 226 MB
+										│   ├── /var/lib/docker/overlay2/bf470109a849140c1ae816c97c6392f7e2d71eac2ebc5408b24dbeacdeae3b80: 281 MB
+										│   │   ├── /var/lib/docker/overlay2/bf470109a849140c1ae816c97c6392f7e2d71eac2ebc5408b24dbeacdeae3b80/diff: 281 MB
+										│   ├── /var/lib/docker/overlay2/4d2b15af316bc2baf734a422e6f968590592e169fd34b5628582e0afe1b8034b: 658 MB
+										│   │   ├── /var/lib/docker/overlay2/4d2b15af316bc2baf734a422e6f968590592e169fd34b5628582e0afe1b8034b/merged: 658 MB
+										│   ├── /var/lib/docker/overlay2/5c27e23bc90cef4b5ad503ec41e2a24298d93ec8d6619e6ef2c459e9bd258add: 659 MB
+										│   │   ├── /var/lib/docker/overlay2/5c27e23bc90cef4b5ad503ec41e2a24298d93ec8d6619e6ef2c459e9bd258add/merged: 659 MB
+										│   ├── /var/lib/docker/overlay2/8e460032eeb18b8d5771f26041ab581fdb288e1f03b742f16fd6adb4b8dea251: 281 MB
+										│   │   ├── /var/lib/docker/overlay2/8e460032eeb18b8d5771f26041ab581fdb288e1f03b742f16fd6adb4b8dea251/diff: 281 MB
+										│   ├── /var/lib/docker/overlay2/f27e1d34cf395e0ef2ea4da6b2e9a41fd3ae53775af5707ed9c2f19ff09ac654: 215 MB
+										│   │   ├── /var/lib/docker/overlay2/f27e1d34cf395e0ef2ea4da6b2e9a41fd3ae53775af5707ed9c2f19ff09ac654/diff: 215 MB
+										│   ├── /var/lib/docker/overlay2/e1b6adc647f9c369fa4c0065228d62849f0cc3beb2823661706492ccb9137fe8: 160 MB
+										│   │   ├── /var/lib/docker/overlay2/e1b6adc647f9c369fa4c0065228d62849f0cc3beb2823661706492ccb9137fe8/diff: 160 MB
+										root@iZ0xi60yimvc2jwvywy8gdZ:~# bash ./diskTree.sh /home 3 100
+										├── /home: 14578 MB
+										│   ├── /home/admin: 185 MB
+										│   │   ├── /home/admin/app: 185 MB
+										│   │   │   └── package-test.tgz: 176 MB
+										│   ├── /home/data: 11399 MB
+										│   │   ├── /home/data/logs: 11399 MB
+										│   ├── /home/wwwroot: 2428 MB
+										│   │   ├── /home/wwwroot/www.trackingmore.com: 2404 MB
+										│   ├── /home/golang: 411 MB
+										│   │   ├── /home/golang/gopath: 411 MB
+										│   ├── /home/docker: 142 MB
+										│   │   └── go1.19.1.linux-amd64.tar.gz: 142 MB
+										root@iZ0xi60yimvc2jwvywy8gdZ:~# bash ./diskTree.sh /home/data/logs/ 3 100
+										├── /home/data/logs: 11399 MB
+										│   ├── /home/data/logs/mail: 11349 MB
+										│   │   ├── /home/data/logs/mail/logs: 11349 MB
+										│   │   │   └── mail.log: 886 MB
+										root@iZ0xi60yimvc2jwvywy8gdZ:~# bash ./diskTree.sh /home/data/logs/mail/logs/ 3 100
+										├── /home/data/logs/mail/logs: 11349 MB
+										│   └── mail.log: 886 MB
+										│   ├── /home/data/logs/mail/logs/tripartiteWebhook: 10366 MB
+										│   │   ├── /home/data/logs/mail/logs/tripartiteWebhook/sendCould: 200 MB
+										│   │   ├── /home/data/logs/mail/logs/tripartiteWebhook/mailgun: 10167 MB
+										root@iZ0xi60yimvc2jwvywy8gdZ:~# bash ./diskTree.sh /home/data/logs/mail/logs/tripartiteWebhook/mailgun/ 3 100
+										├── /home/data/logs/mail/logs/tripartiteWebhook/mailgun: 10167 MB
+										│   ├── /home/data/logs/mail/logs/tripartiteWebhook/mailgun/2025: 6052 MB
+										│   │   ├── /home/data/logs/mail/logs/tripartiteWebhook/mailgun/2025/04: 1258 MB
+										│   │   ├── /home/data/logs/mail/logs/tripartiteWebhook/mailgun/2025/06: 375 MB
+										│   │   ├── /home/data/logs/mail/logs/tripartiteWebhook/mailgun/2025/05: 1432 MB
+										│   │   ├── /home/data/logs/mail/logs/tripartiteWebhook/mailgun/2025/01: 982 MB
+										│   │   ├── /home/data/logs/mail/logs/tripartiteWebhook/mailgun/2025/03: 1142 MB
+										│   │   ├── /home/data/logs/mail/logs/tripartiteWebhook/mailgun/2025/02: 865 MB
+										│   ├── /home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024: 4116 MB
+										│   │   ├── /home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/08: 560 MB
+										│   │   ├── /home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/09: 788 MB
+										│   │   ├── /home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/12: 1146 MB
+										│   │   ├── /home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/11: 879 MB
+										│   │   ├── /home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/10: 735 MB
+										root@iZ0xi60yimvc2jwvywy8gdZ:~# ll /var/lib/docker/overlay2/f62a6fc3780e3cb7c5d8a72f410f8c07cc18f9a7b650e5b5169da7fe219a92c0/merged/tmp/multipart-* -h
+										-rw------- 1 root root 112M Sep 12  2023 /var/lib/docker/overlay2/f62a6fc3780e3cb7c5d8a72f410f8c07cc18f9a7b650e5b5169da7fe219a92c0/merged/tmp/multipart-1516733489
+										-rw------- 1 root root 112M Sep 13  2023 /var/lib/docker/overlay2/f62a6fc3780e3cb7c5d8a72f410f8c07cc18f9a7b650e5b5169da7fe219a92c0/merged/tmp/multipart-2240062091
+										-rw------- 1 root root 112M Sep 13  2023 /var/lib/docker/overlay2/f62a6fc3780e3cb7c5d8a72f410f8c07cc18f9a7b650e5b5169da7fe219a92c0/merged/tmp/multipart-2372992208
+										-rw------- 1 root root 112M Sep 13  2023 /var/lib/docker/overlay2/f62a6fc3780e3cb7c5d8a72f410f8c07cc18f9a7b650e5b5169da7fe219a92c0/merged/tmp/multipart-2718775450
+										-rw------- 1 root root 410M Aug 21  2023 /var/lib/docker/overlay2/f62a6fc3780e3cb7c5d8a72f410f8c07cc18f9a7b650e5b5169da7fe219a92c0/merged/tmp/multipart-3105524436
+										-rw------- 1 root root 112M Sep 12  2023 /var/lib/docker/overlay2/f62a6fc3780e3cb7c5d8a72f410f8c07cc18f9a7b650e5b5169da7fe219a92c0/merged/tmp/multipart-3135289178
+										-rw------- 1 root root 112M Sep 13  2023 /var/lib/docker/overlay2/f62a6fc3780e3cb7c5d8a72f410f8c07cc18f9a7b650e5b5169da7fe219a92c0/merged/tmp/multipart-3451269813
+										-rw------- 1 root root 410M Aug 22  2023 /var/lib/docker/overlay2/f62a6fc3780e3cb7c5d8a72f410f8c07cc18f9a7b650e5b5169da7fe219a92c0/merged/tmp/multipart-3539220014
+										root@iZ0xi60yimvc2jwvywy8gdZ:~# docker ps -a
+										CONTAINER ID   IMAGE                                    COMMAND                  CREATED         STATUS                       PORTS                                                 NAMES
+										4001ae87acc3   mail-queue-rewebhook                     "./mail_send_webhook…"   14 months ago   Up 4 days                    0.0.0.0:9906->9906/tcp, :::9906->9906/tcp             mail_queue_rewebhook
+										743fee3dfe3b   mail-queue-webhook                       "./mail_send_webhook…"   14 months ago   Up 4 days                    0.0.0.0:9905->9905/tcp, :::9905->9905/tcp             mail_queue_webhook
+										168d46bb5dc7   mail-queue-repush                        "./mail_send_retry -…"   14 months ago   Up 4 days                    0.0.0.0:9904->9904/tcp, :::9904->9904/tcp             mail_queue_repush
+										ab8c818704ef   mail-queue-push                          "./mail_send_write -…"   14 months ago   Up 4 days                    0.0.0.0:9903->9903/tcp, :::9903->9903/tcp             mail_queue_push
+										17da1d974311   mail-goweb                               "/home/golang/gopath…"   14 months ago   Up 4 days                    9001/tcp, 0.0.0.0:9901->9901/tcp, :::9901->9901/tcp   mail_web
+										44d3d3f4c9b8   docker.elastic.co/beats/filebeat:8.6.2   "/usr/bin/tini -- /u…"   16 months ago   Exited (0) 16 months ago                                                           filebeat
+										5b8bf72aff20   filebeat-upload                          "/usr/bin/tini -- /u…"   16 months ago   Exited (255) 10 months ago                                                         filebeat-upload
+										ec9db2d3f043   filebeat-mail                            "/usr/bin/tini -- /u…"   17 months ago   Exited (255) 10 months ago                                                         filebeat-mail
+										132e268d57e6   nginx                                    "/docker-entrypoint.…"   17 months ago   Up 4 days                                                                          nginx
+										847bae565e01   upload-goweb                             "/home/golang/gopath…"   22 months ago   Up 4 days                                                                          upload_web
+										9586e30f0be3   upload-goweb                             "--name upload_web"      22 months ago   Created                                                                            competent_kepler
+										root@iZ0xi60yimvc2jwvywy8gdZ:~# docker ps -q | xargs docker inspect --format '{{.Id}} {{.Name}}' | grep "f62a6fc3780e"
+										root@iZ0xi60yimvc2jwvywy8gdZ:~# ll /var/lib/docker/overlay2
+										total 412
+										drwx--x--- 96 root root 20480 Jun  3 22:02 ./
+										drwx--x--- 13 root root  4096 Jun  3 22:02 ../
+										drwx--x---  4 root root  4096 Dec 14  2023 0d672d27392d4d2bf8584728c50301d692e395fc7fe691ad9e6284c288c9c3a6/
+										drwx--x---  4 root root  4096 Jan 12  2024 0f0b9c1d52b2372172631ce1a2db49fad4f278de91c37472d37b8a12839f9464/
+										drwx--x---  4 root root  4096 Mar 28  2024 0fba9fb271a9a3143c411345e2c11f3af43eab4fd197b1549404757a685017bd/
+										drwx--x---  4 root root  4096 Jan 12  2024 0ffd4cfcf75cea1fbb3d95912cc0197d0de7dcd38f87a86beba616abb2cbd2ca/
+										drwx--x---  4 root root  4096 Oct 17  2022 11acd00dfa58e14c750700216047e48edc444fec47f9dd4eff8ad8023d697929/
+										drwx--x---  4 root root  4096 Oct 12  2022 15e0b0ac5222ee0c62f6a13535984920679677153e61a4d76df5f2c970edd530/
+										drwx--x---  4 root root  4096 Mar 28  2024 17dead97e42b66c1377cae7011a67799eb25e7456e5fcf35e07fbce4a10056f0/
+										drwx--x---  4 root root  4096 Jan 12  2024 19a81962ef56427404b3d81ee84068b1e2ef1e1421e7533819d429ecaf6f17d0/
+										drwx--x---  3 root root  4096 Dec 14  2023 1e0bc7cac483a793bfc7b6e52404fa10109111cd453def88f286cce6e633b5ff/
+										drwx--x---  4 root root  4096 Jan  6  2023 237a7498996bf8fdda97dbb8c5788592a10a15ffb2a76f226ff660a9f4eaea3f/
+										drwx--x---  4 root root  4096 Jan  5  2024 26ca47d51d09732e98350bf02cda3219f6447306f8c0cedc56c5b6253062f7c4/
+										drwx--x---  4 root root  4096 Oct 12  2022 283547722e286777aa32964bdbd14a1fcc4936666e311d0689b449343b136d08/
+										drwx--x---  4 root root  4096 Jan 12  2024 29c8614ce457ba9e4a4e685b012a8b3001900c5f509800a97fd8cb16e01c83df/
+										drwx--x---  4 root root  4096 Jan 12  2024 2dbb97f1c1e3548450229af03819d707733603015d9ecb779e63e9f31f83b22a/
+										drwx--x---  4 root root  4096 Aug  5  2023 2faef337bc87b1058a12d961e998cc05c40616afb3e8f8f79a0a1ef9b40ad56f/
+										drwx--x---  4 root root  4096 Aug  5  2023 2faef337bc87b1058a12d961e998cc05c40616afb3e8f8f79a0a1ef9b40ad56f-init/
+										drwx--x---  4 root root  4096 Mar 28  2024 32734d9165c4a5cbe29ea21ebf97ab9d8ba87eb588902b656cea8ce7e1b1a0a9/
+										drwx--x---  5 root root  4096 Jun  3 22:02 37a3332742b2c675c211fde83cffe638db49c50a31dec398591f5a78ca02af79/
+										drwx--x---  4 root root  4096 Mar 28  2024 37a3332742b2c675c211fde83cffe638db49c50a31dec398591f5a78ca02af79-init/
+										drwx--x---  4 root root  4096 Dec 15  2023 3eeea8a993b825e4238bcec45716006c3bfdbae07e2cb67b5da088a9185d9cd1/
+										drwx--x---  4 root root  4096 Jan  6  2023 401137cf1843b2582014a7cdad0ce5767f86f5ea696ab31a3b0b3001ff941323/
+										drwx--x---  4 root root  4096 Jan 12  2024 409ed373b3d16324a814e4eee8ea34dcf501b9d008684f9da3fc991bd4b089d8/
+										drwx--x---  4 root root  4096 Dec 14  2023 40f9aae2303a7e24c8b50346b287e0dd9b597b84c773fa5e8df3c0bfe91111b0/
+										drwx--x---  4 root root  4096 Aug  6  2024 42c3042550581bb5c51bdaecf70af9a114d4de2392ebbc24e6b0b324ce472baf/
+										drwx--x---  4 root root  4096 Jan 12  2024 42c3042550581bb5c51bdaecf70af9a114d4de2392ebbc24e6b0b324ce472baf-init/
+										drwx--x---  4 root root  4096 Aug  6  2024 44ee913ef9ba0ecb872e69c52d2ed4a59fe30d434702ac903ba82e8b327486f7/
+										drwx--x---  4 root root  4096 Jan 18  2024 44ee913ef9ba0ecb872e69c52d2ed4a59fe30d434702ac903ba82e8b327486f7-init/
+										drwx--x---  5 root root  4096 Jun  3 22:02 4d2b15af316bc2baf734a422e6f968590592e169fd34b5628582e0afe1b8034b/
+										drwx--x---  4 root root  4096 Mar 28  2024 4d2b15af316bc2baf734a422e6f968590592e169fd34b5628582e0afe1b8034b-init/
+										drwx--x---  3 root root  4096 Jan 12  2024 50c0c66eb18eaadef68e6fbf8421de1faf42de4cbdcabd892f5ecdbd5f817659/
+										drwx--x---  4 root root  4096 Jan  5  2024 50d52fd43af4734aa801dd5510b8b9a0af41afc16a529ed71f5e67ce26dff239/
+										drwx--x---  4 root root  4096 Jan  5  2024 52228f6a97ef8ae10626b7282ba1f2dec62715993103fea44e3bb560afa4ba54/
+										drwx--x---  4 root root  4096 Jan  6  2023 57ca2f7f873c5b5552675b099b6b9609fff09117cc5dff2e22e0f730a210f9b0/
+										drwx--x---  4 root root  4096 Mar 28  2024 5b41bd011a3cc3904fe10525dbd1a840b7a35abb3c06f7f8081627c948159303/
+										drwx--x---  5 root root  4096 Jun  3 22:02 5c27e23bc90cef4b5ad503ec41e2a24298d93ec8d6619e6ef2c459e9bd258add/
+										drwx--x---  4 root root  4096 Mar 28  2024 5c27e23bc90cef4b5ad503ec41e2a24298d93ec8d6619e6ef2c459e9bd258add-init/
+										drwx--x---  4 root root  4096 Jan 12  2024 5ee6d363c7ee11adf68ee4c579fd6f67a96eb0059e621ee0206a6ad11fed9be2/
+										drwx--x---  4 root root  4096 Mar 28  2024 6133502f2b27851436922d8cbce8808d62b8bebe5b5321a0927d2753b042345b/
+										drwx--x---  4 root root  4096 Mar 28  2024 62ea83380f60b0dc97706e1e5842f58d7140a59ed0d6c620ecf933d053006ce6/
+										drwx--x---  4 root root  4096 Jan 12  2024 636d2b4e7310173211c2dd3834274b8d804de34c60fcc38734c446cb367bba86/
+										drwx--x---  4 root root  4096 Jan  6  2023 66c34caee6ef3f1f18885700fe518a51339882ae37f6597a17977b268ea4374f/
+										drwx--x---  4 root root  4096 Jan 12  2024 67ab49210375d2728dc4fe4960cf493f22f91a82044813b2b389f173a7fe129d/
+										drwx--x---  5 root root  4096 Jun  3 22:02 6a0833b189b5c3464c137e4c9d0bff3554c81301d9120a5dc9f74e09abed8b12/
+										drwx--x---  4 root root  4096 Jan 12  2024 6a0833b189b5c3464c137e4c9d0bff3554c81301d9120a5dc9f74e09abed8b12-init/
+										drwx--x---  4 root root  4096 Jan 12  2024 708684e9b2eacb774bf1c13e53f43052ecc3b543d785072f9f2fa4b6826af407/
+										drwx--x---  4 root root  4096 Mar 28  2024 73371f6a3292c14552e9259fce71305777df8d981ed95197e4954e22dc2a2079/
+										drwx--x---  4 root root  4096 Nov 22  2022 756b8671607c1ce0950e107d7da2add1dbca24a98daf5199a76d5c00f8c664e7/
+										drwx--x---  4 root root  4096 Mar 28  2024 812ecc33e3d5fe2c5c75a4e779dcdf6d1b34976ea0519657410f4d95ede783f1/
+										drwx--x---  4 root root  4096 Dec 14  2023 8348e835acaaac428dc76f41fdfc37bd8ece92936fb26aa3934e162e85454723/
+										drwx--x---  4 root root  4096 Dec 15  2023 858566a35fe999ec47c88d98c1b2120a6d6e3a9cfa0f3a32a2f0f64ae982bd05/
+										drwx--x---  4 root root  4096 Mar 28  2024 8b3443ffcf0f5c6c49ee42cafab8bad47d47a1534337d3a18f9bca1013fc1e2b/
+										drwx--x---  4 root root  4096 Jan  6  2023 8cf6acf2c6ea56bd93e8680c4cfe45e74400d48d016b087e498f3c715cbd9e5d/
+										drwx--x---  4 root root  4096 Mar 28  2024 8e460032eeb18b8d5771f26041ab581fdb288e1f03b742f16fd6adb4b8dea251/
+										drwx--x---  4 root root  4096 Oct 17  2022 8f30528d721acab74b90f2d6602f69ecf3217e2a0545490f67c4ecc41cb4dd1a/
+										drwx--x---  4 root root  4096 Oct 21  2022 8f8faefd5ee97b9792c342bbab9bf6e75faf819de491b489f26dcff8caed55f4/
+										drwx--x---  4 root root  4096 Oct 17  2022 94dbef55e740ebe4e87a87a765d14297b565df87d8f64b000b6120dd1bfa5ec7/
+										drwx--x---  4 root root  4096 Mar 28  2024 9a671ca068a54eac31031d9bb4fab8d86abcbbcf24bb993a3da837e24f33380d/
+										drwx--x---  4 root root  4096 Oct 17  2022 9b573fd1f4589e76bc8ee568634e26357b3a406aa75076764c0f7ea24e01bf08/
+										drwx--x---  5 root root  4096 Jun  3 22:02 9caebff522fc2dd46993c9872a03a1e8c5cd7f41f24b512f8455ce42d4188d8d/
+										drwx--x---  4 root root  4096 Mar 28  2024 9caebff522fc2dd46993c9872a03a1e8c5cd7f41f24b512f8455ce42d4188d8d-init/
+										drwx--x---  3 root root  4096 Nov 22  2022 a62de032fe92c3237169c6cc091021ae66d9b8127f85f9d48589f86ef3dd670b/
+										drwx--x---  4 root root  4096 Oct 17  2022 aaaa70ab420a03c2047506817836dfaba1a2b798ea1dec0f4305b4a684953b04/
+										drwx--x---  4 root root  4096 Nov 22  2022 ab3428be5088bcbe76cf67f995f11fdc83eefcefde24cd3caea38cfdbdbe9511/
+										drwx--x---  4 root root  4096 Nov 22  2022 afe53cf42f45760c34af168155aac75f9ad9464470056fbd1e5e3ce736790685/
+										drwx--x---  4 root root  4096 Jan  5  2024 b48561d62b035b74e27680a46a9dbcceee86270d85f363ba722f8ebcf5d639eb/
+										drwx--x---  4 root root  4096 Oct 12  2022 b72d4ff3dc54305e5ebaac7acbb394d0683b9b1b6daa825e4da84ede88d2230f/
+										drwx--x---  4 root root  4096 Mar 28  2024 bf470109a849140c1ae816c97c6392f7e2d71eac2ebc5408b24dbeacdeae3b80/
+										drwx--x---  4 root root  4096 Jan  5  2024 c1735073ca94f60ddef9c9f2e88ef95b0b108be3470fe84682634078a91a86dc/
+										drwx--x---  4 root root  4096 Jan  5  2024 c91adb85b69fa03a8e174f66e351191f31ae3a35b13f9d823b4438c51542a335/
+										drwx--x---  4 root root  4096 Jan 12  2024 c9da3884153c4f51227bc16d3f65532b78e7b654ca34cba70d02c21359b72a1c/
+										drwx--x---  4 root root  4096 Mar 28  2024 c9f6962c6ba58230c9e400c8162649add1744b546ebac09339d962556a91192e/
+										drwx--x---  4 root root  4096 Jan 12  2024 ca962c70994432c67c441da652fdd66d13c45480bb62355149172d78c534c63a/
+										drwx--x---  4 root root  4096 Oct 12  2022 ce22282a9719d13f46cb9df496edbfb6c69671b6b9e50fd9ad5ef5b072cc94ed/
+										drwx--x---  4 root root  4096 Jan 18  2024 d07b3b2737852e7d453002d22a77fc859f5f66a549e3a4951d732f848a1eff34/
+										drwx--x---  4 root root  4096 Jan  6  2023 d17e0049b9b68a5809da8596622968c0c6f68a19bbd47df25f86e9b927e1a136/
+										drwx--x---  4 root root  4096 Mar 28  2024 d75ccb88b16eb82460db3ad0e42cfc9eea8941e9ad59e64d124e1566fc53be78/
+										drwx--x---  4 root root  4096 Nov 22  2022 dfada5188eada9ed1dfc31acfe609369832e1c04ca421c7f6076caf85512a743/
+										drwx--x---  4 root root  4096 Oct 12  2022 e0be37ae164568f0d9ecb27ab3ea0599a86ee53948c88a22b637df91a59e298d/
+										drwx--x---  4 root root  4096 Oct 17  2022 e1b6adc647f9c369fa4c0065228d62849f0cc3beb2823661706492ccb9137fe8/
+										drwx--x---  4 root root  4096 Mar 28  2024 e2b32389b4bf556a73485f50af6d880419faceaed8334db96852239a45f55e36/
+										drwx--x---  5 root root  4096 Jun  3 22:02 e627d9fe10bfd183d2a2828b70d216b49905fcb4c1dd119e8e4610e92af43229/
+										drwx--x---  4 root root  4096 Mar 28  2024 e627d9fe10bfd183d2a2828b70d216b49905fcb4c1dd119e8e4610e92af43229-init/
+										drwx--x---  3 root root  4096 Oct 17  2022 eb24162bfc50d7c1c6870077fdac3a26ade67957e71cf3bd1208187ea0be8a74/
+										drwx--x---  4 root root  4096 Mar 28  2024 ecac3be7645bd898200fb2b05dad7efffb162acbb3e844d38bab2f044282026b/
+										drwx--x---  4 root root  4096 Oct 12  2022 f1dbccf777c86824a4c30b0e272ba1036469fe92d1b6057ed0dea1c3cc70aa8d/
+										drwx--x---  3 root root  4096 Oct 12  2022 f27e1d34cf395e0ef2ea4da6b2e9a41fd3ae53775af5707ed9c2f19ff09ac654/
+										drwx--x---  5 root root  4096 Jun  3 22:02 f62a6fc3780e3cb7c5d8a72f410f8c07cc18f9a7b650e5b5169da7fe219a92c0/
+										drwx--x---  4 root root  4096 Aug  5  2023 f62a6fc3780e3cb7c5d8a72f410f8c07cc18f9a7b650e5b5169da7fe219a92c0-init/
+										drwx--x---  3 root root  4096 Dec 15  2023 f9650118660b59f2a532abc801a3cda9309a62874cfdc2e37809402ceef45fb6/
+										drwx--x---  4 root root  4096 Dec 15  2023 fa4adb876382140f0eddfd49a5bc183cea0be31b681c2b3bda9ec93f581ccabb/
+										drwx--x---  4 root root  4096 Nov 22  2022 fd7c734d1658187c8517a3032816c89d2db08a9a7ebc0b6dba53362a5920fafa/
+										drwx--x---  4 root root  4096 Jan 19  2024 ffe3406fb67eba2971ca03af857a310f7a441b485a8e8f3a6a0f2fab1f8be69f/
+										drwx--x---  4 root root  4096 Jan 19  2024 ffe3406fb67eba2971ca03af857a310f7a441b485a8e8f3a6a0f2fab1f8be69f-init/
+										drwx------  2 root root 12288 Mar 28  2024 l/
+										root@iZ0xi60yimvc2jwvywy8gdZ:~# docker ps -a
+										CONTAINER ID   IMAGE                                    COMMAND                  CREATED         STATUS                       PORTS                                                 NAMES
+										4001ae87acc3   mail-queue-rewebhook                     "./mail_send_webhook…"   14 months ago   Up 4 days                    0.0.0.0:9906->9906/tcp, :::9906->9906/tcp             mail_queue_rewebhook
+										743fee3dfe3b   mail-queue-webhook                       "./mail_send_webhook…"   14 months ago   Up 4 days                    0.0.0.0:9905->9905/tcp, :::9905->9905/tcp             mail_queue_webhook
+										168d46bb5dc7   mail-queue-repush                        "./mail_send_retry -…"   14 months ago   Up 4 days                    0.0.0.0:9904->9904/tcp, :::9904->9904/tcp             mail_queue_repush
+										ab8c818704ef   mail-queue-push                          "./mail_send_write -…"   14 months ago   Up 4 days                    0.0.0.0:9903->9903/tcp, :::9903->9903/tcp             mail_queue_push
+										17da1d974311   mail-goweb                               "/home/golang/gopath…"   14 months ago   Up 4 days                    9001/tcp, 0.0.0.0:9901->9901/tcp, :::9901->9901/tcp   mail_web
+										44d3d3f4c9b8   docker.elastic.co/beats/filebeat:8.6.2   "/usr/bin/tini -- /u…"   16 months ago   Exited (0) 16 months ago                                                           filebeat
+										5b8bf72aff20   filebeat-upload                          "/usr/bin/tini -- /u…"   16 months ago   Exited (255) 10 months ago                                                         filebeat-upload
+										ec9db2d3f043   filebeat-mail                            "/usr/bin/tini -- /u…"   17 months ago   Exited (255) 10 months ago                                                         filebeat-mail
+										132e268d57e6   nginx                                    "/docker-entrypoint.…"   17 months ago   Up 4 days                                                                          nginx
+										847bae565e01   upload-goweb                             "/home/golang/gopath…"   22 months ago   Up 4 days                                                                          upload_web
+										9586e30f0be3   upload-goweb                             "--name upload_web"      22 months ago   Created                                                                            competent_kepler
+										root@iZ0xi60yimvc2jwvywy8gdZ:~# docker system df -v
+										Images space usage:
+
+										REPOSITORY                         TAG           IMAGE ID       CREATED         SIZE      SHARED SIZE   UNIQUE SIZE   CONTAINERS
+										mail-queue-rewebhook               latest        0dc4c9dab9ea   14 months ago   620MB     354.4MB       265.6MB       1
+										mail-queue-webhook                 latest        7f985f4b6d96   14 months ago   620MB     354.4MB       265.6MB       1
+										mail-queue-repush                  latest        cabcd0c2c974   14 months ago   620.7MB   354.4MB       266.3MB       1
+										mail-queue-push                    latest        c3fd3e15d67b   14 months ago   620.7MB   354.4MB       266.3MB       1
+										mail-goweb                         latest        3e8fd9a16752   14 months ago   621.4MB   354.4MB       266.9MB       1
+										filebeat-upload                    latest        d7184cd1814f   16 months ago   288.3MB   288.3MB       868B          1
+										filebeat-mail                      latest        6d04f555757a   17 months ago   288.3MB   288.3MB       676B          1
+										<none>                             <none>        b9e9dfc1ffc8   17 months ago   702.8MB   354.4MB       348.4MB       0
+										golang                             alpine        d9213efcc94a   18 months ago   221.7MB   0B            221.7MB       0
+										golang                             1.19-alpine   5da886f1a5e7   21 months ago   354.4MB   354.4MB       0B            0
+										docker.elastic.co/beats/filebeat   8.6.2         24efa40e69a6   2 years ago     288.3MB   288.3MB       0B            1
+										upload-goweb                       latest        8779cf2b2cf7   2 years ago     1.225GB   992.3MB       232.9MB       2
+										nginx                              latest        88736fe82739   2 years ago     141.8MB   0B            141.8MB       1
+										golang                             1.19          8827cedaa309   2 years ago     992.3MB   992.3MB       0B            0
+										btpanel/baota                      lnmp          1a8af2b66823   3 years ago     2.864GB   0B            2.864GB       0
+
+										Containers space usage:
+
+										CONTAINER ID   IMAGE                                    COMMAND                  LOCAL VOLUMES   SIZE      CREATED         STATUS                       NAMES
+										4001ae87acc3   mail-queue-rewebhook                     "./mail_send_webhook…"   0               0B        14 months ago   Up 4 days                    mail_queue_rewebhook
+										743fee3dfe3b   mail-queue-webhook                       "./mail_send_webhook…"   0               0B        14 months ago   Up 4 days                    mail_queue_webhook
+										168d46bb5dc7   mail-queue-repush                        "./mail_send_retry -…"   0               0B        14 months ago   Up 4 days                    mail_queue_repush
+										ab8c818704ef   mail-queue-push                          "./mail_send_write -…"   0               0B        14 months ago   Up 4 days                    mail_queue_push
+										17da1d974311   mail-goweb                               "/home/golang/gopath…"   0               0B        14 months ago   Up 4 days                    mail_web
+										44d3d3f4c9b8   docker.elastic.co/beats/filebeat:8.6.2   "/usr/bin/tini -- /u…"   0               110B      16 months ago   Exited (0) 16 months ago     filebeat
+										5b8bf72aff20   filebeat-upload                          "/usr/bin/tini -- /u…"   1               4.72kB    16 months ago   Exited (255) 10 months ago   filebeat-upload
+										ec9db2d3f043   filebeat-mail                            "/usr/bin/tini -- /u…"   1               7.44MB    17 months ago   Exited (255) 10 months ago   filebeat-mail
+										132e268d57e6   nginx                                    "/docker-entrypoint.…"   0               1.22MB    17 months ago   Up 4 days                    nginx
+										847bae565e01   upload-goweb                             "/home/golang/gopath…"   0               1.56GB    22 months ago   Up 4 days                    upload_web
+										9586e30f0be3   upload-goweb                             "--name upload_web"      0               0B        22 months ago   Created                      competent_kepler
+
+										Local Volumes space usage:
+
+										VOLUME NAME                                                        LINKS     SIZE
+										418bc8d5b676d2d774735a72f764f599f7ff43e4b6db843dedd4e3658bde743f   0         0B
+										9e57941fad3023dd735683dfdbc8082984848043fccea292d1e23e83fbeb2b45   0         0B
+										75bd47fa29a01dc1286e78222b9fc16b4f4b0a96e7cc83180173aeddab2c2815   0         0B
+										7f2c1fcc5adf93cb5e478c8c5f8a71a69bee8cbc8047a9abcd269cc37ced8c2b   0         0B
+										ee5737268dd8f7fe341fb97e51d1b2936475e969505822e87030b697199e9fee   0         0B
+										9b727b26f9bae23ce5c5303e34325488d0b59e2916f30e50358c6ee7b4cf5010   0         0B
+										ec81bc5ebab8ef962b271a5050cd2d73b55ba009d81ac7f4e6e0737a31013793   0         0B
+										f73e9011b5eed343efcca90028382155e7f8ea44fccb00b9014e1bc496dcc298   0         0B
+										f7cfacd6ad2c858f7e24521ea8de654599ab402abe4bab2bddde85fd534d27de   0         0B
+										4e5eebdc8c25ee837f0abb63e65969e30ebd95de9f2464e050e0dc6a0f52d4c1   0         0B
+										5db93611064e6c4b0a1ba220fa46b69b38b7cc4d68a2ff15278ec6e29473ab33   0         0B
+										84d51fbd4f1b1773416ec9cb7e2937b6c66de9649f77297b8debdea551d0fe34   1         0B
+										ff90b59c945f61e342b72a6136c5f632628cffc1c40789bdd8007d48cebc7f11   0         0B
+										379adf205e9eb3bb0da6ba1aecb511dd206e7b07f951475614288447b5a0b429   0         0B
+										4047ac01c5580ce7a1fd07b852bc7cc365c6370559537cce461ace20ca3544d1   0         0B
+										42c1d915ea30dfe54a854f7a5cac7d3a15505f0cd5bd701bb5be46db0aabd6bf   0         0B
+										2a92846b36da7d1774d94ab8c7f4708f6a1ca5b9f2875f4068b5b43d57242466   1         0B
+										ac4c3bc45c176adda1e78c2551336dbb7a3abd6402f852543d6caac1329f3880   0         0B
+										d1fcf9088bbea2e99004dd05e4cb49b43dc806683cc8ef7e22d4476ab647a559   0         0B
+										a22729484b7bcdd531bce3e3c76d1258ea59a1f22d02e98f111e9ef4767f7af6   0         0B
+										b53dcbfb15e7f3ad0c5eab8b12fbeedd0fd3977b9293f673c4e194bd149eb427   0         0B
+										d77ba395fbac1b368fa6faba073ce5d0ea4a9041cfca4685b4e81bc3957f9666   0         0B
+										4b5afb66aa42d670a3b0cca616f070a50aefac7626e62f635f945177904e6d27   0         0B
+										887f37fd2b5c9bcb50b2986134c14f17e7b2253a3b3fff61dc3f1074a99a88ec   0         0B
+										966d369248ebcd3036f3778c6493f19b78bdeb6bd3b676432668a650b512a1ee   0         0B
+										1875d93f1ac2657d8d0ff5882ca92067f90c95ee5e0db1e033bc5d0214d60886   0         0B
+										a5f0a72c60ed331c17fde54d0c63f3e0ca4a512e26a37b52b652dc835cbb99a3   0         0B
+										b2f93138c4908417f48ed9e43540b1446661cd936054da6807c5b658ae5cfc31   0         0B
+										3d2387fc2d4faafdbffef589f2a0a02c62181f89eaaa3eee6bf64c8931c4b9d6   0         0B
+										4d78724aec4c697d093252632e9974e8af7320027ba5f75a9deb8ef75a4c8722   0         0B
+										a3b26ade0e4e4bd25bcd433ff9b4bb575a696a722ad0edc2b0d39904e48ed2e4   0         0B
+
+										Build cache usage: 0B
+
+										CACHE ID   CACHE TYPE   SIZE      CREATED   LAST USED   USAGE     SHARED
+										root@iZ0xi60yimvc2jwvywy8gdZ:~# docker ps -a | grep '1a\|23'
+										4001ae87acc3   mail-queue-rewebhook                     "./mail_send_webhook…"   14 months ago   Up 4 days                    0.0.0.0:9906->9906/tcp, :::9906->9906/tcp             mail_queue_rewebhook
+										root@iZ0xi60yimvc2jwvywy8gdZ:~# docker ps -a | grep 'f6/|c0'
+										root@iZ0xi60yimvc2jwvywy8gdZ:~# docker images | grep 1a8af2b66823
+										btpanel/baota                      lnmp          1a8af2b66823   3 years ago     2.86GB
+										root@iZ0xi60yimvc2jwvywy8gdZ:~# docker ps -a | grep 'f6/|c0'
+										root@iZ0xi60yimvc2jwvywy8gdZ:~# docker ps -a
+										CONTAINER ID   IMAGE                                    COMMAND                  CREATED         STATUS                       PORTS                                                 NAMES
+										4001ae87acc3   mail-queue-rewebhook                     "./mail_send_webhook…"   14 months ago   Up 4 days                    0.0.0.0:9906->9906/tcp, :::9906->9906/tcp             mail_queue_rewebhook
+										743fee3dfe3b   mail-queue-webhook                       "./mail_send_webhook…"   14 months ago   Up 4 days                    0.0.0.0:9905->9905/tcp, :::9905->9905/tcp             mail_queue_webhook
+										168d46bb5dc7   mail-queue-repush                        "./mail_send_retry -…"   14 months ago   Up 4 days                    0.0.0.0:9904->9904/tcp, :::9904->9904/tcp             mail_queue_repush
+										ab8c818704ef   mail-queue-push                          "./mail_send_write -…"   14 months ago   Up 4 days                    0.0.0.0:9903->9903/tcp, :::9903->9903/tcp             mail_queue_push
+										17da1d974311   mail-goweb                               "/home/golang/gopath…"   14 months ago   Up 4 days                    9001/tcp, 0.0.0.0:9901->9901/tcp, :::9901->9901/tcp   mail_web
+										44d3d3f4c9b8   docker.elastic.co/beats/filebeat:8.6.2   "/usr/bin/tini -- /u…"   16 months ago   Exited (0) 16 months ago                                                           filebeat
+										5b8bf72aff20   filebeat-upload                          "/usr/bin/tini -- /u…"   16 months ago   Exited (255) 10 months ago                                                         filebeat-upload
+										ec9db2d3f043   filebeat-mail                            "/usr/bin/tini -- /u…"   17 months ago   Exited (255) 10 months ago                                                         filebeat-mail
+										132e268d57e6   nginx                                    "/docker-entrypoint.…"   17 months ago   Up 4 days                                                                          nginx
+										847bae565e01   upload-goweb                             "/home/golang/gopath…"   22 months ago   Up 4 days                                                                          upload_web
+										9586e30f0be3   upload-goweb                             "--name upload_web"      22 months ago   Created                                                                            competent_kepler
+										root@iZ0xi60yimvc2jwvywy8gdZ:~# 
+										root@iZ0xi60yimvc2jwvywy8gdZ:~# docker ri 1a8af2b66823
+										docker: 'ri' is not a docker command.
+										See 'docker --help'
+										root@iZ0xi60yimvc2jwvywy8gdZ:~# docker rmi 1a8af2b66823
+										Untagged: btpanel/baota:lnmp
+										Untagged: btpanel/baota@sha256:42d0086d4d5aa9d6254a480d69eee938b81f94fd28b65aab267967409ee2e039
+										Deleted: sha256:1a8af2b6682317bb68c6328ee2c3cfc538baf61a6f16ab350193f2e325f87d38
+										Deleted: sha256:a57bc47f139a81bee88ecf76a9528d53406e95a322d8561046b99e7d7e2bd4b3
+										Deleted: sha256:143f6823ebfb35bad0937bac3a4d5759e73afb10f8c5ba0158bdbaf6a6463f94
+										Deleted: sha256:31afddc63421f91ea96a3abfc997e6b9602a2b5601bc228e32eee859c342b703
+										Deleted: sha256:677654347694933f184c22b3b3409cf35652d468d82cae0ffb2c8e2471fbb98b
+										Deleted: sha256:2df8e80c1eb5b376a4c6615518f9765f0b2d6ef44a652fbbf623c19d3be2e59d
+										Deleted: sha256:b46f68cc1bc92ac9545b26bcec7605bd18ae07e790b8120940760ba6f039a8d7
+										Deleted: sha256:174f5685490326fc0a1c0f5570b8663732189b327007e47ff13d2ca59673db02
+										root@iZ0xi60yimvc2jwvywy8gdZ:~# df -h
+										Filesystem      Size  Used Avail Use% Mounted on
+										tmpfs           169M  1.7M  167M   1% /run
+										/dev/vda3        40G   35G  2.5G  94% /
+										tmpfs           841M     0  841M   0% /dev/shm
+										tmpfs           5.0M     0  5.0M   0% /run/lock
+										/dev/vda2       197M  6.1M  191M   4% /boot/efi
+										overlay          40G   35G  2.5G  94% /var/lib/docker/overlay2/9caebff522fc2dd46993c9872a03a1e8c5cd7f41f24b512f8455ce42d4188d8d/merged
+										overlay          40G   35G  2.5G  94% /var/lib/docker/overlay2/37a3332742b2c675c211fde83cffe638db49c50a31dec398591f5a78ca02af79/merged
+										overlay          40G   35G  2.5G  94% /var/lib/docker/overlay2/6a0833b189b5c3464c137e4c9d0bff3554c81301d9120a5dc9f74e09abed8b12/merged
+										overlay          40G   35G  2.5G  94% /var/lib/docker/overlay2/f62a6fc3780e3cb7c5d8a72f410f8c07cc18f9a7b650e5b5169da7fe219a92c0/merged
+										overlay          40G   35G  2.5G  94% /var/lib/docker/overlay2/4d2b15af316bc2baf734a422e6f968590592e169fd34b5628582e0afe1b8034b/merged
+										overlay          40G   35G  2.5G  94% /var/lib/docker/overlay2/e627d9fe10bfd183d2a2828b70d216b49905fcb4c1dd119e8e4610e92af43229/merged
+										overlay          40G   35G  2.5G  94% /var/lib/docker/overlay2/5c27e23bc90cef4b5ad503ec41e2a24298d93ec8d6619e6ef2c459e9bd258add/merged
+										tmpfs           169M  4.0K  169M   1% /run/user/1000
 									root@iZ0xi60yimvc2jwvywy8gdZ:~# find / -name '*' -type f -size +100M | xargs ls -lh {} | sort -nrk5
 									find: ‘/proc/282536/task/282536/fdinfo/6’: No such file or directory
 									find: ‘/proc/282536/fdinfo/5’: No such file or directory
@@ -19522,6 +19948,85 @@
 									tmpfs           756M     0  756M   0% /run/user/0
 									tmpfs           756M     0  756M   0% /run/user/1003
 								-145-44-35-tm
+									-- 20250607
+										[root@iz0xibhd8xjxiru8zt5ietz ~]# df -h
+										Filesystem      Size  Used Avail Use% Mounted on
+										devtmpfs         12G  4.0K   12G   1% /dev
+										tmpfs            12G     0   12G   0% /dev/shm
+										tmpfs            12G  3.6G  7.8G  32% /run
+										tmpfs            12G     0   12G   0% /sys/fs/cgroup
+										/dev/vda1        40G   39G  592M  99% /
+										tmpfs           2.3G     0  2.3G   0% /run/user/0
+										overlay          40G   39G  592M  99% /var/lib/docker/overlay2/f32f1a66a724922b4b6e3b3025bf7c26702d2acd8c9cdb4483c57405e4c1f944/merged
+										overlay          40G   39G  592M  99% /var/lib/docker/overlay2/3bc24f2e1f02be2da94aaa45204fde4cfae4723e190c4a093ee0061039f7914d/merged
+										overlay          40G   39G  592M  99% /var/lib/docker/overlay2/a1450f72c102025794e3a1854eed67304fc338bf57308a68687105ad6a8e0523/merged
+										overlay          40G   39G  592M  99% /var/lib/docker/overlay2/f47e87ac2faec4bca2c5f5af763200c42f5e2abffafd8d5c9f6e3c9746bf8b33/merged
+										overlay          40G   39G  592M  99% /var/lib/docker/overlay2/d68fb40923d5526fb9dcb18fa13392d9bfd34a778c7613bd246b724e33ec8d28/merged
+										overlay          40G   39G  592M  99% /var/lib/docker/overlay2/9cfa905c1ee2a08387bef1e63d31a7829de8b72976db5fd631772ade7991f273/merged
+										overlay          40G   39G  592M  99% /var/lib/docker/overlay2/42269d276137de374266bd0384ab49d701a5eab0d36d53d47f5dedf19f5468dd/merged
+										overlay          40G   39G  592M  99% /var/lib/docker/overlay2/bc9e4c0ba99e5eea457c3213b25013c977cffda5de52e96c2b67bfb3d782a060/merged
+										overlay          40G   39G  592M  99% /var/lib/docker/overlay2/106d2f39d28ba0ccf0ba824f5c8afae4291386cbedd9da83016551318fd13ee9/merged
+										overlay          40G   39G  592M  99% /var/lib/docker/overlay2/622341e4442b12d79faf8acb4fca31f843e81b9ad7ed44cf04f5ca18a8e2fd41/merged
+										overlay          40G   39G  592M  99% /var/lib/docker/overlay2/a202e929b22b6072bc0d7ceddfd1cfdece1d65a793010cce5baef8b6d06480c4/merged
+										overlay          40G   39G  592M  99% /var/lib/docker/overlay2/d84d991b31d78d89f4ab89de6ed5b3ed55219cafbc59cc10724dfda757d3d29e/merged
+										overlay          40G   39G  592M  99% /var/lib/docker/overlay2/2f76cb191a8db2ea1eef0c32a31ddd6a2ac7938a5330aac90a5b49372b65dc5c/merged
+										overlay          40G   39G  592M  99% /var/lib/docker/overlay2/45c7a8f0840352e35f4e839a4a8972085934473d449e5484fd94692c83e60c0a/merged
+										overlay          40G   39G  592M  99% /var/lib/docker/overlay2/c0523133d8a45896117674a96206555ecf15a8f2c6a08533aa92b76fe7a2e1b7/merged
+										overlay          40G   39G  592M  99% /var/lib/docker/overlay2/138729e3105c2c2de8cb298b175134cdec0115a2e4f55117046f5f2aee1acad6/merged
+										overlay          40G   39G  592M  99% /var/lib/docker/overlay2/4fd12a13c8ddd80f348dadf0537b4afd99903b4692d23e119f114b41c85009b7/merged
+										overlay          40G   39G  592M  99% /var/lib/docker/overlay2/cf7fc074fc31a7d91600a34db842944b8a7937b7a5d9e48f8afc9a7cd3212a81/merged
+										tmpfs           2.3G     0  2.3G   0% /run/user/1002
+										[root@iz0xibhd8xjxiru8zt5ietz ~]# ll monitor.log.202506*.zip | head
+										-rw-r--r-- 1 root root  1371417 Jun  6 00:00 monitor.log.20250606.0000.zip
+										-rw-r--r-- 1 root root  8602686 Jun  6 00:02 monitor.log.20250606.0002.zip
+										-rw-r--r-- 1 root root  8939532 Jun  6 00:04 monitor.log.20250606.0004.zip
+										-rw-r--r-- 1 root root  9910277 Jun  6 00:06 monitor.log.20250606.0006.zip
+										-rw-r--r-- 1 root root  8054051 Jun  6 00:08 monitor.log.20250606.0008.zip
+										-rw-r--r-- 1 root root  4248752 Jun  6 00:10 monitor.log.20250606.0010.zip
+										-rw-r--r-- 1 root root  8103496 Jun  6 00:12 monitor.log.20250606.0012.zip
+										-rw-r--r-- 1 root root  9694413 Jun  6 00:14 monitor.log.20250606.0014.zip
+										-rw-r--r-- 1 root root  9288792 Jun  6 00:16 monitor.log.20250606.0016.zip
+										-rw-r--r-- 1 root root  8560759 Jun  6 00:18 monitor.log.20250606.0018.zip
+										[root@iz0xibhd8xjxiru8zt5ietz ~]# crontab -l | grep cpu*/2 * * * * sh redis.cpu.sh > /dev/null 2>&1
+										# 修改清理时间为偶数分钟
+										[root@iz0xibhd8xjxiru8zt5ietz ~]# tail redis.cpu.sh
+
+										minTime=`date '+%H%M'`
+										if [[ ${minTime} == '1502' ]] || [[ ${minTime} == '2136' ]] || [[ ${minTime} == '2328' ]]; then
+												year=`date '+%Y'`
+												today=`date '+%Y%m%d'`
+												lastday=`date -d'-1 day' '+%Y%m%d'`
+												find . -name monitor.log.${year}\*zip  | grep -v "${today}" | xargs -i rm -f {}
+												#a=`find . -name monitor.log.${year}\*zip  | grep -v "${today}\|${lastday}" | wc -l`
+												#echo $a
+										fi
+										[root@iz0xibhd8xjxiru8zt5ietz ~]# df -h
+										Filesystem      Size  Used Avail Use% Mounted on
+										devtmpfs         12G  4.0K   12G   1% /dev
+										tmpfs            12G     0   12G   0% /dev/shm
+										tmpfs            12G  3.6G  7.8G  32% /run
+										tmpfs            12G     0   12G   0% /sys/fs/cgroup
+										/dev/vda1        40G   36G  3.8G  91% /
+										tmpfs           2.3G     0  2.3G   0% /run/user/0
+										overlay          40G   36G  3.8G  91% /var/lib/docker/overlay2/f32f1a66a724922b4b6e3b3025bf7c26702d2acd8c9cdb4483c57405e4c1f944/merged
+										overlay          40G   36G  3.8G  91% /var/lib/docker/overlay2/3bc24f2e1f02be2da94aaa45204fde4cfae4723e190c4a093ee0061039f7914d/merged
+										overlay          40G   36G  3.8G  91% /var/lib/docker/overlay2/a1450f72c102025794e3a1854eed67304fc338bf57308a68687105ad6a8e0523/merged
+										overlay          40G   36G  3.8G  91% /var/lib/docker/overlay2/f47e87ac2faec4bca2c5f5af763200c42f5e2abffafd8d5c9f6e3c9746bf8b33/merged
+										overlay          40G   36G  3.8G  91% /var/lib/docker/overlay2/d68fb40923d5526fb9dcb18fa13392d9bfd34a778c7613bd246b724e33ec8d28/merged
+										overlay          40G   36G  3.8G  91% /var/lib/docker/overlay2/9cfa905c1ee2a08387bef1e63d31a7829de8b72976db5fd631772ade7991f273/merged
+										overlay          40G   36G  3.8G  91% /var/lib/docker/overlay2/42269d276137de374266bd0384ab49d701a5eab0d36d53d47f5dedf19f5468dd/merged
+										overlay          40G   36G  3.8G  91% /var/lib/docker/overlay2/bc9e4c0ba99e5eea457c3213b25013c977cffda5de52e96c2b67bfb3d782a060/merged
+										overlay          40G   36G  3.8G  91% /var/lib/docker/overlay2/106d2f39d28ba0ccf0ba824f5c8afae4291386cbedd9da83016551318fd13ee9/merged
+										overlay          40G   36G  3.8G  91% /var/lib/docker/overlay2/622341e4442b12d79faf8acb4fca31f843e81b9ad7ed44cf04f5ca18a8e2fd41/merged
+										overlay          40G   36G  3.8G  91% /var/lib/docker/overlay2/a202e929b22b6072bc0d7ceddfd1cfdece1d65a793010cce5baef8b6d06480c4/merged
+										overlay          40G   36G  3.8G  91% /var/lib/docker/overlay2/d84d991b31d78d89f4ab89de6ed5b3ed55219cafbc59cc10724dfda757d3d29e/merged
+										overlay          40G   36G  3.8G  91% /var/lib/docker/overlay2/2f76cb191a8db2ea1eef0c32a31ddd6a2ac7938a5330aac90a5b49372b65dc5c/merged
+										overlay          40G   36G  3.8G  91% /var/lib/docker/overlay2/45c7a8f0840352e35f4e839a4a8972085934473d449e5484fd94692c83e60c0a/merged
+										overlay          40G   36G  3.8G  91% /var/lib/docker/overlay2/c0523133d8a45896117674a96206555ecf15a8f2c6a08533aa92b76fe7a2e1b7/merged
+										overlay          40G   36G  3.8G  91% /var/lib/docker/overlay2/138729e3105c2c2de8cb298b175134cdec0115a2e4f55117046f5f2aee1acad6/merged
+										overlay          40G   36G  3.8G  91% /var/lib/docker/overlay2/4fd12a13c8ddd80f348dadf0537b4afd99903b4692d23e119f114b41c85009b7/merged
+										overlay          40G   36G  3.8G  91% /var/lib/docker/overlay2/cf7fc074fc31a7d91600a34db842944b8a7937b7a5d9e48f8afc9a7cd3212a81/merged
+										tmpfs           2.3G     0  2.3G   0% /run/user/1002
 									[root@iz0xibhd8xjxiru8zt5ietz ~]# find / -name '*' -type f -size +100M | xargs ls -lh {} | sort -nrk5find: ‘/proc/10478/task/10478/fdinfo/6’: No such file or directory
 									find: ‘/proc/10478/fdinfo/5’: No such file or directory
 									find: ‘/proc/16780’: No such file or directory
