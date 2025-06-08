@@ -14,3 +14,29 @@ Shop | JAM Software: https://customers.jam-software.de/downloadTrial.php?languag
 ![C盘中的文件夹当前变为一个快捷方式](image-1.png)
 
 ![alt text](image-2.png)
+
+#### 20250606
+
+![alt text](image-6.png)
+
+![alt text](image-3.png)
+
+![alt text](image-4.png)
+
+![alt text](image-5.png)
+
+![alt text](image-7.png)
+
+![alt text](image-8.png)
+
+![alt text](image-9.png)
+
+![alt text](image-10.png)
+
+![alt text](image-11.png)
+
+![alt text](image-12.png)
+
+![alt text](image-13.png)
+
+### 快捷方式等等

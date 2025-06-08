@@ -7329,6 +7329,39 @@
 日常响应
 6，后续优先级、应对
 
+===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== =====
+20250606
+【告警】
+【客诉】
+【迁云】
+【桌面运维】
+【运维】
+
+原计划：
+运维
+1，bff服务部署
+2，充值梳理提交
+运维-迁云
+3，架构图&全景资源构思&初步梳理
+4，计算GCP VPN的流量费用，研究VPN的限速设置。
+本地桌面运维
+5，上线面板AP
+日常响应
+6，后续优先级、应对
+
+计划：
+运维
+1，bff服务部署
+告警
+2，redis节点CPU
+运维-迁云
+3，架构图&全景资源构思&初步梳理
+4，计算GCP VPN的流量费用，研究VPN的限速设置。
+本地桌面运维
+5，上线面板AP
+日常响应
+6，后续优先级、应对
+
 
 近期复盘
 	后续优先级、应对
@@ -9336,6 +9369,34 @@
 
 	告警
 		redis节点CPU
+			-- 20250606
+
+				today=20250605.1102
+				today=`date '+%Y%m%d.%H%M'`;
+				timeout 1 redis-cli -h host -p 6379 -a pass monitor >> monitor.${today}.log
+
+				# 增加实时统计数据
+				statisticsLog=monitor.${today}.statistics.log
+				# 查看1s执行的所有redis 命令去重后统计各命令数量结果总数
+				monitorLog=monitor.log.${today}
+				echo "cat ${monitorLog} | awk '{print $4}' | sort -rnk4 | uniq -c | wc -l" >> ${statisticsLog}
+				cat ${monitorLog} | awk '{print $4}' | sort -rnk4 | uniq -c | wc -l >> ${statisticsLog}
+				# 查看1s执行的所有redis 命令去重后统计各命令数量结果（按数量从多到少排序）
+				echo "cat ${monitorLog} | awk '{print $4}' | sort -rnk4 | uniq -c | sort -nrk1 | head -50" >> ${statisticsLog}
+				cat ${monitorLog} | awk '{print $4}' | sort -rnk4 | uniq -c | sort -nrk1 | head -50 >> ${statisticsLog}
+				# 查看GET命令读取目标key执行次数统计结果，结果数量限定在前50
+				echo "grep '"GET"' ${monitorLog} | awk '{print $5}' | sort -rnk5 | uniq -c | sort -nrk1 | head -50" >> ${statisticsLog}
+				grep '"GET"' ${monitorLog} | awk '{print $5}' | sort -rnk5 | uniq -c | sort -nrk1 | head -50 >> ${statisticsLog}
+				# 查看SMEMBERS命令读取目标key执行次数统计结果，结果数量限定在前50
+				echo "grep '"SMEMBERS"' ${monitorLog} | awk '{print $5}' | sort -rnk5 | uniq -c | sort -nrk1 | head -50" >> ${statisticsLog}
+				grep '"SMEMBERS"' ${monitorLog} | awk '{print $5}' | sort -rnk5 | uniq -c | sort -nrk1 | head -50 >> ${statisticsLog}
+
+				statisticsInfokeyLog=monitor.${today}.statistics.infokey.log
+				grep '"GET"' ${monitorLog} | awk '{print $5}' | sort -rnk5 | uniq -c | sort -nrk1 | awk '{print $2}' | wc -l >> ${statisticsInfokeyLog}
+				grep '"GET"' ${monitorLog} | awk '{print $5}' | sort -rnk5 | uniq -c | sort -nrk1 | awk '{print $2}' | xargs -i /usr/local/bin/redis-cli -h r-0xiyxblxonjb1bm3ri.redis.rds.aliyuncs.com -p 6379 -a HyTf56MxDets info key {} >> ${statisticsInfokeyLog}
+				statisticsMemoryUsageLog=monitor.${today}.statistics.memory.usage.log
+				grep '"GET"' ${monitorLog} | awk '{print $5}' | sort -rnk5 | uniq -c | sort -nrk1 | awk '{print $2}' | wc -l >> ${statisticsMemoryUsageLog}
+				grep '"GET"' ${monitorLog} | awk '{print $5}' | sort -rnk5 | uniq -c | sort -nrk1 | awk '{print $2}' | xargs -i /usr/local/bin/redis-cli -h r-0xiyxblxonjb1bm3ri.redis.rds.aliyuncs.com -p 6379 -a HyTf56MxDets memory usage {} >> ${statisticsMemoryUsageLog}
 			-- 20250602
 				【云监控】云数据库Tair（兼容Redis®）恢复正常
 				● 用户名: changxiaojiait
