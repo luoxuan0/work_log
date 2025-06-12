@@ -39,4 +39,14 @@ Shop | JAM Software: https://customers.jam-software.de/downloadTrial.php?languag
 
 ![alt text](image-13.png)
 
+#### 20250612
+
+C:\Users\admin\AppData\Roaming\Tencent\Wechat\ --> F:\C\User\admin\AppData\Roaming\Tencent 访问拒绝
+C:\Users\admin\AppData\Roaming\Tencent\WeMail\ --> F:\C\User\admin\AppData\Roaming\Tencent
+C:\Users\admin\AppData\Roaming\Tencent\QQ\ --> F:\C\User\admin\AppData\Roaming\Tencent
+C:\Users\admin\AppData\Roaming\Tencent\Wemeet\ --> F:\C\User\admin\AppData\Roaming\Tencent 另一个程序已锁定文件的一部分，进程无法访问
+C:\Users\admin\AppData\Roaming\kingsoft\ --> F:\C\User\admin\AppData\Roaming 由另一进程使用
+C:\Users\admin\AppData\Roaming\Code\ --> F:\C\User\admin\AppData\Roaming 由另一进程使用
+C:\Users\admin\AppData\Roaming\Kugou8\ --> F:\C\User\admin\AppData\Roaming
+
 ### 快捷方式等等
