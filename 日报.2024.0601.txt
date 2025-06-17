@@ -7637,6 +7637,42 @@ ISO27001相关资料收集
 【运维】
 redis节点CPU（当前30%）
 
+===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== =====
+【告警】
+【客诉】
+【迁云】
+【桌面运维】
+【运维】
+
+20250616
+【运维】
+1，数据库操作-多语言key批量导入、搜索、导出表创建	@TYT
+【迁云】
+2，数据库迁移（tracking数据库）&tm数据库账号
+3，cloudflare的域名解析&cloudflare的page创建&worker授权token
+
+
+原计划：
+安全
+1，资产清单
+【运维-迁云】
+2，数据库同步
+3，研究VPN的限速设置
+【本地桌面运维】
+4，专线测试
+【日常响应】
+5，后续优先级、应对
+
+计划：
+【安全】
+1，等保整改
+【运维-迁云】
+2，研究VPN的限速设置
+【本地桌面运维】
+3，专线测试
+【日常响应】
+4，后续优先级、应对
+
 
 近期复盘
 	后续优先级、应对
@@ -24478,6 +24514,20 @@ redis节点CPU（当前30%）
 			=IF(ISERROR(MATCH(A2,$G$2:$G$95,0)),"我们A2支持对方G2:G95不支持","双方都支持")
 
 	迁云
+		-- 20250616
+			trackingdb
+				CREATE USER 'trackingdb'@'%' IDENTIFIED BY 'yTC43JzpnpbkxWF2';
+				GRANT ALL PRIVILEGES ON trackingdb.* TO 'trackingdb'@'%';
+				GRANT CREATE ON *.* TO 'trackingdb'@'%';
+				FLUSH PRIVILEGES;
+
+			查看当前登陆账号权限
+			SHOW GRANTS;
+			-- 授予创建数据库权限
+			GRANT CREATE ON *.* TO 'tracking'@'%';
+
+			-- 刷新权限使更改生效
+			FLUSH PRIVILEGES;
 		-- 20250613
 			CREATE USER 'tracking'@'%' IDENTIFIED BY '***';
 			GRANT ALL PRIVILEGES ON tracking.* TO 'tracking'@'%';
