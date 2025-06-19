@@ -7715,6 +7715,52 @@ redis节点CPU（当前30%）
 【日常响应】
 4，后续优先级、应对
 
+===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== =====
+【告警】
+【客诉】
+【迁云】
+【桌面运维】
+【运维】
+
+20250618
+【告警】
+1，站点监控-出现一个IP频繁访问前端js（已经按照历史方式限速）
+2，dnspod套餐过期-增加告警接收人@GC
+3，磁盘读取-upload的测试服
+4，澳大利亚邮政-独立更新负载高导致队列启动缺失
+【安全】
+5，等保复测-服务购买确认并沟通入折扣名单
+【迁云】
+6，在新project创建资源-数据库@GC
+【运维】
+7，bff部署域名解析 @SZM
+8，大模型授权 @GL_AI
+
+
+原计划：
+【安全】
+1，等保整改
+【迁云】
+2，VPN重新搭建
+【本地桌面运维】
+3，专线测试
+【日常响应】
+4，后续优先级、应对
+
+
+计划：
+【安全】
+1，等保整改
+【迁云】
+2，VPN重新搭建&数据库创建
+【运维】
+3，优化单号识别用有效单号同步跟进
+【本地桌面运维】
+4，专线测试
+5，服务监控
+【日常响应】
+6，后续优先级、应对
+
 
 近期复盘
 	后续优先级、应对
@@ -22626,6 +22672,24 @@ redis节点CPU（当前30%）
 				敏感度
 				沉默通道
 
+		国内数据库CPU
+			-- 20250618
+				问题
+					CPU告警
+				紧急处理
+					查找相关sql
+					关闭问题sql
+				根因分析
+					从sql看，为大批查询sql导致，先拿到单号id，然后用in分批并发查询，导致cpu占用过高，导致告警
+					业务场景：用户后台搜索导出大量单号
+				优化方案
+					限制并发数量，查询数量
+						优点：快速，不使用额外资源
+						待提升点：用户体验差，用户等待时间长
+					放到es中
+						优点：用户体验好，查询速度快
+						待提升点：时间投入，增加es资源使用
+
 		国外数据库CPU
 			定位
 				只是只读节点CPU使用率高
@@ -22828,6 +22892,9 @@ redis节点CPU（当前30%）
 						diff /var/spool/cron/root ${crontabFile}
 					fi
 		队列
+			-- 20250618
+				# 查看队列激活任务数量
+				redis-cli keys 'resque:queue:*Queue'
 			-- 20250224
 				redis keys spe_4px_* | wc -l
 				137006
@@ -24236,7 +24303,21 @@ redis节点CPU（当前30%）
 				# CSV定时导出功能-20240816
 				10 00 * * * cd /home/wwwroot/mytracking && ./Commands -t timed_export  -n ShipmentsTimedExportExecute > /dev/null 2>&1
 
-		脚本执行中断
+		有效单号获取，国内也需要
+			-- 20250618
+				# 测试前备份脚本
+				cp /home/wwwroot/www.trackingmore.com/script/getEffectiveTracknumberForRule.sh /home/wwwroot/www.trackingmore.com/script/getEffectiveTracknumberForRule.sh.20250618
+				vi /home/wwwroot/www.trackingmore.com/script/getEffectiveTracknumberForRule.sh
+				cp /home/wwwroot/www.trackingmore.com/script/getEffectiveTracknumberForRule.php /home/wwwroot/www.trackingmore.com/script/getEffectiveTracknumberForRule.php.20250618
+				vi /home/wwwroot/www.trackingmore.com/script/getEffectiveTracknumberForRule.php
+
+				# 测试完成，确认差异
+				diff /home/wwwroot/www.trackingmore.com/script/getEffectiveTracknumberForRule.sh /home/wwwroot/www.trackingmore.com/script/getEffectiveTracknumberForRule.sh.20250618
+				diff /home/wwwroot/www.trackingmore.com/script/getEffectiveTracknumberForRule.php /home/wwwroot/www.trackingmore.com/script/getEffectiveTracknumberForRule.php.20250618
+				# 测试完成，确认差异完成，清除历史版本
+				rm -f /home/wwwroot/www.trackingmore.com/script/getEffectiveTracknumberForRule.sh.20250618
+				rm -f /home/wwwroot/www.trackingmore.com/script/getEffectiveTracknumberForRule.php.20250618
+		有效单号脚本执行中断
 			-- 20250218
 				单号规则用
 					# 文件在77 上打包的，打包文件还在，进行重新传输即可
