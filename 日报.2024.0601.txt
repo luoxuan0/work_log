@@ -7761,6 +7761,45 @@ redis节点CPU（当前30%）
 【日常响应】
 6，后续优先级、应对
 
+===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== =====
+【告警】
+【客诉】
+【迁云】
+【桌面运维】
+【运维】
+
+20250619
+【告警】
+【安全】
+【运维】
+
+原计划：
+【安全】
+1，等保整改
+【迁云】
+2，VPN重新搭建&数据库创建
+【运维】
+3，优化单号识别用有效单号同步跟进
+【本地桌面运维】
+4，专线测试
+5，服务监控
+【日常响应】
+6，后续优先级、应对
+
+
+计划：
+【安全】
+1，等保整改
+【迁云】
+2，VPN重新搭建&数据库创建
+【运维】
+3，优化单号识别用有效单号同步跟进
+【本地桌面运维】
+4，专线测试
+5，服务监控
+【日常响应】
+6，后续优先级、应对
+
 
 近期复盘
 	后续优先级、应对
@@ -10003,6 +10042,195 @@ redis节点CPU（当前30%）
 
 
 		redis节点内存
+			-- 20250619
+				-145 大key清除
+					[root@iz0xibhd8xjxiru8zt5ietz ~]#  php /home/wwwroot/www.trackingmore.com/script/warning_redis.php dfdf 10 | grep ':redis:' -A8
+					string(183) "Foreign:redis:
+					node:0: 74.58% > 10%
+					node:1: 90.52% > 10%
+					node:2: 85.04% > 10%
+					node:3: 96.09% > 10%
+					node:4: 82.49% > 10%
+					node:5: 80.49% > 10%
+					node:6: 92.83% > 10%
+					node:7: 82.72% > 10%
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# tail -100 redis.bigkeys.log 
+					5466 hashs with 10465591 fields (00.02% of keys, avg size 1914.67)
+					1358 zsets with 10772108 members (00.00% of keys, avg size 7932.33)
+
+					# Scanning the entire keyspace to find biggest keys as well as
+					# average sizes per key type.  You can use -i 0.1 to sleep 0.1 sec
+					# per 100 SCAN commands (not usually needed).
+
+					[00.00%] Biggest string found so far 'API_AS_V4_create_283408_1691200800_APIB_V4' with 3 bytes
+					[00.00%] Biggest set    found so far 'server_9200190349451108914617_usps_SET' with 1 members
+					[00.00%] Biggest set    found so far 'pitneybowes45.42.177.43:3128' with 2 members
+					[00.00%] Biggest string found so far 'API_AS_create_245180_1678089600_APIB' with 4 bytes
+					[00.00%] Biggest string found so far 'resque:job:66189ba09dd314a13784c85089ce7f20:status' with 33 bytes
+					[00.00%] Biggest set    found so far 'S_API_AS_V4_1739962800' with 249 members
+					[00.00%] Biggest string found so far 'NotFound_Retrack_180826_1213716' with 94 bytes
+					[00.00%] Biggest string found so far 'rule_content_new_0_1302_0' with 42641 bytes
+					[00.01%] Biggest set    found so far 'updateNotfoundCourier:wearepro:existSpecifyCourier' with 5531 members
+					[00.03%] Biggest hash   found so far 'dhl_count_2025021403' with 5 fields
+					[00.09%] Biggest hash   found so far 'dhl_count_2024093005' with 1265 fields
+					[00.11%] Biggest zset   found so far 'Z_R_P_U_moldova-post_SET' with 540 members
+					[00.12%] Biggest string found so far '99minutos_14_17_18_N_BIT' with 62226 bytes
+					[00.15%] Biggest hash   found so far 'dhl_count_2024112109' with 13695 fields
+					[00.23%] Biggest set    found so far 'updateNotfoundCourier:delhivery:updatedNumber:updateNotfoundCourier:delhivery:overOneNumberNotIncludedSpecifyCourier' with 8977 members
+					[00.25%] Biggest hash   found so far 'dhl_count_2024112609' with 17974 fields
+					[00.25%] Biggest string found so far 'mem_page_lang_detail_tw' with 477289 bytes
+					[00.25%] Biggest set    found so far 'updateNotfoundCourier:asendia-usa:updatedNumberWithOldCourier:updateNotfoundCourier:asendia-usa:overOneNumberNotIncludedSpecifyCourier' with 32160 members
+					[00.27%] Biggest string found so far 'rule_content_new_0_92_4' with 2742784 bytes
+					[00.36%] Biggest zset   found so far 'Z_R_P_U_auspost_SET' with 2409 members
+					[00.60%] Biggest zset   found so far 'Z_R_P_U_hhexp_SET' with 52775 members
+					[01.03%] Biggest set    found so far 'notfound_courier_code_dhlglobalmail' with 33718 members
+					[01.37%] Biggest zset   found so far 'Z_R_P_U_sdhexpress_SET' with 57143 members
+					[02.20%] Biggest string found so far '260086_Import_20230520150043' with 3284089 bytes
+					[02.38%] Biggest hash   found so far 'dhl_count_2024102316' with 26683 fields
+					[02.84%] Biggest string found so far 'TrackingCompanyData_ru_0' with 6053078 bytes
+					[03.39%] Sampled 1000000 keys so far
+					[04.28%] Biggest list   found so far 'resque:queue:shopifyWebhookQueue' with 30 items
+					[06.77%] Biggest hash   found so far 'dhl_count_2024110220' with 28882 fields
+					[06.78%] Sampled 2000000 keys so far
+					[07.41%] Biggest hash   found so far 'dhl_count_2024110316' with 42122 fields
+					[08.05%] Biggest list   found so far 'resque:queue:updateInIndependentServer4pxRedisForeignToHomeReceiveDataQueue' with 80 items
+					[09.82%] Biggest set    found so far 'lbcexpress_IP_lbcexpress.com' with 35984 members
+					[10.17%] Sampled 3000000 keys so far
+					[11.98%] Biggest zset   found so far 'Z_P_U_4px_B_SET' with 92137 members
+					[13.28%] Biggest set    found so far 'R_P_U_ukraine-post_SET' with 55533 members
+					[13.57%] Sampled 4000000 keys so far
+					[13.59%] Biggest list   found so far 'courier_jtexpress-ae_ticket' with 156 items
+					[16.74%] Biggest set    found so far 'quiqup_input' with 72026 members
+					[16.96%] Sampled 5000000 keys so far
+					[16.97%] Biggest list   found so far 'courier_air-elalairline_ticket' with 5628 items
+					[17.91%] Biggest hash   found so far 'dhl_count_2024091710' with 62423 fields
+					[18.53%] Biggest list   found so far 'resque:queue:platefromWishQueue' with 14207 items
+					[20.35%] Sampled 6000000 keys so far
+					[21.15%] Biggest zset   found so far 'Z_R_P_U_couriers-please_SET' with 268336 members
+					[22.27%] Biggest hash   found so far 'TRACKING_TIME_PREPARE' with 204636 fields
+					[23.74%] Sampled 7000000 keys so far
+					[27.13%] Sampled 8000000 keys so far
+					[27.78%] Biggest zset   found so far 'Z_P_U_australia-post_B_SET_ERROR' with 628870 members
+					[30.52%] Sampled 9000000 keys so far
+					[33.92%] Sampled 10000000 keys so far
+					[35.68%] Biggest set    found so far 'cainiao_IP_global.cainiao.com' with 291412 members
+					[37.31%] Sampled 11000000 keys so far
+					[38.54%] Biggest set    found so far 'Mysql_Bak_Set' with 379159 members
+					[40.70%] Sampled 12000000 keys so far
+					[42.36%] Biggest set    found so far 'updateNotfoundCourier:usps:updatedNumberWithOldCourier' with 760282 members
+					[42.53%] Biggest zset   found so far 'Z_SPE_cache_4px_SET' with 894730 members
+					[44.09%] Sampled 13000000 keys so far
+					[47.48%] Sampled 14000000 keys so far
+					[50.87%] Sampled 15000000 keys so far
+					[54.27%] Sampled 16000000 keys so far
+					[57.66%] Sampled 17000000 keys so far
+					[61.05%] Sampled 18000000 keys so far
+					[64.44%] Sampled 19000000 keys so far
+					[67.83%] Sampled 20000000 keys so far
+					[68.68%] Biggest list   found so far 'resque:queue:airSendQueue' with 97402 items
+					[71.22%] Sampled 21000000 keys so far
+					[74.61%] Sampled 22000000 keys so far
+					[78.01%] Sampled 23000000 keys so far
+					[81.40%] Sampled 24000000 keys so far
+					[84.79%] Sampled 25000000 keys so far
+					[86.01%] Biggest list   found so far 'resque:queue:airWebhookQueue' with 241122 items
+					[88.18%] Sampled 26000000 keys so far
+					[91.57%] Sampled 27000000 keys so far
+					[94.96%] Sampled 28000000 keys so far
+					[98.36%] Sampled 29000000 keys so far
+
+					-------- summary -------
+
+					Sampled 29405965 keys in the keyspace!
+					Total key length in bytes is 1187233075 (avg len 40.37)
+
+					Biggest string found 'TrackingCompanyData_ru_0' has 6053078 bytes
+					Biggest   list found 'resque:queue:airWebhookQueue' has 241122 items
+					Biggest    set found 'updateNotfoundCourier:usps:updatedNumberWithOldCourier' has 760282 members
+					Biggest   hash found 'TRACKING_TIME_PREPARE' has 204636 fields
+					Biggest   zset found 'Z_SPE_cache_4px_SET' has 894730 members
+
+					13164938 strings with 1489366154 bytes (44.77% of keys, avg size 113.13)
+					39 lists with 545998 items (00.00% of keys, avg size 13999.95)
+					16234189 sets with 33001750 members (55.21% of keys, avg size 2.03)
+					5459 hashs with 10467493 fields (00.02% of keys, avg size 1917.47)
+					1340 zsets with 10761406 members (00.00% of keys, avg size 8030.90)
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# sh redisMemory.sh updateNotfoundCourier:usps:updatedNumberWithOldCourier
+					2025-06-19 19:27:17
+					redis memory usage updateNotfoundCourier:usps:updatedNumberWithOldCourier
+					(integer) 50964608
+					redis info key updateNotfoundCourier:usps:updatedNumberWithOldCourier
+					slot:8124 node_index:3
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# redis del updateNotfoundCourier:usps:updatedNumberWithOldCourier
+					(integer) 1
+					[root@iz0xibhd8xjxiru8zt5ietz ~]#  php /home/wwwroot/www.trackingmore.com/script/warning_redis.php dfdf 10 | grep ':redis:' -A8
+					string(183) "Foreign:redis:
+					node:0: 74.62% > 10%
+					node:1: 90.51% > 10%
+					node:2: 84.95% > 10%
+					node:3: 93.61% > 10%
+					node:4: 82.48% > 10%
+					node:5: 80.43% > 10%
+					node:6: 92.72% > 10%
+					node:7: 82.71% > 10%
+				-77
+					# 磁盘空间不充裕，移走大文件
+						mv /home/wwwroot/www.trackingmore.com/python_img/redis.bigkey.3.length_1_1024.20250517.log /run/log/home-wwwroot-www.trackingmore.com-python_img/redis.bigkey.3.length_1_1024.20250517.log
+					# 开启内存定位扫描任务
+						34 19 19 6 * sh redis.memory.sh foreign >/dev/null 2>&1
+					# 查看扫描任务是否完成
+						[root@iz0xibhd8xjxiru8zt5ierz ~]# ll /home/wwwroot/www.trackingmore.com/python_img/ | grep 20250619
+						-rw-r--r--  1 root root      10648 Jun 19 20:38 redis.bigkey.3.length_0_1.20250619.log
+						-rw-r--r--  1 root root     322486 Jun 19 20:38 redis.bigkey.3.length_10240_.20250619.log
+						-rw-r--r--  1 root root     331205 Jun 19 20:38 redis.bigkey.3.length_1024_10240.20250619.log
+						-rw-r--r--  1 root root  216403726 Jun 19 20:38 redis.bigkey.3.length_1_1024.20250619.log
+					# 查看扫描结果
+						[root@iz0xibhd8xjxiru8zt5ierz ~]# cat /home/wwwroot/www.trackingmore.com/python_img/redis.bigkey.3.length_10240_.20250619.log | awk -F: '{print $4" "$NF" "$5}' | sort -nrk2 | head -20
+						Mysql_Bak_Set 160988488 set
+						Z_SPE_cache_4px_SET 138304248 zset
+						Z_P_O_pitneybowes_B_SET 44363008 zset
+						Z_R_P_U_ekart_SET 38013630 zset
+						python_set_taiwan_post 25198600 set
+						lp_rule_content5_othernum 15226320 set
+						Z_R_P_U_whatsship_SET 11849764 zset
+						resque 10726196 workers
+						Z_R_P_U_old-dominion_SET 10255891 zset
+						updateNotfoundCourier 9742672 fedex
+						Z_R_P_U_fmx_SET 7625208 zset
+						taiwan-post_ocr_success_log 7609968 set
+						usps_IP_com 7068128 set
+						Z_R_P_U_phlpost_SET 6763993 zset
+						Z_R_P_U_zim_SET 5667364 zset
+						air_098_log 4896352 set
+						Z_R_P_U_tip-sa_SET 3774084 zset
+						260086_Import_20230503015013 3670096 string
+						Z_R_P_U_cpex_SET 3343755 zset
+						TrackingCompanyData_ko_7 3145808 string
+				-145
+					大key清除
+						[root@iz0xibhd8xjxiru8zt5ietz ~]#  php /home/wwwroot/www.trackingmore.com/script/warning_redis.php dfdf 10 | grep ':redis:' -A8
+						string(182) "Foreign:redis:
+						node:0: 74.46% > 10%
+						node:1: 89.7% > 10%
+						node:2: 85.12% > 10%
+						node:3: 93.82% > 10%
+						node:4: 82.64% > 10%
+						node:5: 81.13% > 10%
+						node:6: 92.44% > 10%
+						node:7: 82.42% > 10%
+						[root@iz0xibhd8xjxiru8zt5ietz ~]# redis del Mysql_Bak_Set
+						(integer) 1
+						[root@iz0xibhd8xjxiru8zt5ietz ~]#  php /home/wwwroot/www.trackingmore.com/script/warning_redis.php dfdf 10 | grep ':redis:' -A8
+						string(180) "Foreign:redis:
+						node:0: 74.42% > 10%
+						node:1: 89.58% > 10%
+						node:2: 84.92% > 10%
+						node:3: 86.2% > 10%
+						node:4: 82.5% > 10%
+						node:5: 80.97% > 10%
+						node:6: 92.3% > 10%
+						node:7: 82.34% > 10%
+
 			-- 20250519
 				排查流程自动触发
 					触发扫描脚本 指定节点
@@ -22862,6 +23090,20 @@ redis节点CPU（当前30%）
 			
 	运维
 		常用操作
+			nginx配置调整发布
+				PTM='/home/wwwroot/www.trackingmore.com/'
+				cd ${PTM}
+				# 国外
+				# 配置备份确认
+				sh ${PTM}sever/nginx/conf/vhost/nginx.sh ''
+				# 配置重载
+				sh ${PTM}sever/nginx/conf/vhost/nginx.sh '' reload
+				# 国内api
+				sh ${PTM}sever/nginx/conf/vhost/nginx.sh api_51
+				# 配置备份确认
+				sh ${PTM}sever/nginx/conf/vhost/nginx.sh 'api_51'
+				# 配置重载
+				sh ${PTM}sever/nginx/conf/vhost/nginx.sh 'api_51' reload
 			定时任务
 				-- 20250419
 					PCR=${PTM}crontab/
