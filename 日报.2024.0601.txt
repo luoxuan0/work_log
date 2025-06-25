@@ -7909,6 +7909,41 @@ redis节点CPU（当前30%）
 【日常响应】
 5，后续优先级、应对
 
+===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== =====
+【告警】
+【客诉】
+【迁云】
+【桌面运维】
+【运维】
+
+20250625
+【告警】
+【安全】
+【运维】
+
+原计划：
+【安全】
+1，远程办公场景-VPN方案
+2，等保整改
+【迁云】
+3，VPN打通
+【运维】
+4，优化单号识别用有效单号同步跟进
+【日常响应】
+5，后续优先级、应对
+
+
+计划：
+【安全】
+1，远程办公场景-VPN方案
+2，等保整改
+【迁云】
+3，VPN打通
+【运维】
+4，优化单号识别用有效单号同步跟进
+【日常响应】
+5，后续优先级、应对
+
 
 近期复盘
 	后续优先级、应对
@@ -7996,6 +8031,23 @@ redis节点CPU（当前30%）
 	5，测试环境-分支自动构建触发取消
 
 操作顺序
+		-- 20250625
+			gcp域名解析调整-文档记录
+			TM安全漏洞-文档记录
+
+			操作
+
+			服务可用性（A，操作文档（同时为操作记录）--实际操作（通过api） B，现存记录同步，集中管理 C，服务监控告警处理）
+				域名添加
+			
+			远程办公vpn
+
+			迁云
+				数据库用VPN打通
+				专线费用
+
+			日报周报-云效录入
+			运维操作（服务可用性）
 		-- 20250623
 			有效单号
 
@@ -8952,6 +9004,17 @@ redis节点CPU（当前30%）
 	财务数据
 
 	安全相关
+		远程办公场景
+			VPN
+				配置（VPN-账号由identity management统一管理）
+					VPN服务器
+						vpn-内网开发服务器
+						vpn
+							服务
+							配置文件
+						vpn-metabase
+			零信任-iOA
+			远程桌面-阿里云无影云
 		14117
 			-- 20250428
 				数据库日志
@@ -23027,6 +23090,89 @@ redis节点CPU（当前30%）
 								fi
 
 						磁盘扩容
+							-- 20250625
+								fjny-tm-www-153
+									# 准备
+										fdisk -lu
+										type growpart || yum install -y cloud-utils-growpart
+										growpart is /usr/bin/growpart
+										LC_ALL=en_US.UTF-8 growpart /dev/vda 1
+										df -Th
+										# 文件系统xfs使用如下命令扩容文件系统
+										type xfs_growfs || sudo yum install -y xfsprogs
+										xfs_growfs is /usr/sbin/xfs_growfs
+										xfs_growfs /
+										# 文件系统ext4使用如下命令扩容文件系统
+										resize2fs /dev/vda1
+										df -Th
+									# 实际操作
+										[root@host_name ~]# fdisk -lu
+										Disk /dev/vda: 100 GiB, 107374182400 bytes, 209715200 sectors
+										Units: sectors of 1 * 512 = 512 bytes
+										Sector size (logical/physical): 512 bytes / 512 bytes
+										I/O size (minimum/optimal): 512 bytes / 512 bytes
+										Disklabel type: dos
+										Disk identifier: 0xe8ec9726
+
+										Device     Boot Start       End   Sectors Size Id Type
+										/dev/vda1  *     2048 167772126 167770079  80G 83 Linux
+										[root@host_name ~]# type growpart || yum install -y cloud-utils-growpart
+										growpart is /usr/bin/growpart
+										[root@host_name ~]# type growpart
+										growpart is /usr/bin/growpart
+										[root@host_name ~]#  LC_ALL=en_US.UTF-8 growpart /dev/vda1
+										growpart disk partition
+										rewrite partition table so that partition takes up all the space it can
+										options:
+											-h | --help       print Usage and exit
+												--fudge F    if part could be resized, but change would be
+															less than 'F' bytes, do not resize (default: 1048576)
+											-N | --dry-run    only report what would be done, show new 'sfdisk -d'
+											-v | --verbose    increase verbosity / debug
+											-u | --update  R  update the the kernel partition table info after growing
+															this requires kernel support and 'partx --update'
+															R is one of:
+															- 'auto'  : [default] update partition if possible
+															- 'force' : try despite sanity checks (fail on failure)
+															- 'off'   : do not attempt
+															- 'on'    : fail if sanity checks indicate no support
+
+										Example:
+											- growpart /dev/sda 1
+											Resize partition 1 on /dev/sda
+										must supply partition-number
+										[root@host_name ~]#  LC_ALL=en_US.UTF-8 growpart /dev/vda 1
+										CHANGED: partition=1 start=2048 old: size=167770079 end=167772127 new: size=209713119 end=209715167
+										[root@host_name ~]# df -Th
+										Filesystem     Type      Size  Used Avail Use% Mounted on
+										devtmpfs       devtmpfs  7.8G     0  7.8G   0% /dev
+										tmpfs          tmpfs     7.8G  7.0M  7.8G   1% /dev/shm
+										tmpfs          tmpfs     7.8G  548K  7.8G   1% /run
+										tmpfs          tmpfs     7.8G     0  7.8G   0% /sys/fs/cgroup
+										/dev/vda1      xfs        80G   69G   12G  86% /
+										tmpfs          tmpfs     1.6G     0  1.6G   0% /run/user/1004
+										[root@host_name ~]# type xfs_growfs || sudo yum install -y xfsprogs
+										xfs_growfs is /usr/sbin/xfs_growfs
+										[root@host_name ~]# xfs_growfs /
+										meta-data=/dev/vda1              isize=512    agcount=17, agsize=1310656 blks
+												=                       sectsz=512   attr=2, projid32bit=1
+												=                       crc=1        finobt=1, sparse=1, rmapbt=0
+												=                       reflink=1
+										data     =                       bsize=4096   blocks=20971259, imaxpct=25
+												=                       sunit=0      swidth=0 blks
+										naming   =version 2              bsize=4096   ascii-ci=0, ftype=1
+										log      =internal log           bsize=4096   blocks=2560, version=2
+												=                       sectsz=512   sunit=0 blks, lazy-count=1
+										realtime =none                   extsz=4096   blocks=0, rtextents=0
+										data blocks changed from 20971259 to 26214139
+										[root@host_name ~]# df -Th
+										Filesystem     Type      Size  Used Avail Use% Mounted on
+										devtmpfs       devtmpfs  7.8G     0  7.8G   0% /dev
+										tmpfs          tmpfs     7.8G  7.0M  7.8G   1% /dev/shm
+										tmpfs          tmpfs     7.8G  548K  7.8G   1% /run
+										tmpfs          tmpfs     7.8G     0  7.8G   0% /sys/fs/cgroup
+										/dev/vda1      xfs       100G   69G   32G  69% /
+										tmpfs          tmpfs     1.6G     0  1.6G   0% /run/user/1004
 							-- 20250601
 								数据库备份-tm
 									阿里云磁盘在线扩容文档思路
@@ -23050,6 +23196,7 @@ redis节点CPU（当前30%）
 											# 扩容文件系统
 											# 查看文件系统类型
 											df -Th
+											# ext4使用如下命令
 											resize2fs /dev/vdb1
 											df -Th
 
@@ -23475,6 +23622,24 @@ redis节点CPU（当前30%）
 						diff /var/spool/cron/root ${crontabFile}
 					fi
 		队列
+			-- 20250625
+				首次更新队列长时间告警 2025-06-25 19:00:01 Z_FIRST_T_Q_SET:263502 is over 10000 (home:redis:bigkey)[DB0] （最近3个月告警群里都有，群信息保留时间最长3个月）
+					[root@izwz908uhtm6wdcqcg9bqez ~]
+					# redis zcard Z_FIRST_T_Q_SET
+					(integer) 263502
+					[root@izwz908uhtm6wdcqcg9bqez ~]
+					# redis zrange Z_FIRST_T_Q_SET 0 1
+					1) "{\"userid\":\"143768\",\"courier\":\"dhl-germany\",\"track_number\":\"00340434512120684898\",\"newId\":\"2912809\",\"t\":0}"
+					2) "{\"userid\":\"143768\",\"courier\":\"dhl-germany\",\"track_number\":\"00340434512120968523\",\"newId\":\"2915352\",\"t\":0}"
+					[root@izwz908uhtm6wdcqcg9bqez ~]
+					# redis zrange Z_FIRST_T_Q_SET -1 -1
+					1) "{\"userid\":\"42930\",\"courier\":\"dhl-germany\",\"track_number\":\"00340434716433619695\",\"newId\":\"64248999\",\"t\":0}"
+					[root@izwz908uhtm6wdcqcg9bqez ~]
+					# redis del Z_FIRST_T_Q_SET 
+					(integer) 1
+
+					待办：国内首次更新队列是否正常
+
 			-- 20250618
 				# 查看队列激活任务数量
 				redis-cli keys 'resque:queue:*Queue'
