@@ -7944,6 +7944,41 @@ redis节点CPU（当前30%）
 【日常响应】
 5，后续优先级、应对
 
+===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== =====
+【告警】
+【客诉】
+【迁云】
+【桌面运维】
+【运维】
+
+20250626
+【告警】
+【安全】
+【运维】
+
+原计划：
+【安全】
+1，远程办公场景-VPN方案
+2，等保整改
+【迁云】
+3，VPN打通
+【运维】
+4，优化单号识别用有效单号同步跟进
+【日常响应】
+5，后续优先级、应对
+
+
+计划：
+【安全】
+1，远程办公场景-VPN方案
+2，等保整改
+【迁云】
+3，VPN打通
+【运维】
+4，优化单号识别用有效单号同步跟进
+【日常响应】
+5，后续优先级、应对
+
 
 近期复盘
 	后续优先级、应对
@@ -25052,6 +25087,207 @@ redis节点CPU（当前30%）
 				10 00 * * * cd /home/wwwroot/mytracking && ./Commands -t timed_export  -n ShipmentsTimedExportExecute > /dev/null 2>&1
 
 		有效单号获取，国内也需要
+			-- 20250626
+				历史任务查看
+					# redis keys scanning_success_table_SET_202506*
+					1) "scanning_success_table_SET_20250615_seperated_tr_tracking_info_127001_127500"
+					2) "scanning_success_table_SET_20250601_seperated_tr_tracking_info_127001_127500"
+					3) "scanning_success_table_SET_20250615_seperated_tr_tracking_info_89501_90000"
+					4) "scanning_success_table_SET_20250601_seperated_tr_tracking_info_128501_129000"
+					5) "scanning_success_table_SET_20250601_seperated_tr_tracking_info_41501_42000"
+					6) "scanning_success_table_SET_20250615_seperated_tr_tracking_info_51501_52000"
+					7) "scanning_success_table_SET_20250615_seperated_tr_tracking_info_152501_153000"
+					8) "scanning_success_table_SET_20250615_seperated_tr_tracking_info_128501_129000"
+					9) "scanning_success_table_SET_20250622_for_202505_data_seperated_tr_tracking_info_90501_91000"
+					10) "scanning_success_table_SET_20250601_seperated_tr_tracking_info_22913_22913"
+					11) "scanning_success_table_SET_20250601_seperated_tr_tracking_info_42501_43000"
+					12) "scanning_success_table_SET_20250615_seperated_tr_tracking_info_108501_109000"
+					13) "scanning_success_table_SET_20250615_seperated_tr_tracking_info_86001_86500"
+					14) "scanning_success_table_SET_20250615_seperated_tr_tracking_info_132501_133000"
+					15) "scanning_success_table_SET_20250615_seperated_tr_tracking_info_76501_77000"
+					16) "scanning_success_table_SET_20250601_seperated_tr_tracking_info_132501_133000"
+					17) "scanning_success_table_SET_20250615_seperated_tr_tracking_info_125001_125500"
+					18) "scanning_success_table_SET_20250601_seperated_tr_tracking_info_125001_125500"
+					19) "scanning_success_table_SET_20250601_seperated_tr_tracking_info_154001_154500"
+					20) "scanning_success_table_SET_20250601_seperated_tr_tracking_info_133501_134000"
+					21) "scanning_success_table_SET_20250615_seperated_tr_tracking_info_130501_131000"
+					22) "scanning_success_table_SET_20250615_seperated_tr_tracking_info_90501_91000"
+					23) "scanning_success_table_SET_20250615_seperated_tr_tracking_info_114001_114500"
+					24) "scanning_success_table_SET_20250615_seperated_tr_tracking_info_67501_68000"
+					25) "scanning_success_table_SET_20250615_seperated_tr_tracking_info_154001_154500"
+					26) "scanning_success_table_SET_20250615_seperated_tr_tracking_info_59501_60000"
+					27) "scanning_success_table_SET_20250615_seperated_tr_tracking_info_14501_15000"
+					28) "scanning_success_table_SET_20250601_seperated_tr_tracking_info_130501_131000"
+					29) "scanning_success_table_SET_20250615_seperated_tr_tracking_info_131501_132000"
+					30) "scanning_success_table_SET_20250615_seperated_tr_tracking_info_113501_114000"
+					31) "scanning_success_table_SET_20250601_seperated_tr_tracking_info_113501_114000"
+					32) "scanning_success_table_SET_20250615_seperated_tr_tracking_info_134001_134500"
+					33) "scanning_success_table_SET_20250615_seperated_tr_tracking_info_151501_152000"
+					34) "scanning_success_table_SET_20250615_seperated_table"
+					35) "scanning_success_table_SET_20250615_seperated_tr_tracking_info_133501_134000"
+					36) "scanning_success_table_SET_20250601_seperated_tr_tracking_info_39501_40000"
+					37) "scanning_success_table_SET_20250601_seperated_tr_tracking_info_117501_118000"
+					38) "scanning_success_table_SET_20250601_seperated_tr_tracking_info_48001_48500"
+					39) "scanning_success_table_SET_20250615_seperated_tr_tracking_info_117501_118000"
+					40) "scanning_success_table_SET_20250601_seperated_tr_tracking_info_141001_141500"
+					41) "scanning_success_table_SET_20250615_seperated_tr_tracking_info_73001_73500"
+					42) "scanning_success_table_SET_20250615_seperated_tr_tracking_info_154501_155000"
+					43) "scanning_success_table_SET_20250615_seperated_tr_tracking_info_130001_130500"
+					44) "scanning_success_table_SET_20250615_seperated_tr_tracking_info_22896_22896"
+					45) "scanning_success_table_SET_20250615_seperated_tr_tracking_info_121001_121500"
+					46) "scanning_success_table_SET_20250601_seperated_tr_tracking_info_130001_130500"
+					47) "scanning_success_table_SET_20250615_seperated_tr_tracking_info_141001_141500"
+					48) "scanning_success_table_SET_20250615_seperated_tr_tracking_info_137501_138000"
+					49) "scanning_success_table_SET_20250601_seperated_tr_tracking_info_121001_121500"
+					50) "scanning_success_table_SET_20250601_seperated_tr_tracking_info_137501_138000"
+					51) "scanning_success_table_SET_20250601_seperated_tr_tracking_info_90001_90500"
+					52) "scanning_success_table_SET_20250615_seperated_tr_tracking_info_136501_137000"
+					53) "scanning_success_table_SET_20250601_seperated_tr_tracking_info_64001_64500"
+					54) "scanning_success_table_SET_20250601_seperated_tr_tracking_info_143001_143500"
+					55) "scanning_success_table_SET_20250601_seperated_tr_tracking_info_76001_76500"
+					56) "scanning_success_table_SET_20250618_seperated_table"
+					57) "scanning_success_table_SET_20250615_seperated_tr_tracking_info_69001_69500"
+					58) "scanning_success_table_SET_20250615_seperated_tr_tracking_info_139001_139500"
+					59) "scanning_success_table_SET_20250615_seperated_tr_tracking_info_148001_148500"
+					60) "scanning_success_table_SET_20250615_seperated_tr_tracking_info_143001_143500"
+					61) "scanning_success_table_SET_20250601_seperated_tr_tracking_info_119001_119500"
+					62) "scanning_success_table_SET_20250622"
+					63) "scanning_success_table_SET_20250601_seperated_tr_tracking_info_139001_139500"
+					64) "scanning_success_table_SET_20250601_seperated_tr_tracking_info_116501_117000"
+					65) "scanning_success_table_SET_20250615_seperated_tr_tracking_info_116501_117000"
+					66) "scanning_success_table_SET_20250601_seperated_tr_tracking_info_13001_13500"
+					67) "scanning_success_table_SET_20250601_seperated_tr_tracking_info_132001_132500"
+					68) "scanning_success_table_SET_20250615_seperated_tr_tracking_info_22916_22916"
+					69) "scanning_success_table_SET_20250615_seperated_tr_tracking_info_28001_28500"
+					70) "scanning_success_table_SET_20250615_seperated_tr_tracking_info_132001_132500"
+					71) "scanning_success_table_SET_20250615_seperated_tr_tracking_info_119001_119500"
+					72) "scanning_success_table_SET_20250601_seperated_tr_tracking_info_120501_121000"
+					73) "scanning_success_table_SET_20250615_seperated_tr_tracking_info_140501_141000"
+					74) "scanning_success_table_SET_20250615_seperated_tr_tracking_info_123501_124000"
+					75) "scanning_success_table_SET_20250601_seperated_tr_tracking_info_140501_141000"
+					76) "scanning_success_table_SET_20250615_seperated_tr_tracking_info_71501_72000"
+					77) "scanning_success_table_SET_20250601_seperated_tr_tracking_info_141501_142000"
+					78) "scanning_success_table_SET_20250615_seperated_tr_tracking_info_144001_144500"
+					79) "scanning_success_table_SET_20250615_seperated_tr_tracking_info_120501_121000"
+					80) "scanning_success_table_SET_20250615_seperated_tr_tracking_info_48001_48500"
+					81) "scanning_success_table_SET_20250615_seperated_tr_tracking_info_155001_155500"
+					82) "scanning_success_table_SET_20250601_seperated_tr_tracking_info_144001_144500"
+					83) "scanning_success_table_SET_20250601_seperated_tr_tracking_info_73001_73500"
+					84) "scanning_success_table_SET_20250601_seperated_tr_tracking_info_22896_22896"
+					85) "scanning_success_table_SET_20250601_seperated_tr_tracking_info_135001_135500"
+					86) "scanning_success_table_SET_20250615_seperated_tr_tracking_info_135001_135500"
+					87) "scanning_success_table_SET_20250615_seperated_tr_tracking_info_141501_142000"
+					88) "scanning_success_table_SET_20250615_seperated_tr_tracking_info_90001_90500"
+					89) "scanning_success_table_SET_20250615_seperated_tr_tracking_info_106001_106500"
+					90) "scanning_success_table_SET_20250615_seperated_tr_tracking_info_13001_13500"
+					91) "scanning_success_table_SET_20250615_seperated_tr_tracking_info_142501_143000"
+					92) "scanning_success_table_SET_20250615_seperated_tr_tracking_info_138501_139000"
+					93) "scanning_success_table_SET_20250615_seperated_tr_tracking_info_146001_146500"
+					94) "scanning_success_table_SET_20250601_seperated_tr_tracking_info_69001_69500"
+					95) "scanning_success_table_SET_20250601_seperated_tr_tracking_info_117001_117500"
+					96) "scanning_success_table_SET_20250601_seperated_tr_tracking_info_106001_106500"
+					97) "scanning_success_table_SET_20250615_seperated_tr_tracking_info_76001_76500"
+					98) "scanning_success_table_SET_20250615_seperated_tr_tracking_info_117001_117500"
+					99) "scanning_success_table_SET_20250601_seperated_tr_tracking_info_122501_123000"
+					100) "scanning_success_table_SET_20250601_seperated_tr_tracking_info_138501_139000"
+					101) "scanning_success_table_SET_20250601_seperated_tr_tracking_info_22916_22916"
+					102) "scanning_success_table_SET_20250601_seperated_tr_tracking_info_142501_143000"
+					103) "scanning_success_table_SET_20250615_seperated_tr_tracking_info_64001_64500"
+					104) "scanning_success_table_SET_20250615_seperated_tr_tracking_info_122501_123000"
+					105) "scanning_success_table_SET_20250622_for_202505_data"
+					106) "scanning_success_table_SET_20250618"
+					107) "scanning_success_table_SET_20250601_seperated_tr_tracking_info_86001_86500"
+					108) "scanning_success_table_SET_20250615_seperated_tr_tracking_info_42501_43000"
+					109) "scanning_success_table_SET_20250601_seperated_tr_tracking_info_89501_90000"
+					110) "scanning_success_table_SET_20250615_seperated_tr_tracking_info_22913_22913"
+					111) "scanning_success_table_SET_20250601_seperated_tr_tracking_info_133001_133500"
+					112) "scanning_success_table_SET_20250615_seperated_tr_tracking_info_133001_133500"
+					113) "scanning_success_table_SET_20250615_seperated_tr_tracking_info_84001_84500"
+					114) "scanning_success_table_SET_20250601_seperated_tr_tracking_info_51501_52000"
+					115) "scanning_success_table_SET_20250622_for_202505_data_seperated_table"
+					116) "scanning_success_table_SET_20250623_for_202503_data"
+					117) "scanning_success_table_SET_20250615_seperated_tr_tracking_info_109001_109500"
+					118) "scanning_success_table_SET_20250615_seperated_tr_tracking_info_129001_129500"
+					119) "scanning_success_table_SET_20250615_seperated_tr_tracking_info_41501_42000"
+					120) "scanning_success_table_SET_20250615_seperated_tr_tracking_info_142001_142500"
+					121) "scanning_success_table_SET_20250601_seperated_tr_tracking_info_142001_142500"
+					122) "scanning_success_table_SET_20250601_seperated_tr_tracking_info_109001_109500"
+					123) "scanning_success_table_SET_20250615_seperated_tr_tracking_info_83501_84000"
+					124) "scanning_success_table_SET_20250601_seperated_tr_tracking_info_76501_77000"
+					125) "scanning_success_table_SET_20250601_seperated_table"
+					126) "scanning_success_table_SET_20250601_seperated_tr_tracking_info_125501_126000"
+					127) "scanning_success_table_SET_20250622_for_202505_data_seperated_tr_tracking_info_41501_42000"
+					128) "scanning_success_table_SET_20250601_seperated_tr_tracking_info_131001_131500"
+					129) "scanning_success_table_SET_20250615_seperated_tr_tracking_info_125501_126000"
+					130) "scanning_success_table_SET_20250615_seperated_tr_tracking_info_91501_92000"
+					131) "scanning_success_table_SET_20250615_seperated_tr_tracking_info_39501_40000"
+					132) "scanning_success_table_SET_20250615_seperated_tr_tracking_info_144501_145000"
+					133) "scanning_success_table_SET_20250615_seperated_tr_tracking_info_124501_125000"
+					134) "scanning_success_table_SET_20250615_seperated_tr_tracking_info_131001_131500"
+					135) "scanning_success_table_SET_20250601_seperated_tr_tracking_info_67501_68000"
+					136) "scanning_success_table_SET_20250601_seperated_tr_tracking_info_144501_145000"
+					137) "scanning_success_table_SET_20250601_seperated_tr_tracking_info_124501_125000"
+					138) "scanning_success_table_SET_20250601_seperated_tr_tracking_info_59501_60000"
+					139) "scanning_success_table_SET_20250601_seperated_tr_tracking_info_90501_91000"
+					140) "scanning_success_table_SET_20250622_for_202505_data_seperated_tr_tracking_info_42501_43000"
+					141) "scanning_success_table_SET_20250615_seperated_tr_tracking_info_145501_146000"
+					142) "scanning_success_table_SET_20250615_seperated_tr_tracking_info_120001_120500"
+					143) "scanning_success_table_SET_20250615_seperated_tr_tracking_info_100001_100500"
+					144) "scanning_success_table_SET_20250622_seperated_table"
+					145) "scanning_success_table_SET_20250601_seperated_tr_tracking_info_120001_120500"
+					146) "scanning_success_table_SET_20250601_seperated_tr_tracking_info_100001_100500"
+				后续待优化
+					分割任务（再细分可以分割表任务）
+						不会清除表数据（需要手动确认，或指定非默认表）
+						最后dump数据，并发送远程服务器是要取消的，需要手动执行，不然分割的任务都会发送（不需要、也无法多次）
+					
+				5月份数据
+					有剩余任务（3个表），需继续跑
+						redis keys scanning_success_table_SET_20250622*
+						确认到以下key
+							scanning_success_table_SET_20250622
+							scanning_success_table_SET_20250622_seperated_table
+							scanning_success_table_SET_20250622_for_202505_data_seperated_tr_tracking_info_90501_91000
+							scanning_success_table_SET_20250622_for_202505_data
+							scanning_success_table_SET_20250622_for_202505_data_seperated_table
+							scanning_success_table_SET_20250622_for_202505_data_seperated_tr_tracking_info_41501_42000
+							scanning_success_table_SET_20250622_for_202505_data_seperated_tr_tracking_info_42501_43000
+
+						[root@izwz908uhtm6wdcqcg9bqez ~]
+						# redis scard "scanning_success_table_SET_20250622"
+						(integer) 554
+						[root@izwz908uhtm6wdcqcg9bqez ~]
+						# redis scard "scanning_success_table_SET_20250622_seperated_table"
+						(integer) 554
+						[root@izwz908uhtm6wdcqcg9bqez ~]
+						# redis scard "scanning_success_table_SET_20250622_for_202505_data_seperated_tr_tracking_info_90501_91000"
+						(integer) 22
+						[root@izwz908uhtm6wdcqcg9bqez ~]
+						# redis scard "scanning_success_table_SET_20250622_for_202505_data"
+						(integer) 554
+						[root@izwz908uhtm6wdcqcg9bqez ~]
+						# redis scard "scanning_success_table_SET_20250622_for_202505_data_seperated_table"
+						(integer) 554
+						[root@izwz908uhtm6wdcqcg9bqez ~]
+						# redis scard "scanning_success_table_SET_20250622_for_202505_data_seperated_tr_tracking_info_41501_42000"
+						(integer) 11
+						[root@izwz908uhtm6wdcqcg9bqez ~]
+						# redis scard "scanning_success_table_SET_20250622_for_202505_data_seperated_tr_tracking_info_42501_43000"
+						(integer) 6
+
+					5月数据表改名
+						rename table tr_tracknumber_effective_for_rule_for_202505_data to tr_tracknumber_effective_for_rule;
+					发送到远程服务器
+						sh /home/wwwroot/www.trackingmore.com/script/getEffectiveTracknumberForRule.sh 'home' '' '_for_202505_data' 'noClearTableDataAndSeperateTableTask' '' '20250622' '' '20250501' '119.23.240.151' '172.16.10.167' 10> /dev/null 2>&1
+				4月份数据
+					备份原表数据
+						rename table tr_tracknumber_effective_for_rule to tr_tracknumber_effective_for_rule_202504_data_temp;
+					找回数据-数据表恢复
+					数据表重名
+						rename table tr_tracknumber_effective_for_rule_bk to tr_tracknumber_effective_for_rule;
+					发送到远程服务器
+					清除数据
+						drop table tr_tracknumber_effective_for_rule_202504_data_temp;
 			-- 20250623
 				sh /home/wwwroot/www.trackingmore.com/script/getEffectiveTracknumberForRule.sh 'home' '' '_for_202505_data' 'noClearTableData' '' '20250622' '' '20250501' '119.23.240.151' '172.16.10.167' 10> /dev/null 2>&1
 				
@@ -25061,8 +25297,24 @@ redis节点CPU（当前30%）
 					
 					scanning_success_table_SET_20250623_for_202503_data_seperated_tr_tracking_info_90501_91000
 
+					不分割表任务
+					sh /home/wwwroot/www.trackingmore.com/script/getEffectiveTracknumberForRule.sh 'home' '' '_for_202503_data' 'noClearTableData' '' '20250626' '' '20250301' '119.23.240.151' '172.16.10.167'> /dev/null 2>&1
+					分割表任务，当前200000单大约需要2000s，分割$unitNumArgv=10的话，一次要20000约5.5小时
+					sh /home/wwwroot/www.trackingmore.com/script/getEffectiveTracknumberForRule.sh 'home' '' '_for_202503_data' 'noClearTableDataAndSeperateTableTask' '' '20250626' '' '20250301' '119.23.240.151' '172.16.10.167' 10> /dev/null 2>&1
+					-- 20250626
+						有剩余任务，继续跑剩余任务
+							redis keys scanning_success_table_SET_20250623_for_202503_data* 只有一个key scanning_success_table_SET_20250623_for_202503_dat，说明非分割表任务
+							redis scard scanning_success_table_SET_20250623_for_202503_data 值是471 说明有表没扫描到（最近都是554）
+								
+							redis scard "scanning_success_table_SET_20250623" 值是0 说明可能没有表跑完数据的（从日志看，执行到某个时间就断了，有到23:59的，也有23:33的），考虑重新跑
+								rename table tr_tracknumber_effective_for_rule_for_202503_data to tr_tracknumber_effective_for_rule_for_202503_data_temp;
+								create table tr_tracknumber_effective_for_rule_for_202503_data like tr_tracknumber_effective_for_rule;
 
-					sh /home/wwwroot/www.trackingmore.com/script/getEffectiveTracknumberForRule.sh 'home' '' '_for_202503_data' 'noClearTableData' '' '20250623' '' '20250301' '119.23.240.151' '172.16.10.167'> /dev/null 2>&1
+						3月数据表改名
+							rename table tr_tracknumber_effective_for_rule_for_202503_data to tr_tracknumber_effective_for_rule;
+						发送到远程服务器
+						清除数据
+							drop table tr_tracknumber_effective_for_rule_for_202503_data_temp;
 			-- 20250618
 				# 测试前备份脚本
 				cp /home/wwwroot/www.trackingmore.com/script/getEffectiveTracknumberForRule.sh /home/wwwroot/www.trackingmore.com/script/getEffectiveTracknumberForRule.sh.20250618
