@@ -7979,6 +7979,39 @@ redis节点CPU（当前30%）
 【日常响应】
 5，后续优先级、应对
 
+===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== =====
+【告警】
+【客诉】
+【迁云】
+【桌面运维】
+【运维】
+
+20250627
+【告警】
+【安全】
+【运维】
+
+原计划：
+【安全】
+1，远程办公场景-VPN方案
+2，等保整改
+【迁云】
+3，VPN打通
+【运维】
+4，优化单号识别用有效单号同步跟进
+【日常响应】
+5，后续优先级、应对
+
+
+计划：
+【安全】
+1，远程办公场景-VPN方案
+2，等保整改
+【运维】
+3，优化单号识别用有效单号同步跟进
+【日常响应】
+4，后续优先级、应对
+
 
 近期复盘
 	后续优先级、应对
@@ -8066,6 +8099,12 @@ redis节点CPU（当前30%）
 	5，测试环境-分支自动构建触发取消
 
 操作顺序
+		-- 20250627
+			删除数据延长
+			
+			等保整改
+			优化单号识别用有效单号同步跟进
+			远程办公场景-VPN方案
 		-- 20250625
 			gcp域名解析调整-文档记录
 			TM安全漏洞-文档记录
@@ -25275,13 +25314,13 @@ redis节点CPU（当前30%）
 						# redis scard "scanning_success_table_SET_20250622_for_202505_data_seperated_tr_tracking_info_42501_43000"
 						(integer) 6
 
-					5月数据表改名
-						rename table tr_tracknumber_effective_for_rule_for_202505_data to tr_tracknumber_effective_for_rule;
-					发送到远程服务器
-						sh /home/wwwroot/www.trackingmore.com/script/getEffectiveTracknumberForRule.sh 'home' '' '_for_202505_data' 'noClearTableDataAndSeperateTableTask' '' '20250622' '' '20250501' '119.23.240.151' '172.16.10.167' 10> /dev/null 2>&1
-				4月份数据
 					备份原表数据
 						rename table tr_tracknumber_effective_for_rule to tr_tracknumber_effective_for_rule_202504_data_temp;
+					5月数据表改名
+						rename table tr_tracknumber_effective_for_rule_for_202505_data to tr_tracknumber_effective_for_rule;
+					发送到远程服务器（国内在 c-172.16.10.128-api-realtime-51-215 ）
+						sh /home/wwwroot/www.trackingmore.com/script/getEffectiveTracknumberForRule.sh 'home' '' '_for_202505_data' 'noClearTableDataAndSeperateTableTask' '' '20250622' '' '20250501' '119.23.240.151' '172.16.10.167' 10> /dev/null 2>&1
+				4月份数据
 					找回数据-数据表恢复
 					数据表重名
 						rename table tr_tracknumber_effective_for_rule_bk to tr_tracknumber_effective_for_rule;
