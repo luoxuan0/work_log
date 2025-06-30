@@ -8012,6 +8012,39 @@ redis节点CPU（当前30%）
 【日常响应】
 4，后续优先级、应对
 
+===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== =====
+【告警】
+【客诉】
+【迁云】
+【桌面运维】
+【运维】
+
+20250628
+【告警】
+【安全】
+【运维】
+
+原计划：
+【安全】
+1，远程办公场景-VPN方案
+2，等保整改
+【运维】
+3，优化单号识别用有效单号同步跟进
+【日常响应】
+4，后续优先级、应对
+
+
+计划：
+【本地】
+1，专线切换
+【安全】
+2，远程办公场景-VPN方案
+3，等保整改
+【运维】
+4，优化单号识别用有效单号同步跟进
+【日常响应】
+5，后续优先级、应对
+
 
 近期复盘
 	后续优先级、应对
@@ -25126,6 +25159,32 @@ redis节点CPU（当前30%）
 				10 00 * * * cd /home/wwwroot/mytracking && ./Commands -t timed_export  -n ShipmentsTimedExportExecute > /dev/null 2>&1
 
 		有效单号获取，国内也需要
+			-- 20250628
+				项目流程抽象
+					框架
+						日志
+							时间点，任务量及对应使用时间，执行操作，结果，是否报错，code和内容
+							关键信息记录
+								非中断型异常
+								致命异常
+						进度查询
+						异常处理
+							程序捕获
+							程序中断（基础环境因素）
+						通知
+							异常
+							正常
+					业务（可接入不同场景类型）
+						特性要求（总量全完成）
+							任务级数默认2，比如第一级是表，第二级则是对表分割为小任务，小任务则是任务单元
+								分割完成有总记录
+							状态标记（进行中（带总任务量和对应时间），已完成）
+								任务检查，只要一直进行中则进行定时同步（默认1小时同步一次），如果中断（跟上次相比任务量不变）则告警
+							执行完整性，开始标记，完成标记
+								所有任务需要有完成标记
+						任务分割为多任务执行
+							确认范围，在范围内进一步分割任务，得到子任务
+							确认范围内所有任务是否已经完成
 			-- 20250626
 				历史任务查看
 					# redis keys scanning_success_table_SET_202506*
@@ -25319,7 +25378,20 @@ redis节点CPU（当前30%）
 					5月数据表改名
 						rename table tr_tracknumber_effective_for_rule_for_202505_data to tr_tracknumber_effective_for_rule;
 					发送到远程服务器（国内在 c-172.16.10.128-api-realtime-51-215 ）
-						sh /home/wwwroot/www.trackingmore.com/script/getEffectiveTracknumberForRule.sh 'home' '' '_for_202505_data' 'noClearTableDataAndSeperateTableTask' '' '20250622' '' '20250501' '119.23.240.151' '172.16.10.167' 10> /dev/null 2>&1
+						从其中一个分割任务确认发送脚本参数
+							# tail /root/getEffectiveTracknumberForRule.20250626.1759.log
+							2025-06-26 22:15:35 QueryIterator: 21 total time 0.15410184860229 totalCycle: 20 | targetTableCurrent: tr_tracking_info_90501_91000
+							last cycle: 21 real time: 0 | targetTableCurrent: tr_tracking_info_90501_91000
+							cycle times: 21 | targetTableCurrent: tr_tracking_info_90501_91000
+							total time: 15392
+							---- ---- ---- ---- ---- ---- ---- tableCurrent end ---- ---- ---- ---- ---- ---- ----
+							script total time: 15392.1602182025-06-26 22:15:35
+							Array
+							(
+							)
+							`/usr/bin/sh /home/wwwroot/www.trackingmore.com/script/dumpTableAanSend.sh '' '202505' 119.23.240.151 172.16.10.167 >> /root/getEffectiveTracknumberForRule.test.log 2&>1`;
+						从定时任务启动脚本，执行后要注释掉
+							16 * * * * /usr/bin/sh /home/wwwroot/www.trackingmore.com/script/dumpTableAanSend.sh '' '202505' 119.23.240.151 172.16.10.167 >> /root/getEffectiveTracknumberForRule.test.log 2&>1
 				4月份数据
 					找回数据-数据表恢复
 					数据表重名
@@ -25350,10 +25422,29 @@ redis节点CPU（当前30%）
 								create table tr_tracknumber_effective_for_rule_for_202503_data like tr_tracknumber_effective_for_rule;
 
 						3月数据表改名
+							rename table tr_tracknumber_effective_for_rule to tr_tracknumber_effective_for_rule_for_202505_data;
 							rename table tr_tracknumber_effective_for_rule_for_202503_data to tr_tracknumber_effective_for_rule;
 						发送到远程服务器
 						清除数据
 							drop table tr_tracknumber_effective_for_rule_for_202503_data_temp;
+					-- 20250628
+						远程服务器数据先备份 detect-151-51-zhishang
+							mv /root/website_data/public_detect/laravel_admin_detect/public/data_sql/202503 /root/website_data/public_detect/laravel_admin_detect/public/data_sql/202503-20250628
+						发送到远程服务器（国内在 c-172.16.10.128-api-realtime-51-215 ）
+							从其中一个分割任务确认发送脚本参数
+								# tail /root/getEffectiveTracknumberForRule.20250627.1838.log
+								2025-06-27 21:00:41 QueryIterator: 11 total time 0.1817479133606 totalCycle: 10 | targetTableCurrent: tr_tracking_info_90501_91000
+								last cycle: 11 real time: 0 | targetTableCurrent: tr_tracking_info_90501_91000
+								cycle times: 11 | targetTableCurrent: tr_tracking_info_90501_91000
+								total time: 2
+								---- ---- ---- ---- ---- ---- ---- tableCurrent end ---- ---- ---- ---- ---- ---- ----
+								script total time: 8559.64658999442025-06-27 21:00:41
+								Array
+								(
+								)
+								`/usr/bin/sh /home/wwwroot/www.trackingmore.com/script/dumpTableAanSend.sh '' '202503' 119.23.240.151 172.16.10.167 >> /root/getEffectiveTracknumberForRule.test.log 2&>1`;
+							从定时任务启动脚本，执行后要注释掉
+								38 17 28 * * /usr/bin/sh /home/wwwroot/www.trackingmore.com/script/dumpTableAanSend.sh '' '202505' 119.23.240.151 172.16.10.167 >> /root/getEffectiveTracknumberForRule.test.log 2&>1
 			-- 20250618
 				# 测试前备份脚本
 				cp /home/wwwroot/www.trackingmore.com/script/getEffectiveTracknumberForRule.sh /home/wwwroot/www.trackingmore.com/script/getEffectiveTracknumberForRule.sh.20250618
