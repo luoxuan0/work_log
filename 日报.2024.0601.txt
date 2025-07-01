@@ -8045,6 +8045,42 @@ redis节点CPU（当前30%）
 【日常响应】
 5，后续优先级、应对
 
+===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== =====
+【告警】
+【客诉】
+【迁云】
+【桌面运维】
+【运维】
+
+20250630
+【告警】
+【安全】
+【运维】
+
+原计划：
+【本地】
+1，专线切换
+【安全】
+2，远程办公场景-VPN方案
+3，等保整改
+【运维】
+4，优化单号识别用有效单号同步跟进
+【日常响应】
+5，后续优先级、应对
+
+计划：
+【本地】
+1，专线切换
+【安全】
+2，等保整改
+【运维】
+3，优化单号识别用有效单号同步跟进
+4，开发服务器
+5，微软翻译应用
+6，中台数据库授权
+【日常响应】
+7，后续优先级、应对
+
 
 近期复盘
 	后续优先级、应对
@@ -8132,6 +8168,50 @@ redis节点CPU（当前30%）
 	5，测试环境-分支自动构建触发取消
 
 操作顺序
+		-- 20250630
+			日常响应
+				阿里云新开服务器、CLB
+					nodejs服务器
+					二个CLB，我来做测试环境的和预发环境的隐藏IP
+				延长数据存储时间
+				windows服务器梳理授权
+				中台数据库
+
+				绩效
+					gc
+						工作态度 5
+						解决问题能力 5
+						是否诚实、守信、正直、进取 5
+						团队协作关键事项
+							迁云、运维协助，响应速度快，且有跟进结果
+					jt
+						工作态度 5
+						解决问题能力 5
+						是否诚实、守信、正直、进取 5
+						团队协作关键事项
+							安全合规（针对安全对这边做运维安全相关分享，以及紧急漏洞修复）、迁云（云选型上相关沟通讨论），响应速度快，
+					hq
+						指标名称*（1）
+							例如：物流单号扫描重构	
+						考核标准*
+							1.梳理现有php业务逻辑，并根据现有业务模型，使用go语言进行重构。
+							2.完成头部20家运输商迁移到新版系统中。	
+						权重*（70%）
+							70%
+						关键结果
+							1.单号扫描从原有的消费时间20s缩短到5s，大幅度提升了系统吞吐量和性能，增强了用户体验感。
+							2.服务稳定性得到了保障，SLA达到3个9。	
+						完成进度
+						评分方式*
+							手动评分	
+						指定评分人*
+							不设置	
+						附件
+						操作
+
+
+
+			计划
 		-- 20250627
 			删除数据延长
 			
@@ -24986,6 +25066,13 @@ redis节点CPU（当前30%）
 									ai？
 
 		数据库相关
+			114779赛维延长单号保留时长技术评审 · 钉钉文档: https://alidocs.dingtalk.com/i/nodes/amweZ92PV6anGRNbTdz33KY6WxEKBD6p?utm_scene=team_space
+				-- 20250630
+					删除时间减少
+						script/db/table_data_sync_scan.php
+							d=$(date +%Y%m%d)
+							rsync -avz /home/wwwroot/script/table_data_sync_scan.php /home/wwwroot/script/table_data_sync_scan.php.${d}
+							修改后，看效果
 			云效
 				-- 20250328
 					https://devops.aliyun.com/projex/task/TMPX-7977# 《【API rate limit request】180826 用户 v4/trackings/create 接口提速到 10qps》
@@ -25396,7 +25483,25 @@ redis节点CPU（当前30%）
 					找回数据-数据表恢复
 					数据表重名
 						rename table tr_tracknumber_effective_for_rule_bk to tr_tracknumber_effective_for_rule;
-					发送到远程服务器
+					发送到远程服务器（国内在 c-172.16.10.128-api-realtime-51-215 ）
+						-- 20250630
+							通过定时任务在后台执行
+							36 09 28 * * /usr/bin/sh /home/wwwroot/www.trackingmore.com/script/dumpTableAanSend.sh '' '202505' 119.23.240.151 172.16.10.167 >> /root/getEffectiveTracknumberForRule.test.log 2&>1
+								目录名有误，覆盖掉5月数据
+									原文件被覆盖，extundelete无法找回
+										extundelete /dev/sda1 --inode 2 --verbose
+										extundelete /dev/sda1 --restore-file home/user/important.txt
+									photorec为 未尝试
+								改为正确目录
+									mv /root/website_data/public_detect/laravel_admin_detect/public/data_sql/202505 /root/website_data/public_detect/laravel_admin_detect/public/data_sql/202504
+								重新导出
+									数据表
+										rename table tr_tracknumber_effective_for_rule to tr_tracknumber_effective_for_rule_for_202504_data;
+										rename table tr_tracknumber_effective_for_rule_for_202505_data to tr_tracknumber_effective_for_rule;
+									通过定时任务在后台执行
+										26 10 28 * * /usr/bin/sh /home/wwwroot/www.trackingmore.com/script/dumpTableAanSend.sh '' '202505' 119.23.240.151 172.16.10.167 >> /root/getEffectiveTracknumberForRule.test.log 2&>1
+								复盘
+									每次修改、操作需要有翻译确认
 					清除数据
 						drop table tr_tracknumber_effective_for_rule_202504_data_temp;
 			-- 20250623
