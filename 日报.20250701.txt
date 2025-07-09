@@ -232,6 +232,42 @@
 【日常响应】
 6，后续优先级、应对
 
+===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== =====
+【告警】
+【客诉】
+【迁云】
+【桌面运维】
+【运维】
+
+20250708
+【告警】
+【安全】
+【运维】
+
+原计划：
+【本地】
+1，待优化&专线切换
+【安全】
+2，ISO27001-不符合项整改
+3，等保整改
+【运维】
+4，每月发票
+5，财务分账
+【日常响应】
+6，后续优先级、应对
+
+
+计划：
+【本地】
+1，待优化&专线切换
+【安全】
+2，ISO27001-不符合项整改
+3，等保整改
+【运维】
+4，财务分账
+【日常响应】
+6，后续优先级、应对
+
 
 近期复盘
 	后续优先级、应对
@@ -6512,6 +6548,114 @@
 								script\queueshell\zipAndRmSpecifyTimeFile.sh
 								script\queueshell\file.to.zip.sh
 						历史数据清理 20240529
+							-- 20250708
+								ind_resque_71_172.16.10.169-resque-51-18
+									[Aroot@iZ0xi60yimvc2jwvywy8gdZ:~# df -h
+									Filesystem      Size  Used Avail Use% Mounted on
+									tmpfs           169M  1.7M  167M   1% /run
+									/dev/vda3        40G   38G     0 100% /
+									tmpfs           841M     0  841M   0% /dev/shm
+									tmpfs           5.0M     0  5.0M   0% /run/lock
+									/dev/vda2       197M  6.1M  191M   4% /boot/efi
+									overlay          40G   38G     0 100% /var/lib/docker/overlay2/f62a6fc3780e3cb7c5d8a72f410f8c07cc18f9a7b650e5b5169da7fe219a92c0/merged
+									overlay          40G   38G     0 100% /var/lib/docker/overlay2/9caebff522fc2dd46993c9872a03a1e8c5cd7f41f24b512f8455ce42d4188d8d/merged
+									overlay          40G   38G     0 100% /var/lib/docker/overlay2/37a3332742b2c675c211fde83cffe638db49c50a31dec398591f5a78ca02af79/merged
+									overlay          40G   38G     0 100% /var/lib/docker/overlay2/e627d9fe10bfd183d2a2828b70d216b49905fcb4c1dd119e8e4610e92af43229/merged
+									overlay          40G   38G     0 100% /var/lib/docker/overlay2/4d2b15af316bc2baf734a422e6f968590592e169fd34b5628582e0afe1b8034b/merged
+									overlay          40G   38G     0 100% /var/lib/docker/overlay2/6a0833b189b5c3464c137e4c9d0bff3554c81301d9120a5dc9f74e09abed8b12/merged
+									overlay          40G   38G     0 100% /var/lib/docker/overlay2/5c27e23bc90cef4b5ad503ec41e2a24298d93ec8d6619e6ef2c459e9bd258add/merged
+									tmpfs           169M  4.0K  169M   1% /run/user/1000
+									root@iZ0xi60yimvc2jwvywy8gdZ:~# bash ./diskTree.sh /home/data/logs/mail/logs/tripartiteWebhook/mailgun/ 3 100
+									├── /home/data/logs/mail/logs/tripartiteWebhook/mailgun: 11615 MB
+									│   ├── /home/data/logs/mail/logs/tripartiteWebhook/mailgun/2025: 7499 MB
+									│   │   ├── /home/data/logs/mail/logs/tripartiteWebhook/mailgun/2025/04: 1258 MB
+									│   │   ├── /home/data/logs/mail/logs/tripartiteWebhook/mailgun/2025/07: 213 MB
+									│   │   ├── /home/data/logs/mail/logs/tripartiteWebhook/mailgun/2025/06: 1610 MB
+									│   │   ├── /home/data/logs/mail/logs/tripartiteWebhook/mailgun/2025/05: 1432 MB
+									│   │   ├── /home/data/logs/mail/logs/tripartiteWebhook/mailgun/2025/01: 982 MB
+									│   │   ├── /home/data/logs/mail/logs/tripartiteWebhook/mailgun/2025/03: 1142 MB
+									│   │   ├── /home/data/logs/mail/logs/tripartiteWebhook/mailgun/2025/02: 865 MB
+									│   ├── /home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024: 4116 MB
+									│   │   ├── /home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/08: 560 MB
+									│   │   ├── /home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/09: 788 MB
+									│   │   ├── /home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/12: 1146 MB
+									│   │   ├── /home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/11: 879 MB
+									│   │   ├── /home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/10: 735 MB
+									(reverse-i-search)`100': bash ./diskTree.sh /home/data/logs/mail/logs/tripartiteWebhook/mailgun/ 3 ^C0
+									root@iZ0xi60yimvc2jwvywy8gdZ:~# ll -h /var/lib/docker/containers/17da1d974311ea470956d6fe11471da089067fd82dc24cb5b1f840c440ad1a48/17da1d974311ea470956d6fe11471da089067fd82dc24cb5b1f840c440ad1a48-json.log
+									-rw-r----- 1 root root 0 Jul  7 00:00 /var/lib/docker/containers/17da1d974311ea470956d6fe11471da089067fd82dc24cb5b1f840c440ad1a48/17da1d974311ea470956d6fe11471da089067fd82dc24cb5b1f840c440ad1a48-json.log
+									(reverse-i-search)`echo >': ^Cho > /home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/03/mailgun20240326.log
+									root@iZ0xi60yimvc2jwvywy8gdZ:~# find / -name '*' -type f -size +100M | xargs ls -lh {} | sort -nrk5
+									find: ‘/proc/206599/task/206599/fdinfo/6’: No such file or directory
+									find: ‘/proc/206599/fdinfo/5’: No such file or directory
+									ls: cannot access '{}': No such file or directory
+									-rw-r--r-- 1 root root 1000M Jun 16 01:04 /home/data/logs/mail/logs/mail-2025-06-15T17-04-50.846.log
+									-rw-r--r-- 1 root root  590M Jul  8 17:10 /root/nginx/logs/mailwebhook.access.log
+									-rw------- 1 root root  410M Aug 22  2023 /var/lib/docker/overlay2/f62a6fc3780e3cb7c5d8a72f410f8c07cc18f9a7b650e5b5169da7fe219a92c0/merged/tmp/multipart-3539220014
+									-rw------- 1 root root  410M Aug 22  2023 /var/lib/docker/overlay2/f62a6fc3780e3cb7c5d8a72f410f8c07cc18f9a7b650e5b5169da7fe219a92c0/diff/tmp/multipart-3539220014
+									-rw------- 1 root root  410M Aug 21  2023 /var/lib/docker/overlay2/f62a6fc3780e3cb7c5d8a72f410f8c07cc18f9a7b650e5b5169da7fe219a92c0/merged/tmp/multipart-3105524436
+									-rw------- 1 root root  410M Aug 21  2023 /var/lib/docker/overlay2/f62a6fc3780e3cb7c5d8a72f410f8c07cc18f9a7b650e5b5169da7fe219a92c0/diff/tmp/multipart-3105524436
+									-rw-r--r-- 1 root root  273M Jul  8 16:59 /home/data/logs/mail/logs/mail.log
+									-rw-r--r-- 1 root root  236M Jul  8 18:54 /root/yunxiao/be-tfpyqa22gtndemstnunakvmq/runner/__flow_logs/runner.log
+									-rw-r----- 1 root root  234M May  6 00:00 /var/lib/docker/containers/ec9db2d3f0430f10d895e30625b66e73948ca52d585b6e402c2c901e432b9933/ec9db2d3f0430f10d895e30625b66e73948ca52d585b6e402c2c901e432b9933-json.log.1
+									-rw-r--r-- 1 root root  195M Jul  3 18:55 /home/admin/app/package-test.tgz
+									-rw-r--r-- 1 root root  142M Sep  7  2022 /home/docker/go1.19.1.linux-amd64.tar.gz
+									-rwxr-xr-x 1 root root  129M Feb 12  2023 /var/lib/docker/overlay2/708684e9b2eacb774bf1c13e53f43052ecc3b543d785072f9f2fa4b6826af407/diff/usr/share/filebeat/filebeat
+									-rw-r----- 1 1001 1001  128M Oct 12  2022 /root/mysql_data/ib_logfile1
+									-rw-r----- 1 1001 1001  128M Aug 22  2023 /root/mysql_data/ib_logfile0
+									-r-------- 1 root root  128T Jul  4 01:41 /proc/kcore
+									-rwxr-xr-x 2 root root  118M May 10  2024 /root/node_modules/workerd/bin/workerd
+									-rwxr-xr-x 2 root root  118M May 10  2024 /root/node_modules/@cloudflare/workerd-linux-64/bin/workerd
+									-rw------- 1 root root  112M Sep 13  2023 /var/lib/docker/overlay2/f62a6fc3780e3cb7c5d8a72f410f8c07cc18f9a7b650e5b5169da7fe219a92c0/merged/tmp/multipart-3451269813
+									-rw------- 1 root root  112M Sep 13  2023 /var/lib/docker/overlay2/f62a6fc3780e3cb7c5d8a72f410f8c07cc18f9a7b650e5b5169da7fe219a92c0/merged/tmp/multipart-2718775450
+									-rw------- 1 root root  112M Sep 13  2023 /var/lib/docker/overlay2/f62a6fc3780e3cb7c5d8a72f410f8c07cc18f9a7b650e5b5169da7fe219a92c0/merged/tmp/multipart-2372992208
+									-rw------- 1 root root  112M Sep 13  2023 /var/lib/docker/overlay2/f62a6fc3780e3cb7c5d8a72f410f8c07cc18f9a7b650e5b5169da7fe219a92c0/merged/tmp/multipart-2240062091
+									-rw------- 1 root root  112M Sep 13  2023 /var/lib/docker/overlay2/f62a6fc3780e3cb7c5d8a72f410f8c07cc18f9a7b650e5b5169da7fe219a92c0/diff/tmp/multipart-3451269813
+									-rw------- 1 root root  112M Sep 13  2023 /var/lib/docker/overlay2/f62a6fc3780e3cb7c5d8a72f410f8c07cc18f9a7b650e5b5169da7fe219a92c0/diff/tmp/multipart-2718775450
+									-rw------- 1 root root  112M Sep 13  2023 /var/lib/docker/overlay2/f62a6fc3780e3cb7c5d8a72f410f8c07cc18f9a7b650e5b5169da7fe219a92c0/diff/tmp/multipart-2372992208
+									-rw------- 1 root root  112M Sep 13  2023 /var/lib/docker/overlay2/f62a6fc3780e3cb7c5d8a72f410f8c07cc18f9a7b650e5b5169da7fe219a92c0/diff/tmp/multipart-2240062091
+									-rw------- 1 root root  112M Sep 12  2023 /var/lib/docker/overlay2/f62a6fc3780e3cb7c5d8a72f410f8c07cc18f9a7b650e5b5169da7fe219a92c0/merged/tmp/multipart-3135289178
+									-rw------- 1 root root  112M Sep 12  2023 /var/lib/docker/overlay2/f62a6fc3780e3cb7c5d8a72f410f8c07cc18f9a7b650e5b5169da7fe219a92c0/merged/tmp/multipart-1516733489
+									-rw------- 1 root root  112M Sep 12  2023 /var/lib/docker/overlay2/f62a6fc3780e3cb7c5d8a72f410f8c07cc18f9a7b650e5b5169da7fe219a92c0/diff/tmp/multipart-3135289178
+									-rw------- 1 root root  112M Sep 12  2023 /var/lib/docker/overlay2/f62a6fc3780e3cb7c5d8a72f410f8c07cc18f9a7b650e5b5169da7fe219a92c0/diff/tmp/multipart-1516733489
+									-rwxr-xr-x 1 root root  107M May 10  2024 /usr/local/node/bin/node
+									-rw-r--r-- 1 root root  104M Jul  8 18:54 /root/nginx/logs/error.log
+									root@iZ0xi60yimvc2jwvywy8gdZ:~# bash ./diskTree.sh /var/lib/docker/overlay2/f62a6fc3780e3cb7c5d8a72f410f8c07cc18f9a7b650e5b5169da7fe219a92c0/ 3 100
+									├── /var/lib/docker/overlay2/f62a6fc3780e3cb7c5d8a72f410f8c07cc18f9a7b650e5b5169da7fe219a92c0: 4248 MB
+									│   ├── /var/lib/docker/overlay2/f62a6fc3780e3cb7c5d8a72f410f8c07cc18f9a7b650e5b5169da7fe219a92c0/merged: 2756 MB
+									│   │   ├── /var/lib/docker/overlay2/f62a6fc3780e3cb7c5d8a72f410f8c07cc18f9a7b650e5b5169da7fe219a92c0/merged/tmp: 1492 MB
+									│   │   │   └── multipart-3539220014: 410 MB
+									│   │   │   └── multipart-3105524436: 410 MB
+									│   │   │   └── multipart-3451269813: 112 MB
+									│   │   │   └── multipart-3135289178: 112 MB
+									│   │   │   └── multipart-2718775450: 112 MB
+									│   │   ├── /var/lib/docker/overlay2/f62a6fc3780e3cb7c5d8a72f410f8c07cc18f9a7b650e5b5169da7fe219a92c0/merged/usr: 990 MB
+									│   │   ├── /var/lib/docker/overlay2/f62a6fc3780e3cb7c5d8a72f410f8c07cc18f9a7b650e5b5169da7fe219a92c0/merged/go: 141 MB
+									│   ├── /var/lib/docker/overlay2/f62a6fc3780e3cb7c5d8a72f410f8c07cc18f9a7b650e5b5169da7fe219a92c0/diff: 1492 MB
+									│   │   ├── /var/lib/docker/overlay2/f62a6fc3780e3cb7c5d8a72f410f8c07cc18f9a7b650e5b5169da7fe219a92c0/diff/tmp: 1492 MB
+									│   │   │   └── multipart-3539220014: 410 MB
+									│   │   │   └── multipart-3105524436: 410 MB
+									│   │   │   └── multipart-3451269813: 112 MB
+									│   │   │   └── multipart-3135289178: 112 MB
+									│   │   │   └── multipart-2718775450: 112 MB
+									root@iZ0xi60yimvc2jwvywy8gdZ:~# rm -fr /home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/08
+									root@iZ0xi60yimvc2jwvywy8gdZ:~# rm -fr /home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/09
+									root@iZ0xi60yimvc2jwvywy8gdZ:~# rm -fr /home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/10
+									root@iZ0xi60yimvc2jwvywy8gdZ:~# df -h
+									Filesystem      Size  Used Avail Use% Mounted on
+									tmpfs           169M  1.7M  167M   1% /run
+									/dev/vda3        40G   36G  1.8G  96% /
+									tmpfs           841M     0  841M   0% /dev/shm
+									tmpfs           5.0M     0  5.0M   0% /run/lock
+									/dev/vda2       197M  6.1M  191M   4% /boot/efi
+									overlay          40G   36G  1.8G  96% /var/lib/docker/overlay2/f62a6fc3780e3cb7c5d8a72f410f8c07cc18f9a7b650e5b5169da7fe219a92c0/merged
+									overlay          40G   36G  1.8G  96% /var/lib/docker/overlay2/9caebff522fc2dd46993c9872a03a1e8c5cd7f41f24b512f8455ce42d4188d8d/merged
+									overlay          40G   36G  1.8G  96% /var/lib/docker/overlay2/37a3332742b2c675c211fde83cffe638db49c50a31dec398591f5a78ca02af79/merged
+									overlay          40G   36G  1.8G  96% /var/lib/docker/overlay2/e627d9fe10bfd183d2a2828b70d216b49905fcb4c1dd119e8e4610e92af43229/merged
+									overlay          40G   36G  1.8G  96% /var/lib/docker/overlay2/4d2b15af316bc2baf734a422e6f968590592e169fd34b5628582e0afe1b8034b/merged
+									overlay          40G   36G  1.8G  96% /var/lib/docker/overlay2/6a0833b189b5c3464c137e4c9d0bff3554c81301d9120a5dc9f74e09abed8b12/merged
+									overlay          40G   36G  1.8G  96% /var/lib/docker/overlay2/5c27e23bc90cef4b5ad503ec41e2a24298d93ec8d6619e6ef2c459e9bd258add/merged
+									tmpfs           169M  4.0K  169M   1% /run/user/1000
 							-- 20250530
 								ind_front-105-resque-download-tm
 									[root@iz0xi3ulu41foeowfprh17z ~]# df -h
@@ -6767,6 +6911,113 @@
 									
 							-- 20250504
 								upload-test-177-172.16.21.169
+									-- 20250708
+										[Aroot@iZ0xi60yimvc2jwvywy8gdZ:~# df -h
+										Filesystem      Size  Used Avail Use% Mounted on
+										tmpfs           169M  1.7M  167M   1% /run
+										/dev/vda3        40G   38G     0 100% /
+										tmpfs           841M     0  841M   0% /dev/shm
+										tmpfs           5.0M     0  5.0M   0% /run/lock
+										/dev/vda2       197M  6.1M  191M   4% /boot/efi
+										overlay          40G   38G     0 100% /var/lib/docker/overlay2/f62a6fc3780e3cb7c5d8a72f410f8c07cc18f9a7b650e5b5169da7fe219a92c0/merged
+										overlay          40G   38G     0 100% /var/lib/docker/overlay2/9caebff522fc2dd46993c9872a03a1e8c5cd7f41f24b512f8455ce42d4188d8d/merged
+										overlay          40G   38G     0 100% /var/lib/docker/overlay2/37a3332742b2c675c211fde83cffe638db49c50a31dec398591f5a78ca02af79/merged
+										overlay          40G   38G     0 100% /var/lib/docker/overlay2/e627d9fe10bfd183d2a2828b70d216b49905fcb4c1dd119e8e4610e92af43229/merged
+										overlay          40G   38G     0 100% /var/lib/docker/overlay2/4d2b15af316bc2baf734a422e6f968590592e169fd34b5628582e0afe1b8034b/merged
+										overlay          40G   38G     0 100% /var/lib/docker/overlay2/6a0833b189b5c3464c137e4c9d0bff3554c81301d9120a5dc9f74e09abed8b12/merged
+										overlay          40G   38G     0 100% /var/lib/docker/overlay2/5c27e23bc90cef4b5ad503ec41e2a24298d93ec8d6619e6ef2c459e9bd258add/merged
+										tmpfs           169M  4.0K  169M   1% /run/user/1000
+										root@iZ0xi60yimvc2jwvywy8gdZ:~# bash ./diskTree.sh /home/data/logs/mail/logs/tripartiteWebhook/mailgun/ 3 100
+										├── /home/data/logs/mail/logs/tripartiteWebhook/mailgun: 11615 MB
+										│   ├── /home/data/logs/mail/logs/tripartiteWebhook/mailgun/2025: 7499 MB
+										│   │   ├── /home/data/logs/mail/logs/tripartiteWebhook/mailgun/2025/04: 1258 MB
+										│   │   ├── /home/data/logs/mail/logs/tripartiteWebhook/mailgun/2025/07: 213 MB
+										│   │   ├── /home/data/logs/mail/logs/tripartiteWebhook/mailgun/2025/06: 1610 MB
+										│   │   ├── /home/data/logs/mail/logs/tripartiteWebhook/mailgun/2025/05: 1432 MB
+										│   │   ├── /home/data/logs/mail/logs/tripartiteWebhook/mailgun/2025/01: 982 MB
+										│   │   ├── /home/data/logs/mail/logs/tripartiteWebhook/mailgun/2025/03: 1142 MB
+										│   │   ├── /home/data/logs/mail/logs/tripartiteWebhook/mailgun/2025/02: 865 MB
+										│   ├── /home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024: 4116 MB
+										│   │   ├── /home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/08: 560 MB
+										│   │   ├── /home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/09: 788 MB
+										│   │   ├── /home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/12: 1146 MB
+										│   │   ├── /home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/11: 879 MB
+										│   │   ├── /home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/10: 735 MB
+										(reverse-i-search)`100': bash ./diskTree.sh /home/data/logs/mail/logs/tripartiteWebhook/mailgun/ 3 ^C0
+										root@iZ0xi60yimvc2jwvywy8gdZ:~# ll -h /var/lib/docker/containers/17da1d974311ea470956d6fe11471da089067fd82dc24cb5b1f840c440ad1a48/17da1d974311ea470956d6fe11471da089067fd82dc24cb5b1f840c440ad1a48-json.log
+										-rw-r----- 1 root root 0 Jul  7 00:00 /var/lib/docker/containers/17da1d974311ea470956d6fe11471da089067fd82dc24cb5b1f840c440ad1a48/17da1d974311ea470956d6fe11471da089067fd82dc24cb5b1f840c440ad1a48-json.log
+										(reverse-i-search)`echo >': ^Cho > /home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/03/mailgun20240326.log
+										root@iZ0xi60yimvc2jwvywy8gdZ:~# find / -name '*' -type f -size +100M | xargs ls -lh {} | sort -nrk5
+										find: ‘/proc/206599/task/206599/fdinfo/6’: No such file or directory
+										find: ‘/proc/206599/fdinfo/5’: No such file or directory
+										ls: cannot access '{}': No such file or directory
+										-rw-r--r-- 1 root root 1000M Jun 16 01:04 /home/data/logs/mail/logs/mail-2025-06-15T17-04-50.846.log
+										-rw-r--r-- 1 root root  590M Jul  8 17:10 /root/nginx/logs/mailwebhook.access.log
+										-rw------- 1 root root  410M Aug 22  2023 /var/lib/docker/overlay2/f62a6fc3780e3cb7c5d8a72f410f8c07cc18f9a7b650e5b5169da7fe219a92c0/merged/tmp/multipart-3539220014
+										-rw------- 1 root root  410M Aug 22  2023 /var/lib/docker/overlay2/f62a6fc3780e3cb7c5d8a72f410f8c07cc18f9a7b650e5b5169da7fe219a92c0/diff/tmp/multipart-3539220014
+										-rw------- 1 root root  410M Aug 21  2023 /var/lib/docker/overlay2/f62a6fc3780e3cb7c5d8a72f410f8c07cc18f9a7b650e5b5169da7fe219a92c0/merged/tmp/multipart-3105524436
+										-rw------- 1 root root  410M Aug 21  2023 /var/lib/docker/overlay2/f62a6fc3780e3cb7c5d8a72f410f8c07cc18f9a7b650e5b5169da7fe219a92c0/diff/tmp/multipart-3105524436
+										-rw-r--r-- 1 root root  273M Jul  8 16:59 /home/data/logs/mail/logs/mail.log
+										-rw-r--r-- 1 root root  236M Jul  8 18:54 /root/yunxiao/be-tfpyqa22gtndemstnunakvmq/runner/__flow_logs/runner.log
+										-rw-r----- 1 root root  234M May  6 00:00 /var/lib/docker/containers/ec9db2d3f0430f10d895e30625b66e73948ca52d585b6e402c2c901e432b9933/ec9db2d3f0430f10d895e30625b66e73948ca52d585b6e402c2c901e432b9933-json.log.1
+										-rw-r--r-- 1 root root  195M Jul  3 18:55 /home/admin/app/package-test.tgz
+										-rw-r--r-- 1 root root  142M Sep  7  2022 /home/docker/go1.19.1.linux-amd64.tar.gz
+										-rwxr-xr-x 1 root root  129M Feb 12  2023 /var/lib/docker/overlay2/708684e9b2eacb774bf1c13e53f43052ecc3b543d785072f9f2fa4b6826af407/diff/usr/share/filebeat/filebeat
+										-rw-r----- 1 1001 1001  128M Oct 12  2022 /root/mysql_data/ib_logfile1
+										-rw-r----- 1 1001 1001  128M Aug 22  2023 /root/mysql_data/ib_logfile0
+										-r-------- 1 root root  128T Jul  4 01:41 /proc/kcore
+										-rwxr-xr-x 2 root root  118M May 10  2024 /root/node_modules/workerd/bin/workerd
+										-rwxr-xr-x 2 root root  118M May 10  2024 /root/node_modules/@cloudflare/workerd-linux-64/bin/workerd
+										-rw------- 1 root root  112M Sep 13  2023 /var/lib/docker/overlay2/f62a6fc3780e3cb7c5d8a72f410f8c07cc18f9a7b650e5b5169da7fe219a92c0/merged/tmp/multipart-3451269813
+										-rw------- 1 root root  112M Sep 13  2023 /var/lib/docker/overlay2/f62a6fc3780e3cb7c5d8a72f410f8c07cc18f9a7b650e5b5169da7fe219a92c0/merged/tmp/multipart-2718775450
+										-rw------- 1 root root  112M Sep 13  2023 /var/lib/docker/overlay2/f62a6fc3780e3cb7c5d8a72f410f8c07cc18f9a7b650e5b5169da7fe219a92c0/merged/tmp/multipart-2372992208
+										-rw------- 1 root root  112M Sep 13  2023 /var/lib/docker/overlay2/f62a6fc3780e3cb7c5d8a72f410f8c07cc18f9a7b650e5b5169da7fe219a92c0/merged/tmp/multipart-2240062091
+										-rw------- 1 root root  112M Sep 13  2023 /var/lib/docker/overlay2/f62a6fc3780e3cb7c5d8a72f410f8c07cc18f9a7b650e5b5169da7fe219a92c0/diff/tmp/multipart-3451269813
+										-rw------- 1 root root  112M Sep 13  2023 /var/lib/docker/overlay2/f62a6fc3780e3cb7c5d8a72f410f8c07cc18f9a7b650e5b5169da7fe219a92c0/diff/tmp/multipart-2718775450
+										-rw------- 1 root root  112M Sep 13  2023 /var/lib/docker/overlay2/f62a6fc3780e3cb7c5d8a72f410f8c07cc18f9a7b650e5b5169da7fe219a92c0/diff/tmp/multipart-2372992208
+										-rw------- 1 root root  112M Sep 13  2023 /var/lib/docker/overlay2/f62a6fc3780e3cb7c5d8a72f410f8c07cc18f9a7b650e5b5169da7fe219a92c0/diff/tmp/multipart-2240062091
+										-rw------- 1 root root  112M Sep 12  2023 /var/lib/docker/overlay2/f62a6fc3780e3cb7c5d8a72f410f8c07cc18f9a7b650e5b5169da7fe219a92c0/merged/tmp/multipart-3135289178
+										-rw------- 1 root root  112M Sep 12  2023 /var/lib/docker/overlay2/f62a6fc3780e3cb7c5d8a72f410f8c07cc18f9a7b650e5b5169da7fe219a92c0/merged/tmp/multipart-1516733489
+										-rw------- 1 root root  112M Sep 12  2023 /var/lib/docker/overlay2/f62a6fc3780e3cb7c5d8a72f410f8c07cc18f9a7b650e5b5169da7fe219a92c0/diff/tmp/multipart-3135289178
+										-rw------- 1 root root  112M Sep 12  2023 /var/lib/docker/overlay2/f62a6fc3780e3cb7c5d8a72f410f8c07cc18f9a7b650e5b5169da7fe219a92c0/diff/tmp/multipart-1516733489
+										-rwxr-xr-x 1 root root  107M May 10  2024 /usr/local/node/bin/node
+										-rw-r--r-- 1 root root  104M Jul  8 18:54 /root/nginx/logs/error.log
+										root@iZ0xi60yimvc2jwvywy8gdZ:~# bash ./diskTree.sh /var/lib/docker/overlay2/f62a6fc3780e3cb7c5d8a72f410f8c07cc18f9a7b650e5b5169da7fe219a92c0/ 3 100
+										├── /var/lib/docker/overlay2/f62a6fc3780e3cb7c5d8a72f410f8c07cc18f9a7b650e5b5169da7fe219a92c0: 4248 MB
+										│   ├── /var/lib/docker/overlay2/f62a6fc3780e3cb7c5d8a72f410f8c07cc18f9a7b650e5b5169da7fe219a92c0/merged: 2756 MB
+										│   │   ├── /var/lib/docker/overlay2/f62a6fc3780e3cb7c5d8a72f410f8c07cc18f9a7b650e5b5169da7fe219a92c0/merged/tmp: 1492 MB
+										│   │   │   └── multipart-3539220014: 410 MB
+										│   │   │   └── multipart-3105524436: 410 MB
+										│   │   │   └── multipart-3451269813: 112 MB
+										│   │   │   └── multipart-3135289178: 112 MB
+										│   │   │   └── multipart-2718775450: 112 MB
+										│   │   ├── /var/lib/docker/overlay2/f62a6fc3780e3cb7c5d8a72f410f8c07cc18f9a7b650e5b5169da7fe219a92c0/merged/usr: 990 MB
+										│   │   ├── /var/lib/docker/overlay2/f62a6fc3780e3cb7c5d8a72f410f8c07cc18f9a7b650e5b5169da7fe219a92c0/merged/go: 141 MB
+										│   ├── /var/lib/docker/overlay2/f62a6fc3780e3cb7c5d8a72f410f8c07cc18f9a7b650e5b5169da7fe219a92c0/diff: 1492 MB
+										│   │   ├── /var/lib/docker/overlay2/f62a6fc3780e3cb7c5d8a72f410f8c07cc18f9a7b650e5b5169da7fe219a92c0/diff/tmp: 1492 MB
+										│   │   │   └── multipart-3539220014: 410 MB
+										│   │   │   └── multipart-3105524436: 410 MB
+										│   │   │   └── multipart-3451269813: 112 MB
+										│   │   │   └── multipart-3135289178: 112 MB
+										│   │   │   └── multipart-2718775450: 112 MB
+										root@iZ0xi60yimvc2jwvywy8gdZ:~# rm -fr /home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/08
+										root@iZ0xi60yimvc2jwvywy8gdZ:~# rm -fr /home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/09
+										root@iZ0xi60yimvc2jwvywy8gdZ:~# rm -fr /home/data/logs/mail/logs/tripartiteWebhook/mailgun/2024/10
+										root@iZ0xi60yimvc2jwvywy8gdZ:~# df -h
+										Filesystem      Size  Used Avail Use% Mounted on
+										tmpfs           169M  1.7M  167M   1% /run
+										/dev/vda3        40G   36G  1.8G  96% /
+										tmpfs           841M     0  841M   0% /dev/shm
+										tmpfs           5.0M     0  5.0M   0% /run/lock
+										/dev/vda2       197M  6.1M  191M   4% /boot/efi
+										overlay          40G   36G  1.8G  96% /var/lib/docker/overlay2/f62a6fc3780e3cb7c5d8a72f410f8c07cc18f9a7b650e5b5169da7fe219a92c0/merged
+										overlay          40G   36G  1.8G  96% /var/lib/docker/overlay2/9caebff522fc2dd46993c9872a03a1e8c5cd7f41f24b512f8455ce42d4188d8d/merged
+										overlay          40G   36G  1.8G  96% /var/lib/docker/overlay2/37a3332742b2c675c211fde83cffe638db49c50a31dec398591f5a78ca02af79/merged
+										overlay          40G   36G  1.8G  96% /var/lib/docker/overlay2/e627d9fe10bfd183d2a2828b70d216b49905fcb4c1dd119e8e4610e92af43229/merged
+										overlay          40G   36G  1.8G  96% /var/lib/docker/overlay2/4d2b15af316bc2baf734a422e6f968590592e169fd34b5628582e0afe1b8034b/merged
+										overlay          40G   36G  1.8G  96% /var/lib/docker/overlay2/6a0833b189b5c3464c137e4c9d0bff3554c81301d9120a5dc9f74e09abed8b12/merged
+										overlay          40G   36G  1.8G  96% /var/lib/docker/overlay2/5c27e23bc90cef4b5ad503ec41e2a24298d93ec8d6619e6ef2c459e9bd258add/merged
+										tmpfs           169M  4.0K  169M   1% /run/user/1000
 									-- 20250607
 										root@iZ0xi60yimvc2jwvywy8gdZ:~# df -h
 										Filesystem      Size  Used Avail Use% Mounted on
@@ -18353,10 +18604,10 @@
 			执尚
 				闪达(sendcloud短信)	1,000.00	√
 				国内欣易辰充值	3,000.00	√
-				青果代理	11,220.00	已提交
+				青果代理	11,220.00	已提交	√
 				阿里云充值	19,000.00	√	3个月
 				阿里云充值	20,000.00	√	3个月
-				青果代理	11,220.00	已提交
+				青果代理	11,220.00	已提交	√
 				51 tracking dns解析年付订单-腾讯云	1,288.00	√
 
 		-- 20250428

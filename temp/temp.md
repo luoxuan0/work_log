@@ -57,6 +57,10 @@ C:\Users\admin\AppData\Roaming\Zoom\ --> F:\C\User\admin\AppData\Roaming
 C:\Users\admin\AppData\Local\ --> F:\C\User\admin\AppData
 C:\Users\admin\AppData\Roaming\kingsoft\ --> F:\C\User\admin\AppData\Roaming 刚开机时进行操作可行
 
+#### 20250708
+
+![alt text](image-15.png)
+
 #### 20250625
 
 ![清除缓存后](image-14.png)
