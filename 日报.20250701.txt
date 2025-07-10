@@ -304,6 +304,41 @@
 【日常响应】
 6，后续优先级、应对
 
+===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== =====
+【告警】
+【客诉】
+【迁云】
+【桌面运维】
+【运维】
+
+20250710
+【告警】
+【安全】
+【运维】
+
+原计划：
+【本地】
+1，待优化&专线切换
+【安全】
+2，ISO27001-不符合项整改
+3，等保整改
+【运维】
+4，充值梳理提交
+5，财务分账
+【日常响应】
+6，后续优先级、应对
+
+计划：
+【本地】
+1，待优化&专线切换
+【安全】
+2，ISO27001-不符合项整改
+3，等保整改
+【运维】
+4，财务分账
+【日常响应】
+5，后续优先级、应对
+
 
 近期复盘
 	后续优先级、应对
@@ -2651,6 +2686,462 @@
 
 
 		redis节点内存
+			-- 20250710
+				-145
+					[root@iz0xibhd8xjxiru8zt5ietz ~]#  php /home/wwwroot/www.trackingmore.com/script/warning_redis.php dfdf 10 | grep ':redis:' -A8
+					string(186) "Foreign:redis:
+					node:0: 80.39% > 10%
+					node:1: 100.02% > 10%
+					node:2: 99.97% > 10%
+					node:3: 100.03% > 10%
+					node:4: 86.18% > 10%
+					node:5: 92.38% > 10%
+					node:6: 100.03% > 10%
+					node:7: 90.72% > 10%
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# sh redis
+					redis.1355             redis.bigkey.clear.sh  redis.bigkeys.log      redis.cpu.sh           redis.keys.log         redisMemory.sh         redis.ttl.log          
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# sh redis
+					redis.1355             redis.bigkey.clear.sh  redis.bigkeys.log      redis.cpu.sh           redis.keys.log         redisMemory.sh         redis.ttl.log          
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# sh redis.
+					redis.1355             redis.bigkey.clear.sh  redis.bigkeys.log      redis.cpu.sh           redis.keys.log         redis.ttl.log          
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# ll | grep redis | head
+					-rw-r--r-- 1 root root       363 May  4  2023 del.redis.log
+					-rw-r--r-- 1 root root       478 May  3  2023 del.redis.sh
+					-rw-r--r-- 1 root root     47498 Sep 22  2023 redis.1355
+					-rw-r--r-- 1 root root       159 Aug 10  2023 redis.bigkey.clear.sh
+					-rw-r--r-- 1 root root   4905695 Jul  7 13:42 redis.bigkeys.log
+					-rw-r--r-- 1 root root       650 Jun  7 23:35 redis.cpu.sh
+					-rw-r--r-- 1 root root     98090 Sep  6  2023 redis.keys.log
+					-rw-r--r-- 1 root root       168 May 11 21:29 redisMemory.sh
+					-rw-r--r-- 1 root root      4096 Apr 30 17:56 redis.ttl.log
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# ll | grep redis | grep sh
+					-rw-r--r-- 1 root root       478 May  3  2023 del.redis.sh
+					-rw-r--r-- 1 root root       159 Aug 10  2023 redis.bigkey.clear.sh
+					-rw-r--r-- 1 root root       650 Jun  7 23:35 redis.cpu.sh
+					-rw-r--r-- 1 root root       168 May 11 21:29 redisMemory.sh
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# sh redisMemory.sh Z_T_N_Express_SET
+					2025-07-10 09:30:39
+					redis memory usage Z_T_N_Express_SET
+					(integer) 95658276
+					redis info key Z_T_N_Express_SET
+					slot:2073 node_index:1
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# redis del Z_T_N_Express_SET
+					(integer) 1
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# sh redisMemory.sh 260086_Import_20230503015013
+					2025-07-10 09:31:50
+					redis memory usage 260086_Import_20230503015013
+					(integer) 3670096
+					redis info key 260086_Import_20230503015013
+					slot:7053 node_index:3
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# redis del 260086_Import_20230503015013
+					(integer) 1
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# sh redisMemory.sh Mysql_Bak_Set
+					2025-07-10 09:32:26
+					redis memory usage Mysql_Bak_Set
+					(integer) 58403368
+					redis info key Mysql_Bak_Set
+					slot:7941 node_index:3
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# redis del Mysql_Bak_Set
+					(integer) 1
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# sh redisMemory.sh resque:workers
+					2025-07-10 09:32:45
+					redis memory usage resque:workers
+					(integer) 11380089
+					redis info key resque:workers
+					slot:8157 node_index:3
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# redis type resque:workers
+					set
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# redis srandmember resque:workers
+					"iz0xi6vurec0os2fpwrsvlz:6382:trackPAuthQueue"
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# sh redisMemory.sh resque:queue:airWebhookQueue
+					2025-07-10 09:34:00
+					redis memory usage resque:queue:airWebhookQueue
+					(integer) 29945470
+					redis info key resque:queue:airWebhookQueue
+					slot:13598 node_index:6
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# redis del resque:queue:airWebhookQueue
+					(integer) 1
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# sh redisMemory.sh resque:queue:airRetryQueue
+					2025-07-10 09:34:20
+					redis memory usage resque:queue:airRetryQueue
+					(integer) 6950400
+					redis info key resque:queue:airRetryQueue
+					slot:13526 node_index:6
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# sh redisMemory.sh updateNotfoundCourier:usps:existSpecifyCourier
+					2025-07-10 09:34:35
+					redis memory usage updateNotfoundCourier:usps:existSpecifyCourier
+					(integer) 44733947
+					redis info key updateNotfoundCourier:usps:existSpecifyCourier
+					slot:13216 node_index:6
+					[root@iz0xibhd8xjxiru8zt5ietz ~]#  redis type updateNotfoundCourier:usps:existSpecifyCourier
+					set
+					[root@iz0xibhd8xjxiru8zt5ietz ~]#  redis randmember updateNotfoundCourier:usps:existSpecifyCourier
+					(error) ERR unknown command 'RANDMEMBER'
+					[root@iz0xibhd8xjxiru8zt5ietz ~]#  redis rangemember updateNotfoundCourier:usps:existSpecifyCourier
+					(error) ERR unknown command 'RANGEMEMBER'
+					[root@iz0xibhd8xjxiru8zt5ietz ~]#  redis srandmember updateNotfoundCourier:usps:existSpecifyCourier
+					"9261290318401618561915"
+					[root@iz0xibhd8xjxiru8zt5ietz ~]#  redis scard updateNotfoundCourier:usps:existSpecifyCourier
+					(integer) 709866
+					[root@iz0xibhd8xjxiru8zt5ietz ~]#  redis srandmember updateNotfoundCourier:usps:existSpecifyCourier 1000 > redis.updateNotfoundCourier:usps:existSpecifyCourier.log.20250710
+					[root@iz0xibhd8xjxiru8zt5ietz ~]#  php /home/wwwroot/www.trackingmore.com/script/warning_redis.php dfdf 10 | grep ':redis:' -A8
+					string(184) "Foreign:redis:
+					node:0: 80.48% > 10%
+					node:1: 95.32% > 10%
+					node:2: 100.03% > 10%
+					node:3: 91.63% > 10%
+					node:4: 86.22% > 10%
+					node:5: 93.81% > 10%
+					node:6: 98.72% > 10%
+					node:7: 90.78% > 10%
+					[root@iz0xibhd8xjxiru8zt5ietz ~]#  redis zcard updateNotfoundCourier:usps:existSpecifyCourier
+					(error) WRONGTYPE Operation against a key holding the wrong kind of value
+					[root@iz0xibhd8xjxiru8zt5ietz ~]#  redis zcard Z_P_U_australia-post_B_SET_ERROR
+					(integer) 682093
+					[root@iz0xibhd8xjxiru8zt5ietz ~]#  redis zrange Z_P_U_australia-post_B_SET_ERROR 0 0
+					1) "{\"userid\":\"224763\",\"track_number\":\"0078074420B818192\",\"courier\":\"australia-post\",\"update_time\":\"0\",\"destination\":\"\",\"substatus\":\"15\",\"KII\":\"188844477\",\"CT\":\"1736184699\"}"
+					[root@iz0xibhd8xjxiru8zt5ietz ~]#  redis zrange Z_P_U_australia-post_B_SET_ERROR  0 100 > Z_P_U_australia-post_B_SET_ERROR.log.20250710
+					[root@iz0xibhd8xjxiru8zt5ietz ~]#  redis del Z_P_U_australia-post_B_SET_ERROR 
+					(integer) 1
+					[root@iz0xibhd8xjxiru8zt5ietz ~]#  php /home/wwwroot/www.trackingmore.com/script/warning_redis.php dfdf 10 | grep ':redis:' -A8
+					string(183) "Foreign:redis:
+					node:0: 80.83% > 10%
+					node:1: 95.91% > 10%
+					node:2: 92.34% > 10%
+					node:3: 90.45% > 10%
+					node:4: 86.53% > 10%
+					node:5: 95.59% > 10%
+					node:6: 99.91% > 10%
+					node:7: 90.92% > 10%
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# sh redisMemory.sh python_set_freeProxy
+					2025-07-10 09:45:16
+					redis memory usage python_set_freeProxy
+					(integer) 16824376
+					redis info key python_set_freeProxy
+					slot:12940 node_index:6
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# redis del updateNotfoundCourier:usps:existSpecifyCourier
+					(integer) 1
+					[root@iz0xibhd8xjxiru8zt5ietz ~]#  php /home/wwwroot/www.trackingmore.com/script/warning_redis.php dfdf 10 | grep ':redis:' -A8
+					string(181) "Foreign:redis:
+					node:0: 81.14% > 10%
+					node:1: 96.07% > 10%
+					node:2: 93.32% > 10%
+					node:3: 90.6% > 10%
+					node:4: 86.73% > 10%
+					node:5: 93.1% > 10%
+					node:6: 98.29% > 10%
+					node:7: 90.54% > 10%
+					[root@iz0xibhd8xjxiru8zt5ietz ~]#  redis del updateNotfoundCourier:usps:existSpecifyCourier
+					(integer) 0
+					[root@iz0xibhd8xjxiru8zt5ietz ~]#  redis redisMemory.sh updateNotfoundCourier:usps:existSpecifyCourier
+					(error) ERR unknown command 'REDISMEMORY.SH'
+					[root@iz0xibhd8xjxiru8zt5ietz ~]#  sh redisMemory.sh updateNotfoundCourier:usps:existSpecifyCourier
+					2025-07-10 09:48:15
+					redis memory usage updateNotfoundCourier:usps:existSpecifyCourier
+					(nil)
+					redis info key updateNotfoundCourier:usps:existSpecifyCourier
+					slot:13216 node_index:6
+					[root@iz0xibhd8xjxiru8zt5ietz ~]#  php /home/wwwroot/www.trackingmore.com/script/warning_redis.php dfdf 10 | grep ':redis:' -A8
+					string(183) "Foreign:redis:
+					node:0: 80.81% > 10%
+					node:1: 95.77% > 10%
+					node:2: 94.01% > 10%
+					node:3: 90.16% > 10%
+					node:4: 86.39% > 10%
+					node:5: 92.65% > 10%
+					node:6: 98.54% > 10%
+					node:7: 89.78% > 10%
+					[root@iz0xibhd8xjxiru8zt5ietz ~]#  php /home/wwwroot/www.trackingmore.com/script/warning_redis.php dfdf 10 | grep ':redis:' -A8
+					string(181) "Foreign:redis:
+					node:0: 81.15% > 10%
+					node:1: 97.07% > 10%
+					node:2: 100% > 10%
+					node:3: 90.23% > 10%
+					node:4: 86.27% > 10%
+					node:5: 93.37% > 10%
+					node:6: 99.22% > 10%
+					node:7: 89.07% > 10%
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# sh redisMemory.sh Z_P_U_star-track_B_SET_ERROR
+					2025-07-10 10:05:07
+					redis memory usage Z_P_U_star-track_B_SET_ERROR
+					(integer) 21191542
+					redis info key Z_P_U_star-track_B_SET_ERROR
+					slot:4521 node_index:2
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# redis randmember Z_P_U_star-track_B_SET_ERROR
+					(error) ERR unknown command 'RANDMEMBER'
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# redis randmember Z_P_U_star-track_B_SET_ERROR 0 0
+					(error) ERR unknown command 'RANDMEMBER'
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# redis zrange Z_P_U_star-track_B_SET_ERROR 0 0
+					1) "{\"userid\":224763,\"newId\":\"191133487\",\"t\":0,\"courier\":\"star-track\",\"track_number\":\"CSI-9298181\"}"
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# redis zrange Z_P_U_star-track_B_SET_ERROR 0 1000 > Z_P_U_star-track_B_SET_ERROR.log.20250710
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# redis zrange Z_P_U_star-track_B_SET_ERROR 0 1000 | grep 224763 | wc -l
+					998
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# redis zcard Z_P_U_star-track_B_SET_ERROR
+					(integer) 103187
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# sh redisMemory.sh cainiao_IP_global.cainiao.com
+					2025-07-10 10:07:37
+					redis memory usage cainiao_IP_global.cainiao.com
+					(integer) 18182256
+					redis info key cainiao_IP_global.cainiao.com
+					slot:5812 node_index:2
+					[root@iz0xibhd8xjxiru8zt5ietz ~]#  redis del cainiao_IP_global.cainiao.com
+					(integer) 1
+					[root@iz0xibhd8xjxiru8zt5ietz ~]#  php /home/wwwroot/www.trackingmore.com/script/warning_redis.php dfdf 10 | grep ':redis:' -A8
+					string(181) "Foreign:redis:
+					node:0: 81.44% > 10%
+					node:1: 97.8% > 10%
+					node:2: 99.2% > 10%
+					node:3: 90.31% > 10%
+					node:4: 86.19% > 10%
+					node:5: 94.36% > 10%
+					node:6: 99.89% > 10%
+					node:7: 89.75% > 10%
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# sh redisMemory.sh dhl_count_2024102317
+					2025-07-10 10:08:39
+					redis memory usage dhl_count_2024102317
+					(integer) 3076040
+					redis info key dhl_count_2024102317
+					slot:4491 node_index:2
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# sh redisMemory.sh IdentifyStatusV2_O
+					2025-07-10 10:09:23
+					redis memory usage IdentifyStatusV2_O
+					(integer) 100
+					redis info key IdentifyStatusV2_O
+					slot:4129 node_index:2
+					[root@iz0xibhd8xjxiru8zt5ietz ~]#  php /home/wwwroot/www.trackingmore.com/script/warning_redis.php dfdf 10 | grep ':redis:' -A8
+					string(181) "Foreign:redis:
+					node:0: 81.65% > 10%
+					node:1: 98.47% > 10%
+					node:2: 99.61% > 10%
+					node:3: 90.51% > 10%
+					node:4: 86.38% > 10%
+					node:5: 94.98% > 10%
+					node:6: 100% > 10%
+					node:7: 90.14% > 10%
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# sh redisMemory.sh python_set_freeProxy
+					2025-07-10 10:10:27
+					redis memory usage python_set_freeProxy
+					(integer) 16824376
+					redis info key python_set_freeProxy
+					slot:12940 node_index:6
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# sh del python_set_freeProxy
+					sh: del: No such file or directory
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# sh redisMemory.sh resque:queue:airRetryQueue
+					2025-07-10 10:11:22
+					redis memory usage resque:queue:airRetryQueue
+					(integer) 6889215
+					redis info key resque:queue:airRetryQueue
+					slot:13526 node_index:6
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# sh del resque:queue:airRetryQueue
+					sh: del: No such file or directory
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# sh redisMemory.sh resque:queue:airPubQueue
+					2025-07-10 10:11:40
+					redis memory usage resque:queue:airPubQueue
+					(integer) 5360741
+					redis info key resque:queue:airPubQueue
+					slot:13705 node_index:6
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# sh del resque:queue:airPubQueue
+					sh: del: No such file or directory
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# sh redisMemory.sh courier_sf-international_ticket
+					2025-07-10 10:11:58
+					redis memory usage courier_sf-international_ticket
+					(integer) 3884034
+					redis info key courier_sf-international_ticket
+					slot:13849 node_index:6
+					[root@iz0xibhd8xjxiru8zt5ietz ~]#  php /home/wwwroot/www.trackingmore.com/script/warning_redis.php dfdf 10 | grep ':redis:' -A8
+					string(183) "Foreign:redis:
+					node:0: 81.59% > 10%
+					node:1: 98.61% > 10%
+					node:2: 99.47% > 10%
+					node:3: 90.42% > 10%
+					node:4: 86.24% > 10%
+					node:5: 95.64% > 10%
+					node:6: 99.97% > 10%
+					node:7: 90.22% > 10%
+					[root@iz0xibhd8xjxiru8zt5ietz ~]#  php /home/wwwroot/www.trackingmore.com/script/warning_redis.php dfdf 10 | grep ':redis:' -A8
+					string(183) "Foreign:redis:
+					node:0: 81.75% > 10%
+					node:1: 98.89% > 10%
+					node:2: 99.96% > 10%
+					node:3: 90.62% > 10%
+					node:4: 86.26% > 10%
+					node:5: 96.47% > 10%
+					node:6: 99.99% > 10%
+					node:7: 90.32% > 10%
+					[root@iz0xibhd8xjxiru8zt5ietz ~]#  php /home/wwwroot/www.trackingmore.com/script/warning_redis.php dfdf 10 | grep ':redis:' -A8
+					string(178) "Foreign:redis:
+					node:0: 81.8% > 10%
+					node:1: 99.1% > 10%
+					node:2: 99.96% > 10%
+					node:3: 90.6% > 10%
+					node:4: 86.26% > 10%
+					node:5: 97.43% > 10%
+					node:6: 100% > 10%
+					node:7: 90.57% > 10%
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# sh redisMemory.sh error_push_to_eta
+					2025-07-10 10:24:06
+					redis memory usage error_push_to_eta
+					(integer) 12682134
+					redis info key error_push_to_eta
+					slot:12533 node_index:6
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# sh redisMemory.sh china-ems_IP_cookie_com.cn_fail
+					2025-07-10 10:24:21
+					redis memory usage china-ems_IP_cookie_com.cn_fail
+					(integer) 9520296
+					redis info key china-ems_IP_cookie_com.cn_fail
+					slot:12689 node_index:6
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# sh redisMemory.sh raw_proxy_postnl-parcels
+					2025-07-10 10:24:35
+					redis memory usage raw_proxy_postnl-parcels
+					(integer) 9520288
+					redis info key raw_proxy_postnl-parcels
+					slot:13820 node_index:6
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# sh redisMemory.sh lp_delete_rules_id_new
+					2025-07-10 10:24:57
+					redis memory usage lp_delete_rules_id_new
+					(integer) 7007752
+					redis info key lp_delete_rules_id_new
+					slot:12302 node_index:6
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# sh redisMemory.sh shippo_webhook_input
+					2025-07-10 10:25:18
+					redis memory usage shippo_webhook_input
+					(integer) 6248317
+					redis info key shippo_webhook_input
+					slot:13899 node_index:6
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# sh redisMemory.sh C_S_N_S8_SET
+					2025-07-10 10:25:59
+					redis memory usage C_S_N_S8_SET
+					(nil)
+					redis info key C_S_N_S8_SET
+					slot:14143 node_index:6
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# sh redisMemory.sh lp_seur_test
+					2025-07-10 10:26:11
+					redis memory usage lp_seur_test
+					(integer) 4197896
+					redis info key lp_seur_test
+					slot:13693 node_index:6
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# redis del china-ems_IP_cookie_com.cn_fail
+					(integer) 1
+					[root@iz0xibhd8xjxiru8zt5ietz ~]#  php /home/wwwroot/www.trackingmore.com/script/warning_redis.php dfdf 10 | grep ':redis:' -A8
+					string(187) "Foreign:redis:
+					node:0: 82.41% > 10%
+					node:1: 100.03% > 10%
+					node:2: 100.03% > 10%
+					node:3: 90.95% > 10%
+					node:4: 86.36% > 10%
+					node:5: 100.04% > 10%
+					node:6: 100.01% > 10%
+					node:7: 92.08% > 10%
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# redis del Z_P_U_star-track_B_SET_ERROR 
+					(integer) 1
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# redis zrange Z_R_P_U_usps_SET  0 0
+					1) "{\"userid\":224763,\"track_number\":\"9434636106053275440835\",\"courier\":\"usps\",\"CT\":1745397698,\"UT\":1745397933,\"KII\":199694785,\"substatus\":21}"
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# redis scard updateNotfoundCourier:usps:existSpecifyCourier
+					(integer) 0
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# redis zcard Z_P_U_australia-post_B_SET_ERROR
+					(integer) 19591
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# sh redisMemory.sh Z_T_N_Express_SET
+					2025-07-10 10:42:40
+					redis memory usage Z_T_N_Express_SET
+					(integer) 60359787
+					redis info key Z_T_N_Express_SET
+					slot:2073 node_index:1
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# redis del Z_T_N_Express_SET
+					(integer) 1
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# sh redisMemory.sh TrackingCompanyData_ru_5
+					2025-07-10 10:43:23
+					redis memory usage TrackingCompanyData_ru_5
+					(integer) 6291536
+					redis info key TrackingCompanyData_ru_5
+					slot:4409 node_index:2
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# sh redisMemory.sh API_CB_218491_1752113580
+					2025-07-10 10:43:48
+					redis memory usage API_CB_218491_1752113580
+					(nil)
+					redis info key API_CB_218491_1752113580
+					slot:4674 node_index:2
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# sh redisMemory.sh API_CB_218491_1752113880
+					2025-07-10 10:44:04
+					redis memory usage API_CB_218491_1752113880
+					(nil)
+					redis info key API_CB_218491_1752113880
+					slot:4115 node_index:2
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# sh redisMemory.sh Z_R_P_U_chronopost_SET
+					2025-07-10 10:44:27
+					redis memory usage Z_R_P_U_chronopost_SET
+					(integer) 59310798
+					redis info key Z_R_P_U_chronopost_SET
+					slot:5161 node_index:2
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# redis del Z_R_P_U_chronopost_SET
+					(integer) 1
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# sh redisMemory.sh resque:failed
+					2025-07-10 10:45:01
+					redis memory usage resque:failed
+					(integer) 329932743
+					redis info key resque:failed
+					slot:11219 node_index:5
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# sh type resque:failed
+					sh: type: No such file or directory
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# redis type resque:failed
+					list
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# redis lrange resque:failed 0 10
+					1) "{\"failed_at\":\"Thu Jul 10 09:00:11  2025\",\"payload\":{\"class\":\"trackPostBatchInsertjob\",\"args\":[{\"e\":\"Z_H_U_B_Post_SET\",\"u\":\"\"}],\"id\":\"fc1b037262995f029d937947a031d289\"},\"exception\":\"RedisException\",\"error\":\"OOM command not allowed when used memory > 'maxmemory'.\",\"backtrace\":[\"#0 \\/home\\/wwwroot\\/www.trackingmore.com\\/library\\/tools\\/getDataListFromTable.php(56): Redis->set('cl_C_L', '{\\\"singapore-pos...', 86400)\",\"#1 \\/home\\/wwwroot\\/www.trackingmore.com\\/library\\/resque\\/getConcurrencyDataListFromTable.php(18): getDataListFromTable(Array)\",\"#2 \\/home\\/wwwroot\\/www.trackingmore.com\\/php-resque\\/perform\\/perform_trackPostBatchInsert.php(86): getConcurrencyDataListFromTable(Array)\",\"#3 \\/home\\/wwwroot\\/www.trackingmore.com\\/php-resque\\/trackPostBatchInsert\\/trackPostBatchInsertjob.php(35): require_once('\\/home\\/wwwroot\\/w...')\",\"#4 \\/home\\/wwwroot\\/www.trackingmore.com\\/php-resque\\/lib\\/Resque\\/Job.php(184): trackPostBatchInsertjob->perform()\",\"#5 \\/home\\/wwwroot\\/www.trackingmore.com\\/php-resque\\/lib\\/Resque\\/Worker.php(242): Resque_Job->perform()\",\"#6 \\/home\\/wwwroot\\/www.trackingmore.com\\/php-resque\\/lib\\/Resque\\/Worker.php(204): Resque_Worker->perform(Object(Resque_Job))\",\"#7 \\/home\\/wwwroot\\/www.trackingmore.com\\/php-resque\\/resque.php(60): Resque_Worker->work(5)\",\"#8 \\/home\\/wwwroot\\/www.trackingmore.com\\/php-resque\\/trackPostBatchInsert\\/resque.php(15): require('\\/home\\/wwwroot\\/w...')\",\"#9 {main}\"],\"worker\":\"t-q-205-5f6fb9bd98-h5nfk:4744:trackPostBatchInsertQueue\",\"queue\":\"trackPostBatchInsertQueue\"}"
+					2) "{\"failed_at\":\"Thu Jul 10 09:00:11  2025\",\"payload\":{\"class\":\"trackPostBatchInsertjob\",\"args\":[{\"e\":\"Z_H_U_B_Post_SET\",\"u\":\"\"}],\"id\":\"04986e14aecc9477027ab64e86c8f554\"},\"exception\":\"RedisException\",\"error\":\"OOM command not allowed when used memory > 'maxmemory'.\",\"backtrace\":[\"#0 \\/home\\/wwwroot\\/www.trackingmore.com\\/library\\/tools\\/getDataListFromTable.php(56): Redis->set('cl_C_L', '{\\\"singapore-pos...', 86400)\",\"#1 \\/home\\/wwwroot\\/www.trackingmore.com\\/library\\/resque\\/getConcurrencyDataListFromTable.php(18): getDataListFromTable(Array)\",\"#2 \\/home\\/wwwroot\\/www.trackingmore.com\\/php-resque\\/perform\\/perform_trackPostBatchInsert.php(86): getConcurrencyDataListFromTable(Array)\",\"#3 \\/home\\/wwwroot\\/www.trackingmore.com\\/php-resque\\/trackPostBatchInsert\\/trackPostBatchInsertjob.php(35): require_once('\\/home\\/wwwroot\\/w...')\",\"#4 \\/home\\/wwwroot\\/www.trackingmore.com\\/php-resque\\/lib\\/Resque\\/Job.php(184): trackPostBatchInsertjob->perform()\",\"#5 \\/home\\/wwwroot\\/www.trackingmore.com\\/php-resque\\/lib\\/Resque\\/Worker.php(242): Resque_Job->perform()\",\"#6 \\/home\\/wwwroot\\/www.trackingmore.com\\/php-resque\\/lib\\/Resque\\/Worker.php(204): Resque_Worker->perform(Object(Resque_Job))\",\"#7 \\/home\\/wwwroot\\/www.trackingmore.com\\/php-resque\\/resque.php(60): Resque_Worker->work(5)\",\"#8 \\/home\\/wwwroot\\/www.trackingmore.com\\/php-resque\\/trackPostBatchInsert\\/resque.php(15): require('\\/home\\/wwwroot\\/w...')\",\"#9 {main}\"],\"worker\":\"t-q-205-5f6fb9bd98-h5nfk:3702:trackPostBatchInsertQueue\",\"queue\":\"trackPostBatchInsertQueue\"}"
+					3) "{\"failed_at\":\"Thu Jul 10 09:00:11  2025\",\"payload\":{\"class\":\"trackPostBatchInsertjob\",\"args\":[{\"e\":\"Z_H_U_B_Post_SET\",\"u\":\"\"}],\"id\":\"ad3b42fd983ab00be7d3271da7f10e20\"},\"exception\":\"RedisException\",\"error\":\"OOM command not allowed when used memory > 'maxmemory'.\",\"backtrace\":[\"#0 \\/home\\/wwwroot\\/www.trackingmore.com\\/library\\/tools\\/getDataListFromTable.php(56): Redis->set('cl_C_L', '{\\\"singapore-pos...', 86400)\",\"#1 \\/home\\/wwwroot\\/www.trackingmore.com\\/library\\/resque\\/getConcurrencyDataListFromTable.php(18): getDataListFromTable(Array)\",\"#2 \\/home\\/wwwroot\\/www.trackingmore.com\\/php-resque\\/perform\\/perform_trackPostBatchInsert.php(86): getConcurrencyDataListFromTable(Array)\",\"#3 \\/home\\/wwwroot\\/www.trackingmore.com\\/php-resque\\/trackPostBatchInsert\\/trackPostBatchInsertjob.php(35): require_once('\\/home\\/wwwroot\\/w...')\",\"#4 \\/home\\/wwwroot\\/www.trackingmore.com\\/php-resque\\/lib\\/Resque\\/Job.php(184): trackPostBatchInsertjob->perform()\",\"#5 \\/home\\/wwwroot\\/www.trackingmore.com\\/php-resque\\/lib\\/Resque\\/Worker.php(242): Resque_Job->perform()\",\"#6 \\/home\\/wwwroot\\/www.trackingmore.com\\/php-resque\\/lib\\/Resque\\/Worker.php(204): Resque_Worker->perform(Object(Resque_Job))\",\"#7 \\/home\\/wwwroot\\/www.trackingmore.com\\/php-resque\\/resque.php(60): Resque_Worker->work(5)\",\"#8 \\/home\\/wwwroot\\/www.trackingmore.com\\/php-resque\\/trackPostBatchInsert\\/resque.php(15): require('\\/home\\/wwwroot\\/w...')\",\"#9 {main}\"],\"worker\":\"t-q-35-67fdb485-hlz8k:956:trackPostBatchInsertQueue\",\"queue\":\"trackPostBatchInsertQueue\"}"
+					4) "{\"failed_at\":\"Thu Jul 10 09:00:11  2025\",\"payload\":{\"class\":\"trackPostBatchInsertjob\",\"args\":[{\"e\":\"Z_H_U_B_Post_SET\",\"u\":\"\"}],\"id\":\"db21c30a2c364b30f5b825892c2d8b0f\"},\"exception\":\"RedisException\",\"error\":\"OOM command not allowed when used memory > 'maxmemory'.\",\"backtrace\":[\"#0 \\/home\\/wwwroot\\/www.trackingmore.com\\/library\\/tools\\/getDataListFromTable.php(56): Redis->set('cl_C_L', '{\\\"singapore-pos...', 86400)\",\"#1 \\/home\\/wwwroot\\/www.trackingmore.com\\/library\\/resque\\/getConcurrencyDataListFromTable.php(18): getDataListFromTable(Array)\",\"#2 \\/home\\/wwwroot\\/www.trackingmore.com\\/php-resque\\/perform\\/perform_trackPostBatchInsert.php(86): getConcurrencyDataListFromTable(Array)\",\"#3 \\/home\\/wwwroot\\/www.trackingmore.com\\/php-resque\\/trackPostBatchInsert\\/trackPostBatchInsertjob.php(35): require_once('\\/home\\/wwwroot\\/w...')\",\"#4 \\/home\\/wwwroot\\/www.trackingmore.com\\/php-resque\\/lib\\/Resque\\/Job.php(184): trackPostBatchInsertjob->perform()\",\"#5 \\/home\\/wwwroot\\/www.trackingmore.com\\/php-resque\\/lib\\/Resque\\/Worker.php(242): Resque_Job->perform()\",\"#6 \\/home\\/wwwroot\\/www.trackingmore.com\\/php-resque\\/lib\\/Resque\\/Worker.php(204): Resque_Worker->perform(Object(Resque_Job))\",\"#7 \\/home\\/wwwroot\\/www.trackingmore.com\\/php-resque\\/resque.php(60): Resque_Worker->work(5)\",\"#8 \\/home\\/wwwroot\\/www.trackingmore.com\\/php-resque\\/trackPostBatchInsert\\/resque.php(15): require('\\/home\\/wwwroot\\/w...')\",\"#9 {main}\"],\"worker\":\"t-q-205-5f6fb9bd98-h5nfk:2715:trackPostBatchInsertQueue\",\"queue\":\"trackPostBatchInsertQueue\"}"
+					5) "{\"failed_at\":\"Thu Jul 10 09:00:11  2025\",\"payload\":{\"class\":\"trackPostBatchInsertjob\",\"args\":[{\"e\":\"Z_H_U_B_Post_SET\",\"u\":\"\"}],\"id\":\"0c2db506db24b1a2185924e5435b8828\"},\"exception\":\"RedisException\",\"error\":\"OOM command not allowed when used memory > 'maxmemory'.\",\"backtrace\":[\"#0 \\/home\\/wwwroot\\/www.trackingmore.com\\/library\\/tools\\/getDataListFromTable.php(56): Redis->set('cl_C_L', '{\\\"singapore-pos...', 86400)\",\"#1 \\/home\\/wwwroot\\/www.trackingmore.com\\/library\\/resque\\/getConcurrencyDataListFromTable.php(18): getDataListFromTable(Array)\",\"#2 \\/home\\/wwwroot\\/www.trackingmore.com\\/php-resque\\/perform\\/perform_trackPostBatchInsert.php(86): getConcurrencyDataListFromTable(Array)\",\"#3 \\/home\\/wwwroot\\/www.trackingmore.com\\/php-resque\\/trackPostBatchInsert\\/trackPostBatchInsertjob.php(35): require_once('\\/home\\/wwwroot\\/w...')\",\"#4 \\/home\\/wwwroot\\/www.trackingmore.com\\/php-resque\\/lib\\/Resque\\/Job.php(184): trackPostBatchInsertjob->perform()\",\"#5 \\/home\\/wwwroot\\/www.trackingmore.com\\/php-resque\\/lib\\/Resque\\/Worker.php(242): Resque_Job->perform()\",\"#6 \\/home\\/wwwroot\\/www.trackingmore.com\\/php-resque\\/lib\\/Resque\\/Worker.php(204): Resque_Worker->perform(Object(Resque_Job))\",\"#7 \\/home\\/wwwroot\\/www.trackingmore.com\\/php-resque\\/resque.php(60): Resque_Worker->work(5)\",\"#8 \\/home\\/wwwroot\\/www.trackingmore.com\\/php-resque\\/trackPostBatchInsert\\/resque.php(15): require('\\/home\\/wwwroot\\/w...')\",\"#9 {main}\"],\"worker\":\"t-q-205-5f6fb9bd98-h5nfk:3703:trackPostBatchInsertQueue\",\"queue\":\"trackPostBatchInsertQueue\"}"
+					6) "{\"failed_at\":\"Thu Jul 10 09:00:11  2025\",\"payload\":{\"class\":\"trackPostBatchInsertjob\",\"args\":[{\"e\":\"Z_H_U_B_Post_SET\",\"u\":\"\"}],\"id\":\"f879ac1091fc16fd742283290a4f1a85\"},\"exception\":\"RedisException\",\"error\":\"OOM command not allowed when used memory > 'maxmemory'.\",\"backtrace\":[\"#0 \\/home\\/wwwroot\\/www.trackingmore.com\\/library\\/tools\\/getDataListFromTable.php(56): Redis->set('cl_C_L', '{\\\"singapore-pos...', 86400)\",\"#1 \\/home\\/wwwroot\\/www.trackingmore.com\\/library\\/resque\\/getConcurrencyDataListFromTable.php(18): getDataListFromTable(Array)\",\"#2 \\/home\\/wwwroot\\/www.trackingmore.com\\/php-resque\\/perform\\/perform_trackPostBatchInsert.php(86): getConcurrencyDataListFromTable(Array)\",\"#3 \\/home\\/wwwroot\\/www.trackingmore.com\\/php-resque\\/trackPostBatchInsert\\/trackPostBatchInsertjob.php(35): require_once('\\/home\\/wwwroot\\/w...')\",\"#4 \\/home\\/wwwroot\\/www.trackingmore.com\\/php-resque\\/lib\\/Resque\\/Job.php(184): trackPostBatchInsertjob->perform()\",\"#5 \\/home\\/wwwroot\\/www.trackingmore.com\\/php-resque\\/lib\\/Resque\\/Worker.php(242): Resque_Job->perform()\",\"#6 \\/home\\/wwwroot\\/www.trackingmore.com\\/php-resque\\/lib\\/Resque\\/Worker.php(204): Resque_Worker->perform(Object(Resque_Job))\",\"#7 \\/home\\/wwwroot\\/www.trackingmore.com\\/php-resque\\/resque.php(60): Resque_Worker->work(5)\",\"#8 \\/home\\/wwwroot\\/www.trackingmore.com\\/php-resque\\/trackPostBatchInsert\\/resque.php(15): require('\\/home\\/wwwroot\\/w...')\",\"#9 {main}\"],\"worker\":\"t-q-205-5f6fb9bd98-h5nfk:4736:trackPostBatchInsertQueue\",\"queue\":\"trackPostBatchInsertQueue\"}"
+					7) "{\"failed_at\":\"Thu Jul 10 09:00:11  2025\",\"payload\":{\"class\":\"trackPostBatchInsertjob\",\"args\":[{\"e\":\"Z_H_U_B_Post_SET\",\"u\":\"\"}],\"id\":\"1e1fc62b76dda241ee9e18ae929a3282\"},\"exception\":\"RedisException\",\"error\":\"OOM command not allowed when used memory > 'maxmemory'.\",\"backtrace\":[\"#0 \\/home\\/wwwroot\\/www.trackingmore.com\\/library\\/tools\\/getDataListFromTable.php(56): Redis->set('cl_C_L', '{\\\"singapore-pos...', 86400)\",\"#1 \\/home\\/wwwroot\\/www.trackingmore.com\\/library\\/resque\\/getConcurrencyDataListFromTable.php(18): getDataListFromTable(Array)\",\"#2 \\/home\\/wwwroot\\/www.trackingmore.com\\/php-resque\\/perform\\/perform_trackPostBatchInsert.php(86): getConcurrencyDataListFromTable(Array)\",\"#3 \\/home\\/wwwroot\\/www.trackingmore.com\\/php-resque\\/trackPostBatchInsert\\/trackPostBatchInsertjob.php(35): require_once('\\/home\\/wwwroot\\/w...')\",\"#4 \\/home\\/wwwroot\\/www.trackingmore.com\\/php-resque\\/lib\\/Resque\\/Job.php(184): trackPostBatchInsertjob->perform()\",\"#5 \\/home\\/wwwroot\\/www.trackingmore.com\\/php-resque\\/lib\\/Resque\\/Worker.php(242): Resque_Job->perform()\",\"#6 \\/home\\/wwwroot\\/www.trackingmore.com\\/php-resque\\/lib\\/Resque\\/Worker.php(204): Resque_Worker->perform(Object(Resque_Job))\",\"#7 \\/home\\/wwwroot\\/www.trackingmore.com\\/php-resque\\/resque.php(60): Resque_Worker->work(5)\",\"#8 \\/home\\/wwwroot\\/www.trackingmore.com\\/php-resque\\/trackPostBatchInsert\\/resque.php(15): require('\\/home\\/wwwroot\\/w...')\",\"#9 {main}\"],\"worker\":\"t-q-205-5f6fb9bd98-h5nfk:2729:trackPostBatchInsertQueue\",\"queue\":\"trackPostBatchInsertQueue\"}"
+					8) "{\"failed_at\":\"Thu Jul 10 09:00:11  2025\",\"payload\":{\"class\":\"trackPostBatchInsertjob\",\"args\":[{\"e\":\"Z_H_U_B_Post_SET\",\"u\":\"\"}],\"id\":\"c74210faf3f2dca72be2bb5084efe3c9\"},\"exception\":\"RedisException\",\"error\":\"OOM command not allowed when used memory > 'maxmemory'.\",\"backtrace\":[\"#0 \\/home\\/wwwroot\\/www.trackingmore.com\\/library\\/tools\\/getDataListFromTable.php(56): Redis->set('cl_C_L', '{\\\"singapore-pos...', 86400)\",\"#1 \\/home\\/wwwroot\\/www.trackingmore.com\\/library\\/resque\\/getConcurrencyDataListFromTable.php(18): getDataListFromTable(Array)\",\"#2 \\/home\\/wwwroot\\/www.trackingmore.com\\/php-resque\\/perform\\/perform_trackPostBatchInsert.php(86): getConcurrencyDataListFromTable(Array)\",\"#3 \\/home\\/wwwroot\\/www.trackingmore.com\\/php-resque\\/trackPostBatchInsert\\/trackPostBatchInsertjob.php(35): require_once('\\/home\\/wwwroot\\/w...')\",\"#4 \\/home\\/wwwroot\\/www.trackingmore.com\\/php-resque\\/lib\\/Resque\\/Job.php(184): trackPostBatchInsertjob->perform()\",\"#5 \\/home\\/wwwroot\\/www.trackingmore.com\\/php-resque\\/lib\\/Resque\\/Worker.php(242): Resque_Job->perform()\",\"#6 \\/home\\/wwwroot\\/www.trackingmore.com\\/php-resque\\/lib\\/Resque\\/Worker.php(204): Resque_Worker->perform(Object(Resque_Job))\",\"#7 \\/home\\/wwwroot\\/www.trackingmore.com\\/php-resque\\/resque.php(60): Resque_Worker->work(5)\",\"#8 \\/home\\/wwwroot\\/www.trackingmore.com\\/php-resque\\/trackPostBatchInsert\\/resque.php(15): require('\\/home\\/wwwroot\\/w...')\",\"#9 {main}\"],\"worker\":\"t-q-205-5f6fb9bd98-h5nfk:4740:trackPostBatchInsertQueue\",\"queue\":\"trackPostBatchInsertQueue\"}"
+					9) "{\"failed_at\":\"Thu Jul 10 09:00:11  2025\",\"payload\":{\"class\":\"trackPostBatchInsertjob\",\"args\":[{\"e\":\"Z_H_U_B_Post_SET\",\"u\":\"\"}],\"id\":\"d5d99380e56c7bc067db2d8ee75c2be5\"},\"exception\":\"RedisException\",\"error\":\"OOM command not allowed when used memory > 'maxmemory'.\",\"backtrace\":[\"#0 \\/home\\/wwwroot\\/www.trackingmore.com\\/library\\/tools\\/getDataListFromTable.php(56): Redis->set('cl_C_L', '{\\\"singapore-pos...', 86400)\",\"#1 \\/home\\/wwwroot\\/www.trackingmore.com\\/library\\/resque\\/getConcurrencyDataListFromTable.php(18): getDataListFromTable(Array)\",\"#2 \\/home\\/wwwroot\\/www.trackingmore.com\\/php-resque\\/perform\\/perform_trackPostBatchInsert.php(86): getConcurrencyDataListFromTable(Array)\",\"#3 \\/home\\/wwwroot\\/www.trackingmore.com\\/php-resque\\/trackPostBatchInsert\\/trackPostBatchInsertjob.php(35): require_once('\\/home\\/wwwroot\\/w...')\",\"#4 \\/home\\/wwwroot\\/www.trackingmore.com\\/php-resque\\/lib\\/Resque\\/Job.php(184): trackPostBatchInsertjob->perform()\",\"#5 \\/home\\/wwwroot\\/www.trackingmore.com\\/php-resque\\/lib\\/Resque\\/Worker.php(242): Resque_Job->perform()\",\"#6 \\/home\\/wwwroot\\/www.trackingmore.com\\/php-resque\\/lib\\/Resque\\/Worker.php(204): Resque_Worker->perform(Object(Resque_Job))\",\"#7 \\/home\\/wwwroot\\/www.trackingmore.com\\/php-resque\\/resque.php(60): Resque_Worker->work(5)\",\"#8 \\/home\\/wwwroot\\/www.trackingmore.com\\/php-resque\\/trackPostBatchInsert\\/resque.php(15): require('\\/home\\/wwwroot\\/w...')\",\"#9 {main}\"],\"worker\":\"t-q-77-b57f55bc-l9gpn:733:trackPostBatchInsertQueue\",\"queue\":\"trackPostBatchInsertQueue\"}"
+					10) "{\"failed_at\":\"Thu Jul 10 09:00:11  2025\",\"payload\":{\"class\":\"trackPostBatchInsertjob\",\"args\":[{\"e\":\"Z_H_U_B_Post_SET\",\"u\":\"\"}],\"id\":\"48bcc9b58b9ccb5aa7edffbdf335f153\"},\"exception\":\"RedisException\",\"error\":\"OOM command not allowed when used memory > 'maxmemory'.\",\"backtrace\":[\"#0 \\/home\\/wwwroot\\/www.trackingmore.com\\/library\\/tools\\/getDataListFromTable.php(56): Redis->set('cl_C_L', '{\\\"singapore-pos...', 86400)\",\"#1 \\/home\\/wwwroot\\/www.trackingmore.com\\/library\\/resque\\/getConcurrencyDataListFromTable.php(18): getDataListFromTable(Array)\",\"#2 \\/home\\/wwwroot\\/www.trackingmore.com\\/php-resque\\/perform\\/perform_trackPostBatchInsert.php(86): getConcurrencyDataListFromTable(Array)\",\"#3 \\/home\\/wwwroot\\/www.trackingmore.com\\/php-resque\\/trackPostBatchInsert\\/trackPostBatchInsertjob.php(35): require_once('\\/home\\/wwwroot\\/w...')\",\"#4 \\/home\\/wwwroot\\/www.trackingmore.com\\/php-resque\\/lib\\/Resque\\/Job.php(184): trackPostBatchInsertjob->perform()\",\"#5 \\/home\\/wwwroot\\/www.trackingmore.com\\/php-resque\\/lib\\/Resque\\/Worker.php(242): Resque_Job->perform()\",\"#6 \\/home\\/wwwroot\\/www.trackingmore.com\\/php-resque\\/lib\\/Resque\\/Worker.php(204): Resque_Worker->perform(Object(Resque_Job))\",\"#7 \\/home\\/wwwroot\\/www.trackingmore.com\\/php-resque\\/resque.php(60): Resque_Worker->work(5)\",\"#8 \\/home\\/wwwroot\\/www.trackingmore.com\\/php-resque\\/trackPostBatchInsert\\/resque.php(15): require('\\/home\\/wwwroot\\/w...')\",\"#9 {main}\"],\"worker\":\"t-q-205-5f6fb9bd98-h5nfk:834:trackPostBatchInsertQueue\",\"queue\":\"trackPostBatchInsertQueue\"}"
+					11) "{\"failed_at\":\"Thu Jul 10 09:00:11  2025\",\"payload\":{\"class\":\"trackPostBatchInsertjob\",\"args\":[{\"e\":\"Z_H_U_B_Post_SET\",\"u\":\"\"}],\"id\":\"1d6b57fde409770c4ff5e9862234268d\"},\"exception\":\"RedisException\",\"error\":\"OOM command not allowed when used memory > 'maxmemory'.\",\"backtrace\":[\"#0 \\/home\\/wwwroot\\/www.trackingmore.com\\/library\\/tools\\/getDataListFromTable.php(56): Redis->set('cl_C_L', '{\\\"singapore-pos...', 86400)\",\"#1 \\/home\\/wwwroot\\/www.trackingmore.com\\/library\\/resque\\/getConcurrencyDataListFromTable.php(18): getDataListFromTable(Array)\",\"#2 \\/home\\/wwwroot\\/www.trackingmore.com\\/php-resque\\/perform\\/perform_trackPostBatchInsert.php(86): getConcurrencyDataListFromTable(Array)\",\"#3 \\/home\\/wwwroot\\/www.trackingmore.com\\/php-resque\\/trackPostBatchInsert\\/trackPostBatchInsertjob.php(35): require_once('\\/home\\/wwwroot\\/w...')\",\"#4 \\/home\\/wwwroot\\/www.trackingmore.com\\/php-resque\\/lib\\/Resque\\/Job.php(184): trackPostBatchInsertjob->perform()\",\"#5 \\/home\\/wwwroot\\/www.trackingmore.com\\/php-resque\\/lib\\/Resque\\/Worker.php(242): Resque_Job->perform()\",\"#6 \\/home\\/wwwroot\\/www.trackingmore.com\\/php-resque\\/lib\\/Resque\\/Worker.php(204): Resque_Worker->perform(Object(Resque_Job))\",\"#7 \\/home\\/wwwroot\\/www.trackingmore.com\\/php-resque\\/resque.php(60): Resque_Worker->work(5)\",\"#8 \\/home\\/wwwroot\\/www.trackingmore.com\\/php-resque\\/trackPostBatchInsert\\/resque.php(15): require('\\/home\\/wwwroot\\/w...')\",\"#9 {main}\"],\"worker\":\"t-q-205-5f6fb9bd98-h5nfk:1673:trackPostBatchInsertQueue\",\"queue\":\"trackPostBatchInsertQueue\"}"
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# redis del resque:failed
+					(integer) 1
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# sh redisMemory.sh Z_P_U_yunexpress_B_SET
+					2025-07-10 10:49:26
+					redis memory usage Z_P_U_yunexpress_B_SET
+					(integer) 172119537
+					redis info key Z_P_U_yunexpress_B_SET
+					slot:13552 node_index:6
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# redis del Z_P_U_yunexpress_B_SET
+					(integer) 1
+					[root@iz0xibhd8xjxiru8zt5ietz ~]#  php /home/wwwroot/www.trackingmore.com/script/warning_redis.php dfdf 10 | grep ':redis:' -A8
+					string(183) "Foreign:redis:
+					node:0: 41.33% > 10%
+					node:1: 47.55% > 10%
+					node:2: 47.42% > 10%
+					node:3: 45.55% > 10%
+					node:4: 42.84% > 10%
+					node:5: 41.16% > 10%
+					node:6: 45.91% > 10%
+					node:7: 45.83% > 10%
+
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# sh redisMemory.sh quiqup_input
+					2025-07-10 17:19:56
+					redis memory usage quiqup_input
+					(integer) 192016672
+					redis info key quiqup_input
+					slot:2403 node_index:1
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# redis type quiqup_input
+					set
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# redis srandmember quiqup_input
+					"[2023-06-28 09:26:53] [number: 15268815] {\"action\":\"update\",\"type\":\"order\",\"payload\":{\"id\":15268815,\"uuid\":\"4e4deeaa-b6a5-4de2-9620-b2b76c8839cb\",\"state\":\"on_hold\",\"state_updated_at\":\"2023-06-28T13:26:53.000+04:00\",\"kind\":\"partner_same_day\",\"service_kind\":\"partner_next_day\",\"scheduled_for\":null,\"submitted_at\":\"2023-06-22T18:47:08.000+04:00\",\"item_quantity_count\":1,\"delivery_attempts\":3,\"payment_mode\":\"pre_paid\",\"payment_amount\":\"0.0\",\"delivery_failure_reason\":\"Customer not available\",\"required_documents\":[],\"partner_order_id\":\"100083987 \",\"allowed_payment_types\":[\"cash\",\"card\"],\"tracking_url\":\"https://track-parcel.quiqup.com/4e4deeaa-b6a5-4de2-9620-b2b76c8839cb\",\"sku_info\":\"\",\"region_name\":\"Abu Dhabi\",\"created_at\":\"2023-06-22T18:47:08.281+04:00\",\"brand_name\":\"Gear-Up\",\"billing_identifier\":null,\"display_items_info\":false,\"metadata\":{},\"origin\":{\"id\":20541069,\"contact_name\":\"Gear-Up - AL Qouz 3\",\"contact_phone\":\"04 223 1780\",\"arrived_at\":null,\"finished_at\":null,\"tracking_token\":\"fd7a3732730924aaa7d66dc2c1fe63e0\",\"tracking_url\":\"https://track-ae.quiqup.com/fd7a3732730924aaa7d66dc2c1fe63e0\",\"notes\":\"\",\"signature\":{\"url\":null},\"address\":{\"id\":12546447,\"address1\":\"Orynx General Trading LLC, Office M225, 2020 Building, Al Quoz 3, SZR , Dubai\",\"address2\":null,\"town\":\"Dubai\",\"building_name\":null,\"apartment_number\":null,\"country\":\"UAE\",\"coordinates\":{\"lat\":25.166897,\"lng\":55.238275}}},\"destination\":{\"id\":20541068,\"contact_name\":\"Mohamed Said Abdul Razek\",\"contact_phone\":\"+971523190189\",\"arrived_at\":null,\"finished_at\":null,\"tracking_token\":\"0f684bba509e1e9f38b94799bbed4ae7\",\"tracking_url\":\"https://track-ae.quiqup.com/0f684bba509e1e9f38b94799bbed4ae7\",\"notes\":\"\",\"signature\":{\"url\":null},\"address\":{\"id\":12546446,\"address1\":\"Office# 1502, Al Masood Building ,Fatima Bint Mubarak St.\",\"address2\":\"Al Wahda Mall\",\"town\":\"Abu Dhabi\",\"building_name\":null,\"apartment_number\":null,\"country\":\"UAE\",\"coordinates\":{\"lat\":24.4699206,\"lng\":54.3724808}}},\"items\":[{\"id\":11612925,\"name\":\"100083987 \",\"quantity\":1,\"parcel_barcode\":\"15268815-1\",\"parcel_barcode_generated_by\":\"quiqup\"}]},\"sent_at\":\"2023-06-28T09:26:53Z\"}"
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# redis srandmember quiqup_input
+					"[2024-03-10 12:38:37] [number: 17344433] {\"action\":\"update\",\"type\":\"order\",\"payload\":{\"id\":17344433,\"uuid\":\"6287fd9c-6e4a-4890-9db7-63e69da9bf45\",\"state\":\"at_depot\",\"state_updated_at\":\"2024-03-10T16:38:36.000+04:00\",\"kind\":\"partner_same_day\",\"service_kind\":\"partner_next_day\",\"scheduled_for\":null,\"submitted_at\":\"2024-03-08T21:14:37.000+04:00\",\"item_quantity_count\":1,\"delivery_attempts\":0,\"payment_mode\":\"pre_paid\",\"payment_amount\":\"0.0\",\"delivery_failure_reason\":null,\"required_documents\":[],\"partner_order_id\":\"100096896\",\"allowed_payment_types\":[\"cash\",\"card\"],\"tracking_url\":\"https://track-parcel.quiqup.com/6287fd9c-6e4a-4890-9db7-63e69da9bf45\",\"sku_info\":\"\",\"region_name\":\"Dubai\",\"created_at\":\"2024-03-08T13:50:37.480+04:00\",\"brand_name\":\"Gear-Up\",\"billing_identifier\":null,\"display_items_info\":false,\"metadata\":{},\"origin\":{\"id\":23537394,\"contact_name\":\"Gear-Up - AL Qouz 3\",\"contact_phone\":\"04 223 1780\",\"arrived_at\":null,\"finished_at\":null,\"tracking_token\":\"2748326d830e268efa3fd4ab91aac050\",\"tracking_url\":\"https://track-ae.quiqup.com/2748326d830e268efa3fd4ab91aac050\",\"notes\":\"\",\"signature\":{\"url\":null},\"address\":{\"id\":15062761,\"address1\":\"Orynx General Trading LLC, Office M225, 2020 Building, Al Quoz 3, SZR , Dubai\",\"address2\":null,\"town\":\"Dubai\",\"building_name\":null,\"apartment_number\":null,\"country\":\"UAE\",\"coordinates\":{\"lat\":25.1666301,\"lng\":55.2381299}}},\"destination\":{\"id\":23537393,\"contact_name\":\"Khaled AlKaabi\",\"contact_phone\":\"+971552373737\",\"arrived_at\":null,\"finished_at\":null,\"tracking_token\":\"87f9735440c931ebfabd053ff6a4586f\",\"tracking_url\":\"https://track-ae.quiqup.com/87f9735440c931ebfabd053ff6a4586f\",\"notes\":\"\",\"signature\":{\"url\":null},\"address\":{\"id\":15062760,\"address1\":\"Al Raha Beach, Al Rahah St, P2675 (Bldg #16)Apt 201,Abu Dhabi\",\"address2\":null,\"town\":\"ABU DHABI\",\"building_name\":null,\"apartment_number\":null,\"country\":\"UAE\",\"coordinates\":{\"lat\":24.447702407836914,\"lng\":54.59206771850586}}},\"items\":[{\"id\":13348136,\"name\":\"100096896\",\"quantity\":1,\"parcel_barcode\":\"17344433-1\",\"parcel_barcode_generated_by\":\"quiqup\"}]},\"sent_at\":\"2024-03-10T12:38:37Z\"}"
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# redis srandmember quiqup_input
+					"[2023-03-22 03:22:24] [number: 13695165] {\"action\":\"update\",\"type\":\"order\",\"payload\":{\"id\":13695165,\"uuid\":\"9758916f-c08c-4482-aa91-a42070f0a3f3\",\"state\":\"at_depot\",\"state_updated_at\":\"2023-03-22T07:22:23.000+04:00\",\"kind\":\"partner_same_day\",\"service_kind\":\"partner_next_day\",\"scheduled_for\":null,\"submitted_at\":\"2023-03-21T20:06:58.000+04:00\",\"item_quantity_count\":1,\"delivery_attempts\":0,\"payment_mode\":\"pre_paid\",\"payment_amount\":\"0.0\",\"delivery_failure_reason\":null,\"required_documents\":[],\"partner_order_id\":\"100079034\",\"allowed_payment_types\":[\"cash\",\"card\"],\"tracking_url\":\"https://track-parcel.quiqup.com/9758916f-c08c-4482-aa91-a42070f0a3f3\",\"sku_info\":\"\",\"region_name\":\"Dubai\",\"created_at\":\"2023-03-21T14:04:04.570+04:00\",\"brand_name\":\"Gear-Up\",\"billing_identifier\":null,\"display_items_info\":false,\"metadata\":{},\"origin\":{\"id\":19050633,\"contact_name\":\"Gear-Up - AL Qouz 3\",\"contact_phone\":\"04 223 1780\",\"arrived_at\":null,\"finished_at\":null,\"tracking_token\":\"313de1c305082b634df2ad833dc2e550\",\"tracking_url\":\"https://track-ae.quiqup.com/313de1c305082b634df2ad833dc2e550\",\"notes\":\"\",\"signature\":{\"url\":null},\"address\":{\"id\":11723877,\"address1\":\"Orynx General Trading LLC, Office M225, 2020 Building, Al Quoz 3, SZR , Dubai\",\"address2\":null,\"town\":\"Dubai\",\"building_name\":null,\"apartment_number\":null,\"country\":\"UAE\",\"coordinates\":{\"lat\":25.1666301,\"lng\":55.2381299}}},\"destination\":{\"id\":19050632,\"contact_name\":\"S3 Technologies\",\"contact_phone\":\"+971507090645\",\"arrived_at\":null,\"finished_at\":null,\"tracking_token\":\"cbc41e1cd94652001b36145702cfe889\",\"tracking_url\":\"https://track-ae.quiqup.com/cbc41e1cd94652001b36145702cfe889\",\"notes\":\"\",\"signature\":{\"url\":null},\"address\":{\"id\":11723876,\"address1\":\"ROOM #427, Nasriya Building, Damascus Street, Near Daily Resturant,  Dubai\",\"address2\":null,\"town\":\"DUBAI\",\"building_name\":null,\"apartment_number\":null,\"country\":\"UAE\",\"coordinates\":{\"lat\":25.2784924,\"lng\":55.3841961}}},\"items\":[{\"id\":10571727,\"name\":\"100079034\",\"quantity\":1,\"parcel_barcode\":\"13695165-1\",\"parcel_barcode_generated_by\":\"quiqup\"}]},\"sent_at\":\"2023-03-22T03:22:24Z\"}"
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# redis srandmember quiqup_input
+					"[2024-02-24 23:25:51] [number: 17281045] {\"action\":\"update\",\"type\":\"order\",\"payload\":{\"id\":17281045,\"uuid\":\"789369c5-6652-4cdd-b139-6270fdfb86b7\",\"state\":\"at_depot\",\"state_updated_at\":\"2024-02-25T03:25:49.000+04:00\",\"kind\":\"partner_same_day\",\"service_kind\":\"partner_next_day\",\"scheduled_for\":null,\"submitted_at\":\"2024-02-24T15:17:00.000+04:00\",\"item_quantity_count\":1,\"delivery_attempts\":0,\"payment_mode\":\"pre_paid\",\"payment_amount\":\"0.0\",\"delivery_failure_reason\":null,\"required_documents\":[],\"partner_order_id\":\"100096143\",\"allowed_payment_types\":[\"cash\",\"card\"],\"tracking_url\":\"https://track-parcel.quiqup.com/789369c5-6652-4cdd-b139-6270fdfb86b7\",\"sku_info\":\"\",\"region_name\":\"Dubai\",\"created_at\":\"2024-02-23T14:43:35.769+04:00\",\"brand_name\":\"Gear-Up\",\"billing_identifier\":null,\"display_items_info\":false,\"metadata\":{},\"origin\":{\"id\":23408331,\"contact_name\":\"Gear-Up - AL Qouz 3\",\"contact_phone\":\"04 223 1780\",\"arrived_at\":null,\"finished_at\":null,\"tracking_token\":\"d433ca4e588cbe08fb7ae6a910a804fd\",\"tracking_url\":\"https://track-ae.quiqup.com/d433ca4e588cbe08fb7ae6a910a804fd\",\"notes\":\"\",\"signature\":{\"url\":null},\"address\":{\"id\":14933571,\"address1\":\"Orynx General Trading LLC, Office M225, 2020 Building, Al Quoz 3, SZR , Dubai\",\"address2\":null,\"town\":\"Dubai\",\"building_name\":null,\"apartment_number\":null,\"country\":\"UAE\",\"coordinates\":{\"lat\":25.1666301,\"lng\":55.2381299}}},\"destination\":{\"id\":23408330,\"contact_name\":\"Stream Works\",\"contact_phone\":\"+971509870288\",\"arrived_at\":null,\"finished_at\":null,\"tracking_token\":\"1c581fbce280d49b9f684b804628e42f\",\"tracking_url\":\"https://track-ae.quiqup.com/1c581fbce280d49b9f684b804628e42f\",\"notes\":\"\",\"signature\":{\"url\":null},\"address\":{\"id\":14933570,\"address1\":\"82 6B St Warehouse 8 Eventagrate Group,Dubai\",\"address2\":null,\"town\":\"DUBAI\",\"building_name\":null,\"apartment_number\":null,\"country\":\"UAE\",\"coordinates\":{\"lat\":25.11929702758789,\"lng\":55.19817352294922}}},\"items\":[{\"id\":13281531,\"name\":\"100096143\",\"quantity\":1,\"parcel_barcode\":\"17281045-1\",\"parcel_barcode_generated_by\":\"quiqup\"}]},\"sent_at\":\"2024-02-24T23:25:50Z\"}"
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# redis srandmember quiqup_input
+					"[2025-02-14 08:46:22] [number: 19385977] {\"action\":\"update\",\"type\":\"order\",\"payload\":{\"id\":19385977,\"uuid\":\"8c58feb8-0198-4b01-9e7d-f10e4abfa2e9\",\"state\":\"out_for_delivery\",\"state_updated_at\":\"2025-02-14T12:46:22.000+04:00\",\"kind\":\"partner_same_day\",\"service_kind\":\"partner_next_day\",\"scheduled_for\":null,\"submitted_at\":\"2025-02-13T21:43:02.000+04:00\",\"item_quantity_count\":1,\"delivery_attempts\":1,\"payment_mode\":\"pre_paid\",\"payment_amount\":\"0.0\",\"delivery_failure_reason\":null,\"required_documents\":[],\"partner_order_id\":\"2000002920\",\"allowed_payment_types\":[\"cash\",\"card\"],\"tracking_url\":\"https://track-parcel.quiqup.com/8c58feb8-0198-4b01-9e7d-f10e4abfa2e9\",\"sku_info\":\"\",\"region_name\":\"Dubai\",\"created_at\":\"2025-02-13T14:08:59.056+04:00\",\"brand_name\":\"Gear-Up\",\"billing_identifier\":null,\"display_items_info\":false,\"metadata\":{},\"origin\":{\"id\":27687171,\"contact_name\":\"Gear-Up - AL Qouz 3\",\"contact_phone\":\"+97142231780\",\"arrived_at\":null,\"finished_at\":null,\"tracking_token\":\"aa8f58689c9951afc275ff1a669fed96\",\"tracking_url\":\"https://track-ae.quiqup.com/aa8f58689c9951afc275ff1a669fed96\",\"notes\":\"\",\"signature\":{\"url\":null},\"address\":{\"id\":19214572,\"address1\":\"Orynx General Trading LLC, Office M225, 2020 Building, Al Quoz 3, SZR , Dubai\",\"address2\":null,\"town\":\"Dubai\",\"building_name\":null,\"apartment_number\":null,\"country\":\"AE\",\"coordinates\":{\"lat\":25.1666301,\"lng\":55.2381299}}},\"destination\":{\"id\":27687170,\"contact_name\":\"Gloria Gepana\",\"contact_phone\":\"+971543221388\",\"arrived_at\":null,\"finished_at\":null,\"tracking_token\":\"241d13adb8e2f78d2e8ec8c2cc73cf51\",\"tracking_url\":\"https://track-ae.quiqup.com/241d13adb8e2f78d2e8ec8c2cc73cf51\",\"notes\":\"\",\"signature\":{\"url\":null},\"address\":{\"id\":19214571,\"address1\":\"Tradewind Middle East Limited; Ofc No. 304 Liberty House DIFC Dubai\",\"address2\":null,\"town\":\"Dubai\",\"building_name\":null,\"apartment_number\":null,\"country\":\"AE\",\"coordinates\":{\"lat\":25.2095982,\"lng\":55.2768889}}},\"items\":[{\"id\":15462613,\"name\":\"2000002920\",\"quantity\":1,\"parcel_barcode\":\"19385977-1\",\"parcel_barcode_generated_by\":\"quiqup\"}]},\"sent_at\":\"2025-02-14T08:46:22Z\"}"
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# redis srandmember quiqup_input
+					"[2024-11-02 00:42:15] [number: 18622293] {\"action\":\"update\",\"type\":\"order\",\"payload\":{\"id\":18622293,\"uuid\":\"2eaac334-ca93-451f-b39c-0b67cd7a4f3c\",\"state\":\"at_depot\",\"state_updated_at\":\"2024-11-02T04:42:13.000+04:00\",\"kind\":\"partner_same_day\",\"service_kind\":\"partner_next_day\",\"scheduled_for\":null,\"submitted_at\":\"2024-11-01T22:19:07.000+04:00\",\"item_quantity_count\":1,\"delivery_attempts\":0,\"payment_mode\":\"pre_paid\",\"payment_amount\":\"0.0\",\"delivery_failure_reason\":null,\"required_documents\":[],\"partner_order_id\":\"2000000603\",\"allowed_payment_types\":[\"cash\",\"card\"],\"tracking_url\":\"https://track-parcel.quiqup.com/2eaac334-ca93-451f-b39c-0b67cd7a4f3c\",\"sku_info\":\"\",\"region_name\":\"Dubai\",\"created_at\":\"2024-11-01T13:25:38.605+04:00\",\"brand_name\":\"Gear-Up\",\"billing_identifier\":null,\"display_items_info\":false,\"metadata\":{},\"origin\":{\"id\":26136235,\"contact_name\":\"Gear-Up - AL Qouz 3\",\"contact_phone\":\"+97142231780\",\"arrived_at\":null,\"finished_at\":null,\"tracking_token\":\"0c4b5ba48c0a383fd309853c2186e038\",\"tracking_url\":\"https://track-ae.quiqup.com/0c4b5ba48c0a383fd309853c2186e038\",\"notes\":\"\",\"signature\":{\"url\":null},\"address\":{\"id\":17663164,\"address1\":\"Orynx General Trading LLC, Office M225, 2020 Building, Al Quoz 3, SZR , Dubai\",\"address2\":null,\"town\":\"Dubai\",\"building_name\":null,\"apartment_number\":null,\"country\":\"UAE\",\"coordinates\":{\"lat\":25.1666301,\"lng\":55.2381299}}},\"destination\":{\"id\":26136234,\"contact_name\":\"Charles Poirier\",\"contact_phone\":\"+971507695406\",\"arrived_at\":null,\"finished_at\":null,\"tracking_token\":\"62d1790f74557bfb56820c347fcd22b6\",\"tracking_url\":\"https://track-ae.quiqup.com/62d1790f74557bfb56820c347fcd22b6\",\"notes\":\"\",\"signature\":{\"url\":null},\"address\":{\"id\":17663163,\"address1\":\"Adhass street villa 30 Umm suqueim 1 Dubai\",\"address2\":null,\"town\":\"Dubai\",\"building_name\":null,\"apartment_number\":null,\"country\":\"UAE\",\"coordinates\":{\"lat\":25.1688957,\"lng\":55.2171183}}},\"items\":[{\"id\":14675941,\"name\":\"2000000603\",\"quantity\":1,\"parcel_barcode\":\"18622293-1\",\"parcel_barcode_generated_by\":\"quiqup\"}]},\"sent_at\":\"2024-11-02T00:42:15Z\"}"
+					[root@iz0xibhd8xjxiru8zt5ietz ~]# redis scard quiqup_input
+					(integer) 73905
+
+					# 世杰 - 日志文件 就是记录对方回调的具体内容，可以干掉了 这个我把它切换到新版查询系统去吧
+
 			-- 20250619
 				-145 大key清除
 					[root@iz0xibhd8xjxiru8zt5ietz ~]#  php /home/wwwroot/www.trackingmore.com/script/warning_redis.php dfdf 10 | grep ':redis:' -A8
