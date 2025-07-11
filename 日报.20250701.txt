@@ -8610,6 +8610,125 @@
 										overlay          40G   37G  2.7G  94% /var/lib/docker/overlay2/59ca7e38d5053a3062bce79ba5dd8934e5abe477125dd0fbf0aae1019223218d/merged
 										tmpfs           1.6G     0  1.6G   0% /run/user/1002
 										[root@iz0xibhd8xjxiru8zt5ierz ~]# df -h
+									-- 20250710
+										[root@iz0xibhd8xjxiru8zt5ierz ~]# df -h
+										Filesystem      Size  Used Avail Use% Mounted on
+										devtmpfs        7.7G     0  7.7G   0% /dev
+										tmpfs           7.7G     0  7.7G   0% /dev/shm
+										tmpfs           7.7G  4.3G  3.5G  56% /run
+										tmpfs           7.7G     0  7.7G   0% /sys/fs/cgroup
+										/dev/vda1        40G   39G  771M  99% /
+										tmpfs           1.6G     0  1.6G   0% /run/user/0
+										overlay          40G   39G  771M  99% /var/lib/docker/overlay2/12628c2a06e9a408e28e7024966b62c7d4871c0f8f4632263bf6d42e9109ac2b/merged
+										tmpfs           1.6G     0  1.6G   0% /run/user/1002
+										# 这里记录最近一次
+										[root@iz0xibhd8xjxiru8zt5ierz ~]# cat /home/wwwroot/www.trackingmore.com/script/log/queue_diskTree.20250710.log
+										2025-07-10 10:00:12
+										-rw-r--r--  1 root root 611M Jul 10 08:57 /home/wwwroot/www.trackingmore.com/script/log/infoIDInsertInfo_br.log
+										-rw-r--r--  1 root root 360M Jul  9 10:54 /root/stayTimeDay_Job.log
+										-rw-r--r--  1 root root 328M Apr  1 17:05 /root/tr_tracknumber_effective_for_rule.zip
+										-rw-r--r--  1 root root 277M Jul 10 10:01 /root/concurrentUpdateDetection.log
+										-rw-r--r--  1 root root 207M Jun 19 20:38 /home/wwwroot/www.trackingmore.com/python_img/redis.bigkey.3.length_1_1024.20250619.log
+										-rw-r--r--  1 root root 204M May 17 12:56 /run/log/home-wwwroot-www.trackingmore.com-python_img/redis.bigkey.3.length_1_1024.20250517.log
+										-rw-r--r--  1 root root 203M May 16 19:54 /run/log/home-wwwroot-www.trackingmore.com-python_img/redis.bigkey.3.length_1_1024.20250516.log
+										-rw-r--r--  1 root root 203M May 14 21:01 /run/log/home-wwwroot-www.trackingmore.com-python_img/redis.bigkey.6.length_1_1024.20250514.log
+										-rw-r--r--  1 root root 203M May 14 18:51 /run/log/home-wwwroot-www.trackingmore.com-python_img/redis.bigkey.0.length_1_1024.20250514.log
+										-rw-r--r--  1 root root 202M May 14 20:52 /run/log/home-wwwroot-www.trackingmore.com-python_img/redis.bigkey.5.length_1_1024.20250514.log
+										-rw-r--r--  1 root root 193M Apr 30 08:03 /run/log/home-wwwroot-www.trackingmore.com-python_img/redis.bigkey.6.length_1_1024.20250430.log
+										-rw-r--r--  1 root root 193M Apr 19 03:47 /run/log/home-wwwroot-www.trackingmore.com-python_img/redis.bigkey.4.length_1_1024.20250419.log
+										-rw-r--r--  1 root root 190M Apr 29 10:38 /run/log/home-wwwroot-www.trackingmore.com-python_img/redis.bigkey.6.length_1_1024.20250429.log
+										-rw-r--r--  1 root root 190M Apr 18 21:56 /run/log/home-wwwroot-www.trackingmore.com-python_img/redis.bigkey.0.length_1_1024.20250418.log
+										-rw-r--r--  1 root root 188M Apr 19 02:29 /run/log/home-wwwroot-www.trackingmore.com-python_img/redis.bigkey.3.length_1_1024.20250419.log
+										-rw-r--r--  1 root root 187M Apr 18 23:08 /run/log/home-wwwroot-www.trackingmore.com-python_img/redis.bigkey.1.length_1_1024.20250418.log
+										-rw-r--r--  1 root root 186M Apr 19 05:09 /run/log/home-wwwroot-www.trackingmore.com-python_img/redis.bigkey.5.length_1_1024.20250419.log
+										-rw-r--r--  1 root root 185M Apr 19 06:28 /run/log/home-wwwroot-www.trackingmore.com-python_img/redis.bigkey.6.length_1_1024.20250419.log
+										-rw-r--r--  1 root root 183M Apr  5 02:52 /run/log/home-wwwroot-www.trackingmore.com-python_img/redis.bigkey.4.length_1_1024.20250405.log
+										-rw-r--r--  1 root root 180M Apr  4 20:51 /run/log/home-wwwroot-www.trackingmore.com-python_img/redis.bigkey.0.length_1_1024.20250404.log
+										-rw-r--r--  1 root root 177M Jul 10 10:01 /root/yunxiao/be-tfpyqa22gtndemstnunakvmq/runner/__flow_logs/runner.log
+										-rw-r--r--  1 root root 177M Apr  4 23:38 /run/log/home-wwwroot-www.trackingmore.com-python_img/redis.bigkey.2.length_1_1024.20250404.log
+										-rw-r--r--  1 root root 177M Apr  4 22:28 /run/log/home-wwwroot-www.trackingmore.com-python_img/redis.bigkey.1.length_1_1024.20250404.log
+										-rw-r--r--  1 root root 176M Apr  5 05:27 /run/log/home-wwwroot-www.trackingmore.com-python_img/redis.bigkey.6.length_1_1024.20250405.log
+										-rw-r--r--  1 root root 176M Apr  5 04:06 /run/log/home-wwwroot-www.trackingmore.com-python_img/redis.bigkey.5.length_1_1024.20250405.log
+										-rw-r--r--  1 root root 171M Apr 19 07:47 /run/log/home-wwwroot-www.trackingmore.com-python_img/redis.bigkey.7.length_1_1024.20250419.log
+										-rw-r--r--  1 root root 161M Apr  5 06:50 /run/log/home-wwwroot-www.trackingmore.com-python_img/redis.bigkey.7.length_1_1024.20250405.log
+										-rw-r--r--  1 root root 156M Jun 22  2024 /var/cache/yum/x86_64/7/updates/gen/primary_db.sqlite
+										-r--------  1 root root 128T Jul 10 10:01 /proc/kcore
+										-rw-r--r--  1 root root 122M Apr  5 01:01 /run/log/home-wwwroot-www.trackingmore.com-python_img/redis.bigkey.3.length_1_1024.20250405.log
+										-rw-r--r--. 1 root root 110M May 26 19:39 /var/lib/rpm/Packages
+										-rw-r--r--  1 root root 104M Mar  9 16:59 /home/wwwroot/www.trackingmore.com/python_img_zip/20240113.log.zip
+										-rw-r--r--  1 root root 104M Apr 18 23:59 /run/log/home-wwwroot-www.trackingmore.com-python_img/redis.bigkey.2.length_1_1024.20250418.log
+										-rw-r--r--  1 root root 103M Jul 10 10:01 /root/test.mem.log
+										-rwxr-xr-x  1 root root 102M Apr 23  2024 /usr/bin/dockerd
+										-rw-r--r--  1 root root 102M Feb 15  2020 /usr/lib/locale/locale-archive
+										-rw-r--r--  1 root root    3 May  2  2022 {}
+										├── /: 42987 MB
+										│   ├── /home: 18664 MB
+										│   │   ├── /home/wwwroot: 17394 MB
+										│   │   ├── /home/wwwlogs: 1103 MB
+										│   ├── /root: 4152 MB
+										│   │   └── stayTimeDay_Job.log: 360 MB
+										│   │   └── tr_tracknumber_effective_for_rule.zip: 328 MB
+										│   │   └── concurrentUpdateDetection.log: 277 MB
+										│   │   └── test.mem.log: 103 MB
+										│   │   ��── /root/yunxiao: 285 MB
+										│   │   ├── /root/.cache: 164 MB
+										│   │   ├── /root/go: 702 MB
+										│   ├── /run: 4304 MB
+										│   │   ├── /run/log: 4296 MB
+										│   ├── /boot: 178 MB
+										│   ├── /var: 5077 MB
+										│   │   ├── /var/cache: 266 MB
+										│   │   ├── /var/lib: 404 MB
+										│   │   ├── /var/log: 4406 MB
+										│   ├── /usr: 10545 MB
+										│   │   ├── /usr/lib: 890 MB
+										│   │   ├── /usr/lib64: 271 MB
+										│   │   ├── /usr/local: 8192 MB
+										│   │   ├── /usr/bin: 412 MB
+										│   │   │   └── dockerd: 102 MB
+										│   │   ├── /usr/libexec: 199 MB
+										│   │   ├── /usr/share: 506 MB
+										│   │   └── kcore: 134217727 MB
+										├── /home/wwwroot: 17408 MB
+										│   ├── /home/wwwroot/mytracking: 894 MB
+										│   │   ├── /home/wwwroot/mytracking/logs: 468 MB
+										│   │   ├── /home/wwwroot/mytracking/uploads: 216 MB
+										│   ├── /home/wwwroot/upload: 6490 MB
+										│   │   ├── /home/wwwroot/upload/shijie: 135 MB
+										│   │   ├── /home/wwwroot/upload/huaqiang: 5821 MB
+										│   │   ├── /home/wwwroot/upload/lipeng: 496 MB
+										│   ├── /home/wwwroot/www.trackingmore.com: 9355 MB
+										│   │   ├── /home/wwwroot/www.trackingmore.com/tmzohocrm: 116 MB
+										│   │   ├── /home/wwwroot/www.trackingmore.com/api: 181 MB
+										│   │   ├── /home/wwwroot/www.trackingmore.com/python_img: 544 MB
+										│   │   │   └── redis.bigkey.3.length_1_1024.20250619.log: 207 MB
+										│   │   ├── /home/wwwroot/www.trackingmore.com/section: 2744 MB
+										│   │   ├── /home/wwwroot/www.trackingmore.com/php-resque: 179 MB
+										│   │   ├── /home/wwwroot/www.trackingmore.com/logs: 877 MB
+										│   │   ├── /home/wwwroot/www.trackingmore.com/admin: 1742 MB
+										│   │   ├── /home/wwwroot/www.trackingmore.com/python_img_zip: 447 MB
+										│   │   │   └── 20240113.log.zip: 104 MB
+										│   │   ├── /home/wwwroot/www.trackingmore.com/script: 1141 MB
+										│   │   ├── /home/wwwroot/www.trackingmore.com/download: 366 MB
+										│   │   ├── /home/wwwroot/www.trackingmore.com/python3: 221 MB
+										│   ├── /home/wwwroot/mytracking_new: 164 MB
+										│   │   ├── /home/wwwroot/mytracking_new/bin: 119 MB
+										│   ├── /home/wwwroot/trackingmore: 336 MB
+										│   │   ├── /home/wwwroot/trackingmore/section: 240 MB
+
+										[root@iz0xibhd8xjxiru8zt5ierz ~]# echo > /root/concurrentUpdateDetection.log
+										[root@iz0xibhd8xjxiru8zt5ierz ~]# echo > /root/stayTimeDay_Job.log
+										[root@iz0xibhd8xjxiru8zt5ierz ~]# echo > /home/wwwroot/www.trackingmore.com/script/log/infoIDInsertInfo_br.log
+										[root@iz0xibhd8xjxiru8zt5ierz ~]# df -h
+										Filesystem      Size  Used Avail Use% Mounted on
+										devtmpfs        7.7G     0  7.7G   0% /dev
+										tmpfs           7.7G     0  7.7G   0% /dev/shm
+										tmpfs           7.7G  4.3G  3.5G  56% /run
+										tmpfs           7.7G     0  7.7G   0% /sys/fs/cgroup
+										/dev/vda1        40G   37G  2.1G  95% /
+										tmpfs           1.6G     0  1.6G   0% /run/user/0
+										overlay          40G   37G  2.1G  95% /var/lib/docker/overlay2/12628c2a06e9a408e28e7024966b62c7d4871c0f8f4632263bf6d42e9109ac2b/merged
+										tmpfs           1.6G     0  1.6G   0% /run/user/1002
 									-- 20250516
 										[root@iz0xibhd8xjxiru8zt5ierz ~]# find / -name '*' -type f -size +100M | xargs ls -lh {} | sort -nrk5
 										find: ‘/proc/8875/task/8875/fdinfo/6’: No such file or directory
