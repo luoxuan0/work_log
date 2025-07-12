@@ -7114,6 +7114,50 @@
 								script\queueshell\zipAndRmSpecifyTimeFile.sh
 								script\queueshell\file.to.zip.sh
 						历史数据清理 20240529
+							-- 20250712
+								api-234-72-tm
+									},{\x22tracking_number\x22:\x22YT2518700703517702\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x224PX3001864094768CN\x22,\x22courier_code\x22:\x224px\x22},{\x22tracking_number\x22:\x224PX3001864093747CN\x22,\x22courier_code\x22:\x224px\x22},{\x22tracking_number\x22:\x22JY25CAA0U017632882\x22,\x22courier_code\x22:\x22ltian\x22},{\x22tracking_number\x22:\x22YT2518700703338000\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22JY25CAA0U017635404\x22,\x22courier_code\x22:\x22ltian\x22},{\x22tracking_number\x22:\x22YT2518700703536280\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22YT2518700703536322\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22YT2518700703536371\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x224PX3001864019846CN\x22,\x22courier_code\x22:\x224px\x22},{\x22tracking_number\x22:\x22YT2518700703355913\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22YT2518700703554390\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22JY25CAA0U017639850\x22,\x22courier_code\x22:\x22ltian\x22},{\x22tracking_number\x22:\x22YT2518700703370490\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22YT2518700703370557\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22YT2518700703569166\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22YT2518700703370458\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22YT2518700703586707\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22YT2518700703403846\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22YT2518700703403762\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22JY25CAA0U017644109\x22,\x22courier_code\x22:\x22ltian\x22},{\x22tracking_number\x22:\x22JY25CAA0U017644115\x22,\x22courier_code\x22:\x22ltian\x22},{\x22tracking_number\x22:\x22JY25CAA0U017647373\x22,\x22courier_code\x22:\x22ltian\x22},{\x22tracking_number\x22:\x22YT2518700703424495\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22YT2518700703623161\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22JY25CAA0U017647375\x22,\x22courier_code\x22:\x22ltian\x22},{\x22tracking_number\x22:\x22YT2518700703424461\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22JY25CAA0U017649539\x22,\x22courier_code\x22:\x22ltian\x22},{\x22tracking_number\x22:\x22JY25CAA0U017649537\x22,\x22courier_code\x22:\x22ltian\x22},{\x22tracking_number\x22:\x22YT2518700703474805\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22YT2518700703673075\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22YT2518700703694899\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22YT2518700703930277\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22YT2518700703731246\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22YT2518700703731261\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x224PX3001863956593CN\x22,\x22courier_code\x22:\x224px\x22},{\x22tracking_number\x22:\x224PX3001863956364CN\x22,\x22courier_code\x22:\x224px\x22},{\x22tracking_number\x22:\x22JY25CAA0U017661164\x22,\x22courier_code\x22:\x22ltian\x22},{\x22tracking_number\x22:\x22JY25CAA0U017661166\x22,\x22courier_code\x22:\x22ltian\x22},{\x22tracking_number\x22:\x22JY25CAA0U017661162\x22,\x22courier_code\x22:\x22ltian\x22},{\x22tracking_number\x22:\x22YT2518800700329802\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22YT2518800700129897\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22YT2518800700129871\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22JY25CAA0U017662925\x22,\x22courier_code\x22:\x22ltian\x22},{\x22tracking_number\x22:\x22YT2518800700329810\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22YT2518800700329844\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22YT2518800700149424\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22YT2518800700349263\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22YT2518800700371390\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22YT2518800700171923\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22JY25CAA0U017768420\x22,\x22courier_code\x22:\x22ltian\x22},{\x22tracking_number\x22:\x224PX3001863934348CN\x22,\x22courier_code\x22:\x224px\x22},{\x22tracking_number\x22:\x22JY25CAA0U017669781\x22,\x22courier_code\x22:\x22ltian\x22},{\x22tracking_number\x22:\x224PX3001863923922CN\x22,\x22courier_code\x22:\x224px\x22},{\x22tracking_number\x22:\x22YT2518800700447372\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22YT2518800700447356\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x224PX3001863915972CN\x22,\x22courier_code\x22:\x224px\x22},{\x22tracking_number\x22:\x22YT2518800700280666\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22YT2518800700489267\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22JY25CAA0U017682724\x22,\x22courier_code\x22:\x22ltian\x22},{\x22tracking_number\x22:\x224PX3001863908523CN\x22,\x22courier_code\x22:\x224px\x22},{\x22tracking_number\x22:\x22YT2518800700703485\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22YT2518800700703444\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22YT2518800700504495\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22YT2518800700504552\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22YT2518800700716347\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22YT2518800700716305\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22YT2518800700716313\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x224PX3001863905829CN\x22,\x22courier_code\x22:\x224px\x22},{\x22tracking_number\x22:\x22YT2518800700538592\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22YT2518800700538568\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22YT2518800700538576\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22YT2518800700736873\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22YT2518800700736899\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22YT2518800700551967\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22JY25CAA0U017692117\x22,\x22courier_code\x22:\x22ltian\x22},{\x22tracking_number\x22:\x22YT2518800700551983\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22YT2518800700564853\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22JY25CAA0U017694482\x22,\x22courier_code\x22:\x22ltian\x22},{\x22tracking_number\x22:\x22YT2518800700763406\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x224PX3001863899067CN\x22,\x22courier_code\x22:\x224px\x22},{\x22tracking_number\x22:\x22YT2518800700776655\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22YT2518800700776606\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22YT2518800700803830\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22YT2518800700605292\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x224PX3001863892495CN\x22,\x22courier_code\x22:\x224px\x22},{\x22tracking_number\x22:\x22JY25CAA0U017766442\x22,\x22courier_code\x22:\x22ltian\x22},{\x22tracking_number\x22:\x22YT2518800700816386\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22JY25CAA0U017704521\x22,\x22courier_code\x22:\x22ltian\x22},{\x22tracking_number\x22:\x22YT2518800700843471\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22YT2518800700857679\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22YT2518800700644952\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22YT2518800700843448\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22YT2518800700659687\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22JY25CAA0U017710364\x22,\x22courier_code\x22:\x22ltian\x22},{\x22tracking_number\x22:\x22YT2518800700674025\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22YT2518800700674009\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22YT2518800701125969\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22YT2518800700941911\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22JY25CAA0U017723918\x22,\x22courier_code\x22:\x22ltian\x22},{\x22tracking_number\x22:\x22JY25CAA0U017727428\x22,\x22courier_code\x22:\x22ltian\x22},{\x22tracking_number\x22:\x22JY25CAA0U017736153\x22,\x22courier_code\x22:\x22ltian\x22},{\x22tracking_number\x22:\x22JY25CAA0U017758058\x22,\x22courier_code\x22:\x22ltian\x22},{\x22tracking_number\x22:\x22JY25CAA0U017766694\x22,\x22courier_code\x22:\x22ltian\x22},{\x22tracking_number\x22:\x22JY25CAA0U017766667\x22,\x22courier_code\x22:\x22ltian\x22},{\x22tracking_number\x22:\x22JY25CAA0U017770816\x22,\x22courier_code\x22:\x22ltian\x22},{\x22tracking_number\x22:\x22JY25CAA0U017770801\x22,\x22courier_code\x22:\x22ltian\x22},{\x22tracking_number\x22:\x22JY25CAA0U017783498\x22,\x22courier_code\x22:\x22ltian\x22},{\x22tracking_number\x22:\x22JY25CAA0U017793051\x22,\x22courier_code\x22:\x22ltian\x22},{\x22tracking_number\x22:\x22YT2518800704661721\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22YT2518800704858541\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22YT2518800704894751\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22YT2518800705321929\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22YT2518800705024168\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22YT2518800705024457\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x224PX3001864754044CN\x22,\x22courier_code\x22:\x224px\x22},{\x22tracking_number\x22:\x22YT2518800705223190\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22YT2518800705222408\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22YT2518800705655946\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x224PX3001864808136CN\x22,\x22courier_code\x22:\x224px\x22},{\x22tracking_number\x22:\x224PX3001864906696CN\x22,\x22courier_code\x22:\x224px\x22},{\x22tracking_number\x22:\x22YT2518800705656621\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x224PX3001864906009CN\x22,\x22courier_code\x22:\x224px\x22},{\x22tracking_number\x22:\x22YT2518800705656589\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22YT2518800705457467\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22YT2518800706088261\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22YT2518800705888869\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22YT2518800705888042\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x224PX3001866539748CN\x22,\x22courier_code\x22:\x224px\x22},{\x22tracking_number\x22:\x22YT2518800705887028\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22YT2518800705886103\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22YT2518800706382813\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22YT2518800706092446\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22YT2518800706092438\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22YT2518800706382870\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22YT2518800706382730\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22YT2518800706382664\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22YT2518800706382888\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22YT2518800706382987\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22YT2518800707121566\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22YT2518800706456385\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22YT2518800706456344\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22YT2518800706456351\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22YT2518800706257320\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22YT2518800706743899\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22YT2518800706743915\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22YT2518800706835976\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22YT2518800706637984\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22YT2518800706835786\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22YT2518800706638073\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22YT2518800706638156\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22YT2518800706923814\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22YT2518800707121525\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22YT2518800706923939\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22YT2518800706923822\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22YT2518800707177873\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22YT2518800707266098\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22YT2518800707068437\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22YT2518800707068262\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22YT2518800707646224\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22YT2518800707448324\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22YT2518800707916668\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x224PX3001866518378CN\x22,\x22courier_code\x22:\x224px\x22},{\x22tracking_number\x22:\x22YT2518800707791707\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22YT2518800707791541\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22YT2518800708061621\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x224PX3001866513908CN\x22,\x22courier_code\x22:\x224px\x22},{\x22tracking_number\x22:\x22YT2518800708317825\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22YT2519000701660706\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22YT2518800708377373\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22YT2518800708476282\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22YT2518800708549260\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22YT2518800708779073\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22YT2518800708581115\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22YT2518800708807882\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22YT2518800708610500\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22YT2518800708610443\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22YT2518800708657436\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x224PX3001866474131CN\x22,\x22courier_code\x22:\x224px\x22},{\x22tracking_number\x22:\x22YT2518800708657428\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22YT2518800708657394\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22YT2518800708854116\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22JY25CAA0U017981641\x22,\x22courier_code\x22:\x22ltian\x22},{\x22tracking_number\x22:\x22JY25CAA0U017981633\x22,\x22courier_code\x22:\x22ltian\x22},{\x22tracking_number\x22:\x22JY25CAA0U017981647\x22,\x22courier_code\x22:\x22ltian\x22},{\x22tracking_number\x22:\x22YT2518800708883586\x22,\x22courier_code\x22:\x22yunexpress\x22}]|093c66ba-3a1f-4487-84f3-dfe1d9c1232d
+									[root@iz0xidybcnzu1x7oxg9r8rz ~]# ^C
+									[root@iz0xidybcnzu1x7oxg9r8rz ~]# ^C
+									[root@iz0xidybcnzu1x7oxg9r8rz ~]# ^C
+									[root@iz0xidybcnzu1x7oxg9r8rz ~]# ^C
+									[root@iz0xidybcnzu1x7oxg9r8rz ~]# ^C
+									[root@iz0xidybcnzu1x7oxg9r8rz ~]# ps -ef | grep ngin
+									root      3656     1  0  2022 ?        00:00:00 nginx: master process /usr/local/nginx/sbin/nginx
+									www      21554  3656  0 Jun24 ?        01:43:01 nginx: worker process
+									www      21555  3656  0 Jun24 ?        01:44:05 nginx: worker process
+									www      21556  3656  0 Jun24 ?        01:44:37 nginx: worker process
+									www      21557  3656  0 Jun24 ?        01:43:02 nginx: worker process
+									root     28833 23693  0 11:17 pts/0    00:00:00 grep --color=auto ngin
+									[root@iz0xidybcnzu1x7oxg9r8rz ~]# df -h
+									Filesystem      Size  Used Avail Use% Mounted on
+									/dev/vda1        49G   48G     0 100% /
+									devtmpfs        3.7G     0  3.7G   0% /dev
+									tmpfs           3.7G     0  3.7G   0% /dev/shm
+									tmpfs           3.7G  274M  3.5G   8% /run
+									tmpfs           3.7G     0  3.7G   0% /sys/fs/cgroup
+									tmpfs           756M     0  756M   0% /run/user/1001
+									tmpfs           756M     0  756M   0% /run/user/1002
+									tmpfs           756M     0  756M   0% /run/user/0
+									[root@iz0xidybcnzu1x7oxg9r8rz ~]# ll /home/wwwlogs/api.trackingmore.com.access.log -h
+									-rw-r--r-- 1 www root 19G Jul 12 11:29 /home/wwwlogs/api.trackingmore.com.access.log
+									[root@iz0xidybcnzu1x7oxg9r8rz ~]# tail -1 /home/wwwlogs/api.trackingmore.com.access.log > /run/log/home-wwwlogs-access_logs/1.log
+									[root@iz0xidybcnzu1x7oxg9r8rz ~]# ll /run/log/home-wwwlogs-access_logs/1.log
+									-rw-r--r-- 1 root root 3524 Jul 12 11:32 /run/log/home-wwwlogs-access_logs/1.log
+									[root@iz0xidybcnzu1x7oxg9r8rz ~]# ll /run/log/home-wwwlogs-access_logs/1.log -h
+									-rw-r--r-- 1 root root 3.5K Jul 12 11:32 /run/log/home-wwwlogs-access_logs/1.log
+									[root@iz0xidybcnzu1x7oxg9r8rz ~]# vi /run/log/home-wwwlogs-access_logs/1.log
+									[root@iz0xidybcnzu1x7oxg9r8rz ~]# echo > /home/wwwlogs/api.trackingmore.com.access.log
+									[root@iz0xidybcnzu1x7oxg9r8rz ~]# df -h
+									Filesystem      Size  Used Avail Use% Mounted on
+									/dev/vda1        49G   30G   19G  62% /
+									devtmpfs        3.7G     0  3.7G   0% /dev
+									tmpfs           3.7G     0  3.7G   0% /dev/shm
+									tmpfs           3.7G  274M  3.5G   8% /run
+									tmpfs           3.7G     0  3.7G   0% /sys/fs/cgroup
+									tmpfs           756M     0  756M   0% /run/user/1001
+									tmpfs           756M     0  756M   0% /run/user/1002
+									tmpfs           756M     0  756M   0% /run/user/0
 							-- 20250711
 								172.16.10.114-www-51-134
 									[root@iZ94dw0slelZ ~]# df -h
@@ -15221,6 +15265,152 @@
 									[11-May-2024 23:58:39] NOTICE: [pool www] child 640 started
 									[11-May-2024 23:58:59] WARNING: [pool www] child 31257, script '/home/wwwroot/www.trackingmore.com/api/v2/air/api-tracking.php' (request: "POST /v2/air/api-tracking.php?type=") executing too slow (62.406451 sec), logging
 									[11-May-2024 23:58:59] NOTICE: child 31257 stopped for tracing
+									-- 20250712
+										[root@iz0xic9e6789t96eez4ag0z ~]# df -h
+										Filesystem      Size  Used Avail Use% Mounted on
+										/dev/vda1        40G   39G     0 100% /
+										devtmpfs        7.7G     0  7.7G   0% /dev
+										tmpfs           7.7G     0  7.7G   0% /dev/shm
+										tmpfs           7.7G  389M  7.3G   5% /run
+										tmpfs           7.7G     0  7.7G   0% /sys/fs/cgroup
+										tmpfs           1.6G     0  1.6G   0% /run/user/1001
+										overlay          40G   39G     0 100% /var/lib/docker/overlay2/8e1df790d677b1c8c54c35739c129166364b651e5702ca3879aa90e0f27c8cdf/merged
+										tmpfs           1.6G     0  1.6G   0% /run/user/0
+										tmpfs           1.6G     0  1.6G   0% /run/user/1002
+										[root@iz0xic9e6789t96eez4ag0z ~]# find / -name '*' -type f -size +100M | xargs ls -lh {} | sort -nrk5
+										^C
+										(reverse-i-search)`echo': ^Cho > /home/wwwlogs/access_logs/api.trackingmore.com-2025-01-04.log
+										[root@iz0xic9e6789t96eez4ag0z ~]# find / -name '*' -type f -size +100M | xargs ls -lh {} | sort -nrk5
+										find: ‘/proc/829/task/829/fdinfo/6’: No such file or directory
+										find: ‘/proc/829/fdinfo/6’: No such file or directory
+										ls: cannot access {}: No such file or directory
+										-rw-r--r-- 1 root root 385M Dec  5  2024 /run/log/home-wwwlogs-access_logs/api.trackingmore.com-2024-12-03.log.20241205.zip
+										-rw-r--r-- 1 www  root 241M Jul 12 10:25 /home/wwwlogs/error.log
+										-rw------- 1 root root 221M Jul 12 09:52 /home/wwwlogs/phpslow.log
+										-rw-r--r-- 1 root root 156M Jun 22  2024 /var/cache/yum/x86_64/7/updates/gen/primary_db.sqlite
+										-rwxr-xr-x 1 root root 129M Feb 12  2023 /var/lib/docker/overlay2/b14bfaa237eb294d1f68108b92494332bb80cb82822221b6ea4f368bc6e74d87/diff/usr/share/filebeat/filebeat
+										-rwxr-xr-x 1 root root 129M Feb 12  2023 /var/lib/docker/overlay2/8e1df790d677b1c8c54c35739c129166364b651e5702ca3879aa90e0f27c8cdf/merged/usr/share/filebeat/filebeat
+										-r-------- 1 root root 128T Jul 12 10:25 /proc/kcore
+										-rw-r--r-- 1 root root 102M Mar 16  2018 /usr/lib/locale/locale-archive
+										-rw-r--r-- 1 www  root 7.8G Jul 12 10:25 /home/wwwlogs/api.trackingmore.com.access.log
+										-rw-r--r-- 1 www  root 3.0G Jul 12 00:01 /home/wwwlogs/access_logs/api.trackingmore.com-2025-07-11.log
+										-rw-r----- 1 root root 2.2G Jul 12 10:25 /var/lib/docker/containers/258409b44ac1576e60f83bee18150d773b6c7a576fa8b9438ae24f23404d8115/258409b44ac1576e60f83bee18150d773b6c7a576fa8b9438ae24f23404d8115-json.log
+										[root@iz0xic9e6789t96eez4ag0z ~]# tail /var/lib/docker/containers/258409b44ac1576e60f83bee18150d773b6c7a576fa8b9438ae24f23404d8115/258409b44ac1576e60f83bee18150d773b6c7a576fa8b9438ae24f23404d8115-json.log
+										{"log":"{\"log.level\":\"info\",\"@timestamp\":\"2025-07-12T02:35:13.120Z\",\"log.logger\":\"monitoring\",\"log.origin\":{\"file.name\":\"log/log.go\",\"file.line\":187},\"message\":\"Non-zero metrics in the last 30s\",\"service.name\":\"filebeat\",\"monitoring\":{\"metrics\":{\"beat\":{\"cgroup\":{\"cpuacct\":{\"total\":{\"ns\":5914025}},\"memory\":{\"mem\":{\"usage\":{\"bytes\":57929728}}}},\"cpu\":{\"system\":{\"ticks\":68514520},\"total\":{\"ticks\":590985990,\"value\":590985990},\"user\":{\"ticks\":522471470}},\"handles\":{\"limit\":{\"hard\":65536,\"soft\":65536},\"open\":11},\"info\":{\"ephemeral_id\":\"e98d61ff-0f0f-478a-a5f6-bc96212c0d0a\",\"uptime\":{\"ms\":40935690092},\"version\":\"8.6.2\"},\"memstats\":{\"gc_next\":23464584,\"memory_alloc\":11857056,\"memory_total\":114749298996520,\"rss\":47349760},\"runtime\":{\"goroutines\":58}},\"filebeat\":{\"events\":{\"active\":0},\"harvester\":{\"open_files\":1,\"running\":1}},\"libbeat\":{\"config\":{\"module\":{\"running\":0}},\"output\":{\"events\":{\"active\":0}},\"pipeline\":{\"clients\":1,\"events\":{\"active\":0}}},\"registrar\":{\"states\":{\"current\":1}},\"system\":{\"load\":{\"1\":2.22,\"15\":2.05,\"5\":2.06,\"norm\":{\"1\":0.555,\"15\":0.5125,\"5\":0.515}}}},\"ecs.version\":\"1.6.0\"}}\n","stream":"stderr","time":"2025-07-12T02:35:13.120923388Z"}
+										{"log":"{\"log.level\":\"info\",\"@timestamp\":\"2025-07-12T02:35:43.120Z\",\"log.logger\":\"monitoring\",\"log.origin\":{\"file.name\":\"log/log.go\",\"file.line\":187},\"message\":\"Non-zero metrics in the last 30s\",\"service.name\":\"filebeat\",\"monitoring\":{\"metrics\":{\"beat\":{\"cgroup\":{\"cpuacct\":{\"total\":{\"ns\":4678893}},\"memory\":{\"mem\":{\"usage\":{\"bytes\":57929728}}}},\"cpu\":{\"system\":{\"ticks\":68514520},\"total\":{\"ticks\":590985990,\"value\":590985990},\"user\":{\"ticks\":522471470}},\"handles\":{\"limit\":{\"hard\":65536,\"soft\":65536},\"open\":11},\"info\":{\"ephemeral_id\":\"e98d61ff-0f0f-478a-a5f6-bc96212c0d0a\",\"uptime\":{\"ms\":40935720093},\"version\":\"8.6.2\"},\"memstats\":{\"gc_next\":23464584,\"memory_alloc\":12265568,\"memory_total\":114749299405032,\"rss\":47349760},\"runtime\":{\"goroutines\":58}},\"filebeat\":{\"events\":{\"active\":0},\"harvester\":{\"open_files\":1,\"running\":1}},\"libbeat\":{\"config\":{\"module\":{\"running\":0}},\"output\":{\"events\":{\"active\":0}},\"pipeline\":{\"clients\":1,\"events\":{\"active\":0}}},\"registrar\":{\"states\":{\"current\":1}},\"system\":{\"load\":{\"1\":2.34,\"15\":2.07,\"5\":2.13,\"norm\":{\"1\":0.585,\"15\":0.5175,\"5\":0.5325}}}},\"ecs.version\":\"1.6.0\"}}\n","stream":"stderr","time":"2025-07-12T02:35:43.121096966Z"}
+										{"log":"{\"log.level\":\"info\",\"@timestamp\":\"2025-07-12T02:36:13.121Z\",\"log.logger\":\"monitoring\",\"log.origin\":{\"file.name\":\"log/log.go\",\"file.line\":187},\"message\":\"Non-zero metrics in the last 30s\",\"service.name\":\"filebeat\",\"monitoring\":{\"metrics\":{\"beat\":{\"cgroup\":{\"cpuacct\":{\"total\":{\"ns\":12533299}},\"memory\":{\"mem\":{\"usage\":{\"bytes\":57929728}}}},\"cpu\":{\"system\":{\"ticks\":68514520},\"total\":{\"ticks\":590986000,\"time\":{\"ms\":10},\"value\":590986000},\"user\":{\"ticks\":522471480,\"time\":{\"ms\":10}}},\"handles\":{\"limit\":{\"hard\":65536,\"soft\":65536},\"open\":11},\"info\":{\"ephemeral_id\":\"e98d61ff-0f0f-478a-a5f6-bc96212c0d0a\",\"uptime\":{\"ms\":40935750093},\"version\":\"8.6.2\"},\"memstats\":{\"gc_next\":23373736,\"memory_alloc\":11304912,\"memory_total\":114749299563568,\"rss\":47349760},\"runtime\":{\"goroutines\":58}},\"filebeat\":{\"events\":{\"active\":0},\"harvester\":{\"open_files\":1,\"running\":1}},\"libbeat\":{\"config\":{\"module\":{\"running\":0}},\"output\":{\"events\":{\"active\":0}},\"pipeline\":{\"clients\":1,\"events\":{\"active\":0}}},\"registrar\":{\"states\":{\"current\":1}},\"system\":{\"load\":{\"1\":1.73,\"15\":2.03,\"5\":2,\"norm\":{\"1\":0.4325,\"15\":0.5075,\"5\":0.5}}}},\"ecs.version\":\"1.6.0\"}}\n","stream":"stderr","time":"2025-07-12T02:36:13.123285687Z"}
+										{"log":"{\"log.level\":\"info\",\"@timestamp\":\"2025-07-12T02:36:43.121Z\",\"log.logger\":\"monitoring\",\"log.origin\":{\"file.name\":\"log/log.go\",\"file.line\":187},\"message\":\"Non-zero metrics in the last 30s\",\"service.name\":\"filebeat\",\"monitoring\":{\"metrics\":{\"beat\":{\"cgroup\":{\"cpuacct\":{\"total\":{\"ns\":5088470}},\"memory\":{\"mem\":{\"usage\":{\"bytes\":57929728}}}},\"cpu\":{\"system\":{\"ticks\":68514520},\"total\":{\"ticks\":590986010,\"time\":{\"ms\":10},\"value\":590986010},\"user\":{\"ticks\":522471490,\"time\":{\"ms\":10}}},\"handles\":{\"limit\":{\"hard\":65536,\"soft\":65536},\"open\":11},\"info\":{\"ephemeral_id\":\"e98d61ff-0f0f-478a-a5f6-bc96212c0d0a\",\"uptime\":{\"ms\":40935780092},\"version\":\"8.6.2\"},\"memstats\":{\"gc_next\":23373736,\"memory_alloc\":11733640,\"memory_total\":114749299992296,\"rss\":47349760},\"runtime\":{\"goroutines\":58}},\"filebeat\":{\"events\":{\"active\":0},\"harvester\":{\"open_files\":1,\"running\":1}},\"libbeat\":{\"config\":{\"module\":{\"running\":0}},\"output\":{\"events\":{\"active\":0}},\"pipeline\":{\"clients\":1,\"events\":{\"active\":0}}},\"registrar\":{\"states\":{\"current\":1}},\"system\":{\"load\":{\"1\":1.77,\"15\":2.03,\"5\":2,\"norm\":{\"1\":0.4425,\"15\":0.5075,\"5\":0.5}}}},\"ecs.version\":\"1.6.0\"}}\n","stream":"stderr","time":"2025-07-12T02:36:43.121307704Z"}
+										{"log":"{\"log.level\":\"info\",\"@timestamp\":\"2025-07-12T02:37:08.331Z\",\"log.logger\":\"input.harvester\",\"log.origin\":{\"file.name\":\"log/harvester.go\",\"file.line\":341},\"message\":\"File is inactive. Closing because close_inactive of 5m0s reached.\",\"service.name\":\"filebeat\",\"input_id\":\"8c1226dd-3d40-48f6-8e89-077aae2e6ed6\",\"source_file\":\"/home/wwwlogs/api.trackingmore.com.access.log\",\"state_id\":\"native::959511-64769\",\"finished\":false,\"os_id\":\"959511-64769\",\"old_source\":\"/home/wwwlogs/api.trackingmore.com.access.log\",\"old_finished\":true,\"old_os_id\":\"959511-64769\",\"harvester_id\":\"729a5000-b383-4cd7-9103-54e0a879a071\",\"ecs.version\":\"1.6.0\"}\n","stream":"stderr","time":"2025-07-12T02:37:08.331694387Z"}
+										{"log":"{\"log.level\":\"info\",\"@timestamp\":\"2025-07-12T02:37:13.121Z\",\"log.logger\":\"monitoring\",\"log.origin\":{\"file.name\":\"log/log.go\",\"file.line\":187},\"message\":\"Non-zero metrics in the last 30s\",\"service.name\":\"filebeat\",\"monitoring\":{\"metrics\":{\"beat\":{\"cgroup\":{\"cpuacct\":{\"total\":{\"ns\":5985241}},\"memory\":{\"mem\":{\"usage\":{\"bytes\":57929728}}}},\"cpu\":{\"system\":{\"ticks\":68514520},\"total\":{\"ticks\":590986010,\"value\":590986010},\"user\":{\"ticks\":522471490}},\"handles\":{\"limit\":{\"hard\":65536,\"soft\":65536},\"open\":10},\"info\":{\"ephemeral_id\":\"e98d61ff-0f0f-478a-a5f6-bc96212c0d0a\",\"uptime\":{\"ms\":40935810093},\"version\":\"8.6.2\"},\"memstats\":{\"gc_next\":23373736,\"memory_alloc\":11926560,\"memory_total\":114749300185216,\"rss\":47349760},\"runtime\":{\"goroutines\":53}},\"filebeat\":{\"events\":{\"active\":0,\"added\":1,\"done\":1},\"harvester\":{\"closed\":1,\"open_files\":0,\"running\":0}},\"libbeat\":{\"config\":{\"module\":{\"running\":0}},\"output\":{\"events\":{\"active\":0}},\"pipeline\":{\"clients\":1,\"events\":{\"active\":0,\"filtered\":1,\"total\":1}}},\"registrar\":{\"states\":{\"current\":1,\"update\":1},\"writes\":{\"success\":1,\"total\":1}},\"system\":{\"load\":{\"1\":1.6,\"15\":2.01,\"5\":1.94,\"norm\":{\"1\":0.4,\"15\":0.5025,\"5\":0.485}}}},\"ecs.version\":\"1.6.0\"}}\n","stream":"stderr","time":"2025-07-12T02:37:13.121593116Z"}
+										{"log":"{\"log.level\":\"info\",\"@timestamp\":\"2025-07-12T02:37:13.320Z\",\"log.logger\":\"input.harvester\",\"log.origin\":{\"file.name\":\"log/harvester.go\",\"file.line\":310},\"message\":\"Harvester started for paths: [/home/wwwlogs/api.trackingmore.com.access.log]\",\"service.name\":\"filebeat\",\"input_id\":\"8c1226dd-3d40-48f6-8e89-077aae2e6ed6\",\"source_file\":\"/home/wwwlogs/api.trackingmore.com.access.log\",\"state_id\":\"native::959511-64769\",\"finished\":false,\"os_id\":\"959511-64769\",\"old_source\":\"/home/wwwlogs/api.trackingmore.com.access.log\",\"old_finished\":true,\"old_os_id\":\"959511-64769\",\"harvester_id\":\"77f38bcf-36af-47a1-91a5-14e562599d87\",\"ecs.version\":\"1.6.0\"}\n","stream":"stderr","time":"2025-07-12T02:37:13.320155982Z"}
+										{"log":"{\"log.level\":\"info\",\"@timestamp\":\"2025-07-12T02:37:43.121Z\",\"log.logger\":\"monitoring\",\"log.origin\":{\"file.name\":\"log/log.go\",\"file.line\":187},\"message\":\"Non-zero metrics in the last 30s\",\"service.name\":\"filebeat\",\"monitoring\":{\"metrics\":{\"beat\":{\"cgroup\":{\"cpuacct\":{\"total\":{\"ns\":5285297}},\"memory\":{\"mem\":{\"usage\":{\"bytes\":57929728}}}},\"cpu\":{\"system\":{\"ticks\":68514530,\"time\":{\"ms\":10}},\"total\":{\"ticks\":590986020,\"time\":{\"ms\":10},\"value\":590986020},\"user\":{\"ticks\":522471490}},\"handles\":{\"limit\":{\"hard\":65536,\"soft\":65536},\"open\":11},\"info\":{\"ephemeral_id\":\"e98d61ff-0f0f-478a-a5f6-bc96212c0d0a\",\"uptime\":{\"ms\":40935840092},\"version\":\"8.6.2\"},\"memstats\":{\"gc_next\":23373736,\"memory_alloc\":12467160,\"memory_total\":114749300725816,\"rss\":47349760},\"runtime\":{\"goroutines\":58}},\"filebeat\":{\"events\":{\"active\":0,\"added\":1,\"done\":1},\"harvester\":{\"open_files\":1,\"running\":1,\"started\":1}},\"libbeat\":{\"config\":{\"module\":{\"running\":0}},\"output\":{\"events\":{\"active\":0}},\"pipeline\":{\"clients\":1,\"events\":{\"active\":0,\"filtered\":1,\"total\":1}}},\"registrar\":{\"states\":{\"current\":1,\"update\":1},\"writes\":{\"success\":1,\"total\":1}},\"system\":{\"load\":{\"1\":1.88,\"15\":2.02,\"5\":1.99,\"norm\":{\"1\":0.47,\"15\":0.505,\"5\":0.4975}}}},\"ecs.version\":\"1.6.0\"}}\n","stream":"stderr","time":"2025-07-12T02:37:43.121356256Z"}
+										{"log":"{\"log.level\":\"info\",\"@timestamp\":\"2025-07-12T02:38:13.121Z\",\"log.logger\":\"monitoring\",\"log.origin\":{\"file.name\":\"log/log.go\",\"file.line\":187},\"message\":\"Non-zero metrics in the last 30s\",\"service.name\":\"filebeat\",\"monitoring\":{\"metrics\":{\"beat\":{\"cgroup\":{\"cpuacct\":{\"total\":{\"ns\":14070574}},\"memory\":{\"mem\":{\"usage\":{\"bytes\":57946112}}}},\"cpu\":{\"system\":{\"ticks\":68514530},\"total\":{\"ticks\":590986030,\"time\":{\"ms\":10},\"value\":590986030},\"user\":{\"ticks\":522471500,\"time\":{\"ms\":10}}},\"handles\":{\"limit\":{\"hard\":65536,\"soft\":65536},\"open\":11},\"info\":{\"ephemeral_id\":\"e98d61ff-0f0f-478a-a5f6-bc96212c0d0a\",\"uptime\":{\"ms\":40935870093},\"version\":\"8.6.2\"},\"memstats\":{\"gc_next\":23480440,\"memory_alloc\":11361632,\"memory_total\":114749300877792,\"rss\":47349760},\"runtime\":{\"goroutines\":58}},\"filebeat\":{\"events\":{\"active\":0},\"harvester\":{\"open_files\":1,\"running\":1}},\"libbeat\":{\"config\":{\"module\":{\"running\":0}},\"output\":{\"events\":{\"active\":0}},\"pipeline\":{\"clients\":1,\"events\":{\"active\":0}}},\"registrar\":{\"states\":{\"current\":1}},\"system\":{\"load\":{\"1\":1.37,\"15\":1.98,\"5\":1.85,\"norm\":{\"1\":0.3425,\"15\":0.495,\"5\":0.4625}}}},\"ecs.version\":\"1.6.0\"}}\n","stream":"stderr","time":"2025-07-12T02:38:13.121833946Z"}
+										{"log":"{\"log.level\":\"info\",\"@timestamp\":\"2025-07-12T02:38:43.120Z\",\"log.logger\":\"monitoring\",\"log.origin\":{\"file.name\":\"log/log.go\",\"file.line\":187},\"message\":\"Non-zero metrics in the last 30s\",\"service.name\":\"filebeat\",\"monitoring\":{\"metrics\":{\"beat\":{\"cgroup\":{\"cpuacct\":{\"total\":{\"ns\":4549394}},\"memory\":{\"mem\":{\"usage\":{\"bytes\":57946112}}}},\"cpu\":{\"system\":{\"ticks\":68514530},\"total\":{\"ticks\":590986030,\"value\":590986030},\"user\":{\"ticks\":522471500}},\"handles\":{\"limit\":{\"hard\":65536,\"soft\":65536},\"open\":11},\"info\":{\"ephemeral_id\":\"e98d61ff-0f0f-478a-a5f6-bc96212c0d0a\",\"uptime\":{\"ms\":40935900092},\"version\":\"8.6.2\"},\"memstats\":{\"gc_next\":23480440,\"memory_alloc\":11760400,\"memory_total\":114749301276560,\"rss\":47349760},\"runtime\":{\"goroutines\":58}},\"filebeat\":{\"events\":{\"active\":0},\"harvester\":{\"open_files\":1,\"running\":1}},\"libbeat\":{\"config\":{\"module\":{\"running\":0}},\"output\":{\"events\":{\"active\":0}},\"pipeline\":{\"clients\":1,\"events\":{\"active\":0}}},\"registrar\":{\"states\":{\"current\":1}},\"system\":{\"load\":{\"1\":1.97,\"15\":2,\"5\":1.94,\"norm\":{\"1\":0.4925,\"15\":0.5,\"5\":0.485}}}},\"ecs.version\":\"1.6.0\"}}\n","stream":"stderr","time":"2025-07-12T02:38:43.121130778Z"}
+										[root@iz0xic9e6789t96eez4ag0z ~]# docker ps -aCONTAINER ID   IMAGE                                    COMMAND                  CREATED         STATUS         PORTS     NAMES
+										258409b44ac1   docker.elastic.co/beats/filebeat:8.6.2   "/usr/bin/tini -- /u…"   15 months ago   Up 15 months             filebeat_kafka
+										[root@iz0xic9e6789t96eez4ag0z ~]# head  /var/lib/docker/containers/258409b44ac1576e60f83bee18150d773b6c7a576fa8b9438ae24f23404d8115/258409b44ac1576e60f83bee18150d773b6c7a576fa8b9438ae24f23404d8115-json.log
+										{"log":"{\"log.level\":\"info\",\"@timestamp\":\"2024-03-25T07:33:41.300Z\",\"log.origin\":{\"file.name\":\"instance/beat.go\",\"file.line\":724},\"message\":\"Home path: [/usr/share/filebeat] Config path: [/usr/share/filebeat] Data path: [/usr/share/filebeat/data] Logs path: [/usr/share/filebeat/logs]\",\"service.name\":\"filebeat\",\"ecs.version\":\"1.6.0\"}\n","stream":"stderr","time":"2024-03-25T07:33:41.300589312Z"}
+										{"log":"{\"log.level\":\"info\",\"@timestamp\":\"2024-03-25T07:33:41.303Z\",\"log.origin\":{\"file.name\":\"instance/beat.go\",\"file.line\":732},\"message\":\"Beat ID: ddb7aafc-dcb9-4bf2-b8ef-abd8fb74442f\",\"service.name\":\"filebeat\",\"ecs.version\":\"1.6.0\"}\n","stream":"stderr","time":"2024-03-25T07:33:41.303397923Z"}
+										{"log":"{\"log.level\":\"info\",\"@timestamp\":\"2024-03-25T07:33:41.303Z\",\"log.logger\":\"seccomp\",\"log.origin\":{\"file.name\":\"seccomp/seccomp.go\",\"file.line\":101},\"message\":\"Syscall filter could not be installed because the kernel does not support seccomp\",\"service.name\":\"filebeat\",\"ecs.version\":\"1.6.0\"}\n","stream":"stderr","time":"2024-03-25T07:33:41.303733195Z"}
+										{"log":"{\"log.level\":\"info\",\"@timestamp\":\"2024-03-25T07:33:41.303Z\",\"log.logger\":\"beat\",\"log.origin\":{\"file.name\":\"instance/beat.go\",\"file.line\":1096},\"message\":\"Beat info\",\"service.name\":\"filebeat\",\"system_info\":{\"beat\":{\"path\":{\"config\":\"/usr/share/filebeat\",\"data\":\"/usr/share/filebeat/data\",\"home\":\"/usr/share/filebeat\",\"logs\":\"/usr/share/filebeat/logs\"},\"type\":\"filebeat\",\"uuid\":\"ddb7aafc-dcb9-4bf2-b8ef-abd8fb74442f\"},\"ecs.version\":\"1.6.0\"}}\n","stream":"stderr","time":"2024-03-25T07:33:41.303789153Z"}
+										{"log":"{\"log.level\":\"info\",\"@timestamp\":\"2024-03-25T07:33:41.303Z\",\"log.logger\":\"beat\",\"log.origin\":{\"file.name\":\"instance/beat.go\",\"file.line\":1105},\"message\":\"Build info\",\"service.name\":\"filebeat\",\"system_info\":{\"build\":{\"commit\":\"9b77c2c135c228c2eedc310f6e975bb1a76169b1\",\"libbeat\":\"8.6.2\",\"time\":\"2023-02-12T04:37:19.000Z\",\"version\":\"8.6.2\"},\"ecs.version\":\"1.6.0\"}}\n","stream":"stderr","time":"2024-03-25T07:33:41.303870708Z"}
+										{"log":"{\"log.level\":\"info\",\"@timestamp\":\"2024-03-25T07:33:41.303Z\",\"log.logger\":\"beat\",\"log.origin\":{\"file.name\":\"instance/beat.go\",\"file.line\":1108},\"message\":\"Go runtime info\",\"service.name\":\"filebeat\",\"system_info\":{\"go\":{\"os\":\"linux\",\"arch\":\"amd64\",\"max_procs\":4,\"version\":\"go1.18.10\"},\"ecs.version\":\"1.6.0\"}}\n","stream":"stderr","time":"2024-03-25T07:33:41.30387823Z"}
+										{"log":"{\"log.level\":\"info\",\"@timestamp\":\"2024-03-25T07:33:41.304Z\",\"log.logger\":\"beat\",\"log.origin\":{\"file.name\":\"instance/beat.go\",\"file.line\":1112},\"message\":\"Host info\",\"service.name\":\"filebeat\",\"system_info\":{\"host\":{\"architecture\":\"x86_64\",\"boot_time\":\"2022-12-08T06:05:41Z\",\"containerized\":true,\"name\":\"258409b44ac1\",\"ip\":[\"127.0.0.1/8\",\"172.17.0.2/16\"],\"kernel_version\":\"3.10.0-693.2.2.el7.x86_64\",\"mac\":[\"02:42:ac:11:00:02\"],\"os\":{\"type\":\"linux\",\"family\":\"debian\",\"platform\":\"ubuntu\",\"name\":\"Ubuntu\",\"version\":\"20.04.5 LTS (Focal Fossa)\",\"major\":20,\"minor\":4,\"patch\":5,\"codename\":\"focal\"},\"timezone\":\"UTC\",\"timezone_offset_sec\":0},\"ecs.version\":\"1.6.0\"}}\n","stream":"stderr","time":"2024-03-25T07:33:41.305122501Z"}
+										{"log":"{\"log.level\":\"info\",\"@timestamp\":\"2024-03-25T07:33:41.305Z\",\"log.logger\":\"beat\",\"log.origin\":{\"file.name\":\"instance/beat.go\",\"file.line\":1141},\"message\":\"Process info\",\"service.name\":\"filebeat\",\"system_info\":{\"process\":{\"capabilities\":{\"inheritable\":null,\"permitted\":[\"chown\",\"dac_override\",\"fowner\",\"fsetid\",\"kill\",\"setgid\",\"setuid\",\"setpcap\",\"net_bind_service\",\"net_raw\",\"sys_chroot\",\"mknod\",\"audit_write\",\"setfcap\"],\"effective\":[\"chown\",\"dac_override\",\"fowner\",\"fsetid\",\"kill\",\"setgid\",\"setuid\",\"setpcap\",\"net_bind_service\",\"net_raw\",\"sys_chroot\",\"mknod\",\"audit_write\",\"setfcap\"],\"bounding\":[\"chown\",\"dac_override\",\"fowner\",\"fsetid\",\"kill\",\"setgid\",\"setuid\",\"setpcap\",\"net_bind_service\",\"net_raw\",\"sys_chroot\",\"mknod\",\"audit_write\",\"setfcap\"],\"ambient\":null},\"cwd\":\"/usr/share/filebeat\",\"exe\":\"/usr/share/filebeat/filebeat\",\"name\":\"filebeat\",\"pid\":6,\"ppid\":1,\"seccomp\":{\"mode\":\"filter\"},\"start_time\":\"2024-03-25T07:33:39.320Z\"},\"ecs.version\":\"1.6.0\"}}\n","stream":"stderr","time":"2024-03-25T07:33:41.305340239Z"}
+										{"log":"{\"log.level\":\"info\",\"@timestamp\":\"2024-03-25T07:33:41.305Z\",\"log.origin\":{\"file.name\":\"instance/beat.go\",\"file.line\":296},\"message\":\"Setup Beat: filebeat; Version: 8.6.2\",\"service.name\":\"filebeat\",\"ecs.version\":\"1.6.0\"}\n","stream":"stderr","time":"2024-03-25T07:33:41.305358246Z"}
+										{"log":"{\"log.level\":\"info\",\"@timestamp\":\"2024-03-25T07:33:41.308Z\",\"log.logger\":\"publisher\",\"log.origin\":{\"file.name\":\"pipeline/module.go\",\"file.line\":113},\"message\":\"Beat name: 258409b44ac1\",\"service.name\":\"filebeat\",\"ecs.version\":\"1.6.0\"}\n","stream":"stderr","time":"2024-03-25T07:33:41.308852255Z"}
+										[root@iz0xic9e6789t96eez4ag0z ~]# head  /var/lib/docker/containers/258409b44ac1576e60f83bee18150d773b6c7a576fa8b9438ae24f23404d8115/258409b44ac1576e60f83bee18150d773b6c7a576fa8b9438ae24f23404d8115-json.log
+										{"log":"{\"log.level\":\"info\",\"@timestamp\":\"2024-03-25T07:33:41.300Z\",\"log.origin\":{\"file.name\":\"instance/beat.go\",\"file.line\":724},\"message\":\"Home path: [/usr/share/filebeat] Config path: [/usr/share/filebeat] Data path: [/usr/share/filebeat/data] Logs path: [/usr/share/filebeat/logs]\",\"service.name\":\"filebeat\",\"ecs.version\":\"1.6.0\"}\n","stream":"stderr","time":"2024-03-25T07:33:41.300589312Z"}
+										{"log":"{\"log.level\":\"info\",\"@timestamp\":\"2024-03-25T07:33:41.303Z\",\"log.origin\":{\"file.name\":\"instance/beat.go\",\"file.line\":732},\"message\":\"Beat ID: ddb7aafc-dcb9-4bf2-b8ef-abd8fb74442f\",\"service.name\":\"filebeat\",\"ecs.version\":\"1.6.0\"}\n","stream":"stderr","time":"2024-03-25T07:33:41.303397923Z"}
+										{"log":"{\"log.level\":\"info\",\"@timestamp\":\"2024-03-25T07:33:41.303Z\",\"log.logger\":\"seccomp\",\"log.origin\":{\"file.name\":\"seccomp/seccomp.go\",\"file.line\":101},\"message\":\"Syscall filter could not be installed because the kernel does not support seccomp\",\"service.name\":\"filebeat\",\"ecs.version\":\"1.6.0\"}\n","stream":"stderr","time":"2024-03-25T07:33:41.303733195Z"}
+										{"log":"{\"log.level\":\"info\",\"@timestamp\":\"2024-03-25T07:33:41.303Z\",\"log.logger\":\"beat\",\"log.origin\":{\"file.name\":\"instance/beat.go\",\"file.line\":1096},\"message\":\"Beat info\",\"service.name\":\"filebeat\",\"system_info\":{\"beat\":{\"path\":{\"config\":\"/usr/share/filebeat\",\"data\":\"/usr/share/filebeat/data\",\"home\":\"/usr/share/filebeat\",\"logs\":\"/usr/share/filebeat/logs\"},\"type\":\"filebeat\",\"uuid\":\"ddb7aafc-dcb9-4bf2-b8ef-abd8fb74442f\"},\"ecs.version\":\"1.6.0\"}}\n","stream":"stderr","time":"2024-03-25T07:33:41.303789153Z"}
+										{"log":"{\"log.level\":\"info\",\"@timestamp\":\"2024-03-25T07:33:41.303Z\",\"log.logger\":\"beat\",\"log.origin\":{\"file.name\":\"instance/beat.go\",\"file.line\":1105},\"message\":\"Build info\",\"service.name\":\"filebeat\",\"system_info\":{\"build\":{\"commit\":\"9b77c2c135c228c2eedc310f6e975bb1a76169b1\",\"libbeat\":\"8.6.2\",\"time\":\"2023-02-12T04:37:19.000Z\",\"version\":\"8.6.2\"},\"ecs.version\":\"1.6.0\"}}\n","stream":"stderr","time":"2024-03-25T07:33:41.303870708Z"}
+										{"log":"{\"log.level\":\"info\",\"@timestamp\":\"2024-03-25T07:33:41.303Z\",\"log.logger\":\"beat\",\"log.origin\":{\"file.name\":\"instance/beat.go\",\"file.line\":1108},\"message\":\"Go runtime info\",\"service.name\":\"filebeat\",\"system_info\":{\"go\":{\"os\":\"linux\",\"arch\":\"amd64\",\"max_procs\":4,\"version\":\"go1.18.10\"},\"ecs.version\":\"1.6.0\"}}\n","stream":"stderr","time":"2024-03-25T07:33:41.30387823Z"}
+										{"log":"{\"log.level\":\"info\",\"@timestamp\":\"2024-03-25T07:33:41.304Z\",\"log.logger\":\"beat\",\"log.origin\":{\"file.name\":\"instance/beat.go\",\"file.line\":1112},\"message\":\"Host info\",\"service.name\":\"filebeat\",\"system_info\":{\"host\":{\"architecture\":\"x86_64\",\"boot_time\":\"2022-12-08T06:05:41Z\",\"containerized\":true,\"name\":\"258409b44ac1\",\"ip\":[\"127.0.0.1/8\",\"172.17.0.2/16\"],\"kernel_version\":\"3.10.0-693.2.2.el7.x86_64\",\"mac\":[\"02:42:ac:11:00:02\"],\"os\":{\"type\":\"linux\",\"family\":\"debian\",\"platform\":\"ubuntu\",\"name\":\"Ubuntu\",\"version\":\"20.04.5 LTS (Focal Fossa)\",\"major\":20,\"minor\":4,\"patch\":5,\"codename\":\"focal\"},\"timezone\":\"UTC\",\"timezone_offset_sec\":0},\"ecs.version\":\"1.6.0\"}}\n","stream":"stderr","time":"2024-03-25T07:33:41.305122501Z"}
+										{"log":"{\"log.level\":\"info\",\"@timestamp\":\"2024-03-25T07:33:41.305Z\",\"log.logger\":\"beat\",\"log.origin\":{\"file.name\":\"instance/beat.go\",\"file.line\":1141},\"message\":\"Process info\",\"service.name\":\"filebeat\",\"system_info\":{\"process\":{\"capabilities\":{\"inheritable\":null,\"permitted\":[\"chown\",\"dac_override\",\"fowner\",\"fsetid\",\"kill\",\"setgid\",\"setuid\",\"setpcap\",\"net_bind_service\",\"net_raw\",\"sys_chroot\",\"mknod\",\"audit_write\",\"setfcap\"],\"effective\":[\"chown\",\"dac_override\",\"fowner\",\"fsetid\",\"kill\",\"setgid\",\"setuid\",\"setpcap\",\"net_bind_service\",\"net_raw\",\"sys_chroot\",\"mknod\",\"audit_write\",\"setfcap\"],\"bounding\":[\"chown\",\"dac_override\",\"fowner\",\"fsetid\",\"kill\",\"setgid\",\"setuid\",\"setpcap\",\"net_bind_service\",\"net_raw\",\"sys_chroot\",\"mknod\",\"audit_write\",\"setfcap\"],\"ambient\":null},\"cwd\":\"/usr/share/filebeat\",\"exe\":\"/usr/share/filebeat/filebeat\",\"name\":\"filebeat\",\"pid\":6,\"ppid\":1,\"seccomp\":{\"mode\":\"filter\"},\"start_time\":\"2024-03-25T07:33:39.320Z\"},\"ecs.version\":\"1.6.0\"}}\n","stream":"stderr","time":"2024-03-25T07:33:41.305340239Z"}
+										{"log":"{\"log.level\":\"info\",\"@timestamp\":\"2024-03-25T07:33:41.305Z\",\"log.origin\":{\"file.name\":\"instance/beat.go\",\"file.line\":296},\"message\":\"Setup Beat: filebeat; Version: 8.6.2\",\"service.name\":\"filebeat\",\"ecs.version\":\"1.6.0\"}\n","stream":"stderr","time":"2024-03-25T07:33:41.305358246Z"}
+										{"log":"{\"log.level\":\"info\",\"@timestamp\":\"2024-03-25T07:33:41.308Z\",\"log.logger\":\"publisher\",\"log.origin\":{\"file.name\":\"pipeline/module.go\",\"file.line\":113},\"message\":\"Beat name: 258409b44ac1\",\"service.name\":\"filebeat\",\"ecs.version\":\"1.6.0\"}\n","stream":"stderr","time":"2024-03-25T07:33:41.308852255Z"}
+										[root@iz0xic9e6789t96eez4ag0z ~]# zip /run/log/home-wwwlogs-access_logs/api.trackingmore.com-2025-07-11.log.20250712.zip /home/wwwlogs/access_logs/api.trackingmore.com-2025-07-11.log 
+										adding: home/wwwlogs/access_logs/api.trackingmore.com-2025-07-11.log (deflated 89%)
+										[root@iz0xic9e6789t96eez4ag0z ~]# echo > /home/wwwlogs/access_logs/api.trackingmore.com-2025-07-11.log
+										[root@iz0xic9e6789t96eez4ag0z ~]# df -h
+										Filesystem      Size  Used Avail Use% Mounted on
+										/dev/vda1        40G   36G  2.9G  93% /
+										devtmpfs        7.7G     0  7.7G   0% /dev
+										tmpfs           7.7G     0  7.7G   0% /dev/shm
+										tmpfs           7.7G  731M  7.0G  10% /run
+										tmpfs           7.7G     0  7.7G   0% /sys/fs/cgroup
+										tmpfs           1.6G     0  1.6G   0% /run/user/1001
+										overlay          40G   36G  2.9G  93% /var/lib/docker/overlay2/8e1df790d677b1c8c54c35739c129166364b651e5702ca3879aa90e0f27c8cdf/merged
+										tmpfs           1.6G     0  1.6G   0% /run/user/1002
+										tmpfs           1.6G     0  1.6G   0% /run/user/0
+										[root@iz0xic9e6789t96eez4ag0z ~]# logout
+										[cxj@iz0xic9e6789t96eez4ag0z ~]$ sudo su -
+										Last login: Sat Jul 12 10:25:00 CST 2025 on pts/0
+										[root@iz0xic9e6789t96eez4ag0z ~]# find / -name '*' -type f -size +100M | xargs ls -lh {} | sort -nrk5
+										find: ‘/proc/30855/task/30855/fdinfo/6’: No such file or directory
+										find: ‘/proc/30855/fdinfo/6’: No such file or directory
+										ls: cannot access {}: No such file or directory
+										-rw-r--r-- 1 root root 385M Dec  5  2024 /run/log/home-wwwlogs-access_logs/api.trackingmore.com-2024-12-03.log.20241205.zip
+										-rw-r--r-- 1 root root 343M Jul 12 10:43 /run/log/home-wwwlogs-access_logs/api.trackingmore.com-2025-07-11.log.20250712.zip
+										-rw-r--r-- 1 www  root 242M Jul 12 11:08 /home/wwwlogs/error.log
+										-rw------- 1 root root 221M Jul 12 11:06 /home/wwwlogs/phpslow.log
+										-rw-r--r-- 1 root root 156M Jun 22  2024 /var/cache/yum/x86_64/7/updates/gen/primary_db.sqlite
+										-rwxr-xr-x 1 root root 129M Feb 12  2023 /var/lib/docker/overlay2/b14bfaa237eb294d1f68108b92494332bb80cb82822221b6ea4f368bc6e74d87/diff/usr/share/filebeat/filebeat
+										-rwxr-xr-x 1 root root 129M Feb 12  2023 /var/lib/docker/overlay2/8e1df790d677b1c8c54c35739c129166364b651e5702ca3879aa90e0f27c8cdf/merged/usr/share/filebeat/filebeat
+										-r-------- 1 root root 128T Jul 12 11:08 /proc/kcore
+										-rw-r--r-- 1 root root 102M Mar 16  2018 /usr/lib/locale/locale-archive
+										-rw-r--r-- 1 www  root 8.2G Jul 12 11:08 /home/wwwlogs/api.trackingmore.com.access.log
+										-rw-r----- 1 root root 2.2G Jul 12 11:08 /var/lib/docker/containers/258409b44ac1576e60f83bee18150d773b6c7a576fa8b9438ae24f23404d8115/258409b44ac1576e60f83bee18150d773b6c7a576fa8b9438ae24f23404d8115-json.log
+										[root@iz0xic9e6789t96eez4ag0z ~]# df -h
+										Filesystem      Size  Used Avail Use% Mounted on
+										/dev/vda1        40G   37G  2.0G  95% /
+										devtmpfs        7.7G     0  7.7G   0% /dev
+										tmpfs           7.7G     0  7.7G   0% /dev/shm
+										tmpfs           7.7G  731M  7.0G  10% /run
+										tmpfs           7.7G     0  7.7G   0% /sys/fs/cgroup
+										tmpfs           1.6G     0  1.6G   0% /run/user/1001
+										overlay          40G   37G  2.0G  95% /var/lib/docker/overlay2/8e1df790d677b1c8c54c35739c129166364b651e5702ca3879aa90e0f27c8cdf/merged
+										tmpfs           1.6G     0  1.6G   0% /run/user/1002
+										[root@iz0xic9e6789t96eez4ag0z ~]# find / -name '*' -type f -size +100M | xargs ls -lh {} | sort -nrk5
+										find: ‘/tmp/phpuCWeAn’: No such file or directory
+										find: ‘/proc/31780/task/31780/fdinfo/6’: No such file or directory
+										find: ‘/proc/31780/fdinfo/6’: No such file or directory
+										ls: cannot access {}: No such file or directory
+										-rw-r--r-- 1 root root 385M Dec  5  2024 /run/log/home-wwwlogs-access_logs/api.trackingmore.com-2024-12-03.log.20241205.zip
+										-rw-r--r-- 1 root root 343M Jul 12 10:43 /run/log/home-wwwlogs-access_logs/api.trackingmore.com-2025-07-11.log.20250712.zip
+										-rw-r--r-- 1 www  root 242M Jul 12 11:10 /home/wwwlogs/error.log
+										-rw------- 1 root root 221M Jul 12 11:06 /home/wwwlogs/phpslow.log
+										-rw-r--r-- 1 root root 156M Jun 22  2024 /var/cache/yum/x86_64/7/updates/gen/primary_db.sqlite
+										-rwxr-xr-x 1 root root 129M Feb 12  2023 /var/lib/docker/overlay2/b14bfaa237eb294d1f68108b92494332bb80cb82822221b6ea4f368bc6e74d87/diff/usr/share/filebeat/filebeat
+										-rwxr-xr-x 1 root root 129M Feb 12  2023 /var/lib/docker/overlay2/8e1df790d677b1c8c54c35739c129166364b651e5702ca3879aa90e0f27c8cdf/merged/usr/share/filebeat/filebeat
+										-r-------- 1 root root 128T Jul 12 11:10 /proc/kcore
+										-rw-r--r-- 1 root root 102M Mar 16  2018 /usr/lib/locale/locale-archive
+										-rw-r--r-- 1 www  root 8.9G Jul 12 11:10 /home/wwwlogs/api.trackingmore.com.access.log
+										-rw-r----- 1 root root 2.2G Jul 12 11:09 /var/lib/docker/containers/258409b44ac1576e60f83bee18150d773b6c7a576fa8b9438ae24f23404d8115/258409b44ac1576e60f83bee18150d773b6c7a576fa8b9438ae24f23404d8115-json.log
+										[root@iz0xic9e6789t96eez4ag0z ~]# df -h
+										Filesystem      Size  Used Avail Use% Mounted on
+										/dev/vda1        40G   39G     0 100% /
+										devtmpfs        7.7G     0  7.7G   0% /dev
+										tmpfs           7.7G     0  7.7G   0% /dev/shm
+										tmpfs           7.7G  731M  7.0G  10% /run
+										tmpfs           7.7G     0  7.7G   0% /sys/fs/cgroup
+										tmpfs           1.6G     0  1.6G   0% /run/user/1001
+										overlay          40G   39G     0 100% /var/lib/docker/overlay2/8e1df790d677b1c8c54c35739c129166364b651e5702ca3879aa90e0f27c8cdf/merged
+										tmpfs           1.6G     0  1.6G   0% /run/user/1002
+										tmpfs           1.6G     0  1.6G   0% /run/user/0
+										[root@iz0xic9e6789t96eez4ag0z ~]#  echo > /home/wwwlogs/api.trackingmore.com.access.log
+										[root@iz0xic9e6789t96eez4ag0z ~]# df -h
+										Filesystem      Size  Used Avail Use% Mounted on
+										/dev/vda1        40G   29G   11G  73% /
+										devtmpfs        7.7G     0  7.7G   0% /dev
+										tmpfs           7.7G     0  7.7G   0% /dev/shm
+										tmpfs           7.7G  731M  7.0G  10% /run
+										tmpfs           7.7G     0  7.7G   0% /sys/fs/cgroup
+										tmpfs           1.6G     0  1.6G   0% /run/user/1001
+										overlay          40G   29G   11G  73% /var/lib/docker/overlay2/8e1df790d677b1c8c54c35739c129166364b651e5702ca3879aa90e0f27c8cdf/merged
+										tmpfs           1.6G     0  1.6G   0% /run/user/1002
+										tmpfs           1.6G     0  1.6G   0% /run/user/0
 								-www-214-153-tm
 									[root@iz0xigjdatfp2x5ez15cpuz ~]# df -h
 									Filesystem      Size  Used Avail Use% Mounted on
@@ -16815,6 +17005,168 @@
 									tmpfs           768M     0  768M   0% /run/user/1001
 									tmpfs           768M     0  768M   0% /run/user/1002
 									tmpfs           768M     0  768M   0% /run/user/0
+									-- 20250712
+										[root@iz0xi64ws5lykn8xadtfphz ~]# find / -name '*' -type f -size +100M | xargs ls -lh {} | sort -nrk5
+										find: ‘/proc/25781/task/25781/fdinfo/6’: No such file or directory
+										find: ‘/proc/25781/fdinfo/6’: No such file or directory
+										find: ‘/proc/27504/task/27542/fdinfo/23’: No such file or directory
+										ls: cannot access {}: No such file or directory
+										-rw-r--r-- 1 www  root 245M Jul 12 11:08 /home/wwwlogs/error.log
+										-rw-r----- 1 root root 223M May 13  2024 /var/lib/docker/containers/26ebbf0926f2cec28cc625de00962006d2352a9abd809e3b9f9045a7dcb1bde1/26ebbf0926f2cec28cc625de00962006d2352a9abd809e3b9f9045a7dcb1bde1-json.log
+										-rw-r--r-- 1 root root 208M Apr  8  2022 /home/wwwroot/www.trackingmore.com/executeSQL.202202.zip
+										-rw------- 1 root root 159M Jul 12 11:06 /home/wwwlogs/phpslow.log
+										-rw-r--r-- 1 root root 156M Jun 22  2024 /var/cache/yum/x86_64/7/updates/gen/primary_db.sqlite
+										-rwxr-xr-x 1 root root 129M Feb 12  2023 /var/lib/docker/overlay2/1f4a5b1935bd74ed75434e91a45fb1ad3416fd3c7692a7be9b1fb599ce88e613/diff/usr/share/filebeat/filebeat
+										-r-------- 1 root root 128T Jul 12 11:08 /proc/kcore
+										-rw-r--r-- 1 root root 102M Mar 16  2018 /usr/lib/locale/locale-archive
+										-rw-r--r-- 1 www  root 8.8G Jul 12 11:08 /home/wwwlogs/api.trackingmore.com.access.log
+										-rw-r--r-- 1 www  root 2.0G Jul 11 00:01 /home/wwwlogs/access_logs/api.trackingmore.com-2025-07-10.log
+										-rw-r--r-- 1 www  root 1.4G Jul 12 00:01 /home/wwwlogs/access_logs/api.trackingmore.com-2025-07-11.log
+										-rw-r--r-- 1 www  root 1.3G Jul 10 00:01 /home/wwwlogs/access_logs/api.trackingmore.com-2025-07-09.log
+										[root@iz0xi64ws5lykn8xadtfphz ~]# df -h
+										Filesystem      Size  Used Avail Use% Mounted on
+										/dev/vda1        40G   39G     0 100% /
+										devtmpfs        3.8G     0  3.8G   0% /dev
+										tmpfs           3.8G     0  3.8G   0% /dev/shm
+										tmpfs           3.8G  3.8M  3.8G   1% /run
+										tmpfs           3.8G     0  3.8G   0% /sys/fs/cgroup
+										tmpfs           768M     0  768M   0% /run/user/1001
+										tmpfs           768M     0  768M   0% /run/user/1002
+										[root@iz0xi64ws5lykn8xadtfphz ~]# find / -name '*' -type f -size +100M | xargs ls -lh {} | sort -nrk5
+										find: ‘/proc/26258/task/26258/fdinfo/6’: No such file or directory
+										find: ‘/proc/26258/fdinfo/6’: No such file or directory
+										ls: cannot access {}: No such file or directory
+										-rw-r--r-- 1 www  root 245M Jul 12 11:10 /home/wwwlogs/error.log
+										-rw-r----- 1 root root 223M May 13  2024 /var/lib/docker/containers/26ebbf0926f2cec28cc625de00962006d2352a9abd809e3b9f9045a7dcb1bde1/26ebbf0926f2cec28cc625de00962006d2352a9abd809e3b9f9045a7dcb1bde1-json.log
+										-rw-r--r-- 1 root root 208M Apr  8  2022 /home/wwwroot/www.trackingmore.com/executeSQL.202202.zip
+										-rw------- 1 root root 159M Jul 12 11:06 /home/wwwlogs/phpslow.log
+										-rw-r--r-- 1 root root 156M Jun 22  2024 /var/cache/yum/x86_64/7/updates/gen/primary_db.sqlite
+										-rwxr-xr-x 1 root root 129M Feb 12  2023 /var/lib/docker/overlay2/1f4a5b1935bd74ed75434e91a45fb1ad3416fd3c7692a7be9b1fb599ce88e613/diff/usr/share/filebeat/filebeat
+										-r-------- 1 root root 128T Jul 12 11:10 /proc/kcore
+										-rw-r--r-- 1 root root 102M Mar 16  2018 /usr/lib/locale/locale-archive
+										-rw-r--r-- 1 www  root 8.8G Jul 12 11:10 /home/wwwlogs/api.trackingmore.com.access.log
+										-rw-r--r-- 1 www  root 2.0G Jul 11 00:01 /home/wwwlogs/access_logs/api.trackingmore.com-2025-07-10.log
+										-rw-r--r-- 1 www  root 1.4G Jul 12 00:01 /home/wwwlogs/access_logs/api.trackingmore.com-2025-07-11.log
+										-rw-r--r-- 1 www  root 1.3G Jul 10 00:01 /home/wwwlogs/access_logs/api.trackingmore.com-2025-07-09.log
+										[root@iz0xi64ws5lykn8xadtfphz ~]# zip /run/log/home-wwwlogs-access_logs/api.trackingmore.com-2025-07-09.log.20250712.zip /home/wwwlogs/access_logs/api.trackingmore.com-2025-07-09.log
+										zip I/O error: No such file or directory
+										zip error: Could not create output file (/run/log/home-wwwlogs-access_logs/api.trackingmore.com-2025-07-09.log.20250712.zip)
+										[root@iz0xi64ws5lykn8xadtfphz ~]# mkdir -p /run/log/home-wwwlogs-access_logs/
+										[root@iz0xi64ws5lykn8xadtfphz ~]# zip /run/log/home-wwwlogs-access_logs/api.trackingmore.com-2025-07-09.log.20250712.zip /home/wwwlogs/access_logs/api.trackingmore.com-2025-07-09.log
+										adding: home/wwwlogs/access_logs/api.trackingmore.com-2025-07-09.log (deflated 88%)
+										[root@iz0xi64ws5lykn8xadtfphz ~]# echo /home/wwwlogs/access_logs/api.trackingmore.com-2025-07-09.log
+										/home/wwwlogs/access_logs/api.trackingmore.com-2025-07-09.log
+										[root@iz0xi64ws5lykn8xadtfphz ~]# df -h
+										Filesystem      Size  Used Avail Use% Mounted on
+										/dev/vda1        40G   39G     0 100% /
+										devtmpfs        3.8G     0  3.8G   0% /dev
+										tmpfs           3.8G     0  3.8G   0% /dev/shm
+										tmpfs           3.8G  157M  3.6G   5% /run
+										tmpfs           3.8G     0  3.8G   0% /sys/fs/cgroup
+										tmpfs           768M     0  768M   0% /run/user/1001
+										tmpfs           768M     0  768M   0% /run/user/1002
+										tmpfs           768M     0  768M   0% /run/user/0
+										[root@iz0xi64ws5lykn8xadtfphz ~]# echo > /home/wwwlogs/access_logs/api.trackingmore.com-2025-07-09.log
+										[root@iz0xi64ws5lykn8xadtfphz ~]# df -h
+										Filesystem      Size  Used Avail Use% Mounted on
+										/dev/vda1        40G   38G  1.3G  97% /
+										devtmpfs        3.8G     0  3.8G   0% /dev
+										tmpfs           3.8G     0  3.8G   0% /dev/shm
+										tmpfs           3.8G  157M  3.6G   5% /run
+										tmpfs           3.8G     0  3.8G   0% /sys/fs/cgroup
+										tmpfs           768M     0  768M   0% /run/user/1001
+										tmpfs           768M     0  768M   0% /run/user/1002
+										tmpfs           768M     0  768M   0% /run/user/0
+										[root@iz0xi64ws5lykn8xadtfphz ~]# df -h
+										Filesystem      Size  Used Avail Use% Mounted on
+										/dev/vda1        40G   39G     0 100% /
+										devtmpfs        3.8G     0  3.8G   0% /dev
+										tmpfs           3.8G     0  3.8G   0% /dev/shm
+										tmpfs           3.8G  157M  3.6G   5% /run
+										tmpfs           3.8G     0  3.8G   0% /sys/fs/cgroup
+										tmpfs           768M     0  768M   0% /run/user/1001
+										tmpfs           768M     0  768M   0% /run/user/1002
+										tmpfs           768M     0  768M   0% /run/user/0
+										[root@iz0xi64ws5lykn8xadtfphz ~]# cat /home/wwwroot/www.trackingmore.com/script/log/queue_diskTree.20250712.log
+										2025-07-12 11:00:10
+										-rw-r--r-- 1 www  root 245M Jul 12 11:01 /home/wwwlogs/error.log
+										-rw-r----- 1 root root 223M May 13  2024 /var/lib/docker/containers/26ebbf0926f2cec28cc625de00962006d2352a9abd809e3b9f9045a7dcb1bde1/26ebbf0926f2cec28cc625de00962006d2352a9abd809e3b9f9045a7dcb1bde1-json.log
+										-rw-r--r-- 1 root root 208M Apr  8  2022 /home/wwwroot/www.trackingmore.com/executeSQL.202202.zip
+										-rw------- 1 root root 159M Jul 12 10:51 /home/wwwlogs/phpslow.log
+										-rw-r--r-- 1 root root 156M Jun 22  2024 /var/cache/yum/x86_64/7/updates/gen/primary_db.sqlite
+										-rwxr-xr-x 1 root root 129M Feb 12  2023 /var/lib/docker/overlay2/1f4a5b1935bd74ed75434e91a45fb1ad3416fd3c7692a7be9b1fb599ce88e613/diff/usr/share/filebeat/filebeat
+										-r-------- 1 root root 128T Jul 12 11:01 /proc/kcore
+										-rw-r--r-- 1 root root 102M Mar 16  2018 /usr/lib/locale/locale-archive
+										-rw-r--r-- 1 www  root 8.8G Jul 12 11:01 /home/wwwlogs/api.trackingmore.com.access.log
+										-rw-r--r-- 1 www  root 2.0G Jul 11 00:01 /home/wwwlogs/access_logs/api.trackingmore.com-2025-07-10.log
+										-rw-r--r-- 1 www  root 1.4G Jul 12 00:01 /home/wwwlogs/access_logs/api.trackingmore.com-2025-07-11.log
+										-rw-r--r-- 1 www  root 1.3G Jul 10 00:01 /home/wwwlogs/access_logs/api.trackingmore.com-2025-07-09.log
+										├── /: 39646 MB
+										│   ├── /home: 25891 MB
+										│   │   ├── /home/wwwroot: 11793 MB
+										│   │   ├── /home/wwwlogs: 14018 MB
+										│   │   │   └── api.trackingmore.com.access.log: 8978 MB
+										│   │   │   └── error.log: 245 MB
+										│   │   │   └── phpslow.log: 159 MB
+										│   ├── /boot: 147 MB
+										│   ├── /var: 5040 MB
+										│   │   ├── /var/cache: 268 MB
+										│   │   ├── /var/lib: 601 MB
+										│   │   ├── /var/log: 4171 MB
+										│   ├── /usr: 8447 MB
+										│   │   ├── /usr/lib: 486 MB
+										│   │   ├── /usr/lib64: 253 MB
+										│   │   ├── /usr/local: 6609 MB
+										│   │   ├── /usr/bin: 372 MB
+										│   │   ├── /usr/libexec: 173 MB
+										│   │   ├── /usr/share: 466 MB
+										│   │   └── kcore: 134217727 MB
+										├── /home/wwwroot: 11793 MB
+										│   ├── /home/wwwroot/upload: 5067 MB
+										│   │   ├── /home/wwwroot/upload/huaqiang: 4592 MB
+										│   │   ├── /home/wwwroot/upload/lipeng: 415 MB
+										│   ├── /home/wwwroot/www.trackingmore.com: 6727 MB
+										│   │   └── executeSQL.202202.zip: 208 MB
+										│   │   ├── /home/wwwroot/www.trackingmore.com/python_img: 300 MB
+										│   │   ├── /home/wwwroot/www.trackingmore.com/section: 483 MB
+										│   │   ├── /home/wwwroot/www.trackingmore.com/logs: 169 MB
+										│   │   ├── /home/wwwroot/www.trackingmore.com/admin: 2518 MB
+										│   │   ├── /home/wwwroot/www.trackingmore.com/script: 1830 MB
+										│   │   ├── /home/wwwroot/www.trackingmore.com/download: 368 MB
+										│   │   ├── /home/wwwroot/www.trackingmore.com/python3: 221 MB
+
+										[root@iz0xi64ws5lykn8xadtfphz ~]# ll -h /home/wwwlogs/api.trackingmore.com.access.log
+										-rw-r--r-- 1 www root 11G Jul 12 11:29 /home/wwwlogs/api.trackingmore.com.access.log
+										[root@iz0xi64ws5lykn8xadtfphz ~]# ps -ef | grep ng
+										root        19     2  0  2022 ?        00:00:52 [khungtaskd]
+										root       539   523  0 11:30 ?        00:00:00 /bin/sh -c /usr/local/php7/bin/php -q /home/wwwroot/www.trackingmore.com/script/warning_php_error.php > /dev/null 2>&1
+										root       542   539  0 11:30 ?        00:00:00 /usr/local/php7/bin/php -q /home/wwwroot/www.trackingmore.com/script/warning_php_error.php
+										root       836 25599  0 11:30 pts/0    00:00:00 grep --color=auto ng
+										root      3021     1  0  2022 ?        00:00:00 nginx: master process /usr/local/nginx/sbin/nginx
+										www      10396  3021  0 Jun24 ?        02:15:29 nginx: worker process
+										www      10397  3021  0 Jun24 ?        02:13:58 nginx: worker process
+										[root@iz0xi64ws5lykn8xadtfphz ~]# tail /home/wwwlogs/access_logs/api.trackingmore.com-2025-07-10.log
+										100.122.21.68|11/Jul/2025:00:01:01 +0800|POST /v3/trackings/create HTTP/1.1|200|222|63|200|0.034|0.027|axios/1.9.0|[{\x22tracking_number\x22:\x22TBA322631738130\x22,\x22courier_code\x22:\x22amazon\x22}]|54216fd8-cc52-4ec6-8887-168e330935d9
+										100.122.21.5|11/Jul/2025:00:01:01 +0800|POST /v2/trackings/realtime HTTP/1.1|200|150|221|200|0.033|0.032|-|{\x22tracking_number\x22:\x221Z13V5Y40356032452\x22,\x22carrier_code\x22:\x22ups\x22,\x22destination_code\x22:null,\x22tracking_ship_date\x22:null,\x22order_create_time\x22:null,\x22tracking_postal_code\x22:null,\x22specialNumberDestination\x22:null,\x22order\x22:null,\x22lang\x22:null}|-
+										100.122.19.82|11/Jul/2025:00:01:01 +0800|POST /v2/trackings/realtime HTTP/1.1|200|150|221|200|0.066|0.065|-|{\x22tracking_number\x22:\x221Z13V5Y40357196971\x22,\x22carrier_code\x22:\x22ups\x22,\x22destination_code\x22:null,\x22tracking_ship_date\x22:null,\x22order_create_time\x22:null,\x22tracking_postal_code\x22:null,\x22specialNumberDestination\x22:null,\x22order\x22:null,\x22lang\x22:null}|-
+										100.122.16.171|11/Jul/2025:00:01:01 +0800|POST /v4/trackings/create HTTP/1.1|400|503|415|400|0.080|0.080|-|{\x22origin_country_iso2\x22:\x22US\x22,\x22tracking_origin_country\x22:\x22US\x22,\x22order_date\x22:\x222025-06-29TH:15:18Z\x22,\x22tracking_postal_code\x22:\x2212180\x22,\x22tracking_ship_date\x22:\x2220250630\x22,\x22order_number\x22:\x22196812\x22,\x22courier_code\x22:\x22usps\x22,\x22order_id\x22:\x228048109\x22,\x22tracking_destination_country\x22:\x22US\x22,\x22customer_name\x22:\x22ROSENBERG Lou\x22,\x22language\x22:\x22en\x22,\x22tracking_number\x22:\x229400150105799006495617\x22,\x22customer_email\x22:\x22lsr3@nyu.edu\x22,\x22destination_country_iso2\x22:\x22US\x22}|ibho2q0h-ny8v-wl5z-gm5o-q6hep15qi7e9
+										100.122.21.76|11/Jul/2025:00:01:01 +0800|GET /v2/trackings/get?numbers= HTTP/1.1|200|158|-|200|0.030|0.026|Java/11.0.16|-|-
+										100.122.21.15|11/Jul/2025:00:01:01 +0800|GET /v4/trackings/get?tracking_numbers=01497048148146&courier_code=dpd-de HTTP/1.1|200|1992|-|200|0.117|0.116|Apache-HttpAsyncClient/UNAVAILABLE (Java/17.0.15)|-|gwqo4ynx-wls0-ul17-a467-dzgny920fp5x
+										100.122.21.64|11/Jul/2025:00:01:01 +0800|GET /v3/trackings/get?tracking_numbers=TL24092602921001C17652453 HTTP/1.1|200|1410|-|200|0.058|0.053|axios/1.9.0|-|54216fd8-cc52-4ec6-8887-168e330935d9
+										100.122.21.67|11/Jul/2025:00:01:01 +0800|GET /v3/trackings/get?tracking_numbers=ZJD6D0MHZ4WKDZPC5EBV/zej9kehp HTTP/1.1|200|189|-|200|0.003|0.001|Java/11.0.10|-|23338fc4-a74e-4e26-93c2-d0226d907791
+										100.122.16.171|11/Jul/2025:00:01:01 +0800|GET /v2/trackings/wanbexpress/WNBAA0365778857YQ HTTP/1.1|200|3169|-|200|0.057|0.053|Java/1.8.0_152|-|-
+										100.122.21.76|11/Jul/2025:00:01:01 +0800|POST /v3/trackings/create HTTP/1.1|200|226|67|200|0.090|0.079|axios/1.9.0|[{\x22tracking_number\x22:\x229261290339612522493145\x22,\x22courier_code\x22:\x22dhl\x22}]|54216fd8-cc52-4ec6-8887-168e330935d9
+										[root@iz0xi64ws5lykn8xadtfphz ~]# echo > /home/wwwlogs/api.trackingmore.com.access.log
+										[root@iz0xi64ws5lykn8xadtfphz ~]# df -h
+										Filesystem      Size  Used Avail Use% Mounted on
+										/dev/vda1        40G   29G   11G  75% /
+										devtmpfs        3.8G     0  3.8G   0% /dev
+										tmpfs           3.8G     0  3.8G   0% /dev/shm
+										tmpfs           3.8G  157M  3.6G   5% /run
+										tmpfs           3.8G     0  3.8G   0% /sys/fs/cgroup
+										tmpfs           768M     0  768M   0% /run/user/1001
+										tmpfs           768M     0  768M   0% /run/user/1002
+										tmpfs           768M     0  768M   0% /run/user/0
 								api-151-7-tm
 									[cxj@iz0xic9e6789t96eez4ag0z ~]$ sudo su -
 									Last login: Thu Dec  5 09:28:59 CST 2024 on pts/0
