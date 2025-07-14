@@ -378,6 +378,42 @@
 【日常响应】
 6，后续优先级、应对
 
+===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== =====
+【告警】
+【客诉】
+【迁云】
+【桌面运维】
+【运维】
+
+20250714
+【告警】
+【安全】
+【运维】
+
+原计划：
+【本地】
+1，待优化&专线切换
+【告警】
+2，国内数据库CPU
+3，国外redis节点内存
+【安全】
+4，ISO27001-不符合项整改
+5，等保整改
+【日常响应】
+6，后续优先级、应对
+
+计划：
+【本地】
+1，待优化&专线切换
+【告警】
+2，磁盘
+3，国内数据库CPU
+4，国外redis节点内存
+【安全】
+5，等保整改
+【日常响应】
+6，后续优先级、应对
+
 
 近期复盘
 	后续优先级、应对
@@ -17775,6 +17811,91 @@
 								fi
 
 						磁盘扩容
+							-- 20250714
+								sz-bastion_34
+									# 扩容准备
+										# 在阿里云后台打快照（保留7天），然后操作扩容
+
+										# 确认有待分区的空间
+										fdisk -lu
+										# 分区扩容
+										type growpart || yum install -y cloud-utils-growpart
+										growpart is /usr/bin/growpart
+										LC_ALL=en_US.UTF-8 growpart /dev/vda 1
+										# 查看文件系统类型
+										df -Th
+										# 文件系统xfs使用如下命令扩容文件系统
+										type xfs_growfs || sudo yum install -y xfsprogs
+										xfs_growfs is /usr/sbin/xfs_growfs
+										xfs_growfs /
+										# 文件系统ext4使用如下命令扩容文件系统
+										resize2fs /dev/vda1
+										df -Th
+									# 实际操作
+										[root@iZwz9ivgzv4qk04ge5ggc9Z ~]# fdisk -lu
+										GPT PMBR size mismatch (83886079 != 127926271) will be corrected by write.
+										The backup GPT table is not on the end of the device. This problem will be corrected by write.
+										Disk /dev/vda: 61 GiB, 65498251264 bytes, 127926272 sectors
+										Units: sectors of 1 * 512 = 512 bytes
+										Sector size (logical/physical): 512 bytes / 512 bytes
+										I/O size (minimum/optimal): 512 bytes / 512 bytes
+										Disklabel type: gpt
+										Disk identifier: E7EDD110-96B3-4E31-B3D7-03620B4ECDAF
+
+										Device      Start      End  Sectors  Size Type
+										/dev/vda1    2048     4095     2048    1M BIOS boot
+										/dev/vda2    4096   208895   204800  100M EFI System
+										/dev/vda3  208896 83886046 83677151 39.9G Linux filesystem
+										[root@iZwz9ivgzv4qk04ge5ggc9Z ~]# type growpart || yum install -y cloud-utils-growpart
+										growpart is /usr/bin/growpart
+										[root@iZwz9ivgzv4qk04ge5ggc9Z ~]# LC_ALL=en_US.UTF-8 growpart /dev/vda 3
+										CHANGED: partition=3 start=208896 old: size=83677151 end=83886047 new: size=127717343 end=127926239
+										[root@iZwz9ivgzv4qk04ge5ggc9Z ~]# df -Th
+										Filesystem     Type      Size  Used Avail Use% Mounted on
+										devtmpfs       devtmpfs  3.7G     0  3.7G   0% /dev
+										tmpfs          tmpfs     3.7G     0  3.7G   0% /dev/shm
+										tmpfs          tmpfs     3.7G  1.1M  3.7G   1% /run
+										tmpfs          tmpfs     3.7G     0  3.7G   0% /sys/fs/cgroup
+										/dev/vda3      xfs        40G   39G  1.1G  98% /
+										overlay        overlay    40G   39G  1.1G  98% /var/lib/docker/overlay2/4e91d5a1eb36b4e1e7ad3cb4469cd63c31ac15f1236fcaa41b37cb37cf2fdd89/merged
+										overlay        overlay    40G   39G  1.1G  98% /var/lib/docker/overlay2/070e3dfe82beebb17f725b7118d2ce85d4fbe48e49d503478bb27cc2de9d8dde/merged
+										overlay        overlay    40G   39G  1.1G  98% /var/lib/docker/overlay2/48ed834fffb56cdf7ea8972fd60595a1507c330aef74a892682073f35cc2dbb6/merged
+										overlay        overlay    40G   39G  1.1G  98% /var/lib/docker/overlay2/a730ec5356e9daf213ef1c4747558194ac9d6b38fecb8c5acce76540445b037a/merged
+										overlay        overlay    40G   39G  1.1G  98% /var/lib/docker/overlay2/2ddabf678f84db760ce87c06552875208181d4934cd313dcc6aa18dd7e97f639/merged
+										overlay        overlay    40G   39G  1.1G  98% /var/lib/docker/overlay2/ab29d262af7c4b2afded16dd5e36ed12d0bc34d54888b69f0c8751d284dd5d6d/merged
+										overlay        overlay    40G   39G  1.1G  98% /var/lib/docker/overlay2/629662b0f24794fb8b678952180b7443c6550a7fceba8be8d278f83bb838d329/merged
+										overlay        overlay    40G   39G  1.1G  98% /var/lib/docker/overlay2/97a70b6344205192dff95b4886db0d59bc7b42a3d4ff69cddca49328f21de308/merged
+										tmpfs          tmpfs     750M     0  750M   0% /run/user/0
+										[root@iZwz9ivgzv4qk04ge5ggc9Z ~]# type xfs_growfs || sudo yum install -y xfsprogs
+										xfs_growfs is /usr/sbin/xfs_growfs
+										[root@iZwz9ivgzv4qk04ge5ggc9Z ~]# xfs_growfs /
+										meta-data=/dev/vda3              isize=512    agcount=9, agsize=1304128 blks
+												=                       sectsz=512   attr=2, projid32bit=1
+												=                       crc=1        finobt=1, sparse=1, rmapbt=0
+												=                       reflink=1
+										data     =                       bsize=4096   blocks=10459643, imaxpct=25
+												=                       sunit=0      swidth=0 blks
+										naming   =version 2              bsize=4096   ascii-ci=0, ftype=1
+										log      =internal log           bsize=4096   blocks=2560, version=2
+												=                       sectsz=512   sunit=0 blks, lazy-count=1
+										realtime =none                   extsz=4096   blocks=0, rtextents=0
+										data blocks changed from 10459643 to 15964667
+										[root@iZwz9ivgzv4qk04ge5ggc9Z ~]# df -hT
+										Filesystem     Type      Size  Used Avail Use% Mounted on
+										devtmpfs       devtmpfs  3.7G     0  3.7G   0% /dev
+										tmpfs          tmpfs     3.7G     0  3.7G   0% /dev/shm
+										tmpfs          tmpfs     3.7G  1.1M  3.7G   1% /run
+										tmpfs          tmpfs     3.7G     0  3.7G   0% /sys/fs/cgroup
+										/dev/vda3      xfs        61G   39G   22G  65% /
+										overlay        overlay    61G   39G   22G  65% /var/lib/docker/overlay2/4e91d5a1eb36b4e1e7ad3cb4469cd63c31ac15f1236fcaa41b37cb37cf2fdd89/merged
+										overlay        overlay    61G   39G   22G  65% /var/lib/docker/overlay2/070e3dfe82beebb17f725b7118d2ce85d4fbe48e49d503478bb27cc2de9d8dde/merged
+										overlay        overlay    61G   39G   22G  65% /var/lib/docker/overlay2/48ed834fffb56cdf7ea8972fd60595a1507c330aef74a892682073f35cc2dbb6/merged
+										overlay        overlay    61G   39G   22G  65% /var/lib/docker/overlay2/a730ec5356e9daf213ef1c4747558194ac9d6b38fecb8c5acce76540445b037a/merged
+										overlay        overlay    61G   39G   22G  65% /var/lib/docker/overlay2/2ddabf678f84db760ce87c06552875208181d4934cd313dcc6aa18dd7e97f639/merged
+										overlay        overlay    61G   39G   22G  65% /var/lib/docker/overlay2/ab29d262af7c4b2afded16dd5e36ed12d0bc34d54888b69f0c8751d284dd5d6d/merged
+										overlay        overlay    61G   39G   22G  65% /var/lib/docker/overlay2/629662b0f24794fb8b678952180b7443c6550a7fceba8be8d278f83bb838d329/merged
+										overlay        overlay    61G   39G   22G  65% /var/lib/docker/overlay2/97a70b6344205192dff95b4886db0d59bc7b42a3d4ff69cddca49328f21de308/merged
+										tmpfs          tmpfs     750M     0  750M   0% /run/user/0
 							-- 20250625
 								fjny-tm-www-153
 									# 准备
