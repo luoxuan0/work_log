@@ -551,6 +551,40 @@
 【日常响应】
 5，后续优先级、应对
 
+===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== =====
+【告警】
+【客诉】
+【迁云】
+【桌面运维】
+【运维】
+
+20250723
+【告警】
+【安全】
+【运维】
+
+原计划：
+【本地】
+1，待优化&专线切换
+【告警】
+2，磁盘
+3，国内数据库CPU
+【安全】
+4，等保复测
+【日常响应】
+5，后续优先级、应对
+
+计划：
+【本地】
+1，待优化&专线切换
+【告警】
+2，磁盘
+3，服务重启时间调整
+【安全】
+4，等保复测
+【日常响应】
+5，后续优先级、应对
+
 
 近期复盘
 	后续优先级、应对
@@ -638,6 +672,22 @@
 	5，测试环境-分支自动构建触发取消
 
 操作顺序
+	7月
+		-- 20250723
+			本地
+				计划
+					1，帮忙跟进下现在爱快没法拿到电脑的MAC，nat转换是有重新开了？
+					2，老专线反馈恢复了，继续接入（之前的调整有记录？）
+						0722切了605
+
+					wake-on-lan 
+						爱快无法看到终端mac
+				文档
+					缺了一点（593,594）
+			国内bff测试域名解析
+			配置中心限制白名单访问-远程办公
+			
+	6月
 		-- 20250630
 			日常响应
 				阿里云新开服务器、CLB
@@ -772,6 +822,7 @@
 				防火墙
 					电源
 					硬盘
+	5月
 		-- 20250523
 			wyk
 				https://courierapi.51tracking.com/courier 所在容器
@@ -19087,6 +19138,13 @@
 								kill -s 3 `ps -ef | grep jt-express-sg | grep -v grep | awk '{print $2}'`
 								# 查看队列确认启动效果
 								ps -ef | grep jt-express-sg
+							-- 20250723
+								国内指定重启 '*Z_*'
+									ali（all）
+									wpa Z_P_U_sfb2c | grep '|\|sfb'
+								国外指定重启 '*Z_*'
+									all（all）
+									wpa Z_P_U_sfb2c | grep '|\|sfb'
 				空运
 					-- 20250609
 						wpa php-resque/airT
@@ -20387,7 +20445,32 @@
 				# 国内独立更新
 				/usr/bin/diff /home/wwwroot/www.trackingmore.com/library/class.MySQL.php /home/wwwroot/www.trackingmore.com/library/class.MySQL.php.home.ind.20250325248
 		配置抽离到配置中心
+			--20250728
+				重置密钥
+					从77获取正确配置文件
+						d=$(date +%Y%m%d)
+						rsync -azv  /home/wwwroot/www.trackingmore.com/app.yaml /home/wwwroot/www.trackingmore.com/app.yaml.${d}
+						rsync -azv  root@172.16.21.184:/home/wwwroot/www.trackingmore.com/app.yaml /home/wwwroot/www.trackingmore.com/ -e 'ssh -p 20480'
+						# 对比差异
+						diff  /home/wwwroot/www.trackingmore.com/app.yaml /home/wwwroot/www.trackingmore.com/app.yaml.${d}
+
+					同步配置到所有服务器
+						国外
+							ansible all -m copy -a "src=/home/wwwroot/www.trackingmore.com/app.yaml dest=/home/wwwroot/www.trackingmore.com/"
+						国内
+							ansible ali -m copy -a "src=/home/wwwroot/www.trackingmore.com/app.yaml dest=/home/wwwroot/www.trackingmore.com/"
+					验证
+						vians
+							# 20250723
+							md5sum /home/wwwroot/www.trackingmore.com/app.yaml
+							exit
+
+							a5e996950e2aa021a6c5c7ffae16a2f1
+						wpa | grep '|\|a5e996950e2aa021a6c5c7ffae16a2f1'
 			--20250718
+				从77获取正确配置文件
+
+					rsync -azv  root@172.16.21.184:/home/wwwroot/www.trackingmore.com/app.yaml /home/wwwroot/www.trackingmore.com/ -e 'ssh -p 20480'
 
 				国外
 
