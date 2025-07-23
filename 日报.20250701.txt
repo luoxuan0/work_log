@@ -19886,6 +19886,595 @@
 				/usr/bin/diff /home/wwwroot/www.trackingmore.com/library/class.MySQL.php /home/wwwroot/www.trackingmore.com/library/class.MySQL.php.20250325117
 				# 国内独立更新
 				/usr/bin/diff /home/wwwroot/www.trackingmore.com/library/class.MySQL.php /home/wwwroot/www.trackingmore.com/library/class.MySQL.php.home.ind.20250325248
+		配置抽离到配置中心
+			--20250718
+
+				国外
+
+					ansible notest_27 -m copy -a "src=/home/wwwroot/www.trackingmore.com/app.yaml dest=/home/wwwroot/www.trackingmore.com/"
+					ansible notest_214_153 -m copy -a "src=/home/wwwroot/www.trackingmore.com/app.yaml dest=/home/wwwroot/www.trackingmore.com/"
+
+					ansible notest_10_10 -m copy -a "src=/home/wwwroot/www.trackingmore.com/app.yaml dest=/home/wwwroot/www.trackingmore.com/"
+					ansible notest_159_205 -m copy -a "src=/home/wwwroot/www.trackingmore.com/app.yaml dest=/home/wwwroot/www.trackingmore.com/"
+					ansible notest_145_44_35 -m copy -a "src=/home/wwwroot/www.trackingmore.com/app.yaml dest=/home/wwwroot/www.trackingmore.com/"
+					ansible notest_151_7 -m copy -a "src=/home/wwwroot/www.trackingmore.com/app.yaml dest=/home/wwwroot/www.trackingmore.com/"
+					ansible notest_234_72 -m copy -a "src=/home/wwwroot/www.trackingmore.com/app.yaml dest=/home/wwwroot/www.trackingmore.com/"
+					ansible notest_148_56 -m copy -a "src=/home/wwwroot/www.trackingmore.com/app.yaml dest=/home/wwwroot/www.trackingmore.com/"
+					ansible notest_228_84 -m copy -a "src=/home/wwwroot/www.trackingmore.com/app.yaml dest=/home/wwwroot/www.trackingmore.com/"
+					ansible notest_46_56 -m copy -a "src=/home/wwwroot/www.trackingmore.com/app.yaml dest=/home/wwwroot/www.trackingmore.com/"
+					ansible notest_105 -m copy -a "src=/home/wwwroot/www.trackingmore.com/app.yaml dest=/home/wwwroot/www.trackingmore.com/"
+
+					ansible all -m copy -a "src=/home/wwwroot/www.trackingmore.com/app.yaml dest=/home/wwwroot/www.trackingmore.com/"
+
+
+				国内
+
+					ansible ali -m copy -a "src=/home/wwwroot/www.trackingmore.com/app.yaml dest=/home/wwwroot/www.trackingmore.com/"
+
+					ansible ali -m copy -a "src=/home/wwwroot/www.trackingmore.com/app.yaml dest=/home/wwwroot/www.trackingmore.com/"
+
+					单独处理
+					ali-ind-h-qi-6-5-39
+
+				验证
+
+					国外
+						notest_10_10 | CHANGED | rc=0 >>
+						004ca70d1ac82857d824377d11de5c02  /home/wwwroot/www.trackingmore.com/app.yaml
+						fe1730a25faea6452794cdd3660bc960  /home/wwwroot/www.trackingmore.com/config/Spyc.php
+						notest_159_205 | FAILED | rc=1 >>
+						004ca70d1ac82857d824377d11de5c02  /home/wwwroot/www.trackingmore.com/app.yamlmd5sum: /home/wwwroot/www.trackingmore.com/config/Spyc.php: No such file or directorynon-zero return code
+						notest_27 | CHANGED | rc=0 >>
+						004ca70d1ac82857d824377d11de5c02  /home/wwwroot/www.trackingmore.com/app.yaml
+						fe1730a25faea6452794cdd3660bc960  /home/wwwroot/www.trackingmore.com/config/Spyc.php
+						notest_214_153 | CHANGED | rc=0 >>
+						004ca70d1ac82857d824377d11de5c02  /home/wwwroot/www.trackingmore.com/app.yaml
+						fe1730a25faea6452794cdd3660bc960  /home/wwwroot/www.trackingmore.com/config/Spyc.php
+						notest_145_44_35 | CHANGED | rc=0 >>
+						004ca70d1ac82857d824377d11de5c02  /home/wwwroot/www.trackingmore.com/app.yaml
+						fe1730a25faea6452794cdd3660bc960  /home/wwwroot/www.trackingmore.com/config/Spyc.php
+						notest_234_72 | CHANGED | rc=0 >>
+						004ca70d1ac82857d824377d11de5c02  /home/wwwroot/www.trackingmore.com/app.yaml
+						fe1730a25faea6452794cdd3660bc960  /home/wwwroot/www.trackingmore.com/config/Spyc.php
+						notest_151_7 | CHANGED | rc=0 >>
+						004ca70d1ac82857d824377d11de5c02  /home/wwwroot/www.trackingmore.com/app.yaml
+						fe1730a25faea6452794cdd3660bc960  /home/wwwroot/www.trackingmore.com/config/Spyc.php
+						notest_148_56 | CHANGED | rc=0 >>
+						004ca70d1ac82857d824377d11de5c02  /home/wwwroot/www.trackingmore.com/app.yaml
+						fe1730a25faea6452794cdd3660bc960  /home/wwwroot/www.trackingmore.com/config/Spyc.php
+						notest_228_84 | FAILED | rc=1 >>
+						004ca70d1ac82857d824377d11de5c02  /home/wwwroot/www.trackingmore.com/app.yamlmd5sum: /home/wwwroot/www.trackingmore.com/config/Spyc.php: No such file or directorynon-zero return code
+						notest_46_56 | FAILED | rc=1 >>
+						004ca70d1ac82857d824377d11de5c02  /home/wwwroot/www.trackingmore.com/app.yamlmd5sum: /home/wwwroot/www.trackingmore.com/config/Spyc.php: No such file or directorynon-zero return code
+						notest_105 | FAILED | rc=1 >>
+						004ca70d1ac82857d824377d11de5c02  /home/wwwroot/www.trackingmore.com/app.yamlmd5sum: /home/wwwroot/www.trackingmore.com/config/Spyc.php: No such file or directorynon-zero return code
+
+						[root@iZ0xi5xgeh5qxvn2k3cnxnZ ~]# wpa | grep '|\|app'
+						c-ind-87-0-9-191 | SUCCESS => {
+						ind_11-0-2-95 | CHANGED => {
+						ind_113-0-8-45 | CHANGED => {
+						ind_166-0-7-61 | CHANGED => {
+						ind_112-0-3-173 | CHANGED => {
+						ind_205-0-6-145 | CHANGED => {
+						ind_180-0-4-246 | CHANGED => {
+						ind_68-0-1-156 | CHANGED => {
+						ind_184-0-5-109 | CHANGED => {
+						ind-27-1-1-151 | CHANGED => {
+						ind_127-1-7-150 | CHANGED => {
+						ind_160-1-5-114 | CHANGED => {
+						ind_193-1-4-67 | CHANGED => {
+						ind_19-1-8-81 | CHANGED => {
+						ind_201-1-9-105 | CHANGED => {
+						ind_239-1-6-25 | CHANGED => {
+						ind_30-1-10-110 | CHANGED => {
+						ind_85-1-3-162 | CHANGED => {
+						ind-138-2-1-123 | CHANGED => {
+						ind_99-1-2-12 | CHANGED => {
+						ind_117-2-9-147 | CHANGED => {
+						ind_100-2-7-42 | CHANGED => {
+						ind_136-2-6-227 | CHANGED => {
+						ind_230-2-8-177 | CHANGED => {
+						ind_241-2-5-98 | CHANGED => {
+						ind_32-2-3-1 | CHANGED => {
+						ind_5-2-10-160 | CHANGED => {
+						ind_97-2-4-79 | CHANGED => {
+						ind-155-3-1-60 | CHANGED => {
+						ind_78-2-2-156 | CHANGED => {
+						ind_115-3-5-42 | CHANGED => {
+						ind_135-3-2-69 | CHANGED => {
+						ind_206-3-7-131 | CHANGED => {
+						ind_225-3-8-140 | CHANGED => {
+						ind_27-3-6-54 | CHANGED => {
+						ind_41-3-4-151 | CHANGED => {
+						ind_47-3-9-182 | CHANGED => {
+						ind_87-3-10-221 | CHANGED => {
+						ind_68-3-3-40 | CHANGED => {
+						c-ind-87-0-9-191 | CHANGED | rc=0 >>
+						004ca70d1ac82857d824377d11de5c02  /home/wwwroot/www.trackingmore.com/app.yaml
+						ind_11-0-2-95 | CHANGED | rc=0 >>
+						004ca70d1ac82857d824377d11de5c02  /home/wwwroot/www.trackingmore.com/app.yaml
+						ind_113-0-8-45 | CHANGED | rc=0 >>
+						004ca70d1ac82857d824377d11de5c02  /home/wwwroot/www.trackingmore.com/app.yaml
+						ind_112-0-3-173 | CHANGED | rc=0 >>
+						004ca70d1ac82857d824377d11de5c02  /home/wwwroot/www.trackingmore.com/app.yaml
+						ind_166-0-7-61 | CHANGED | rc=0 >>
+						004ca70d1ac82857d824377d11de5c02  /home/wwwroot/www.trackingmore.com/app.yaml
+						ind_205-0-6-145 | CHANGED | rc=0 >>
+						004ca70d1ac82857d824377d11de5c02  /home/wwwroot/www.trackingmore.com/app.yaml
+						ind_180-0-4-246 | CHANGED | rc=0 >>
+						004ca70d1ac82857d824377d11de5c02  /home/wwwroot/www.trackingmore.com/app.yaml
+						ind_184-0-5-109 | CHANGED | rc=0 >>
+						004ca70d1ac82857d824377d11de5c02  /home/wwwroot/www.trackingmore.com/app.yaml
+						ind_68-0-1-156 | CHANGED | rc=0 >>
+						004ca70d1ac82857d824377d11de5c02  /home/wwwroot/www.trackingmore.com/app.yaml
+						ind-27-1-1-151 | CHANGED | rc=0 >>
+						004ca70d1ac82857d824377d11de5c02  /home/wwwroot/www.trackingmore.com/app.yaml
+						ind_127-1-7-150 | CHANGED | rc=0 >>
+						004ca70d1ac82857d824377d11de5c02  /home/wwwroot/www.trackingmore.com/app.yaml
+						ind_19-1-8-81 | CHANGED | rc=0 >>
+						004ca70d1ac82857d824377d11de5c02  /home/wwwroot/www.trackingmore.com/app.yaml
+						ind_160-1-5-114 | CHANGED | rc=0 >>
+						004ca70d1ac82857d824377d11de5c02  /home/wwwroot/www.trackingmore.com/app.yaml
+						ind_193-1-4-67 | CHANGED | rc=0 >>
+						004ca70d1ac82857d824377d11de5c02  /home/wwwroot/www.trackingmore.com/app.yaml
+						ind_201-1-9-105 | CHANGED | rc=0 >>
+						004ca70d1ac82857d824377d11de5c02  /home/wwwroot/www.trackingmore.com/app.yaml
+						ind_239-1-6-25 | CHANGED | rc=0 >>
+						004ca70d1ac82857d824377d11de5c02  /home/wwwroot/www.trackingmore.com/app.yaml
+						ind_85-1-3-162 | CHANGED | rc=0 >>
+						004ca70d1ac82857d824377d11de5c02  /home/wwwroot/www.trackingmore.com/app.yaml
+						ind_99-1-2-12 | CHANGED | rc=0 >>
+						004ca70d1ac82857d824377d11de5c02  /home/wwwroot/www.trackingmore.com/app.yaml
+						ind_30-1-10-110 | CHANGED | rc=0 >>
+						004ca70d1ac82857d824377d11de5c02  /home/wwwroot/www.trackingmore.com/app.yaml
+						ind-138-2-1-123 | CHANGED | rc=0 >>
+						004ca70d1ac82857d824377d11de5c02  /home/wwwroot/www.trackingmore.com/app.yaml
+						ind_117-2-9-147 | CHANGED | rc=0 >>
+						004ca70d1ac82857d824377d11de5c02  /home/wwwroot/www.trackingmore.com/app.yaml
+						ind_100-2-7-42 | CHANGED | rc=0 >>
+						004ca70d1ac82857d824377d11de5c02  /home/wwwroot/www.trackingmore.com/app.yaml
+						ind_136-2-6-227 | CHANGED | rc=0 >>
+						004ca70d1ac82857d824377d11de5c02  /home/wwwroot/www.trackingmore.com/app.yaml
+						ind_230-2-8-177 | CHANGED | rc=0 >>
+						004ca70d1ac82857d824377d11de5c02  /home/wwwroot/www.trackingmore.com/app.yaml
+						ind_241-2-5-98 | CHANGED | rc=0 >>
+						004ca70d1ac82857d824377d11de5c02  /home/wwwroot/www.trackingmore.com/app.yaml
+						ind_78-2-2-156 | CHANGED | rc=0 >>
+						004ca70d1ac82857d824377d11de5c02  /home/wwwroot/www.trackingmore.com/app.yaml
+						ind_97-2-4-79 | CHANGED | rc=0 >>
+						004ca70d1ac82857d824377d11de5c02  /home/wwwroot/www.trackingmore.com/app.yaml
+						ind_5-2-10-160 | CHANGED | rc=0 >>
+						004ca70d1ac82857d824377d11de5c02  /home/wwwroot/www.trackingmore.com/app.yaml
+						ind-155-3-1-60 | CHANGED | rc=0 >>
+						004ca70d1ac82857d824377d11de5c02  /home/wwwroot/www.trackingmore.com/app.yaml
+						ind_32-2-3-1 | CHANGED | rc=0 >>
+						004ca70d1ac82857d824377d11de5c02  /home/wwwroot/www.trackingmore.com/app.yaml
+						ind_115-3-5-42 | CHANGED | rc=0 >>
+						004ca70d1ac82857d824377d11de5c02  /home/wwwroot/www.trackingmore.com/app.yaml
+						ind_27-3-6-54 | CHANGED | rc=0 >>
+						004ca70d1ac82857d824377d11de5c02  /home/wwwroot/www.trackingmore.com/app.yaml
+						ind_135-3-2-69 | CHANGED | rc=0 >>
+						004ca70d1ac82857d824377d11de5c02  /home/wwwroot/www.trackingmore.com/app.yaml
+						ind_206-3-7-131 | CHANGED | rc=0 >>
+						004ca70d1ac82857d824377d11de5c02  /home/wwwroot/www.trackingmore.com/app.yaml
+						ind_225-3-8-140 | CHANGED | rc=0 >>
+						004ca70d1ac82857d824377d11de5c02  /home/wwwroot/www.trackingmore.com/app.yaml
+						ind_41-3-4-151 | CHANGED | rc=0 >>
+						004ca70d1ac82857d824377d11de5c02  /home/wwwroot/www.trackingmore.com/app.yaml
+						ind_47-3-9-182 | CHANGED | rc=0 >>
+						004ca70d1ac82857d824377d11de5c02  /home/wwwroot/www.trackingmore.com/app.yaml
+						ind_87-3-10-221 | CHANGED | rc=0 >>
+						004ca70d1ac82857d824377d11de5c02  /home/wwwroot/www.trackingmore.com/app.yaml
+						ind_68-3-3-40 | CHANGED | rc=0 >>
+						004ca70d1ac82857d824377d11de5c02  /home/wwwroot/www.trackingmore.com/app.yaml
+
+						[root@iZ0xi5xgeh5qxvn2k3cnxnZ ~]# wpa | grep '|\|app'
+						c-ind-87-0-9-191 | SUCCESS => {
+						ind_11-0-2-95 | CHANGED => {
+						ind_113-0-8-45 | CHANGED => {
+						ind_166-0-7-61 | CHANGED => {
+						ind_112-0-3-173 | CHANGED => {
+						ind_205-0-6-145 | CHANGED => {
+						ind_180-0-4-246 | CHANGED => {
+						ind_68-0-1-156 | CHANGED => {
+						ind_184-0-5-109 | CHANGED => {
+						ind-27-1-1-151 | CHANGED => {
+						ind_127-1-7-150 | CHANGED => {
+						ind_160-1-5-114 | CHANGED => {
+						ind_193-1-4-67 | CHANGED => {
+						ind_19-1-8-81 | CHANGED => {
+						ind_201-1-9-105 | CHANGED => {
+						ind_239-1-6-25 | CHANGED => {
+						ind_30-1-10-110 | CHANGED => {
+						ind_85-1-3-162 | CHANGED => {
+						ind-138-2-1-123 | CHANGED => {
+						ind_99-1-2-12 | CHANGED => {
+						ind_117-2-9-147 | CHANGED => {
+						ind_100-2-7-42 | CHANGED => {
+						ind_136-2-6-227 | CHANGED => {
+						ind_230-2-8-177 | CHANGED => {
+						ind_241-2-5-98 | CHANGED => {
+						ind_32-2-3-1 | CHANGED => {
+						ind_5-2-10-160 | CHANGED => {
+						ind_97-2-4-79 | CHANGED => {
+						ind-155-3-1-60 | CHANGED => {
+						ind_78-2-2-156 | CHANGED => {
+						ind_115-3-5-42 | CHANGED => {
+						ind_135-3-2-69 | CHANGED => {
+						ind_206-3-7-131 | CHANGED => {
+						ind_225-3-8-140 | CHANGED => {
+						ind_27-3-6-54 | CHANGED => {
+						ind_41-3-4-151 | CHANGED => {
+						ind_47-3-9-182 | CHANGED => {
+						ind_87-3-10-221 | CHANGED => {
+						ind_68-3-3-40 | CHANGED => {
+						c-ind-87-0-9-191 | CHANGED | rc=0 >>
+						004ca70d1ac82857d824377d11de5c02  /home/wwwroot/www.trackingmore.com/app.yaml
+						ind_11-0-2-95 | CHANGED | rc=0 >>
+						004ca70d1ac82857d824377d11de5c02  /home/wwwroot/www.trackingmore.com/app.yaml
+						ind_113-0-8-45 | CHANGED | rc=0 >>
+						004ca70d1ac82857d824377d11de5c02  /home/wwwroot/www.trackingmore.com/app.yaml
+						ind_112-0-3-173 | CHANGED | rc=0 >>
+						004ca70d1ac82857d824377d11de5c02  /home/wwwroot/www.trackingmore.com/app.yaml
+						ind_166-0-7-61 | CHANGED | rc=0 >>
+						004ca70d1ac82857d824377d11de5c02  /home/wwwroot/www.trackingmore.com/app.yaml
+						ind_205-0-6-145 | CHANGED | rc=0 >>
+						004ca70d1ac82857d824377d11de5c02  /home/wwwroot/www.trackingmore.com/app.yaml
+						ind_180-0-4-246 | CHANGED | rc=0 >>
+						004ca70d1ac82857d824377d11de5c02  /home/wwwroot/www.trackingmore.com/app.yaml
+						ind_184-0-5-109 | CHANGED | rc=0 >>
+						004ca70d1ac82857d824377d11de5c02  /home/wwwroot/www.trackingmore.com/app.yaml
+						ind_68-0-1-156 | CHANGED | rc=0 >>
+						004ca70d1ac82857d824377d11de5c02  /home/wwwroot/www.trackingmore.com/app.yaml
+						ind-27-1-1-151 | CHANGED | rc=0 >>
+						004ca70d1ac82857d824377d11de5c02  /home/wwwroot/www.trackingmore.com/app.yaml
+						ind_127-1-7-150 | CHANGED | rc=0 >>
+						004ca70d1ac82857d824377d11de5c02  /home/wwwroot/www.trackingmore.com/app.yaml
+						ind_19-1-8-81 | CHANGED | rc=0 >>
+						004ca70d1ac82857d824377d11de5c02  /home/wwwroot/www.trackingmore.com/app.yaml
+						ind_160-1-5-114 | CHANGED | rc=0 >>
+						004ca70d1ac82857d824377d11de5c02  /home/wwwroot/www.trackingmore.com/app.yaml
+						ind_193-1-4-67 | CHANGED | rc=0 >>
+						004ca70d1ac82857d824377d11de5c02  /home/wwwroot/www.trackingmore.com/app.yaml
+						ind_201-1-9-105 | CHANGED | rc=0 >>
+						004ca70d1ac82857d824377d11de5c02  /home/wwwroot/www.trackingmore.com/app.yaml
+						ind_239-1-6-25 | CHANGED | rc=0 >>
+						004ca70d1ac82857d824377d11de5c02  /home/wwwroot/www.trackingmore.com/app.yaml
+						ind_85-1-3-162 | CHANGED | rc=0 >>
+						004ca70d1ac82857d824377d11de5c02  /home/wwwroot/www.trackingmore.com/app.yaml
+						ind_99-1-2-12 | CHANGED | rc=0 >>
+						004ca70d1ac82857d824377d11de5c02  /home/wwwroot/www.trackingmore.com/app.yaml
+						ind_30-1-10-110 | CHANGED | rc=0 >>
+						004ca70d1ac82857d824377d11de5c02  /home/wwwroot/www.trackingmore.com/app.yaml
+						ind-138-2-1-123 | CHANGED | rc=0 >>
+						004ca70d1ac82857d824377d11de5c02  /home/wwwroot/www.trackingmore.com/app.yaml
+						ind_117-2-9-147 | CHANGED | rc=0 >>
+						004ca70d1ac82857d824377d11de5c02  /home/wwwroot/www.trackingmore.com/app.yaml
+						ind_100-2-7-42 | CHANGED | rc=0 >>
+						004ca70d1ac82857d824377d11de5c02  /home/wwwroot/www.trackingmore.com/app.yaml
+						ind_136-2-6-227 | CHANGED | rc=0 >>
+						004ca70d1ac82857d824377d11de5c02  /home/wwwroot/www.trackingmore.com/app.yaml
+						ind_230-2-8-177 | CHANGED | rc=0 >>
+						004ca70d1ac82857d824377d11de5c02  /home/wwwroot/www.trackingmore.com/app.yaml
+						ind_241-2-5-98 | CHANGED | rc=0 >>
+						004ca70d1ac82857d824377d11de5c02  /home/wwwroot/www.trackingmore.com/app.yaml
+						ind_78-2-2-156 | CHANGED | rc=0 >>
+						004ca70d1ac82857d824377d11de5c02  /home/wwwroot/www.trackingmore.com/app.yaml
+						ind_97-2-4-79 | CHANGED | rc=0 >>
+						004ca70d1ac82857d824377d11de5c02  /home/wwwroot/www.trackingmore.com/app.yaml
+						ind_5-2-10-160 | CHANGED | rc=0 >>
+						004ca70d1ac82857d824377d11de5c02  /home/wwwroot/www.trackingmore.com/app.yaml
+						ind-155-3-1-60 | CHANGED | rc=0 >>
+						004ca70d1ac82857d824377d11de5c02  /home/wwwroot/www.trackingmore.com/app.yaml
+						ind_32-2-3-1 | CHANGED | rc=0 >>
+						004ca70d1ac82857d824377d11de5c02  /home/wwwroot/www.trackingmore.com/app.yaml
+						ind_115-3-5-42 | CHANGED | rc=0 >>
+						004ca70d1ac82857d824377d11de5c02  /home/wwwroot/www.trackingmore.com/app.yaml
+						ind_27-3-6-54 | CHANGED | rc=0 >>
+						004ca70d1ac82857d824377d11de5c02  /home/wwwroot/www.trackingmore.com/app.yaml
+						ind_135-3-2-69 | CHANGED | rc=0 >>
+						004ca70d1ac82857d824377d11de5c02  /home/wwwroot/www.trackingmore.com/app.yaml
+						ind_206-3-7-131 | CHANGED | rc=0 >>
+						004ca70d1ac82857d824377d11de5c02  /home/wwwroot/www.trackingmore.com/app.yaml
+						ind_225-3-8-140 | CHANGED | rc=0 >>
+						004ca70d1ac82857d824377d11de5c02  /home/wwwroot/www.trackingmore.com/app.yaml
+						ind_41-3-4-151 | CHANGED | rc=0 >>
+						004ca70d1ac82857d824377d11de5c02  /home/wwwroot/www.trackingmore.com/app.yaml
+						ind_47-3-9-182 | CHANGED | rc=0 >>
+						004ca70d1ac82857d824377d11de5c02  /home/wwwroot/www.trackingmore.com/app.yaml
+						ind_87-3-10-221 | CHANGED | rc=0 >>
+						004ca70d1ac82857d824377d11de5c02  /home/wwwroot/www.trackingmore.com/app.yaml
+						ind_68-3-3-40 | CHANGED | rc=0 >>
+						004ca70d1ac82857d824377d11de5c02  /home/wwwroot/www.trackingmore.com/app.yaml
+
+					国内
+
+						api_183 | CHANGED | rc=0 >>
+						004ca70d1ac82857d824377d11de5c02  /home/wwwroot/www.trackingmore.com/app.yaml
+						api_163 | CHANGED | rc=0 >>
+						004ca70d1ac82857d824377d11de5c02  /home/wwwroot/www.trackingmore.com/app.yaml
+						api_169 | CHANGED | rc=0 >>
+						004ca70d1ac82857d824377d11de5c02  /home/wwwroot/www.trackingmore.com/app.yaml
+						api_30 | CHANGED | rc=0 >>
+						004ca70d1ac82857d824377d11de5c02  /home/wwwroot/www.trackingmore.com/app.yaml
+						api_215 | CHANGED | rc=0 >>
+						004ca70d1ac82857d824377d11de5c02  /home/wwwroot/www.trackingmore.com/app.yaml
+						api_67 | CHANGED | rc=0 >>
+						004ca70d1ac82857d824377d11de5c02  /home/wwwroot/www.trackingmore.com/app.yaml
+						api_194 | CHANGED | rc=0 >>
+						004ca70d1ac82857d824377d11de5c02  /home/wwwroot/www.trackingmore.com/app.yaml
+						front_134 | CHANGED | rc=0 >>
+						004ca70d1ac82857d824377d11de5c02  /home/wwwroot/www.trackingmore.com/app.yaml
+						front_3 | CHANGED | rc=0 >>
+						004ca70d1ac82857d824377d11de5c02  /home/wwwroot/www.trackingmore.com/app.yaml
+						front_20 | CHANGED | rc=0 >>
+						004ca70d1ac82857d824377d11de5c02  /home/wwwroot/www.trackingmore.com/app.yaml
+						resque_117 | CHANGED | rc=0 >>
+						004ca70d1ac82857d824377d11de5c02  /home/wwwroot/www.trackingmore.com/app.yaml
+						resque_80 | CHANGED | rc=0 >>
+						004ca70d1ac82857d824377d11de5c02  /home/wwwroot/www.trackingmore.com/app.yaml
+						resque_184 | CHANGED | rc=0 >>
+						004ca70d1ac82857d824377d11de5c02  /home/wwwroot/www.trackingmore.com/app.yaml
+						resque_103 | CHANGED | rc=0 >>
+						004ca70d1ac82857d824377d11de5c02  /home/wwwroot/www.trackingmore.com/app.yaml
+						resque_140 | CHANGED | rc=0 >>
+						004ca70d1ac82857d824377d11de5c02  /home/wwwroot/www.trackingmore.com/app.yaml
+						resque_18 | CHANGED | rc=0 >>
+						004ca70d1ac82857d824377d11de5c02  /home/wwwroot/www.trackingmore.com/app.yaml
+						resque_180 | CHANGED | rc=0 >>
+						004ca70d1ac82857d824377d11de5c02  /home/wwwroot/www.trackingmore.com/app.yaml
+						resque_74 | CHANGED | rc=0 >>
+						004ca70d1ac82857d824377d11de5c02  /home/wwwroot/www.trackingmore.com/app.yaml
+
+						[root@iZwz99iedtsm0dzywyl4yqZ ~]# wpa | grep '|\|app.'
+						[WARNING]: Invalid characters were found in group names but not replaced, use -vvvv to see details
+						ali-ind-h-qi-0-7-191 | CHANGED => {
+						ali-ind-h-qi-0-7-56 | CHANGED => {
+						ali-ind-h-qi-0-7-232 | CHANGED => {
+						ali-ind-h-qi-0-7-25 | CHANGED => {
+						ali-ind-h-qi-0-7-86 | CHANGED => {
+						ali-ind-h-qi-0-7-186 | CHANGED => {
+						ali-ind-h-qi-0-7-214 | CHANGED => {
+						ali-ind-h-qi-0-7-152 | CHANGED => {
+						ali-ind-h-qi-0-7-116 | SUCCESS => {
+						ali-ind-h-qi-1-8-29 | CHANGED => {
+						ali-ind-h-qi-1-8-179 | CHANGED => {
+						ali-ind-h-qi-1-8-251 | CHANGED => {
+						ali-ind-h-qi-1-8-142 | CHANGED => {
+						ali-ind-h-qi-0-7-180 | CHANGED => {
+						ali-ind-h-qi-1-8-236 | CHANGED => {
+						ali-ind-h-qi-1-8-250 | CHANGED => {
+						ali-ind-h-qi-1-8-129 | CHANGED => {
+						ali-ind-h-qi-1-8-219 | CHANGED => {
+						ali-ind-h-qi-1-8-233 | CHANGED => {
+						ali-ind-h-qi-1-8-166 | CHANGED => {
+						ali-ind-h-qi-2-9-31 | CHANGED => {
+						ali-ind-h-qi-2-9-149 | CHANGED => {
+						ali-ind-h-qi-2-9-155 | CHANGED => {
+						ali-ind-h-qi-2-9-1 | CHANGED => {
+						ali-ind-h-qi-2-9-135 | CHANGED => {
+						ali-ind-h-qi-2-9-39 | CHANGED => {
+						ali-ind-h-qi-2-9-126 | CHANGED => {
+						ali-ind-h-qi-2-9-130 | CHANGED => {
+						ali-ind-h-qi-2-9-77 | CHANGED => {
+						ali-ind-h-qi-2-9-205 | CHANGED => {
+						ali-ind-h-qi-3-1-249 | CHANGED => {
+						ali-ind-h-qi-3-2-186 | CHANGED => {
+						ali-ind-h-qi-3-3-157 | CHANGED => {
+						ali-ind-h-qi-3-5-36 | CHANGED => {
+						ali-ind-h-qi-3-4-36 | CHANGED => {
+						ali-ind-h-qi-3-6-178 | CHANGED => {
+						ali-ind-h-qi-3-7-210 | CHANGED => {
+						ali-ind-h-qi-3-8-232 | CHANGED => {
+						ali-ind-h-qi-3-10-189 | CHANGED => {
+						ali-ind-h-qi-3-9-182 | CHANGED => {
+						ali-ind-h-qi-4-1-221 | CHANGED => {
+						ali-ind-h-qi-4-2-229 | CHANGED => {
+						ali-ind-h-qi-4-3-133 | CHANGED => {
+						ali-ind-h-qi-4-4-28 | CHANGED => {
+						ali-ind-h-qi-4-5-14 | CHANGED => {
+						ali-ind-h-qi-4-6-191 | CHANGED => {
+						ali-ind-h-qi-4-7-248 | CHANGED => {
+						ali-ind-h-qi-4-9-79 | CHANGED => {
+						ali-ind-h-qi-4-10-20 | CHANGED => {
+						ali-ind-h-qi-5-1-242 | CHANGED => {
+						ali-ind-h-qi-4-8-132 | CHANGED => {
+						ali-ind-h-qi-5-2-92 | CHANGED => {
+						ali-ind-h-qi-5-3-129 | CHANGED => {
+						ali-ind-h-qi-5-4-134 | CHANGED => {
+						ali-ind-h-qi-5-5-174 | CHANGED => {
+						ali-ind-h-qi-5-6-7 | CHANGED => {
+						ali-ind-h-qi-5-7-221 | CHANGED => {
+						ali-ind-h-qi-5-10-79 | CHANGED => {
+						ali-ind-h-qi-5-8-135 | CHANGED => {
+						ali-ind-h-qi-5-9-22 | CHANGED => {
+						ali-ind-h-qi-6-1-216 | CHANGED => {
+						ali-ind-h-qi-6-4-221 | CHANGED => {
+						ali-ind-h-qi-6-2-7 | CHANGED => {
+						ali-ind-h-qi-6-6-135 | CHANGED => {
+						ali-ind-h-qi-6-7-103 | CHANGED => {
+						ali-ind-h-qi-6-9-133 | CHANGED => {
+						ali-ind-h-qi-6-8-127 | CHANGED => {
+						ali-ind-h-qi-7-1-194 | CHANGED => {
+						ali-ind-h-qi-7-2-85 | CHANGED => {
+						ali-ind-h-qi-6-10-129 | CHANGED => {
+						ali-ind-h-qi-7-3-235 | CHANGED => {
+						ali-ind-h-qi-7-5-137 | CHANGED => {
+						ali-ind-h-qi-7-6-209 | CHANGED => {
+						ali-ind-h-qi-7-7-97 | CHANGED => {
+						ali-ind-h-qi-7-8-180 | CHANGED => {
+						ali-ind-h-qi-7-10-236 | CHANGED => {
+						ali-ind-h-qi-6-3-251 | CHANGED => {
+						ali-ind-h-qi-7-4-52 | CHANGED => {
+						ali-ind-h-qi-7-9-203 | CHANGED => {
+						ali-ind-h-qi-6-5-39 | CHANGED => {
+						[WARNING]: Invalid characters were found in group names but not replaced, use -vvvv to see details
+						ali-ind-h-qi-0-7-56 | CHANGED | rc=0 >>
+						004ca70d1ac82857d824377d11de5c02  /home/wwwroot/www.trackingmore.com/app.yaml
+						ali-ind-h-qi-0-7-191 | CHANGED | rc=0 >>
+						004ca70d1ac82857d824377d11de5c02  /home/wwwroot/www.trackingmore.com/app.yaml
+						ali-ind-h-qi-0-7-25 | CHANGED | rc=0 >>
+						004ca70d1ac82857d824377d11de5c02  /home/wwwroot/www.trackingmore.com/app.yaml
+						ali-ind-h-qi-0-7-232 | CHANGED | rc=0 >>
+						004ca70d1ac82857d824377d11de5c02  /home/wwwroot/www.trackingmore.com/app.yaml
+						ali-ind-h-qi-0-7-86 | CHANGED | rc=0 >>
+						004ca70d1ac82857d824377d11de5c02  /home/wwwroot/www.trackingmore.com/app.yaml
+						ali-ind-h-qi-0-7-186 | CHANGED | rc=0 >>
+						004ca70d1ac82857d824377d11de5c02  /home/wwwroot/www.trackingmore.com/app.yaml
+						ali-ind-h-qi-0-7-214 | CHANGED | rc=0 >>
+						004ca70d1ac82857d824377d11de5c02  /home/wwwroot/www.trackingmore.com/app.yaml
+						ali-ind-h-qi-0-7-152 | CHANGED | rc=0 >>
+						004ca70d1ac82857d824377d11de5c02  /home/wwwroot/www.trackingmore.com/app.yaml
+						ali-ind-h-qi-0-7-116 | CHANGED | rc=0 >>
+						004ca70d1ac82857d824377d11de5c02  /home/wwwroot/www.trackingmore.com/app.yaml
+						ali-ind-h-qi-1-8-29 | CHANGED | rc=0 >>
+						004ca70d1ac82857d824377d11de5c02  /home/wwwroot/www.trackingmore.com/app.yaml
+						ali-ind-h-qi-1-8-179 | CHANGED | rc=0 >>
+						004ca70d1ac82857d824377d11de5c02  /home/wwwroot/www.trackingmore.com/app.yaml
+						ali-ind-h-qi-1-8-251 | CHANGED | rc=0 >>
+						004ca70d1ac82857d824377d11de5c02  /home/wwwroot/www.trackingmore.com/app.yaml
+						ali-ind-h-qi-0-7-180 | CHANGED | rc=0 >>
+						004ca70d1ac82857d824377d11de5c02  /home/wwwroot/www.trackingmore.com/app.yaml
+						ali-ind-h-qi-1-8-142 | CHANGED | rc=0 >>
+						004ca70d1ac82857d824377d11de5c02  /home/wwwroot/www.trackingmore.com/app.yaml
+						ali-ind-h-qi-1-8-236 | CHANGED | rc=0 >>
+						004ca70d1ac82857d824377d11de5c02  /home/wwwroot/www.trackingmore.com/app.yaml
+						ali-ind-h-qi-1-8-250 | CHANGED | rc=0 >>
+						004ca70d1ac82857d824377d11de5c02  /home/wwwroot/www.trackingmore.com/app.yaml
+						ali-ind-h-qi-1-8-129 | CHANGED | rc=0 >>
+						004ca70d1ac82857d824377d11de5c02  /home/wwwroot/www.trackingmore.com/app.yaml
+						ali-ind-h-qi-1-8-219 | CHANGED | rc=0 >>
+						004ca70d1ac82857d824377d11de5c02  /home/wwwroot/www.trackingmore.com/app.yaml
+						ali-ind-h-qi-2-9-31 | CHANGED | rc=0 >>
+						004ca70d1ac82857d824377d11de5c02  /home/wwwroot/www.trackingmore.com/app.yaml
+						ali-ind-h-qi-1-8-233 | CHANGED | rc=0 >>
+						004ca70d1ac82857d824377d11de5c02  /home/wwwroot/www.trackingmore.com/app.yaml
+						ali-ind-h-qi-1-8-166 | CHANGED | rc=0 >>
+						004ca70d1ac82857d824377d11de5c02  /home/wwwroot/www.trackingmore.com/app.yaml
+						ali-ind-h-qi-2-9-155 | CHANGED | rc=0 >>
+						004ca70d1ac82857d824377d11de5c02  /home/wwwroot/www.trackingmore.com/app.yaml
+						ali-ind-h-qi-2-9-149 | CHANGED | rc=0 >>
+						004ca70d1ac82857d824377d11de5c02  /home/wwwroot/www.trackingmore.com/app.yaml
+						ali-ind-h-qi-2-9-135 | CHANGED | rc=0 >>
+						004ca70d1ac82857d824377d11de5c02  /home/wwwroot/www.trackingmore.com/app.yaml
+						ali-ind-h-qi-2-9-1 | CHANGED | rc=0 >>
+						004ca70d1ac82857d824377d11de5c02  /home/wwwroot/www.trackingmore.com/app.yaml
+						ali-ind-h-qi-2-9-39 | CHANGED | rc=0 >>
+						004ca70d1ac82857d824377d11de5c02  /home/wwwroot/www.trackingmore.com/app.yaml
+						ali-ind-h-qi-2-9-126 | CHANGED | rc=0 >>
+						004ca70d1ac82857d824377d11de5c02  /home/wwwroot/www.trackingmore.com/app.yaml
+						ali-ind-h-qi-2-9-77 | CHANGED | rc=0 >>
+						004ca70d1ac82857d824377d11de5c02  /home/wwwroot/www.trackingmore.com/app.yaml
+						ali-ind-h-qi-2-9-205 | CHANGED | rc=0 >>
+						004ca70d1ac82857d824377d11de5c02  /home/wwwroot/www.trackingmore.com/app.yaml
+						ali-ind-h-qi-2-9-130 | CHANGED | rc=0 >>
+						004ca70d1ac82857d824377d11de5c02  /home/wwwroot/www.trackingmore.com/app.yaml
+						ali-ind-h-qi-3-1-249 | CHANGED | rc=0 >>
+						004ca70d1ac82857d824377d11de5c02  /home/wwwroot/www.trackingmore.com/app.yaml
+						ali-ind-h-qi-3-2-186 | CHANGED | rc=0 >>
+						004ca70d1ac82857d824377d11de5c02  /home/wwwroot/www.trackingmore.com/app.yaml
+						ali-ind-h-qi-3-3-157 | CHANGED | rc=0 >>
+						004ca70d1ac82857d824377d11de5c02  /home/wwwroot/www.trackingmore.com/app.yaml
+						ali-ind-h-qi-3-5-36 | CHANGED | rc=0 >>
+						004ca70d1ac82857d824377d11de5c02  /home/wwwroot/www.trackingmore.com/app.yaml
+						ali-ind-h-qi-3-4-36 | CHANGED | rc=0 >>
+						004ca70d1ac82857d824377d11de5c02  /home/wwwroot/www.trackingmore.com/app.yaml
+						ali-ind-h-qi-3-6-178 | CHANGED | rc=0 >>
+						004ca70d1ac82857d824377d11de5c02  /home/wwwroot/www.trackingmore.com/app.yaml
+						ali-ind-h-qi-3-8-232 | CHANGED | rc=0 >>
+						004ca70d1ac82857d824377d11de5c02  /home/wwwroot/www.trackingmore.com/app.yaml
+						ali-ind-h-qi-3-7-210 | CHANGED | rc=0 >>
+						004ca70d1ac82857d824377d11de5c02  /home/wwwroot/www.trackingmore.com/app.yaml
+						ali-ind-h-qi-3-9-182 | CHANGED | rc=0 >>
+						004ca70d1ac82857d824377d11de5c02  /home/wwwroot/www.trackingmore.com/app.yaml
+						ali-ind-h-qi-3-10-189 | CHANGED | rc=0 >>
+						004ca70d1ac82857d824377d11de5c02  /home/wwwroot/www.trackingmore.com/app.yaml
+						ali-ind-h-qi-4-1-221 | CHANGED | rc=0 >>
+						004ca70d1ac82857d824377d11de5c02  /home/wwwroot/www.trackingmore.com/app.yaml
+						ali-ind-h-qi-4-2-229 | CHANGED | rc=0 >>
+						004ca70d1ac82857d824377d11de5c02  /home/wwwroot/www.trackingmore.com/app.yaml
+						ali-ind-h-qi-4-4-28 | CHANGED | rc=0 >>
+						004ca70d1ac82857d824377d11de5c02  /home/wwwroot/www.trackingmore.com/app.yaml
+						ali-ind-h-qi-4-3-133 | CHANGED | rc=0 >>
+						004ca70d1ac82857d824377d11de5c02  /home/wwwroot/www.trackingmore.com/app.yaml
+						ali-ind-h-qi-4-6-191 | CHANGED | rc=0 >>
+						004ca70d1ac82857d824377d11de5c02  /home/wwwroot/www.trackingmore.com/app.yaml
+						ali-ind-h-qi-4-5-14 | CHANGED | rc=0 >>
+						004ca70d1ac82857d824377d11de5c02  /home/wwwroot/www.trackingmore.com/app.yaml
+						ali-ind-h-qi-4-7-248 | CHANGED | rc=0 >>
+						004ca70d1ac82857d824377d11de5c02  /home/wwwroot/www.trackingmore.com/app.yaml
+						ali-ind-h-qi-4-9-79 | CHANGED | rc=0 >>
+						004ca70d1ac82857d824377d11de5c02  /home/wwwroot/www.trackingmore.com/app.yaml
+						ali-ind-h-qi-4-10-20 | CHANGED | rc=0 >>
+						004ca70d1ac82857d824377d11de5c02  /home/wwwroot/www.trackingmore.com/app.yaml
+						ali-ind-h-qi-4-8-132 | CHANGED | rc=0 >>
+						004ca70d1ac82857d824377d11de5c02  /home/wwwroot/www.trackingmore.com/app.yaml
+						ali-ind-h-qi-5-1-242 | CHANGED | rc=0 >>
+						004ca70d1ac82857d824377d11de5c02  /home/wwwroot/www.trackingmore.com/app.yaml
+						ali-ind-h-qi-5-2-92 | CHANGED | rc=0 >>
+						004ca70d1ac82857d824377d11de5c02  /home/wwwroot/www.trackingmore.com/app.yaml
+						ali-ind-h-qi-5-3-129 | CHANGED | rc=0 >>
+						004ca70d1ac82857d824377d11de5c02  /home/wwwroot/www.trackingmore.com/app.yaml
+						ali-ind-h-qi-5-4-134 | CHANGED | rc=0 >>
+						004ca70d1ac82857d824377d11de5c02  /home/wwwroot/www.trackingmore.com/app.yaml
+						ali-ind-h-qi-5-5-174 | CHANGED | rc=0 >>
+						004ca70d1ac82857d824377d11de5c02  /home/wwwroot/www.trackingmore.com/app.yaml
+						ali-ind-h-qi-5-6-7 | CHANGED | rc=0 >>
+						004ca70d1ac82857d824377d11de5c02  /home/wwwroot/www.trackingmore.com/app.yaml
+						ali-ind-h-qi-5-7-221 | CHANGED | rc=0 >>
+						004ca70d1ac82857d824377d11de5c02  /home/wwwroot/www.trackingmore.com/app.yaml
+						ali-ind-h-qi-5-8-135 | CHANGED | rc=0 >>
+						004ca70d1ac82857d824377d11de5c02  /home/wwwroot/www.trackingmore.com/app.yaml
+						ali-ind-h-qi-5-10-79 | CHANGED | rc=0 >>
+						004ca70d1ac82857d824377d11de5c02  /home/wwwroot/www.trackingmore.com/app.yaml
+						ali-ind-h-qi-5-9-22 | CHANGED | rc=0 >>
+						004ca70d1ac82857d824377d11de5c02  /home/wwwroot/www.trackingmore.com/app.yaml
+						ali-ind-h-qi-6-1-216 | CHANGED | rc=0 >>
+						004ca70d1ac82857d824377d11de5c02  /home/wwwroot/www.trackingmore.com/app.yaml
+						ali-ind-h-qi-6-2-7 | CHANGED | rc=0 >>
+						004ca70d1ac82857d824377d11de5c02  /home/wwwroot/www.trackingmore.com/app.yaml
+						ali-ind-h-qi-6-4-221 | CHANGED | rc=0 >>
+						004ca70d1ac82857d824377d11de5c02  /home/wwwroot/www.trackingmore.com/app.yaml
+						ali-ind-h-qi-6-6-135 | CHANGED | rc=0 >>
+						004ca70d1ac82857d824377d11de5c02  /home/wwwroot/www.trackingmore.com/app.yaml
+						ali-ind-h-qi-6-7-103 | CHANGED | rc=0 >>
+						004ca70d1ac82857d824377d11de5c02  /home/wwwroot/www.trackingmore.com/app.yaml
+						ali-ind-h-qi-6-5-39 | CHANGED | rc=0 >>
+						004ca70d1ac82857d824377d11de5c02  /home/wwwroot/www.trackingmore.com/app.yaml
+						ali-ind-h-qi-6-8-127 | CHANGED | rc=0 >>
+						004ca70d1ac82857d824377d11de5c02  /home/wwwroot/www.trackingmore.com/app.yaml
+						ali-ind-h-qi-6-9-133 | CHANGED | rc=0 >>
+						004ca70d1ac82857d824377d11de5c02  /home/wwwroot/www.trackingmore.com/app.yaml
+						ali-ind-h-qi-6-10-129 | CHANGED | rc=0 >>
+						004ca70d1ac82857d824377d11de5c02  /home/wwwroot/www.trackingmore.com/app.yaml
+						ali-ind-h-qi-7-2-85 | CHANGED | rc=0 >>
+						004ca70d1ac82857d824377d11de5c02  /home/wwwroot/www.trackingmore.com/app.yaml
+						ali-ind-h-qi-7-3-235 | CHANGED | rc=0 >>
+						004ca70d1ac82857d824377d11de5c02  /home/wwwroot/www.trackingmore.com/app.yaml
+						ali-ind-h-qi-7-1-194 | CHANGED | rc=0 >>
+						004ca70d1ac82857d824377d11de5c02  /home/wwwroot/www.trackingmore.com/app.yaml
+						ali-ind-h-qi-7-5-137 | CHANGED | rc=0 >>
+						004ca70d1ac82857d824377d11de5c02  /home/wwwroot/www.trackingmore.com/app.yaml
+						ali-ind-h-qi-7-7-97 | CHANGED | rc=0 >>
+						004ca70d1ac82857d824377d11de5c02  /home/wwwroot/www.trackingmore.com/app.yaml
+						ali-ind-h-qi-7-6-209 | CHANGED | rc=0 >>
+						004ca70d1ac82857d824377d11de5c02  /home/wwwroot/www.trackingmore.com/app.yaml
+						ali-ind-h-qi-7-10-236 | CHANGED | rc=0 >>
+						004ca70d1ac82857d824377d11de5c02  /home/wwwroot/www.trackingmore.com/app.yaml
+						ali-ind-h-qi-7-8-180 | CHANGED | rc=0 >>
+						004ca70d1ac82857d824377d11de5c02  /home/wwwroot/www.trackingmore.com/app.yaml
+						ali-ind-h-qi-7-4-52 | CHANGED | rc=0 >>
+						004ca70d1ac82857d824377d11de5c02  /home/wwwroot/www.trackingmore.com/app.yaml
+						ali-ind-h-qi-6-3-251 | CHANGED | rc=0 >>
+						004ca70d1ac82857d824377d11de5c02  /home/wwwroot/www.trackingmore.com/app.yaml
+						ali-ind-h-qi-7-9-203 | CHANGED | rc=0 >>
+						004ca70d1ac82857d824377d11de5c02  /home/wwwroot/www.trackingmore.com/app.yaml
+
+						cat /home/wwwroot/www.trackingmore.com/config/Spyc.php
+
+						ansible api -m copy -a "src=/home/wwwroot/www.trackingmore.com/config/Spyc.php dest=/home/wwwroot/www.trackingmore.com/config/"
+
+
 		https://devops.aliyun.com/projex/req/TMPX-6650# 《完成TM邮件批量发送在HubSpot所需的域名认证》
 			clooney@trackingmore.org账号下进行添加 trackingmore.org域名
 				DKIM
