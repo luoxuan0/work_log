@@ -13456,6 +13456,472 @@
 											/home/wwwroot/www.trackingmore.com/script: 207 MB
 											/home/wwwroot/www.trackingmore.com/section: 505 MB
 									待办：自动执行脚本
+									--20250720
+										[root@iz0xif9y7r0fstxmq97t54z ~]# df -h
+										Filesystem      Size  Used Avail Use% Mounted on
+										/dev/vda1        40G   39G  505M  99% /
+										devtmpfs         16G     0   16G   0% /dev
+										tmpfs            16G     0   16G   0% /dev/shm
+										tmpfs            16G  4.9G   11G  33% /run
+										tmpfs            16G     0   16G   0% /sys/fs/cgroup
+										tmpfs           3.1G     0  3.1G   0% /run/user/0
+										tmpfs           3.1G     0  3.1G   0% /run/user/1002
+										overlay          40G   39G  505M  99% /var/lib/docker/overlay2/d2703df78bc816ff68a6a91dd805825fdf41731b86dfb1acd45f001bad32e406/merged
+										overlay          40G   39G  505M  99% /var/lib/docker/overlay2/c043633fbddd7d4d2248284247bf06cc75fa5c740aa1366400bce75bb4168d14/merged
+										overlay          40G   39G  505M  99% /var/lib/docker/overlay2/b47a079dc9b17057739e60cc62794e9a083ef16f31890d897d67b8f31bd7a89a/merged
+										overlay          40G   39G  505M  99% /var/lib/docker/overlay2/83a49448c3e2713448d182eeb258505bdc2ef04eec331ba8b4499705e6ff06ed/merged
+										overlay          40G   39G  505M  99% /var/lib/docker/overlay2/46169c1ebedc71c054485e7a978387aa1d1b216470e539ecf3a12e84fd9c64aa/merged
+										overlay          40G   39G  505M  99% /var/lib/docker/overlay2/5a5d007e804e80f97e67cb993e7c00b6716bab22d40d780b03766a6ae871c4f3/merged
+										overlay          40G   39G  505M  99% /var/lib/docker/overlay2/1c60ac1751f37f5ea647ab8ad054192ec6eb9366d0ecc1b87b8d9d41e8933d98/merged
+										overlay          40G   39G  505M  99% /var/lib/docker/overlay2/eeb9c4ad79ae52e1698640c687ff2ef67360853b151f7ef2c61d8af38bd4a667/merged
+										overlay          40G   39G  505M  99% /var/lib/docker/overlay2/c780375c3d2c9bb41aea4785502cb8c045059b9666dbbfd4ce1b27c170de570b/merged
+										overlay          40G   39G  505M  99% /var/lib/docker/overlay2/5b9c7648f8a3103ae472be96492b4d694f28b9d4636f4a3c7fc28387b15f3c5b/merged
+										overlay          40G   39G  505M  99% /var/lib/docker/overlay2/be0afb28162fb4cbbba3653a35944a6fcc80eb1367426089b3c37dcac0af5053/merged
+										overlay          40G   39G  505M  99% /var/lib/docker/overlay2/b68be4f7b9222815ce8e644673aaef6cb6995ea0f7ebb85900394e898231568e/merged
+										overlay          40G   39G  505M  99% /var/lib/docker/overlay2/b8002b093029398fa675a5f103ad00052abffc8ea71c3d32e987e853a3958baf/merged
+										overlay          40G   39G  505M  99% /var/lib/docker/overlay2/9260ba6e864c36bbffd8248bee952df6b8ae211cbb40a17b954e95c4446b6450/merged
+										overlay          40G   39G  505M  99% /var/lib/docker/overlay2/ed7aa946cad59fe8f785e810a2cc68636ae6ee4aa076d291c674f0a8e780c3bd/merged
+										overlay          40G   39G  505M  99% /var/lib/docker/overlay2/42f90134a9d2925e59000e462681b05b6a399b31228537281a92f25afc8df878/merged
+										overlay          40G   39G  505M  99% /var/lib/docker/overlay2/40d2cb0487f9b57bc2bb10bf1e52d5fc1caca3dd35af46c0ee2f3779028edf2d/merged
+										overlay          40G   39G  505M  99% /var/lib/docker/overlay2/cf95d1b2d1272e586c0196fb584c7a7517890a94206cbca3e7a567756d036aad/merged
+										(reverse-i-search)`100': sh disk.20241023.sh / 3 ^C0
+										[root@iz0xif9y7r0fstxmq97t54z ~]# docker ps -a
+										CONTAINER ID   IMAGE            COMMAND                  CREATED         STATUS         PORTS     NAMES
+										5842babfc35c   trackingparser   "/app/TrackingParser…"   15 months ago   Up 10 months             trackingparser-18
+										9bf68055de54   trackingparser   "/app/TrackingParser…"   15 months ago   Up 11 months             trackingparser-17
+										6c955e94f556   trackingparser   "/app/TrackingParser…"   15 months ago   Up 9 months              trackingparser-16
+										d78e51b5098e   trackingparser   "/app/TrackingParser…"   15 months ago   Up 9 months              trackingparser-15
+										1707c30f3b47   trackingparser   "/app/TrackingParser…"   15 months ago   Up 9 months              trackingparser-14
+										da101fe2081c   trackingparser   "/app/TrackingParser…"   15 months ago   Up 11 months             trackingparser-13
+										0631b9c80147   trackingparser   "/app/TrackingParser…"   15 months ago   Up 11 months             trackingparser-12
+										f9af0dc003fa   trackingparser   "/app/TrackingParser…"   15 months ago   Up 11 months             trackingparser-11
+										c9121a57ac80   trackingparser   "/app/TrackingParser…"   15 months ago   Up 11 months             trackingparser-10
+										72271d2779a9   trackingparser   "/app/TrackingParser…"   15 months ago   Up 11 months             trackingparser-9
+										cafc30feedad   trackingparser   "/app/TrackingParser…"   15 months ago   Up 9 months              trackingparser-8
+										343c101ec600   trackingparser   "/app/TrackingParser…"   15 months ago   Up 11 months             trackingparser-7
+										4390186ea88d   trackingparser   "/app/TrackingParser…"   15 months ago   Up 9 months              trackingparser-6
+										91bfcebc89e1   trackingparser   "/app/TrackingParser…"   15 months ago   Up 9 months              trackingparser-5
+										db5f426608c4   trackingparser   "/app/TrackingParser…"   15 months ago   Up 11 months             trackingparser-4
+										d539ca26b2a5   trackingparser   "/app/TrackingParser…"   15 months ago   Up 11 months             trackingparser-3
+										f78a3f4389aa   trackingparser   "/app/TrackingParser…"   15 months ago   Up 11 months             trackingparser-2
+										63e99b8d735e   trackingparser   "/app/TrackingParser…"   15 months ago   Up 9 months              trackingparser-1
+										[root@iz0xif9y7r0fstxmq97t54z ~]# cat /home/wwwroot/www.trackingmore.com/script/log/queue_diskTree.20250720.log
+										2025-07-20 02:00:06
+										-rw-r--r-- 1 root root 717M Aug 18  2024 /run/log/171.csv.zip
+										-rw-r--r-- 1 root root 672M Dec  4  2024 /run/log/20241204.zip
+										-rw-r--r-- 1 root root 170M Aug 18  2024 /run/log/1716.csv.zip
+										-rw-r--r-- 1 root root 170M Aug 18  2024 /run/log/1715.csv.zip
+										-rw-r--r-- 1 root root 169M Aug 18  2024 /run/log/1714.csv.zip
+										-rw-r--r-- 1 root root 163M Aug 18  2024 /run/log/1718.csv.zip
+										-rw-r--r-- 1 root root 156M Jun 22  2024 /var/cache/yum/x86_64/7/updates/gen/primary_db.sqlite
+										-rw-r--r-- 1 root root 148M Aug 18  2024 /run/log/1717.csv.zip
+										-rw-r--r-- 1 root root 136M Dec 10  2024 /run/log/20241210.zip
+										-r-------- 1 root root 128T Jul 20 02:00 /proc/kcore
+										-rw-r--r-- 1 root root 102M Mar 16  2018 /usr/lib/locale/locale-archive
+										├── /: 46685 MB
+										│   ├── /home: 21606 MB
+										│   │   ├── /home/wwwroot: 21438 MB
+										│   ├── /root: 180 MB
+										│   ├── /data: 280 MB
+										│   │   ├── /data/server_logs: 280 MB
+										│   ├── /run: 4958 MB
+										│   │   ├── /run/log: 4945 MB
+										│   │   │   └── 171.csv.zip: 717 MB
+										│   │   │   └── 20241204.zip: 672 MB
+										│   │   │   └── 1716.csv.zip: 170 MB
+										│   │   │   └── 1715.csv.zip: 170 MB
+										│   │   │   └── 1714.csv.zip: 169 MB
+										│   ├── /boot: 147 MB
+										│   ├── /var: 5906 MB
+										│   │   ├── /var/cache: 350 MB
+										│   │   ├── /var/lib: 4066 MB
+										│   │   ├── /var/log: 1490 MB
+										│   ├── /usr: 13490 MB
+										│   │   ├── /usr/lib: 486 MB
+										│   │   ├── /usr/lib64: 250 MB
+										│   │   ├── /usr/local: 11636 MB
+										│   │   ├── /usr/bin: 370 MB
+										│   │   ├── /usr/libexec: 200 MB
+										│   │   ├── /usr/share: 476 MB
+										│   │   └── kcore: 134217727 MB
+										├── /data/server_logs: 280 MB
+										│   ├── /data/server_logs/root: 215 MB
+										├── /home/wwwroot: 21439 MB
+										│   ├── /home/wwwroot/upload: 5018 MB
+										│   │   ├── /home/wwwroot/upload/huaqiang: 4534 MB
+										│   │   ├���─ /home/wwwroot/upload/lipeng: 415 MB
+										│   ├── /home/wwwroot/www.trackingmore.com: 16400 MB
+										│   │   ├── /home/wwwroot/www.trackingmore.com/python_img: 300 MB
+										│   │   ├── /home/wwwroot/www.trackingmore.com/section: 505 MB
+										│   │   ├── /home/wwwroot/www.trackingmore.com/logs: 268 MB
+										│   │   ├── /home/wwwroot/www.trackingmore.com/admin: 14424 MB
+										│   │   ├── /home/wwwroot/www.trackingmore.com/script: 214 MB
+										│   │   ├── /home/wwwroot/www.trackingmore.com/python3: 221 MB
+
+										(reverse-i-search)`rm': crontab -l | grep platfo^C
+										[root@iz0xif9y7r0fstxmq97t54z ~]# history | grep admin
+											4  cd /home/wwwroot/www.trackingmore.com/admin/upload/auto_csv
+										142  find /home/wwwroot/www.trackingmore.com/admin/upload/auto_csv -maxdepth 1 -type f -name \*csv -newermt 20231101 ! -newermt 20231224 | wc -l
+										151  find /home/wwwroot/www.trackingmore.com/admin/upload/auto_csv -maxdepth 1 -type f -name \*csv -newermt 20231101 ! -newermt 20231224 | wc -l
+										386  ll /data/server_logs/home/wwwroot/www.trackingmore.com/admin/upload/auto_csv | head
+										387  ll /data/server_logs/home/wwwroot/www.trackingmore.com/admin/upload/auto_csv | tail
+										390  ll /data/server_logs/home/wwwroot/www.trackingmore.com/admin/upload/auto_csv | head
+										391  ll /data/server_logs/home/wwwroot/www.trackingmore.com/admin/upload/auto_csv | grep csv | wc -l
+										392  ll /data/server_logs/home/wwwroot/www.trackingmore.com/admin/upload/auto_csv | grep csv | grep -v zip | wc -l
+										393  ll /data/server_logs/home/wwwroot/www.trackingmore.com/admin/upload/auto_csv | grep csv | grep 0818 | wc -l
+										394  ll /data/server_logs/home/wwwroot/www.trackingmore.com/admin/upload/auto_csv | grep csv | head -1000 | awk '{print }'
+										395  ll /data/server_logs/home/wwwroot/www.trackingmore.com/admin/upload/auto_csv | grep csv | head -1000 | awk '{print $9}' | head 
+										396  lcd /data/server_logs/home/wwwroot/www.trackingmore.com/admin/upload/auto_csv 
+										397  cd /data/server_logs/home/wwwroot/www.trackingmore.com/admin/upload/auto_csv 
+										412  du -sh /home/wwwroot/www.trackingmore.com/admin/upload/auto_csv_zip
+										413  du -sh /home/wwwroot/www.trackingmore.com/admin/upload/
+										414  ll /home/wwwroot/www.trackingmore.com/admin/upload/ | head
+										416  find /home/wwwroot/www.trackingmore.com/admin/upload/  -type f ! -newermt "2020-01-01" | wc -l
+										417  find /home/wwwroot/www.trackingmore.com/admin/upload/  -type f ! -newermt "2020-01-01"
+										418  find /home/wwwroot/www.trackingmore.com/admin/upload/  -type f ! -newermt "2020-01-01" | xargs -i ls -lh {}
+										419  find /home/wwwroot/www.trackingmore.com/admin/upload/  -type f ! -newermt "2021-01-01" | xargs -i ls -lh {}
+										420  find /home/wwwroot/www.trackingmore.com/admin/upload/  -type f ! -newermt "2024-01-01" | wc -l
+										421  find /home/wwwroot/www.trackingmore.com/admin/upload/  -type f ! -newermt "2024-11-01" | wc -l
+										424  find /home/wwwroot/www.trackingmore.com/admin/upload/  -type f ! -newermt "2024-05-01" | wc -l
+										425  find /home/wwwroot/www.trackingmore.com/admin/upload/  -type f ! -newermt "2024-05-01" | xargs -i zip /run/log/20241204.zip {};find /home/wwwroot/www.trackingmore.com/admin/upload/  -type f ! -newermt "2024-05-01" | xargs -i rm -f {}
+										433  find /home/wwwroot/www.trackingmore.com/admin/upload/  -type f ! -newermt "2024-05-01" | wc -l
+										435  find /home/wwwroot/www.trackingmore.com/admin/upload/  -type f ! -newermt "2024-06-01" | wc -l
+										436  find /home/wwwroot/www.trackingmore.com/admin/upload/  -type f ! -newermt "2024-07-01" | wc -l
+										437  find /home/wwwroot/www.trackingmore.com/admin/upload/  -type f ! -newermt "2024-07-01" | tail
+										438  find /home/wwwroot/www.trackingmore.com/admin/upload/  -type f ! -newermt "2024-07-01" | tail | xargs -i ls -lh {}
+										442  find /home/wwwroot/www.trackingmore.com/admin/upload/  -type f ! -newermt "2024-07-01" | wc -l
+										443  find /home/wwwroot/www.trackingmore.com/admin/upload/  -type f ! -newermt "2024-12-01" | wc -l
+										444  find /home/wwwroot/www.trackingmore.com/admin/upload/  -type f ! -newermt "2024-12-09" | wc -l
+										445  find /home/wwwroot/www.trackingmore.com/admin/upload/  -type f ! -newermt "2024-12-08" | wc -l
+										451  find /home/wwwroot/www.trackingmore.com/admin/upload/  -type f ! -newermt "2024-05-01" | xargs -i zip /run/log/20241204.zip {};find /home/wwwroot/www.trackingmore.com/admin/upload/  -type f ! -newermt "2024-05-01" | xargs -i rm -f {}
+										454  find /home/wwwroot/www.trackingmore.com/admin/upload/  -type f ! -newermt "2024-07-01" | xargs -i zip /run/log/20241210.zip {};find /home/wwwroot/www.trackingmore.com/admin/upload/  -type f ! -newermt "2024-07-01" | xargs -i rm -f {}
+										468   find /home/wwwroot/www.trackingmore.com/admin/upload/  -type f ! -newermt "2024-08-01" | wc -l
+										469   find /home/wwwroot/www.trackingmore.com/admin/upload/  -type f ! -newermt "2024-10-01" | wc -l
+										470   find /home/wwwroot/www.trackingmore.com/admin/upload/  -type f ! -newermt "2024-12-01" | wc -l
+										677  ll /data/server_logs/home/wwwroot/www.trackingmore.com/admin/myshopify/logs/
+										709  sh disk.20241023.sh /run/log/home-wwwroot-www.trackingmore.com-admin-upload-auto_csv 3 100
+										718  sh disk.20241023.sh /data/server_logs/home/wwwroot/www.trackingmore.com/admin/ 3 100
+										719  sh disk.20241023.sh /data/server_logs/home/wwwroot/www.trackingmore.com/admin/upload/auto_csv/20240818224 3 100
+										720  sh disk.20241023.sh /data/server_logs/home/wwwroot/www.trackingmore.com/admin/upload/auto_csv 3 100
+										721  ll /data/server_logs/home/wwwroot/www.trackingmore.com/admin/upload/auto_csv/20240818224 
+										722  du -sh /data/server_logs/home/wwwroot/www.trackingmore.com/admin/upload/auto_csv/20240818224 
+										723  du -sh /data/server_logs/home/wwwroot/www.trackingmore.com/admin/upload/auto_csv/
+										725  sh disk.20241023.sh /data/server_logs/home/wwwroot/www.trackingmore.com/admin/upload/auto_csv 3 100
+										731  sh disk.20241023.sh /data/server_logs/home/wwwroot/www.trackingmore.com/admin/upload/auto_csv 3 100
+										733  sh disk.20241023.sh /data/server_logs/home/wwwroot/www.trackingmore.com/admin/upload/auto_csv 3 100
+										734  ll /data/server_logs/home/wwwroot/www.trackingmore.com/admin/upload/auto_csv | head
+										735  rm -f /data/server_logs/home/wwwroot/www.trackingmore.com/admin/upload/auto_csv/2024*.csv
+										738  rm -f /data/server_logs/home/wwwroot/www.trackingmore.com/admin/upload/auto_csv/202501*.csv
+										740  rm -f /data/server_logs/home/wwwroot/www.trackingmore.com/admin/upload/auto_csv/202502*.csv
+										742   find /home/wwwroot/www.trackingmore.com/admin/upload/  -type f ! -newermt "2024-10-01" | wc -l
+										743   find /home/wwwroot/www.trackingmore.com/admin/upload/  -type f -newermt "2024-10-01" | wc -l
+										744   find /home/wwwroot/www.trackingmore.com/admin/upload/  -type f -newermt "2024-10-01" | head
+										745  ll /home/wwwroot/www.trackingmore.com/admin/upload/auto_csv/20250302010013-225546.csv
+										746   find /home/wwwroot/www.trackingmore.com/admin/upload/  -type f ! -newermt "2024-10-01" | head
+										747  ll /home/wwwroot/www.trackingmore.com/admin/upload/auto_csv/91683-1723996870.csv
+										752  ll /home/wwwroot/www.trackingmore.com/admin/upload_zip/
+										753  unzip -l  /home/wwwroot/www.trackingmore.com/admin/upload_zip/202502.zip 
+										754  ll  /home/wwwroot/www.trackingmore.com/admin/upload
+										756  unzip -l  /home/wwwroot/www.trackingmore.com/admin/upload_zip/202502.zip  | w c-l
+										757  unzip -l  /home/wwwroot/www.trackingmore.com/admin/upload_zip/202502.zip  | wc -l
+										758  unzip -l  /home/wwwroot/www.trackingmore.com/admin/upload_zip/202502.zip  | w c-l
+										759  unzip -l  /home/wwwroot/www.trackingmore.com/admin/upload_zip/202502.zip  | wc -l
+										761  unzip -l  /home/wwwroot/www.trackingmore.com/admin/upload_zip/202502.zip  | wc -l
+										764  unzip -l  /home/wwwroot/www.trackingmore.com/admin/upload_zip/202502.zip  | wc -l
+										766  unzip -l  /home/wwwroot/www.trackingmore.com/admin/upload_zip/202502.zip  | wc -l
+										768  unzip -l  /home/wwwroot/www.trackingmore.com/admin/upload_zip/202502.zip  | wc -l
+										771  unzip -l  /home/wwwroot/www.trackingmore.com/admin/upload_zip/202502.zip  | wc -l
+										773  unzip -l  /home/wwwroot/www.trackingmore.com/admin/upload_zip/202502.zip  | wc -l
+										778  unzip -l  /home/wwwroot/www.trackingmore.com/admin/upload_zip/202502.zip  | wc -l
+										780  unzip -l  /home/wwwroot/www.trackingmore.com/admin/upload_zip/202502.zip  | wc -l
+										797  sh disk.20241023.sh /home/wwwroot/www.trackingmore.com/admin 3 100
+										798  sh disk.20241023.sh /home/wwwroot/www.trackingmore.com/admin/upload/auto_csv 3 100
+										799  ll /home/wwwroot/www.trackingmore.com/admin/upload/auto_csv | head
+										800  ll /home/wwwroot/www.trackingmore.com/admin/upload/auto_csv | tail
+										802  ll /home/wwwroot/www.trackingmore.com/admin/upload/auto_csv | wc -l
+										803  ll /home/wwwroot/www.trackingmore.com/admin/upload/auto_csv | grep -v csv | wc -l
+										804  ll /home/wwwroot/www.trackingmore.com/admin/upload/auto_csv | grep -v csv | head
+										805  ll /home/wwwroot/www.trackingmore.com/admin/upload/auto_csv | grep -v csv | tail
+										806  du -sh /home/wwwroot/www.trackingmore.com/admin/upload/auto_csv_zip/
+										807  ll /home/wwwroot/www.trackingmore.com/admin/upload/auto_csv_zip/
+										808  d=`date '+%Y%m%d'`;sh zipAndRmSpecifyTimeFile.sh zipAndRmlogBymon /home/wwwroot/www.trackingmore.com/admin/upload '.csv' 1 >>  /home/wwwlogs/zipAndRmSpecifyTimeFile.sh.${d}.log
+										811  d=`date '+%Y%m%d'`;sh zipAndRmSpecifyTimeFile.sh zipAndRmlogBymon /home/wwwroot/www.trackingmore.com/admin/upload '.csv' 1 >>  /home/wwwlogs/zipAndRmSpecifyTimeFile.sh.${d}.log
+										812  rm -f /home/wwwroot/www.trackingmore.com/admin/upload_zip/202502.zip 
+										825  unzip -l /home/wwwroot/www.trackingmore.com/admin/upload/auto_csv_zip/20250307.zip | head
+										826  unzip -l /home/wwwroot/www.trackingmore.com/admin/upload/auto_csv_zip/20250307.zip | tail
+										832  sh zipAndRmSpecifyTimeFile.sh zipAndRmlogByDay /home/wwwroot/www.trackingmore.com/admin/upload/auto_csv '.xls' '20240101' '20250101' 1
+										834  sh zipAndRmSpecifyTimeFile.sh zipAndRmlogByDay /home/wwwroot/www.trackingmore.com/admin/upload/auto_csv '.xls' '20240101' '20250101' 1
+										836  sh zipAndRmSpecifyTimeFile.sh zipAndRmlogByDay /home/wwwroot/www.trackingmore.com/admin/upload/auto_csv '.xls' '20240101' '20250101' 1
+										837  ll /home/wwwroot/www.trackingmore.com/admin/upload/auto_csv_zip/20240801..xls.zip
+										838  ll /home/wwwroot/www.trackingmore.com/admin/upload/auto_csv_zip/*xls.zip
+										839  rm -f /home/wwwroot/www.trackingmore.com/admin/upload/auto_csv_zip/*xls.zip
+										840  d=`date '+%Y%m%d'`;sh zipAndRmSpecifyTimeFile.sh zipAndRmlogByDay /home/wwwroot/www.trackingmore.com/admin/upload/auto_csv 'xls' '20240101' '20250101' >>  /home/wwwlogs/zipAndRmSpecifyTimeFile.sh.${d}.log 2>&1
+										841  d=`date '+%Y%m%d'`;sh zipAndRmSpecifyTimeFile.sh zipAndRmlogByDay /home/wwwroot/www.trackingmore.com/admin/upload/auto_csv 'xls' '20250101' '20250301' >>  /home/wwwlogs/zipAndRmSpecifyTimeFile.sh.${d}.log 2>&1
+										842  # d=`date '+%Y%m%d'`;sh zipAndRmSpecifyTimeFile.sh zipAndRmlogByDay /home/wwwroot/www.trackingmore.com/admin/upload/auto_csv 'csv' '20240101' '20250301' >>  /home/wwwlogs/zipAndRmSpecifyTimeFile.sh.${d}.log 2>&1
+										843  sh zipAndRmSpecifyTimeFile.sh zipAndRmlogByDay /home/wwwroot/www.trackingmore.com/admin/upload/auto_csv 'csv' '20240101' '20250301' 1
+										844  # d=`date '+%Y%m%d'`;sh zipAndRmSpecifyTimeFile.sh zipAndRmlogByDay /home/wwwroot/www.trackingmore.com/admin/upload/auto_csv 'csv' '20240101' '20250301' >>  /home/wwwlogs/zipAndRmSpecifyTimeFile.sh.${d}.log 2>&1
+										845  ll -h /home/wwwroot/www.trackingmore.com/admin/upload/auto_csv_zip/20240709.csv.zip
+										846  ll -h /home/wwwroot/www.trackingmore.com/admin/upload/auto_csv_zip/2024070*.csv.zip
+										847  sh zipAndRmSpecifyTimeFile.sh zipAndRmlogByDay /home/wwwroot/www.trackingmore.com/admin/upload/auto_csv 'csv' '20240701' '20250301' 1
+										848  # d=`date '+%Y%m%d'`;sh zipAndRmSpecifyTimeFile.sh zipAndRmlogByDay /home/wwwroot/www.trackingmore.com/admin/upload/auto_csv 'csv' '20240701' '20250301' >>  /home/wwwlogs/zipAndRmSpecifyTimeFile.sh.${d}.log 2>&1
+										849  sh zipAndRmSpecifyTimeFile.sh zipAndRmlogByDay /home/wwwroot/www.trackingmore.com/admin/upload/auto_csv 'csv' '20240701' '20250301'
+										851  d=`date '+%Y%m%d'`;sh zipAndRmSpecifyTimeFile.sh zipAndRmlogByDay /home/wwwroot/www.trackingmore.com/admin/upload/auto_csv 'csv' '20240101' '20250301' >>  /home/wwwlogs/zipAndRmSpecifyTimeFile.sh.${d}.log 2>&1
+										998  history | grep admin
+										[root@iz0xif9y7r0fstxmq97t54z ~]# cat /home/wwwroot/www.trackingmore.com/script/log/queue_diskTree.20250720.log | grep -v data
+										2025-07-20 02:00:06
+										-rw-r--r-- 1 root root 717M Aug 18  2024 /run/log/171.csv.zip
+										-rw-r--r-- 1 root root 672M Dec  4  2024 /run/log/20241204.zip
+										-rw-r--r-- 1 root root 170M Aug 18  2024 /run/log/1716.csv.zip
+										-rw-r--r-- 1 root root 170M Aug 18  2024 /run/log/1715.csv.zip
+										-rw-r--r-- 1 root root 169M Aug 18  2024 /run/log/1714.csv.zip
+										-rw-r--r-- 1 root root 163M Aug 18  2024 /run/log/1718.csv.zip
+										-rw-r--r-- 1 root root 156M Jun 22  2024 /var/cache/yum/x86_64/7/updates/gen/primary_db.sqlite
+										-rw-r--r-- 1 root root 148M Aug 18  2024 /run/log/1717.csv.zip
+										-rw-r--r-- 1 root root 136M Dec 10  2024 /run/log/20241210.zip
+										-r-------- 1 root root 128T Jul 20 02:00 /proc/kcore
+										-rw-r--r-- 1 root root 102M Mar 16  2018 /usr/lib/locale/locale-archive
+										├── /: 46685 MB
+										│   ├── /home: 21606 MB
+										│   │   ├── /home/wwwroot: 21438 MB
+										│   ├── /root: 180 MB
+										│   ├── /run: 4958 MB
+										│   │   ├── /run/log: 4945 MB
+										│   │   │   └── 171.csv.zip: 717 MB
+										│   │   ��   └── 20241204.zip: 672 MB
+										│   │   │   └── 1716.csv.zip: 170 MB
+										│   │   │   └── 1715.csv.zip: 170 MB
+										│   │   │   └── 1714.csv.zip: 169 MB
+										│   ├── /boot: 147 MB
+										│   ├── /var: 5906 MB
+										│   │   ├── /var/cache: 350 MB
+										│   │   ├── /var/lib: 4066 MB
+										│   │   ├── /var/log: 1490 MB
+										│   ├── /usr: 13490 MB
+										│   │   ├── /usr/lib: 486 MB
+										│   │   ├── /usr/lib64: 250 MB
+										│   │   ├── /usr/local: 11636 MB
+										│   │   ├── /usr/bin: 370 MB
+										│   │   ├── /usr/libexec: 200 MB
+										│   │   ├── /usr/share: 476 MB
+										│   │   └── kcore: 134217727 MB
+										├── /home/wwwroot: 21439 MB
+										│   ├── /home/wwwroot/upload: 5018 MB
+										│   │   ├── /home/wwwroot/upload/huaqiang: 4534 MB
+										│   │   ├── /home/wwwroot/upload/lipeng: 415 MB
+										│   ├── /home/wwwroot/www.trackingmore.com: 16400 MB
+										│   │   ├── /home/wwwroot/www.trackingmore.com/python_img: 300 MB
+										│   │   ├── /home/wwwroot/www.trackingmore.com/section: 505 MB
+										│   │   ├── /home/wwwroot/www.trackingmore.com/logs: 268 MB
+										│   │   ├── /home/wwwroot/www.trackingmore.com/admin: 14424 MB
+										│   │   ├── /home/wwwroot/www.trackingmore.com/script: 214 MB
+										│   │   ├── /home/wwwroot/www.trackingmore.com/python3: 221 MB
+
+										[root@iz0xif9y7r0fstxmq97t54z ~]# history | grep admin | grep -v data
+											4  cd /home/wwwroot/www.trackingmore.com/admin/upload/auto_csv
+										142  find /home/wwwroot/www.trackingmore.com/admin/upload/auto_csv -maxdepth 1 -type f -name \*csv -newermt 20231101 ! -newermt 20231224 | wc -l
+										151  find /home/wwwroot/www.trackingmore.com/admin/upload/auto_csv -maxdepth 1 -type f -name \*csv -newermt 20231101 ! -newermt 20231224 | wc -l
+										412  du -sh /home/wwwroot/www.trackingmore.com/admin/upload/auto_csv_zip
+										413  du -sh /home/wwwroot/www.trackingmore.com/admin/upload/
+										414  ll /home/wwwroot/www.trackingmore.com/admin/upload/ | head
+										416  find /home/wwwroot/www.trackingmore.com/admin/upload/  -type f ! -newermt "2020-01-01" | wc -l
+										417  find /home/wwwroot/www.trackingmore.com/admin/upload/  -type f ! -newermt "2020-01-01"
+										418  find /home/wwwroot/www.trackingmore.com/admin/upload/  -type f ! -newermt "2020-01-01" | xargs -i ls -lh {}
+										419  find /home/wwwroot/www.trackingmore.com/admin/upload/  -type f ! -newermt "2021-01-01" | xargs -i ls -lh {}
+										420  find /home/wwwroot/www.trackingmore.com/admin/upload/  -type f ! -newermt "2024-01-01" | wc -l
+										421  find /home/wwwroot/www.trackingmore.com/admin/upload/  -type f ! -newermt "2024-11-01" | wc -l
+										424  find /home/wwwroot/www.trackingmore.com/admin/upload/  -type f ! -newermt "2024-05-01" | wc -l
+										425  find /home/wwwroot/www.trackingmore.com/admin/upload/  -type f ! -newermt "2024-05-01" | xargs -i zip /run/log/20241204.zip {};find /home/wwwroot/www.trackingmore.com/admin/upload/  -type f ! -newermt "2024-05-01" | xargs -i rm -f {}
+										433  find /home/wwwroot/www.trackingmore.com/admin/upload/  -type f ! -newermt "2024-05-01" | wc -l
+										435  find /home/wwwroot/www.trackingmore.com/admin/upload/  -type f ! -newermt "2024-06-01" | wc -l
+										436  find /home/wwwroot/www.trackingmore.com/admin/upload/  -type f ! -newermt "2024-07-01" | wc -l
+										437  find /home/wwwroot/www.trackingmore.com/admin/upload/  -type f ! -newermt "2024-07-01" | tail
+										438  find /home/wwwroot/www.trackingmore.com/admin/upload/  -type f ! -newermt "2024-07-01" | tail | xargs -i ls -lh {}
+										442  find /home/wwwroot/www.trackingmore.com/admin/upload/  -type f ! -newermt "2024-07-01" | wc -l
+										443  find /home/wwwroot/www.trackingmore.com/admin/upload/  -type f ! -newermt "2024-12-01" | wc -l
+										444  find /home/wwwroot/www.trackingmore.com/admin/upload/  -type f ! -newermt "2024-12-09" | wc -l
+										445  find /home/wwwroot/www.trackingmore.com/admin/upload/  -type f ! -newermt "2024-12-08" | wc -l
+										451  find /home/wwwroot/www.trackingmore.com/admin/upload/  -type f ! -newermt "2024-05-01" | xargs -i zip /run/log/20241204.zip {};find /home/wwwroot/www.trackingmore.com/admin/upload/  -type f ! -newermt "2024-05-01" | xargs -i rm -f {}
+										454  find /home/wwwroot/www.trackingmore.com/admin/upload/  -type f ! -newermt "2024-07-01" | xargs -i zip /run/log/20241210.zip {};find /home/wwwroot/www.trackingmore.com/admin/upload/  -type f ! -newermt "2024-07-01" | xargs -i rm -f {}
+										468   find /home/wwwroot/www.trackingmore.com/admin/upload/  -type f ! -newermt "2024-08-01" | wc -l
+										469   find /home/wwwroot/www.trackingmore.com/admin/upload/  -type f ! -newermt "2024-10-01" | wc -l
+										470   find /home/wwwroot/www.trackingmore.com/admin/upload/  -type f ! -newermt "2024-12-01" | wc -l
+										709  sh disk.20241023.sh /run/log/home-wwwroot-www.trackingmore.com-admin-upload-auto_csv 3 100
+										742   find /home/wwwroot/www.trackingmore.com/admin/upload/  -type f ! -newermt "2024-10-01" | wc -l
+										743   find /home/wwwroot/www.trackingmore.com/admin/upload/  -type f -newermt "2024-10-01" | wc -l
+										744   find /home/wwwroot/www.trackingmore.com/admin/upload/  -type f -newermt "2024-10-01" | head
+										745  ll /home/wwwroot/www.trackingmore.com/admin/upload/auto_csv/20250302010013-225546.csv
+										746   find /home/wwwroot/www.trackingmore.com/admin/upload/  -type f ! -newermt "2024-10-01" | head
+										747  ll /home/wwwroot/www.trackingmore.com/admin/upload/auto_csv/91683-1723996870.csv
+										752  ll /home/wwwroot/www.trackingmore.com/admin/upload_zip/
+										753  unzip -l  /home/wwwroot/www.trackingmore.com/admin/upload_zip/202502.zip 
+										754  ll  /home/wwwroot/www.trackingmore.com/admin/upload
+										756  unzip -l  /home/wwwroot/www.trackingmore.com/admin/upload_zip/202502.zip  | w c-l
+										757  unzip -l  /home/wwwroot/www.trackingmore.com/admin/upload_zip/202502.zip  | wc -l
+										758  unzip -l  /home/wwwroot/www.trackingmore.com/admin/upload_zip/202502.zip  | w c-l
+										759  unzip -l  /home/wwwroot/www.trackingmore.com/admin/upload_zip/202502.zip  | wc -l
+										761  unzip -l  /home/wwwroot/www.trackingmore.com/admin/upload_zip/202502.zip  | wc -l
+										764  unzip -l  /home/wwwroot/www.trackingmore.com/admin/upload_zip/202502.zip  | wc -l
+										766  unzip -l  /home/wwwroot/www.trackingmore.com/admin/upload_zip/202502.zip  | wc -l
+										768  unzip -l  /home/wwwroot/www.trackingmore.com/admin/upload_zip/202502.zip  | wc -l
+										771  unzip -l  /home/wwwroot/www.trackingmore.com/admin/upload_zip/202502.zip  | wc -l
+										773  unzip -l  /home/wwwroot/www.trackingmore.com/admin/upload_zip/202502.zip  | wc -l
+										778  unzip -l  /home/wwwroot/www.trackingmore.com/admin/upload_zip/202502.zip  | wc -l
+										780  unzip -l  /home/wwwroot/www.trackingmore.com/admin/upload_zip/202502.zip  | wc -l
+										797  sh disk.20241023.sh /home/wwwroot/www.trackingmore.com/admin 3 100
+										798  sh disk.20241023.sh /home/wwwroot/www.trackingmore.com/admin/upload/auto_csv 3 100
+										799  ll /home/wwwroot/www.trackingmore.com/admin/upload/auto_csv | head
+										800  ll /home/wwwroot/www.trackingmore.com/admin/upload/auto_csv | tail
+										802  ll /home/wwwroot/www.trackingmore.com/admin/upload/auto_csv | wc -l
+										803  ll /home/wwwroot/www.trackingmore.com/admin/upload/auto_csv | grep -v csv | wc -l
+										804  ll /home/wwwroot/www.trackingmore.com/admin/upload/auto_csv | grep -v csv | head
+										805  ll /home/wwwroot/www.trackingmore.com/admin/upload/auto_csv | grep -v csv | tail
+										806  du -sh /home/wwwroot/www.trackingmore.com/admin/upload/auto_csv_zip/
+										807  ll /home/wwwroot/www.trackingmore.com/admin/upload/auto_csv_zip/
+										808  d=`date '+%Y%m%d'`;sh zipAndRmSpecifyTimeFile.sh zipAndRmlogBymon /home/wwwroot/www.trackingmore.com/admin/upload '.csv' 1 >>  /home/wwwlogs/zipAndRmSpecifyTimeFile.sh.${d}.log
+										811  d=`date '+%Y%m%d'`;sh zipAndRmSpecifyTimeFile.sh zipAndRmlogBymon /home/wwwroot/www.trackingmore.com/admin/upload '.csv' 1 >>  /home/wwwlogs/zipAndRmSpecifyTimeFile.sh.${d}.log
+										812  rm -f /home/wwwroot/www.trackingmore.com/admin/upload_zip/202502.zip 
+										825  unzip -l /home/wwwroot/www.trackingmore.com/admin/upload/auto_csv_zip/20250307.zip | head
+										826  unzip -l /home/wwwroot/www.trackingmore.com/admin/upload/auto_csv_zip/20250307.zip | tail
+										832  sh zipAndRmSpecifyTimeFile.sh zipAndRmlogByDay /home/wwwroot/www.trackingmore.com/admin/upload/auto_csv '.xls' '20240101' '20250101' 1
+										834  sh zipAndRmSpecifyTimeFile.sh zipAndRmlogByDay /home/wwwroot/www.trackingmore.com/admin/upload/auto_csv '.xls' '20240101' '20250101' 1
+										836  sh zipAndRmSpecifyTimeFile.sh zipAndRmlogByDay /home/wwwroot/www.trackingmore.com/admin/upload/auto_csv '.xls' '20240101' '20250101' 1
+										837  ll /home/wwwroot/www.trackingmore.com/admin/upload/auto_csv_zip/20240801..xls.zip
+										838  ll /home/wwwroot/www.trackingmore.com/admin/upload/auto_csv_zip/*xls.zip
+										839  rm -f /home/wwwroot/www.trackingmore.com/admin/upload/auto_csv_zip/*xls.zip
+										840  d=`date '+%Y%m%d'`;sh zipAndRmSpecifyTimeFile.sh zipAndRmlogByDay /home/wwwroot/www.trackingmore.com/admin/upload/auto_csv 'xls' '20240101' '20250101' >>  /home/wwwlogs/zipAndRmSpecifyTimeFile.sh.${d}.log 2>&1
+										841  d=`date '+%Y%m%d'`;sh zipAndRmSpecifyTimeFile.sh zipAndRmlogByDay /home/wwwroot/www.trackingmore.com/admin/upload/auto_csv 'xls' '20250101' '20250301' >>  /home/wwwlogs/zipAndRmSpecifyTimeFile.sh.${d}.log 2>&1
+										842  # d=`date '+%Y%m%d'`;sh zipAndRmSpecifyTimeFile.sh zipAndRmlogByDay /home/wwwroot/www.trackingmore.com/admin/upload/auto_csv 'csv' '20240101' '20250301' >>  /home/wwwlogs/zipAndRmSpecifyTimeFile.sh.${d}.log 2>&1
+										843  sh zipAndRmSpecifyTimeFile.sh zipAndRmlogByDay /home/wwwroot/www.trackingmore.com/admin/upload/auto_csv 'csv' '20240101' '20250301' 1
+										844  # d=`date '+%Y%m%d'`;sh zipAndRmSpecifyTimeFile.sh zipAndRmlogByDay /home/wwwroot/www.trackingmore.com/admin/upload/auto_csv 'csv' '20240101' '20250301' >>  /home/wwwlogs/zipAndRmSpecifyTimeFile.sh.${d}.log 2>&1
+										845  ll -h /home/wwwroot/www.trackingmore.com/admin/upload/auto_csv_zip/20240709.csv.zip
+										846  ll -h /home/wwwroot/www.trackingmore.com/admin/upload/auto_csv_zip/2024070*.csv.zip
+										847  sh zipAndRmSpecifyTimeFile.sh zipAndRmlogByDay /home/wwwroot/www.trackingmore.com/admin/upload/auto_csv 'csv' '20240701' '20250301' 1
+										848  # d=`date '+%Y%m%d'`;sh zipAndRmSpecifyTimeFile.sh zipAndRmlogByDay /home/wwwroot/www.trackingmore.com/admin/upload/auto_csv 'csv' '20240701' '20250301' >>  /home/wwwlogs/zipAndRmSpecifyTimeFile.sh.${d}.log 2>&1
+										849  sh zipAndRmSpecifyTimeFile.sh zipAndRmlogByDay /home/wwwroot/www.trackingmore.com/admin/upload/auto_csv 'csv' '20240701' '20250301'
+										851  d=`date '+%Y%m%d'`;sh zipAndRmSpecifyTimeFile.sh zipAndRmlogByDay /home/wwwroot/www.trackingmore.com/admin/upload/auto_csv 'csv' '20240101' '20250301' >>  /home/wwwlogs/zipAndRmSpecifyTimeFile.sh.${d}.log 2>&1
+										998  history | grep admin
+										[root@iz0xif9y7r0fstxmq97t54z ~]# history | grep auto_csv | greprm
+										-bash: greprm: command not found
+										[root@iz0xif9y7r0fstxmq97t54z ~]# history | grep auto_csv | grep rm
+										142  find /home/wwwroot/www.trackingmore.com/admin/upload/auto_csv -maxdepth 1 -type f -name \*csv -newermt 20231101 ! -newermt 20231224 | wc -l
+										151  find /home/wwwroot/www.trackingmore.com/admin/upload/auto_csv -maxdepth 1 -type f -name \*csv -newermt 20231101 ! -newermt 20231224 | wc -l
+										735  rm -f /data/server_logs/home/wwwroot/www.trackingmore.com/admin/upload/auto_csv/2024*.csv
+										738  rm -f /data/server_logs/home/wwwroot/www.trackingmore.com/admin/upload/auto_csv/202501*.csv
+										740  rm -f /data/server_logs/home/wwwroot/www.trackingmore.com/admin/upload/auto_csv/202502*.csv
+										839  rm -f /home/wwwroot/www.trackingmore.com/admin/upload/auto_csv_zip/*xls.zip
+										1001  history | grep auto_csv | greprm
+										1002  history | grep auto_csv | grep rm
+										[root@iz0xif9y7r0fstxmq97t54z ~]# find /home/wwwroot/www.trackingmore.com/admin/upload/auto_csv -maxdepth 1 -type f -name \*csv -newermt 20231224 ! -newermt 20241224 | wc -l
+										0
+										[root@iz0xif9y7r0fstxmq97t54z ~]# find /home/wwwroot/www.trackingmore.com/admin/upload/auto_csv -maxdepth 1 -type f -name \*csv -newermt 20241224 ! -newermt 20250224 | wc -l
+										0
+										[root@iz0xif9y7r0fstxmq97t54z ~]# find /home/wwwroot/www.trackingmore.com/admin/upload/auto_csv -maxdepth 1 -type f -name \*csv -newermt 20241224 ! -newermt 20250724 | wc -l
+										18634
+										[root@iz0xif9y7r0fstxmq97t54z ~]# find /home/wwwroot/www.trackingmore.com/admin/upload/auto_csv -maxdepth 1 -type f -name \*csv -newermt 20241224 ! -newermt 20250724 | xargs -i ls -l {} | awk '{total += $1} END {print "Total size:", total / (1024^3), "GB"}'
+										Total size: 0 GB
+										[root@iz0xif9y7r0fstxmq97t54z ~]# ind /home/wwwroot/www.trackingmore.com/admin/upload/auto_csv -maxdepth 1 -type f -name \*csv -newermt 20241224 ! -newermt 20250724 | xargs -i ls -l {}  | head
+										-bash: ind: command not found
+										[root@iz0xif9y7r0fstxmq97t54z ~]# find /home/wwwroot/www.trackingmore.com/admin/upload/auto_csv -maxdepth 1 -type f -name \*csv -newermt 20241224 ! -newermt 20250724 | xargs -i ls -l {}  | head
+										-rw-r--r-- 1 root root 76994 Jul 20 09:00 /home/wwwroot/www.trackingmore.com/admin/upload/auto_csv/20250720010021-225546.csv
+										-rw-r--r-- 1 root root 456 Jul 20 10:00 /home/wwwroot/www.trackingmore.com/admin/upload/auto_csv/20250720020014-311899.csv
+										-rw-r--r-- 1 root root 10924 Jul 20 11:00 /home/wwwroot/www.trackingmore.com/admin/upload/auto_csv/20250720030015-245217.csv
+										-rw-r--r-- 1 root root 455 Jul 20 11:00 /home/wwwroot/www.trackingmore.com/admin/upload/auto_csv/20250720030017-311899.csv
+										-rw-r--r-- 1 root root 1103013 Jul 20 11:30 /home/wwwroot/www.trackingmore.com/admin/upload/auto_csv/20250720033011-95800.csv
+										-rw-r--r-- 1 root root 76994 Jul 20 12:00 /home/wwwroot/www.trackingmore.com/admin/upload/auto_csv/20250720040012-225546.csv
+										-rw-r--r-- 1 root root 14215 Jul 20 13:00 /home/wwwroot/www.trackingmore.com/admin/upload/auto_csv/20250720050010-99625.csv
+										-rw-r--r-- 1 root root 19200 Jul 20 13:00 /home/wwwroot/www.trackingmore.com/admin/upload/auto_csv/20250720050020-99625.csv
+										-rw-r--r-- 1 root root 1056349 Mar  9 00:00 /home/wwwroot/www.trackingmore.com/admin/upload/auto_csv/72578-1741449619.csv
+										-rw-r--r-- 1 root root 7802 Mar  9 00:00 /home/wwwroot/www.trackingmore.com/admin/upload/auto_csv/63850-1741449614.csv
+										xargs: ls: terminated by signal 13
+										[root@iz0xif9y7r0fstxmq97t54z ~]# find /home/wwwroot/www.trackingmore.com/admin/upload/auto_csv -maxdepth 1 -type f -name \*csv -newermt 20241224 ! -newermt 20250724 | xargs -i ls -l {} | awk '{total += $5} END {print "Total size:", total / (1024^3), "GB"}'
+										Total size: 10.5503 GB
+										[root@iz0xif9y7r0fstxmq97t54z ~]# du -sh /home/wwwroot/www.trackingmore.com/admin/upload/auto_csv 11G     /home/wwwroot/www.trackingmore.com/admin/upload/auto_csv
+										[root@iz0xif9y7r0fstxmq97t54z ~]# find /home/wwwroot/www.trackingmore.com/admin/upload/auto_csv -maxdepth 1 -type f -name \*csv -newermt 20241224 ! -newermt 20250224 | xargs -i ls -l {} | awk '{total += $5} END {print "Total size:", total / (1024^3), "GB"}'
+										Total size: 0 GB
+										[root@iz0xif9y7r0fstxmq97t54z ~]# find /home/wwwroot/www.trackingmore.com/admin/upload/auto_csv -maxdepth 1 -type f -name \*csv -newermt 20250224 ! -newermt 20250324 | xargs -i ls -l {} | awk '{total += $5} END {print "Total size:", total / (1024^3), "GB"}'
+										Total size: 1.61459 GB
+										[root@iz0xif9y7r0fstxmq97t54z ~]# df -hFilesystem      Size  Used Avail Use% Mounted on
+										/dev/vda1        40G   39G  504M  99% /
+										devtmpfs         16G     0   16G   0% /dev
+										tmpfs            16G     0   16G   0% /dev/shm
+										tmpfs            16G  4.9G   11G  33% /run
+										tmpfs            16G     0   16G   0% /sys/fs/cgroup
+										tmpfs           3.1G     0  3.1G   0% /run/user/0
+										tmpfs           3.1G     0  3.1G   0% /run/user/1002
+										overlay          40G   39G  504M  99% /var/lib/docker/overlay2/d2703df78bc816ff68a6a91dd805825fdf41731b86dfb1acd45f001bad32e406/merged
+										overlay          40G   39G  504M  99% /var/lib/docker/overlay2/c043633fbddd7d4d2248284247bf06cc75fa5c740aa1366400bce75bb4168d14/merged
+										overlay          40G   39G  504M  99% /var/lib/docker/overlay2/b47a079dc9b17057739e60cc62794e9a083ef16f31890d897d67b8f31bd7a89a/merged
+										overlay          40G   39G  504M  99% /var/lib/docker/overlay2/83a49448c3e2713448d182eeb258505bdc2ef04eec331ba8b4499705e6ff06ed/merged
+										overlay          40G   39G  504M  99% /var/lib/docker/overlay2/46169c1ebedc71c054485e7a978387aa1d1b216470e539ecf3a12e84fd9c64aa/merged
+										overlay          40G   39G  504M  99% /var/lib/docker/overlay2/5a5d007e804e80f97e67cb993e7c00b6716bab22d40d780b03766a6ae871c4f3/merged
+										overlay          40G   39G  504M  99% /var/lib/docker/overlay2/1c60ac1751f37f5ea647ab8ad054192ec6eb9366d0ecc1b87b8d9d41e8933d98/merged
+										overlay          40G   39G  504M  99% /var/lib/docker/overlay2/eeb9c4ad79ae52e1698640c687ff2ef67360853b151f7ef2c61d8af38bd4a667/merged
+										overlay          40G   39G  504M  99% /var/lib/docker/overlay2/c780375c3d2c9bb41aea4785502cb8c045059b9666dbbfd4ce1b27c170de570b/merged
+										overlay          40G   39G  504M  99% /var/lib/docker/overlay2/5b9c7648f8a3103ae472be96492b4d694f28b9d4636f4a3c7fc28387b15f3c5b/merged
+										overlay          40G   39G  504M  99% /var/lib/docker/overlay2/be0afb28162fb4cbbba3653a35944a6fcc80eb1367426089b3c37dcac0af5053/merged
+										overlay          40G   39G  504M  99% /var/lib/docker/overlay2/b68be4f7b9222815ce8e644673aaef6cb6995ea0f7ebb85900394e898231568e/merged
+										overlay          40G   39G  504M  99% /var/lib/docker/overlay2/b8002b093029398fa675a5f103ad00052abffc8ea71c3d32e987e853a3958baf/merged
+										overlay          40G   39G  504M  99% /var/lib/docker/overlay2/9260ba6e864c36bbffd8248bee952df6b8ae211cbb40a17b954e95c4446b6450/merged
+										overlay          40G   39G  504M  99% /var/lib/docker/overlay2/ed7aa946cad59fe8f785e810a2cc68636ae6ee4aa076d291c674f0a8e780c3bd/merged
+										overlay          40G   39G  504M  99% /var/lib/docker/overlay2/42f90134a9d2925e59000e462681b05b6a399b31228537281a92f25afc8df878/merged
+										overlay          40G   39G  504M  99% /var/lib/docker/overlay2/40d2cb0487f9b57bc2bb10bf1e52d5fc1caca3dd35af46c0ee2f3779028edf2d/merged
+										overlay          40G   39G  504M  99% /var/lib/docker/overlay2/cf95d1b2d1272e586c0196fb584c7a7517890a94206cbca3e7a567756d036aad/merged
+										[root@iz0xif9y7r0fstxmq97t54z ~]# find /home/wwwroot/www.trackingmore.com/admin/upload/auto_csv -maxdepth 1 -type f -name \*csv -newermt 20250224 ! -newermt 20250324 | xargs -i ls -l {} | awk '{total += $5} END {print "Total size:", total / (1024^3), "GB"}'
+										Total size: 1.61459 GB
+										[root@iz0xif9y7r0fstxmq97t54z ~]# find /home/wwwroot/www.trackingmore.com/admin/upload/auto_csv -maxdepth 1 -type f -name \*csv -newermt 20250224 ! -newermt 20250324 | xargs -i rm -f {}[root@iz0xif9y7r0fstxmq97t54z ~]# df -hFilesystem      Size  Used Avail Use% Mounted on
+										/dev/vda1        40G   37G  2.2G  95% /
+										devtmpfs         16G     0   16G   0% /dev
+										tmpfs            16G     0   16G   0% /dev/shm
+										tmpfs            16G  4.9G   11G  33% /run
+										tmpfs            16G     0   16G   0% /sys/fs/cgroup
+										tmpfs           3.1G     0  3.1G   0% /run/user/0
+										tmpfs           3.1G     0  3.1G   0% /run/user/1002
+										overlay          40G   37G  2.2G  95% /var/lib/docker/overlay2/d2703df78bc816ff68a6a91dd805825fdf41731b86dfb1acd45f001bad32e406/merged
+										overlay          40G   37G  2.2G  95% /var/lib/docker/overlay2/c043633fbddd7d4d2248284247bf06cc75fa5c740aa1366400bce75bb4168d14/merged
+										overlay          40G   37G  2.2G  95% /var/lib/docker/overlay2/b47a079dc9b17057739e60cc62794e9a083ef16f31890d897d67b8f31bd7a89a/merged
+										overlay          40G   37G  2.2G  95% /var/lib/docker/overlay2/83a49448c3e2713448d182eeb258505bdc2ef04eec331ba8b4499705e6ff06ed/merged
+										overlay          40G   37G  2.2G  95% /var/lib/docker/overlay2/46169c1ebedc71c054485e7a978387aa1d1b216470e539ecf3a12e84fd9c64aa/merged
+										overlay          40G   37G  2.2G  95% /var/lib/docker/overlay2/5a5d007e804e80f97e67cb993e7c00b6716bab22d40d780b03766a6ae871c4f3/merged
+										overlay          40G   37G  2.2G  95% /var/lib/docker/overlay2/1c60ac1751f37f5ea647ab8ad054192ec6eb9366d0ecc1b87b8d9d41e8933d98/merged
+										overlay          40G   37G  2.2G  95% /var/lib/docker/overlay2/eeb9c4ad79ae52e1698640c687ff2ef67360853b151f7ef2c61d8af38bd4a667/merged
+										overlay          40G   37G  2.2G  95% /var/lib/docker/overlay2/c780375c3d2c9bb41aea4785502cb8c045059b9666dbbfd4ce1b27c170de570b/merged
+										overlay          40G   37G  2.2G  95% /var/lib/docker/overlay2/5b9c7648f8a3103ae472be96492b4d694f28b9d4636f4a3c7fc28387b15f3c5b/merged
+										overlay          40G   37G  2.2G  95% /var/lib/docker/overlay2/be0afb28162fb4cbbba3653a35944a6fcc80eb1367426089b3c37dcac0af5053/merged
+										overlay          40G   37G  2.2G  95% /var/lib/docker/overlay2/b68be4f7b9222815ce8e644673aaef6cb6995ea0f7ebb85900394e898231568e/merged
+										overlay          40G   37G  2.2G  95% /var/lib/docker/overlay2/b8002b093029398fa675a5f103ad00052abffc8ea71c3d32e987e853a3958baf/merged
+										overlay          40G   37G  2.2G  95% /var/lib/docker/overlay2/9260ba6e864c36bbffd8248bee952df6b8ae211cbb40a17b954e95c4446b6450/merged
+										overlay          40G   37G  2.2G  95% /var/lib/docker/overlay2/ed7aa946cad59fe8f785e810a2cc68636ae6ee4aa076d291c674f0a8e780c3bd/merged
+										overlay          40G   37G  2.2G  95% /var/lib/docker/overlay2/42f90134a9d2925e59000e462681b05b6a399b31228537281a92f25afc8df878/merged
+										overlay          40G   37G  2.2G  95% /var/lib/docker/overlay2/40d2cb0487f9b57bc2bb10bf1e52d5fc1caca3dd35af46c0ee2f3779028edf2d/merged
+										overlay          40G   37G  2.2G  95% /var/lib/docker/overlay2/cf95d1b2d1272e586c0196fb584c7a7517890a94206cbca3e7a567756d036aad/merged
+										[root@iz0xif9y7r0fstxmq97t54z ~]# find /home/wwwroot/www.trackingmore.com/admin/upload/auto_csv -maxdepth 1 -type f -name \*csv -newermt 20250324 ! -newermt 20250424 | xargs -i ls -l {} | awk '{total += $5} END {print "Total size:", total / (1024^3), "GB"}'
+										Total size: 2.32536 GB
+										[root@iz0xif9y7r0fstxmq97t54z ~]# find /home/wwwroot/www.trackingmore.com/admin/upload/auto_csv -maxdepth 1 -type f -name \*csv -newermt 20250324 ! -newermt 20250424 | xargs -i rm -f {}[root@iz0xif9y7r0fstxmq97t54z ~]# df -hFilesystem      Size  Used Avail Use% Mounted on
+										/dev/vda1        40G   35G  4.5G  89% /
+										devtmpfs         16G     0   16G   0% /dev
+										tmpfs            16G     0   16G   0% /dev/shm
+										tmpfs            16G  4.9G   11G  33% /run
+										tmpfs            16G     0   16G   0% /sys/fs/cgroup
+										tmpfs           3.1G     0  3.1G   0% /run/user/0
+										tmpfs           3.1G     0  3.1G   0% /run/user/1002
+										overlay          40G   35G  4.5G  89% /var/lib/docker/overlay2/d2703df78bc816ff68a6a91dd805825fdf41731b86dfb1acd45f001bad32e406/merged
+										overlay          40G   35G  4.5G  89% /var/lib/docker/overlay2/c043633fbddd7d4d2248284247bf06cc75fa5c740aa1366400bce75bb4168d14/merged
+										overlay          40G   35G  4.5G  89% /var/lib/docker/overlay2/b47a079dc9b17057739e60cc62794e9a083ef16f31890d897d67b8f31bd7a89a/merged
+										overlay          40G   35G  4.5G  89% /var/lib/docker/overlay2/83a49448c3e2713448d182eeb258505bdc2ef04eec331ba8b4499705e6ff06ed/merged
+										overlay          40G   35G  4.5G  89% /var/lib/docker/overlay2/46169c1ebedc71c054485e7a978387aa1d1b216470e539ecf3a12e84fd9c64aa/merged
+										overlay          40G   35G  4.5G  89% /var/lib/docker/overlay2/5a5d007e804e80f97e67cb993e7c00b6716bab22d40d780b03766a6ae871c4f3/merged
+										overlay          40G   35G  4.5G  89% /var/lib/docker/overlay2/1c60ac1751f37f5ea647ab8ad054192ec6eb9366d0ecc1b87b8d9d41e8933d98/merged
+										overlay          40G   35G  4.5G  89% /var/lib/docker/overlay2/eeb9c4ad79ae52e1698640c687ff2ef67360853b151f7ef2c61d8af38bd4a667/merged
+										overlay          40G   35G  4.5G  89% /var/lib/docker/overlay2/c780375c3d2c9bb41aea4785502cb8c045059b9666dbbfd4ce1b27c170de570b/merged
+										overlay          40G   35G  4.5G  89% /var/lib/docker/overlay2/5b9c7648f8a3103ae472be96492b4d694f28b9d4636f4a3c7fc28387b15f3c5b/merged
+										overlay          40G   35G  4.5G  89% /var/lib/docker/overlay2/be0afb28162fb4cbbba3653a35944a6fcc80eb1367426089b3c37dcac0af5053/merged
+										overlay          40G   35G  4.5G  89% /var/lib/docker/overlay2/b68be4f7b9222815ce8e644673aaef6cb6995ea0f7ebb85900394e898231568e/merged
+										overlay          40G   35G  4.5G  89% /var/lib/docker/overlay2/b8002b093029398fa675a5f103ad00052abffc8ea71c3d32e987e853a3958baf/merged
+										overlay          40G   35G  4.5G  89% /var/lib/docker/overlay2/9260ba6e864c36bbffd8248bee952df6b8ae211cbb40a17b954e95c4446b6450/merged
+										overlay          40G   35G  4.5G  89% /var/lib/docker/overlay2/ed7aa946cad59fe8f785e810a2cc68636ae6ee4aa076d291c674f0a8e780c3bd/merged
+										overlay          40G   35G  4.5G  89% /var/lib/docker/overlay2/42f90134a9d2925e59000e462681b05b6a399b31228537281a92f25afc8df878/merged
+										overlay          40G   35G  4.5G  89% /var/lib/docker/overlay2/40d2cb0487f9b57bc2bb10bf1e52d5fc1caca3dd35af46c0ee2f3779028edf2d/merged
+										overlay          40G   35G  4.5G  89% /var/lib/docker/overlay2/cf95d1b2d1272e586c0196fb584c7a7517890a94206cbca3e7a567756d036aad/merged  
 							-- 20250222
 								-77
 									96%
