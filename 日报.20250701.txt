@@ -585,6 +585,40 @@
 【日常响应】
 5，后续优先级、应对
 
+===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== =====
+【告警】
+【客诉】
+【迁云】
+【桌面运维】
+【运维】
+
+20250724
+【告警】
+【安全】
+【运维】
+
+原计划：
+【本地】
+1，待优化&专线切换
+【告警】
+2，磁盘
+3，服务重启时间调整
+【安全】
+4，等保复测
+【日常响应】
+5，后续优先级、应对
+
+计划：
+【本地】
+1，待优化&专线切换
+【告警】
+2，磁盘
+3，服务重启时间调整
+【安全】
+4，等保复测
+【日常响应】
+5，后续优先级、应对
+
 
 近期复盘
 	后续优先级、应对
@@ -673,6 +707,15 @@
 
 操作顺序
 	7月
+		-- 20250724
+			安全
+				审批钉钉
+				VPN
+			项目
+				单号识别
+					tm的6月份数据自动导入目前还没进来
+					51单号识别自动化导入 也没处理（6月没有）
+				定时执行 memberMoneyCalculate.php 脚本 （一天或一周）
 		-- 20250723
 			本地
 				计划
@@ -6770,7 +6813,193 @@
 								tail -100 send.code.log
 								tail -100 build.commitid.log
 								ll /home/wwwroot/www.trackingmore.com/tools/disposableEmail.php
+					-- 20250724
+						#ps -ef | grep rsyn
+						jenkins  1566699 1566698  0 Jul22 ?        00:00:00 sh -c rsync -a ./20250722.4ae09a4bd.a70e79bb6/ root@172.16.30.29:/home/wwwroot/www.trackingmore.com -e 'ssh -p 22';echo $?
+						jenkins  1566700 1566699  0 Jul22 ?        00:00:00 rsync -a ./20250722.4ae09a4bd.a70e79bb6/ root@172.16.30.29:/home/wwwroot/www.trackingmore.com -e ssh -p 22
+						jenkins  1566701 1566700  0 Jul22 ?        00:00:00 ssh -p 22 -l root 172.16.30.29 rsync --server -logDtpre.iLsfxC . /home/wwwroot/www.trackingmore.com
+						root     1579080 1578989  0 15:51 pts/1    00:00:00 grep --color=auto rsyn
+						#strace -p 1566700
+						strace: Process 1566700 attached
+						select(6, [5], NULL, [5], {tv_sec=18, tv_usec=643219}) = 0 (Timeout)
+						select(6, [5], NULL, [5], {tv_sec=60, tv_usec=0}) = 0 (Timeout)
+						select(6, [5], NULL, [5], {tv_sec=60, tv_usec=0}) = 0 (Timeout)
+						select(6, [5], NULL, [5], {tv_sec=60, tv_usec=0}) = 0 (Timeout)
+						select(6, [5], NULL, [5], {tv_sec=60, tv_usec=0}) = 0 (Timeout)
+						select(6, [5], NULL, [5], {tv_sec=60, tv_usec=0}ls -l /proc/1566700/fd/5) = 0 (Timeout)
+						select(6, [5], NULL, [5], {tv_sec=60, tv_usec=0}) = 0 (Timeout)
+						select(6, [5], NULL, [5], {tv_sec=60, tv_usec=0}) = 0 (Timeout)
+						select(6, [5], NULL, [5], {tv_sec=60, tv_usec=0}) = 0 (Timeout)
+						select(6, [5], NULL, [5], {tv_sec=60, tv_usec=0}) = 0 (Timeout)
+						select(6, [5], NULL, [5], {tv_sec=60, tv_usec=0}) = 0 (Timeout)
+						select(6, [5], NULL, [5], {tv_sec=60, tv_usec=0}) = 0 (Timeout)
+						select(6, [5], NULL, [5], {tv_sec=60, tv_usec=0}) = 0 (Timeout)
+
+						ls -l /proc/1566700/fd/5
+						lrwx------ 1 jenkins jenkins 64 Jul 22 19:13 /proc/1566700/fd/5 -> 'socket:[1066608326]'
+
+						ps -fp 1566700
+						UID          PID    PPID  C STIME TTY          TIME CMD
+						jenkins  1566700 1566699  0 Jul22 ?        00:00:00 rsync -a ./20250722.4ae09a4bd.a70e79bb6/ user@172.16.30.29:/home/wwwroot/www.trackingmore.com -e ssh -p 2222
+
+						#lsof -p 1566700
+						COMMAND     PID    USER   FD   TYPE             DEVICE SIZE/OFF       NODE NAME
+						rsync   1566700 jenkins  cwd    DIR              253,1    12288  654666328 /var/lib/jenkins/workspace/PROD--1/1_independent
+						rsync   1566700 jenkins  rtd    DIR              253,1     4096        128 /
+						rsync   1566700 jenkins  txt    REG              253,1   513704   34099019 /usr/bin/rsync
+						rsync   1566700 jenkins  mem    REG              253,1  3167976   50333365 /usr/lib64/libc-2.28.so
+						rsync   1566700 jenkins  mem    REG              253,1    56112   50333553 /usr/lib64/libpopt.so.0.0.0
+						rsync   1566700 jenkins  mem    REG              253,1    59272   50357264 /usr/lib64/libacl.so.1.1.2253
+						rsync   1566700 jenkins  mem    REG              253,1    26704   50357262 /usr/lib64/libattr.so.1.1.2448
+						rsync   1566700 jenkins  mem    REG              253,1   278504   51200919 /usr/lib64/ld-2.28.so
+						rsync   1566700 jenkins  mem    REG              253,1   337024   17720921 /usr/lib/locale/en_US.utf8/LC_CTYPE
+						rsync   1566700 jenkins  mem    REG              253,1    26998   17720915 /usr/lib64/gconv/gconv-modules.cache
+						rsync   1566700 jenkins    0r  FIFO               0,13      0t0 1066604215 pipe
+						rsync   1566700 jenkins    1w  FIFO               0,13      0t0 1066608313 pipe
+						rsync   1566700 jenkins    2w  FIFO               0,13      0t0 1066608170 pipe
+						rsync   1566700 jenkins    4u  unix 0xffff991793cb4c80      0t0 1066608325 type=STREAM
+						rsync   1566700 jenkins    5u  unix 0xffff991793cb6300      0t0 1066608326 type=STREAM
+						当前现象简要总结
+						rsync 卡在 select() 等待文件描述符 5，它是一个 Unix 域 socket：
+
+						bash
+						复制
+						编辑
+						/proc/1566700/fd/5 -> 'socket:[1066608326]'
+						lsof 显示 FD 5 是：
+
+						bash
+						复制
+						编辑
+						5u  unix 0xffff991793cb6300 0t0 1066608326 type=STREAM
+						说明它不是 TCP 网络连接（即不是 ssh 直接的 socket），而是一个 Unix 域套接字，说明 rsync 是通过某种进程间通信（IPC）机制等待数据。
+						分析判断
+						rsync 在这里并不是卡在 SSH 网络传输阶段，而是卡在 与其父进程（PID=1566699）之间的通信。
+						查看：
+
+						bash
+						复制
+						编辑
+						ps -fp 1566699
+						这一步很关键，极有可能是 Jenkins 触发 rsync 时，父进程（shell 或 wrapper）没能正确读取或关闭管道，导致子进程（rsync）阻塞在写/读 pipe 上。
+						验证建议
+						1. 查看 rsync 的父进程
+						bash
+						复制
+						编辑
+						ps -fp 1566699
+						判断它是 shell 脚本、Jenkins agent，还是自定义 wrapper。是否仍在运行。
+
+						2. 查看 Jenkins Job 是否卡住
+						如果你是通过 Jenkins 构建执行的，那：
+
+						Jenkins job 会卡在 rsync 命令那一步；
+
+						原因可能是 Jenkins 没有读取 rsync 的输出导致 stdout/stderr 阻塞（pipe 堆满）；
+
+						rsync 会因为无法写输出而挂起，表现为 select() 超时。
+						总结：为什么卡
+						你的 rsync 卡在 select(fd=5) 是因为它在等待从父进程传来的内容（或者等父进程从它那里读取内容），而这个 Unix socket 没有数据导致挂起。
+
+						最可能原因：
+
+						父进程（Jenkins shell wrapper）未正确处理输出流，导致阻塞；
+
+						不是网络/ssh 问题（否则 FD 应是 TCP 套接字）。
+
+						如需我帮你分析 1566699 是什么进程或贴出 Jenkins 的 job 步骤，我可以继续协助精准定位。
+
+						jenkins  1566699 1566698  0 Jul22 ?        00:00:00 sh -c rsync -a ./20250722.4ae09a4bd1.a702e791bb6/ root@172.16.3.2:/home/wwwroot/www.trackingmore.com -e 'ssh -p 2222';echo $?
+						jenkins  1566700 1566699  0 Jul22 ?        00:00:00 rsync -a ./20250722.4ae09a4bd1.a702e791bb6/ root@172.16.3.2:/home/wwwroot/www.trackingmore.com -e ssh -p 2222
+						jenkins  1566701 1566700  0 Jul22 ?        00:00:00 ssh -p 2222 -l root 172.16.3.2 rsync --server -logDtpre.iLsfxC . /home/wwwroot/www.trackingmore.com
+
+						非常明确了，你的 rsync 卡住的 根本原因 是 SSH 子进程阻塞或未响应，rsync 主进程因此卡在等待 socket 通信：
+
+						🧠 架构调用链如下：
+						css
+						复制
+						编辑
+						Jenkins（shell） → rsync → ssh -p 2222 → 远程主机 (172.16.3.2) → rsync --server
+						你当前看到：
+
+						rsync（PID 1566700）卡在 select() 等待 FD 5 的通信（Unix socket，内部通信或等待子进程）；
+
+						ssh（PID 1566701）已经启动，并执行了远程 rsync --server ...；
+
+						但似乎远端没有返回任何数据，或者连接卡住。
+
+						📌 判断结论
+						❗ rsync 卡在等 ssh 返回数据，但远端无响应：
+						可能原因包括：
+
+						远端 rsync 卡死
+
+						rsync --server 在远端（172.16.3.2）启动后就没响应；
+
+						可登录远端查看是否有 rsync --server 进程，是否卡住（如等待磁盘、权限等问题）；
+
+						bash
+						复制
+						编辑
+						ps -ef | grep rsync
+						远端路径问题或权限问题
+
+						/home/wwwroot/www.trackingmore.com 目录可能不存在、权限不足、挂载卡住；
+
+						rsync --server 不会自动输出错误，如果 stdout/stderr 没传回本地，会一直阻塞。
+
+						防火墙 / MTU / SSH 连接不通畅
+
+						虽然 SSH 能连上，但某些数据包发不回导致长时间无响应。
+
+						✅ 建议修复方式（Jenkins 脚本层）
+						为了防止卡死，推荐在 Jenkins 脚本中：
+
+						bash
+						复制
+						编辑
+						rsync -avz --timeout=30 -e "ssh -o BatchMode=yes -o ConnectTimeout=10 -p 2222" ./.../ root@172.16.3.2:/... || {
+						echo "rsync failed" >&2
+						exit 1
+						}
+						--timeout=30：设置 IO 超时，防止无限阻塞；
+
+						ssh -o BatchMode=yes：禁用交互；
+
+						-o ConnectTimeout=10：SSH连接失败不等待太久。
+
+						🔚 总结
+						结论	说明
+						🔄 卡点	rsync 正在等 ssh 或远端 rsync --server 响应
+						🧩 原因	远端 rsync 可能卡在 IO/权限/磁盘问题；或本地阻塞未读取
+						✅ 建议	登陆远端排查卡死进程，增加 --timeout 与 -vv 进行调试
+						🛡️ 防挂死	Jenkins 中加 SSH 连接超时与 rsync 传输超时设置
+						# 强制关闭
+						kill -s 14 `ps -ef | grep rsyn | grep -v grep | awk '{print $2}'`
+						# 待办
+						rsync -avz --timeout=30 -e "ssh -o BatchMode=yes -o ConnectTimeout=10 -p 2222" ./.../ root@172.16.3.2:/... || {
+						echo "rsync failed" >&2
+						exit 1
+						}
+						--timeout=30：设置 IO 超时，防止无限阻塞；
+
+						ssh -o BatchMode=yes：禁用交互；
+
+						-o ConnectTimeout=10：SSH连接失败不等待太久。
 						
+						# 部分发送代码
+							d="rsync -avz --timeout=1 -e 'ssh -o BatchMode=yes -o ConnectTimeout=10 -p 22' test.log cxj@192.168.15.16:/home/cxj/"
+							echo $d
+
+							#
+							command=${d}';echo $?'
+							err=`echo ${command}|awk '{system($0)}'`
+							echo $err
+
+							# 只拿到 code 报错内容没拿到
+						待办：已经调整了独立更新发布
+							其他需要添加
+							使用封装的函数，拿到错误码和错误内容，做日志，进行重试，告警等
 		-- 20240518 搭建
 			目的-稳定运行保证
 				异常可及时介入处理
@@ -20445,7 +20674,14 @@
 				# 国内独立更新
 				/usr/bin/diff /home/wwwroot/www.trackingmore.com/library/class.MySQL.php /home/wwwroot/www.trackingmore.com/library/class.MySQL.php.home.ind.20250325248
 		配置抽离到配置中心
-			--20250728
+			--20250724
+				创建导入数据库 https://alidocs.dingtalk.com/i/nodes/14lgGw3P8v1yMkDjCY12OvAvJ5daZ90D?utm_scene=team_space&iframeQuery=anchorId%3Duu_mdh1koj7lhago2f6wa
+					账号 nacos
+					数据库 nacos
+					权限 仅DML
+					备注 nacos配置中心用-20250724
+
+			--20250722
 				重置密钥
 					从77获取正确配置文件
 						d=$(date +%Y%m%d)
