@@ -619,6 +619,40 @@
 【日常响应】
 5，后续优先级、应对
 
+===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== =====
+【告警】
+【客诉】
+【迁云】
+【桌面运维】
+【运维】
+
+20250725
+【告警】
+【安全】
+【运维】
+
+原计划：
+【本地】
+1，待优化&专线切换
+【告警】
+2，磁盘
+3，服务重启时间调整
+【安全】
+4，等保复测
+【日常响应】
+5，后续优先级、应对
+
+计划：
+【本地】
+1，待优化&专线切换
+【告警】
+2，磁盘
+3，服务重启时间调整
+【安全】
+4，等保复测
+【日常响应】
+5，后续优先级、应对
+
 
 近期复盘
 	后续优先级、应对
@@ -19282,6 +19316,48 @@
 				# 配置重载
 				sh ${PTM}sever/nginx/conf/vhost/nginx.sh 'api_51' reload
 			定时任务
+				-- 20250725
+					# 删除的定时任务（带密码）
+						notest_159_205
+							#*/1 * * * * /usr/local/percona-toolkit-2.2.18/bin/pt-online-schema-change --user=trackingdb --password='zYTps2GyFQ6FtVW5' --host=rm-0xin9d49o171nh1vd.mysql.rds.aliyuncs.com --S /var/lib/mysql/mysql.sock --charset=utf8 --alter "MODIFY COLUMN track_number CHAR(50) COLLATE utf8_unicode_ci NOT NULL COMMENT '运单号'"  D=mycat1,t=tr_user_tracknumber_58125_58125  --print --execute --critical-load="Threads_running=800" >> /home/luoxuan01/db/tr_user_tracknumber_58125_58125.log &
+						-174-77-tm
+							diff /var/spool/cron/root /home/wwwroot/www.trackingmore.com/crontab/foreign/root.136.77
+							433,453d432
+							< 
+							< # test
+							< #* * * * * /usr/local/bin/redis-cli -h r-at8f4be48fea3fd4.redis.rds.aliyuncs.com -p 6379 -a HyTf56MxDets --bigkeys >/home/wwwroot/www.trackingmore.com/script/log/bigkeys.log > /dev/null 2>&1
+							< 
+							#* * * * * /usr/local/bin/redis-cli -h r-at8f4be48fea3fd4.redis.rds.aliyuncs.com -p 6379 -a HyTf56MxDets --bigkeys >/home/wwwroot/www.trackingmore.com/script/log/bigkeys.log > /dev/n
+							< # redis 针对节点统计超过一定大小key
+							< #46 * * * * /home/wwwroot/www.trackingmore.com/python3/Python-3.6.1/python /usr/local/redis-2.10.5/redis_python_nodekeys.py  r-0xiyxblxonjb1bm3ri.redis.rds.aliyuncs.com 6379 HyTf56MxDets > /dev/null 2>&1
+							< #01 * * * * /home/wwwroot/www.trackingmore.com/python3/Python-3.6.1/python /usr/local/redis-2.10.5/redis_python_nodekeys.onenode.allkeys.recode.py  r-0xiyxblxonjb1bm3ri.redis.rds.aliyuncs.com 6379 HyTf56MxDets >> /home/wwwroot/www.trackingmore.com/python_img/redis.bigkey.length.log 3>&1
+							< #04 01 15 * * /home/wwwroot/www.trackingmore.com/python3/Python-3.6.1/python /usr/local/redis-2.10.5/redis_python_nodekeys.onenode.allkeys.recode.memory.py  r-0xiyxblxonjb1bm3ri.redis.rds.aliyuncs.com 6379 HyTf56MxDets 3 >> /home/wwwroot/www.trackingmore.com/python_img/redis.bigkey.memory.log 2>&1
+							< #59 * * * * /home/wwwroot/www.trackingmore.com/python3/Python-3.6.1/python /usr/local/redis-2.10.5/redis_python_nodekeys.onenode.allkeys.recode.memory.py  r-0xiyxblxonjb1bm3ri.redis.rds.aliyuncs.com 6379 HyTf56MxDets 5 >> /home/wwwroot/www.trackingmore.com/python_img/redis.bigkey.memory.log 2>&1
+							< #12 16 13 1 * /home/wwwroot/www.trackingmore.com/python3/Python-3.6.1/python /usr/local/redis-2.10.5/redis_python_nodekeys.onenode.allkeys.recode.memory.py  r-0xiyxblxonjb1bm3ri.redis.rds.aliyuncs.com 6379 HyTf56MxDets 2 >> /home/wwwroot/www.trackingmore.com/python_img/redis.bigkey.memory.log 2>&1
+							< #14 16 13 1 * /home/wwwroot/www.trackingmore.com/python3/Python-3.6.1/python /usr/local/redis-2.10.5/redis_python_nodekeys.onenode.allkeys.recode.memory.py  r-0xiyxblxonjb1bm3ri.redis.rds.aliyuncs.com 6379 HyTf56MxDets 1 >> /home/wwwroot/www.trackingmore.com/python_img/redis.bigkey.memory.log 2>&1
+							< #25 08 18 * * /home/wwwroot/www.trackingmore.com/python3/Python-3.6.1/python /usr/local/redis-2.10.5/redis_python_nodekeys.onenode.allkeys.recode.memory.py  r-0xiyxblxonjb1bm3ri.redis.rds.aliyuncs.com 6379 HyTf56MxDets 1 >> /home/wwwroot/www.trackingmore.com/python_img/redis.bigkey.memory.log 2>&1
+							< #16 16 13 1 * /home/wwwroot/www.trackingmore.com/python3/Python-3.6.1/python /usr/local/redis-2.10.5/redis_python_nodekeys.onenode.allkeys.recode.memory.py  r-0xiyxblxonjb1bm3ri.redis.rds.aliyuncs.com 6379 HyTf56MxDets 3 >> /home/wwwroot/www.trackingmore.com/python_img/redis.bigkey.memory.log 2>&1
+							< #16 16 13 1 * /home/wwwroot/www.trackingmore.com/python3/Python-3.6.1/python /usr/local/redis-2.10.5/redis_python_nodekeys.onenode.allkeys.recode.memory.py  r-0xiyxblxonjb1bm3ri.redis.rds.aliyuncs.com 6379 HyTf56MxDets 4 >> /home/wwwroot/www.trackingmore.com/python_img/redis.bigkey.memory.log 2>&1
+							< #16 16 13 1 * /home/wwwroot/www.trackingmore.com/python3/Python-3.6.1/python /usr/local/redis-2.10.5/redis_python_nodekeys.onenode.allkeys.recode.memory.py  r-0xiyxblxonjb1bm3ri.redis.rds.aliyuncs.com 6379 HyTf56MxDets 5 >> /home/wwwroot/www.trackingmore.com/python_img/redis.bigkey.memory.log 2>&1
+							< #16 16 13 1 * /home/wwwroot/www.trackingmore.com/python3/Python-3.6.1/python /usr/local/redis-2.10.5/redis_python_nodekeys.onenode.allkeys.recode.memory.py  r-0xiyxblxonjb1bm3ri.redis.rds.aliyuncs.com 6379 HyTf56MxDets 6 >> /home/wwwroot/www.trackingmore.com/python_img/redis.bigkey.memory.log 2>&1
+							< #16 16 13 1 * /home/wwwroot/www.trackingmore.com/python3/Python-3.6.1/python /usr/local/redis-2.10.5/redis_python_nodekeys.onenode.allkeys.recode.memory.py  r-0xiyxblxonjb1bm3ri.redis.rds.aliyuncs.com 6379 HyTf56MxDets 7 >> /home/wwwroot/www.trackingmore.com/python_img/redis.bigkey.memory.log 2>&1
+							< 
+							< #28 * * * * /home/wwwroot/www.trackingmore.com/python3/Python-3.6.1/python /usr/local/redis-2.10.5/redis_python_nodekeys.onenode.allkeys.recode.getkey.py  r-0xiyxblxonjb1bm3ri.redis.rds.aliyuncs.com 6379 HyTf56MxDets >> /home/wwwroot/www.trackingmore.com/python_img/redis.bigkey.length.getkey.log 2>&1
+							< #38 * * * * /home/wwwroot/www.trackingmore.com/python3/Python-3.6.1/python /usr/local/redis-2.10.5/redis_python_nodekeys.onenode.allkeys.recode.memory.fromkey.py  r-at8558acd2981124.redis.rds.aliyuncs.com 6379 HyTf56MxDets >> /home/wwwroot/www.trackingmore.com/python_img/redis.bigkey.memory.fromkey.log 2>&1
+							< 
+							455c434,436
+							< 59 09 10 7 * sh redis.memory.sh foreign >/dev/null 2>&1
+							---
+							> 58 06 30 4 * sh redis.memory.sh foreign >/dev/null 2>&1
+							> 09 08 29 4 * sh redis.memory.sh foreign >/dev/null 2>&1
+							> 46 18 16 5 * sh redis.memory.sh foreign >/dev/null 2>&1
+							651,652d631
+							< #36 * * * * /usr/local/percona-toolkit-2.2.18/bin/pt-online-schema-change --user=trackingdb --password='zYTps2GyFQ6FtVW5' --host=rm-at8v90128nty4un3o.mysql.rds.aliyuncs.com --S /var/lib/mysql/mysql.sock --charset=utf8 --alter "ADD UNIQUE(id, create_time)"  D=trackingdb,t=tr_user_phone_email_title --print --execute --critical-load="Threads_running=200" >> /root/tr_user_phone_email_title.add.partition.log
+							< #12 * * * * /usr/local/percona-toolkit-2.2.18/bin/pt-online-schema-change --user=trackingdb --password='zYTps2GyFQ6FtVW5' --host=rm-at8v90128nty4un3o.mysql.rds.aliyuncs.com --S /var/lib/mysql/mysql.sock --charset=utf8 --alter "ADD UNIQUE(id, create_time)"  D=trackingdb,t=tr_user_phone_email_title --print --execute --critical-load="Threads_running=200" >> /root/tr_user_phone_email_title.log
+							654,655d632
+							< #19 * * * * /usr/local/percona-toolkit-2.2.18/bin/pt-online-schema-change --user=trackingdb --password='zYTps2GyFQ6FtVW5' --host=rm-at8w5suz142fqeun6.mysql.rds.aliyuncs.com --S /var/lib/mysql/mysql.sock --charset=utf8 --alter "ADD INDEX(order_id)"  D=mycat1,t=tr_user_tracknumber_58128_58128 --print --execute --critical-load="Threads_running=200" >> /root/tr_user_tracknumber_58128_58128.20220111.create.partition.log
+							< #19 * * * * /usr/local/percona-toolkit-2.2.18/bin/pt-online-schema-change --user=trackingdb --password='zYTps2GyFQ6FtVW5' --host=rm-at8w5suz142fqeun6.mysql.rds.aliyuncs.com --S /var/lib/mysql/mysql.sock --charset=utf8 --alter "ADD INDEX(order_id)"  D=mycat1,t=tr_user_tracknumber_58126_58126 --print --execute --critical-load="Threads_running=200" >> /root/tr_user_tracknumber_58126_58126.20220112.create.partition.log
+							
 				-- 20250419
 					PCR=${PTM}crontab/
 					PCR=${PTM}crontab/
@@ -19319,6 +19395,17 @@
 					systemctl start aegis
 				重启云监控
 		队列
+			-- 20250725
+				国内独立更新重启
+					wpa kill php-resque
+						需单独操作
+							ali-ind-h-qi-5-5-174 | UNREACHABLE! => {
+								"changed": false,
+								"msg": "Failed to connect to the host via ssh: ssh: connect to host 172.16.30.73 port 22: Connection timed out",
+								"unreachable": true
+							}
+							ali-ind-h-qi-7-6-209
+							ali-ind-h-qi-6-5-39
 			-- 20250625
 				首次更新队列长时间告警 2025-06-25 19:00:01 Z_FIRST_T_Q_SET:263502 is over 10000 (home:redis:bigkey)[DB0] （最近3个月告警群里都有，群信息保留时间最长3个月）
 					[root@izwz908uhtm6wdcqcg9bqez ~]
