@@ -7043,7 +7043,45 @@
 					IOA 测试 29
 						-- 20250127
 							分割、压缩、清除定时任务
-							上传oss							
+								-- 20250726
+									/home/wwwroot/mytracking/uploads
+										国外（用script/queueshell/temp.rm.file.sh 已经有（7.153 136.77 58.140 141.74 194.116））
+											notest_27 | CHANGED | rc=0 >>
+											762M    /home/wwwroot/mytracking/uploads/excel/
+											notest_145_44_35 | CHANGED | rc=0 >>
+											43M     /home/wwwroot/mytracking/uploads/excel/
+											notest_10_10 | CHANGED | rc=0 >>
+											160M    /home/wwwroot/mytracking/uploads/excel/
+											notest_214_153 | CHANGED | rc=0 >>
+											1.1G    /home/wwwroot/mytracking/uploads/excel/
+											notest_105 | CHANGED | rc=0 >>
+											17M     /home/wwwroot/mytracking/uploads/excel/
+										国内
+											front_20 | CHANGED | rc=0 >>
+											2.7G    /home/wwwroot/mytracking/uploads/excel/
+											front_3 | CHANGED | rc=0 >>
+											1.9G    /home/wwwroot/mytracking/uploads/excel/
+											front_134 | CHANGED | rc=0 >>
+											6.5G    /home/wwwroot/mytracking/uploads/excel/
+											resque_140 | CHANGED | rc=0 >>
+											1.7G    /home/wwwroot/mytracking/uploads/excel/
+											resque_74 | CHANGED | rc=0 >>
+											849M    /home/wwwroot/mytracking/uploads/excel/
+										定时任务
+											# 清理修改时间超过180天的压缩下载文件 每天12:13分执行 后续统一配置处理 20250726
+											13 12 * * * /bin/find /home/wwwroot/mytracking/downloads/excel_zip/ -type f -name '*.zip' -mtime +180 | xargs -i rm -fr {} > /dev/null 2>&1
+											# 清理修改时间超过180天的压缩下载文件 每天12:13分执行 后续统一配置处理 20250726
+									/home/wwwroot/mytracking/logs
+
+									/home/wwwroot/mytracking/uploads/excel_zip zip文件仅保留7天
+									/var/log/journal/f0f31005fb5a436d88e3c6cbf54e25aa
+										system@19176fb02607489090d186458de03707-00000000084ccdbd-000638aee1f5e34f.journal
+										压缩保留
+							上传oss
+								-- 20250726
+									国外已经有定时上传，上传对象后续可以继续增加
+									国内
+
 						-- 20250126
 							定时任务同步
 								# 国外
@@ -7159,13 +7197,14 @@
 								告警
 									突变
 										增量
-						处理文件列表
-							重名为带指定时间段
-							直接压缩
-						压缩清理时间
-							默认每天，可自定
-						保留时间
-							默认6个月，可自定
+						处理逻辑
+							处理文件列表
+								重名为带指定时间段
+								直接压缩
+							压缩清理时间
+								默认每天，可自定
+							保留时间
+								默认6个月，可自定
 						现有脚本
 							-- 20250204
 								磁盘空间记录
@@ -8295,6 +8334,123 @@
 									
 							-- 20250504
 								upload-test-177-172.16.21.169
+									-- 20250726
+										root@iZ0xi60yimvc2jwvywy8gdZ:~# df -h
+										Filesystem      Size  Used Avail Use% Mounted on
+										tmpfs           169M  1.7M  167M   1% /run
+										/dev/vda3        40G   37G  315M 100% /
+										tmpfs           841M     0  841M   0% /dev/shm
+										tmpfs           5.0M     0  5.0M   0% /run/lock
+										/dev/vda2       197M  6.1M  191M   4% /boot/efi
+										overlay          40G   37G  315M 100% /var/lib/docker/overlay2/f62a6fc3780e3cb7c5d8a72f410f8c07cc18f9a7b650e5b5169da7fe219a92c0/merged
+										overlay          40G   37G  315M 100% /var/lib/docker/overlay2/9caebff522fc2dd46993c9872a03a1e8c5cd7f41f24b512f8455ce42d4188d8d/merged
+										overlay          40G   37G  315M 100% /var/lib/docker/overlay2/37a3332742b2c675c211fde83cffe638db49c50a31dec398591f5a78ca02af79/merged
+										overlay          40G   37G  315M 100% /var/lib/docker/overlay2/e627d9fe10bfd183d2a2828b70d216b49905fcb4c1dd119e8e4610e92af43229/merged
+										overlay          40G   37G  315M 100% /var/lib/docker/overlay2/4d2b15af316bc2baf734a422e6f968590592e169fd34b5628582e0afe1b8034b/merged
+										overlay          40G   37G  315M 100% /var/lib/docker/overlay2/6a0833b189b5c3464c137e4c9d0bff3554c81301d9120a5dc9f74e09abed8b12/merged
+										overlay          40G   37G  315M 100% /var/lib/docker/overlay2/5c27e23bc90cef4b5ad503ec41e2a24298d93ec8d6619e6ef2c459e9bd258add/merged
+										tmpfs           169M  4.0K  169M   1% /run/user/1000
+										root@iZ0xi60yimvc2jwvywy8gdZ:~# 1
+										1: command not found
+										root@iZ0xi60yimvc2jwvywy8gdZ:~# find / -name '*' -type f -size +100M | xargs ls -lh {} | sort -nrk5
+										find: ‘/proc/398334/task/398334/fdinfo/6’: No such file or directory
+										find: ‘/proc/398334/fdinfo/5’: No such file or directory
+										ls: cannot access '{}': No such file or directory
+										-rw-r--r--  1 root root            1000M Jun 16 01:04 /home/data/logs/mail/logs/mail-2025-06-15T17-04-50.846.log
+										-rw-r--r--  1 root root             635M Jul 26 21:45 /root/nginx/logs/mailwebhook.access.log
+										-rw-r--r--  1 root root             441M Jul 26 21:45 /home/data/logs/mail/logs/mail.log
+										-rw-------  1 root root             410M Aug 22  2023 /var/lib/docker/overlay2/f62a6fc3780e3cb7c5d8a72f410f8c07cc18f9a7b650e5b5169da7fe219a92c0/merged/tmp/multipart-3539220014
+										-rw-------  1 root root             410M Aug 22  2023 /var/lib/docker/overlay2/f62a6fc3780e3cb7c5d8a72f410f8c07cc18f9a7b650e5b5169da7fe219a92c0/diff/tmp/multipart-3539220014
+										-rw-------  1 root root             410M Aug 21  2023 /var/lib/docker/overlay2/f62a6fc3780e3cb7c5d8a72f410f8c07cc18f9a7b650e5b5169da7fe219a92c0/merged/tmp/multipart-3105524436
+										-rw-------  1 root root             410M Aug 21  2023 /var/lib/docker/overlay2/f62a6fc3780e3cb7c5d8a72f410f8c07cc18f9a7b650e5b5169da7fe219a92c0/diff/tmp/multipart-3105524436
+										-rw-r--r--  1 root root             276M Jul 26 21:45 /root/yunxiao/be-tfpyqa22gtndemstnunakvmq/runner/__flow_logs/runner.log
+										-rw-r-----  1 root root             234M May  6 00:00 /var/lib/docker/containers/ec9db2d3f0430f10d895e30625b66e73948ca52d585b6e402c2c901e432b9933/ec9db2d3f0430f10d895e30625b66e73948ca52d585b6e402c2c901e432b9933-json.log.1
+										-rw-r--r--  1 root root             195M Jul  3 18:55 /home/admin/app/package-test.tgz
+										-rw-r--r--  1 root root             142M Sep  7  2022 /home/docker/go1.19.1.linux-amd64.tar.gz
+										-rwxr-xr-x  1 root root             129M Feb 12  2023 /var/lib/docker/overlay2/708684e9b2eacb774bf1c13e53f43052ecc3b543d785072f9f2fa4b6826af407/diff/usr/share/filebeat/filebeat
+										-rw-r-----+ 1 root systemd-journal  128M Jul 26 21:45 /var/log/journal/20220824155104035200373293129636/system.journal
+										-rw-r-----+ 1 root systemd-journal  128M Jul 20 21:19 /var/log/journal/20220824155104035200373293129636/system@cf9e8d75f9b54927ba7a6171f0a3993e-0000000000d0ce96-000639dfd4e4b9aa.journal
+										-rw-r-----+ 1 root systemd-journal  128M Jul 14 16:56 /var/log/journal/20220824155104035200373293129636/system@cf9e8d75f9b54927ba7a6171f0a3993e-0000000000ce8acc-00063968cabfb6a8.journal
+										-rw-r-----  1 1001            1001  128M Oct 12  2022 /root/mysql_data/ib_logfile1
+										-rw-r-----  1 1001            1001  128M Aug 22  2023 /root/mysql_data/ib_logfile0
+										-r--------  1 root root             128T Jul  4 01:41 /proc/kcore
+										-rwxr-xr-x  2 root root             118M May 10  2024 /root/node_modules/workerd/bin/workerd
+										-rwxr-xr-x  2 root root             118M May 10  2024 /root/node_modules/@cloudflare/workerd-linux-64/bin/workerd
+										-rw-------  1 root root             112M Sep 13  2023 /var/lib/docker/overlay2/f62a6fc3780e3cb7c5d8a72f410f8c07cc18f9a7b650e5b5169da7fe219a92c0/merged/tmp/multipart-3451269813
+										-rw-------  1 root root             112M Sep 13  2023 /var/lib/docker/overlay2/f62a6fc3780e3cb7c5d8a72f410f8c07cc18f9a7b650e5b5169da7fe219a92c0/merged/tmp/multipart-2718775450
+										-rw-------  1 root root             112M Sep 13  2023 /var/lib/docker/overlay2/f62a6fc3780e3cb7c5d8a72f410f8c07cc18f9a7b650e5b5169da7fe219a92c0/merged/tmp/multipart-2372992208
+										-rw-------  1 root root             112M Sep 13  2023 /var/lib/docker/overlay2/f62a6fc3780e3cb7c5d8a72f410f8c07cc18f9a7b650e5b5169da7fe219a92c0/merged/tmp/multipart-2240062091
+										-rw-------  1 root root             112M Sep 13  2023 /var/lib/docker/overlay2/f62a6fc3780e3cb7c5d8a72f410f8c07cc18f9a7b650e5b5169da7fe219a92c0/diff/tmp/multipart-3451269813
+										-rw-------  1 root root             112M Sep 13  2023 /var/lib/docker/overlay2/f62a6fc3780e3cb7c5d8a72f410f8c07cc18f9a7b650e5b5169da7fe219a92c0/diff/tmp/multipart-2718775450
+										-rw-------  1 root root             112M Sep 13  2023 /var/lib/docker/overlay2/f62a6fc3780e3cb7c5d8a72f410f8c07cc18f9a7b650e5b5169da7fe219a92c0/diff/tmp/multipart-2372992208
+										-rw-------  1 root root             112M Sep 13  2023 /var/lib/docker/overlay2/f62a6fc3780e3cb7c5d8a72f410f8c07cc18f9a7b650e5b5169da7fe219a92c0/diff/tmp/multipart-2240062091
+										-rw-------  1 root root             112M Sep 12  2023 /var/lib/docker/overlay2/f62a6fc3780e3cb7c5d8a72f410f8c07cc18f9a7b650e5b5169da7fe219a92c0/merged/tmp/multipart-3135289178
+										-rw-------  1 root root             112M Sep 12  2023 /var/lib/docker/overlay2/f62a6fc3780e3cb7c5d8a72f410f8c07cc18f9a7b650e5b5169da7fe219a92c0/merged/tmp/multipart-1516733489
+										-rw-------  1 root root             112M Sep 12  2023 /var/lib/docker/overlay2/f62a6fc3780e3cb7c5d8a72f410f8c07cc18f9a7b650e5b5169da7fe219a92c0/diff/tmp/multipart-3135289178
+										-rw-------  1 root root             112M Sep 12  2023 /var/lib/docker/overlay2/f62a6fc3780e3cb7c5d8a72f410f8c07cc18f9a7b650e5b5169da7fe219a92c0/diff/tmp/multipart-1516733489
+										-rwxr-xr-x  1 root root             107M May 10  2024 /usr/local/node/bin/node
+										-rw-r--r--  1 root root             105M Jul 26 21:43 /root/nginx/logs/error.log
+										root@iZ0xi60yimvc2jwvywy8gdZ:~# head /home/data/logs/mail/logs/mail-2025-06-15T17-04-50.846.log
+										{"level":"INFO","time":"2025-03-25T00:26:25.617Z","caller":"logic/emailSendingRecords.go:43","msg":"logic_emailSendingRecords.GetEmailSendingRecordByMessageId(GetEmailSendingRecordByMessageId) info","error":"查询数据失败"}
+										{"level":"INFO","time":"2025-03-25T00:26:25.626Z","caller":"pkg/logger.go:78","msg":"/api/v1/receiveMailgunWebhooks","status":200,"method":"POST","path":"/api/v1/receiveMailgunWebhooks","query":"","ip":"35.212.206.238","user-agent":"Go-http-client/2.0","errors":"","cost":0.011028211,"appid":"","traceId":""}
+										{"level":"INFO","time":"2025-03-25T00:26:25.844Z","caller":"logic/emailSendingRecords.go:43","msg":"logic_emailSendingRecords.GetEmailSendingRecordByMessageId(GetEmailSendingRecordByMessageId) info","error":"查询数据失败"}
+										{"level":"INFO","time":"2025-03-25T00:26:25.844Z","caller":"pkg/logger.go:78","msg":"/api/v1/receiveMailgunWebhooks","status":200,"method":"POST","path":"/api/v1/receiveMailgunWebhooks","query":"","ip":"35.212.244.40","user-agent":"Go-http-client/2.0","errors":"","cost":0.00236731,"appid":"","traceId":""}
+										{"level":"INFO","time":"2025-03-25T00:26:29.450Z","caller":"logic/emailSendingRecords.go:43","msg":"logic_emailSendingRecords.GetEmailSendingRecordByMessageId(GetEmailSendingRecordByMessageId) info","error":"查询数据失败"}
+										{"level":"INFO","time":"2025-03-25T00:26:29.451Z","caller":"pkg/logger.go:78","msg":"/api/v1/receiveMailgunWebhooks","status":200,"method":"POST","path":"/api/v1/receiveMailgunWebhooks","query":"","ip":"35.212.145.71","user-agent":"Go-http-client/2.0","errors":"","cost":0.002780413,"appid":"","traceId":""}
+										{"level":"INFO","time":"2025-03-25T00:26:36.424Z","caller":"logic/emailSendingRecords.go:43","msg":"logic_emailSendingRecords.GetEmailSendingRecordByMessageId(GetEmailSendingRecordByMessageId) info","error":"查询数据失败"}
+										{"level":"INFO","time":"2025-03-25T00:26:36.424Z","caller":"pkg/logger.go:78","msg":"/api/v1/receiveMailgunWebhooks","status":200,"method":"POST","path":"/api/v1/receiveMailgunWebhooks","query":"","ip":"35.212.204.255","user-agent":"Go-http-client/2.0","errors":"","cost":0.00258686,"appid":"","traceId":""}
+										{"level":"INFO","time":"2025-03-25T00:26:36.540Z","caller":"logic/emailSendingRecords.go:43","msg":"logic_emailSendingRecords.GetEmailSendingRecordByMessageId(GetEmailSendingRecordByMessageId) info","error":"查询数据失败"}
+										{"level":"INFO","time":"2025-03-25T00:26:36.541Z","caller":"pkg/logger.go:78","msg":"/api/v1/receiveMailgunWebhooks","status":200,"method":"POST","path":"/api/v1/receiveMailgunWebhooks","query":"","ip":"35.212.0.24","user-agent":"Go-http-client/2.0","errors":"","cost":0.002478379,"appid":"","traceId":""}
+										root@iZ0xi60yimvc2jwvywy8gdZ:~# tail /home/data/logs/mail/logs/mail-2025-06-15T17-04-50.846.log
+										{"level":"INFO","time":"2025-06-15T17:04:01.293Z","caller":"logic/emailSendingRecords.go:43","msg":"logic_emailSendingRecords.GetEmailSendingRecordByMessageId(GetEmailSendingRecordByMessageId) info","error":"查询数据失败"}
+										{"level":"INFO","time":"2025-06-15T17:04:01.293Z","caller":"pkg/logger.go:78","msg":"/api/v1/receiveMailgunWebhooks","status":200,"method":"POST","path":"/api/v1/receiveMailgunWebhooks","query":"","ip":"35.212.126.124","user-agent":"Go-http-client/2.0","errors":"","cost":0.002556343,"appid":"","traceId":""}
+										{"level":"INFO","time":"2025-06-15T17:04:01.915Z","caller":"logic/emailSendingRecords.go:43","msg":"logic_emailSendingRecords.GetEmailSendingRecordByMessageId(GetEmailSendingRecordByMessageId) info","error":"查询数据失败"}
+										{"level":"INFO","time":"2025-06-15T17:04:01.916Z","caller":"pkg/logger.go:78","msg":"/api/v1/receiveMailgunWebhooks","status":200,"method":"POST","path":"/api/v1/receiveMailgunWebhooks","query":"","ip":"35.212.104.178","user-agent":"Go-http-client/2.0","errors":"","cost":0.00267696,"appid":"","traceId":""}
+										{"level":"INFO","time":"2025-06-15T17:04:17.107Z","caller":"logic/emailSendingRecords.go:43","msg":"logic_emailSendingRecords.GetEmailSendingRecordByMessageId(GetEmailSendingRecordByMessageId) info","error":"查询数据失败"}
+										{"level":"INFO","time":"2025-06-15T17:04:17.107Z","caller":"pkg/logger.go:78","msg":"/api/v1/receiveMailgunWebhooks","status":200,"method":"POST","path":"/api/v1/receiveMailgunWebhooks","query":"","ip":"35.212.139.47","user-agent":"Go-http-client/2.0","errors":"","cost":0.002689673,"appid":"","traceId":""}
+										{"level":"INFO","time":"2025-06-15T17:04:21.982Z","caller":"logic/emailSendingRecords.go:43","msg":"logic_emailSendingRecords.GetEmailSendingRecordByMessageId(GetEmailSendingRecordByMessageId) info","error":"查询数据失败"}
+										{"level":"INFO","time":"2025-06-15T17:04:21.982Z","caller":"pkg/logger.go:78","msg":"/api/v1/receiveMailgunWebhooks","status":200,"method":"POST","path":"/api/v1/receiveMailgunWebhooks","query":"","ip":"35.212.209.115","user-agent":"Go-http-client/2.0","errors":"","cost":0.002638537,"appid":"","traceId":""}
+										{"level":"INFO","time":"2025-06-15T17:04:49.484Z","caller":"logic/emailSendingRecords.go:43","msg":"logic_emailSendingRecords.GetEmailSendingRecordByMessageId(GetEmailSendingRecordByMessageId) info","error":"查询数据失败"}
+										{"level":"INFO","time":"2025-06-15T17:04:49.485Z","caller":"pkg/logger.go:78","msg":"/api/v1/receiveMailgunWebhooks","status":200,"method":"POST","path":"/api/v1/receiveMailgunWebhooks","query":"","ip":"35.212.246.213","user-agent":"Go-http-client/2.0","errors":"","cost":0.002739417,"appid":"","traceId":""}
+										root@iZ0xi60yimvc2jwvywy8gdZ:~# echo > /home/data/logs/mail/logs/mail-2025-06-15T17-04-50.846.log
+										root@iZ0xi60yimvc2jwvywy8gdZ:~# df -h
+										Filesystem      Size  Used Avail Use% Mounted on
+										tmpfs           169M  1.7M  167M   1% /run
+										/dev/vda3        40G   36G  1.3G  97% /
+										tmpfs           841M     0  841M   0% /dev/shm
+										tmpfs           5.0M     0  5.0M   0% /run/lock
+										/dev/vda2       197M  6.1M  191M   4% /boot/efi
+										overlay          40G   36G  1.3G  97% /var/lib/docker/overlay2/f62a6fc3780e3cb7c5d8a72f410f8c07cc18f9a7b650e5b5169da7fe219a92c0/merged
+										overlay          40G   36G  1.3G  97% /var/lib/docker/overlay2/9caebff522fc2dd46993c9872a03a1e8c5cd7f41f24b512f8455ce42d4188d8d/merged
+										overlay          40G   36G  1.3G  97% /var/lib/docker/overlay2/37a3332742b2c675c211fde83cffe638db49c50a31dec398591f5a78ca02af79/merged
+										overlay          40G   36G  1.3G  97% /var/lib/docker/overlay2/e627d9fe10bfd183d2a2828b70d216b49905fcb4c1dd119e8e4610e92af43229/merged
+										overlay          40G   36G  1.3G  97% /var/lib/docker/overlay2/4d2b15af316bc2baf734a422e6f968590592e169fd34b5628582e0afe1b8034b/merged
+										overlay          40G   36G  1.3G  97% /var/lib/docker/overlay2/6a0833b189b5c3464c137e4c9d0bff3554c81301d9120a5dc9f74e09abed8b12/merged
+										overlay          40G   36G  1.3G  97% /var/lib/docker/overlay2/5c27e23bc90cef4b5ad503ec41e2a24298d93ec8d6619e6ef2c459e9bd258add/merged
+										tmpfs           169M  4.0K  169M   1% /run/user/1000
+										root@iZ0xi60yimvc2jwvywy8gdZ:~# head /root/nginx/logs/mailwebhook.access.log
+
+										172.70.174.230 - - [25/Nov/2024:08:01:04 +0000] "POST /api/v1/receiveMailgunWebhooks HTTP/1.1" 200 168 "-" "Go-http-client/2.0" "35.212.0.24"
+										172.68.15.144 - - [25/Nov/2024:08:01:05 +0000] "POST /api/v1/receiveMailgunWebhooks HTTP/1.1" 200 169 "-" "Go-http-client/2.0" "35.212.40.144"
+										162.158.42.91 - - [25/Nov/2024:08:01:06 +0000] "POST /api/v1/receiveMailgunWebhooks HTTP/1.1" 200 168 "-" "Go-http-client/2.0" "35.212.244.40"
+										172.71.142.27 - - [25/Nov/2024:08:01:07 +0000] "POST /api/v1/receiveMailgunWebhooks HTTP/1.1" 200 169 "-" "Go-http-client/2.0" "35.212.235.134"
+										162.158.41.154 - - [25/Nov/2024:08:01:15 +0000] "POST /api/v1/receiveMailgunWebhooks HTTP/1.1" 200 168 "-" "Go-http-client/2.0" "35.212.244.40"
+										172.71.147.162 - - [25/Nov/2024:08:01:16 +0000] "POST /api/v1/receiveMailgunWebhooks HTTP/1.1" 200 168 "-" "Go-http-client/2.0" "35.212.150.167"
+										162.158.42.91 - - [25/Nov/2024:08:01:16 +0000] "POST /api/v1/receiveMailgunWebhooks HTTP/1.1" 200 168 "-" "Go-http-client/2.0" "35.212.244.40"
+										162.158.41.125 - - [25/Nov/2024:08:01:16 +0000] "POST /api/v1/receiveMailgunWebhooks HTTP/1.1" 200 168 "-" "Go-http-client/2.0" "35.212.164.83"
+										108.162.246.50 - - [25/Nov/2024:08:01:17 +0000] "POST /api/v1/receiveMailgunWebhooks HTTP/1.1" 200 169 "-" "Go-http-client/2.0" "35.212.200.184"
+										root@iZ0xi60yimvc2jwvywy8gdZ:~# head /home/data/logs/mail/logs/mail.log
+										{"level":"INFO","time":"2025-06-15T17:04:50.846Z","caller":"logic/emailSendingRecords.go:43","msg":"logic_emailSendingRecords.GetEmailSendingRecordByMessageId(GetEmailSendingRecordByMessageId) info","error":"查询数据失败"}
+										{"level":"INFO","time":"2025-06-15T17:04:50.851Z","caller":"pkg/logger.go:78","msg":"/api/v1/receiveMailgunWebhooks","status":200,"method":"POST","path":"/api/v1/receiveMailgunWebhooks","query":"","ip":"35.212.241.42","user-agent":"Go-http-client/2.0","errors":"","cost":0.007331546,"appid":"","traceId":""}
+										{"level":"INFO","time":"2025-06-15T17:04:51.447Z","caller":"logic/emailSendingRecords.go:43","msg":"logic_emailSendingRecords.GetEmailSendingRecordByMessageId(GetEmailSendingRecordByMessageId) info","error":"查询数据失败"}
+										{"level":"INFO","time":"2025-06-15T17:04:51.447Z","caller":"pkg/logger.go:78","msg":"/api/v1/receiveMailgunWebhooks","status":200,"method":"POST","path":"/api/v1/receiveMailgunWebhooks","query":"","ip":"35.212.83.234","user-agent":"Go-http-client/2.0","errors":"","cost":0.002497941,"appid":"","traceId":""}
+										{"level":"INFO","time":"2025-06-15T17:04:51.513Z","caller":"logic/emailSendingRecords.go:43","msg":"logic_emailSendingRecords.GetEmailSendingRecordByMessageId(GetEmailSendingRecordByMessageId) info","error":"查询数据失败"}
+										{"level":"INFO","time":"2025-06-15T17:04:51.513Z","caller":"pkg/logger.go:78","msg":"/api/v1/receiveMailgunWebhooks","status":200,"method":"POST","path":"/api/v1/receiveMailgunWebhooks","query":"","ip":"35.212.98.13","user-agent":"Go-http-client/2.0","errors":"","cost":0.002728523,"appid":"","traceId":""}
+										{"level":"INFO","time":"2025-06-15T17:04:54.706Z","caller":"logic/emailSendingRecords.go:43","msg":"logic_emailSendingRecords.GetEmailSendingRecordByMessageId(GetEmailSendingRecordByMessageId) info","error":"查询数据失败"}
+										{"level":"INFO","time":"2025-06-15T17:04:54.707Z","caller":"pkg/logger.go:78","msg":"/api/v1/receiveMailgunWebhooks","status":200,"method":"POST","path":"/api/v1/receiveMailgunWebhooks","query":"","ip":"35.212.98.13","user-agent":"Go-http-client/2.0","errors":"","cost":0.002631347,"appid":"","traceId":""}
+										{"level":"INFO","time":"2025-06-15T17:04:57.629Z","caller":"logic/emailSendingRecords.go:43","msg":"logic_emailSendingRecords.GetEmailSendingRecordByMessageId(GetEmailSendingRecordByMessageId) info","error":"查询数据失败"}
+										{"level":"INFO","time":"2025-06-15T17:04:57.629Z","caller":"pkg/logger.go:78","msg":"/api/v1/receiveMailgunWebhooks","status":200,"method":"POST","path":"/api/v1/receiveMailgunWebhooks","query":"","ip":"35.212.111.84","user-agent":"Go-http-client/2.0","errors":"","cost":0.002448287,"appid":"","traceId":""}
+										root@iZ0xi60yimvc2jwvywy8gdZ:~# echo > /home/data/logs/mail/logs/mail.log
 									-- 20250708
 										[Aroot@iZ0xi60yimvc2jwvywy8gdZ:~# df -h
 										Filesystem      Size  Used Avail Use% Mounted on
@@ -10448,6 +10604,126 @@
 										overlay          40G   37G  2.8G  94% /var/lib/docker/overlay2/59ca7e38d5053a3062bce79ba5dd8934e5abe477125dd0fbf0aae1019223218d/merged
 										tmpfs           1.6G     0  1.6G   0% /run/user/1002
 								ind_front_87_101_172.16.10.170-resque-download-51-74
+									-- 20250726
+										[root@iZ94apf5ivnZ ~]# sh /home/wwwroot/www.trackingmore.com/script/queueshell/diskTree.sh /home/wwwroot/mytracking/ 3 100
+										├── /home/wwwroot/mytracking: 15595 MB
+										│   ├── /home/wwwroot/mytracking/downloads: 13737 MB
+										│   │   ├── /home/wwwroot/mytracking/downloads/excel: 2404 MB
+										│   │   ├── /home/wwwroot/mytracking/downloads/excel_zip: 11334 MB
+										│   ├── /home/wwwroot/mytracking/uploads: 1545 MB
+										│   │   ├── /home/wwwroot/mytracking/uploads/excel: 847 MB
+										│   │   ├── /home/wwwroot/mytracking/uploads/excel_zip: 699 MB
+										│   │   │   └── 20250723.zip: 239 MB
+										│   │   │   └── 20250725.zip: 164 MB
+										│   │   │   └── 20250724.zip: 150 MB
+										│   │   │   └── 20250722.zip: 149 MB
+										│   ├── /home/wwwroot/mytracking/logs: 211 MB
+										│   │   ├── /home/wwwroot/mytracking/logs/routes: 161 MB
+										[root@iZ94apf5ivnZ ~]# df -h
+										Filesystem      Size  Used Avail Use% Mounted on
+										/dev/vda1        49G   44G  4.6G  91% /
+										devtmpfs        3.8G     0  3.8G   0% /dev
+										tmpfs           3.8G     0  3.8G   0% /dev/shm
+										tmpfs           3.8G  712M  3.1G  19% /run
+										tmpfs           3.8G     0  3.8G   0% /sys/fs/cgroup
+										tmpfs           768M     0  768M   0% /run/user/0
+										tmpfs           768M     0  768M   0% /run/user/1004
+										[root@iZ94apf5ivnZ ~]# /bin/find /home/wwwroot/mytracking/downloads/excel_zip/ -type f -name '*.zip' -mtime +180 | xargs -i rm -fr {}
+										[root@iZ94apf5ivnZ ~]# df -h
+										Filesystem      Size  Used Avail Use% Mounted on
+										/dev/vda1        49G   44G  4.6G  91% /
+										devtmpfs        3.8G     0  3.8G   0% /dev
+										tmpfs           3.8G     0  3.8G   0% /dev/shm
+										tmpfs           3.8G  712M  3.1G  19% /run
+										tmpfs           3.8G     0  3.8G   0% /sys/fs/cgroup
+										tmpfs           768M     0  768M   0% /run/user/0
+										tmpfs           768M     0  768M   0% /run/user/1004
+										[root@iZ94apf5ivnZ ~]# ll /home/wwwroot/mytracking/downloads/excel_zip | head
+										total 11605036
+										-rw-r--r-- 1 root root      583 May 30 17:52 20221129.zip
+										-rw-r--r-- 1 root root  2309111 May 30 17:52 20221201.zip
+										-rw-r--r-- 1 root root  7151053 May 30 17:52 20221205.zip
+										-rw-r--r-- 1 root root  6926211 May 30 17:52 20221206.zip
+										-rw-r--r-- 1 root root 10327006 May 30 17:52 20221207.zip
+										-rw-r--r-- 1 root root 11424166 May 30 17:52 20221208.zip
+										-rw-r--r-- 1 root root  6033399 May 30 17:52 20221209.zip
+										-rw-r--r-- 1 root root  5791257 May 30 17:52 20221210.zip
+										-rw-r--r-- 1 root root  1354776 May 30 17:52 20221211.zip
+										[root@iZ94apf5ivnZ ~]# /bin/find /home/wwwroot/mytracking/downloads/excel_zip/ -type f -name '*.zip' -mtime +180 | wc -l
+										0
+										[root@iZ94apf5ivnZ ~]# /bin/find /home/wwwroot/mytracking/downloads/excel_zip/ -type f -name '*.zip' -mtime +10 | wc -l
+										909
+										[root@iZ94apf5ivnZ ~]# /bin/find /home/wwwroot/mytracking/downloads/excel_zip/ -type f -name '*.zip' -mtime +100 | wc -l
+										0
+										[root@iZ94apf5ivnZ ~]# /bin/find /home/wwwroot/mytracking/downloads/excel_zip/ -type f -name '*.zip' -mtime +20 | wc -l
+										909
+										[root@iZ94apf5ivnZ ~]# /bin/find /home/wwwroot/mytracking/downloads/excel_zip/ -type f -name '*.zip' -mtime +50 | wc -l
+										909
+										[root@iZ94apf5ivnZ ~]# ll /home/wwwroot/mytracking/downloads/excel_zip | grep 2022 | wc -l
+										29
+										[root@iZ94apf5ivnZ ~]# ll /home/wwwroot/mytracking/downloads/excel_zip | grep 2023 | wc -l
+										366
+										[root@iZ94apf5ivnZ ~]# ll /home/wwwroot/mytracking/downloads/excel_zip | grep 2023 | head
+										-rw-r--r-- 1 root root  1515012 May 30 17:53 20230101.zip
+										-rw-r--r-- 1 root root  3523473 May 30 17:53 20230102.zip
+										-rw-r--r-- 1 root root  6755867 May 30 17:53 20230103.zip
+										-rw-r--r-- 1 root root  8093186 May 30 17:53 20230104.zip
+										-rw-r--r-- 1 root root  9315887 May 30 17:53 20230105.zip
+										-rw-r--r-- 1 root root  6486404 May 30 17:53 20230106.zip
+										-rw-r--r-- 1 root root  6480736 May 30 17:53 20230107.zip
+										-rw-r--r-- 1 root root  3132256 May 30 17:53 20230108.zip
+										-rw-r--r-- 1 root root  7154035 May 30 17:53 20230109.zip
+										-rw-r--r-- 1 root root  6957129 May 30 17:53 20230110.zip
+										[root@iZ94apf5ivnZ ~]# ll /home/wwwroot/mytracking/downloads/excel_zip | grep 2024 | head
+										-rw-r--r-- 1 root root  2761211 May 30 18:04 20240101.zip
+										-rw-r--r-- 1 root root 20568838 May 30 18:04 20240102.zip
+										-rw-r--r-- 1 root root 17299019 May 30 18:04 20240103.zip
+										-rw-r--r-- 1 root root 17051938 May 30 18:04 20240104.zip
+										-rw-r--r-- 1 root root 29458568 May 30 18:04 20240105.zip
+										-rw-r--r-- 1 root root  7153776 May 30 18:04 20240106.zip
+										-rw-r--r-- 1 root root  2254424 May 30 18:04 20240107.zip
+										-rw-r--r-- 1 root root 21316909 May 30 18:05 20240108.zip
+										-rw-r--r-- 1 root root 13432585 May 30 18:05 20240109.zip
+										-rw-r--r-- 1 root root 10579068 May 30 18:05 20240110.zip
+										[root@iZ94apf5ivnZ ~]# ll /home/wwwroot/mytracking/downloads/excel_zip | grep 2025 | head
+										-rw-r--r-- 1 root root  2275425 May 30 18:22 20250101.zip
+										-rw-r--r-- 1 root root 24114687 May 30 18:22 20250102.zip
+										-rw-r--r-- 1 root root 23001389 May 30 18:22 20250103.zip
+										-rw-r--r-- 1 root root  9413512 May 30 18:22 20250104.zip
+										-rw-r--r-- 1 root root 16197959 May 30 18:22 20250105.zip
+										-rw-r--r-- 1 root root 49242604 May 30 18:22 20250106.zip
+										-rw-r--r-- 1 root root 25847769 May 30 18:22 20250107.zip
+										-rw-r--r-- 1 root root 20234199 May 30 18:22 20250108.zip
+										-rw-r--r-- 1 root root 20003379 May 30 18:22 20250109.zip
+										-rw-r--r-- 1 root root 23968916 May 30 18:22 20250110.zip
+										[root@iZ94apf5ivnZ ~]# df -h
+										Filesystem      Size  Used Avail Use% Mounted on
+										/dev/vda1        49G   44G  4.5G  91% /
+										devtmpfs        3.8G     0  3.8G   0% /dev
+										tmpfs           3.8G     0  3.8G   0% /dev/shm
+										tmpfs           3.8G  712M  3.1G  19% /run
+										tmpfs           3.8G     0  3.8G   0% /sys/fs/cgroup
+										tmpfs           768M     0  768M   0% /run/user/0
+										tmpfs           768M     0  768M   0% /run/user/1004
+										[root@iZ94apf5ivnZ ~]# /bin/find /home/wwwroot/mytracking/downloads/excel_zip/ -type f -name '2022*.zip' -mtime +0 | wc -l
+										29
+										[root@iZ94apf5ivnZ ~]# /bin/find /home/wwwroot/mytracking/downloads/excel_zip/ -type f -name '2022*.zip' -mtime +10 | xargs -i rm -fr {}
+										[root@iZ94apf5ivnZ ~]# /bin/find /home/wwwroot/mytracking/downloads/excel_zip/ -type f -name '2023*.zip' -mtime +10 | xargs -i rm -fr {}
+										[root@iZ94apf5ivnZ ~]# /bin/find /home/wwwroot/mytracking/downloads/excel_zip/ -type f -name '2024*.zip' -mtime +10 | xargs -i rm -fr {}
+										[root@iZ94apf5ivnZ ~]# df -h
+										Filesystem      Size  Used Avail Use% Mounted on
+										/dev/vda1        49G   35G   13G  74% /
+										devtmpfs        3.8G     0  3.8G   0% /dev
+										tmpfs           3.8G     0  3.8G   0% /dev/shm
+										tmpfs           3.8G  712M  3.1G  19% /run
+										tmpfs           3.8G     0  3.8G   0% /sys/fs/cgroup
+										tmpfs           768M     0  768M   0% /run/user/0
+										tmpfs           768M     0  768M   0% /run/user/1004
+
+										增加定时任务
+											# 清理修改时间超过180天的压缩下载文件 每天12:13分执行 后续统一配置处理 20250726
+											13 12 * * * /bin/find /home/wwwroot/mytracking/downloads/excel_zip/ -type f -name '*.zip' -mtime +180 | xargs -i rm -fr {} > /dev/null 2>&1
+											# 清理修改时间超过180天的压缩下载文件 每天12:13分执行 后续统一配置处理 20250726
 									-- 20250530
 										[root@iZ94apf5ivnZ ~]# df -h
 										Filesystem      Size  Used Avail Use% Mounted on
@@ -17278,6 +17554,211 @@
 									overlay          40G   35G  2.5G  94% /var/lib/docker/overlay2/ae929d321313ded7d52d63cfa031432822bc6ced867adb4d33043e86fef6242e/merged
 									overlay          40G   35G  2.5G  94% /var/lib/docker/overlay2/e3c3f89696f734f487acf56e0c7dea88bbe4abe703c7c71b74b4cdff19849060/merged
 									overlay          40G   35G  2.5G  94% /var/lib/docker/overlay2/057a6789e90dfbb78f90be45f9026db38908a53013a6cc7453d6aa3bdd61b19a/merged
+									--20250726
+										root@iZ0xiatx34i386h8eslisjZ:~# df -h
+										Filesystem      Size  Used Avail Use% Mounted on
+										tmpfs           169M  1.7M  167M   1% /run
+										/dev/vda3        40G   38G   38M 100% /
+										tmpfs           841M     0  841M   0% /dev/shm
+										tmpfs           5.0M     0  5.0M   0% /run/lock
+										/dev/vda2       197M  6.1M  191M   4% /boot/efi
+										overlay          40G   38G   38M 100% /var/lib/docker/overlay2/3b7dd24fd79e0362c0b275b13480378ab3018183db9b98d0231644a99d270ed9/merged
+										overlay          40G   38G   38M 100% /var/lib/docker/overlay2/9d8ef1653b8762b65c610ac2fe4cd15d79a30a6d269691f7d589e975986b8160/merged
+										overlay          40G   38G   38M 100% /var/lib/docker/overlay2/356345bb73b491c602f52654c0f7d63271b3df045c95e436fccefce83de6f474/merged
+										overlay          40G   38G   38M 100% /var/lib/docker/overlay2/e3c3f89696f734f487acf56e0c7dea88bbe4abe703c7c71b74b4cdff19849060/merged
+										overlay          40G   38G   38M 100% /var/lib/docker/overlay2/ae929d321313ded7d52d63cfa031432822bc6ced867adb4d33043e86fef6242e/merged
+										overlay          40G   38G   38M 100% /var/lib/docker/overlay2/057a6789e90dfbb78f90be45f9026db38908a53013a6cc7453d6aa3bdd61b19a/merged
+										overlay          40G   38G   38M 100% /var/lib/docker/overlay2/6ee34365c0b542225c0f6ae896f68a16f417192add85a522ca83f1b33339e166/merged
+										tmpfs           169M  4.0K  169M   1% /run/user/1000
+										root@iZ0xiatx34i386h8eslisjZ:~# find / -name '*' -type f -size +100M | xargs ls -lh {} | sort -nrk5
+										find: ‘/proc/1128703/task/1128703/fdinfo/6’: No such file or directory
+										find: ‘/proc/1128703/fdinfo/5’: No such file or directory
+										find / -name '*' -type f -size +100M | xargs ls -lh {} | sort -nrk5
+										ls: cannot access '{}': No such file or directory
+										-rw-r--r--  1 root root            1000M May  8  2024 /home/data/logs/mail/logs/mail-2024-05-08T07-22-20.622.log
+										-rw-r--r--  1 root root            1000M Jun 10  2024 /home/data/logs/mail/logs/mail-2024-06-10T00-51-47.791.log
+										-rw-r--r--  1 root root            1000M Jul 13  2024 /home/data/logs/mail/logs/mail-2024-07-13T04-57-09.551.log
+										-rw-r--r--  1 root root            1000M Jul 13 05:34 /home/data/logs/mail/logs/mail-2025-07-12T21-34-41.906.log
+										-rwxr-xr-x  1 root root             952M May  8  2024 /home/data/logs/mail/logs/redisEmailSending/consumer/2024/05/consumer20240507.log
+										-rwxr-xr-x  1 root root             908M May  8  2024 /home/data/logs/mail/logs/emailSending/sendmail/2024/05/sendmail20240507.log
+										-rwxr-xr-x  1 root root             610M May  8  2024 /home/data/logs/mail/logs/redisEmailSending/consumer/2024/05/consumer20240508.log
+										-rwxr-xr-x  1 root root             583M May  8  2024 /home/data/logs/mail/logs/emailSending/sendmail/2024/05/sendmail20240508.log
+										-rw-r--r--  1 root root             513M Jul 26 21:44 /home/data/logs/mail/logs/mail.log
+										-rwxr-xr-x  1 root root             442M May  8  2024 /home/data/logs/mail/logs/mailgun/webapi/2024/05/webapi20240507.log
+										-rw-------  1 root root             410M Sep 13  2023 /var/lib/docker/overlay2/356345bb73b491c602f52654c0f7d63271b3df045c95e436fccefce83de6f474/merged/tmp/multipart-1283081463
+										-rw-------  1 root root             410M Sep 13  2023 /var/lib/docker/overlay2/356345bb73b491c602f52654c0f7d63271b3df045c95e436fccefce83de6f474/diff/tmp/multipart-1283081463
+										-rw-------  1 root root             410M Sep 12  2023 /var/lib/docker/overlay2/356345bb73b491c602f52654c0f7d63271b3df045c95e436fccefce83de6f474/merged/tmp/multipart-4223124992
+										-rw-------  1 root root             410M Sep 12  2023 /var/lib/docker/overlay2/356345bb73b491c602f52654c0f7d63271b3df045c95e436fccefce83de6f474/merged/tmp/multipart-192762127
+										-rw-------  1 root root             410M Sep 12  2023 /var/lib/docker/overlay2/356345bb73b491c602f52654c0f7d63271b3df045c95e436fccefce83de6f474/diff/tmp/multipart-4223124992
+										-rw-------  1 root root             410M Sep 12  2023 /var/lib/docker/overlay2/356345bb73b491c602f52654c0f7d63271b3df045c95e436fccefce83de6f474/diff/tmp/multipart-192762127
+										-rw-r-----  1 root root             380M Jul 26 21:44 /var/lib/docker/containers/eb9c15cffb1c336f5b2ea0dba66233b2f75cfe39934b3e31b64e22b40b9c9347/eb9c15cffb1c336f5b2ea0dba66233b2f75cfe39934b3e31b64e22b40b9c9347-json.log
+										-rwxr-xr-x  1 root root             282M May  8  2024 /home/data/logs/mail/logs/mailgun/webapi/2024/05/webapi20240508.log
+										-rwxr-xr-x  1 root root             209M Jul 18 08:02 /home/data/logs/mail/logs/tripartiteWebhook/mailgun/2025/07/mailgun20250717.log
+										-rwxr-xr-x  1 root root             191M Jul  2 07:59 /home/data/logs/mail/logs/tripartiteWebhook/mailgun/2025/07/mailgun20250701.log
+										-rwxr-xr-x  1 root root             182M Jul 19 07:59 /home/data/logs/mail/logs/tripartiteWebhook/mailgun/2025/07/mailgun20250718.log
+										-rwxr-xr-x  1 root root             179M Jun 25 07:59 /home/data/logs/mail/logs/tripartiteWebhook/mailgun/2025/06/mailgun20250624.log
+										-rwxr-xr-x  1 root root             178M Jun 24 07:59 /home/data/logs/mail/logs/tripartiteWebhook/mailgun/2025/06/mailgun20250623.log
+										-rwxr-xr-x  1 root root             175M Jul  3 07:59 /home/data/logs/mail/logs/tripartiteWebhook/mailgun/2025/07/mailgun20250702.log
+										-rw-r-----  1 root root             162M Jul 25 19:29 /var/lib/docker/containers/0b17a6088007d19f80480982810a38baf84bcd035fb15e729716d0b69f176e45/0b17a6088007d19f80480982810a38baf84bcd035fb15e729716d0b69f176e45-json.log
+										-rwxr-xr-x  1 root root             161M Jun 26 07:59 /home/data/logs/mail/logs/tripartiteWebhook/mailgun/2025/06/mailgun20250625.log
+										-rw-r--r--  1 root root             160M Jul 26 21:44 /root/nginx/logs/mailwebhook.access.log
+										-rwxr-xr-x  1 root root             152M Jul 16 07:59 /home/data/logs/mail/logs/tripartiteWebhook/mailgun/2025/07/mailgun20250715.log
+										-rwxr-xr-x  1 root root             150M Jun 28 07:59 /home/data/logs/mail/logs/tripartiteWebhook/mailgun/2025/06/mailgun20250627.log
+										-rwxr-xr-x  1 root root             146M Jun 27 07:59 /home/data/logs/mail/logs/tripartiteWebhook/mailgun/2025/06/mailgun20250626.log
+										-rwxr-xr-x  1 root root             143M Jul  4 07:59 /home/data/logs/mail/logs/tripartiteWebhook/mailgun/2025/07/mailgun20250703.log
+										-rwxr-xr-x  1 root root             137M Jul 17 07:59 /home/data/logs/mail/logs/tripartiteWebhook/mailgun/2025/07/mailgun20250716.log
+										-rwxr-xr-x  1 root root             135M Jul 23 07:59 /home/data/logs/mail/logs/tripartiteWebhook/mailgun/2025/07/mailgun20250722.log
+										-rw-r--r--  1 root root             134M Jul 26 21:44 /root/yunxiao/be-tfpyqa22gtndemstnunakvmq/runner/__flow_logs/runner.log
+										-rwxr-xr-x  1 root root             130M Jul 24 07:59 /home/data/logs/mail/logs/tripartiteWebhook/mailgun/2025/07/mailgun20250723.log
+										-rwxr-xr-x  1 root root             129M Feb 12  2023 /var/lib/docker/overlay2/cc770c5bccf7c2717483c6b962a5e1b47caecbf4383f4ef75b35f952bd74c795/diff/usr/share/filebeat/filebeat
+										-rw-r-----+ 1 root systemd-journal  128M May  9 18:41 /var/log/journal/20220824155104035200373293129636/system@0da4919d422044749a69078ca00a1455-00000000230f5921-0006343247832650.journal
+										-rw-r-----+ 1 root systemd-journal  128M May  3 10:46 /var/log/journal/20220824155104035200373293129636/system@0da4919d422044749a69078ca00a1455-00000000230d096b-000633b31bf083ba.journal
+										-rw-r-----+ 1 root systemd-journal  128M May 28 18:30 /var/log/journal/20220824155104035200373293129636/system@0da4919d422044749a69078ca00a1455-00000000231648cc-000635b0681a4a95.journal
+										-rw-r-----+ 1 root systemd-journal  128M May 22 10:40 /var/log/journal/20220824155104035200373293129636/system@0da4919d422044749a69078ca00a1455-000000002313f8dc-00063531179e1fda.journal
+										-rw-r-----+ 1 root systemd-journal  128M May 16 02:47 /var/log/journal/20220824155104035200373293129636/system@0da4919d422044749a69078ca00a1455-000000002311a902-000634b19b3965e9.journal
+										-rw-r-----+ 1 root systemd-journal  128M Jun  4 02:23 /var/log/journal/20220824155104035200373293129636/system@0da4919d422044749a69078ca00a1455-00000000231898ab-0006362fac0d3b04.journal
+										-rw-r-----+ 1 root systemd-journal  128M Jun 26 20:36 /var/log/journal/20220824155104035200373293129636/system@0da4919d422044749a69078ca00a1455-000000002321d841-0006382d13c222cd.journal
+										-rw-r-----+ 1 root systemd-journal  128M Jun 23 02:15 /var/log/journal/20220824155104035200373293129636/system@0da4919d422044749a69078ca00a1455-00000000231f8896-000637adb52d9574.journal
+										-rw-r-----+ 1 root systemd-journal  128M Jun 16 18:17 /var/log/journal/20220824155104035200373293129636/system@0da4919d422044749a69078ca00a1455-00000000231d3897-0006372e5d7756b1.journal
+										-rw-r-----+ 1 root systemd-journal  128M Jun 10 10:22 /var/log/journal/20220824155104035200373293129636/system@0da4919d422044749a69078ca00a1455-00000000231ae8a0-000636aefa59f440.journal
+										-rw-r-----+ 1 root systemd-journal  128M Jul  7 22:39 /var/log/journal/20220824155104035200373293129636/system@ee60e1b9467d45f59744dcab8609b7fc-0000000023245e74-000638f67993b747.journal
+										-rw-r-----+ 1 root systemd-journal  128M Jul 22 06:53 /var/log/journal/20220824155104035200373293129636/system@ee60e1b9467d45f59744dcab8609b7fc-00000000232f2f77-00063a2b06f97138.journal
+										-rw-r-----+ 1 root systemd-journal  128M Jul 11 20:04 /var/log/journal/20220824155104035200373293129636/system@ee60e1b9467d45f59744dcab8609b7fc-000000002326b325-00063957cffac796.journal
+										-rw-r-----+ 1 root systemd-journal  128M Apr 27 03:03 /var/log/journal/20220824155104035200373293129636/system@0da4919d422044749a69078ca00a1455-00000000230ab974-00063333c71ac700.journal
+										-rw-r-----+ 1 root systemd-journal  128M Apr 20 19:08 /var/log/journal/20220824155104035200373293129636/system@0da4919d422044749a69078ca00a1455-00000000230869a2-000632b483b92c3b.journal
+										-r--------  1 root root             128T Jul  1 09:29 /proc/kcore
+										-rwxr-xr-x  1 root root             127M Jul 25 07:59 /home/data/logs/mail/logs/tripartiteWebhook/mailgun/2025/07/mailgun20250724.log
+										-rwxr-xr-x  1 root root             125M Jul 26 07:59 /home/data/logs/mail/logs/tripartiteWebhook/mailgun/2025/07/mailgun20250725.log
+										-rwxr-xr-x  1 root root             125M Jul 12 07:59 /home/data/logs/mail/logs/tripartiteWebhook/mailgun/2025/07/mailgun20250711.log
+										-rwxr-xr-x  1 root root             120M Jul 22 07:59 /home/data/logs/mail/logs/tripartiteWebhook/mailgun/2025/07/mailgun20250721.log
+										-rwxr-xr-x  1 root root             116M Jul 11 07:59 /home/data/logs/mail/logs/tripartiteWebhook/mailgun/2025/07/mailgun20250710.log
+										-rwxr-xr-x  1 root root             113M Jun 29 07:59 /home/data/logs/mail/logs/tripartiteWebhook/mailgun/2025/06/mailgun20250628.log
+										-rwxr-xr-x  1 root root             113M Jul 15 07:59 /home/data/logs/mail/logs/tripartiteWebhook/mailgun/2025/07/mailgun20250714.log
+										-rw-r-----+ 1 root systemd-journal  112M Jul 26 09:49 /var/log/journal/20220824155104035200373293129636/system@ee60e1b9467d45f59744dcab8609b7fc-0000000023316c8e-00063a7859e40977.journal
+										-rw-r-----+ 1 root systemd-journal  112M Jul  1 09:29 /var/log/journal/20220824155104035200373293129636/system@000638d4143797b0-ae2852324e78bc37.journal~
+										-rw-------  1 root root             112M Sep 12  2023 /var/lib/docker/overlay2/356345bb73b491c602f52654c0f7d63271b3df045c95e436fccefce83de6f474/merged/tmp/multipart-3480601607
+										-rw-------  1 root root             112M Sep 12  2023 /var/lib/docker/overlay2/356345bb73b491c602f52654c0f7d63271b3df045c95e436fccefce83de6f474/diff/tmp/multipart-3480601607
+										-rwxr-xr-x  1 root root             110M Jul  5 04:27 /home/data/logs/mail/logs/tripartiteWebhook/mailgun/2025/07/mailgun20250704.log
+										-rw-r-----+ 1 root systemd-journal  104M Jul 16 15:40 /var/log/journal/20220824155104035200373293129636/system@ee60e1b9467d45f59744dcab8609b7fc-00000000232b10c9-000639dafe6c1e02.journal
+										-rw-r-----+ 1 root systemd-journal  104M Jul 14 11:09 /var/log/journal/20220824155104035200373293129636/system@ee60e1b9467d45f59744dcab8609b7fc-000000002328f196-000639a61ce76e19.journal
+										-rw-r--r--  1 root root             102M Jul 26 21:44 /root/nginx/logs/host.access.log
+										-rw-r-----  1 root root             4.9G Jul 26 21:44 /var/lib/docker/containers/4bb73a2f2b27b271be8baae34ea0708aa3e73fb213db12844eaf82b8d66a65a8/4bb73a2f2b27b271be8baae34ea0708aa3e73fb213db12844eaf82b8d66a65a8-json.log
+										-rw-r-----  1 root root             2.1G Jul  1 02:52 /var/lib/docker/containers/4d4c3d0728c9690473fc69c41a5143f8331e1324097a55fd4197b4cb99a75fd7/4d4c3d0728c9690473fc69c41a5143f8331e1324097a55fd4197b4cb99a75fd7-json.log
+										-rw-r-----  1 root root             1.5G Jul  1 02:52 /var/lib/docker/containers/4d0259f8382eff660b4044163a7c9971277d975f957e9af839a2a9cf1de08679/4d0259f8382eff660b4044163a7c9971277d975f957e9af839a2a9cf1de08679-json.log
+										root@iZ0xiatx34i386h8eslisjZ:~# find / -name '*' -type f -size +100M | xargs ls -lh {} | sort -nrk5
+										find: ‘/proc/1128710/task/1128710/fdinfo/6’: No such file or directory
+										find: ‘/proc/1128710/fdinfo/5’: No such file or directory
+										ls: cannot access '{}': No such file or directory
+										-rw-r--r--  1 root root            1000M May  8  2024 /home/data/logs/mail/logs/mail-2024-05-08T07-22-20.622.log
+										-rw-r--r--  1 root root            1000M Jun 10  2024 /home/data/logs/mail/logs/mail-2024-06-10T00-51-47.791.log
+										-rw-r--r--  1 root root            1000M Jul 13  2024 /home/data/logs/mail/logs/mail-2024-07-13T04-57-09.551.log
+										-rw-r--r--  1 root root            1000M Jul 13 05:34 /home/data/logs/mail/logs/mail-2025-07-12T21-34-41.906.log
+										-rwxr-xr-x  1 root root             952M May  8  2024 /home/data/logs/mail/logs/redisEmailSending/consumer/2024/05/consumer20240507.log
+										-rwxr-xr-x  1 root root             908M May  8  2024 /home/data/logs/mail/logs/emailSending/sendmail/2024/05/sendmail20240507.log
+										-rwxr-xr-x  1 root root             610M May  8  2024 /home/data/logs/mail/logs/redisEmailSending/consumer/2024/05/consumer20240508.log
+										-rwxr-xr-x  1 root root             583M May  8  2024 /home/data/logs/mail/logs/emailSending/sendmail/2024/05/sendmail20240508.log
+										-rw-r--r--  1 root root             513M Jul 26 21:45 /home/data/logs/mail/logs/mail.log
+										-rwxr-xr-x  1 root root             442M May  8  2024 /home/data/logs/mail/logs/mailgun/webapi/2024/05/webapi20240507.log
+										-rw-------  1 root root             410M Sep 13  2023 /var/lib/docker/overlay2/356345bb73b491c602f52654c0f7d63271b3df045c95e436fccefce83de6f474/merged/tmp/multipart-1283081463
+										-rw-------  1 root root             410M Sep 13  2023 /var/lib/docker/overlay2/356345bb73b491c602f52654c0f7d63271b3df045c95e436fccefce83de6f474/diff/tmp/multipart-1283081463
+										-rw-------  1 root root             410M Sep 12  2023 /var/lib/docker/overlay2/356345bb73b491c602f52654c0f7d63271b3df045c95e436fccefce83de6f474/merged/tmp/multipart-4223124992
+										-rw-------  1 root root             410M Sep 12  2023 /var/lib/docker/overlay2/356345bb73b491c602f52654c0f7d63271b3df045c95e436fccefce83de6f474/merged/tmp/multipart-192762127
+										-rw-------  1 root root             410M Sep 12  2023 /var/lib/docker/overlay2/356345bb73b491c602f52654c0f7d63271b3df045c95e436fccefce83de6f474/diff/tmp/multipart-4223124992
+										-rw-------  1 root root             410M Sep 12  2023 /var/lib/docker/overlay2/356345bb73b491c602f52654c0f7d63271b3df045c95e436fccefce83de6f474/diff/tmp/multipart-192762127
+										-rw-r-----  1 root root             380M Jul 26 21:45 /var/lib/docker/containers/eb9c15cffb1c336f5b2ea0dba66233b2f75cfe39934b3e31b64e22b40b9c9347/eb9c15cffb1c336f5b2ea0dba66233b2f75cfe39934b3e31b64e22b40b9c9347-json.log
+										-rwxr-xr-x  1 root root             282M May  8  2024 /home/data/logs/mail/logs/mailgun/webapi/2024/05/webapi20240508.log
+										-rwxr-xr-x  1 root root             209M Jul 18 08:02 /home/data/logs/mail/logs/tripartiteWebhook/mailgun/2025/07/mailgun20250717.log
+										-rwxr-xr-x  1 root root             191M Jul  2 07:59 /home/data/logs/mail/logs/tripartiteWebhook/mailgun/2025/07/mailgun20250701.log
+										-rwxr-xr-x  1 root root             182M Jul 19 07:59 /home/data/logs/mail/logs/tripartiteWebhook/mailgun/2025/07/mailgun20250718.log
+										-rwxr-xr-x  1 root root             179M Jun 25 07:59 /home/data/logs/mail/logs/tripartiteWebhook/mailgun/2025/06/mailgun20250624.log
+										-rwxr-xr-x  1 root root             178M Jun 24 07:59 /home/data/logs/mail/logs/tripartiteWebhook/mailgun/2025/06/mailgun20250623.log
+										-rwxr-xr-x  1 root root             175M Jul  3 07:59 /home/data/logs/mail/logs/tripartiteWebhook/mailgun/2025/07/mailgun20250702.log
+										-rw-r-----  1 root root             162M Jul 25 19:29 /var/lib/docker/containers/0b17a6088007d19f80480982810a38baf84bcd035fb15e729716d0b69f176e45/0b17a6088007d19f80480982810a38baf84bcd035fb15e729716d0b69f176e45-json.log
+										-rwxr-xr-x  1 root root             161M Jun 26 07:59 /home/data/logs/mail/logs/tripartiteWebhook/mailgun/2025/06/mailgun20250625.log
+										-rw-r--r--  1 root root             160M Jul 26 21:45 /root/nginx/logs/mailwebhook.access.log
+										-rwxr-xr-x  1 root root             152M Jul 16 07:59 /home/data/logs/mail/logs/tripartiteWebhook/mailgun/2025/07/mailgun20250715.log
+										-rwxr-xr-x  1 root root             150M Jun 28 07:59 /home/data/logs/mail/logs/tripartiteWebhook/mailgun/2025/06/mailgun20250627.log
+										-rwxr-xr-x  1 root root             146M Jun 27 07:59 /home/data/logs/mail/logs/tripartiteWebhook/mailgun/2025/06/mailgun20250626.log
+										-rwxr-xr-x  1 root root             143M Jul  4 07:59 /home/data/logs/mail/logs/tripartiteWebhook/mailgun/2025/07/mailgun20250703.log
+										-rwxr-xr-x  1 root root             137M Jul 17 07:59 /home/data/logs/mail/logs/tripartiteWebhook/mailgun/2025/07/mailgun20250716.log
+										-rwxr-xr-x  1 root root             135M Jul 23 07:59 /home/data/logs/mail/logs/tripartiteWebhook/mailgun/2025/07/mailgun20250722.log
+										-rw-r--r--  1 root root             134M Jul 26 21:45 /root/yunxiao/be-tfpyqa22gtndemstnunakvmq/runner/__flow_logs/runner.log
+										-rwxr-xr-x  1 root root             130M Jul 24 07:59 /home/data/logs/mail/logs/tripartiteWebhook/mailgun/2025/07/mailgun20250723.log
+										-rwxr-xr-x  1 root root             129M Feb 12  2023 /var/lib/docker/overlay2/cc770c5bccf7c2717483c6b962a5e1b47caecbf4383f4ef75b35f952bd74c795/diff/usr/share/filebeat/filebeat
+										-rw-r-----+ 1 root systemd-journal  128M May  9 18:41 /var/log/journal/20220824155104035200373293129636/system@0da4919d422044749a69078ca00a1455-00000000230f5921-0006343247832650.journal
+										-rw-r-----+ 1 root systemd-journal  128M May  3 10:46 /var/log/journal/20220824155104035200373293129636/system@0da4919d422044749a69078ca00a1455-00000000230d096b-000633b31bf083ba.journal
+										-rw-r-----+ 1 root systemd-journal  128M May 28 18:30 /var/log/journal/20220824155104035200373293129636/system@0da4919d422044749a69078ca00a1455-00000000231648cc-000635b0681a4a95.journal
+										-rw-r-----+ 1 root systemd-journal  128M May 22 10:40 /var/log/journal/20220824155104035200373293129636/system@0da4919d422044749a69078ca00a1455-000000002313f8dc-00063531179e1fda.journal
+										-rw-r-----+ 1 root systemd-journal  128M May 16 02:47 /var/log/journal/20220824155104035200373293129636/system@0da4919d422044749a69078ca00a1455-000000002311a902-000634b19b3965e9.journal
+										-rw-r-----+ 1 root systemd-journal  128M Jun  4 02:23 /var/log/journal/20220824155104035200373293129636/system@0da4919d422044749a69078ca00a1455-00000000231898ab-0006362fac0d3b04.journal
+										-rw-r-----+ 1 root systemd-journal  128M Jun 26 20:36 /var/log/journal/20220824155104035200373293129636/system@0da4919d422044749a69078ca00a1455-000000002321d841-0006382d13c222cd.journal
+										-rw-r-----+ 1 root systemd-journal  128M Jun 23 02:15 /var/log/journal/20220824155104035200373293129636/system@0da4919d422044749a69078ca00a1455-00000000231f8896-000637adb52d9574.journal
+										-rw-r-----+ 1 root systemd-journal  128M Jun 16 18:17 /var/log/journal/20220824155104035200373293129636/system@0da4919d422044749a69078ca00a1455-00000000231d3897-0006372e5d7756b1.journal
+										-rw-r-----+ 1 root systemd-journal  128M Jun 10 10:22 /var/log/journal/20220824155104035200373293129636/system@0da4919d422044749a69078ca00a1455-00000000231ae8a0-000636aefa59f440.journal
+										-rw-r-----+ 1 root systemd-journal  128M Jul  7 22:39 /var/log/journal/20220824155104035200373293129636/system@ee60e1b9467d45f59744dcab8609b7fc-0000000023245e74-000638f67993b747.journal
+										-rw-r-----+ 1 root systemd-journal  128M Jul 22 06:53 /var/log/journal/20220824155104035200373293129636/system@ee60e1b9467d45f59744dcab8609b7fc-00000000232f2f77-00063a2b06f97138.journal
+										-rw-r-----+ 1 root systemd-journal  128M Jul 11 20:04 /var/log/journal/20220824155104035200373293129636/system@ee60e1b9467d45f59744dcab8609b7fc-000000002326b325-00063957cffac796.journal
+										-rw-r-----+ 1 root systemd-journal  128M Apr 27 03:03 /var/log/journal/20220824155104035200373293129636/system@0da4919d422044749a69078ca00a1455-00000000230ab974-00063333c71ac700.journal
+										-rw-r-----+ 1 root systemd-journal  128M Apr 20 19:08 /var/log/journal/20220824155104035200373293129636/system@0da4919d422044749a69078ca00a1455-00000000230869a2-000632b483b92c3b.journal
+										-r--------  1 root root             128T Jul  1 09:29 /proc/kcore
+										-rwxr-xr-x  1 root root             127M Jul 25 07:59 /home/data/logs/mail/logs/tripartiteWebhook/mailgun/2025/07/mailgun20250724.log
+										-rwxr-xr-x  1 root root             125M Jul 26 07:59 /home/data/logs/mail/logs/tripartiteWebhook/mailgun/2025/07/mailgun20250725.log
+										-rwxr-xr-x  1 root root             125M Jul 12 07:59 /home/data/logs/mail/logs/tripartiteWebhook/mailgun/2025/07/mailgun20250711.log
+										-rwxr-xr-x  1 root root             120M Jul 22 07:59 /home/data/logs/mail/logs/tripartiteWebhook/mailgun/2025/07/mailgun20250721.log
+										-rwxr-xr-x  1 root root             116M Jul 11 07:59 /home/data/logs/mail/logs/tripartiteWebhook/mailgun/2025/07/mailgun20250710.log
+										-rwxr-xr-x  1 root root             113M Jun 29 07:59 /home/data/logs/mail/logs/tripartiteWebhook/mailgun/2025/06/mailgun20250628.log
+										-rwxr-xr-x  1 root root             113M Jul 15 07:59 /home/data/logs/mail/logs/tripartiteWebhook/mailgun/2025/07/mailgun20250714.log
+										-rw-r-----+ 1 root systemd-journal  112M Jul 26 09:49 /var/log/journal/20220824155104035200373293129636/system@ee60e1b9467d45f59744dcab8609b7fc-0000000023316c8e-00063a7859e40977.journal
+										-rw-r-----+ 1 root systemd-journal  112M Jul  1 09:29 /var/log/journal/20220824155104035200373293129636/system@000638d4143797b0-ae2852324e78bc37.journal~
+										-rw-------  1 root root             112M Sep 12  2023 /var/lib/docker/overlay2/356345bb73b491c602f52654c0f7d63271b3df045c95e436fccefce83de6f474/merged/tmp/multipart-3480601607
+										-rw-------  1 root root             112M Sep 12  2023 /var/lib/docker/overlay2/356345bb73b491c602f52654c0f7d63271b3df045c95e436fccefce83de6f474/diff/tmp/multipart-3480601607
+										-rwxr-xr-x  1 root root             110M Jul  5 04:27 /home/data/logs/mail/logs/tripartiteWebhook/mailgun/2025/07/mailgun20250704.log
+										-rw-r-----+ 1 root systemd-journal  104M Jul 16 15:40 /var/log/journal/20220824155104035200373293129636/system@ee60e1b9467d45f59744dcab8609b7fc-00000000232b10c9-000639dafe6c1e02.journal
+										-rw-r-----+ 1 root systemd-journal  104M Jul 14 11:09 /var/log/journal/20220824155104035200373293129636/system@ee60e1b9467d45f59744dcab8609b7fc-000000002328f196-000639a61ce76e19.journal
+										-rw-r--r--  1 root root             102M Jul 26 21:45 /root/nginx/logs/host.access.log
+										-rw-r-----  1 root root             4.9G Jul 26 21:45 /var/lib/docker/containers/4bb73a2f2b27b271be8baae34ea0708aa3e73fb213db12844eaf82b8d66a65a8/4bb73a2f2b27b271be8baae34ea0708aa3e73fb213db12844eaf82b8d66a65a8-json.log
+										-rw-r-----  1 root root             2.1G Jul  1 02:52 /var/lib/docker/containers/4d4c3d0728c9690473fc69c41a5143f8331e1324097a55fd4197b4cb99a75fd7/4d4c3d0728c9690473fc69c41a5143f8331e1324097a55fd4197b4cb99a75fd7-json.log
+										-rw-r-----  1 root root             1.5G Jul  1 02:52 /var/lib/docker/containers/4d0259f8382eff660b4044163a7c9971277d975f957e9af839a2a9cf1de08679/4d0259f8382eff660b4044163a7c9971277d975f957e9af839a2a9cf1de08679-json.log
+										root@iZ0xiatx34i386h8eslisjZ:~# echo > /home/data/logs/mail/logs/mail-2024-05-08T07-22-20.622.log
+										root@iZ0xiatx34i386h8eslisjZ:~# echo > /home/data/logs/mail/logs/mail-2024-06-10T00-51-47.791.log
+										root@iZ0xiatx34i386h8eslisjZ:~# head /var/lib/docker/containers/4bb73a2f2b27b271be8baae34ea0708aa3e73fb213db12844eaf82b8d66a65a8/4bb73a2f2b27b271be8baae34ea0708aa3e73fb213db12844eaf82b8d66a65a8-json.log
+
+										{"log":"[GIN-debug] [WARNING] Running in \"debug\" mode. Switch to \"release\" mode in production.\n","stream":"stdout","time":"2025-06-23T08:12:20.626699604Z"}
+										{"log":" - using env:\u0009export GIN_MODE=release\n","stream":"stdout","time":"2025-06-23T08:12:20.666340003Z"}
+										{"log":" - using code:\u0009gin.SetMode(gin.ReleaseMode)\n","stream":"stdout","time":"2025-06-23T08:12:20.666380585Z"}
+										{"log":"\n","stream":"stdout","time":"2025-06-23T08:12:20.666384068Z"}
+										{"log":"[GIN-debug] GET    /api/v1/ping              --\u003e mail/routers.SetupRouter.func1 (3 handlers)\n","stream":"stdout","time":"2025-06-23T08:12:20.666386969Z"}
+										{"log":"[GIN-debug] GET    /api/v1/emailUpstreamServicesList --\u003e mail/controller/mailController.EmailUpstreamServicesList (4 handlers)\n","stream":"stdout","time":"2025-06-23T08:12:20.666389689Z"}
+										{"log":"[GIN-debug] POST   /api/v1/createEmailUpstreamServices --\u003e mail/controller/mailController.CreateEmailUpstreamServices (4 handlers)\n","stream":"stdout","time":"2025-06-23T08:12:20.666392328Z"}
+										{"log":"[GIN-debug] POST   /api/v1/updateEmailUpstreamServices --\u003e mail/controller/mailController.UpdateEmailUpstreamServicesByID (4 handlers)\n","stream":"stdout","time":"2025-06-23T08:12:20.666394945Z"}
+										{"log":"[GIN-debug] GET    /api/v1/sendPoolList      --\u003e mail/controller/mailController.SendPoolList (4 handlers)\n","stream":"stdout","time":"2025-06-23T08:12:20.666397756Z"}
+										root@iZ0xiatx34i386h8eslisjZ:~# head /var/lib/docker/containers/4d4c3d0728c9690473fc69c41a5143f8331e1324097a55fd4197b4cb99a75fd7/4d4c3d0728c9690473fc69c41a5143f8331e1324097a55fd4197b4cb99a75fd7-json.log
+										{"log":"{\"log.level\":\"info\",\"@timestamp\":\"2024-01-18T01:19:38.734Z\",\"log.origin\":{\"file.name\":\"instance/beat.go\",\"file.line\":724},\"message\":\"Home path: [/usr/share/filebeat] Config path: [/usr/share/filebeat] Data path: [/usr/share/filebeat/data] Logs path: [/usr/share/filebeat/logs]\",\"service.name\":\"filebeat\",\"ecs.version\":\"1.6.0\"}\n","stream":"stderr","time":"2024-01-18T01:19:38.735021312Z"}
+										{"log":"{\"log.level\":\"info\",\"@timestamp\":\"2024-01-18T01:19:38.737Z\",\"log.origin\":{\"file.name\":\"instance/beat.go\",\"file.line\":732},\"message\":\"Beat ID: eb2a62f2-0f80-47b5-8b34-2f60ad76bf67\",\"service.name\":\"filebeat\",\"ecs.version\":\"1.6.0\"}\n","stream":"stderr","time":"2024-01-18T01:19:38.737935922Z"}
+										{"log":"{\"log.level\":\"info\",\"@timestamp\":\"2024-01-18T01:19:38.738Z\",\"log.logger\":\"seccomp\",\"log.origin\":{\"file.name\":\"seccomp/seccomp.go\",\"file.line\":124},\"message\":\"Syscall filter successfully installed\",\"service.name\":\"filebeat\",\"ecs.version\":\"1.6.0\"}\n","stream":"stderr","time":"2024-01-18T01:19:38.738824155Z"}
+										{"log":"{\"log.level\":\"info\",\"@timestamp\":\"2024-01-18T01:19:38.738Z\",\"log.logger\":\"beat\",\"log.origin\":{\"file.name\":\"instance/beat.go\",\"file.line\":1096},\"message\":\"Beat info\",\"service.name\":\"filebeat\",\"system_info\":{\"beat\":{\"path\":{\"config\":\"/usr/share/filebeat\",\"data\":\"/usr/share/filebeat/data\",\"home\":\"/usr/share/filebeat\",\"logs\":\"/usr/share/filebeat/logs\"},\"type\":\"filebeat\",\"uuid\":\"eb2a62f2-0f80-47b5-8b34-2f60ad76bf67\"},\"ecs.version\":\"1.6.0\"}}\n","stream":"stderr","time":"2024-01-18T01:19:38.738841789Z"}
+										{"log":"{\"log.level\":\"info\",\"@timestamp\":\"2024-01-18T01:19:38.738Z\",\"log.logger\":\"beat\",\"log.origin\":{\"file.name\":\"instance/beat.go\",\"file.line\":1105},\"message\":\"Build info\",\"service.name\":\"filebeat\",\"system_info\":{\"build\":{\"commit\":\"9b77c2c135c228c2eedc310f6e975bb1a76169b1\",\"libbeat\":\"8.6.2\",\"time\":\"2023-02-12T04:37:19.000Z\",\"version\":\"8.6.2\"},\"ecs.version\":\"1.6.0\"}}\n","stream":"stderr","time":"2024-01-18T01:19:38.738902504Z"}
+										{"log":"{\"log.level\":\"info\",\"@timestamp\":\"2024-01-18T01:19:38.738Z\",\"log.logger\":\"beat\",\"log.origin\":{\"file.name\":\"instance/beat.go\",\"file.line\":1108},\"message\":\"Go runtime info\",\"service.name\":\"filebeat\",\"system_info\":{\"go\":{\"os\":\"linux\",\"arch\":\"amd64\",\"max_procs\":2,\"version\":\"go1.18.10\"},\"ecs.version\":\"1.6.0\"}}\n","stream":"stderr","time":"2024-01-18T01:19:38.738908633Z"}
+										{"log":"{\"log.level\":\"info\",\"@timestamp\":\"2024-01-18T01:19:38.740Z\",\"log.logger\":\"beat\",\"log.origin\":{\"file.name\":\"instance/beat.go\",\"file.line\":1112},\"message\":\"Host info\",\"service.name\":\"filebeat\",\"system_info\":{\"host\":{\"architecture\":\"x86_64\",\"boot_time\":\"2023-03-15T10:01:22Z\",\"containerized\":false,\"name\":\"4d4c3d0728c9\",\"ip\":[\"127.0.0.1/8\",\"172.17.0.7/16\"],\"kernel_version\":\"5.15.0-46-generic\",\"mac\":[\"02:42:ac:11:00:07\"],\"os\":{\"type\":\"linux\",\"family\":\"debian\",\"platform\":\"ubuntu\",\"name\":\"Ubuntu\",\"version\":\"20.04.5 LTS (Focal Fossa)\",\"major\":20,\"minor\":4,\"patch\":5,\"codename\":\"focal\"},\"timezone\":\"UTC\",\"timezone_offset_sec\":0},\"ecs.version\":\"1.6.0\"}}\n","stream":"stderr","time":"2024-01-18T01:19:38.740540624Z"}
+										{"log":"{\"log.level\":\"info\",\"@timestamp\":\"2024-01-18T01:19:38.740Z\",\"log.logger\":\"beat\",\"log.origin\":{\"file.name\":\"instance/beat.go\",\"file.line\":1141},\"message\":\"Process info\",\"service.name\":\"filebeat\",\"system_info\":{\"process\":{\"capabilities\":{\"inheritable\":[\"chown\",\"dac_override\",\"fowner\",\"fsetid\",\"kill\",\"setgid\",\"setuid\",\"setpcap\",\"net_bind_service\",\"net_raw\",\"sys_chroot\",\"mknod\",\"audit_write\",\"setfcap\"],\"permitted\":[\"chown\",\"dac_override\",\"fowner\",\"fsetid\",\"kill\",\"setgid\",\"setuid\",\"setpcap\",\"net_bind_service\",\"net_raw\",\"sys_chroot\",\"mknod\",\"audit_write\",\"setfcap\"],\"effective\":[\"chown\",\"dac_override\",\"fowner\",\"fsetid\",\"kill\",\"setgid\",\"setuid\",\"setpcap\",\"net_bind_service\",\"net_raw\",\"sys_chroot\",\"mknod\",\"audit_write\",\"setfcap\"],\"bounding\":[\"chown\",\"dac_override\",\"fowner\",\"fsetid\",\"kill\",\"setgid\",\"setuid\",\"setpcap\",\"net_bind_service\",\"net_raw\",\"sys_chroot\",\"mknod\",\"audit_write\",\"setfcap\"],\"ambient\":null},\"cwd\":\"/usr/share/filebeat\",\"exe\":\"/usr/share/filebeat/filebeat\",\"name\":\"filebeat\",\"pid\":6,\"ppid\":1,\"seccomp\":{\"mode\":\"filter\",\"no_new_privs\":true},\"start_time\":\"2024-01-18T01:19:36.810Z\"},\"ecs.version\":\"1.6.0\"}}\n","stream":"stderr","time":"2024-01-18T01:19:38.740720861Z"}
+										{"log":"{\"log.level\":\"info\",\"@timestamp\":\"2024-01-18T01:19:38.740Z\",\"log.origin\":{\"file.name\":\"instance/beat.go\",\"file.line\":296},\"message\":\"Setup Beat: filebeat; Version: 8.6.2\",\"service.name\":\"filebeat\",\"ecs.version\":\"1.6.0\"}\n","stream":"stderr","time":"2024-01-18T01:19:38.740788934Z"}
+										{"log":"{\"log.level\":\"warn\",\"@timestamp\":\"2024-01-18T01:19:38.742Z\",\"log.logger\":\"cfgwarn\",\"log.origin\":{\"file.name\":\"tlscommon/config.go\",\"file.line\":102},\"message\":\"DEPRECATED: Treating the CommonName field on X.509 certificates as a host name when no Subject Alternative Names are present is going to be removed. Please update your certificates if needed. Will be removed in version: 8.0.0\",\"service.name\":\"filebeat\",\"ecs.version\":\"1.6.0\"}\n","stream":"stderr","time":"2024-01-18T01:19:38.743442787Z"}
+										root@iZ0xiatx34i386h8eslisjZ:~# echo > /var/lib/docker/containers/4bb73a2f2b27b271be8baae34ea0708aa3e73fb213db12844eaf82b8d66a65a8/4bb73a2f2b27b271be8baae34ea0708aa3e73fb213db12844eaf82b8d66a65a8-json.log
+										root@iZ0xiatx34i386h8eslisjZ:~# df -h
+										Filesystem      Size  Used Avail Use% Mounted on
+										tmpfs           169M  1.7M  167M   1% /run
+										/dev/vda3        40G   31G  6.8G  82% /
+										tmpfs           841M     0  841M   0% /dev/shm
+										tmpfs           5.0M     0  5.0M   0% /run/lock
+										/dev/vda2       197M  6.1M  191M   4% /boot/efi
+										overlay          40G   31G  6.8G  82% /var/lib/docker/overlay2/3b7dd24fd79e0362c0b275b13480378ab3018183db9b98d0231644a99d270ed9/merged
+										overlay          40G   31G  6.8G  82% /var/lib/docker/overlay2/9d8ef1653b8762b65c610ac2fe4cd15d79a30a6d269691f7d589e975986b8160/merged
+										overlay          40G   31G  6.8G  82% /var/lib/docker/overlay2/356345bb73b491c602f52654c0f7d63271b3df045c95e436fccefce83de6f474/merged
+										overlay          40G   31G  6.8G  82% /var/lib/docker/overlay2/e3c3f89696f734f487acf56e0c7dea88bbe4abe703c7c71b74b4cdff19849060/merged
+										overlay          40G   31G  6.8G  82% /var/lib/docker/overlay2/ae929d321313ded7d52d63cfa031432822bc6ced867adb4d33043e86fef6242e/merged
+										overlay          40G   31G  6.8G  82% /var/lib/docker/overlay2/057a6789e90dfbb78f90be45f9026db38908a53013a6cc7453d6aa3bdd61b19a/merged
+										overlay          40G   31G  6.8G  82% /var/lib/docker/overlay2/6ee34365c0b542225c0f6ae896f68a16f417192add85a522ca83f1b33339e166/merged
+										tmpfs           169M  4.0K  169M   1% /run/user/1000
 							-- 20250106
 								www-214-153-tm
 									[root@iz0xigjdatfp2x5ez15cpuz ~]# df -h
@@ -19316,6 +19797,67 @@
 				# 配置重载
 				sh ${PTM}sever/nginx/conf/vhost/nginx.sh 'api_51' reload
 			定时任务
+				-- 20250726
+					# 同步定时任务到线上
+						c-172.16.10.128-api-realtime-51-215
+							< # 跑 国内用于提升单号识别规则 有效单号
+							< 39 9 15 * * sh /home/wwwroot/www.trackingmore.com/script/getEffectiveTracknumberForRule.sh home > /dev/null 2>&1
+							< 13 00 01 * * sh /home/wwwroot/www.trackingmore.com/script/getEffectiveTracknumberForRule.sh home > /dev/null 2>&1
+							< 
+							< 32 12 30 * * /usr/bin/sh /home/wwwroot/www.trackingmore.com/script/dumpTableAanSend.sh '' '' 119.23.240.151 172.16.10.167 &>> /root/getEffectiveTracknumberForRule.test.log
+						172.16.10.129-api-51-67
+							< 21 10 * * * /usr/bin/sh /home/wwwroot/shell/logs/saveToOss/saveToOss.sh 'test.log' -1 '/home/wwwlogs/' 'nginx' '' '' &>> saveToOss.log
+						172.16.10.121-www-51-3
+							< 11 * * * * sh   /home/wwwroot/www.trackingmore.com/script/queueshell/Mem_waring.sh front129 85 '' 'cn' &>> Mem.log
+						ind_resque_49_172.16.10.167-resque-51-140
+							< #56 18 18 * * sh /home/wwwroot/www.trackingmore.com/script/getEffectiveTracknumberForRule.sh 'home' '' '' '' '' '' '' '20250401' '119.23.240.151' '172.16.10.167'> /dev/null 2>&1
+							< #* 21 27 * * sh /home/wwwroot/www.trackingmore.com/script/getEffectiveTracknumberForRule.sh 'home' '' '_for_202503_data' 'noClearTableDataAndSeperateTableTask' '' '20250626' '' '20250301' '119.23.240.151' '172.16.10.167' 10 > /dev/null 2>&1
+							< #40 17 26 * * sh /home/wwwroot/www.trackingmore.com/script/getEffectiveTracknumberForRule.sh 'home' '' '_for_202505_data' 'noClearTableDataAndSeperateTableTask' '' '20250622' '' '20250501' '119.23.240.151' '172.16.10.167' 10> /dev/null 2>&1
+							< #41 17 26 * * sh /home/wwwroot/www.trackingmore.com/script/getEffectiveTracknumberForRule.sh 'home' '' '_for_202505_data' 'noClearTableDataAndSeperateTableTask' '' '20250622' '' '20250501' '119.23.240.151' '172.16.10.167' 10> /dev/null 2>&1
+							< * 0 29 * * sh /home/wwwroot/www.trackingmore.com/script/getEffectiveTracknumberForRule.sh 'home' '' '' 'noClearTableData' '' '20250629' '' '20250401' '119.23.240.151' '172.16.10.167' > /dev/null 2>&1
+							< 51 17 23 * * sh /home/wwwroot/www.trackingmore.com/script/getEffectiveTracknumberForRule.sh 'home' '' '_for_202505_data' 'noClearTableData' '' '20250622' '' '20250501' '119.23.240.151' '172.16.10.167' 10> /dev/null 2>&1
+							< * * * * * sh test.1.sh> /dev/null 2>&1
+							< #* * * * * sh test.2.sh '' '' '' '' 'noToTest'>> test.2.log
+							---
+							> 15 18 18 * * sh test.1.sh> /dev/null 2>&1
+						-174-77-tm
+							sh ${PCR}deploy.sh toUpdate
+							diff /var/spool/cron/root /home/wwwroot/www.trackingmore.com/crontab/foreign/root.136.77
+							433,453d432
+							< 
+							< # test
+							< #* * * * * /usr/local/bin/redis-cli -h r-at8f4be48fea3fd4.redis.rds.aliyuncs.com -p 6379 -a HyTf56MxDets --bigkeys >/home/wwwroot/www.trackingmore.com/script/log/bigkeys.log > /dev/null 2>&1
+							< 
+							< # redis 针对节点统计超过一定大小key
+							< #46 * * * * /home/wwwroot/www.trackingmore.com/python3/Python-3.6.1/python /usr/local/redis-2.10.5/redis_python_nodekeys.py  r-0xiyxblxonjb1bm3ri.redis.rds.aliyuncs.com 6379 HyTf56MxDets > /dev/null 2>&1
+							< #01 * * * * /home/wwwroot/www.trackingmore.com/python3/Python-3.6.1/python /usr/local/redis-2.10.5/redis_python_nodekeys.onenode.allkeys.recode.py  r-0xiyxblxonjb1bm3ri.redis.rds.aliyuncs.com 6379 HyTf56MxDets >> /home/wwwroot/www.trackingmore.com/python_img/redis.bigkey.length.log 3>&1
+							< #04 01 15 * * /home/wwwroot/www.trackingmore.com/python3/Python-3.6.1/python /usr/local/redis-2.10.5/redis_python_nodekeys.onenode.allkeys.recode.memory.py  r-0xiyxblxonjb1bm3ri.redis.rds.aliyuncs.com 6379 HyTf56MxDets 3 >> /home/wwwroot/www.trackingmore.com/python_img/redis.bigkey.memory.log 2>&1
+							< #59 * * * * /home/wwwroot/www.trackingmore.com/python3/Python-3.6.1/python /usr/local/redis-2.10.5/redis_python_nodekeys.onenode.allkeys.recode.memory.py  r-0xiyxblxonjb1bm3ri.redis.rds.aliyuncs.com 6379 HyTf56MxDets 5 >> /home/wwwroot/www.trackingmore.com/python_img/redis.bigkey.memory.log 2>&1
+							< #12 16 13 1 * /home/wwwroot/www.trackingmore.com/python3/Python-3.6.1/python /usr/local/redis-2.10.5/redis_python_nodekeys.onenode.allkeys.recode.memory.py  r-0xiyxblxonjb1bm3ri.redis.rds.aliyuncs.com 6379 HyTf56MxDets 2 >> /home/wwwroot/www.trackingmore.com/python_img/redis.bigkey.memory.log 2>&1
+							< #14 16 13 1 * /home/wwwroot/www.trackingmore.com/python3/Python-3.6.1/python /usr/local/redis-2.10.5/redis_python_nodekeys.onenode.allkeys.recode.memory.py  r-0xiyxblxonjb1bm3ri.redis.rds.aliyuncs.com 6379 HyTf56MxDets 1 >> /home/wwwroot/www.trackingmore.com/python_img/redis.bigkey.memory.log 2>&1
+							< #25 08 18 * * /home/wwwroot/www.trackingmore.com/python3/Python-3.6.1/python /usr/local/redis-2.10.5/redis_python_nodekeys.onenode.allkeys.recode.memory.py  r-0xiyxblxonjb1bm3ri.redis.rds.aliyuncs.com 6379 HyTf56MxDets 1 >> /home/wwwroot/www.trackingmore.com/python_img/redis.bigkey.memory.log 2>&1
+							< #16 16 13 1 * /home/wwwroot/www.trackingmore.com/python3/Python-3.6.1/python /usr/local/redis-2.10.5/redis_python_nodekeys.onenode.allkeys.recode.memory.py  r-0xiyxblxonjb1bm3ri.redis.rds.aliyuncs.com 6379 HyTf56MxDets 3 >> /home/wwwroot/www.trackingmore.com/python_img/redis.bigkey.memory.log 2>&1
+							< #16 16 13 1 * /home/wwwroot/www.trackingmore.com/python3/Python-3.6.1/python /usr/local/redis-2.10.5/redis_python_nodekeys.onenode.allkeys.recode.memory.py  r-0xiyxblxonjb1bm3ri.redis.rds.aliyuncs.com 6379 HyTf56MxDets 4 >> /home/wwwroot/www.trackingmore.com/python_img/redis.bigkey.memory.log 2>&1
+							< #16 16 13 1 * /home/wwwroot/www.trackingmore.com/python3/Python-3.6.1/python /usr/local/redis-2.10.5/redis_python_nodekeys.onenode.allkeys.recode.memory.py  r-0xiyxblxonjb1bm3ri.redis.rds.aliyuncs.com 6379 HyTf56MxDets 5 >> /home/wwwroot/www.trackingmore.com/python_img/redis.bigkey.memory.log 2>&1
+							< #16 16 13 1 * /home/wwwroot/www.trackingmore.com/python3/Python-3.6.1/python /usr/local/redis-2.10.5/redis_python_nodekeys.onenode.allkeys.recode.memory.py  r-0xiyxblxonjb1bm3ri.redis.rds.aliyuncs.com 6379 HyTf56MxDets 6 >> /home/wwwroot/www.trackingmore.com/python_img/redis.bigkey.memory.log 2>&1
+							< #16 16 13 1 * /home/wwwroot/www.trackingmore.com/python3/Python-3.6.1/python /usr/local/redis-2.10.5/redis_python_nodekeys.onenode.allkeys.recode.memory.py  r-0xiyxblxonjb1bm3ri.redis.rds.aliyuncs.com 6379 HyTf56MxDets 7 >> /home/wwwroot/www.trackingmore.com/python_img/redis.bigkey.memory.log 2>&1
+							< 
+							< #28 * * * * /home/wwwroot/www.trackingmore.com/python3/Python-3.6.1/python /usr/local/redis-2.10.5/redis_python_nodekeys.onenode.allkeys.recode.getkey.py  r-0xiyxblxonjb1bm3ri.redis.rds.aliyuncs.com 6379 HyTf56MxDets >> /home/wwwroot/www.trackingmore.com/python_img/redis.bigkey.length.getkey.log 2>&1
+							< #38 * * * * /home/wwwroot/www.trackingmore.com/python3/Python-3.6.1/python /usr/local/redis-2.10.5/redis_python_nodekeys.onenode.allkeys.recode.memory.fromkey.py  r-at8558acd2981124.redis.rds.aliyuncs.com 6379 HyTf56MxDets >> /home/wwwroot/www.trackingmore.com/python_img/redis.bigkey.memory.fromkey.log 2>&1
+							< 
+							455c434
+							< 59 09 10 7 * sh redis.memory.sh foreign >/dev/null 2>&1
+							---
+							> #59 09 10 7 * sh redis.memory.sh foreign >/dev/null 2>&1
+							651,652d629
+							< #36 * * * * /usr/local/percona-toolkit-2.2.18/bin/pt-online-schema-change --user=trackingdb --password='zYTps2GyFQ6FtVW5' --host=rm-at8v90128nty4un3o.mysql.rds.aliyuncs.com --S /var/lib/mysql/mysql.sock --charset=utf8 --alter "ADD UNIQUE(id, create_time)"  D=trackingdb,t=tr_user_phone_email_title --print --execute --critical-load="Threads_running=200" >> /root/tr_user_phone_email_title.add.partition.log
+							< #12 * * * * /usr/local/percona-toolkit-2.2.18/bin/pt-online-schema-change --user=trackingdb --password='zYTps2GyFQ6FtVW5' --host=rm-at8v90128nty4un3o.mysql.rds.aliyuncs.com --S /var/lib/mysql/mysql.sock --charset=utf8 --alter "ADD UNIQUE(id, create_time)"  D=trackingdb,t=tr_user_phone_email_title --print --execute --critical-load="Threads_running=200" >> /root/tr_user_phone_email_title.log
+							654,655d630
+							< #19 * * * * /usr/local/percona-toolkit-2.2.18/bin/pt-online-schema-change --user=trackingdb --password='zYTps2GyFQ6FtVW5' --host=rm-at8w5suz142fqeun6.mysql.rds.aliyuncs.com --S /var/lib/mysql/mysql.sock --charset=utf8 --alter "ADD INDEX(order_id)"  D=mycat1,t=tr_user_tracknumber_58128_58128 --print --execute --critical-load="Threads_running=200" >> /root/tr_user_tracknumber_58128_58128.20220111.create.partition.log
+							< #19 * * * * /usr/local/percona-toolkit-2.2.18/bin/pt-online-schema-change --user=trackingdb --password='zYTps2GyFQ6FtVW5' --host=rm-at8w5suz142fqeun6.mysql.rds.aliyuncs.com --S /var/lib/mysql/mysql.sock --charset=utf8 --alter "ADD INDEX(order_id)"  D=mycat1,t=tr_user_tracknumber_58126_58126 --print --execute --critical-load="Threads_running=200" >> /root/tr_user_tracknumber_58126_58126.20220112.create.partition.log
+							779d753
+							< 
+							diff /var/spool/cron/root /home/wwwroot/www.trackingmore.com/crontab/foreign/root.136.77
 				-- 20250725
 					# 删除的定时任务（带密码）
 						notest_159_205
