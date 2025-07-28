@@ -7640,6 +7640,185 @@
 								script\queueshell\zipAndRmSpecifyTimeFile.sh
 								script\queueshell\file.to.zip.sh
 						历史数据清理 20240529
+							-- 20250726
+								ind_resque_188_172.16.10.163-resque-webhook-51-103
+									[root@izwz9c0asd8ujh0d8c7at2z ~]# df -h
+									Filesystem      Size  Used Avail Use% Mounted on
+									/dev/vda1        49G   46G  2.0G  96% /
+									devtmpfs        7.5G     0  7.5G   0% /dev
+									tmpfs           7.6G     0  7.6G   0% /dev/shm
+									tmpfs           7.6G  631M  6.9G   9% /run
+									tmpfs           7.6G     0  7.6G   0% /sys/fs/cgroup
+									tmpfs           1.6G     0  1.6G   0% /run/user/0
+									overlay          49G   46G  2.0G  96% /var/lib/docker/overlay2/cd84870011d225cf401590706fc52ed76093ebaab747d334c934eb82596a40b3/merged
+									tmpfs           1.6G     0  1.6G   0% /run/user/1002
+									[root@izwz9c0asd8ujh0d8c7at2z ~]# du -sh /data
+									7.9G    /data
+									[root@izwz9c0asd8ujh0d8c7at2z ~]# cat /home/wwwroot/www.trackingmore.com/script/log/queue_diskTree.20250726.log
+									2025-07-26 08:00:07
+									-rw------- 1 root root 624M Sep  9  2018 /var/crash/127.0.0.1-2018-09-09-17:57:37/vmcore
+									-rw------- 1 root root 484M Oct 18  2018 /var/crash/127.0.0.1-2018-10-18-11:20:53/vmcore
+									-rw-r--r-- 1 root root 343M Feb 15  2023 /var/lib/docker/volumes/3416b502a166152f5aaacc3c9edb5e81bfd384d44ca4c42100e964c15eaea8bf/_data/response_success.log
+									-rwxr-xr-x 1 root root 181M Feb 14  2019 /home/wwwroot/www.trackingmore.com/python3/lib/python3.6/site-packages/tensorflow/python/_pywrap_tensorflow_internal.so
+									-rw-r--r-- 1 root root 172M Mar  7  2019 /home/wwwroot/www.trackingmore.com/python_img/hong_kong_modle/hongkong_captcha.model-4500.data-00000-of-00001
+									-rw-r--r-- 1 root root 172M Mar  7  2019 /home/wwwroot/www.trackingmore.com/python_img/hong_kong_modle/hongkong_captcha.model-1100.data-00000-of-00001
+									-rw-r--r-- 1 root root 165M Feb  5 01:23 /data/server_logs/root/20250205011232.concurrentUpdateDetection.log.zip
+									-rw-r--r-- 1 root root 156M Jun 22  2024 /var/cache/yum/x86_64/7/updates/gen/primary_db.sqlite
+									-rw-r--r-- 1  386  386 154M Feb  5  2021 /home/wwwroot/www.51tracking.com/admin/myshopify/web/node_modules.zip
+									-rwxr-xr-x 1 root root 145M Jun 20  2023 /usr/lib64/firefox/libxul.so
+									-rw-r--r-- 1 www  www  133M Jan  6  2018 /home/wwwroot/www.trackingmore.com/download/PjqZuWB5zt5LgHT5OSfmJlaTz7cJZMqwm.csv
+									-rwxr-xr-x 1 root root 132M Nov 16  2018 /opt/google/chrome/chrome
+									-r-------- 1 root root 128T Jul 26 08:00 /proc/kcore
+									-rw-r--r-- 1 root root 123M Oct 20  2017 /home/wwwroot/www.trackingmore.com/python_img/models/crack_captcha.model-4500.data-00000-of-00001
+									-rw-r--r-- 1 www  www  112M Feb 13  2019 /home/wwwroot/www.trackingmore.com/python_img/taiwan_model/taiwan_captcha.model-5100.data-00000-of-00001
+									-rw-r--r-- 1 root root 112M Feb 18  2019 /home/wwwroot/www.trackingmore.com/python_img/taiwan_modeltaiwan_captcha.model-9600.data-00000-of-00001
+									-rw-r--r-- 1 root root 106M Feb  8  2023 /run/log/root/trackingSingleQueueNull.log.20210616.20230208.zip
+									-rw-r--r-- 1 root root 102M May 15  2019 /usr/lib/locale/locale-archive
+									-rw-r--r-- 1 root root 3.9G Feb 15  2023 /var/lib/docker/volumes/3416b502a166152f5aaacc3c9edb5e81bfd384d44ca4c42100e964c15eaea8bf/_data/go.log
+									-rw-r--r-- 1 root root 2.4G Feb 15  2023 /var/lib/docker/volumes/3416b502a166152f5aaacc3c9edb5e81bfd384d44ca4c42100e964c15eaea8bf/_data/response_not_200.log
+									├── /: 47379 MB
+									│   ├── /data: 8029 MB
+									│   │   ├── /data/server_logs: 7913 MB
+									│   ├── /boot: 235 MB
+									│   │   └── kcore: 134217727 MB
+									│   ├── /root: 862 MB
+									│   ├── /run: 631 MB
+									│   │   ├── /run/log: 627 MB
+									│   ├── /usr: 16509 MB
+									│   │   ├── /usr/lib: 663 MB
+									│   │   ├── /usr/libexec: 200 MB
+									│   │   ├── /usr/share: 627 MB
+									│   │   ├── /usr/local: 13720 MB
+									│   │   ├── /usr/bin: 453 MB
+									│   │   ├── /usr/lib64: 765 MB
+									│   ├── /home: 6264 MB
+									│   │   ├── /home/wwwroot: 6215 MB
+									│   ├── /var: 14767 MB
+									│   │   ├─�� /var/lib: 9046 MB
+									│   │   ├── /var/cache: 267 MB
+									│   │   ├── /var/log: 4345 MB
+									│   │   ├── /var/crash: 1109 MB
+									│   ├── /opt: 191 MB
+									│   │   ├── /opt/google: 188 MB
+									├── /data/server_logs: 7913 MB
+									│   ├── /data/server_logs/root: 7787 MB
+									│   │   └── 20250205011232.concurrentUpdateDetection.log.zip: 165 MB
+									│   ├── /data/server_logs/home: 127 MB
+									│   │   ├── /data/server_logs/home/wwwroot: 127 MB
+									│   │   │   ├── /data/server_logs/home/wwwroot/www.trackingmore.com: 127 MB
+									├── /home/wwwroot: 6215 MB
+									│   ├── /home/wwwroot/www.trackingmore.com: 5142 MB
+									│   │   ├── /home/wwwroot/www.trackingmore.com/php-resque: 188 MB
+									│   │   ├── /home/wwwroot/www.trackingmore.com/script: 154 MB
+									│   │   ├── /home/wwwroot/www.trackingmore.com/python_img: 1273 MB
+									│   │   │   └── taiwan_modeltaiwan_captcha.model-9600.data-00000-of-00001: 112 MB
+									│   │   ├─�� /home/wwwroot/www.trackingmore.com/logs: 111 MB
+									│   │   ├── /home/wwwroot/www.trackingmore.com/python3: 1219 MB
+									│   │   ├── /home/wwwroot/www.trackingmore.com/download: 1006 MB
+									│   │   │   └── PjqZuWB5zt5LgHT5OSfmJlaTz7cJZMqwm.csv: 133 MB
+									│   │   ├── /home/wwwroot/www.trackingmore.com/section: 524 MB
+									│   │   │   └── carrierspic10.css: 130 MB
+									│   ├── /home/wwwroot/www.51tracking.com: 658 MB
+									│   │   ├── /home/wwwroot/www.51tracking.com/script: 126 MB
+									│   │   ├── /home/wwwroot/www.51tracking.com/admin: 179 MB
+									│   │   ├── /home/wwwroot/www.51tracking.com/section: 225 MB
+									│   ├── /home/wwwroot/upload: 415 MB
+									│   │   ├── /home/wwwroot/upload/lipeng: 323 MB
+									[root@izwz9c0asd8ujh0d8c7at2z ~]# df -h
+									Filesystem      Size  Used Avail Use% Mounted on
+									/dev/vda1        49G   39G  9.6G  80% /
+									devtmpfs        7.5G     0  7.5G   0% /dev
+									tmpfs           7.6G     0  7.6G   0% /dev/shm
+									tmpfs           7.6G  631M  6.9G   9% /run
+									tmpfs           7.6G     0  7.6G   0% /sys/fs/cgroup
+									tmpfs           1.6G     0  1.6G   0% /run/user/0
+									overlay          49G   39G  9.6G  80% /var/lib/docker/overlay2/cd84870011d225cf401590706fc52ed76093ebaab747d334c934eb82596a40b3/merged
+									tmpfs           1.6G     0  1.6G   0% /run/user/1002
+								ind_resque_212_172.16.10.164-resque-51-117
+									[root@iZwz9a1xnotkpvqau53o0cZ ~]# df -h
+									Filesystem      Size  Used Avail Use% Mounted on
+									/dev/vda1        40G   38G  1.1G  98% /
+									devtmpfs        7.5G     0  7.5G   0% /dev
+									tmpfs           7.6G     0  7.6G   0% /dev/shm
+									tmpfs           7.6G  4.7G  2.9G  63% /run
+									tmpfs           7.6G     0  7.6G   0% /sys/fs/cgroup
+									tmpfs           1.6G     0  1.6G   0% /run/user/0
+									tmpfs           1.6G     0  1.6G   0% /run/user/1005
+									[root@iZwz9a1xnotkpvqau53o0cZ ~]# du -sh /data
+									18G     /data
+									[root@iZwz9a1xnotkpvqau53o0cZ ~]# cat /home/wwwroot/www.trackingmore.com/script/log/queue_diskTree.20250726.log
+									2025-07-26 01:00:04
+									-rw-r--r--  1 root root 379M Mar 26  2017 /var/redis/6379/temp-18161.rdb
+									-rw-r--r--  1 root root 270M Feb  5 01:22 /data/server_logs/root/20250205011206.M1Globalpostjob_Job.log.zip
+									-rw-r--r--  1 root root 157M Mar 28  2017 /var/redis/6379/temp-5576.rdb
+									-rw-r--r--  1 root root 155M Jul 26  2018 /root/core.9154
+									-r--------  1 root root 128T Jul 26 01:01 /proc/kcore
+									-rw-r--r--  1 root root 123M Jan 18  2023 /run/log/root/test_courier.20230117.log.zip
+									-rw-r--r--. 1 root root 119M Aug 28  2023 /var/lib/rpm/Packages
+									-rw-r--r--  1 root root 115M Feb 14  2023 /run/log/root/test_courier.20230213.log.zip
+									-rw-r--r--  1 root root 109M Mar 31  2022 /home/wwwlogs/trackingmore.com.log.mysql.lt3.202203
+									-rw-r--r--  1 root root 107M Feb 12  2023 /run/log/root/test_courier.20230211.log.zip
+									-rw-r--r--  1 root root 103M Jan 14  2023 /run/log/root/test_courier.20230113.log.zip
+									-rw-r--r--  1 root root 103M Feb 17  2023 /run/log/root/test_courier.20230216.log.zip
+									-rw-r--r--  1 root root 103M Feb 11  2023 /run/log/root/test_courier.20230210.log.zip
+									-rw-r--r--  1 root root 102M May 15  2019 /usr/lib/locale/locale-archive
+									├── /: 43401 MB
+									│   ├── /data: 17565 MB
+									│   │   ├── /data/server_logs: 17449 MB
+									│   │   └── kcore: 134217727 MB
+									│   ├── /usr: 10185 MB
+									│   │   ├── /usr/lib: 733 MB
+									│   │   ├── /usr/local: 7654 MB
+									│   │   ├── /usr/bin: 238 MB
+									│   │   ├── /usr/share: 654 MB
+									│   │   ├── /usr/src: 203 MB
+									│   │   ├── /usr/lib64: 478 MB
+									│   ├── /root: 559 MB
+									│   │   └── core.9154: 155 MB
+									│   │   ├── /root/.cache: 136 MB
+									│   ├── /home: 9035 MB
+									│   │   ├── /home/wwwlogs: 303 MB
+									│   │   │   └── trackingmore.com.log.mysql.lt3.202203: 109 MB
+									│   │   ├── /home/wwwroot: 8703 MB
+									│   ├── /run: 4795 MB
+									│   │   ├── /run/log: 4788 MB
+									│   ├── /var: 1007 MB
+									│   │   ├── /var/lib: 196 MB
+									│   │   ├── /var/log: 202 MB
+									│   │   ├── /var/redis: 604 MB
+									│   ├── /boot: 162 MB
+									├── /data/server_logs: 17449 MB
+									│   ├── /data/server_logs/root: 17283 MB
+									│   │   └── 20250205011206.M1Globalpostjob_Job.log.zip: 270 MB
+									│   ├── /data/server_logs/home: 167 MB
+									│   │   ├── /data/server_logs/home/wwwroot: 167 MB
+									│   │   │   ├── /data/server_logs/home/wwwroot/www.trackingmore.com: 167 MB
+									├── /home/wwwroot: 8703 MB
+									│   ├── /home/wwwroot/www.analysis.com: 162 MB
+									│   ├── /home/wwwroot/www.trackingmore.com: 6987 MB
+									│   │   ├── /home/wwwroot/www.trackingmore.com/admin: 1938 MB
+									│   │   ├── /home/wwwroot/www.trackingmore.com/python3: 199 MB
+									│   │   ├── /home/wwwroot/www.trackingmore.com/logs: 2180 MB
+									│   │   ├── /home/wwwroot/www.trackingmore.com/php-resque: 248 MB
+									│   │   ├── /home/wwwroot/www.trackingmore.com/section: 396 MB
+									│   │   ├── /home/wwwroot/www.trackingmore.com/download: 844 MB
+									│   │   ├── /home/wwwroot/www.trackingmore.com/python_img: 245 MB
+									│   │   ├── /home/wwwroot/www.trackingmore.com/script: 501 MB
+									│   ├── /home/wwwroot/www.trackingmore.com_20171023: 1035 MB
+									│   │   ├── /home/wwwroot/www.trackingmore.com_20171023/download: 660 MB
+									│   │   ├── /home/wwwroot/www.trackingmore.com_20171023/script: 117 MB
+									│   ├── /home/wwwroot/upload: 481 MB
+									│   │   ├── /home/wwwroot/upload/lipeng: 317 MB
+									# /data/server_logs定时上传oss后
+									[root@iZwz9a1xnotkpvqau53o0cZ ~]# df -h
+									Filesystem      Size  Used Avail Use% Mounted on
+									/dev/vda1        40G   22G   18G  55% /
+									devtmpfs        7.5G     0  7.5G   0% /dev
+									tmpfs           7.6G     0  7.6G   0% /dev/shm
+									tmpfs           7.6G  4.7G  2.9G  63% /run
+									tmpfs           7.6G     0  7.6G   0% /sys/fs/cgroup
+									tmpfs           1.6G     0  1.6G   0% /run/user/0
+									tmpfs           1.6G     0  1.6G   0% /run/user/1005
 							-- 20250712
 								api-234-72-tm
 									},{\x22tracking_number\x22:\x22YT2518700703517702\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x224PX3001864094768CN\x22,\x22courier_code\x22:\x224px\x22},{\x22tracking_number\x22:\x224PX3001864093747CN\x22,\x22courier_code\x22:\x224px\x22},{\x22tracking_number\x22:\x22JY25CAA0U017632882\x22,\x22courier_code\x22:\x22ltian\x22},{\x22tracking_number\x22:\x22YT2518700703338000\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22JY25CAA0U017635404\x22,\x22courier_code\x22:\x22ltian\x22},{\x22tracking_number\x22:\x22YT2518700703536280\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22YT2518700703536322\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22YT2518700703536371\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x224PX3001864019846CN\x22,\x22courier_code\x22:\x224px\x22},{\x22tracking_number\x22:\x22YT2518700703355913\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22YT2518700703554390\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22JY25CAA0U017639850\x22,\x22courier_code\x22:\x22ltian\x22},{\x22tracking_number\x22:\x22YT2518700703370490\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22YT2518700703370557\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22YT2518700703569166\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22YT2518700703370458\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22YT2518700703586707\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22YT2518700703403846\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22YT2518700703403762\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22JY25CAA0U017644109\x22,\x22courier_code\x22:\x22ltian\x22},{\x22tracking_number\x22:\x22JY25CAA0U017644115\x22,\x22courier_code\x22:\x22ltian\x22},{\x22tracking_number\x22:\x22JY25CAA0U017647373\x22,\x22courier_code\x22:\x22ltian\x22},{\x22tracking_number\x22:\x22YT2518700703424495\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22YT2518700703623161\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22JY25CAA0U017647375\x22,\x22courier_code\x22:\x22ltian\x22},{\x22tracking_number\x22:\x22YT2518700703424461\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22JY25CAA0U017649539\x22,\x22courier_code\x22:\x22ltian\x22},{\x22tracking_number\x22:\x22JY25CAA0U017649537\x22,\x22courier_code\x22:\x22ltian\x22},{\x22tracking_number\x22:\x22YT2518700703474805\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22YT2518700703673075\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22YT2518700703694899\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22YT2518700703930277\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22YT2518700703731246\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22YT2518700703731261\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x224PX3001863956593CN\x22,\x22courier_code\x22:\x224px\x22},{\x22tracking_number\x22:\x224PX3001863956364CN\x22,\x22courier_code\x22:\x224px\x22},{\x22tracking_number\x22:\x22JY25CAA0U017661164\x22,\x22courier_code\x22:\x22ltian\x22},{\x22tracking_number\x22:\x22JY25CAA0U017661166\x22,\x22courier_code\x22:\x22ltian\x22},{\x22tracking_number\x22:\x22JY25CAA0U017661162\x22,\x22courier_code\x22:\x22ltian\x22},{\x22tracking_number\x22:\x22YT2518800700329802\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22YT2518800700129897\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22YT2518800700129871\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22JY25CAA0U017662925\x22,\x22courier_code\x22:\x22ltian\x22},{\x22tracking_number\x22:\x22YT2518800700329810\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22YT2518800700329844\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22YT2518800700149424\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22YT2518800700349263\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22YT2518800700371390\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22YT2518800700171923\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22JY25CAA0U017768420\x22,\x22courier_code\x22:\x22ltian\x22},{\x22tracking_number\x22:\x224PX3001863934348CN\x22,\x22courier_code\x22:\x224px\x22},{\x22tracking_number\x22:\x22JY25CAA0U017669781\x22,\x22courier_code\x22:\x22ltian\x22},{\x22tracking_number\x22:\x224PX3001863923922CN\x22,\x22courier_code\x22:\x224px\x22},{\x22tracking_number\x22:\x22YT2518800700447372\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22YT2518800700447356\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x224PX3001863915972CN\x22,\x22courier_code\x22:\x224px\x22},{\x22tracking_number\x22:\x22YT2518800700280666\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22YT2518800700489267\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22JY25CAA0U017682724\x22,\x22courier_code\x22:\x22ltian\x22},{\x22tracking_number\x22:\x224PX3001863908523CN\x22,\x22courier_code\x22:\x224px\x22},{\x22tracking_number\x22:\x22YT2518800700703485\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22YT2518800700703444\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22YT2518800700504495\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22YT2518800700504552\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22YT2518800700716347\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22YT2518800700716305\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22YT2518800700716313\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x224PX3001863905829CN\x22,\x22courier_code\x22:\x224px\x22},{\x22tracking_number\x22:\x22YT2518800700538592\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22YT2518800700538568\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22YT2518800700538576\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22YT2518800700736873\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22YT2518800700736899\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22YT2518800700551967\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22JY25CAA0U017692117\x22,\x22courier_code\x22:\x22ltian\x22},{\x22tracking_number\x22:\x22YT2518800700551983\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22YT2518800700564853\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22JY25CAA0U017694482\x22,\x22courier_code\x22:\x22ltian\x22},{\x22tracking_number\x22:\x22YT2518800700763406\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x224PX3001863899067CN\x22,\x22courier_code\x22:\x224px\x22},{\x22tracking_number\x22:\x22YT2518800700776655\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22YT2518800700776606\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22YT2518800700803830\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22YT2518800700605292\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x224PX3001863892495CN\x22,\x22courier_code\x22:\x224px\x22},{\x22tracking_number\x22:\x22JY25CAA0U017766442\x22,\x22courier_code\x22:\x22ltian\x22},{\x22tracking_number\x22:\x22YT2518800700816386\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22JY25CAA0U017704521\x22,\x22courier_code\x22:\x22ltian\x22},{\x22tracking_number\x22:\x22YT2518800700843471\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22YT2518800700857679\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22YT2518800700644952\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22YT2518800700843448\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22YT2518800700659687\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22JY25CAA0U017710364\x22,\x22courier_code\x22:\x22ltian\x22},{\x22tracking_number\x22:\x22YT2518800700674025\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22YT2518800700674009\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22YT2518800701125969\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22YT2518800700941911\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22JY25CAA0U017723918\x22,\x22courier_code\x22:\x22ltian\x22},{\x22tracking_number\x22:\x22JY25CAA0U017727428\x22,\x22courier_code\x22:\x22ltian\x22},{\x22tracking_number\x22:\x22JY25CAA0U017736153\x22,\x22courier_code\x22:\x22ltian\x22},{\x22tracking_number\x22:\x22JY25CAA0U017758058\x22,\x22courier_code\x22:\x22ltian\x22},{\x22tracking_number\x22:\x22JY25CAA0U017766694\x22,\x22courier_code\x22:\x22ltian\x22},{\x22tracking_number\x22:\x22JY25CAA0U017766667\x22,\x22courier_code\x22:\x22ltian\x22},{\x22tracking_number\x22:\x22JY25CAA0U017770816\x22,\x22courier_code\x22:\x22ltian\x22},{\x22tracking_number\x22:\x22JY25CAA0U017770801\x22,\x22courier_code\x22:\x22ltian\x22},{\x22tracking_number\x22:\x22JY25CAA0U017783498\x22,\x22courier_code\x22:\x22ltian\x22},{\x22tracking_number\x22:\x22JY25CAA0U017793051\x22,\x22courier_code\x22:\x22ltian\x22},{\x22tracking_number\x22:\x22YT2518800704661721\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22YT2518800704858541\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22YT2518800704894751\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22YT2518800705321929\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22YT2518800705024168\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22YT2518800705024457\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x224PX3001864754044CN\x22,\x22courier_code\x22:\x224px\x22},{\x22tracking_number\x22:\x22YT2518800705223190\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22YT2518800705222408\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22YT2518800705655946\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x224PX3001864808136CN\x22,\x22courier_code\x22:\x224px\x22},{\x22tracking_number\x22:\x224PX3001864906696CN\x22,\x22courier_code\x22:\x224px\x22},{\x22tracking_number\x22:\x22YT2518800705656621\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x224PX3001864906009CN\x22,\x22courier_code\x22:\x224px\x22},{\x22tracking_number\x22:\x22YT2518800705656589\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22YT2518800705457467\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22YT2518800706088261\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22YT2518800705888869\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22YT2518800705888042\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x224PX3001866539748CN\x22,\x22courier_code\x22:\x224px\x22},{\x22tracking_number\x22:\x22YT2518800705887028\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22YT2518800705886103\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22YT2518800706382813\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22YT2518800706092446\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22YT2518800706092438\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22YT2518800706382870\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22YT2518800706382730\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22YT2518800706382664\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22YT2518800706382888\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22YT2518800706382987\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22YT2518800707121566\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22YT2518800706456385\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22YT2518800706456344\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22YT2518800706456351\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22YT2518800706257320\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22YT2518800706743899\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22YT2518800706743915\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22YT2518800706835976\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22YT2518800706637984\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22YT2518800706835786\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22YT2518800706638073\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22YT2518800706638156\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22YT2518800706923814\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22YT2518800707121525\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22YT2518800706923939\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22YT2518800706923822\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22YT2518800707177873\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22YT2518800707266098\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22YT2518800707068437\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22YT2518800707068262\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22YT2518800707646224\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22YT2518800707448324\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22YT2518800707916668\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x224PX3001866518378CN\x22,\x22courier_code\x22:\x224px\x22},{\x22tracking_number\x22:\x22YT2518800707791707\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22YT2518800707791541\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22YT2518800708061621\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x224PX3001866513908CN\x22,\x22courier_code\x22:\x224px\x22},{\x22tracking_number\x22:\x22YT2518800708317825\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22YT2519000701660706\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22YT2518800708377373\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22YT2518800708476282\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22YT2518800708549260\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22YT2518800708779073\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22YT2518800708581115\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22YT2518800708807882\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22YT2518800708610500\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22YT2518800708610443\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22YT2518800708657436\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x224PX3001866474131CN\x22,\x22courier_code\x22:\x224px\x22},{\x22tracking_number\x22:\x22YT2518800708657428\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22YT2518800708657394\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22YT2518800708854116\x22,\x22courier_code\x22:\x22yunexpress\x22},{\x22tracking_number\x22:\x22JY25CAA0U017981641\x22,\x22courier_code\x22:\x22ltian\x22},{\x22tracking_number\x22:\x22JY25CAA0U017981633\x22,\x22courier_code\x22:\x22ltian\x22},{\x22tracking_number\x22:\x22JY25CAA0U017981647\x22,\x22courier_code\x22:\x22ltian\x22},{\x22tracking_number\x22:\x22YT2518800708883586\x22,\x22courier_code\x22:\x22yunexpress\x22}]|093c66ba-3a1f-4487-84f3-dfe1d9c1232d
@@ -9108,6 +9287,103 @@
 									tmpfs           169M  4.0K  169M   1% /run/user/1000
 							-- 20250503
 								-www-51-20
+									-- 20250726
+										[root@iZ94apf5ivnZ ~]# du -sh /data
+										1.8G    /data
+										[root@iZ94apf5ivnZ ~]# cat /home/wwwroot/www.trackingmore.com/script/log/queue_diskTree.20250726.log
+										2025-07-26 06:00:02
+										-rw-r--r--  1 root root 402M Jan 27  2024 /run/log/home-wwwroot-mytracking-logs-send_first_queue/send.log.20231010.20240127.zip
+										-rw-r--r--  1 www  www  387M Jul 25 16:58 /home/wwwroot/www.51tracking.com/export-send-queue.log
+										-rw-r--r--  1 root root 370M Jul 26 06:01 /usr/local/nginx/logs/access.log
+										-rw-r--r--  1 root root 368M Jul 26 06:00 /home/wwwroot/www.51tracking.com/script/sync/compare_img_sync.log
+										-rw-r--r--  1 root root 255M Jul 11 18:03 /home/wwwroot/www.trackingmore.com/download/befor.1000.days.xlsx.csv.zip
+										-rw-r--r--  1 root root 156M Jun 22  2024 /var/cache/yum/x86_64/7/updates/gen/primary_db.sqlite
+										-rw-r--r--  1 www  www  136M Sep  7  2022 /home/wwwroot/www.51tracking.com/api/v2/trackings/first_track.log
+										-rwxr-xr-x  1 root root 132M Jun 10 16:11 /home/wwwroot/mytracking/uploads/excel/202506/9488b81bdcf47215b5258f3bc6147a2f.csv
+										-r--------  1 root root 128T Jul 26 06:01 /proc/kcore
+										-rw-r--r--. 1 root root 119M Aug 30  2023 /var/lib/rpm/Packages
+										-rw-r--r--  1 root root 118M Aug 31  2020 /usr/local/rasp-php-linux.tar.bz2
+										-rw-r--r--  1 root root 102M May 15  2019 /usr/lib/locale/locale-archive
+										├── /: 47305 MB
+										│   ├── /root: 687 MB
+										│   │   ├── /root/.cache: 136 MB
+										│   ├── /boot: 162 MB
+										│   ├── /data: 1828 MB
+										│   │   ├── /data/server_logs: 1793 MB
+										│   ├── /var: 688 MB
+										│   │   ├── /var/log: 128 MB
+										│   │   ├── /var/lib: 192 MB
+										│   │   ├── /var/cache: 356 MB
+										│   ├── /run: 807 MB
+										│   │   ├── /run/log: 807 MB
+										│   ├── /home: 29294 MB
+										│   │   ├── /home/wwwroot: 27701 MB
+										│   │   ├── /home/wwwlogs: 1591 MB
+										│   ├── /tmp: 189 MB
+										│   ├── /usr: 13311 MB
+										│   │   ├── /usr/lib64: 478 MB
+										│   │   ├── /usr/lib: 736 MB
+										│   │   ├── /usr/share: 654 MB
+										│   │   ├── /usr/bin: 237 MB
+										│   │   ├── /usr/local: 10777 MB
+										│   │   │   └── rasp-php-linux.tar.bz2: 118 MB
+										│   ���   ├── /usr/src: 203 MB
+										│   │   └── kcore: 134217727 MB
+										├── /data/server_logs: 1793 MB
+										│   ├── /data/server_logs/root: 126 MB
+										│   ├── /data/server_logs/home: 1609 MB
+										│   │   ├── /data/server_logs/home/wwwroot: 1609 MB
+										│   │   │   ├── /data/server_logs/home/wwwroot/www.trackingmore.com: 132 MB
+										│   │   │   ├── /data/server_logs/home/wwwroot/mytracking: 1468 MB
+										│   │   │   │   ├── /data/server_logs/home/wwwroot/mytracking/logs: 1468 MB
+										├── /home/wwwroot: 27726 MB
+										│   ├── /home/wwwroot/upload: 731 MB
+										│   │   ├── /home/wwwroot/upload/lipeng: 583 MB
+										│   ├── /home/wwwroot/www.51tracking.com: 8797 MB
+										│   │   └── export-send-queue.log: 387 MB
+										│   │   ├── /home/wwwroot/www.51tracking.com/admin: 6027 MB
+										│   │   ├── /home/wwwroot/www.51tracking.com/section: 318 MB
+										│   │   ├── /home/wwwroot/www.51tracking.com/script: 379 MB
+										│   │   ├── /home/wwwroot/www.51tracking.com/api: 137 MB
+										│   │   ├── /home/wwwroot/www.51tracking.com/logs: 119 MB
+										│   ├── /home/wwwroot/www.trackingmore.com: 5431 MB
+										│   │   ├── /home/wwwroot/www.trackingmore.com/php-resque: 116 MB
+										│   │   ├── /home/wwwroot/www.trackingmore.com/python3: 199 MB
+										│   │   ├── /home/wwwroot/www.trackingmore.com/admin: 110 MB
+										│   │   ├── /home/wwwroot/www.trackingmore.com/section: 508 MB
+										│   │   │   └── carrierspic10.css: 110 MB
+										│   │   ├── /home/wwwroot/www.trackingmore.com/script: 1865 MB
+										│   │   ├── /home/wwwroot/www.trackingmore.com/download: 496 MB
+										│   │   │   └── befor.1000.days.xlsx.csv.zip: 255 MB
+										│   │   ├── /home/wwwroot/www.trackingmore.com/api: 930 MB
+										│   │   ├── /home/wwwroot/www.trackingmore.com/logs: 192 MB
+										│   │   ├── /home/wwwroot/www.trackingmore.com/python_img: 245 MB
+										│   ├── /home/wwwroot/mytracking: 12768 MB
+										│   │   ���── /home/wwwroot/mytracking/downloads: 606 MB
+										│   │   ├── /home/wwwroot/mytracking/uploads: 6702 MB
+										│   │   ├── /home/wwwroot/mytracking/logs: 5369 MB
+
+										(reverse-i-search)`': ^C
+										[root@iZ94apf5ivnZ ~]#  sh /home/wwwroot/www.trackingmore.com/script/queueshell/diskTree.sh /home/wwwroot/mytracking/uploads 3 100
+										├── /home/wwwroot/mytracking/uploads: 6718 MB
+										│   ├── /home/wwwroot/mytracking/uploads/excel: 2730 MB
+										│   │   ├── /home/wwwroot/mytracking/uploads/excel/202507: 1004 MB
+										│   │   ├── /home/wwwroot/mytracking/uploads/excel/202506: 1005 MB
+										│   │   │   └── 9488b81bdcf47215b5258f3bc6147a2f.csv: 132 MB
+										│   │   ├── /home/wwwroot/mytracking/uploads/excel/202505: 716 MB
+										│   ├── /home/wwwroot/mytracking/uploads/excel_zip: 3989 MB
+										# /data/server_logs定时上传oss后
+										[root@iZ94apf5ivnZ ~]# df -h
+										Filesystem      Size  Used Avail Use% Mounted on
+										/dev/vda1        49G   44G  4.4G  91% /
+										devtmpfs        3.7G     0  3.7G   0% /dev
+										tmpfs           3.7G     0  3.7G   0% /dev/shm
+										tmpfs           3.7G  792M  3.0G  21% /run
+										tmpfs           3.7G     0  3.7G   0% /sys/fs/cgroup
+										tmpfs           756M     0  756M   0% /run/user/1004
+										tmpfs           756M     0  756M   0% /run/user/0
+										[root@iZ94apf5ivnZ ~]# du -sh /data
+										60M     /data
 									-- 20250711
 										find /home/wwwroot/www.trackingmore.com/download/ -maxdepth 1 -name '*' -mtime +1000 -type f | grep '.xlsx\|.csv' | xargs -i ls -l {}  | awk '{total += $5} END {print "Total size:", total / (1024^3), "GB"}'
 										Total size: 2.34585
