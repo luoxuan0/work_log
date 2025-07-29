@@ -653,6 +653,42 @@
 【日常响应】
 5，后续优先级、应对
 
+===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== =====
+【告警】
+【客诉】
+【迁云】
+【桌面运维】
+【运维】
+
+20250728
+【告警】
+【安全】
+【运维】
+
+原计划：
+【本地】
+1，待优化&专线切换
+【告警】
+2，磁盘
+3，服务重启时间调整
+【安全】
+4，等保复测
+【日常响应】
+5，后续优先级、应对
+
+计划：
+【本地】
+1，待优化&专线切换
+【告警】
+2，磁盘
+3，服务重启时间调整
+【安全】
+4，等保复测
+【运维】
+5，3台开发服务器（创建、接入堡垒机）
+【日常响应】
+6，后续优先级、应对
+
 
 近期复盘
 	后续优先级、应对
@@ -7056,6 +7092,149 @@
 											1.1G    /home/wwwroot/mytracking/uploads/excel/
 											notest_105 | CHANGED | rc=0 >>
 											17M     /home/wwwroot/mytracking/uploads/excel/
+											-- 20250728
+												磁盘情况
+													www_10_10 | CHANGED | rc=0 >>
+													160M    /home/wwwroot/mytracking/uploads/excel/
+													Filesystem      Size  Used Avail Use% Mounted on
+													/dev/vda1        40G   34G  4.9G  88% /
+													devtmpfs        7.8G     0  7.8G   0% /dev
+													tmpfs           7.8G     0  7.8G   0% /dev/shm
+													tmpfs           7.8G   19M  7.8G   1% /run
+													tmpfs           7.8G     0  7.8G   0% /sys/fs/cgroup
+													tmpfs           1.6G     0  1.6G   0% /run/user/1001
+													tmpfs           1.6G     0  1.6G   0% /run/user/1002
+													tmpfs           1.6G     0  1.6G   0% /run/user/0
+													overlay          40G   34G  4.9G  88% /var/lib/docker/overlay2/4026f91664e522927480844866062e1eeafb362acb05df9f1bd8e1c012581eba/mergedls: cannot access /home/wwwroot/www.trackingmore.com/script/log/queue_diskTree.20250*.log: No such file or directory
+													ls: cannot access /home/wwwroot/www.trackingmore.com/script/log/queue_diskTree.20250*.log: No such file or directory
+													www_214_153 | CHANGED | rc=0 >>
+													926M    /home/wwwroot/mytracking/uploads/excel/
+													Filesystem      Size  Used Avail Use% Mounted on
+													/dev/vda1        51G   40G   10G  80% /
+													devtmpfs        7.8G     0  7.8G   0% /dev
+													tmpfs           7.8G     0  7.8G   0% /dev/shm
+													tmpfs           7.8G  3.2G  4.7G  41% /run
+													tmpfs           7.8G     0  7.8G   0% /sys/fs/cgroup
+													tmpfs           1.6G     0  1.6G   0% /run/user/1002
+													tmpfs           1.6G     0  1.6G   0% /run/user/0
+													tmpfs           1.6G     0  1.6G   0% /run/user/1001
+													/home/wwwroot/www.trackingmore.com/script/log/queue_diskTree.20250625.log
+													2025-06-25 02:00:10
+													-r--r--r-- 1 root root 392M Aug 11  2020 /var/lib/docker/overlay2/70e1adc85aea9331f7bcd4c926aa5282da78c8ceb9fc59fc510204df48857f22/diff/php-src/.git/objects/pack/pack-d53e643128ecd1ea6c2498eb1202bc30358b84dc.pack
+													-rw-r--r-- 1 root root 156M Jun 22  2024 /var/cache/yum/x86_64/7/updates/gen/primary_db.sqlite
+													-r-------- 1 root root 128T Jun 25 02:01 /proc/kcore
+													-rw-r--r-- 1 root root 118M Sep  1  2020 /usr/local/rasp-php-linux.tar.bz2
+													-rw-r--r-- 1 root root 115M Jun 25 02:01 /usr/local/nginx/logs/access.log
+													-rwxr-xr-x 1 root root 108M May  1  2024 /home/wwwroot/mytracking/uploads/excel/202404/858e65c171330d2ee34cdc93b64b24d3.csv
+													-rw-r--r-- 1 root root 102M Mar 16  2018 /usr/lib/locale/locale-archive
+													├── /: 41870 MB
+													│   ├── /home: 18341 MB
+													│   │   ├── /home/wwwroot: 17375 MB
+													│   │   ├── /home/wwwlogs: 874 MB
+													│   ├── /root: 192 MB
+													│   │   ├── /root/yunxiao: 107 MB
+													│   ├── /data: 183 MB
+													│   │   ├── /data/server_logs: 183 MB
+													│   ├── /run: 3218 MB
+													│   │   ├── /run/log: 3217 MB
+													│   ���── /boot: 147 MB
+													│   ├── /var: 6679 MB
+													│   │   ├── /var/cache: 348 MB
+													│   │   ├── /var/lib: 2197 MB
+													│   │   ├── /var/log: 4133 MB
+													│   ├── /usr: 13009 MB
+													│   │   ├── /usr/lib: 809 MB
+													│   │   ├── /usr/lib64: 270 MB
+													│   │   ├── /usr/local: 11112 MB
+													│   │   │   └── rasp-php-linux.tar.bz2: 118 MB
+													│   │   ├── /usr/bin: 174 MB
+													│   │   ├── /usr/share: 490 MB
+													│   │   └── kcore: 134217727 MB
+													├── /data/server_logs: 183 MB
+													│   ├── /data/server_logs/home: 183 MB
+													│   │   ├── /data/server_logs/home/wwwroot: 183 MB
+													│   │   │   ├── /data/server_logs/home/wwwroot/www.trackingmore.com: 150 MB
+													├── /home/wwwroot: 17375 MB
+													│   ├── /home/wwwroot/mytracking: 6267 MB
+													│   │   ├── /home/wwwroot/mytracking/logs: 1525 MB
+													│   │   ├── /home/wwwroot/mytracking/uploads: 1369 MB
+													│   │   ├── /home/wwwroot/mytracking/downloads: 3219 MB
+													│   ├── /home/wwwroot/upload: 5028 MB
+													│   │   ├── /home/wwwroot/upload/huaqiang: 4560 MB
+													│   │   ├── /home/wwwroot/upload/lipeng: 412 MB
+													│   ├── /home/wwwroot/www.trackingmore.com: 6043 MB
+													│   │   ├── /home/wwwroot/www.trackingmore.com/python_img: 300 MB
+													│   │   ├── /home/wwwroot/www.trackingmore.com/section: 1572 MB
+													│   │   ├── /home/wwwroot/www.trackingmore.com/logs: 492 MB
+													│   │   ├── /home/wwwroot/www.trackingmore.com/trackingpage: 356 MB
+													│   │   ├── /home/wwwroot/www.trackingmore.com/admin: 2406 MB
+													│   │   ├── /home/wwwroot/www.trackingmore.com/script: 148 MB
+													│   │   ├── /home/wwwroot/www.trackingmore.com/python3: 221 MB
+													www_27 | CHANGED | rc=0 >>
+													762M    /home/wwwroot/mytracking/uploads/excel/
+													Filesystem      Size  Used Avail Use% Mounted on
+													/dev/vda1        40G   38G  1.6G  96% /
+													devtmpfs        7.8G     0  7.8G   0% /dev
+													tmpfs           7.8G     0  7.8G   0% /dev/shm
+													tmpfs           7.8G  367M  7.4G   5% /run
+													tmpfs           7.8G     0  7.8G   0% /sys/fs/cgroup
+													tmpfs           1.6G     0  1.6G   0% /run/user/0
+													tmpfs           1.6G     0  1.6G   0% /run/user/1002
+													overlay          40G   38G  1.6G  96% /var/lib/docker/overlay2/a04b2018a42f864edb07c6b6f95d9308840d8d3fe0eb3042e76f33e718c7010f/merged
+													tmpfs           1.6G     0  1.6G   0% /run/user/1001
+													/home/wwwroot/www.trackingmore.com/script/log/queue_diskTree.20250728.log
+													2025-07-28 04:00:07
+													-rw-r--r-- 1 root root 174M Nov 26  2024 /run/log/home-wwwroot-www.trackingmore.com-mailwehook-en/easypost_webhook_input.log.saveto.20250216.2g.zip
+													-rw-r--r-- 1 root root 164M Dec 18  2024 /run/log/home-wwwroot-www.trackingmore.com-mailwehook-en/royalmail_webhook_input.log.20241115.20241218.1.5g.zip
+													-rw-r--r-- 1 root root 156M Jun 22  2024 /var/cache/yum/x86_64/7/updates/gen/primary_db.sqlite
+													-r-------- 1 root root 128T Jul 28 04:00 /proc/kcore
+													-rw-r--r-- 1 root root 118M Sep  1  2020 /usr/local/rasp-php-linux.tar.bz2
+													-rwxr-xr-x 1 root root 102M Apr 23  2024 /usr/bin/dockerd
+													-rw-r--r-- 1 root root 102M Mar 16  2018 /usr/lib/locale/locale-archive
+													├── /: 38569 MB
+													│   ├── /usr: 10799 MB
+													│   │   ├── /usr/libexec: 177 MB
+													│   │   ├── /usr/lib: 516 MB
+													│   │   ├── /usr/bin: 391 MB
+													│   │   │   └── dockerd: 102 MB
+													│   │   ├── /usr/local: 8925 MB
+													│   │   │   └── rasp-php-linux.tar.bz2: 118 MB
+													│   │   ├── /usr/share: 464 MB
+													│   │   ├── /usr/lib64: 252 MB
+													│   ├── /home: 21736 MB
+													│   │   ├── /home/wwwroot: 20799 MB
+													│   │   ├── /home/wwwlogs: 750 MB
+													│   ├── /root: 554 MB
+													│   │   ├── /root/yunxiao: 105 MB
+													│   │   └── kcore: 134217727 MB
+													│   ├── /boot: 147 MB
+													│   ├── /run: 367 MB
+													│   │   ├── /run/log: 366 MB
+													│   ├── /var: 4812 MB
+													│   │   ├── /var/lib: 357 MB
+													│   │   ├── /var/log: 4189 MB
+													│   │   ├── /var/cache: 266 MB
+													├── /home/wwwroot: 20799 MB
+													│   ├── /home/wwwroot/www.trackingmore.com: 11504 MB
+													│   │   ├── /home/wwwroot/www.trackingmore.com/python_img: 248 MB
+													│   │   ├── /home/wwwroot/www.trackingmore.com/admin: 6205 MB
+													│   │   ├── /home/wwwroot/www.trackingmore.com/script: 1356 MB
+													│   │   ├── /home/wwwroot/www.trackingmore.com/logs: 693 MB
+													│   │   ├── /home/wwwroot/www.trackingmore.com/python3: 221 MB
+													│   │   ├── /home/wwwroot/www.trackingmore.com/section: 1668 MB
+													│   │   ├── /home/wwwroot/www.trackingmore.com/download: 544 MB
+													│   ├── /home/wwwroot/upload: 5092 MB
+													│   │   ├── /home/wwwroot/upload/huaqiang: 4621 MB
+													│   │   ├── /home/wwwroot/upload/lipeng: 415 MB
+													│   ├── /home/wwwroot/mytracking: 4136 MB
+													│   │   ├── /home/wwwroot/mytracking/logs: 2637 MB
+													│   │   ├── /home/wwwroot/mytracking/uploads: 1044 MB
+													│   │   ├── /home/wwwroot/mytracking/downloads: 329 MB
+												增加定时清理任务
+													# 清理修改时间超过180天的压缩下载文件 每天12:13分执行 后续统一配置处理 20250726
+													13 12 * * * /bin/find /home/wwwroot/mytracking/downloads/excel_zip/ -type f -name '*.zip' -mtime +180 | xargs -i rm -fr {} > /dev/null 2>&1
+													# 清理修改时间超过180天的压缩下载文件 每天12:13分执行 后续统一配置处理 20250726
+											
 										国内
 											front_20 | CHANGED | rc=0 >>
 											2.7G    /home/wwwroot/mytracking/uploads/excel/
@@ -7067,6 +7246,445 @@
 											1.7G    /home/wwwroot/mytracking/uploads/excel/
 											resque_74 | CHANGED | rc=0 >>
 											849M    /home/wwwroot/mytracking/uploads/excel/
+											-- 2025028
+												磁盘情况
+													front_134 | CHANGED | rc=0 >>
+													6.5G    /home/wwwroot/mytracking/uploads/excel/
+													Filesystem      Size  Used Avail Use% Mounted on
+													/dev/vda1        49G   43G  4.9G  90% /
+													devtmpfs        3.7G     0  3.7G   0% /dev
+													tmpfs           3.7G     0  3.7G   0% /dev/shm
+													tmpfs           3.7G  386M  3.4G  11% /run
+													tmpfs           3.7G     0  3.7G   0% /sys/fs/cgroup
+													tmpfs           756M     0  756M   0% /run/user/0
+													tmpfs           756M     0  756M   0% /run/user/1003
+													tmpfs           756M     0  756M   0% /run/user/1002
+													/home/wwwroot/www.trackingmore.com/script/log/queue_diskTree.20250711.log
+													2025-07-11 15:00:04
+													-rw-r--r--  1 tcpdump tcpdump 745M Aug  3  2017 /root/google.cap
+													-rw-r--r--  1 www     www     358M Feb 12 11:11 /home/wwwroot/www.51tracking.com/export-send-queue.log
+													-rw-r--r--  1 root    root    332M May 16  2017 /var/redis/6379/dump.rdb
+													-rw-r--r--  1     386     386 133M Jul 11 14:57 /home/wwwroot/www.51tracking.com/section/carrierspic10.css
+													-rw-r--r--  1     386     386 129M Jul 11 15:00 /home/wwwroot/www.trackingmore.com/section/carrierspic10.css
+													-r--------  1 root    root    128T Jul 11 15:00 /proc/kcore
+													-rw-r--r--. 1 root    root    119M Aug 30  2023 /var/lib/rpm/Packages
+													-rw-r--r--  1 root    root    118M Aug 31  2020 /usr/local/rasp-php-linux.tar.bz2
+													-rw-r--r--  1 root    root    102M May 15  2019 /usr/lib/locale/locale-archive
+													-rw-r--r--  1 root    root      10 Dec  9  2021 {}
+													-rw-r--r--  1 root    root    1.5G Jul 11 15:00 /home/wwwroot/www.51tracking.com/script/sync/compare_img_sync.log
+													-rw-r--r--  1 root    root    1.3G Feb 11 09:30 /home/wwwlogs/mailwebhook.51tracking.com.log
+													-rw-r--r--  1 www     www     1.1G Feb 12 14:29 /home/wwwroot/www.51tracking.com/mailwebhook/cn/royalmail_webhook_input.log
+													├── /: 46618 MB
+													│   ├── /boot: 190 MB
+													│   │   └── kcore: 134217727 MB
+													│   ├── /home: 29246 MB
+													│   │   ├── /home/wwwlogs: 2837 MB
+													│   │   │   └── mailwebhook.51tracking.com.log: 1283 MB
+													│   │   ├── /home/wwwroot: 26409 MB
+													│   ├── /run: 370 MB
+													│   │   ├── /run/log: 369 MB
+													│   ├── /var: 888 MB
+													│   │   ├── /var/redis: 386 MB
+													│   │   ├── /var/lib: 200 MB
+													│   │   ├── /var/log: 135 MB
+													│   │   ├── /var/cache: 168 MB
+													│   ├── /data: 1272 MB
+													│   │   ├── /data/server_logs: 1181 MB
+													│   ├── /root: 1048 MB
+													│   │   └── google.cap: 745 MB
+													│   │   ├── /root/.cache: 129 MB
+													│   ├── /usr: 13253 MB
+													│   │   ├── /usr/local: 10641 MB
+													│   │   │   └── rasp-php-linux.tar.bz2: 118 MB
+													│   │   ├── /usr/share: 659 MB
+													│   │   ├── /usr/src: 203 MB
+													│   │   ├── /usr/bin: 246 MB
+													│   │   ├── /usr/lib: 806 MB
+													│   │   ├── /usr/lib64: 518 MB
+													├── /data/server_logs: 1181 MB
+													│   ├── /data/server_logs/home: 1036 MB
+													│   │   ├── /data/server_logs/home/wwwroot: 1036 MB
+													│   │   │   ├── /data/server_logs/home/wwwroot/www.trackingmore.com: 117 MB
+													│   │   │   ├── /data/server_logs/home/wwwroot/mytracking: 912 MB
+													│   │   │   │   ├── /data/server_logs/home/wwwroot/mytracking/logs: 912 MB
+													├── /home/wwwroot: 26371 MB
+													│   ├── /home/wwwroot/www.trackingmore.com_20171023: 209 MB
+													│   ├── /home/wwwroot/www.51tracking.com: 10846 MB
+													│   │   └── export-send-queue.log: 358 MB
+													│   │   ├── /home/wwwroot/www.51tracking.com/admin: 7116 MB
+													│   │   ├── /home/wwwroot/www.51tracking.com/section: 305 MB
+													│   │   ├── /home/wwwroot/www.51tracking.com/logs: 124 MB
+													│   │   ├── /home/wwwroot/www.51tracking.com/script: 1513 MB
+													│   │   ├── /home/wwwroot/www.51tracking.com/mailwebhook: 1062 MB
+													│   ├── /home/wwwroot/www.trackingmore.com: 5985 MB
+													│   │   ├── /home/wwwroot/www.trackingmore.com/taiwan-post-jizhi-yes: 145 MB
+													│   │   ├── /home/wwwroot/www.trackingmore.com/admin: 1804 MB
+													│   │   ├── /home/wwwroot/www.trackingmore.com/section: 414 MB
+													│   │   ├── /home/wwwroot/www.trackingmore.com/logs: 294 MB
+													│   │   ├── /home/wwwroot/www.trackingmore.com/python_img: 246 MB
+													│   │   ├��─ /home/wwwroot/www.trackingmore.com/script: 379 MB
+													│   │   ├── /home/wwwroot/www.trackingmore.com/taiwan-post-jizhi-no: 124 MB
+													│   │   ├── /home/wwwroot/www.trackingmore.com/python3: 198 MB
+													│   │   ├── /home/wwwroot/www.trackingmore.com/download: 221 MB
+													│   │   ├── /home/wwwroot/www.trackingmore.com/api: 1563 MB
+													│   ├── /home/wwwroot/upload: 724 MB
+													│   │   ├── /home/wwwroot/upload/lipeng: 583 MB
+													│   ├── /home/wwwroot/mytracking: 8610 MB
+													│   │   ├── /home/wwwroot/mytracking/downloads: 370 MB
+													│   │   ├── /home/wwwroot/mytracking/logs: 1577 MB
+													│   │   ├── /home/wwwroot/mytracking/uploads: 6572 MB
+
+													front_3 | CHANGED | rc=0 >>
+													1.9G    /home/wwwroot/mytracking/uploads/excel/
+													Filesystem      Size  Used Avail Use% Mounted on
+													/dev/vda1        49G   41G  6.7G  86% /
+													devtmpfs        3.7G     0  3.7G   0% /dev
+													tmpfs           3.7G     0  3.7G   0% /dev/shm
+													tmpfs           3.7G  791M  3.0G  21% /run
+													tmpfs           3.7G     0  3.7G   0% /sys/fs/cgroup
+													tmpfs           756M     0  756M   0% /run/user/1004
+													tmpfs           756M     0  756M   0% /run/user/0
+													tmpfs           756M     0  756M   0% /run/user/1003
+													/home/wwwroot/www.trackingmore.com/script/log/queue_diskTree.20250527.log
+													2025-05-27 20:00:09
+													-rw-------  1 root root 526M May 27 15:35 /home/wwwlogs/phpslow.log
+													-rw-r--r--  1 root root 393M Jan  2  2024 /run/log/home-wwwroot-mytracking-logs/send.log.2023.1010.2024.0102.zip
+													-rw-r--r--  1 root root 317M May 27 20:01 /usr/local/nginx/logs/access.log
+													-rw-r--r--  1  386  386 169M May 27 19:59 /home/wwwroot/www.trackingmore.com/section/carrierspic10.css
+													-rw-r--r--  1  386  386 160M May 27 19:59 /home/wwwroot/www.51tracking.com/section/carrierspic10.css
+													-r--------  1 root root 128T May 27 20:01 /proc/kcore
+													-rw-r--r--  1 root root 126M Aug 24  2023 /var/cache/yum/x86_64/7/updates/gen/primary_db.sqlite
+													-rw-r--r--. 1 root root 119M Aug 30  2023 /var/lib/rpm/Packages
+													-rw-r--r--  1 root root 118M Feb  4 19:21 /data/server_logs/usr/local/php7.0.33/var/log/20250204175501.php-fpm.log.zip
+													-rw-r--r--  1 root root 118M Aug 31  2020 /usr/local/rasp-php-linux.tar.bz2
+													-rw-r--r--  1 root root 107M Jul 13  2022 /home/wwwroot/www.trackingmore.com/download/K2msSfC9SHV3g32NAtw70TPmgA00O.csv
+													-rw-r--r--  1 root root 104M Aug  1  2022 /home/wwwlogs/host.trackingmore.com.log
+													-rw-r--r--  1 root root 102M May 15  2019 /usr/lib/locale/locale-archive
+													-rw-r--r--  1 root root 102M Jul 13  2022 /home/wwwroot/www.trackingmore.com/download/gOl2XfRfiaS2VwX7g8eqy8vmroMpxT8JHEZK8qoAB0RsF.csv
+													├── /: 47858 MB
+													│   ├── /root: 763 MB
+													│   │   ├── /root/.cache: 136 MB
+													│   ├── /boot: 162 MB
+													│   ├── /data: 1407 MB
+													│   │   ├── /data/server_logs: 1372 MB
+													│   ├── /var: 650 MB
+													│   │   ├── /var/log: 119 MB
+													│   │   ├── /var/lib: 200 MB
+													│   │   ├── /var/cache: 321 MB
+													│   ├── /run: 781 MB
+													│   │   ├── /run/log: 781 MB
+													│   ├── /home: 32460 MB
+													│   │   ├── /home/wwwroot: 30333 MB
+													│   │   ├── /home/wwwlogs: 2127 MB
+													│   │   │   └── phpslow.log: 526 MB
+													│   │   │   └── host.trackingmore.com.log: 104 MB
+													│   ├── /usr: 11422 MB
+													│   │   ├── /usr/lib64: 478 MB
+													│   │   ├── /usr/lib: 736 MB
+													│   │   ├── /usr/share: 654 MB
+													│   │   ├── /usr/bin: 237 MB
+													│   │   ├── /usr/local: 8891 MB
+													│   │   │   └── rasp-php-linux.tar.bz2: 118 MB
+													│   │   ├── /usr/src: 203 MB
+													│   │   └── kcore: 134217727 MB
+													├── /data/server_logs: 1372 MB
+													│   ├── /data/server_logs/home: 1179 MB
+													│   │   ├── /data/server_logs/home/wwwroot: 1179 MB
+													│   │   │   ├── /data/server_logs/home/wwwroot/mytracking: 1118 MB
+													│   │   │   │   ├── /data/server_logs/home/wwwroot/mytracking/logs: 1118 MB
+													│   ├── /data/server_logs/usr: 128 MB
+													│   │   ├── /data/server_logs/usr/local: 128 MB
+													│   │   │   ├── /data/server_logs/usr/local/php7.0.33: 128 MB
+													│   │   │   │   ├── /data/server_logs/usr/local/php7.0.33/var: 128 MB
+													├── /home/wwwroot: 30333 MB
+													│   ├── /home/wwwroot/upload: 731 MB
+													│   │   ├── /home/wwwroot/upload/lipeng: 583 MB
+													│   ├── /home/wwwroot/www.51tracking.com: 8046 MB
+													│   │   ├── /home/wwwroot/www.51tracking.com/admin: 6016 MB
+													│   │   ├── /home/wwwroot/www.51tracking.com/section: 440 MB
+													│   │   │   └── carrierspic10.css: 160 MB
+													│   │   ├── /home/wwwroot/www.51tracking.com/logs: 109 MB
+													│   ├── /home/wwwroot/www.trackingmore.com: 7702 MB
+													│   │   ├── /home/wwwroot/www.trackingmore.com/php-resque: 116 MB
+													│   │   ├── /home/wwwroot/www.trackingmore.com/python3: 199 MB
+													│   │   ├── /home/wwwroot/www.trackingmore.com/admin: 111 MB
+													│   │   ├── /home/wwwroot/www.trackingmore.com/section: 400 MB
+													│   │   ├── /home/wwwroot/www.trackingmore.com/script: 1859 MB
+													│   │   ├── /home/wwwroot/www.trackingmore.com/download: 2647 MB
+													│   │   │   └── K2msSfC9SHV3g32NAtw70TPmgA00O.csv: 107 MB
+													│   │   │   └── gOl2XfRfiaS2VwX7g8eqy8vmroMpxT8JHEZK8qoAB0RsF.csv: 102 MB
+													│   │   ├── /home/wwwroot/www.trackingmore.com/api: 930 MB
+													│   │   ├── /home/wwwroot/www.trackingmore.com/logs: 199 MB
+													│   │   ├── /home/wwwroot/www.trackingmore.com/python_img: 245 MB
+													│   ├── /home/wwwroot/mytracking: 13855 MB
+													│   │   ├── /home/wwwroot/mytracking/downloads: 506 MB
+													│   │   ├── /home/wwwroot/mytracking/uploads: 8747 MB
+													│   │   ├── /home/wwwroot/mytracking/logs: 4511 MB
+													resque_140 | CHANGED | rc=0 >>
+													1.7G    /home/wwwroot/mytracking/uploads/excel/
+													Filesystem      Size  Used Avail Use% Mounted on
+													/dev/vda1        59G   43G   17G  73% /
+													devtmpfs         16G     0   16G   0% /dev
+													tmpfs            16G     0   16G   0% /dev/shm
+													tmpfs            16G   31M   16G   1% /run
+													tmpfs            16G     0   16G   0% /sys/fs/cgroup
+													tmpfs           3.1G     0  3.1G   0% /run/user/0
+													tmpfs           3.1G     0  3.1G   0% /run/user/1003
+													tmpfs           3.1G     0  3.1G   0% /run/user/1001
+													/home/wwwroot/www.trackingmore.com/script/log/queue_diskTree.20250715.log
+													2025-07-15 22:00:05
+													-rw-r--r--  1 root root 742M Jun 30 12:37 /root/tr_tracknumber_effective_for_rule.zip
+													-rw-------  1 root root 716M Oct 16  2018 /var/crash/127.0.0.1-2018-10-16-16:57:30/vmcore
+													-rwxr-xr-x  1 root root 695M Jul 15 20:11 /data/server_logs/home/wwwroot/mytracking/logs/number/20250715201107.create-tracking.log
+													-rwxr-xr-x  1 root root 508M Jul 15 22:01 /home/wwwroot/mytracking/logs/number/create-tracking.log
+													-rw-r--r--  1 root root 415M Jul 15 22:01 /home/wwwlogs/webhook.17proxy.com.access.log
+													-rwxr-xr-x  1 root root 373M Apr 19 17:26 /home/wwwroot/mytracking/uploads/excel/202504/9dae4aefc814b3fcb420fbbe5029cdf2.csv
+													-rwxr-xr-x  1 root root 317M Apr 19 18:07 /home/wwwroot/mytracking/uploads/excel/202504/77b1a22776fdf6ad5282e3773e4fb8e2.csv
+													-rw-r--r--  1 root root 269M Jul 15 22:01 /home/wwwroot/www.trackingmore.com/section/carrierspic10.css
+													-rw-r--r--  1  386  386 269M Jun 18 15:58 /home/wwwroot/www.51tracking.com/section/carrierspic10.css
+													-rw-r--r--  1 root root 211M Sep 22  2021 /home/tidb/tidb-toolkit-v5.0.1-linux-amd64.tar.gz
+													-rw-r--r--  1 root root 210M Apr  7  2021 /usr/local/tidb-toolkit-v5.0.0-linux-amd64.tar.gz
+													-rw-rw-r--  1 tidb tidb 162M May 12  2021 /home/tidb/.tiup/storage/cluster/packages/tikv-v5.0.0-linux-amd64.tar.gz
+													-rw-r--r--  1 root root 156M Jun 22  2024 /var/cache/yum/x86_64/7/updates/gen/primary_db.sqlite
+													-rwxr-xr-x  1 root root 147M Apr 20 14:28 /home/wwwroot/mytracking/uploads/excel/202504/0a349c15f684406df6b8a7da1c3bd533.csv
+													-rwxr-xr-x  1 root root 137M Apr  4  2019 /opt/google/chrome/chrome
+													-rwxr-xr-x  1 tidb tidb 130M Sep 27  2021 /home/tidb/.tiup/components/ctl/v5.2.1/tikv-ctl
+													-r--------  1 root root 128T Jul 15 22:01 /proc/kcore
+													-rwxr-xr-x  1 tidb tidb 124M Sep 27  2021 /home/tidb/.tiup/components/ctl/v5.2.1/cdc
+													-rwxr-xr-x  1 tidb tidb 120M May 17  2021 /home/tidb/.tiup/components/tidb/v5.0.1/tidb-server
+													-rw-r--r--. 1 root root 114M Aug 28  2023 /var/lib/rpm/Packages
+													-rw-r--r--  1 root root 102M Nov 29  2022 /usr/lib/locale/locale-archive
+													-rwxr-xr-x  1 root root 1.1G Jul 15 21:11 /data/server_logs/home/wwwroot/mytracking/logs/number/20250715211107.create-tracking.log
+													├── /: 43772 MB
+													│   ├── /usr: 12707 MB
+													│   │   ├── /usr/lib64: 482 MB
+													│   │   ├── /usr/share: 650 MB
+													│   │   ├── /usr/lib: 966 MB
+													│   │   ├── /usr/bin: 176 MB
+													│   │   ├── /usr/local: 10266 MB
+													│   │   │   └── tidb-toolkit-v5.0.0-linux-amd64.tar.gz: 210 MB
+													│   │   └── kcore: 134217727 MB
+													│   ├── /home: 15295 MB
+													│   │   ├── /home/wwwlogs: 646 MB
+													│   │   │   └── webhook.17proxy.com.access.log: 415 MB
+													│   │   ├── /home/xiaozhou: 895 MB
+													│   │   ├── /home/tidb: 1591 MB
+													│   │   │   └── tidb-toolkit-v5.0.1-linux-amd64.tar.gz: 211 MB
+													│   │   ├── /home/wwwroot: 12100 MB
+													│   ├── /var: 5478 MB
+													│   │   ├── /var/crash: 717 MB
+													│   │   ├── /var/log: 4247 MB
+													│   │   ├── /var/lib: 152 MB
+													│   │   ├── /var/cache: 355 MB
+													│   ├── /data: 4653 MB
+													│   │   ├── /data/server_logs: 4537 MB
+													│   ├── /opt: 193 MB
+													│   │   ├── /opt/google: 193 MB
+													│   ├── /boot: 185 MB
+													│   ├── /root: 5141 MB
+													│   │   └── tr_tracknumber_effective_for_rule.zip: 742 MB
+													│   │   ├── /root/yunxiao: 112 MB
+													│   │   ├── /root/go: 440 MB
+													│   │   ├── /root/.cache: 148 MB
+													├── /data/server_logs: 4537 MB
+													│   ├── /data/server_logs/home: 2493 MB
+													│   │   ├── /data/server_logs/home/wwwroot: 2493 MB
+													│   │   │   ├── /data/server_logs/home/wwwroot/mytracking: 2432 MB
+													│   │   │   │   ├── /data/server_logs/home/wwwroot/mytracking/logs: 2432 MB
+													│   ├── /data/server_logs/root: 2045 MB
+													├── /home/wwwroot: 12102 MB
+													│   ├── /home/wwwroot/foreigntracking: 117 MB
+													│   ├── /home/wwwroot/upload: 390 MB
+													│   │   ├── /home/wwwroot/upload/huaqiang: 101 MB
+													│   │   ├── /home/wwwroot/upload/lipeng: 235 MB
+													│   ├── /home/wwwroot/www.trackingmore.com: 7064 MB
+													│   │   ├── /home/wwwroot/www.trackingmore.com/logs: 3931 MB
+													│   │   ├── /home/wwwroot/www.trackingmore.com/script: 697 MB
+													│   │   ├── /home/wwwroot/www.trackingmore.com/python_img: 249 MB
+													│   │   ├── /home/wwwroot/www.trackingmore.com/python3: 391 MB
+													│   │   ├── /home/wwwroot/www.trackingmore.com/vendor: 153 MB
+													│   │   ├── /home/wwwroot/www.trackingmore.com/taiwan-post-jizhi-yes: 145 MB
+													│   │   ├── /home/wwwroot/www.trackingmore.com/section: 685 MB
+													│   │   │   └── carrierspic10.css: 269 MB
+													│   ├── /home/wwwroot/www.51tracking.com: 1160 MB
+													│   │   ├── /home/wwwroot/www.51tracking.com/script: 257 MB
+													│   │   ├── /home/wwwroot/www.51tracking.com/section: 617 MB
+													│   │   │   └── carrierspic10.css: 269 MB
+													│   ├── /home/wwwroot/mytracking: 3164 MB
+													│   │   ├── /home/wwwroot/mytracking/logs: 761 MB
+													│   │   ├── /home/wwwroot/mytracking/uploads: 1661 MB
+													│   │   ├── /home/wwwroot/mytracking/downloads: 574 MB
+													front_20 | CHANGED | rc=0 >>
+													2.7G    /home/wwwroot/mytracking/uploads/excel/
+													Filesystem      Size  Used Avail Use% Mounted on
+													/dev/vda1        49G   44G  4.2G  92% /
+													devtmpfs        3.7G     0  3.7G   0% /dev
+													tmpfs           3.7G     0  3.7G   0% /dev/shm
+													tmpfs           3.7G  792M  3.0G  21% /run
+													tmpfs           3.7G     0  3.7G   0% /sys/fs/cgroup
+													tmpfs           756M     0  756M   0% /run/user/1004
+													tmpfs           756M     0  756M   0% /run/user/1003
+													/home/wwwroot/www.trackingmore.com/script/log/queue_diskTree.20250726.log
+													2025-07-26 06:00:02
+													-rw-r--r--  1 root root 402M Jan 27  2024 /run/log/home-wwwroot-mytracking-logs-send_first_queue/send.log.20231010.20240127.zip
+													-rw-r--r--  1 www  www  387M Jul 25 16:58 /home/wwwroot/www.51tracking.com/export-send-queue.log
+													-rw-r--r--  1 root root 370M Jul 26 06:01 /usr/local/nginx/logs/access.log
+													-rw-r--r--  1 root root 368M Jul 26 06:00 /home/wwwroot/www.51tracking.com/script/sync/compare_img_sync.log
+													-rw-r--r--  1 root root 255M Jul 11 18:03 /home/wwwroot/www.trackingmore.com/download/befor.1000.days.xlsx.csv.zip
+													-rw-r--r--  1 root root 156M Jun 22  2024 /var/cache/yum/x86_64/7/updates/gen/primary_db.sqlite
+													-rw-r--r--  1 www  www  136M Sep  7  2022 /home/wwwroot/www.51tracking.com/api/v2/trackings/first_track.log
+													-rwxr-xr-x  1 root root 132M Jun 10 16:11 /home/wwwroot/mytracking/uploads/excel/202506/9488b81bdcf47215b5258f3bc6147a2f.csv
+													-r--------  1 root root 128T Jul 26 06:01 /proc/kcore
+													-rw-r--r--. 1 root root 119M Aug 30  2023 /var/lib/rpm/Packages
+													-rw-r--r--  1 root root 118M Aug 31  2020 /usr/local/rasp-php-linux.tar.bz2
+													-rw-r--r--  1 root root 102M May 15  2019 /usr/lib/locale/locale-archive
+													├── /: 47305 MB
+													│   ├── /root: 687 MB
+													│   │   ├── /root/.cache: 136 MB
+													│   ├── /boot: 162 MB
+													│   ├── /data: 1828 MB
+													│   │   ├── /data/server_logs: 1793 MB
+													│   ├── /var: 688 MB
+													│   │   ├── /var/log: 128 MB
+													│   │   ├── /var/lib: 192 MB
+													│   │   ├── /var/cache: 356 MB
+													│   ├── /run: 807 MB
+													│   │   ├── /run/log: 807 MB
+													│   ├── /home: 29294 MB
+													│   │   ├── /home/wwwroot: 27701 MB
+													│   │   ├── /home/wwwlogs: 1591 MB
+													│   ├── /tmp: 189 MB
+													│   ├── /usr: 13311 MB
+													│   │   ├── /usr/lib64: 478 MB
+													│   │   ├── /usr/lib: 736 MB
+													│   │   ├── /usr/share: 654 MB
+													│   │   ├── /usr/bin: 237 MB
+													│   │   ├── /usr/local: 10777 MB
+													│   │   │   └── rasp-php-linux.tar.bz2: 118 MB
+													│   │   ├── /usr/src: 203 MB
+													│   │   └── kcore: 134217727 MB
+													├── /data/server_logs: 1793 MB
+													│   ├── /data/server_logs/root: 126 MB
+													│   ├── /data/server_logs/home: 1609 MB
+													│   │   ├── /data/server_logs/home/wwwroot: 1609 MB
+													│   │   │   ├── /data/server_logs/home/wwwroot/www.trackingmore.com: 132 MB
+													│   │   │   ├── /data/server_logs/home/wwwroot/mytracking: 1468 MB
+													│   │   │   │   ├── /data/server_logs/home/wwwroot/mytracking/logs: 1468 MB
+													├── /home/wwwroot: 27726 MB
+													│   ├── /home/wwwroot/upload: 731 MB
+													│   │   ├── /home/wwwroot/upload/lipeng: 583 MB
+													│   ├── /home/wwwroot/www.51tracking.com: 8797 MB
+													│   │   └── export-send-queue.log: 387 MB
+													│   │   ├── /home/wwwroot/www.51tracking.com/admin: 6027 MB
+													│   │   ├── /home/wwwroot/www.51tracking.com/section: 318 MB
+													│   │   ├── /home/wwwroot/www.51tracking.com/script: 379 MB
+													│   │   ├── /home/wwwroot/www.51tracking.com/api: 137 MB
+													│   │   ├── /home/wwwroot/www.51tracking.com/logs: 119 MB
+													│   ├── /home/wwwroot/www.trackingmore.com: 5431 MB
+													│   │   ├── /home/wwwroot/www.trackingmore.com/php-resque: 116 MB
+													│   │   ├── /home/wwwroot/www.trackingmore.com/python3: 199 MB
+													│   │   ├── /home/wwwroot/www.trackingmore.com/admin: 110 MB
+													│   │   ├── /home/wwwroot/www.trackingmore.com/section: 508 MB
+													│   │   │   └── carrierspic10.css: 110 MB
+													│   │   ├── /home/wwwroot/www.trackingmore.com/script: 1865 MB
+													│   │   ├── /home/wwwroot/www.trackingmore.com/download: 496 MB
+													│   │   │   └── befor.1000.days.xlsx.csv.zip: 255 MB
+													│   │   ├── /home/wwwroot/www.trackingmore.com/api: 930 MB
+													│   │   ├── /home/wwwroot/www.trackingmore.com/logs: 192 MB
+													│   │   ├── /home/wwwroot/www.trackingmore.com/python_img: 245 MB
+													│   ├── /home/wwwroot/mytracking: 12768 MB
+													│   │   ├── /home/wwwroot/mytracking/downloads: 606 MB
+													│   │   ├── /home/wwwroot/mytracking/uploads: 6702 MB
+													│   │   ├── /home/wwwroot/mytracking/logs: 5369 MB
+													resque_74 | CHANGED | rc=0 >>
+													264M    /home/wwwroot/mytracking/uploads/excel/
+													Filesystem      Size  Used Avail Use% Mounted on
+													/dev/vda1        49G   32G   17G  66% /
+													devtmpfs        3.8G     0  3.8G   0% /dev
+													tmpfs           3.8G     0  3.8G   0% /dev/shm
+													tmpfs           3.8G  701M  3.1G  19% /run
+													tmpfs           3.8G     0  3.8G   0% /sys/fs/cgroup
+													tmpfs           768M     0  768M   0% /run/user/0
+													tmpfs           768M     0  768M   0% /run/user/1004
+													tmpfs           768M     0  768M   0% /run/user/1003
+													/home/wwwroot/www.trackingmore.com/script/log/queue_diskTree.20250529.log
+													2025-05-29 20:00:11
+													-rw-r--r--  1 root root 233M May 27 03:06 /home/wwwroot/mytracking/uploads/excel_zip/20250526.zip
+													-rw-r--r--  1 root root 222M May 29 20:00 /home/wwwroot/www.51tracking.com/script/sync/compare_img_sync.log
+													-rw-r--r--  1 root root 222M May 28 03:06 /home/wwwroot/mytracking/uploads/excel_zip/20250527.zip
+													-rw-r--r--  1 root root 216M May 28 16:43 /home/wwwroot/www.trackingmore.com/download/vGCo0BRWsAF3A60PU70MS1J75esIKF9vvG2m4.csv
+													-rw-r--r--  1 root root 215M May 29 03:05 /home/wwwroot/mytracking/uploads/excel_zip/20250528.zip
+													-rw-r--r--  1 root root 212M May 29 10:56 /home/wwwroot/www.trackingmore.com/download/CMQJhkZ2yROPiGEP8JODcABrCAs3NCJsBlYrP.csv
+													-rw-r--r--  1 root root 211M May 27 10:16 /home/wwwroot/www.trackingmore.com/download/eRcQf02kIe8JajRfySwhEJIyIhaJsYKBdc9VK.csv
+													-rw-r--r--  1 root root 207M May 27 13:00 /home/wwwroot/www.trackingmore.com/download/3bAc6HzW3CEsDRGHSTIXvFGW18ouYBsO2rT71.csv
+													-rw-r--r--  1 root root 194M Dec 20  2023 /home/wwwroot/www.trackingmore.com/download/2022.csv
+													-r--------  1 root root 128T May 29 20:01 /proc/kcore
+													-rw-r--r--  1 root root 126M Aug 24  2023 /var/cache/yum/x86_64/7/updates/gen/primary_db.sqlite
+													-rw-r--r--. 1 root root 119M Aug 28  2023 /var/lib/rpm/Packages
+													-rwxr-xr-x  1 root root 118M May 29 16:57 /home/wwwroot/mytracking/uploads/excel/202505/63829ccbc3aa43a5b01db2a891f7c915.csv
+													-rw-r--r--  1 root root 118M Aug 31  2020 /usr/local/rasp-php-linux.tar.bz2
+													-rw-r--r--  1 root root 102M Nov 29  2022 /usr/lib/locale/locale-archive
+													├── /: 48062 MB
+													│   ├── /root: 363 MB
+													│   │   ├── /root/.cache: 136 MB
+													│   ├── /boot: 162 MB
+													│   ├── /data: 1205 MB
+													│   │   ├── /data/server_logs: 1089 MB
+													│   ├── /var: 549 MB
+													│   │   ├── /var/lib: 197 MB
+													│   │   ├── /var/cache: 321 MB
+													│   ├── /run: 725 MB
+													│   │   ├── /run/log: 722 MB
+													│   ├── /home: 34436 MB
+													│   │   ├── /home/wwwroot: 33936 MB
+													│   │   ├���─ /home/wwwlogs: 501 MB
+													│   ├── /usr: 10230 MB
+													│   │   ├── /usr/lib64: 486 MB
+													│   │   ├── /usr/lib: 736 MB
+													│   │   ├── /usr/share: 656 MB
+													│   │   ├── /usr/bin: 239 MB
+													│   │   ├── /usr/local: 7687 MB
+													│   │   │   └── rasp-php-linux.tar.bz2: 118 MB
+													│   │   ├── /usr/src: 203 MB
+													│   │   └── kcore: 134217727 MB
+													├── /data/server_logs: 1089 MB
+													│   ├── /data/server_logs/root: 251 MB
+													│   ├── /data/server_logs/home: 838 MB
+													│   │   ├── /data/server_logs/home/wwwroot: 838 MB
+													│   │   │   ├── /data/server_logs/home/wwwroot/www.trackingmore.com: 176 MB
+													│   │   │   │   ├── /data/server_logs/home/wwwroot/www.trackingmore.com/logs: 134 MB
+													│   │   │   ├── /data/server_logs/home/wwwroot/mytracking: 658 MB
+													│   │   │   │   ├── /data/server_logs/home/wwwroot/mytracking/logs: 658 MB
+													├── /home/wwwroot: 33936 MB
+													│   ├── /home/wwwroot/upload: 731 MB
+													│   │   ├── /home/wwwroot/upload/lipeng: 583 MB
+													│   ├── /home/wwwroot/www.51tracking.com: 5386 MB
+													│   │   ├── /home/wwwroot/www.51tracking.com/admin: 3475 MB
+													│   │   ├── /home/wwwroot/www.51tracking.com/section: 192 MB
+													│   │   ├── /home/wwwroot/www.51tracking.com/script: 231 MB
+													│   ├── /home/wwwroot/www.trackingmore.com: 6955 MB
+													│   │   ├── /home/wwwroot/www.trackingmore.com/php-resque: 116 MB
+													│   │   ├── /home/wwwroot/www.trackingmore.com/python3: 199 MB
+													│   │   ├── /home/wwwroot/www.trackingmore.com/admin: 111 MB
+													│   │   ├── /home/wwwroot/www.trackingmore.com/section: 400 MB
+													│   │   ├── /home/wwwroot/www.trackingmore.com/script: 1924 MB
+													│   │   ├── /home/wwwroot/www.trackingmore.com/download: 1734 MB
+													│   │   │   └── vGCo0BRWsAF3A60PU70MS1J75esIKF9vvG2m4.csv: 216 MB
+													│   │   │   └── CMQJhkZ2yROPiGEP8JODcABrCAs3NCJsBlYrP.csv: 212 MB
+													│   │   │   └── eRcQf02kIe8JajRfySwhEJIyIhaJsYKBdc9VK.csv: 211 MB
+													│   │   │   └── 3bAc6HzW3CEsDRGHSTIXvFGW18ouYBsO2rT71.csv: 207 MB
+													│   │   │   └── 2022.csv: 194 MB
+													│   │   ├── /home/wwwroot/www.trackingmore.com/api: 930 MB
+													│   │   ├── /home/wwwroot/www.trackingmore.com/logs: 489 MB
+													│   │   ├── /home/wwwroot/www.trackingmore.com/python_img: 245 MB
+													│   ├── /home/wwwroot/mytracking: 20864 MB
+													│   │   ├── /home/wwwroot/mytracking/downloads: 18483 MB
+													│   │   ├── /home/wwwroot/mytracking/uploads: 2091 MB
+													│   │   ├── /home/wwwroot/mytracking/logs: 188 MB
+												增加定时清理任务
+													# 清理修改时间超过180天的压缩下载文件 每天12:13分执行 后续统一配置处理 20250726
+													13 12 * * * /bin/find /home/wwwroot/mytracking/downloads/excel_zip/ -type f -name '*.zip' -mtime +180 | xargs -i rm -fr {} > /dev/null 2>&1
+													# 清理修改时间超过180天的压缩下载文件 每天12:13分执行 后续统一配置处理 20250726
 										定时任务
 											# 清理修改时间超过180天的压缩下载文件 每天12:13分执行 后续统一配置处理 20250726
 											13 12 * * * /bin/find /home/wwwroot/mytracking/downloads/excel_zip/ -type f -name '*.zip' -mtime +180 | xargs -i rm -fr {} > /dev/null 2>&1
@@ -7081,7 +7699,12 @@
 								-- 20250726
 									国外已经有定时上传，上传对象后续可以继续增加
 									国内
-
+										# 独立更新 ind-resque
+										/usr/bin/sh /home/wwwroot/www.trackingmore.com/script/queueshell/saveToOss/saveToOss.sh 'zip' -1 '/data/server_logs/' 'ind-resque' 'sz-51tracking-logs' 'saveDirToZipAndUpload' &>> saveToOss.log
+										# 前端 www
+										/usr/bin/sh /home/wwwroot/www.trackingmore.com/script/queueshell/saveToOss/saveToOss.sh 'zip' -1 '/data/server_logs/' 'www' 'sz-51tracking-logs' 'saveDirToZipAndUpload' &>> saveToOss.log
+										# api
+										# 队列 resque
 						-- 20250126
 							定时任务同步
 								# 国外
