@@ -1,5 +1,7 @@
 ## 20250731
 
+gcp提供
+```txt
 https://stackoverflow.com/questions/52519434/elasticsearch-restore-single-index-from-snapshot
 
 
@@ -31,6 +33,8 @@ https://www.elastic.co/docs/api/doc/elasticsearch/operation/operation-snapshot-r
 
 看起来有单独备份恢复一个index的api。另外官方论坛里也有给这样的步骤，
 https://discuss.elastic.co/t/proper-way-to-dump-indices-from-elasticsearch-and-import-to-another-elasticsearch-instance/310938
+
+```
 
 咨询gpt
 ```md
@@ -304,7 +308,13 @@ elasticdump \
 希望这些信息对你有帮助！
 
 ```
+
+```md
+
+## 测试
 elasticdump \
   --input=http://elasticsearch:pass@es-cn-nwy3go68w00059lv8.public.elasticsearch.aliyuncs.com:9200/my_index \
   --output=my_index_settings.json \
   --type=settings
+
+```
