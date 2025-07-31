@@ -764,6 +764,43 @@
 【日常响应】
 5，后续优先级、应对
 
+===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== =====
+【告警】
+【客诉】
+【迁云】
+【桌面运维】
+【运维】
+
+20250731
+【告警】
+【安全】
+【运维】
+
+原计划：
+【本地】
+1，待优化&专线切换
+【告警】
+2，磁盘
+【安全】
+3，等保复测
+【运维】
+4，充值梳理提交
+【日常响应】
+5，后续优先级、应对
+
+计划：
+【本地】
+1，待优化&专线切换
+【告警】
+2，磁盘
+【安全】
+3，等保复测
+【迁云】
+4，数据库迁移测试
+【日常响应】
+5，工作梳理
+6，后续优先级、应对
+
 
 近期复盘
 	后续优先级、应对
@@ -6945,6 +6982,7 @@
 					临时处理
 						-- 20241112 代码发布异常-20230206（0129） · 钉钉文档: https://alidocs.dingtalk.com/i/nodes/qXomz1wAyjKVXoooXb7lW3Y9pRBx5OrE?corpId=
 							进行发布
+								# a445aeee0 < 实际提交的内容 <= 17e7bc0a3
 								sh send.code.sh a445aeee0 17e7bc0a3
 
 								echo >> send.code.log;echo `date` manu send code test start >> send.code.log
@@ -6958,6 +6996,9 @@
 								tail -100 send.code.log
 								tail -100 build.commitid.log
 								ll /home/wwwroot/www.trackingmore.com/tools/disposableEmail.php
+							-- 20250731
+								注意检查 build.commitid.log 最后一行可能是类似 这样的内容（不是commit id）last commit: 1226abe8b, no new commit，会导致构建
+								当前存在问题 push dev的代码，会自动把代码发到140（预发布）
 					-- 20250724
 						#ps -ef | grep rsyn
 						jenkins  1566699 1566698  0 Jul22 ?        00:00:00 sh -c rsync -a ./20250722.4ae09a4bd.a70e79bb6/ root@172.16.30.29:/home/wwwroot/www.trackingmore.com -e 'ssh -p 22';echo $?
