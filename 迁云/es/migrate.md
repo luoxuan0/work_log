@@ -311,10 +311,65 @@ elasticdump \
 
 ```md
 
-## 测试
+## 在git中测试
 elasticdump \
   --input=http://elasticsearch:pass@es-cn-nwy3go68w00059lv8.public.elasticsearch.aliyuncs.com:9200/my_index \
   --output=my_index_settings.json \
   --type=settings
+
+
+elasticdump \
+  --input=http://elasticsearch:Tps2GyFQ6FtMNGpiue@es-cn-cqf2xh6nd0001wben.public.elasticsearch.aliyuncs.com:9200/my_index \
+  --output=my_index_settings.json \
+  --type=settings
+
+bash: elasticdump: command not found
+
+/f/temp-data/project/temp/migrate/node_modules/.bin/elasticdump.cmd \
+  --input=http://elasticsearch:Tps2GyFQ6FtMNGpiue@es-cn-cqf2xh6nd0001wben.public.elasticsearch.aliyuncs.com:9200/my_index \
+  --output=my_index_settings.json \
+  --type=settings
+
+Tue, 05 Aug 2025 10:25:33 GMT | starting dump
+F:\temp-data\project\temp\migrate\node_modules\elasticdump\lib\transports\__es__\_base.js:15
+      err = new Error(response.body)
+            ^
+
+UNAUTHORIZED: {"error":{"root_cause":[{"type":"security_exception","reason":"unable to authenticate user [elasticsearch] for REST request [/]","header":{"WWW-Authenticate":"Basic realm=\"security\" charset=\"UTF-8\""}}],"type":"security_exception","reason":"unable to authenticate user [elasticsearch] for REST request [/]","header":{"WWW-Authenticate":"Basic realm=\"security\" charset=\"UTF-8\""}},"status":401}
+    at Proxy.handleError (F:\temp-data\project\temp\migrate\node_modules\elasticdump\lib\transports\__es__\_base.js:15:13)
+    at Proxy._parseVersion (F:\temp-data\project\temp\migrate\node_modules\elasticdump\lib\transports\__es__\_base.js:57:22)
+    at Request.<anonymous> (F:\temp-data\project\temp\migrate\node_modules\elasticdump\lib\transports\__es__\_base.js:105:29)
+    at Request._callback (F:\temp-data\project\temp\migrate\node_modules\lodash\lodash.js:10118:25)
+    at Request.requestRetryReply [as reply] (F:\temp-data\project\temp\migrate\node_modules\requestretry\index.js:151:19)
+    at Request.<anonymous> (F:\temp-data\project\temp\migrate\node_modules\requestretry\index.js:192:10)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  statusCode: 401
+}
+
+Node.js v20.17.0
+
+/f/temp-data/project/temp/migrate/node_modules/.bin/elasticdump.cmd \
+  --input=http://elasticsearch:Tps2GyFQ6FtMNGpiue@es-cn-cqf2xh6nd0001wben.public.elasticsearch.aliyuncs.com:9200/tracking_webhook \
+  --output=my_index_settings.json \
+  --type=settings
+
+Tue, 05 Aug 2025 10:34:41 GMT | starting dump
+F:\temp-data\project\temp\migrate\node_modules\elasticdump\lib\transports\__es__\_base.js:15
+      err = new Error(response.body)
+            ^
+
+UNAUTHORIZED: {"error":{"root_cause":[{"type":"security_exception","reason":"unable to authenticate user [elasticsearch] for REST request [/]","header":{"WWW-Authenticate":"Basic realm=\"security\" charset=\"UTF-8\""}}],"type":"security_exception","reason":"unable to authenticate user [elasticsearch] for REST request [/]","header":{"WWW-Authenticate":"Basic realm=\"security\" charset=\"UTF-8\""}},"status":401}
+    at Proxy.handleError (F:\temp-data\project\temp\migrate\node_modules\elasticdump\lib\transports\__es__\_base.js:15:13)
+    at Proxy._parseVersion (F:\temp-data\project\temp\migrate\node_modules\elasticdump\lib\transports\__es__\_base.js:57:22)
+    at Request.<anonymous> (F:\temp-data\project\temp\migrate\node_modules\elasticdump\lib\transports\__es__\_base.js:105:29)
+    at Request._callback (F:\temp-data\project\temp\migrate\node_modules\lodash\lodash.js:10118:25)
+    at Request.requestRetryReply [as reply] (F:\temp-data\project\temp\migrate\node_modules\requestretry\index.js:151:19)
+    at Request.<anonymous> (F:\temp-data\project\temp\migrate\node_modules\requestretry\index.js:192:10)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  statusCode: 401
+}
+
+Node.js v20.17.0
+
 
 ```
