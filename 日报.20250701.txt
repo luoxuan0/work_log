@@ -993,6 +993,43 @@
 【日常响应】
 5，后续优先级、应对
 
+===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== =====
+【告警】
+【客诉】
+【迁云】
+【桌面运维】
+【运维】
+
+20250806
+【告警】
+【安全】
+【运维】
+
+原计划：
+【本地】
+1，待优化&专线切换
+【安全】
+2，等保复测
+【迁云】
+3，数据库迁移测试
+4，es数据迁移测试
+【日常响应】
+5，后续优先级、应对
+
+
+计划：
+【本地】
+1，待优化&专线切换
+【安全】
+2，等保复测
+【迁云】
+3，数据库迁移
+4，es数据迁移
+【运维】
+5，充值梳理提交
+【日常响应】
+6，后续优先级、应对
+
 近期复盘
 	后续优先级、应对
 		4月份
@@ -21003,6 +21040,13 @@
 			
 	运维
 		常用操作
+			授权
+				资源申请
+					公司账号权限使用申请钉钉审批 https://alidocs.dingtalk.com/i/nodes/jb9Y4gmKWr1yvgK9CaQ6nE5l8GXn6lpz?utm_scene=team_space
+						钉钉审批 dingtalk://dingtalkclient/action/openapp?app_id=-4&container_type=work_platform&corpid=ding15b0edd43fcaaac235c2f4657eb6378f&ddtab=true&redirect_type=jump&redirect_url=https%3A%2F%2Faflow.dingtalk.com%2Fdingtalk%2Fmobile%2Fhomepage.htm%3FappUuid%3Dding15b0edd43fcaaac235c2f4657eb6378f%26backcontrol%3Dfalse%26corpid%3Dding15b0edd43fcaaac235c2f4657eb6378f%26dd_progress%3Dfalse%26dd_share%3Dfalse%26ddtab%3Dtrue%26showmenu%3Dfalse%23%2Fcustom%3Fpcredirect%3Dself%26processCode%3DPROC-273F6B93-69E1-4419-A70E-CA71CC803FD7
+						相关账号管理员查看 https://alidocs.dingtalk.com/i/nodes/ZgpG2NdyVX4ow1NmT3AyMeQYVMwvDqPk?utm_scene=team_space
+				51
+					管理中心--用户权限控制: https://www.51tracking.com/manage/manage_competence.php
 			nginx配置调整发布
 				PTM='/home/wwwroot/www.trackingmore.com/'
 				cd ${PTM}
@@ -22537,6 +22581,26 @@
 				# 国内独立更新
 				/usr/bin/diff /home/wwwroot/www.trackingmore.com/library/class.MySQL.php /home/wwwroot/www.trackingmore.com/library/class.MySQL.php.home.ind.20250325248
 		配置抽离到配置中心
+			--20250806
+				发布测试
+					进行发布
+						# 31d3480eb < 实际提交的内容 <= 740cd78f0 ，
+						# 第三个参数为1表示应用测试配置 targetServerIpListConf.test.sh
+							# 发到预发布
+							#"47.90.136.77 /home/wwwroot/upload/huaqiang 77 test"
+						sh send.code.20250804.sh 31d3480eb 740cd78f0 1
+
+						echo >> send.code.log;echo `date` manu send code test start >> send.code.log
+						sh send.code.20250804.sh 31d3480eb 740cd78f0 1 >> send.code.log
+						echo >> send.code.log;echo `date` manu send code test end >> send.code.log
+
+						echo >> build.commitid.log;echo `date`' manu send code start(build.commitid.log last line must be commit_id)' >> build.commitid.log;
+						echo 740cd78f0 >> build.commitid.log
+
+					确认效果
+						tail -100 send.code.log
+						tail -100 build.commitid.log
+						ll /home/wwwroot/www.trackingmore.com/app.yaml
 			--20250724
 				创建导入数据库 https://alidocs.dingtalk.com/i/nodes/14lgGw3P8v1yMkDjCY12OvAvJ5daZ90D?utm_scene=team_space&iframeQuery=anchorId%3Duu_mdh1koj7lhago2f6wa
 					账号 nacos

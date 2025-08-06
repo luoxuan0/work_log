@@ -319,14 +319,14 @@ elasticdump \
 
 
 elasticdump \
-  --input=http://elasticsearch:Tps2GyFQ6FtMNGpiue@es-cn-cqf2xh6nd0001wben.public.elasticsearch.aliyuncs.com:9200/my_index \
+  --input=http://elasticsearch:${ESPASS}@es-cn-cqf2xh6nd0001wben.public.elasticsearch.aliyuncs.com:9200/my_index \
   --output=my_index_settings.json \
   --type=settings
 
 bash: elasticdump: command not found
 
 /f/temp-data/project/temp/migrate/node_modules/.bin/elasticdump.cmd \
-  --input=http://elasticsearch:Tps2GyFQ6FtMNGpiue@es-cn-cqf2xh6nd0001wben.public.elasticsearch.aliyuncs.com:9200/my_index \
+  --input=http://elasticsearch:${ESPASS}@es-cn-cqf2xh6nd0001wben.public.elasticsearch.aliyuncs.com:9200/my_index \
   --output=my_index_settings.json \
   --type=settings
 
@@ -349,7 +349,7 @@ UNAUTHORIZED: {"error":{"root_cause":[{"type":"security_exception","reason":"una
 Node.js v20.17.0
 
 /f/temp-data/project/temp/migrate/node_modules/.bin/elasticdump.cmd \
-  --input=http://elasticsearch:Tps2GyFQ6FtMNGpiue@es-cn-cqf2xh6nd0001wben.public.elasticsearch.aliyuncs.com:9200/tracking_webhook \
+  --input=http://elasticsearch:${ESPASS}@es-cn-cqf2xh6nd0001wben.public.elasticsearch.aliyuncs.com:9200/tracking_webhook \
   --output=my_index_settings.json \
   --type=settings
 
@@ -373,3 +373,188 @@ Node.js v20.17.0
 
 
 ```
+
+## 20250806
+
+```bash
+
+curl -u elastic:${ESPASS} http://es-cn-cqf2xh6nd0001wben.public.elasticsearch.aliyuncs.com:9200/
+sh /home/wwwroot/www.trackingmore.com/script/queueshell/serverMigration/elastic_test.sh ${ESPASS} /usr/local/nodejs/bin/elasticdump es-cn-cqf2xh6nd0001wben.elasticsearch.aliyuncs.com
+
+
+sh /home/wwwroot/www.trackingmore.com/script/queueshell/serverMigration/elastic_test.sh ${ESPASS} /usr/local/nodejs/bin/elasticdump es-cn-cqf2xh6nd0001wben.elasticsearch.aliyuncs.com '' tracking_webhook
+sh /home/wwwroot/www.trackingmore.com/script/queueshell/serverMigration/elastic_test.sh ${ESPASS} /usr/local/nodejs/bin/elasticdump es-cn-cqf2xh6nd0001wben.elasticsearch.aliyuncs.com output tracking_webhook '' /temp/elastic &>> /temp/elastic/tracking_webhook.20250806.log &
+
+sh /home/wwwroot/www.trackingmore.com/script/queueshell/serverMigration/elastic_test.sh ${ESPASS_GCP_TEST} /usr/local/nodejs/bin/elasticdump 10.26.2.10
+sh /home/wwwroot/www.trackingmore.com/script/queueshell/serverMigration/elastic_test.sh ${ESPASS_GCP_TEST} /usr/local/nodejs/bin/elasticdump 10.26.2.10 output tracking_webhook
+sh /home/wwwroot/www.trackingmore.com/script/queueshell/serverMigration/elastic_test.sh ${ESPASS_GCP_TEST} /usr/local/nodejs/bin/elasticdump 10.26.2.10 input tracking_webhook tracking_webhook_test_20250806
+
+sh /home/wwwroot/www.trackingmore.com/script/queueshell/serverMigration/elastic_test.sh ${ESPASS_GCP_TEST} /usr/local/nodejs/bin/elasticdump 10.26.1.8 output tracking_webhook
+export ESPASS-GCP-TEST=F7C93iSY4s4S310jziRA2Fp0
+
+# 传入参数
+espasswd=$1
+elasticdump=$2
+esurl=$3
+# type默认input
+type=$4
+index_name=$5
+index_name_input=$6
+dir=$7
+# ${elasticdump} \
+#   --input=http://elastic:${espasswd}@${esurl}:9200/${index_name} \
+#   --output=${index_name}.json \
+#   --type=settings
+
+curl -u elastic:${espasswd} http://${esurl}:9200/
+# 通过测试
+
+if [ "$type" = "output" ]; then
+  # settings：索引配置基础设置
+  # 导出内容：包括分片数量、复制因子、刷新间隔、最大结果窗口等索引级别的配置参数；
+  ${elasticdump} \
+    --input=http://elastic:${espasswd}@${esurl}:9200/${index_name} \
+    --output=${dir}/${index_name}_settings.json \
+    --type=settings
+
+  # mapping：字段与类型定义（索引映射）
+  # 导出内容：索引字段结构，包括字段名、类型（text、keyword、integer 等）、analyzer、nested/object、format 等属性；
+  ${elasticdump} \
+    --input=http://elastic:${espasswd}@${esurl}:9200/${index_name} \
+    --output=${dir}/${index_name}_mapping.json \
+    --type=mapping
+
+  # data：文档内容本身
+  # 导出内容：索引中的所有文档 _source 内容，包括字段值；
+  ${elasticdump} \
+    --input=http://elastic:${espasswd}@${esurl}:9200/${index_name} \
+    --output=${dir}/${index_name}_data.json \
+    --type=data
+fi
+
+# 检查点
+# _source 必须为 true，否则数据无法导出 
+# 确保 scroll API 没问题，可导出大批量数据。
+
+if [ "$type" = "input" ]; then
+  # 导入
+  ${elasticdump} --input=${dir}/${index_name}_settings.json --output=http://elastic:${espasswd}@${esurl}:9200/${index_name_input} --type=settings
+  ${elasticdump} --input=${dir}/${index_name}_mapping.json  --output=http://elastic:${espasswd}@${esurl}:9200/${index_name_input} --type=mapping
+  ${elasticdump} --input=${dir}/${index_name}_data.json     --output=http://elastic:${espasswd}@${esurl}:9200/${index_name_input} --type=data
+fi
+# 验证
+# 确认 index 存在并有正确映射；
+# 使用 _search?size=0 核对文档数量；
+# 若启用安全审计或别名，确保额外设置。
+
+
+```
+
+```md
+
+前提条件
+目标 ES 集群，在 gke 中的pod，Kubernetes Engine / Workloads / Pods，找到Exposing services中es-lb-svc进入，可以找到 Serving pods 中对应的IP 10.26.4.8，10.26.1.8，10.26.2.12，打通阿里云到gcp的VPN，需要在route中增加路由 10.26.0.0/16
+![alt text](image.png)
+
+在阿里云服务器上测试能ping通
+ping 10.26.1.8
+PING 10.26.1.8 (10.26.1.8) 56(84) bytes of data.
+64 bytes from 10.26.1.8: icmp_seq=1 ttl=61 time=3.97 ms
+64 bytes from 10.26.1.8: icmp_seq=2 ttl=61 time=2.96 ms
+^C
+--- 10.26.1.8 ping statistics ---
+2 packets transmitted, 2 received, 0% packet loss, time 1001ms
+rtt min/avg/max/mdev = 2.961/3.468/3.975/0.507 ms
+
+目标 ES 集群，在 kibana 中创建索引
+在目标集群创建测试索引
+https://gcp-kibana.trackingmore.com/app/dev_tools#/console
+
+PUT /tracking_webhook_test_20250806
+{
+  "settings": {  
+    "number_of_shards": 3,  
+    "number_of_replicas": 0  
+  },  
+  "mappings": {
+    "properties": {
+      "courier": {
+        "type": "keyword"
+      },
+      "track_number": {
+        "type": "keyword"
+      },
+      "uuid": {
+        "type": "keyword"
+      },
+      "webhook_id": {
+        "type": "integer"
+      },
+      "origin_info": {
+        "type": "text",
+        "index": false
+      },
+      "parse_info": {
+        "type": "text",
+        "index": false
+      },
+      "is_test": {
+        "type": "boolean"
+      },
+      "create_time": {
+        "type": "long"
+      },
+      "update_time": {
+        "type": "long"
+      },
+      "parse_update_time": {
+        "type": "long"
+      }
+    }
+  }
+}
+
+进行测试
+
+curl -XPOST "http://<自建Elasticsearch主机>:<端口>/_reindex?pretty" -H "Content-Type: application/json" -d'
+{
+  "source": {
+    "remote": {
+      "host": "http://<阿里云Elasticsearch实例ID>.elasticsearch.aliyuncs.com:9200",
+      "username": "elastic",
+      "password": "<密码>"
+    },
+    "index": "<源索引名>",
+    "size": 1000,
+    "slice": {
+      "id": 0,
+      "max": 5
+    }
+  },
+  "dest": {
+    "index": "<目标索引名>"
+  }
+}'
+
+curl -XPOST "http://10.26.1.8:9200/_reindex?pretty" -H "Content-Type: application/json" -d'
+{
+  "source": {
+    "remote": {
+      "host": "http://es-cn-cqf2xh6nd0001wben.elasticsearch.aliyuncs.com:9200",
+      "username": "elastic",
+      "password": "<密码>"
+    },
+    "index": "tracking_webhook",
+    "size": 1000,
+    "slice": {
+      "id": 0,
+      "max": 5
+    }
+  },
+  "dest": {
+    "index": "tracking_webhook_test_20250806"
+  }
+}'
+
+```bash
+
