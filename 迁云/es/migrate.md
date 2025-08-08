@@ -651,6 +651,14 @@ GET /your_index/_search
     "max_ts": { "max": { "field": "timestamp" }}
   }
 }
+GET /bigdata_shipments_all_v6/_search
+{
+  "size": 0,
+  "aggs": {
+    "min_ts": { "min": { "field": "1738339200" }},
+    "max_ts": { "max": { "field": "1754619430" }}
+  }
+}
 ```
 
 响应中会包含：

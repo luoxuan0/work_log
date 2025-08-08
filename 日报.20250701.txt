@@ -1064,10 +1064,50 @@
 【迁云】
 3，es数据迁移
 【运维】
-4，单号是别用有效单号
+4，单号识别用有效单号
 5，财务分账
 【日常响应】
 6，后续优先级、应对
+
+===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== =====
+【告警】
+【客诉】
+【迁云】
+【桌面运维】
+【运维】
+
+20250808
+【告警】
+【安全】
+【运维】
+
+原计划：
+【本地】
+1，待优化&专线切换
+【安全】
+2，等保复测
+【迁云】
+3，es数据迁移
+【运维】
+4，单号识别用有效单号
+5，财务分账
+【日常响应】
+6，后续优先级、应对
+
+
+计划：
+【本地】
+1，待优化&专线切换
+【安全】
+2，等保复测
+【迁云】
+3，es数据迁移
+4，redis数据迁移
+【运维】
+5，单号识别用有效单号
+6，财务分账
+【日常响应】
+7，后续优先级、应对
 
 近期复盘
 	后续优先级、应对
@@ -23672,6 +23712,9 @@
 				rm -f /home/wwwroot/www.trackingmore.com/script/getEffectiveTracknumberForRule.php.20250618
 				#56 18 18 * * sh /home/wwwroot/www.trackingmore.com/script/getEffectiveTracknumberForRule.sh 'home' '' '' '' '' '' '' '20250401' '119.23.240.151' '172.16.10.167'> /dev/null 2>&1
 		有效单号脚本执行中断
+			-- 20250808
+				目标服务器磁盘不足 fjny-tm-detect-62
+					扩容41-51G
 			-- 20250218
 				单号规则用
 					# 文件在77 上打包的，打包文件还在，进行重新传输即可
@@ -24548,7 +24591,7 @@
 				-- 20240329
 					国内info表切换
 					统计数据新增不同时间数量分布情况 
-						SELECT from_unixtimestamp(create_time),COUNT(*) AS c FROM  tr_tracking_info_41501_42000 WHERE create_time >= unix_timestamp('202403291500') GROUP BY create_time ORDER BY c DESC\G
+						SELECT from_unixtime(create_time),COUNT(*) AS c FROM  tr_tracking_info_41501_42000 WHERE create_time >= unix_timestamp('202403291500') GROUP BY create_time ORDER BY c DESC\G
 				-- 20240325
 					会议
 						国外number表调整-分区不一致
