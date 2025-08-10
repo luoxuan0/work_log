@@ -443,17 +443,22 @@ search_body_gte="${11:-}"
 search_body_lt="${12:-}"
 search_body_out="${search_body}"
 search_body_time=''
+concurrency=20
 # 时间范围查询不为空时，才进行查询
 if [ -n "${search_body_gte}" ] && [ -n "${search_body_lt}" ]; then
   query_body='"query":{"range":{"create_time":{"gte":"'${search_body_gte}'","lt":"'${search_body_lt}'"}}}'
   search_body_out='{"slice":{"id":'${search_body_id}',"max":'${search_body_max}'},"sort":["_doc"],'${query_body}'}'
   search_body_time=_${search_body_gte}_${search_body_lt}
 fi
+
+file=${dir}/${index_name}_data${search_body_time}_slice_${search_body_id}_max_${search_body_max}.json
 # ${elasticdump} \
 #   --input=http://elastic:${espasswd}@${esurl}:9200/${index_name} \
 #   --output=${index_name}.json \
 #   --type=settings
 
+# 执行前先打印
+echo "curl -u elastic:${espasswd} http://${esurl}:9200/"
 curl -u elastic:${espasswd} http://${esurl}:9200/
 # 该接口会返回诸如 docs.count、store.size_in_bytes、total_size_in_bytes（包含字段数据等更全面指标）等信息
 # curl -u elastic:${espasswd} http://${esurl}:9200/${index_name}/_stats
@@ -485,13 +490,13 @@ if [ "$type" = "output" ]; then
   # data：文档内容本身
   # 导出内容：索引中的所有文档 _source 内容，包括字段值；
   # 导出前 打印执行的命令
-  echo "${elasticdump} --input=http://elastic:${espasswd}@${esurl}:9200/${index_name} --output=${dir}/${index_name}_data${search_body_time}_slice_${search_body_id}.json --type=data --limit=${limit} --searchBody=${search_body_out}"
+  echo "${elasticdump} --input=http://elastic:${espasswd}@${esurl}:9200/${index_name} --output=${file} --type=data --limit=${limit} --searchBody=${search_body}"
   ${elasticdump} \
     --input=http://elastic:${espasswd}@${esurl}:9200/${index_name} \
-    --output=${dir}/${index_name}_data${search_body_time}_slice_${search_body_id}.json \
+    --output=${file} \
     --type=data \
     --limit=${limit} \
-    --searchBody=${search_body_out}
+    --searchBody=${search_body}
 fi
 
 # 检查点
@@ -504,7 +509,7 @@ if [ "$type" = "input" ]; then
     ${elasticdump} --input=${dir}/${index_name}_settings.json --output=http://elastic:${espasswd}@${esurl}:9200/${index_name_input} --type=settings --limit=${limit}
     ${elasticdump} --input=${dir}/${index_name}_mapping.json  --output=http://elastic:${espasswd}@${esurl}:9200/${index_name_input} --type=mapping --limit=${limit}
   fi
-  ${elasticdump} --input=${dir}/${index_name}_data${search_body_time}_slice_${search_body_id}.json     --output=http://elastic:${espasswd}@${esurl}:9200/${index_name_input} --type=data --limit=${limit} --searchBody=${search_body}
+  ${elasticdump} --input=${file}     --output=http://elastic:${espasswd}@${esurl}:9200/${index_name_input} --type=data --limit=${limit} --concurrency=${concurrency}
 fi
 # 验证
 # 确认 index 存在并有正确映射；
@@ -796,23 +801,107 @@ sudo LC_ALL=en_US.UTF-8 growpart /dev/vdb 1
 切片 并按时间条件
 
 ```bash
+# 支持传参，未传参时使用默认值
+# 用法示例：
+#   bash your_script.sh [pass] [url] [index] [input_index] [type] [limit] [max] [dir] [start_time] [end_time] [id] [task_label] [shell_script] [elasticdump]
+#   参数说明：
+#     [pass]                ES 密码，默认取环境变量 ES_PASS
+#     [url]                 ES 地址，默认取环境变量 ES_URL
+#     [index]               主索引名，默认 bigdata_shipments_all_v6
+#     [input_index]         输入索引名，默认与 index 相同
+#     [type]                操作类型：output(导出) 或 input(导入)，默认 output
+#     [limit]               每批导出/导入的文档数，默认 1000
+#     [max]                 并发最大数，默认 1
+#     [dir]                 导出/导入数据目录，默认 /temp/elastic/当前日期
+#     [start_time]          导出起始时间（Unix时间戳），可选
+#     [end_time]            导出结束时间（Unix时间戳），可选
+#     [id]                  单进程编号（用于多进程并发时区分每个任务的序号），可选，默认不传即为 ''
+#     [task_label]          任务标签（可选，用于标记本次任务，便于日志区分），默认不传即为 ''
+#     [shell_script]        shell脚本路径，默认 /home/wwwroot/www.trackingmore.com/script/queueshell/serverMigration/elastic_test.sh
+#     [elasticdump]         elasticdump工具路径，默认 /usr/local/nodejs/bin/elasticdump
+#   导出 bigdata_shipments_all_v6
+#   bash your_script.sh ${ES_PASS} ${ES_URL} bigdata_shipments_all_v6 '' output 1000 10 /temp/elastic/bigdata_20250809 1738339200 1754740800
+#   导入 bigdata_shipments_all_v6
+#   bash your_script.sh ${GCP_ES_PASS} ${GCP_ES_POD_0} bigdata_shipments_all_v6 '' input 1000 10 /temp/elastic/bigdata_20250809 1738339200 1754740800
+#   导入 tracking_webhook
+#   bash your_script.sh ${GCP_TRACKING_WEBHOOK_ES_PASS} ${GCP_TRACKING_WEBHOOK_ES_POD_0} tracking_webhook '' input 1000 5 /temp/elastic/20250809
+#     原来的18倍
+#     132000/304=434.21052632
+#     434.21052632/118.22130482*5=18.3643095
+#     出现429，尝试单进程执行
+#     bash your_script.sh ${GCP_TRACKING_WEBHOOK_ES_PASS} ${GCP_TRACKING_WEBHOOK_ES_POD_0} tracking_webhook '' input 1000 5 /temp/elastic/20250809 '' '' 0
+#   导出 user_number_v2_*
+#   bash your_script.sh ${ES_PASS} ${ES_URL} user_number_v2_* '' output 1000 10 /temp/elastic/user_number_v2_20250810
+#   导入 user_number_v2_*
+#   bash your_script.sh ${GCP_ES_PASS} ${GCP_ES_POD_0} user_number_v2_* '' input 1000 10 /temp/elastic/user_number_v2_20250810
+
+# 1. ES 密码
+pass="${1:-${ES_PASS}}"
+
+# 2. ES 地址
+url="${2:-${ES_URL}}"
+
+# 3. 导出/导入的主索引名
+index="${3:-bigdata_shipments_all_v6}"
+
+# 4. 输入索引名（如不指定，默认与index相同）
+input_index="${4:-$index}"
+
+# 5. 操作类型：output(导出) 或 input(导入)
+type="${5:-output}"
+
+# 6. 每批导出/导入的文档数
+limit="${6:-1000}"
+
+# 7. 并发最大数（max）
+max="${7:-1}"
+
+# 获取当前日期，格式为YYYYMMDD
 day=$(date +%Y%m%d)
-dir=/temp/elastic/bigdata_${day}
-mkdir ${dir}
-index=bigdata_shipments_all_v6
-start_time=1738339200
-end_time=1754740800
-type=output
-limit=1000
+# 定义导出数据的目录，默认包含日期
+dir="${8:-/temp/elastic/${day}}"
+# 如果目录不存在则创建
+if [ ! -d "${dir}" ]; then
+    mkdir -p "${dir}"
+fi
+
+# 9. 导出起始时间（Unix时间戳，默认示例值）
+start_time="${9:-}"
+
+# 10. 导出结束时间（Unix时间戳，默认示例值）
+end_time="${10:-}"
+
+# 11. 指定单进程运行的编号（用于多进程并发时区分每个任务的序号）
+# 如果指定了 id，则每次只运行一个对应编号的任务；如果未指定，则默认会运行所有任务（即全部并发）
+id="${11:-}"
+
+# 12. 任务标识（如 aaa），用于区分不同任务的日志文件名
+#    - 如果传入了任务标识，则 task_label=".${12}"
+#    - 如果未传入，则 task_label=""
+if [ -n "${12}" ]; then
+    task_label=".${12}"
+else
+    task_label=""
+fi
+
+# 13. shell脚本路径
+shell_script="${13:-/home/wwwroot/www.trackingmore.com/script/queueshell/serverMigration/elastic_test.sh}"
+
+# 14. elasticdump工具路径
+elasticdump="${14:-/usr/local/nodejs/bin/elasticdump}"
+
+# 备注：
+# - 可通过传参覆盖默认值，便于脚本复用和自动化。
+# - 变量顺序与参数顺序一致，便于理解和维护。
 # 查看
-sh /home/wwwroot/www.trackingmore.com/script/queueshell/serverMigration/elastic_test.sh ${ES_PASS} /usr/local/nodejs/bin/elasticdump ${ES_URL} test ${index}
+sh ${shell_script} ${pass} ${elasticdump} ${url} test ${index}
 
 # # 使用nohup运行后台任务 导出
-# nohup sh /home/wwwroot/www.trackingmore.com/script/queueshell/serverMigration/elastic_test.sh ${ES_PASS} /usr/local/nodejs/bin/elasticdump ${ES_URL} ${type} ${index} '' ${dir} ${limit} 0 5 ${start_time} ${end_time} &>> ${dir}/${index}.${type}.0.${day}.log &
-# nohup sh /home/wwwroot/www.trackingmore.com/script/queueshell/serverMigration/elastic_test.sh ${ES_PASS} /usr/local/nodejs/bin/elasticdump ${ES_URL} ${type} ${index} '' ${dir} ${limit} 1 5 ${start_time} ${end_time} &>> ${dir}/${index}.${type}.1.${day}.log &
-# nohup sh /home/wwwroot/www.trackingmore.com/script/queueshell/serverMigration/elastic_test.sh ${ES_PASS} /usr/local/nodejs/bin/elasticdump ${ES_URL} ${type} ${index} '' ${dir} ${limit} 2 5 ${start_time} ${end_time} &>> ${dir}/${index}.${type}.2.${day}.log &
-# nohup sh /home/wwwroot/www.trackingmore.com/script/queueshell/serverMigration/elastic_test.sh ${ES_PASS} /usr/local/nodejs/bin/elasticdump ${ES_URL} ${type} ${index} '' ${dir} ${limit} 3 5 ${start_time} ${end_time} &>> ${dir}/${index}.${type}.3.${day}.log &
-# nohup sh /home/wwwroot/www.trackingmore.com/script/queueshell/serverMigration/elastic_test.sh ${ES_PASS} /usr/local/nodejs/bin/elasticdump ${ES_URL} ${type} ${index} '' ${dir} ${limit} 4 5 ${start_time} ${end_time} &>> ${dir}/${index}.${type}.4.${day}.log &
+# nohup sh ${shell_script} ${pass} ${elasticdump} ${url} ${type} ${index} ${input_index} ${dir} ${limit} 0 5 ${start_time} ${end_time} &>> ${dir}/${index}.${type}.0.${day}.log &
+# nohup sh ${shell_script} ${pass} ${elasticdump} ${url} ${type} ${index} ${input_index} ${dir} ${limit} 1 5 ${start_time} ${end_time} &>> ${dir}/${index}.${type}.1.${day}.log &
+# nohup sh ${shell_script} ${pass} ${elasticdump} ${url} ${type} ${index} ${input_index} ${dir} ${limit} 2 5 ${start_time} ${end_time} &>> ${dir}/${index}.${type}.2.${day}.log &
+# nohup sh ${shell_script} ${pass} ${elasticdump} ${url} ${type} ${index} ${input_index} ${dir} ${limit} 3 5 ${start_time} ${end_time} &>> ${dir}/${index}.${type}.3.${day}.log &
+# nohup sh ${shell_script} ${pass} ${elasticdump} ${url} ${type} ${index} ${input_index} ${dir} ${limit} 4 5 ${start_time} ${end_time} &>> ${dir}/${index}.${type}.4.${day}.log &
 # # 速度大概是原来
 # 163000/168=970.23809524
 # 863000/385=2241.55844156
@@ -821,19 +910,115 @@ sh /home/wwwroot/www.trackingmore.com/script/queueshell/serverMigration/elastic_
 # 970.23809524/2385.00988142*5=2.0340337
 # 4701.08695652/2385.00988142*5=9.85548738
 
-# 使用nohup运行后台任务 导出
-max="${1:-5}"
+# 使用nohup运行后台任务
+
 for i in $(seq 0 $((max-1))); do
-    nohup sh /home/wwwroot/www.trackingmore.com/script/queueshell/serverMigration/elastic_test.sh \
-        ${ES_PASS} /usr/local/nodejs/bin/elasticdump ${ES_URL} ${type} ${index} '' ${dir} ${limit} $i $max ${start_time} ${end_time} \
-        &>> ${dir}/${index}.${type}.$i.${day}.log &
+  
+    # 如果指定了id，只执行该id对应的任务
+    if [ -n "${id}" ]; then
+        if [ "$i" -ne "$id" ]; then
+            continue
+        fi
+    fi
+    # 执行前输出执行命令，便于调试和日志追踪
+    echo "nohup sh ${shell_script} ${pass} ${elasticdump} ${url} ${type} ${index} ${input_index} ${dir} ${limit} $i $max ${start_time} ${end_time} &>> ${dir}/${index}.${type}${task_label}.$i.${day}.log &"
+    nohup sh ${shell_script} \
+        ${pass} ${elasticdump} ${url} ${type} ${index} ${input_index} ${dir} ${limit} $i $max ${start_time} ${end_time} \
+        &>> ${dir}/${index}.${type}${task_label}.$i.${day}.log &
 done
-# # 速度大概是原来
+# # 导出 速度大概是原来 17倍
 # 854000/210=4066.66666667
 # 1400000/330=4242.42424242
 # 4066.66666667/2385.00988142*10=17.05094263
 
-# 使用nohup运行后台任务 导入
-nohup sh /home/wwwroot/www.trackingmore.com/script/queueshell/serverMigration/elastic_test.sh ${GCP_ES_PASS_TEST} /usr/local/nodejs/bin/elasticdump ${GCP_ES_POD_0_TEST} input ${index} ${index} /temp/elastic/${day} 1000 &>> /temp/elastic/tracking_webhook.input.old.${day}.log &
+# # 使用nohup运行后台任务 导入
+# nohup sh /home/wwwroot/www.trackingmore.com/script/queueshell/serverMigration/elastic_test.sh ${GCP_ES_PASS_TEST} ${elasticdump} ${GCP_ES_POD_0_TEST} input ${index} ${index} /temp/elastic/${day} 1000 &>> /temp/elastic/tracking_webhook.input.old.${day}.log &
 
 ```
+
+文件批量重命名
+
+```bash
+
+# 1. 如果是 Perl 版 rename（Debian/Ubuntu 常见）
+rename 's/\.json$/_max_10.json/' bigdata_shipments_all_v6_data_1738339200_1754740800_slice_*.json
+
+# 2. 如果是 util-linux 版 rename（CentOS/Alpine 常见）
+rename .json _max_10.json bigdata_shipments_all_v6_data_1738339200_1754740800_slice_*.json
+
+# 3. 通用方案（跨系统可用）
+for f in bigdata_shipments_all_v6_data_1738339200_1754740800_slice_*.json; do
+    mv -- "$f" "${f%.json}_max_10.json"
+done
+# ${f%.json} 会去掉文件名最后的 .json
+
+# 再加上 _max_10.json 就完成重命名
+
+# -- 确保即使文件名有 - 也能安全处理。
+
+
+```
+
+## 20250810
+
+### 咨询ai
+
+已经有副本，修改为0会不会导致需要删除副本让性能临时下降
+
+是的，如果你现在已经有副本分片，临时把 `number_of_replicas` 改成 `0` 会触发**副本分片删除**，集群会经历一个重新分配过程，这个过程会带来两方面影响：
+
+---
+
+#### 影响分析
+
+1. **副本分片会被删除**
+
+   * 删除操作本身是很快的（比创建快），但集群会有一段时间内副本不可用，等于失去了高可用。
+   * 在这个阶段，如果主分片所在节点宕机，该分片上的数据就会丢失，必须手动从快照/备份恢复。
+
+2. **集群负载变化**
+
+   * 删除副本会减少写入同步压力，批量导入时写入性能能明显提升。
+   * 但同时，读请求会集中打到主分片，如果原来读压力很高，可能造成读延迟上升。
+
+3. **恢复时会有性能下降**
+
+   * 导入完成后把副本数恢复为原来的值（比如 1），Elasticsearch 会重新为每个主分片分配并复制数据到副本分片，这个**复制过程会消耗磁盘 IO 和网络带宽**，在恢复期间写入和查询性能都会下降。
+
+---
+
+#### 建议做法
+
+* **导入窗口选择低峰期**，避免恢复副本时与业务高峰重叠。
+* 如果数据安全要求高，可以不把 `number_of_replicas` 改成 0，而是只调低 `refresh_interval`，这样写入性能也能提高，但保留高可用。
+* 如果必须改成 0，建议：
+
+  1. 确保有近期快照或备份。
+  2. 导入完成后，先用 `POST _refresh` 刷新数据，再把 `number_of_replicas` 改回原值。
+  3. 观察 `cluster health`，等状态恢复到 `green` 再认为恢复完成。
+
+---
+
+我可以帮你画一张\*\*“副本调整与导入性能关系”流程图\*\*，让你直观看到从副本删除到恢复的性能曲线和风险点，你要我帮你画吗？这样方便评估改不改。
+
+
+### tracking_webhook索引导入出现429，根本原因是磁盘不足
+
+```bash
+GET /_cat/allocation?v
+shards disk.indices disk.used disk.avail disk.total disk.percent host        ip          node
+    19       26.2gb      27gb      2.3gb     29.3gb           92 10.26.20.83 10.26.20.83 elasticsearch-es-default-0
+    12       26.5gb    27.3gb        2gb     29.3gb           93 10.26.3.18  10.26.3.18  elasticsearch-es-default-2
+     0       18.1gb    29.3gb        4kb     29.3gb           99 10.26.3.19  10.26.3.19  elasticsearch-es-default-1
+    13                                                                                   UNASSIGNED
+```
+
+### concurrency 提升并发
+
+- 速度&时间
+  - 原来 单一进程 10小时 1760000 总10进程
+      - 1760000/10/3600*10≈489 条/s
+  - 20配置 单一进程 10分钟 113000 总10进程
+    - 113000/10/60*10≈1883 条/s
+  - 1.7亿预计时间
+    - 170000000/1883/3600≈25h
