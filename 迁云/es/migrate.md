@@ -811,7 +811,7 @@ sudo LC_ALL=en_US.UTF-8 growpart /dev/vdb 1
 #     [input_index]         输入索引名，默认与 index 相同
 #     [type]                操作类型：output(导出) 或 input(导入)，默认 output
 #     [limit]               每批导出/导入的文档数，默认 1000
-#     [max]                 并发最大数，默认 1
+#     [max]                 并发最大数，默认 1（待优化：如果传了，至少是2）
 #     [dir]                 导出/导入数据目录，默认 /temp/elastic/当前日期
 #     [start_time]          导出起始时间（Unix时间戳），可选
 #     [end_time]            导出结束时间（Unix时间戳），可选
@@ -853,7 +853,7 @@ type="${5:-output}"
 # 6. 每批导出/导入的文档数
 limit="${6:-1000}"
 
-# 7. 并发最大数（max）
+# 7. 并发最大数（max） 如果传了
 max="${7:-1}"
 
 # 获取当前日期，格式为YYYYMMDD
@@ -1022,3 +1022,85 @@ shards disk.indices disk.used disk.avail disk.total disk.percent host        ip 
     - 113000/10/60*10≈1883 条/s
   - 1.7亿预计时间
     - 170000000/1883/3600≈25h
+  
+## 20250811
+
+- 大数据索引
+  - 启动时间 0811 00:33
+  - 查看进度
+    - tail /temp/elastic/bigdata_20250809/bigdata_shipments_all_v6.output.1.20250809.log /temp/elastic/bigdata_20250809/bigdata_shipments_all_v6.input.task_up_20.1.20250811.log 
+  - 时间预估
+    - (9*60+15)/(411/1605)/60-(9+15/60)≈26.87 9:48 26.87-24=2.87 0.87*60=52.2 预计 0812 11:40完成
+    - (14*60-10)/(755/1605)/60-(14-10/60)≈15.57 14:23 15.57-10=5.57 0.57*60=34.2 34.2+23=57.2 预计 0812 6:40完成
+    - (21*60+27)/(1140/1605)/60-(21+27/60)≈8.75 22:00 8.75-2=6.75 0.75*60 预计 0812 6:45完成
+
+- k8s新生成的es实例，需要重新获取密码
+  - kubectl get secret elasticsearch-es-elastic-user -o yaml -n fjny-tm-twkes-pro -o jsonpath='{.data.elastic}' | base64 -d
+
+- tracking_webhook 扩容后继续导
+  - 以第一个id为例（总5个）
+    - sh /temp/elastic/elastic.sh ${GCP_TRACKING_WEBHOOK_ES_PASS} ${GCP_TRACKING_WEBHOOK_ES_POD_0} tracking_webhook '' input 1000 5 /temp/elastic/20250809 '' '' 0 task_solve429_up_20
+  - 启动时间 0811 17:00
+  - 查看进度
+    - tail /temp/elastic/20250809/tracking_webhook.input.task_solve429_up_20.0.20250811.log /temp/elastic/tracking_webhook.output.old.0.20250809.log
+
+```txt
+0809获取待迁移es索引
+重要：
+tracking_webhook                            24262909        68.3gb  22.6gb
+bigdata_shipments_all_v6                    409674272       566gb   284gb
+user_number_v2_*                            675000          245.7mb 245.7mb
+
+
+
+其它：
+ai_edd_data_stat_experience_v1              126195          30.3mb    15mb
+tmp_ai_edd_none_delivery_dayofweek_v1       8005            987.5kb 498.5kb
+tmp_ai_edd_data_stat_v1                     4613535         4gb     2gb
+tmp_ai_edd_exper_config_v1                  456733          117.4mb  58.6mb
+ofline_test                                 9562            3.3mb   3.3mb
+callback_failures                           716089          180.1mb 180.1mb
+ods_country_postal_code_v1                  5617107         2.7gb   1.3gb
+```
+
+```bash
+
+
+#   导出 ai_edd_data_stat_experience_v1,tmp_ai_edd_none_delivery_dayofweek_v1,tmp_ai_edd_data_stat_v1,tmp_ai_edd_exper_config_v1,ofline_test,callback_failures,ods_country_postal_code_v1
+#   bash /temp/elastic/elastic.sh ${ES_PASS} ${ES_URL} ai_edd_data_stat_experience_v1,tmp_ai_edd_none_delivery_dayofweek_v1,tmp_ai_edd_data_stat_v1,tmp_ai_edd_exper_config_v1,ofline_test,callback_failures,ods_country_postal_code_v1 '' output 1000 2 /temp/elastic/other_20250811
+#   导入 ai_edd_data_stat_experience_v1,tmp_ai_edd_none_delivery_dayofweek_v1,tmp_ai_edd_data_stat_v1,tmp_ai_edd_exper_config_v1,ofline_test,callback_failures,ods_country_postal_code_v1
+#   bash /temp/elastic/elastic.sh ${GCP_ES_PASS} ${GCP_ES_POD_0} ai_edd_data_stat_experience_v1,tmp_ai_edd_none_delivery_dayofweek_v1,tmp_ai_edd_data_stat_v1,tmp_ai_edd_exper_config_v1,ofline_test,callback_failures,ods_country_postal_code_v1 '' input 1000 2 /temp/elastic/other_20250811
+# #出现报错
+# {
+#   _index: 'ai_edd_data_stat_experience_v1,tmp_ai_edd_none_delivery_dayofweek_v1,tmp_ai_edd_data_stat_v1,tmp_ai_edd_exper_config_v1,ofline_test,callback_failures,ods_country_postal_code_v1',
+#   _type: '_doc',
+#   _id: 'JAPxgJYBya66PftXVFat',
+#   status: 400,
+#   error: {
+#     type: 'invalid_index_name_exception',
+#     reason: 'Invalid index name [ai_edd_data_stat_experience_v1,tmp_ai_edd_none_delivery_dayofweek_v1,tmp_ai_edd_data_stat_v1,tmp_ai_edd_exper_config_v1,ofline_test,callback_failures,ods_country_postal_code_v1], must not contain the following characters [ , ", *, \\, <, |, ,, >, /, ?]',
+#     index_uuid: '_na_',
+#     index: 'ai_edd_data_stat_experience_v1,tmp_ai_edd_none_delivery_dayofweek_v1,tmp_ai_edd_data_stat_v1,tmp_ai_edd_exper_config_v1,ofline_test,callback_failures,ods_country_postal_code_v1'
+#   }
+# }
+
+# 导出
+sh /temp/elastic/elastic.sh ${ES_PASS} ${ES_URL} ai_edd_data_stat_experience_v1 '' output 1000 2 /temp/elastic/ai_edd_data_stat_experience_v1_20250811
+sh /temp/elastic/elastic.sh ${ES_PASS} ${ES_URL} tmp_ai_edd_none_delivery_dayofweek_v1 '' output 1000 2 /temp/elastic/tmp_ai_edd_none_delivery_dayofweek_v1_20250811
+sh /temp/elastic/elastic.sh ${ES_PASS} ${ES_URL} tmp_ai_edd_data_stat_v1 '' output 1000 2 /temp/elastic/tmp_ai_edd_data_stat_v1_20250811
+sh /temp/elastic/elastic.sh ${ES_PASS} ${ES_URL} tmp_ai_edd_exper_config_v1 '' output 1000 2 /temp/elastic/tmp_ai_edd_exper_config_v1_20250811
+sh /temp/elastic/elastic.sh ${ES_PASS} ${ES_URL} ofline_test '' output 1000 2 /temp/elastic/ofline_test_20250811
+sh /temp/elastic/elastic.sh ${ES_PASS} ${ES_URL} callback_failures '' output 1000 2 /temp/elastic/callback_failures_20250811
+sh /temp/elastic/elastic.sh ${ES_PASS} ${ES_URL} ods_country_postal_code_v1 '' output 1000 2 /temp/elastic/ods_country_postal_code_v1_20250811
+
+# 导入
+sh /temp/elastic/elastic.sh ${GCP_ES_PASS} ${GCP_ES_POD_0} ai_edd_data_stat_experience_v1 '' input 1000 2 /temp/elastic/ai_edd_data_stat_experience_v1_20250811
+sh /temp/elastic/elastic.sh ${GCP_ES_PASS} ${GCP_ES_POD_0} tmp_ai_edd_none_delivery_dayofweek_v1 '' input 1000 2 /temp/elastic/tmp_ai_edd_none_delivery_dayofweek_v1_20250811
+sh /temp/elastic/elastic.sh ${GCP_ES_PASS} ${GCP_ES_POD_0} tmp_ai_edd_data_stat_v1 '' input 1000 2 /temp/elastic/tmp_ai_edd_data_stat_v1_20250811
+sh /temp/elastic/elastic.sh ${GCP_ES_PASS} ${GCP_ES_POD_0} tmp_ai_edd_exper_config_v1 '' input 1000 2 /temp/elastic/tmp_ai_edd_exper_config_v1_20250811
+sh /temp/elastic/elastic.sh ${GCP_ES_PASS} ${GCP_ES_POD_0} ofline_test '' input 1000 2 /temp/elastic/ofline_test_20250811
+sh /temp/elastic/elastic.sh ${GCP_ES_PASS} ${GCP_ES_POD_0} callback_failures '' input 1000 2 /temp/elastic/callback_failures_20250811
+sh /temp/elastic/elastic.sh ${GCP_ES_PASS} ${GCP_ES_POD_0} ods_country_postal_code_v1 '' input 1000 2 /temp/elastic/ods_country_postal_code_v1_20250811
+
+
+```
