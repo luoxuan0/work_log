@@ -509,7 +509,7 @@ if [ "$type" = "input" ]; then
     ${elasticdump} --input=${dir}/${index_name}_settings.json --output=http://elastic:${espasswd}@${esurl}:9200/${index_name_input} --type=settings --limit=${limit}
     ${elasticdump} --input=${dir}/${index_name}_mapping.json  --output=http://elastic:${espasswd}@${esurl}:9200/${index_name_input} --type=mapping --limit=${limit}
   fi
-  ${elasticdump} --input=${file}     --output=http://elastic:${espasswd}@${esurl}:9200/${index_name_input} --type=data --limit=${limit} --concurrency=${concurrency}
+  ${elasticdump} --input=${file}     --output=http://elastic:${espasswd}@${esurl}:9200/${index_name_input} --type=data --limit=${limit}
 fi
 # 验证
 # 确认 index 存在并有正确映射；
