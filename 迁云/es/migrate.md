@@ -1104,3 +1104,8 @@ sh /temp/elastic/elastic.sh ${GCP_ES_PASS} ${GCP_ES_POD_0} ods_country_postal_co
 
 
 ```
+
+- 待办
+  - VPN速度调整
+    - es导完后，观察实际用量 https://vpc.console.aliyun.com/vpn/us-east-1/vpns/vpn-0xict4tbyaen2mmu86myq?type=monitor
+    - 调整VPN带宽
