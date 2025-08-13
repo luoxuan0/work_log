@@ -1109,3 +1109,23 @@ sh /temp/elastic/elastic.sh ${GCP_ES_PASS} ${GCP_ES_POD_0} ods_country_postal_co
   - VPN速度调整
     - es导完后，观察实际用量 https://vpc.console.aliyun.com/vpn/us-east-1/vpns/vpn-0xict4tbyaen2mmu86myq?type=monitor
     - 调整VPN带宽
+
+## 20250813
+
+### 进行导入以测试导入速度优化
+
+```bash
+task=task_test_input_0
+day=$(date +%Y%m%d)
+dir=/temp/elastic/bigdata_20250809
+max=10
+max_1=1
+index=bigdata_shipments_all_v6
+index_new=${index}_test_20250813
+input_or_ouput=input
+
+sh elastic.sh ${GCP_ES_PASS} ${GCP_ES_POD_0} ${index} ${index_new} ${input_or_output} 1000 ${max} ${dir} 1738339200 1754740800 '' ${task}
+
+tail ${dir}/${index}.${input_or_output}.${task}.${max_1}.${day}.log
+
+```

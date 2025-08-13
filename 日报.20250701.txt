@@ -1147,7 +1147,7 @@
 【桌面运维】
 【运维】
 
-20250808
+20250811
 【告警】
 【安全】
 【运维】
@@ -1174,6 +1174,43 @@
 2，等保复测
 【迁云】
 3，es数据迁移
+【运维】
+4，单号识别用有效单号
+【日常响应】
+5，后续优先级、应对
+
+===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== =====
+【告警】
+【客诉】
+【迁云】
+【桌面运维】
+【运维】
+
+20250813
+【告警】
+【安全】
+【运维】
+
+
+原计划：
+【本地】
+1，待优化&专线切换
+【安全】
+2，等保复测
+【迁云】
+3，es数据迁移
+【运维】
+4，单号识别用有效单号
+【日常响应】
+5，后续优先级、应对
+
+计划：
+【本地】
+1，待优化&专线切换
+【安全】
+2，等保复测
+【迁云】
+3，es导入性能测试
 【运维】
 4，单号识别用有效单号
 【日常响应】
@@ -1267,6 +1304,30 @@
 
 操作顺序
 	8月
+		-- 20250813
+			授权
+				数据库
+					测试、开发环境（数据库账号，版本维护？）
+					中台表，白名单（阿里云RDS需要用高权限账号进行登录 授权）
+						需求：https://alidocs.dingtalk.com/i/nodes/QG53mjyd80k1LzvaFQqn1pEvJ6zbX04v?corpId=ding15b0edd43fcaaac235c2f4657eb6378f&utm_medium=im_card&iframeQuery=utm_medium%3Dim_card%26utm_source%3Dim&utm_scene=team_space&utm_source=im
+						cw_middleground_prod 强哥 这个库 hubspot_objects_shops 帮忙授权下这个表的权限
+						阿里云白名单：47.90.211.22  aws白名单：34.200.217.180 ，13.216.32.66 
+							操作
+								高权限账号曹组
+									GRANT SELECT ON `cw_middleground_prod`.`hubspot_objects_shops` TO 'cw_data_department'@'47.90.211.22';
+									GRANT SELECT ON `cw_middleground_prod`.`hubspot_objects_shops` TO 'cw_data_department'@'34.200.217.180';
+									GRANT SELECT ON `cw_middleground_prod`.`hubspot_objects_shops` TO 'cw_data_department'@'13.216.32.66';
+
+								阿里云后台也要加
+							
+							考虑只加一个地方
+								GRANT SELECT ON `cw_middleground_prod`.`hubspot_objects_shops` TO 'cw_data_department'@'%';
+								FLUSH PRIVILEGES;
+
+								阿里云后台加几个IP白名单
+
+				其他（从申请单确认）
+			分账
 		-- 20250810
 			es
 				big
@@ -21207,6 +21268,12 @@
 						相关账号管理员查看 https://alidocs.dingtalk.com/i/nodes/ZgpG2NdyVX4ow1NmT3AyMeQYVMwvDqPk?utm_scene=team_space
 				51
 					管理中心--用户权限控制: https://www.51tracking.com/manage/manage_competence.php
+			批量执行
+				wpa sou-test
+					命令为 sou-* 则引入 /home/wwwroot/upload/huaqiang/sou-test.sh
+					发送文件到远程，并执行
+				wpa sou-test '' 2
+					同上，只是不发送文件
 			nginx配置调整发布
 				PTM='/home/wwwroot/www.trackingmore.com/'
 				cd ${PTM}
@@ -23793,6 +23860,22 @@
 				rm -f /home/wwwroot/www.trackingmore.com/script/getEffectiveTracknumberForRule.php.20250618
 				#56 18 18 * * sh /home/wwwroot/www.trackingmore.com/script/getEffectiveTracknumberForRule.sh 'home' '' '' '' '' '' '' '20250401' '119.23.240.151' '172.16.10.167'> /dev/null 2>&1
 		有效单号脚本执行中断
+			-- 20250813
+				相关说明
+					# 注意：script/getEffectiveTracknumberForRule.sh 需要在ansible服务器上执行（能发远程detect服务器）
+					# 会跑 script/getEffectiveTracknumberForRule.php 这里跑出所有有效单号后，会启动 script/dumpTableAanSend.sh 
+					# script/dumpTableAanSend.sh 在能执行mysqldump的服务器导出数据压缩为文件 然后在本服务器上获取到压缩的数据文件,发送给detect服务器，放在指定月份的目录中
+				缺失数据获取
+					国外
+						导7月数据
+						导5月数据（从定时任务跑，测全流程）
+							预计0814完成（8号文件 最后修改时间 9号）
+								-rw-r--r-- 1 root root   7625266 Aug  9 16:00 getEffectiveTracknumberForRule.20250808.2331.log
+					国内
+						导7月数据
+						导6月数据（从定时任务跑，测全流程）
+							预计0821完成（1号文件 最后修改时间 8号）
+								-rw-r--r-- 1 root root   5652902 Aug  8 07:04 getEffectiveTracknumberForRule.20250801.0013.log
 			-- 20250808
 				目标服务器磁盘不足 fjny-tm-detect-62
 					扩容41-51G
