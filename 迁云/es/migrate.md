@@ -1123,8 +1123,10 @@ max_1=1
 index=bigdata_shipments_all_v6
 index_new=${index}_test_20250813
 input_or_ouput=input
+shell_script=/home/wwwroot/www.trackingmore.com/script/queueshell/serverMigration/elastic_test.sh
+elasticdump=/usr/local/nodejs/bin/elasticdump
 
-sh elastic.sh ${GCP_ES_PASS} ${GCP_ES_POD_0} ${index} ${index_new} ${input_or_output} 1000 ${max} ${dir} 1738339200 1754740800 '' ${task}
+sh /temp/elastic/elastic.sh ${GCP_ES_PASS} ${GCP_ES_POD_0} ${index} ${index_new} ${input_or_output} 1000 ${max} ${dir} 1738339200 1754740800 ${max_1} ${task} ${shell_script} ${elasticdump}
 
 tail ${dir}/${index}.${input_or_output}.${task}.${max_1}.${day}.log
 

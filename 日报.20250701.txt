@@ -1216,6 +1216,43 @@
 【日常响应】
 5，后续优先级、应对
 
+===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== =====
+【告警】
+【客诉】
+【迁云】
+【桌面运维】
+【运维】
+
+20250814
+【告警】
+【安全】
+【运维】
+
+
+原计划：
+【本地】
+1，待优化&专线切换
+【安全】
+2，等保复测
+【迁云】
+3，es导入性能测试
+【运维】
+4，单号识别用有效单号
+【日常响应】
+5，后续优先级、应对
+
+计划：
+【本地】
+1，待优化&专线切换
+【安全】
+2，等保复测
+【迁云】
+3，数据库多开一个同步以降低目标库磁盘空间（8T->6T）
+【运维】
+4，单号识别用有效单号
+【日常响应】
+5，后续优先级、应对
+
 
 近期复盘
 	后续优先级、应对
@@ -1309,22 +1346,6 @@
 				数据库
 					测试、开发环境（数据库账号，版本维护？）
 					中台表，白名单（阿里云RDS需要用高权限账号进行登录 授权）
-						需求：https://alidocs.dingtalk.com/i/nodes/QG53mjyd80k1LzvaFQqn1pEvJ6zbX04v?corpId=ding15b0edd43fcaaac235c2f4657eb6378f&utm_medium=im_card&iframeQuery=utm_medium%3Dim_card%26utm_source%3Dim&utm_scene=team_space&utm_source=im
-						cw_middleground_prod 强哥 这个库 hubspot_objects_shops 帮忙授权下这个表的权限
-						阿里云白名单：47.90.211.22  aws白名单：34.200.217.180 ，13.216.32.66 
-							操作
-								高权限账号曹组
-									GRANT SELECT ON `cw_middleground_prod`.`hubspot_objects_shops` TO 'cw_data_department'@'47.90.211.22';
-									GRANT SELECT ON `cw_middleground_prod`.`hubspot_objects_shops` TO 'cw_data_department'@'34.200.217.180';
-									GRANT SELECT ON `cw_middleground_prod`.`hubspot_objects_shops` TO 'cw_data_department'@'13.216.32.66';
-
-								阿里云后台也要加
-							
-							考虑只加一个地方
-								GRANT SELECT ON `cw_middleground_prod`.`hubspot_objects_shops` TO 'cw_data_department'@'%';
-								FLUSH PRIVILEGES;
-
-								阿里云后台加几个IP白名单
 
 				其他（从申请单确认）
 			分账
@@ -22566,6 +22587,70 @@
 
 		阿里云
 			中台数据库指定表授权
+				-- 20250814
+					中台表，白名单（阿里云RDS需要用高权限账号进行登录 授权）
+						补充：
+							在 MySQL 里，账号是由 User + Host 组合唯一标识的：
+							'user'@'192.168.1.1'
+							'user'@'192.168.1.2'
+							这两个虽然用户名相同，但 Host 不同，所以在 mysql.user 表里是两行记录，密码、权限、资源限制等都是各自独立的。
+						需求：https://alidocs.dingtalk.com/i/nodes/QG53mjyd80k1LzvaFQqn1pEvJ6zbX04v?corpId=ding15b0edd43fcaaac235c2f4657eb6378f&utm_medium=im_card&iframeQuery=utm_medium%3Dim_card%26utm_source%3Dim&utm_scene=team_space&utm_source=im
+						cw_middleground_prod 强哥 这个库 hubspot_objects_shops 帮忙授权下这个表的权限
+						阿里云白名单：47.90.211.22  aws白名单：34.200.217.180 ，13.216.32.66 
+							操作
+								测试
+									-- 创建账号 'cw_data_department'@'156.59.149.7'
+									CREATE USER 'cw_data_department'@'156.59.149.7' IDENTIFIED BY 'pass';
+
+									-- 查看账号 'cw_data_department'@'156.59.149.7'
+									SHOW GRANTS FOR 'cw_data_department'@'156.59.149.7'\G
+									*************************** 1. row ***************************
+									Grants for cw_data_department@156.59.149.7: GRANT USAGE ON *.* TO 'cw_data_department'@'156.59.149.7'
+
+									-- 回收权限，这样账号还在
+									REVOKE USAGE ON *.* FROM 'cw_data_department'@'156.59.149.7'
+									-- 查看账号 'cw_data_department'@'156.59.149.7'
+									SHOW GRANTS FOR 'cw_data_department'@'156.59.149.7'\G
+									*************************** 1. row ***************************
+									Grants for cw_data_department@156.59.149.7: GRANT USAGE ON *.* TO 'cw_data_department'@'156.59.149.7'
+
+									-- 回收权限
+									REVOKE SELECT ON *.* FROM 'cw_data_department'@'156.59.149.7'
+
+									-- 删除账号 'cw_data_department'@'156.59.149.7'
+									DROP USER 'cw_data_department'@156.59.149.7;
+									-- 查看账号 'cw_data_department'@'156.59.149.7'
+									SHOW GRANTS FOR 'cw_data_department'@'156.59.149.7'\G
+									ERROR 1141 (42000): There is no such grant defined for user 'cw_data_department' on host '156.59.149.7
+
+
+
+								高权限账号曹组
+									'cw_data_department'@'47.90.211.22'已存在
+										GRANT SELECT ON `cw_middleground_prod`.`hubspot_objects_shops` TO 'cw_data_department'@'47.90.211.22';
+
+									'cw_data_department'@'34.200.217.180'
+										创建账号再授权
+											CREATE USER 'cw_data_department'@'34.200.217.180' IDENTIFIED BY 'pass';
+											GRANT SELECT ON `cw_middleground_prod`.`hubspot_objects_shops` TO 'cw_data_department'@'34.200.217.180';
+											SHOW GRANTS FOR 'cw_data_department'@'34.200.217.180'\G
+
+										或先授权再改密码
+											GRANT SELECT ON `cw_middleground_prod`.`hubspot_objects_shops` TO 'cw_data_department'@'34.200.217.180';
+											SHOW GRANTS FOR 'cw_data_department'@'34.200.217.180'\G
+											GRANT USAGE ON *.* TO 'cw_data_department'@'34.200.217.180' IDENTIFIED BY 'pass';
+
+									
+									'cw_data_department'@'13.216.32.66'
+										参考 'cw_data_department'@'34.200.217.180'
+
+								阿里云后台也要加
+							
+							考虑只加一个地方
+								GRANT SELECT ON `cw_middleground_prod`.`hubspot_objects_shops` TO 'cw_data_department'@'%';
+								FLUSH PRIVILEGES;
+
+								阿里云后台加几个IP白名单
 				-- 20250211
 					/*创建账号*/
 					CREATE USER 'cw_data_department'@'47.90.211.22' IDENTIFIED BY 'jwr19hJdfwJE09dsbOh';
