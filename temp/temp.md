@@ -65,6 +65,12 @@ C:\Users\admin\AppData\Roaming\kingsoft\ --> F:\C\User\admin\AppData\Roaming 刚
 
 ![清除缓存后](image-14.png)
 
+#### 20250815
+
+![没有空间](20250816094105.png)
+
+![软媒清理大师清理9.15G](20250816094259.png)
+
 ### 快捷方式等等
 
 ## 本地大模型
