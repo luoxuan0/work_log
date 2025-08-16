@@ -377,6 +377,7 @@ Node.js v20.17.0
 ## 20250806
 
 ```bash
+# elastic_test.sh
 
 # 测试
 # curl -u elastic:${ES_PASS} http://es-cn-cqf2xh6nd0001wben.public.elasticsearch.aliyuncs.com:9200/
@@ -424,6 +425,7 @@ export GCP_ES_PASS=2R2EouqS8t1p1854Jz1ADrE8
 # export GCP_TRACKING_WEBHOOK_ES_POD_2=
 # export GCP_TRACKING_WEBHOOK_ES_PASS=
 
+echo "执行命令: $0 $@"
 # 传入参数
 espasswd=$1
 elasticdump=$2
@@ -431,30 +433,53 @@ esurl=$3
 # type默认input
 type=$4
 index_name=$5
-index_name_input=$6
+# 如果 $index_name 包含 *，则 $index_name_xxx 赋值为 $index_name 把 * 替换为 xxx，后面只在elasticdump时使用带*的index_name
+if [[ "$index_name" == *"*"* ]]; then
+  index_name_xxx="${index_name//\*/xxx}"
+else
+  index_name_xxx="${index_name}"
+fi
+index_name_input=''
+# 只有当 $6 不为空 且 和 $index_name 不一样时才赋值
+if [ -n "$6" ] && [ "$6" != "$index_name" ]; then
+  index_name_input=$6
+fi
+# 否则 index_name_input 保持为空
 dir=$7
 # limit默认100，可传入参数调到1000~5000提高效率
 limit="${8:-100}"
 # search_body_id 默认0
 search_body_id="${9:-0}"
 search_body_max="${10:-1}"
-search_body='{"slice":{"id":'${search_body_id}',"max":'${search_body_max}'},"sort":["_doc"]}'
+search_body=''
+
+# 如果 search_body_max 大于1，则使用分片（slice）方式进行数据导出，提高导出效率
+if [ "${search_body_max}" -gt 1 ]; then
+  search_body='--searchBody={"slice":{"id":'${search_body_id}',"max":'${search_body_max}'},"sort":["_doc"]}'
+fi
 search_body_gte="${11:-}"
 search_body_lt="${12:-}"
 search_body_out="${search_body}"
 search_body_time=''
-concurrency=20
+# 一个进程中并发请求数
+concurrency="${13:-10}"
 # 时间范围查询不为空时，才进行查询
 if [ -n "${search_body_gte}" ] && [ -n "${search_body_lt}" ]; then
   query_body='"query":{"range":{"create_time":{"gte":"'${search_body_gte}'","lt":"'${search_body_lt}'"}}}'
-  search_body_out='{"slice":{"id":'${search_body_id}',"max":'${search_body_max}'},"sort":["_doc"],'${query_body}'}'
+  # ${search_body} 不为空
+  if [ -n "${search_body}" ]; then
+    # 去掉${search_body}最右边的大括号，然后拼接,${query_body}}，保证最终是一个合法的json对象
+    search_body_out=${search_body%\}}','${query_body}'}'
+  else
+    search_body_out='--searchBody={'${query_body}'}'
+  fi
   search_body_time=_${search_body_gte}_${search_body_lt}
 fi
 
-file=${dir}/${index_name}_data${search_body_time}_slice_${search_body_id}_max_${search_body_max}.json
+file=${dir}/${index_name_xxx}_data${search_body_time}_slice_${search_body_id}_max_${search_body_max}.json
 # ${elasticdump} \
 #   --input=http://elastic:${espasswd}@${esurl}:9200/${index_name} \
-#   --output=${index_name}.json \
+#   --output=${index_name_xxx}.json \
 #   --type=settings
 
 # 执行前先打印
@@ -474,7 +499,7 @@ if [ "$type" = "output" ]; then
     # 导出内容：包括分片数量、复制因子、刷新间隔、最大结果窗口等索引级别的配置参数；
     ${elasticdump} \
       --input=http://elastic:${espasswd}@${esurl}:9200/${index_name} \
-      --output=${dir}/${index_name}_settings.json \
+      --output=${dir}/${index_name_xxx}_settings.json \
       --type=settings \
       --limit=${limit}
 
@@ -482,7 +507,7 @@ if [ "$type" = "output" ]; then
     # 导出内容：索引字段结构，包括字段名、类型（text、keyword、integer 等）、analyzer、nested/object、format 等属性；
     ${elasticdump} \
       --input=http://elastic:${espasswd}@${esurl}:9200/${index_name} \
-      --output=${dir}/${index_name}_mapping.json \
+      --output=${dir}/${index_name_xxx}_mapping.json \
       --type=mapping \
       --limit=${limit}
   fi
@@ -490,13 +515,13 @@ if [ "$type" = "output" ]; then
   # data：文档内容本身
   # 导出内容：索引中的所有文档 _source 内容，包括字段值；
   # 导出前 打印执行的命令
-  echo "${elasticdump} --input=http://elastic:${espasswd}@${esurl}:9200/${index_name} --output=${file} --type=data --limit=${limit} --searchBody=${search_body}"
+  echo "${elasticdump} --input=http://elastic:${espasswd}@${esurl}:9200/${index_name} --output=${file} --type=data --limit=${limit} ${search_body_out} --concurrency=${concurrency}"
   ${elasticdump} \
     --input=http://elastic:${espasswd}@${esurl}:9200/${index_name} \
     --output=${file} \
     --type=data \
-    --limit=${limit} \
-    --searchBody=${search_body}
+    --limit=${limit} ${search_body_out} \
+    --concurrency=${concurrency}
 fi
 
 # 检查点
@@ -506,10 +531,10 @@ fi
 if [ "$type" = "input" ]; then
   # 导入
   if [ ${search_body_id} -eq 0 ]; then
-    ${elasticdump} --input=${dir}/${index_name}_settings.json --output=http://elastic:${espasswd}@${esurl}:9200/${index_name_input} --type=settings --limit=${limit}
-    ${elasticdump} --input=${dir}/${index_name}_mapping.json  --output=http://elastic:${espasswd}@${esurl}:9200/${index_name_input} --type=mapping --limit=${limit}
+    ${elasticdump} --input=${dir}/${index_name_xxx}_settings.json --output=http://elastic:${espasswd}@${esurl}:9200/${index_name_input} --type=settings --limit=${limit}
+    ${elasticdump} --input=${dir}/${index_name_xxx}_mapping.json  --output=http://elastic:${espasswd}@${esurl}:9200/${index_name_input} --type=mapping --limit=${limit}
   fi
-  ${elasticdump} --input=${file}     --output=http://elastic:${espasswd}@${esurl}:9200/${index_name_input} --type=data --limit=${limit}
+  ${elasticdump} --input=${file}     --output=http://elastic:${espasswd}@${esurl}:9200/${index_name_input} --type=data --limit=${limit} --cconcurrency=${concurrency}
 fi
 # 验证
 # 确认 index 存在并有正确映射；
@@ -801,9 +826,11 @@ sudo LC_ALL=en_US.UTF-8 growpart /dev/vdb 1
 切片 并按时间条件
 
 ```bash
+# 组装elastic_test.sh命令，批量执行
+
 # 支持传参，未传参时使用默认值
 # 用法示例：
-#   bash your_script.sh [pass] [url] [index] [input_index] [type] [limit] [max] [dir] [start_time] [end_time] [id] [task_label] [shell_script] [elasticdump]
+#   bash elastic.sh [pass] [url] [index] [input_index] [type] [limit] [max] [dir] [start_time] [end_time] [id] [task_label] [shell_script] [elasticdump]
 #   参数说明：
 #     [pass]                ES 密码，默认取环境变量 ES_PASS
 #     [url]                 ES 地址，默认取环境变量 ES_URL
@@ -819,21 +846,24 @@ sudo LC_ALL=en_US.UTF-8 growpart /dev/vdb 1
 #     [task_label]          任务标签（可选，用于标记本次任务，便于日志区分），默认不传即为 ''
 #     [shell_script]        shell脚本路径，默认 /home/wwwroot/www.trackingmore.com/script/queueshell/serverMigration/elastic_test.sh
 #     [elasticdump]         elasticdump工具路径，默认 /usr/local/nodejs/bin/elasticdump
+#     [concurrency]         并发数，默认 1。建议根据服务器性能调整，传参时建议≥2。
 #   导出 bigdata_shipments_all_v6
-#   bash your_script.sh ${ES_PASS} ${ES_URL} bigdata_shipments_all_v6 '' output 1000 10 /temp/elastic/bigdata_20250809 1738339200 1754740800
+#   bash elastic.sh ${ES_PASS} ${ES_URL} bigdata_shipments_all_v6 '' output 1000 10 /temp/elastic/bigdata_20250809 1738339200 1754740800
 #   导入 bigdata_shipments_all_v6
-#   bash your_script.sh ${GCP_ES_PASS} ${GCP_ES_POD_0} bigdata_shipments_all_v6 '' input 1000 10 /temp/elastic/bigdata_20250809 1738339200 1754740800
+#   bash elastic.sh ${GCP_ES_PASS} ${GCP_ES_POD_0} bigdata_shipments_all_v6 '' input 1000 10 /temp/elastic/bigdata_20250809 1738339200 1754740800
 #   导入 tracking_webhook
-#   bash your_script.sh ${GCP_TRACKING_WEBHOOK_ES_PASS} ${GCP_TRACKING_WEBHOOK_ES_POD_0} tracking_webhook '' input 1000 5 /temp/elastic/20250809
+#   bash elastic.sh ${GCP_TRACKING_WEBHOOK_ES_PASS} ${GCP_TRACKING_WEBHOOK_ES_POD_0} tracking_webhook '' input 1000 5 /temp/elastic/20250809
 #     原来的18倍
 #     132000/304=434.21052632
 #     434.21052632/118.22130482*5=18.3643095
 #     出现429，尝试单进程执行
-#     bash your_script.sh ${GCP_TRACKING_WEBHOOK_ES_PASS} ${GCP_TRACKING_WEBHOOK_ES_POD_0} tracking_webhook '' input 1000 5 /temp/elastic/20250809 '' '' 0
+#     bash elastic.sh ${GCP_TRACKING_WEBHOOK_ES_PASS} ${GCP_TRACKING_WEBHOOK_ES_POD_0} tracking_webhook '' input 1000 5 /temp/elastic/20250809 '' '' 0
 #   导出 user_number_v2_*
-#   bash your_script.sh ${ES_PASS} ${ES_URL} user_number_v2_* '' output 1000 10 /temp/elastic/user_number_v2_20250810
+#   bash elastic.sh ${ES_PASS} ${ES_URL} user_number_v2_* '' output 1000 10 /temp/elastic/user_number_v2_20250810
 #   导入 user_number_v2_*
-#   bash your_script.sh ${GCP_ES_PASS} ${GCP_ES_POD_0} user_number_v2_* '' input 1000 10 /temp/elastic/user_number_v2_20250810
+#   bash elastic.sh ${GCP_ES_PASS} ${GCP_ES_POD_0} user_number_v2_* '' input 1000 10 /temp/elastic/user_number_v2_20250810
+
+echo "执行命令: $0 $*"
 
 # 1. ES 密码
 pass="${1:-${ES_PASS}}"
@@ -843,9 +873,18 @@ url="${2:-${ES_URL}}"
 
 # 3. 导出/导入的主索引名
 index="${3:-bigdata_shipments_all_v6}"
+if [[ "$index" == *"*"* ]]; then
+  index_xxx="${index//\*/xxx}"
+else
+  index_xxx="${index}"
+fi
 
 # 4. 输入索引名（如不指定，默认与index相同）
-input_index="${4:-$index}"
+input_index=''
+# 只有当 $4 和 $index 不一样时才赋值
+if [ "$4" != "$index" ]; then
+  input_index=$4
+fi
 
 # 5. 操作类型：output(导出) 或 input(导入)
 type="${5:-output}"
@@ -890,6 +929,10 @@ shell_script="${13:-/home/wwwroot/www.trackingmore.com/script/queueshell/serverM
 # 14. elasticdump工具路径
 elasticdump="${14:-/usr/local/nodejs/bin/elasticdump}"
 
+# 15. 单进程并发请求数（concurrency），用于 elasticdump 的 --concurrency 参数，默认10
+concurrency="${15:-10}"
+# 备注：concurrency 控制 elasticdump 在单个进程内的并发数，适当调高可提升导出/导入速度，但过高可能导致 ES 压力过大或网络瓶颈。一般建议10~20，视服务器性能和网络情况调整。
+
 # 备注：
 # - 可通过传参覆盖默认值，便于脚本复用和自动化。
 # - 变量顺序与参数顺序一致，便于理解和维护。
@@ -920,11 +963,9 @@ for i in $(seq 0 $((max-1))); do
             continue
         fi
     fi
-    # 执行前输出执行命令，便于调试和日志追踪
-    echo "nohup sh ${shell_script} ${pass} ${elasticdump} ${url} ${type} ${index} ${input_index} ${dir} ${limit} $i $max ${start_time} ${end_time} &>> ${dir}/${index}.${type}${task_label}.$i.${day}.log &"
-    nohup sh ${shell_script} \
-        ${pass} ${elasticdump} ${url} ${type} ${index} ${input_index} ${dir} ${limit} $i $max ${start_time} ${end_time} \
-        &>> ${dir}/${index}.${type}${task_label}.$i.${day}.log &
+    # 执行前输出执行命令，便于调试和日志追踪，为了兼容索引带*的情况，增加引号
+    echo "nohup sh ${shell_script} ${pass} ${elasticdump} ${url} ${type} ${index} ${input_index} ${dir} ${limit} $i $max ${start_time} ${end_time} ${concurrency} &>> ${dir}/${index_xxx}.${type}${task_label}.$i.${day}.log &"
+    nohup sh ${shell_script} ${pass} ${elasticdump} ${url} ${type} ${index} ${input_index} ${dir} ${limit} $i $max ${start_time} ${end_time} ${concurrency} &>> ${dir}/${index_xxx}.${type}${task_label}.$i.${day}.log &
 done
 # # 导出 速度大概是原来 17倍
 # 854000/210=4066.66666667
@@ -1129,5 +1170,46 @@ elasticdump=/usr/local/nodejs/bin/elasticdump
 sh /temp/elastic/elastic.sh ${GCP_ES_PASS} ${GCP_ES_POD_0} ${index} ${index_new} ${input_or_output} 1000 ${max} ${dir} 1738339200 1754740800 ${max_1} ${task} ${shell_script} ${elasticdump}
 
 tail ${dir}/${index}.${input_or_output}.${task}.${max_1}.${day}.log
+
+```
+
+## 20250816
+
+### scanner索引数据迁移-缺失全量数据
+
+```bash
+
+# bash elastic.sh [pass] [url] [index] [input_index] [type] [limit] [max] [dir] [start_time] [end_time] [id] [task_label] [shell_script] [elasticdump]
+
+# 原因：使用了*时间只导出了当天的索引
+#   导出 user_number_v2_*
+#   bash elastic.sh ${ES_PASS} ${ES_URL} user_number_v2_* '' output 1000 1 /temp/elastic/user_number_v2_20250816 1738339200 1754740800 '' all_data_0 '' '' 1
+#   导入 user_number_v2_*
+#   bash elastic.sh ${GCP_ES_PASS} ${GCP_ES_POD_0} user_number_v2_* '' input 1000 1 /temp/elastic/user_number_v2_20250816 1738339200 1754740800 '' all_data_0 '' '' 1
+
+
+# 带*索引拼接多进程执行，传递过程中，出现错误，先直接用一个进程执行
+
+# 1分片
+# 导出
+nohup sh /home/wwwroot/www.trackingmore.com/script/queueshell/serverMigration/elastic_test.sh ${ES_PASS} /usr/local/nodejs/bin/elasticdump ${ES_URL} output 'user_number_v2_*' '' /temp/elastic/user_number_v2_20250816 1000 0 1 '' '' 10 &>> /temp/elastic/user_number_v2_20250816/user_number_v2_xxx.output.all_data.oneprocess.0.20250816.log &
+# 导入
+nohup sh /home/wwwroot/www.trackingmore.com/script/queueshell/serverMigration/elastic_test.sh ${GCP_ES_PASS} /usr/local/nodejs/bin/elasticdump ${GCP_ES_POD_)} input 'user_number_v2_*' '' /temp/elastic/user_number_v2_20250816 1000 0 1 '' '' 10 &>> /temp/elastic/user_number_v2_20250816/user_number_v2_xxx.input.all_data.oneprocess.0.20250816.log &
+
+# 5分片
+# 导出
+nohup sh /home/wwwroot/www.trackingmore.com/script/queueshell/serverMigration/elastic_test.sh ${ES_PASS} /usr/local/nodejs/bin/elasticdump ${ES_URL} output 'user_number_v2_*' '' /temp/elastic/user_number_v2_20250816 1000 0 5 '' '' 10 &>> /temp/elastic/user_number_v2_20250816/user_number_v2_xxx.output.all_data.0.20250816.log &
+nohup sh /home/wwwroot/www.trackingmore.com/script/queueshell/serverMigration/elastic_test.sh ${ES_PASS} /usr/local/nodejs/bin/elasticdump ${ES_URL} output 'user_number_v2_*' '' /temp/elastic/user_number_v2_20250816 1000 1 5 '' '' 10 &>> /temp/elastic/user_number_v2_20250816/user_number_v2_xxx.output.all_data.1.20250816.log &
+nohup sh /home/wwwroot/www.trackingmore.com/script/queueshell/serverMigration/elastic_test.sh ${ES_PASS} /usr/local/nodejs/bin/elasticdump ${ES_URL} output 'user_number_v2_*' '' /temp/elastic/user_number_v2_20250816 1000 2 5 '' '' 10 &>> /temp/elastic/user_number_v2_20250816/user_number_v2_xxx.output.all_data.2.20250816.log &
+
+nohup sh /home/wwwroot/www.trackingmore.com/script/queueshell/serverMigration/elastic_test.sh ${ES_PASS} /usr/local/nodejs/bin/elasticdump ${ES_URL} output 'user_number_v2_*' '' /temp/elastic/user_number_v2_20250816 1000 3 5 '' '' 10 &>> /temp/elastic/user_number_v2_20250816/user_number_v2_xxx.output.all_data.3.20250816.log &
+nohup sh /home/wwwroot/www.trackingmore.com/script/queueshell/serverMigration/elastic_test.sh ${ES_PASS} /usr/local/nodejs/bin/elasticdump ${ES_URL} output 'user_number_v2_*' '' /temp/elastic/user_number_v2_20250816 1000 4 5 '' '' 10 &>> /temp/elastic/user_number_v2_20250816/user_number_v2_xxx.output.all_data.4.20250816.log &
+
+# 导入
+nohup sh /home/wwwroot/www.trackingmore.com/script/queueshell/serverMigration/elastic_test.sh ${GCP_ES_PASS} /usr/local/nodejs/bin/elasticdump ${GCP_ES_POD_0} input 'user_number_v2_*' '' /temp/elastic/user_number_v2_20250816 1000 0 5 '' '' 10 &>> /temp/elastic/user_number_v2_20250816/user_number_v2_xxx.input.all_data.0.20250816.log &
+nohup sh /home/wwwroot/www.trackingmore.com/script/queueshell/serverMigration/elastic_test.sh ${GCP_ES_PASS} /usr/local/nodejs/bin/elasticdump ${GCP_ES_POD_0} input 'user_number_v2_*' '' /temp/elastic/user_number_v2_20250816 1000 1 5 '' '' 10 &>> /temp/elastic/user_number_v2_20250816/user_number_v2_xxx.input.all_data.1.20250816.log &
+nohup sh /home/wwwroot/www.trackingmore.com/script/queueshell/serverMigration/elastic_test.sh ${GCP_ES_PASS} /usr/local/nodejs/bin/elasticdump ${GCP_ES_POD_0} input 'user_number_v2_*' '' /temp/elastic/user_number_v2_20250816 1000 2 5 '' '' 10 &>> /temp/elastic/user_number_v2_20250816/user_number_v2_xxx.input.all_data.2.20250816.log &
+nohup sh /home/wwwroot/www.trackingmore.com/script/queueshell/serverMigration/elastic_test.sh ${GCP_ES_PASS} /usr/local/nodejs/bin/elasticdump ${GCP_ES_POD_0} input 'user_number_v2_*' '' /temp/elastic/user_number_v2_20250816 1000 3 5 '' '' 10 &>> /temp/elastic/user_number_v2_20250816/user_number_v2_xxx.input.all_data.3.20250816.log &
+nohup sh /home/wwwroot/www.trackingmore.com/script/queueshell/serverMigration/elastic_test.sh ${GCP_ES_PASS} /usr/local/nodejs/bin/elasticdump ${GCP_ES_POD_0} input 'user_number_v2_*' '' /temp/elastic/user_number_v2_20250816 1000 4 5 '' '' 10 &>> /temp/elastic/user_number_v2_20250816/user_number_v2_xxx.input.all_data.4.20250816.log &
 
 ```
