@@ -399,25 +399,25 @@ Node.js v20.17.0
 
 # 阿里云生产环境
 export ES_URL=es-cn-cqf2xh6nd0001wben.elasticsearch.aliyuncs.com
-export ES_PASS=Tps2GyFQ6FtMNGpiue
+export ES_PASS=
 
 # gcp测试环境
 export GCP_ES_POD_0_TEST=10.26.2.10
-export GCP_ES_PASS_TEST=F7C93iSY4s4S310jziRA2Fp0
+export GCP_ES_PASS_TEST=
 
 # gcp原生产环境
 export GCP_ES_POD_0_OLD=10.26.2.59
 export GCP_ES_POD_1_OLD=10.26.1.44
 export GCP_ES_POD_2_OLD=10.26.4.239
-export GCP_ES_PASS_OLD_20250808=4K53GXE2B5M8X23aIu01bOLZ
-export GCP_ES_PASS_OLD=7CRhR6y717USiE5l4I90Yf5o
+export GCP_ES_PASS_OLD_20250808=
+export GCP_ES_PASS_OLD=
 
 # gcp现生产环境
 export GCP_ES_URL=10.26.1.25
 export GCP_ES_POD_0=10.26.2.59
 export GCP_ES_POD_1=10.26.1.44
 export GCP_ES_POD_2=10.26.4.239
-export GCP_ES_PASS=2R2EouqS8t1p1854Jz1ADrE8
+export GCP_ES_PASS=
 
 # gcp tracking_webhook 索引用生产环境
 # export GCP_TRACKING_WEBHOOK_ES_POD_0=
@@ -964,8 +964,9 @@ for i in $(seq 0 $((max-1))); do
         fi
     fi
     # 执行前输出执行命令，便于调试和日志追踪，为了兼容索引带*的情况，增加引号
-    echo "nohup sh ${shell_script} ${pass} ${elasticdump} ${url} ${type} ${index} ${input_index} ${dir} ${limit} $i $max ${start_time} ${end_time} ${concurrency} &>> ${dir}/${index_xxx}.${type}${task_label}.$i.${day}.log &"
-    nohup sh ${shell_script} ${pass} ${elasticdump} ${url} ${type} ${index} ${input_index} ${dir} ${limit} $i $max ${start_time} ${end_time} ${concurrency} &>> ${dir}/${index_xxx}.${type}${task_label}.$i.${day}.log &
+    echo "nohup sh \"${shell_script}\" \"${pass}\" \"${elasticdump}\" \"${url}\" \"${type}\" \"${index}\" \"${input_index}\" \"${dir}\" \"${limit}\" \"${i}\" \"${max}\" \"${start_time}\" \"${end_time}\" \"${concurrency}\" &>> ${dir}/${index_xxx}.${type}${task_label}.id_${i}.max_${max}.${day}.log &"
+    # 通过增加双引号包围参数避免当 $input_index 为空时，会导致参数错位，$input_index 会使用 $dir 的值
+    nohup sh "${shell_script}" "${pass}" "${elasticdump}" "${url}" "${type}" "${index}" "${input_index}" "${dir}" "${limit}" "${i}" "${max}" "${start_time}" "${end_time}" "${concurrency}" &>> ${dir}/${index_xxx}.${type}${task_label}.id_${i}.max_${max}.${day}.log &
 done
 # # 导出 速度大概是原来 17倍
 # 854000/210=4066.66666667
@@ -1211,5 +1212,26 @@ nohup sh /home/wwwroot/www.trackingmore.com/script/queueshell/serverMigration/el
 nohup sh /home/wwwroot/www.trackingmore.com/script/queueshell/serverMigration/elastic_test.sh ${GCP_ES_PASS} /usr/local/nodejs/bin/elasticdump ${GCP_ES_POD_0} input 'user_number_v2_*' '' /temp/elastic/user_number_v2_20250816 1000 2 5 '' '' 10 &>> /temp/elastic/user_number_v2_20250816/user_number_v2_xxx.input.all_data.2.20250816.log &
 nohup sh /home/wwwroot/www.trackingmore.com/script/queueshell/serverMigration/elastic_test.sh ${GCP_ES_PASS} /usr/local/nodejs/bin/elasticdump ${GCP_ES_POD_0} input 'user_number_v2_*' '' /temp/elastic/user_number_v2_20250816 1000 3 5 '' '' 10 &>> /temp/elastic/user_number_v2_20250816/user_number_v2_xxx.input.all_data.3.20250816.log &
 nohup sh /home/wwwroot/www.trackingmore.com/script/queueshell/serverMigration/elastic_test.sh ${GCP_ES_PASS} /usr/local/nodejs/bin/elasticdump ${GCP_ES_POD_0} input 'user_number_v2_*' '' /temp/elastic/user_number_v2_20250816 1000 4 5 '' '' 10 &>> /temp/elastic/user_number_v2_20250816/user_number_v2_xxx.input.all_data.4.20250816.log &
+
+```
+
+## 20250818
+
+### 重新导出tracking_webhook（上线验证后操作，避免后续又要重新同步） 
+
+```bash
+
+# 导出
+sh /temp/elastic/elastic.sh ${ES_PASS} ${ES_URL} tracking_webhook '' output 1000 5 /temp/elastic/tracking_webhook_20250818 '' '' '' task_slice_5_concurrency_20 '' '' 20
+# 导入
+sh /temp/elastic/elastic.sh ${GCP_ES_PASS} ${GCP_ES_POD_0} tracking_webhook '' input 1000 5 /temp/elastic/tracking_webhook_20250818 '' '' '' task_slice_5_concurrency_20 '' '' 20
+
+cd /temp/elastic/tracking_webhook_20250818
+
+# 查看导出进度
+tail tracking_webhook.output.task_slice_5_concurrency_20.id_*.max_5.20250818.log
+
+# 查看导入进度
+tail tracking_webhook.input.task_slice_5_concurrency_20.id_*.max_5.20250818.log
 
 ```

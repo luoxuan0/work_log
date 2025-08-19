@@ -4395,5 +4395,11 @@ rst--代码
 		-场景化考虑（出门前手机） --20230615
 			-节点串联成链条因此考虑备份重要节点 --20230617
 
+rst--shell
+	-- 20250818
+		    nohup sh "${shell_script}" "${pass}" "${elasticdump}" "${url}" "${type}" "${index}" "${input_index}" "${dir}" "${limit}" "${i}" "${max}" "${start_time}" "${end_time}" "${concurrency}" &>> ${dir}/${index_xxx}.${type}${task_label}.id_${i}.max_${max}.${day}.log &
+			问题：当 $input_index 为空时，会导致参数错位，$input_index 会使用 $dir 的值
+			解决：通过增加双引号包围参数避免
+
 要举个例子的话，之前金玲说，去掉目的国，又没通知，
 
