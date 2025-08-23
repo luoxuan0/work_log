@@ -1448,6 +1448,37 @@
 【日常响应】
 4，后续优先级、应对
 
+===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== =====
+【告警】
+【客诉】
+【迁云】
+【桌面运维】
+【运维】
+
+20250822
+【告警】
+【安全】
+【运维】
+
+
+原计划：
+【本地】
+1，待优化&专线切换
+【迁云】
+2，流水线
+【安全】
+3，等保复测
+【日常响应】
+4，后续优先级、应对
+
+计划：
+【本地】
+1，待优化&专线切换
+【安全】
+2，等保复测
+【日常响应】
+3，后续优先级、应对
+
 
 近期复盘
 	后续优先级、应对
@@ -9631,6 +9662,12 @@
 											# 确认有待分区的空间
 											fdisk -lu
 											# 分区扩容
+												-- 20250809
+												GPT分区（需安装gdisk工具）
+												type growpart || sudo yum install -y cloud-utils-growpart
+												sudo yum update cloud-utils-growpart
+												type sgdisk || sudo yum install -y gdisk
+												sudo LC_ALL=en_US.UTF-8 growpart /dev/vdb 1 
 											type growpart || yum install -y cloud-utils-growpart
 											growpart is /usr/bin/growpart
 											LC_ALL=en_US.UTF-8 growpart /dev/vda 1
