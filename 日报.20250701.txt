@@ -1510,6 +1510,38 @@
         整改-安全产品检测相关&退订
 
 
+===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== =====
+【告警】
+【客诉】
+【迁云】
+【桌面运维】
+【运维】
+
+20250825
+【告警】
+【安全】
+【运维】
+
+
+原计划：
+【本地】
+1，待优化&专线切换
+【安全】
+2，等保复测
+【日常响应】
+3，后续优先级、应对
+
+计划：
+【本地】上
+1，待优化&专线切换
+【安全】
+2，等保复测-服务器&安全产品检测相关整改
+【运维】
+3，国内手机好删除
+4，国外指定用户运输商状态调整更新频率
+【日常响应】
+5，后续优先级、应对
+
 近期复盘
 	后续优先级、应对
 		4月份
@@ -2708,6 +2740,54 @@
 					-- 解析binlog mysqlbinlog -vv --base64-output=decode-rows <Binlog文件名> | more
 					/usr/bin/mysqlbinlog -vv --base64-output=decode-rows mysql-bin.235454 | more
 		等保复测
+			-- 20250825
+				密码等安全策略调整，需要远程批量执行脚本
+					获取私钥公钥文件
+					ssh-keygen -t ed25519 -C "for_175_send_file" -f ~/.ssh/id_ed25519_for_175_send_file
+
+					cat  ~/.ssh/id_ed25519_for_175_send_file.pub 
+
+
+					# 下面 shell 命令串实现了为 ansible 自动化运维工具创建专用用户，并配置免密码 sudo 权限，具体步骤如下：
+
+					# 1. 创建 ansible 用户并设置密码（已存在则忽略报错）
+					id ansible >/dev/null 2>&1 || useradd ansible; echo "ansible:y4tjyGJ0kue@Dx5%" | chpasswd
+
+					# 2. 设置 ansible 用户的密码为 "y4tjyGJ0kue@Dx5%"，推荐使用更兼容的 chpasswd 方法（适用于大多数 Linux 发行版）：
+					echo "ansible:y4tjyGJ0kue@Dx5%" | chpasswd &&
+
+					# 3. 查看 /etc/sudoers 文件的详细信息（ls lh 可能是 ls -lh 的笔误，应该是查看文件属性）
+					ls -lh /etc/sudoers &&
+
+					# 4. 临时将 /etc/sudoers 权限递归修改为 640（可读写，组可读，其他无权限），以便后续编辑
+					chmod -R 640 /etc/sudoers &&
+
+					# 5. 用 sed 命令在 /etc/sudoers 文件中 "includedir /etc/sudoers.d" 这一行后面插入一行
+					# "ansible ALL=(ALL) NOPASSWD: ALL"，让 ansible 用户可以免密码执行所有 sudo 命令
+					sed -i "s|includedir /etc/sudoers.d|includedir /etc/sudoers.d\n\nansible ALL=(ALL) NOPASSWD: ALL|g" /etc/sudoers &&
+
+					# 6. 再把 /etc/sudoers 权限递归改回 440（只读，防止被随意修改）
+					chmod -R 440 /etc/sudoers &&
+
+					# 7. 输出 /etc/sudoers 文件内容，确认配置是否生效
+					cat /etc/sudoers &&
+
+					# 8. 再次查看 /etc/sudoers 的详细属性，确认权限
+					ls -al /etc/sudoers
+
+					# 总结：这串命令实现了 ansible 用户的创建、密码设置（采用 chpasswd 兼容性更好）、sudo 免密授权，并对 sudoers 文件做了权限保护和内容确认。实际生产环境建议用 visudo 编辑 sudoers，避免语法错误导致 sudo 失效。
+					useradd ansible && echo "ansible:y4tjyGJ0kue@Dx5%" | chpasswd && ls -lh /etc/sudoers && chmod -R 640 /etc/sudoers && sed -i "s|includedir /etc/sudoers.d|includedir /etc/sudoers.d\n\nansible ALL=(ALL) NOPASSWD: ALL|g" /etc/sudoers && chmod -R 440 /etc/sudoers && cat /etc/sudoers && ls -al /etc/sudoers
+
+					id ansible >/dev/null 2>&1 || useradd ansible; echo "ansible:y4tjyGJ0kue@Dx5%" | chpasswd
+					# 如果 /etc/sudoers 中没有 ansible 免密配置，则自动添加
+					grep -q "^ansible ALL=(ALL) NOPASSWD: ALL" /etc/sudoers || (chmod 640 /etc/sudoers && sed -i "/includedir \/etc\/sudoers.d/a ansible ALL=(ALL) NOPASSWD: ALL" /etc/sudoers && chmod 440 /etc/sudoers)
+
+					Host an_data
+					HostName 172.16.30.100
+					User ansible 
+					Port 20480
+					# 指定服务器专用私钥
+					IdentityFile ~/.ssh/id_ed25519_for_175_send_file
 			-- 20250112
 				整改建议
 					项目
@@ -13355,6 +13435,302 @@
 										overlay          40G   32G  5.5G  86% /var/lib/docker/overlay2/057a6789e90dfbb78f90be45f9026db38908a53013a6cc7453d6aa3bdd61b19a/merged
 										tmpfs           169M  4.0K  169M   1% /run/user/1000
 										overlay          40G   32G  5.5G  86% /var/lib/docker/overlay2/6ee34365c0b542225c0f6ae896f68a16f417192add85a522ca83f1b33339e166/merged
+									-- 20250825
+										root@iZ0xiatx34i386h8eslisjZ:~# df -h
+										Filesystem      Size  Used Avail Use% Mounted on
+										tmpfs           169M  1.7M  167M   2% /run
+										/dev/vda3        40G   37G  263M 100% /
+										tmpfs           841M     0  841M   0% /dev/shm
+										tmpfs           5.0M     0  5.0M   0% /run/lock
+										/dev/vda2       197M  6.1M  191M   4% /boot/efi
+										overlay          40G   37G  263M 100% /var/lib/docker/overlay2/3b7dd24fd79e0362c0b275b13480378ab3018183db9b98d0231644a99d270ed9/merged
+										overlay          40G   37G  263M 100% /var/lib/docker/overlay2/9d8ef1653b8762b65c610ac2fe4cd15d79a30a6d269691f7d589e975986b8160/merged
+										overlay          40G   37G  263M 100% /var/lib/docker/overlay2/356345bb73b491c602f52654c0f7d63271b3df045c95e436fccefce83de6f474/merged
+										overlay          40G   37G  263M 100% /var/lib/docker/overlay2/e3c3f89696f734f487acf56e0c7dea88bbe4abe703c7c71b74b4cdff19849060/merged
+										overlay          40G   37G  263M 100% /var/lib/docker/overlay2/ae929d321313ded7d52d63cfa031432822bc6ced867adb4d33043e86fef6242e/merged
+										overlay          40G   37G  263M 100% /var/lib/docker/overlay2/057a6789e90dfbb78f90be45f9026db38908a53013a6cc7453d6aa3bdd61b19a/merged
+										overlay          40G   37G  263M 100% /var/lib/docker/overlay2/6ee34365c0b542225c0f6ae896f68a16f417192add85a522ca83f1b33339e166/merged
+										tmpfs           169M  4.0K  169M   1% /run/user/1000
+										root@iZ0xiatx34i386h8eslisjZ:~# find / -name '*' -type f -size +100M | xargs ls -lh {} | sort -nrk5
+										find: ‘/proc/1968645/task/1968645/fdinfo/6’: No such file or directory
+										find: ‘/proc/1968645/fdinfo/5’: No such file or directory
+										ls: cannot access '{}': No such file or directory
+										-rw-r--r--  1 root root            1000M Jul 13  2024 /home/data/logs/mail/logs/mail-2024-07-13T04-57-09.551.log
+										-rw-r--r--  1 root root            1000M Jul 13 05:34 /home/data/logs/mail/logs/mail-2025-07-12T21-34-41.906.log
+										-rw-r--r--  1 root root            1000M Aug  9 00:58 /home/data/logs/mail/logs/mail-2025-08-08T16-58-05.524.log
+										-rwxr-xr-x  1 root root             952M May  8  2024 /home/data/logs/mail/logs/redisEmailSending/consumer/2024/05/consumer20240507.log
+										-rwxr-xr-x  1 root root             908M May  8  2024 /home/data/logs/mail/logs/emailSending/sendmail/2024/05/sendmail20240507.log
+										-rwxr-xr-x  1 root root             610M May  8  2024 /home/data/logs/mail/logs/redisEmailSending/consumer/2024/05/consumer20240508.log
+										-rw-r--r--  1 root root             606M Aug 25 09:40 /home/data/logs/mail/logs/mail.log
+										-rwxr-xr-x  1 root root             583M May  8  2024 /home/data/logs/mail/logs/emailSending/sendmail/2024/05/sendmail20240508.log
+										-rw-r--r--  1 root root             455M Aug 25 09:40 /root/nginx/logs/mailwebhook.access.log
+										-rwxr-xr-x  1 root root             442M May  8  2024 /home/data/logs/mail/logs/mailgun/webapi/2024/05/webapi20240507.log
+										-rw-------  1 root root             410M Sep 13  2023 /var/lib/docker/overlay2/356345bb73b491c602f52654c0f7d63271b3df045c95e436fccefce83de6f474/merged/tmp/multipart-1283081463
+										-rw-------  1 root root             410M Sep 13  2023 /var/lib/docker/overlay2/356345bb73b491c602f52654c0f7d63271b3df045c95e436fccefce83de6f474/diff/tmp/multipart-1283081463
+										-rw-------  1 root root             410M Sep 12  2023 /var/lib/docker/overlay2/356345bb73b491c602f52654c0f7d63271b3df045c95e436fccefce83de6f474/merged/tmp/multipart-4223124992
+										-rw-------  1 root root             410M Sep 12  2023 /var/lib/docker/overlay2/356345bb73b491c602f52654c0f7d63271b3df045c95e436fccefce83de6f474/merged/tmp/multipart-192762127
+										-rw-------  1 root root             410M Sep 12  2023 /var/lib/docker/overlay2/356345bb73b491c602f52654c0f7d63271b3df045c95e436fccefce83de6f474/diff/tmp/multipart-4223124992
+										-rw-------  1 root root             410M Sep 12  2023 /var/lib/docker/overlay2/356345bb73b491c602f52654c0f7d63271b3df045c95e436fccefce83de6f474/diff/tmp/multipart-192762127
+										-rw-r-----  1 root root             401M Aug 25 09:39 /var/lib/docker/containers/eb9c15cffb1c336f5b2ea0dba66233b2f75cfe39934b3e31b64e22b40b9c9347/eb9c15cffb1c336f5b2ea0dba66233b2f75cfe39934b3e31b64e22b40b9c9347-json.log
+										-rwxr-xr-x  1 root root             282M May  8  2024 /home/data/logs/mail/logs/mailgun/webapi/2024/05/webapi20240508.log
+										-rwxr-xr-x  1 root root             209M Jul 18 08:02 /home/data/logs/mail/logs/tripartiteWebhook/mailgun/2025/07/mailgun20250717.log
+										-rw-r--r--  1 root root             199M Aug 25 09:40 /root/yunxiao/be-tfpyqa22gtndemstnunakvmq/runner/__flow_logs/runner.log
+										-rwxr-xr-x  1 root root             191M Jul  2 07:59 /home/data/logs/mail/logs/tripartiteWebhook/mailgun/2025/07/mailgun20250701.log
+										-rwxr-xr-x  1 root root             182M Jul 19 07:59 /home/data/logs/mail/logs/tripartiteWebhook/mailgun/2025/07/mailgun20250718.log
+										-rwxr-xr-x  1 root root             179M Jun 25 07:59 /home/data/logs/mail/logs/tripartiteWebhook/mailgun/2025/06/mailgun20250624.log
+										-rwxr-xr-x  1 root root             178M Jun 24 07:59 /home/data/logs/mail/logs/tripartiteWebhook/mailgun/2025/06/mailgun20250623.log
+										-rwxr-xr-x  1 root root             175M Jul  3 07:59 /home/data/logs/mail/logs/tripartiteWebhook/mailgun/2025/07/mailgun20250702.log
+										-rw-r-----  1 root root             162M Aug 14 03:55 /var/lib/docker/containers/0b17a6088007d19f80480982810a38baf84bcd035fb15e729716d0b69f176e45/0b17a6088007d19f80480982810a38baf84bcd035fb15e729716d0b69f176e45-json.log
+										-rwxr-xr-x  1 root root             161M Jun 26 07:59 /home/data/logs/mail/logs/tripartiteWebhook/mailgun/2025/06/mailgun20250625.log
+										-rwxr-xr-x  1 root root             161M Aug 20 07:59 /home/data/logs/mail/logs/tripartiteWebhook/mailgun/2025/08/mailgun20250819.log
+										-rwxr-xr-x  1 root root             155M Aug  8 07:59 /home/data/logs/mail/logs/tripartiteWebhook/mailgun/2025/08/mailgun20250807.log
+										-rwxr-xr-x  1 root root             155M Aug  6 07:59 /home/data/logs/mail/logs/tripartiteWebhook/mailgun/2025/08/mailgun20250805.log
+										-rwxr-xr-x  1 root root             152M Jul 16 07:59 /home/data/logs/mail/logs/tripartiteWebhook/mailgun/2025/07/mailgun20250715.log
+										-rwxr-xr-x  1 root root             150M Jun 28 07:59 /home/data/logs/mail/logs/tripartiteWebhook/mailgun/2025/06/mailgun20250627.log
+										-rwxr-xr-x  1 root root             149M Aug 21 07:59 /home/data/logs/mail/logs/tripartiteWebhook/mailgun/2025/08/mailgun20250820.log
+										-rwxr-xr-x  1 root root             149M Aug 13 07:59 /home/data/logs/mail/logs/tripartiteWebhook/mailgun/2025/08/mailgun20250812.log
+										-rwxr-xr-x  1 root root             148M Aug  1 07:59 /home/data/logs/mail/logs/tripartiteWebhook/mailgun/2025/07/mailgun20250731.log
+										-rwxr-xr-x  1 root root             147M Aug  9 07:59 /home/data/logs/mail/logs/tripartiteWebhook/mailgun/2025/08/mailgun20250808.log
+										-rwxr-xr-x  1 root root             146M Jun 27 07:59 /home/data/logs/mail/logs/tripartiteWebhook/mailgun/2025/06/mailgun20250626.log
+										-rwxr-xr-x  1 root root             146M Aug 14 07:59 /home/data/logs/mail/logs/tripartiteWebhook/mailgun/2025/08/mailgun20250813.log
+										-rwxr-xr-x  1 root root             144M Aug  7 07:59 /home/data/logs/mail/logs/tripartiteWebhook/mailgun/2025/08/mailgun20250806.log
+										-rwxr-xr-x  1 root root             143M Jul  4 07:59 /home/data/logs/mail/logs/tripartiteWebhook/mailgun/2025/07/mailgun20250703.log
+										-rwxr-xr-x  1 root root             139M Aug 15 07:59 /home/data/logs/mail/logs/tripartiteWebhook/mailgun/2025/08/mailgun20250814.log
+										-rwxr-xr-x  1 root root             137M Jul 30 07:59 /home/data/logs/mail/logs/tripartiteWebhook/mailgun/2025/07/mailgun20250729.log
+										-rwxr-xr-x  1 root root             137M Jul 17 07:59 /home/data/logs/mail/logs/tripartiteWebhook/mailgun/2025/07/mailgun20250716.log
+										-rwxr-xr-x  1 root root             137M Aug 19 07:59 /home/data/logs/mail/logs/tripartiteWebhook/mailgun/2025/08/mailgun20250818.log
+										-rwxr-xr-x  1 root root             135M Jul 23 07:59 /home/data/logs/mail/logs/tripartiteWebhook/mailgun/2025/07/mailgun20250722.log
+										-rwxr-xr-x  1 root root             135M Aug 16 07:59 /home/data/logs/mail/logs/tripartiteWebhook/mailgun/2025/08/mailgun20250815.log
+										-rwxr-xr-x  1 root root             132M Aug 23 07:59 /home/data/logs/mail/logs/tripartiteWebhook/mailgun/2025/08/mailgun20250822.log
+										-rwxr-xr-x  1 root root             131M Aug 12 07:59 /home/data/logs/mail/logs/tripartiteWebhook/mailgun/2025/08/mailgun20250811.log
+										-rwxr-xr-x  1 root root             130M Jul 24 07:59 /home/data/logs/mail/logs/tripartiteWebhook/mailgun/2025/07/mailgun20250723.log
+										-rwxr-xr-x  1 root root             129M Feb 12  2023 /var/lib/docker/overlay2/cc770c5bccf7c2717483c6b962a5e1b47caecbf4383f4ef75b35f952bd74c795/diff/usr/share/filebeat/filebeat
+										-rwxr-xr-x  1 root root             128M Jul 31 07:59 /home/data/logs/mail/logs/tripartiteWebhook/mailgun/2025/07/mailgun20250730.log
+										-rw-r-----+ 1 root systemd-journal  128M May 28 18:30 /var/log/journal/20220824155104035200373293129636/system@0da4919d422044749a69078ca00a1455-00000000231648cc-000635b0681a4a95.journal
+										-rw-r-----+ 1 root systemd-journal  128M May 22 10:40 /var/log/journal/20220824155104035200373293129636/system@0da4919d422044749a69078ca00a1455-000000002313f8dc-00063531179e1fda.journal
+										-rw-r-----+ 1 root systemd-journal  128M Jun  4 02:23 /var/log/journal/20220824155104035200373293129636/system@0da4919d422044749a69078ca00a1455-00000000231898ab-0006362fac0d3b04.journal
+										-rw-r-----+ 1 root systemd-journal  128M Jun 26 20:36 /var/log/journal/20220824155104035200373293129636/system@0da4919d422044749a69078ca00a1455-000000002321d841-0006382d13c222cd.journal
+										-rw-r-----+ 1 root systemd-journal  128M Jun 23 02:15 /var/log/journal/20220824155104035200373293129636/system@0da4919d422044749a69078ca00a1455-00000000231f8896-000637adb52d9574.journal
+										-rw-r-----+ 1 root systemd-journal  128M Jun 16 18:17 /var/log/journal/20220824155104035200373293129636/system@0da4919d422044749a69078ca00a1455-00000000231d3897-0006372e5d7756b1.journal
+										-rw-r-----+ 1 root systemd-journal  128M Jun 10 10:22 /var/log/journal/20220824155104035200373293129636/system@0da4919d422044749a69078ca00a1455-00000000231ae8a0-000636aefa59f440.journal
+										-rw-r-----+ 1 root systemd-journal  128M Jul  7 22:39 /var/log/journal/20220824155104035200373293129636/system@ee60e1b9467d45f59744dcab8609b7fc-0000000023245e74-000638f67993b747.journal
+										-rw-r-----+ 1 root systemd-journal  128M Jul 31 05:46 /var/log/journal/20220824155104035200373293129636/system@ee60e1b9467d45f59744dcab8609b7fc-0000000023337572-00063ad39443aec5.journal
+										-rw-r-----+ 1 root systemd-journal  128M Jul 22 06:53 /var/log/journal/20220824155104035200373293129636/system@ee60e1b9467d45f59744dcab8609b7fc-00000000232f2f77-00063a2b06f97138.journal
+										-rw-r-----+ 1 root systemd-journal  128M Jul 11 20:04 /var/log/journal/20220824155104035200373293129636/system@ee60e1b9467d45f59744dcab8609b7fc-000000002326b325-00063957cffac796.journal
+										-rw-r-----+ 1 root systemd-journal  128M Aug  4 01:00 /var/log/journal/20220824155104035200373293129636/system@ee60e1b9467d45f59744dcab8609b7fc-000000002335bf5a-00063b2c7629cd67.journal
+										-rw-r-----+ 1 root systemd-journal  128M Aug 19 19:33 /var/log/journal/20220824155104035200373293129636/system@ee60e1b9467d45f59744dcab8609b7fc-000000002343fadf-00063c5c21aee734.journal
+										-rw-r-----+ 1 root systemd-journal  128M Aug 15 01:07 /var/log/journal/20220824155104035200373293129636/system@ee60e1b9467d45f59744dcab8609b7fc-00000000233c4760-00063beb43d8345e.journal
+										-r--------  1 root root             128T Jul  1 09:29 /proc/kcore
+										-rwxr-xr-x  1 root root             127M Jul 25 07:59 /home/data/logs/mail/logs/tripartiteWebhook/mailgun/2025/07/mailgun20250724.log
+										-rwxr-xr-x  1 root root             125M Jul 26 07:59 /home/data/logs/mail/logs/tripartiteWebhook/mailgun/2025/07/mailgun20250725.log
+										-rwxr-xr-x  1 root root             125M Jul 12 07:59 /home/data/logs/mail/logs/tripartiteWebhook/mailgun/2025/07/mailgun20250711.log
+										-rwxr-xr-x  1 root root             125M Aug  2 07:59 /home/data/logs/mail/logs/tripartiteWebhook/mailgun/2025/08/mailgun20250801.log
+										-rwxr-xr-x  1 root root             124M Aug  5 07:59 /home/data/logs/mail/logs/tripartiteWebhook/mailgun/2025/08/mailgun20250804.log
+										-rwxr-xr-x  1 root root             120M Jul 22 07:59 /home/data/logs/mail/logs/tripartiteWebhook/mailgun/2025/07/mailgun20250721.log
+										-rw-r-----+ 1 root systemd-journal  120M Aug 24 06:54 /var/log/journal/20220824155104035200373293129636/system@ee60e1b9467d45f59744dcab8609b7fc-000000002346466a-00063cb63b3ca37e.journal
+										-rwxr-xr-x  1 root root             118M Jul 29 07:59 /home/data/logs/mail/logs/tripartiteWebhook/mailgun/2025/07/mailgun20250728.log
+										-rwxr-xr-x  1 root root             116M Jul 11 07:59 /home/data/logs/mail/logs/tripartiteWebhook/mailgun/2025/07/mailgun20250710.log
+										-rwxr-xr-x  1 root root             115M Aug 22 07:59 /home/data/logs/mail/logs/tripartiteWebhook/mailgun/2025/08/mailgun20250821.log
+										-rwxr-xr-x  1 root root             113M Jun 29 07:59 /home/data/logs/mail/logs/tripartiteWebhook/mailgun/2025/06/mailgun20250628.log
+										-rwxr-xr-x  1 root root             113M Jul 15 07:59 /home/data/logs/mail/logs/tripartiteWebhook/mailgun/2025/07/mailgun20250714.log
+										-rw-r-----+ 1 root systemd-journal  112M Jul 26 09:49 /var/log/journal/20220824155104035200373293129636/system@ee60e1b9467d45f59744dcab8609b7fc-0000000023316c8e-00063a7859e40977.journal
+										-rw-r-----+ 1 root systemd-journal  112M Jul  1 09:29 /var/log/journal/20220824155104035200373293129636/system@000638d4143797b0-ae2852324e78bc37.journal~
+										-rw-r-----+ 1 root systemd-journal  112M Aug  7 04:35 /var/log/journal/20220824155104035200373293129636/system@ee60e1b9467d45f59744dcab8609b7fc-000000002337fc7e-00063b78eefa423b.journal
+										-rw-------  1 root root             112M Sep 12  2023 /var/lib/docker/overlay2/356345bb73b491c602f52654c0f7d63271b3df045c95e436fccefce83de6f474/merged/tmp/multipart-3480601607
+										-rw-------  1 root root             112M Sep 12  2023 /var/lib/docker/overlay2/356345bb73b491c602f52654c0f7d63271b3df045c95e436fccefce83de6f474/diff/tmp/multipart-3480601607
+										-rw-r--r--  1 root root             111M Aug 25 09:39 /root/nginx/logs/host.access.log
+										-rwxr-xr-x  1 root root             110M Jul  5 04:27 /home/data/logs/mail/logs/tripartiteWebhook/mailgun/2025/07/mailgun20250704.log
+										-rwxr-xr-x  1 root root             105M Aug  3 07:59 /home/data/logs/mail/logs/tripartiteWebhook/mailgun/2025/08/mailgun20250802.log
+										-rw-r-----+ 1 root systemd-journal  104M Jul 16 15:40 /var/log/journal/20220824155104035200373293129636/system@ee60e1b9467d45f59744dcab8609b7fc-00000000232b10c9-000639dafe6c1e02.journal
+										-rw-r-----+ 1 root systemd-journal  104M Jul 14 11:09 /var/log/journal/20220824155104035200373293129636/system@ee60e1b9467d45f59744dcab8609b7fc-000000002328f196-000639a61ce76e19.journal
+										-rw-r-----+ 1 root systemd-journal  104M Aug  9 17:25 /var/log/journal/20220824155104035200373293129636/system@ee60e1b9467d45f59744dcab8609b7fc-00000000233a292d-00063bb8478a164f.journal
+										-rw-r-----  1 root root             2.1G Jul  1 02:52 /var/lib/docker/containers/4d4c3d0728c9690473fc69c41a5143f8331e1324097a55fd4197b4cb99a75fd7/4d4c3d0728c9690473fc69c41a5143f8331e1324097a55fd4197b4cb99a75fd7-json.log
+										-rw-r-----  1 root root             1.5G Jul  1 02:52 /var/lib/docker/containers/4d0259f8382eff660b4044163a7c9971277d975f957e9af839a2a9cf1de08679/4d0259f8382eff660b4044163a7c9971277d975f957e9af839a2a9cf1de08679-json.log
+										-rw-r-----  1 root root             1.5G Aug 25 09:40 /var/lib/docker/containers/4bb73a2f2b27b271be8baae34ea0708aa3e73fb213db12844eaf82b8d66a65a8/4bb73a2f2b27b271be8baae34ea0708aa3e73fb213db12844eaf82b8d66a65a8-json.log
+										root@iZ0xiatx34i386h8eslisjZ:~# head /var/lib/docker/containers/4bb73a2f2b27b271be8baae34ea0708aa3e73fb213db12844eaf82b8d66a65a8/4bb73a2f2b27b271be8baae34ea0708aa3e73fb213db12844eaf82b8d66a65a8-json.log
+
+										{"log":"2025/08/15 00:44:15 {\"level\":\"INFO\",\"msg\":{\"info\":\"controller_receiveWebhooks message\",\"message\":{\"event-data\":{\"campaigns\":null,\"delivery-status\":{\"attempt-no\":0,\"certificate-verified\":false,\"code\":0,\"description\":\"\",\"enhanced-code\":\"\",\"message\":\"\",\"mx-host\":\"\",\"session-seconds\":0,\"tls\":false},\"envelope\":{\"sender\":\"help@bodymod.support\",\"sending-ip\":\"\",\"targets\":\"killerego9@aol.com\",\"transport\":\"smtp\"},\"event\":\"accepted\",\"flags\":{\"is-authenticated\":true,\"is-big\":false,\"is-routed\":false,\"is-system-test\":false,\"is-test-mode\":false},\"id\":\"zLvAyvs2QMi8JkolaYyosQ\",\"log-level\":\"info\",\"message\":{\"attachments\":null,\"headers\":{\"from\":\"Bodymod \\u003chelp@bodymod.support\\u003e\",\"message-id\":\"4da05baefcbd4a506a57815b3fbf84aa@iz0xi02hsc7wma1fw7ni9cz\",\"subject\":\"Your order US100825-105009-67 has been delivered\",\"to\":\"killerego9@aol.com\"},\"size\":8452},\"recipient\":\"killerego9@aol.com\",\"recipient-domain\":\"aol.com\",\"storage\":{\"key\":\"BAABAAVDmScv8ar9JopJDLrO_Tk3Uf16Yw\",\"url\":\"https://storage-us-east4.api.mailgun.net/v3/domains/edms.trackingmore.com/messages/BAABAAVDmScv8ar9JopJDLrO_Tk3Uf16Yw\"},\"tags\":[],\"timestamp\":1755218655.115419,\"user-variables\":{}},\"signature\":{\"signature\":\"944ee16f0756739b8491b5743665e8c7ff7197ab5d3f88d6ee573f0fabfa3f16\",\"timestamp\":\"1755218655\",\"token\":\"1d4ee23341ff39ff6f2f43c086441c0e005e1e3d4f06669d26\"}}},\"time\":\"2025/08/15 00:44:15\"}\n","stream":"stderr","time":"2025-08-15T00:44:15.26013853Z"}
+										{"log":"2025/08/15 00:44:15 {\"level\":\"INFO\",\"msg\":{\"emailSendingRecords\":{\"id\":0,\"email_sending_number\":0,\"email_send_rule_id\":0,\"appid\":\"\",\"message_id\":\"\",\"mail_sending_mode\":0,\"email_template_type\":0,\"email_number\":\"\",\"from_email\":\"\",\"from_name\":\"\",\"subject\":\"\",\"content\":\"\",\"reply_address\":\"\",\"reply_address_alias\":\"\",\"unsubscribe_url\":\"\",\"email_event\":0,\"retry_count\":0,\"create_time\":0,\"update_time\":0},\"error\":{},\"messageId\":\"\\u003c4da05baefcbd4a506a57815b3fbf84aa@iz0xi02hsc7wma1fw7ni9cz\\u003e\",\"msg\":\"controller_receiveWebhooks.ReceiveMailgunWebhooks(GetEmailSendingRecordByMessageId) get emailSendingRecords error\"},\"time\":\"2025/08/15 00:44:15\"}\n","stream":"stderr","time":"2025-08-15T00:44:15.26200809Z"}
+										{"log":"2025/08/15 00:44:16 {\"level\":\"INFO\",\"msg\":{\"info\":\"controller_receiveWebhooks message\",\"message\":{\"event-data\":{\"campaigns\":[],\"delivery-status\":{\"attempt-no\":1,\"certificate-verified\":true,\"code\":250,\"description\":\"\",\"enhanced-code\":\"\",\"message\":\"OK\",\"mx-host\":\"mx-aol.mail.gm0.yahoodns.net\",\"session-seconds\":1.654,\"tls\":true},\"envelope\":{\"sender\":\"help@bodymod.support\",\"sending-ip\":\"69.72.42.164\",\"targets\":\"killerego9@aol.com\",\"transport\":\"smtp\"},\"event\":\"delivered\",\"flags\":{\"is-authenticated\":true,\"is-big\":false,\"is-routed\":false,\"is-system-test\":false,\"is-test-mode\":false},\"id\":\"IyYlU24qSV2b-eEf-zYV3A\",\"log-level\":\"info\",\"message\":{\"attachments\":[],\"headers\":{\"from\":\"Bodymod \\u003chelp@bodymod.support\\u003e\",\"message-id\":\"4da05baefcbd4a506a57815b3fbf84aa@iz0xi02hsc7wma1fw7ni9cz\",\"subject\":\"Your order US100825-105009-67 has been delivered\",\"to\":\"killerego9@aol.com\"},\"size\":8452},\"recipient\":\"killerego9@aol.com\",\"recipient-domain\":\"aol.com\",\"storage\":{\"key\":\"BAABAAVDmScv8ar9JopJDLrO_Tk3Uf16Yw\",\"url\":\"https://storage-us-east4.api.mailgun.net/v3/domains/edms.trackingmore.com/messages/BAABAAVDmScv8ar9JopJDLrO_Tk3Uf16Yw\"},\"tags\":[],\"timestamp\":1755218656.767011,\"user-variables\":{}},\"signature\":{\"signature\":\"2e9d8cf490d51c13cbd892febe1d47a25dd5e84716eb0de5d010eb3bca0a9cb2\",\"timestamp\":\"1755218656\",\"token\":\"c6c049a61040631768c5d0f5f9f7f9b34e7ba126d399c8f549\"}}},\"time\":\"2025/08/15 00:44:16\"}\n","stream":"stderr","time":"2025-08-15T00:44:16.846301085Z"}
+										{"log":"2025/08/15 00:44:16 {\"level\":\"INFO\",\"msg\":{\"emailSendingRecords\":{\"id\":0,\"email_sending_number\":0,\"email_send_rule_id\":0,\"appid\":\"\",\"message_id\":\"\",\"mail_sending_mode\":0,\"email_template_type\":0,\"email_number\":\"\",\"from_email\":\"\",\"from_name\":\"\",\"subject\":\"\",\"content\":\"\",\"reply_address\":\"\",\"reply_address_alias\":\"\",\"unsubscribe_url\":\"\",\"email_event\":0,\"retry_count\":0,\"create_time\":0,\"update_time\":0},\"error\":{},\"messageId\":\"\\u003c4da05baefcbd4a506a57815b3fbf84aa@iz0xi02hsc7wma1fw7ni9cz\\u003e\",\"msg\":\"controller_receiveWebhooks.ReceiveMailgunWebhooks(GetEmailSendingRecordByMessageId) get emailSendingRecords error\"},\"time\":\"2025/08/15 00:44:16\"}\n","stream":"stderr","time":"2025-08-15T00:44:16.848073382Z"}
+										{"log":"2025/08/15 00:44:18 {\"level\":\"INFO\",\"msg\":{\"info\":\"controller_receiveWebhooks message\",\"message\":{\"event-data\":{\"campaigns\":[],\"delivery-status\":{\"attempt-no\":0,\"certificate-verified\":false,\"code\":0,\"description\":\"\",\"enhanced-code\":\"\",\"message\":\"\",\"mx-host\":\"\",\"session-seconds\":0,\"tls\":false},\"envelope\":{\"sender\":\"\",\"sending-ip\":\"\",\"targets\":\"\",\"transport\":\"\"},\"event\":\"opened\",\"flags\":{\"is-authenticated\":false,\"is-big\":false,\"is-routed\":false,\"is-system-test\":false,\"is-test-mode\":false},\"id\":\"SkE2MbhVTd65-obJWBAgwg\",\"log-level\":\"info\",\"message\":{\"attachments\":null,\"headers\":{\"from\":\"\",\"message-id\":\"11c3c84506a0cdc63975c430d6a34752@battlefitgear.com\",\"subject\":\"\",\"to\":\"\"},\"size\":0},\"recipient\":\"trevorsorensen510@gmail.com\",\"recipient-domain\":\"gmail.com\",\"storage\":{\"key\":\"\",\"url\":\"\"},\"tags\":[],\"timestamp\":1755218658.3956666,\"user-variables\":{}},\"signature\":{\"signature\":\"60e53caea2a079b5b401c60cc57248ce62abaed98dc8eda6d6fb39f1b2d40f2a\",\"timestamp\":\"1755218658\",\"token\":\"a9c0bc41f6af05c467a2c7321b238a8031f89a05f5e91d4a3d\"}}},\"time\":\"2025/08/15 00:44:18\"}\n","stream":"stderr","time":"2025-08-15T00:44:18.503983159Z"}
+										{"log":"2025/08/15 00:44:18 {\"level\":\"INFO\",\"msg\":{\"emailSendingRecords\":{\"id\":0,\"email_sending_number\":0,\"email_send_rule_id\":0,\"appid\":\"\",\"message_id\":\"\",\"mail_sending_mode\":0,\"email_template_type\":0,\"email_number\":\"\",\"from_email\":\"\",\"from_name\":\"\",\"subject\":\"\",\"content\":\"\",\"reply_address\":\"\",\"reply_address_alias\":\"\",\"unsubscribe_url\":\"\",\"email_event\":0,\"retry_count\":0,\"create_time\":0,\"update_time\":0},\"error\":{},\"messageId\":\"\\u003c11c3c84506a0cdc63975c430d6a34752@battlefitgear.com\\u003e\",\"msg\":\"controller_receiveWebhooks.ReceiveMailgunWebhooks(GetEmailSendingRecordByMessageId) get emailSendingRecords error\"},\"time\":\"2025/08/15 00:44:18\"}\n","stream":"stderr","time":"2025-08-15T00:44:18.50580344Z"}
+										{"log":"2025/08/15 00:44:19 {\"level\":\"INFO\",\"msg\":{\"info\":\"controller_receiveWebhooks message\",\"message\":{\"event-data\":{\"campaigns\":[],\"delivery-status\":{\"attempt-no\":0,\"certificate-verified\":false,\"code\":0,\"description\":\"\",\"enhanced-code\":\"\",\"message\":\"\",\"mx-host\":\"\",\"session-seconds\":0,\"tls\":false},\"envelope\":{\"sender\":\"\",\"sending-ip\":\"\",\"targets\":\"\",\"transport\":\"\"},\"event\":\"opened\",\"flags\":{\"is-authenticated\":false,\"is-big\":false,\"is-routed\":false,\"is-system-test\":false,\"is-test-mode\":false},\"id\":\"U2Ja4MJfSnCyH_xDtUsANQ\",\"log-level\":\"info\",\"message\":{\"attachments\":null,\"headers\":{\"from\":\"\",\"message-id\":\"7dd4145600ef196533ddf510733afd95@iz0xi02hsc7wma1fw7ni9cz\",\"subject\":\"\",\"to\":\"\"},\"size\":0},\"recipient\":\"laurelinterprets@yahoo.com\",\"recipient-domain\":\"yahoo.com\",\"storage\":{\"key\":\"\",\"url\":\"\"},\"tags\":[],\"timestamp\":1755218659.0280035,\"user-variables\":{}},\"signature\":{\"signature\":\"1cec5a99cf96c533cf39721877bb2aeb88e01274dc9e23ae92c09fae2df8f905\",\"timestamp\":\"1755218659\",\"token\":\"9e8905224e1599919ccaed60791cd694b721493181840cfc11\"}}},\"time\":\"2025/08/15 00:44:19\"}\n","stream":"stderr","time":"2025-08-15T00:44:19.098406956Z"}
+										{"log":"2025/08/15 00:44:19 {\"level\":\"INFO\",\"msg\":{\"emailSendingRecords\":{\"id\":0,\"email_sending_number\":0,\"email_send_rule_id\":0,\"appid\":\"\",\"message_id\":\"\",\"mail_sending_mode\":0,\"email_template_type\":0,\"email_number\":\"\",\"from_email\":\"\",\"from_name\":\"\",\"subject\":\"\",\"content\":\"\",\"reply_address\":\"\",\"reply_address_alias\":\"\",\"unsubscribe_url\":\"\",\"email_event\":0,\"retry_count\":0,\"create_time\":0,\"update_time\":0},\"error\":{},\"messageId\":\"\\u003c7dd4145600ef196533ddf510733afd95@iz0xi02hsc7wma1fw7ni9cz\\u003e\",\"msg\":\"controller_receiveWebhooks.ReceiveMailgunWebhooks(GetEmailSendingRecordByMessageId) get emailSendingRecords error\"},\"time\":\"2025/08/15 00:44:19\"}\n","stream":"stderr","time":"2025-08-15T00:44:19.100399319Z"}
+										{"log":"2025/08/15 00:44:21 {\"level\":\"INFO\",\"msg\":{\"info\":\"controller_receiveWebhooks message\",\"message\":{\"event-data\":{\"campaigns\":[],\"delivery-status\":{\"attempt-no\":0,\"certificate-verified\":false,\"code\":0,\"description\":\"\",\"enhanced-code\":\"\",\"message\":\"\",\"mx-host\":\"\",\"session-seconds\":0,\"tls\":false},\"envelope\":{\"sender\":\"\",\"sending-ip\":\"\",\"targets\":\"\",\"transport\":\"\"},\"event\":\"clicked\",\"flags\":{\"is-authenticated\":false,\"is-big\":false,\"is-routed\":false,\"is-system-test\":false,\"is-test-mode\":false},\"id\":\"WFZTo4igSFiCaayLYxnPrA\",\"log-level\":\"info\",\"message\":{\"attachments\":null,\"headers\":{\"from\":\"\",\"message-id\":\"a56885c06314aad21abbc13e6ac31d57@suzitee.com\",\"subject\":\"\",\"to\":\"\"},\"size\":0},\"recipient\":\"carolanestor@gmail.com\",\"recipient-domain\":\"gmail.com\",\"storage\":{\"key\":\"\",\"url\":\"\"},\"tags\":[],\"timestamp\":1755218661.4664097,\"user-variables\":{}},\"signature\":{\"signature\":\"b0679a1ba101f3caaed8ea8ac8c7a764faa3ad653a64dc0f0c171ce90a4552ce\",\"timestamp\":\"1755218661\",\"token\":\"2b44baf78036699169420f5e982940db314d7daffa57d24b22\"}}},\"time\":\"2025/08/15 00:44:21\"}\n","stream":"stderr","time":"2025-08-15T00:44:21.550599805Z"}
+										root@iZ0xiatx34i386h8eslisjZ:~# tail /var/lib/docker/containers/4bb73a2f2b27b271be8baae34ea0708aa3e73fb213db12844eaf82b8d66a65a8/4bb73a2f2b27b271be8baae34ea0708aa3e73fb213db12844eaf82b8d66a65a8-json.log
+										{"log":"2025/08/25 01:50:43 {\"level\":\"INFO\",\"msg\":{\"info\":\"controller_receiveWebhooks message\",\"message\":{\"event-data\":{\"campaigns\":[],\"delivery-status\":{\"attempt-no\":0,\"certificate-verified\":false,\"code\":0,\"description\":\"\",\"enhanced-code\":\"\",\"message\":\"\",\"mx-host\":\"\",\"session-seconds\":0,\"tls\":false},\"envelope\":{\"sender\":\"\",\"sending-ip\":\"\",\"targets\":\"\",\"transport\":\"\"},\"event\":\"clicked\",\"flags\":{\"is-authenticated\":false,\"is-big\":false,\"is-routed\":false,\"is-system-test\":false,\"is-test-mode\":false},\"id\":\"ZPyW89iJTnSuBdOZi7qKgg\",\"log-level\":\"info\",\"message\":{\"attachments\":null,\"headers\":{\"from\":\"\",\"message-id\":\"b5d527b2a143f38590ff7814c1b06c9b@masoncoy.com\",\"subject\":\"\",\"to\":\"\"},\"size\":0},\"recipient\":\"chuckbrown-sv@hotmail.com\",\"recipient-domain\":\"hotmail.com\",\"storage\":{\"key\":\"\",\"url\":\"\"},\"tags\":[],\"timestamp\":1756086643.8520157,\"user-variables\":{}},\"signature\":{\"signature\":\"767bbb1267183667e82427a0b0919f5c3d624f4a46fbe183cc733eed3ae9fbbb\",\"timestamp\":\"1756086643\",\"token\":\"add92af5827c92927f285013e04f2aefff539ebe1b347e9935\"}}},\"time\":\"2025/08/25 01:50:43\"}\n","stream":"stderr","time":"2025-08-25T01:50:43.889668364Z"}
+										{"log":"2025/08/25 01:50:43 {\"level\":\"INFO\",\"msg\":{\"emailSendingRecords\":{\"id\":0,\"email_sending_number\":0,\"email_send_rule_id\":0,\"appid\":\"\",\"message_id\":\"\",\"mail_sending_mode\":0,\"email_template_type\":0,\"email_number\":\"\",\"from_email\":\"\",\"from_name\":\"\",\"subject\":\"\",\"content\":\"\",\"reply_address\":\"\",\"reply_address_alias\":\"\",\"unsubscribe_url\":\"\",\"email_event\":0,\"retry_count\":0,\"create_time\":0,\"update_time\":0},\"error\":{},\"messageId\":\"\\u003cb5d527b2a143f38590ff7814c1b06c9b@masoncoy.com\\u003e\",\"msg\":\"controller_receiveWebhooks.ReceiveMailgunWebhooks(GetEmailSendingRecordByMessageId) get emailSendingRecords error\"},\"time\":\"2025/08/25 01:50:43\"}\n","stream":"stderr","time":"2025-08-25T01:50:43.892275556Z"}
+										{"log":"2025/08/25 01:50:45 {\"level\":\"INFO\",\"msg\":{\"info\":\"controller_receiveWebhooks message\",\"message\":{\"event-data\":{\"campaigns\":[],\"delivery-status\":{\"attempt-no\":0,\"certificate-verified\":false,\"code\":0,\"description\":\"\",\"enhanced-code\":\"\",\"message\":\"\",\"mx-host\":\"\",\"session-seconds\":0,\"tls\":false},\"envelope\":{\"sender\":\"\",\"sending-ip\":\"\",\"targets\":\"\",\"transport\":\"\"},\"event\":\"opened\",\"flags\":{\"is-authenticated\":false,\"is-big\":false,\"is-routed\":false,\"is-system-test\":false,\"is-test-mode\":false},\"id\":\"S7i6l5acTIWgnewLUKYlRw\",\"log-level\":\"info\",\"message\":{\"attachments\":null,\"headers\":{\"from\":\"\",\"message-id\":\"20250825013921.b62ac132148b6eb6@edms.trackingmore.com\",\"subject\":\"\",\"to\":\"\"},\"size\":0},\"recipient\":\"nameverify282@gmail.com\",\"recipient-domain\":\"gmail.com\",\"storage\":{\"key\":\"\",\"url\":\"\"},\"tags\":[],\"timestamp\":1756086645.7411652,\"user-variables\":{}},\"signature\":{\"signature\":\"f72c5a9d9f59a160c75a014a4f13a23d3cd6e210e0957e8234d54da395b993d5\",\"timestamp\":\"1756086645\",\"token\":\"035f853932ce89a76ea011d574551fe3972629ff3964f0e7b8\"}}},\"time\":\"2025/08/25 01:50:45\"}\n","stream":"stderr","time":"2025-08-25T01:50:45.931066499Z"}
+										{"log":"2025/08/25 01:50:45 {\"level\":\"INFO\",\"msg\":{\"emailSendingRecords\":{\"id\":0,\"email_sending_number\":0,\"email_send_rule_id\":0,\"appid\":\"\",\"message_id\":\"\",\"mail_sending_mode\":0,\"email_template_type\":0,\"email_number\":\"\",\"from_email\":\"\",\"from_name\":\"\",\"subject\":\"\",\"content\":\"\",\"reply_address\":\"\",\"reply_address_alias\":\"\",\"unsubscribe_url\":\"\",\"email_event\":0,\"retry_count\":0,\"create_time\":0,\"update_time\":0},\"error\":{},\"messageId\":\"\\u003c20250825013921.b62ac132148b6eb6@edms.trackingmore.com\\u003e\",\"msg\":\"controller_receiveWebhooks.ReceiveMailgunWebhooks(GetEmailSendingRecordByMessageId) get emailSendingRecords error\"},\"time\":\"2025/08/25 01:50:45\"}\n","stream":"stderr","time":"2025-08-25T01:50:45.933946103Z"}
+										{"log":"2025/08/25 01:50:58 {\"level\":\"INFO\",\"msg\":{\"info\":\"controller_receiveWebhooks message\",\"message\":{\"event-data\":{\"campaigns\":[],\"delivery-status\":{\"attempt-no\":0,\"certificate-verified\":false,\"code\":0,\"description\":\"\",\"enhanced-code\":\"\",\"message\":\"\",\"mx-host\":\"\",\"session-seconds\":0,\"tls\":false},\"envelope\":{\"sender\":\"\",\"sending-ip\":\"\",\"targets\":\"\",\"transport\":\"\"},\"event\":\"opened\",\"flags\":{\"is-authenticated\":false,\"is-big\":false,\"is-routed\":false,\"is-system-test\":false,\"is-test-mode\":false},\"id\":\"iGmkMo47SCOmXzwow0G7Yw\",\"log-level\":\"info\",\"message\":{\"attachments\":null,\"headers\":{\"from\":\"\",\"message-id\":\"d81fb6ca0c048456fb9ad46c1cdc08e3@knitandcarry.com\",\"subject\":\"\",\"to\":\"\"},\"size\":0},\"recipient\":\"laurenpokladnik@gmail.com\",\"recipient-domain\":\"gmail.com\",\"storage\":{\"key\":\"\",\"url\":\"\"},\"tags\":[],\"timestamp\":1756086658.4965336,\"user-variables\":{}},\"signature\":{\"signature\":\"8a2da4b9a1f9bc41c45c8050d55ab45aa94c66c296e2e12ae7a3becd60f785c5\",\"timestamp\":\"1756086658\",\"token\":\"b1db2faaa71396d77ba002d6dd0444906c9077d8e024d2db6c\"}}},\"time\":\"2025/08/25 01:50:58\"}\n","stream":"stderr","time":"2025-08-25T01:50:58.714741999Z"}
+										{"log":"2025/08/25 01:50:58 {\"level\":\"INFO\",\"msg\":{\"emailSendingRecords\":{\"id\":0,\"email_sending_number\":0,\"email_send_rule_id\":0,\"appid\":\"\",\"message_id\":\"\",\"mail_sending_mode\":0,\"email_template_type\":0,\"email_number\":\"\",\"from_email\":\"\",\"from_name\":\"\",\"subject\":\"\",\"content\":\"\",\"reply_address\":\"\",\"reply_address_alias\":\"\",\"unsubscribe_url\":\"\",\"email_event\":0,\"retry_count\":0,\"create_time\":0,\"update_time\":0},\"error\":{},\"messageId\":\"\\u003cd81fb6ca0c048456fb9ad46c1cdc08e3@knitandcarry.com\\u003e\",\"msg\":\"controller_receiveWebhooks.ReceiveMailgunWebhooks(GetEmailSendingRecordByMessageId) get emailSendingRecords error\"},\"time\":\"2025/08/25 01:50:58\"}\n","stream":"stderr","time":"2025-08-25T01:50:58.717599598Z"}
+										{"log":"2025/08/25 01:51:01 {\"level\":\"INFO\",\"msg\":{\"info\":\"controller_receiveWebhooks message\",\"message\":{\"event-data\":{\"campaigns\":[],\"delivery-status\":{\"attempt-no\":0,\"certificate-verified\":false,\"code\":0,\"description\":\"\",\"enhanced-code\":\"\",\"message\":\"\",\"mx-host\":\"\",\"session-seconds\":0,\"tls\":false},\"envelope\":{\"sender\":\"\",\"sending-ip\":\"\",\"targets\":\"\",\"transport\":\"\"},\"event\":\"clicked\",\"flags\":{\"is-authenticated\":false,\"is-big\":false,\"is-routed\":false,\"is-system-test\":false,\"is-test-mode\":false},\"id\":\"OOGsi__8QGyJBU3UL7GUQg\",\"log-level\":\"info\",\"message\":{\"attachments\":null,\"headers\":{\"from\":\"\",\"message-id\":\"d81fb6ca0c048456fb9ad46c1cdc08e3@knitandcarry.com\",\"subject\":\"\",\"to\":\"\"},\"size\":0},\"recipient\":\"laurenpokladnik@gmail.com\",\"recipient-domain\":\"gmail.com\",\"storage\":{\"key\":\"\",\"url\":\"\"},\"tags\":[],\"timestamp\":1756086661.0950923,\"user-variables\":{}},\"signature\":{\"signature\":\"be783d8be468ccf22a131afa2e65e4fb7b3f0ba3ee99f7a44b538eda1bc434cb\",\"timestamp\":\"1756086661\",\"token\":\"4315acded1177bd383cf1e40d25980dcca4394873e535fcb87\"}}},\"time\":\"2025/08/25 01:51:01\"}\n","stream":"stderr","time":"2025-08-25T01:51:01.238241281Z"}
+										{"log":"2025/08/25 01:51:01 {\"level\":\"INFO\",\"msg\":{\"emailSendingRecords\":{\"id\":0,\"email_sending_number\":0,\"email_send_rule_id\":0,\"appid\":\"\",\"message_id\":\"\",\"mail_sending_mode\":0,\"email_template_type\":0,\"email_number\":\"\",\"from_email\":\"\",\"from_name\":\"\",\"subject\":\"\",\"content\":\"\",\"reply_address\":\"\",\"reply_address_alias\":\"\",\"unsubscribe_url\":\"\",\"email_event\":0,\"retry_count\":0,\"create_time\":0,\"update_time\":0},\"error\":{},\"messageId\":\"\\u003cd81fb6ca0c048456fb9ad46c1cdc08e3@knitandcarry.com\\u003e\",\"msg\":\"controller_receiveWebhooks.ReceiveMailgunWebhooks(GetEmailSendingRecordByMessageId) get emailSendingRecords error\"},\"time\":\"2025/08/25 01:51:01\"}\n","stream":"stderr","time":"2025-08-25T01:51:01.240243727Z"}
+										{"log":"2025/08/25 01:51:14 {\"level\":\"INFO\",\"msg\":{\"info\":\"controller_receiveWebhooks message\",\"message\":{\"event-data\":{\"campaigns\":null,\"delivery-status\":{\"attempt-no\":0,\"certificate-verified\":false,\"code\":0,\"description\":\"\",\"enhanced-code\":\"\",\"message\":\"\",\"mx-host\":\"\",\"session-seconds\":0,\"tls\":false},\"envelope\":{\"sender\":\"postmaster@edms.trackingmore.com\",\"sending-ip\":\"\",\"targets\":\"somjatesm@gmail.com\",\"transport\":\"smtp\"},\"event\":\"accepted\",\"flags\":{\"is-authenticated\":true,\"is-big\":false,\"is-routed\":false,\"is-system-test\":false,\"is-test-mode\":false},\"id\":\"coi9E0mLQmCCbRzvev3Ztw\",\"log-level\":\"info\",\"message\":{\"attachments\":null,\"headers\":{\"from\":\"Trackingmore \\u003chello@trackingmore.org\\u003e\",\"message-id\":\"20250825015114.6eb105a57e18cc52@edms.trackingmore.com\",\"subject\":\"Welcome to TrackingMore - Quick Guide\",\"to\":\"somjatesm@gmail.com\"},\"size\":322},\"recipient\":\"somjatesm@gmail.com\",\"recipient-domain\":\"gmail.com\",\"storage\":{\"key\":\"BAABAQWndnSgAEip1KJLyrYTZ4HuyjKEYw\",\"url\":\"https://storage-us-west1.api.mailgun.net/v3/domains/edms.trackingmore.com/messages/BAABAQWndnSgAEip1KJLyrYTZ4HuyjKEYw\"},\"tags\":[],\"timestamp\":1756086674.0516415,\"user-variables\":{}},\"signature\":{\"signature\":\"fbf893f0bc7124fcefd32db1531d63c17010936f09cf4dc1e46028c72b9b8206\",\"timestamp\":\"1756086674\",\"token\":\"5f1a1bd23174722094281a8fdc11f1aa456b06a511fc256b62\"}}},\"time\":\"2025/08/25 01:51:14\"}\n","stream":"stderr","time":"2025-08-25T01:51:14.288049021Z"}
+										{"log":"2025/08/25 01:51:14 {\"level\":\"INFO\",\"msg\":{\"emailSendingRecords\":{\"id\":0,\"email_sending_number\":0,\"email_send_rule_id\":0,\"appid\":\"\",\"message_id\":\"\",\"mail_sending_mode\":0,\"email_template_type\":0,\"email_number\":\"\",\"from_email\":\"\",\"from_name\":\"\",\"subject\":\"\",\"content\":\"\",\"reply_address\":\"\",\"reply_address_alias\":\"\",\"unsubscribe_url\":\"\",\"email_event\":0,\"retry_count\":0,\"create_time\":0,\"update_time\":0},\"error\":{},\"messageId\":\"\\u003c20250825015114.6eb105a57e18cc52@edms.trackingmore.com\\u003e\",\"msg\":\"controller_receiveWebhooks.ReceiveMailgunWebhooks(GetEmailSendingRecordByMessageId) get emailSendingRecords error\"},\"time\":\"2025/08/25 01:51:14\"}\n","stream":"stderr","time":"2025-08-25T01:51:14.290102463Z"}
+										root@iZ0xiatx34i386h8eslisjZ:~# find /var/lib/docker/overlay2/356345bb73b491c602f52654c0f7d63271b3df045c95e436fccefce83de6f474/merged/tmp/ -name 'multipart-*' -type -size +100M | xargs -i ls -lh {}
+										find: Unknown argument to -type: -
+										root@iZ0xiatx34i386h8eslisjZ:~# find /var/lib/docker/overlay2/356345bb73b491c602f52654c0f7d63271b3df045c95e436fccefce83de6f474/merged/tmp/ -name 'multipart-*' -type f -size +100M | xargs -i ls -lh {}
+										-rw------- 1 root root 410M Sep 12  2023 /var/lib/docker/overlay2/356345bb73b491c602f52654c0f7d63271b3df045c95e436fccefce83de6f474/merged/tmp/multipart-4223124992
+										-rw------- 1 root root 410M Sep 12  2023 /var/lib/docker/overlay2/356345bb73b491c602f52654c0f7d63271b3df045c95e436fccefce83de6f474/merged/tmp/multipart-192762127
+										-rw------- 1 root root 410M Sep 13  2023 /var/lib/docker/overlay2/356345bb73b491c602f52654c0f7d63271b3df045c95e436fccefce83de6f474/merged/tmp/multipart-1283081463
+										-rw------- 1 root root 112M Sep 12  2023 /var/lib/docker/overlay2/356345bb73b491c602f52654c0f7d63271b3df045c95e436fccefce83de6f474/merged/tmp/multipart-3480601607
+										root@iZ0xiatx34i386h8eslisjZ:~# find /var/lib/docker/overlay2/356345bb73b491c602f52654c0f7d63271b3df045c95e436fccefce83de6f474/merged/tmp/ -name 'multipart-*' -type f -size +100M -delete
+										root@iZ0xiatx34i386h8eslisjZ:~# find /var/lib/docker/overlay2/356345bb73b491c602f52654c0f7d63271b3df045c95e436fccefce83de6f474/merged/tmp/ -name 'multipart-*' -type f -size +100M | xargs -i ls -lh {}
+
+
+										root@iZ0xiatx34i386h8eslisjZ:~# find /home/data/logs/mail/logs/tripartiteWebhook/mailgun/2025/ -name 'mailgun2025*log' -type f | grep -v 202508 | xargs -i zip {}.zip {}
+										adding: home/data/logs/mail/logs/tripartiteWebhook/mailgun/2025/07/mailgun20250711.log (deflated 89%)
+										adding: home/data/logs/mail/logs/tripartiteWebhook/mailgun/2025/07/mailgun20250726.log (deflated 90%)
+										adding: home/data/logs/mail/logs/tripartiteWebhook/mailgun/2025/07/mailgun20250715.log (deflated 89%)
+										adding: home/data/logs/mail/logs/tripartiteWebhook/mailgun/2025/07/mailgun20250730.log (deflated 90%)
+										adding: home/data/logs/mail/logs/tripartiteWebhook/mailgun/2025/07/mailgun20250723.log (deflated 90%)
+										adding: home/data/logs/mail/logs/tripartiteWebhook/mailgun/2025/07/mailgun20250729.log (deflated 90%)
+										adding: home/data/logs/mail/logs/tripartiteWebhook/mailgun/2025/07/mailgun20250719.log (deflated 90%)
+										adding: home/data/logs/mail/logs/tripartiteWebhook/mailgun/2025/07/mailgun20250703.log (deflated 90%)
+										adding: home/data/logs/mail/logs/tripartiteWebhook/mailgun/2025/07/mailgun20250712.log (deflated 89%)
+										adding: home/data/logs/mail/logs/tripartiteWebhook/mailgun/2025/07/mailgun20250713.log (deflated 90%)
+										adding: home/data/logs/mail/logs/tripartiteWebhook/mailgun/2025/07/mailgun20250709.log (deflated 90%)
+										adding: home/data/logs/mail/logs/tripartiteWebhook/mailgun/2025/07/mailgun20250718.log (deflated 89%)
+										adding: home/data/logs/mail/logs/tripartiteWebhook/mailgun/2025/07/mailgun20250731.log (deflated 90%)
+										adding: home/data/logs/mail/logs/tripartiteWebhook/mailgun/2025/07/mailgun20250722.log (deflated 90%)
+										adding: home/data/logs/mail/logs/tripartiteWebhook/mailgun/2025/07/mailgun20250714.log (deflated 89%)
+										adding: home/data/logs/mail/logs/tripartiteWebhook/mailgun/2025/07/mailgun20250721.log (deflated 89%)
+										adding: home/data/logs/mail/logs/tripartiteWebhook/mailgun/2025/07/mailgun20250716.log (deflated 89%)
+										adding: home/data/logs/mail/logs/tripartiteWebhook/mailgun/2025/07/mailgun20250727.log (deflated 89%)
+										adding: home/data/logs/mail/logs/tripartiteWebhook/mailgun/2025/07/mailgun20250724.log (deflated 90%)
+										adding: home/data/logs/mail/logs/tripartiteWebhook/mailgun/2025/07/mailgun20250710.log (deflated 90%)
+										adding: home/data/logs/mail/logs/tripartiteWebhook/mailgun/2025/07/mailgun20250728.log (deflated 89%)
+										adding: home/data/logs/mail/logs/tripartiteWebhook/mailgun/2025/07/mailgun20250720.log (deflated 90%)
+										adding: home/data/logs/mail/logs/tripartiteWebhook/mailgun/2025/07/mailgun20250725.log (deflated 90%)
+										adding: home/data/logs/mail/logs/tripartiteWebhook/mailgun/2025/07/mailgun20250702.log (deflated 89%)
+										adding: home/data/logs/mail/logs/tripartiteWebhook/mailgun/2025/07/mailgun20250704.log (deflated 90%)
+										adding: home/data/logs/mail/logs/tripartiteWebhook/mailgun/2025/07/mailgun20250717.log (deflated 89%)
+										adding: home/data/logs/mail/logs/tripartiteWebhook/mailgun/2025/07/mailgun20250701.log (deflated 90%)
+										adding: home/data/logs/mail/logs/tripartiteWebhook/mailgun/2025/06/mailgun20250630.log (deflated 90%)
+										adding: home/data/logs/mail/logs/tripartiteWebhook/mailgun/2025/06/mailgun20250624.log (deflated 90%)
+										adding: home/data/logs/mail/logs/tripartiteWebhook/mailgun/2025/06/mailgun20250627.log (deflated 90%)
+										adding: home/data/logs/mail/logs/tripartiteWebhook/mailgun/2025/06/mailgun20250626.log (deflated 90%)
+										adding: home/data/logs/mail/logs/tripartiteWebhook/mailgun/2025/06/mailgun20250625.log (deflated 90%)
+										adding: home/data/logs/mail/logs/tripartiteWebhook/mailgun/2025/06/mailgun20250628.log (deflated 90%)
+										adding: home/data/logs/mail/logs/tripartiteWebhook/mailgun/2025/06/mailgun20250623.log (deflated 89%)
+										adding: home/data/logs/mail/logs/tripartiteWebhook/mailgun/2025/06/mailgun20250629.log (deflated 90%)
+										root@iZ0xiatx34i386h8eslisjZ:~# find /home/data/logs/mail/logs/tripartiteWebhook/mailgun/2025/ -name 'mailgun202506*log' -type f -delete
+										root@iZ0xiatx34i386h8eslisjZ:~# find /home/data/logs/mail/logs/tripartiteWebhook/mailgun/2025/ -name 'mailgun202507*log' -type f -delete
+										root@iZ0xiatx34i386h8eslisjZ:~# df -h
+										Filesystem      Size  Used Avail Use% Mounted on
+										tmpfs           169M  1.7M  167M   2% /run
+										/dev/vda3        40G   32G  5.4G  86% /
+										tmpfs           841M     0  841M   0% /dev/shm
+										tmpfs           5.0M     0  5.0M   0% /run/lock
+										/dev/vda2       197M  6.1M  191M   4% /boot/efi
+										overlay          40G   32G  5.4G  86% /var/lib/docker/overlay2/3b7dd24fd79e0362c0b275b13480378ab3018183db9b98d0231644a99d270ed9/merged
+										overlay          40G   32G  5.4G  86% /var/lib/docker/overlay2/9d8ef1653b8762b65c610ac2fe4cd15d79a30a6d269691f7d589e975986b8160/merged
+										overlay          40G   32G  5.4G  86% /var/lib/docker/overlay2/356345bb73b491c602f52654c0f7d63271b3df045c95e436fccefce83de6f474/merged
+										overlay          40G   32G  5.4G  86% /var/lib/docker/overlay2/e3c3f89696f734f487acf56e0c7dea88bbe4abe703c7c71b74b4cdff19849060/merged
+										overlay          40G   32G  5.4G  86% /var/lib/docker/overlay2/ae929d321313ded7d52d63cfa031432822bc6ced867adb4d33043e86fef6242e/merged
+										overlay          40G   32G  5.4G  86% /var/lib/docker/overlay2/057a6789e90dfbb78f90be45f9026db38908a53013a6cc7453d6aa3bdd61b19a/merged
+										overlay          40G   32G  5.4G  86% /var/lib/docker/overlay2/6ee34365c0b542225c0f6ae896f68a16f417192add85a522ca83f1b33339e166/merged
+										tmpfs           169M  4.0K  169M   1% /run/user/1000
+
+										log_archive_cleanup.sh
+											#!/bin/bash
+											# set -euo pipefail 详解：
+											# -e: 一旦脚本中的任何命令以非零状态退出（即发生错误），整个脚本立即终止，防止错误被忽略。
+											# -u: 使用未定义的变量时，脚本会报错并退出，避免因拼写错误或变量未赋值导致的不可预期行为。
+											# -o pipefail: 只要管道（|）中的任一命令失败（返回非零），整个管道的返回值即为失败，脚本也会据此终止，防止只检查最后一个命令而漏掉前面步骤的错误。
+											set -euo pipefail
+
+											###############################################################################
+											# 日志归档与清理脚本
+											# 说明：
+											#   - 自动查找并压缩指定目录下超过一定天数的 mailgun 日志文件
+											#   - 压缩成功后删除原始日志，仅保留 zip 包
+											#   - 归档操作、校验、失败处理均有详细输出
+											#   - 每条日志操作均带有时间戳，便于追踪
+											#   - 可根据需要调整 LOG_DIR、DAYS_KEEP 等参数
+											#   - 本脚本日志按月归档，便于长期追溯
+											#   - 异常操作单独记录，便于后续告警接入
+											# 作者：YourName
+											# 日期：$(date "+%Y-%m-%d")
+											###############################################################################
+
+											CURRENT_YEAR=$(date +%Y)  # 自动获取当前年份，如需指定可手动赋值
+											CURRENT_MONTH=$(date +%m)
+											LOG_DIR="/home/data/logs/mail/logs/tripartiteWebhook/mailgun/${CURRENT_YEAR}"
+											LOG_PATTERN="mailgun${CURRENT_YEAR}*log"
+											DAYS_KEEP=7
+
+											# 日志文件按月归档
+											SCRIPT_LOG_DIR="/var/log/mailgun_archive"
+											mkdir -p "$SCRIPT_LOG_DIR"
+											SCRIPT_LOG_FILE="${SCRIPT_LOG_DIR}/archive_$(date +%Y-%m).log"
+											SCRIPT_ERR_FILE="${SCRIPT_LOG_DIR}/archive_error_$(date +%Y-%m).log"
+
+											log() {
+											# 输出带时间戳的日志，写入月度日志文件
+											local msg="[$(date '+%F %T')] $*"
+											echo "$msg" | tee -a "$SCRIPT_LOG_FILE"
+											}
+
+											log_error() {
+											# 输出带时间戳的异常日志，写入单独的异常日志文件
+											local msg="[$(date '+%F %T')] $*"
+											echo "$msg" | tee -a "$SCRIPT_ERR_FILE"
+											}
+
+											# 捕获未处理的异常，记录到异常日志
+											trap 'log_error "脚本异常退出，退出码：$?，请检查主日志 $SCRIPT_LOG_FILE 和异常日志 $SCRIPT_ERR_FILE"' ERR
+
+											log "脚本启动，当前年份：$CURRENT_YEAR"
+											log "日志目录：$LOG_DIR"
+											log "日志文件模式：$LOG_PATTERN"
+											log "归档阈值：保留最近 $DAYS_KEEP 天内日志"
+
+											# 查找需归档的日志文件
+											if ! mapfile -t LOG_FILES < <(find "$LOG_DIR" -name "$LOG_PATTERN" -type f -mtime +$DAYS_KEEP 2>>"$SCRIPT_ERR_FILE"); then
+											log_error "查找日志文件时发生异常，请检查目录权限或路径设置。"
+											exit 1
+											fi
+
+											if [[ ${#LOG_FILES[@]} -eq 0 ]]; then
+											log "没有需要归档的日志文件。"
+											exit 0
+											fi
+
+											log "待归档文件列表："
+											for f in "${LOG_FILES[@]}"; do log "  $f"; done
+
+											# 归档并校验
+											for file in "${LOG_FILES[@]}"; do
+											ZIP_FILE="${file}.zip"
+											if [[ -f "$ZIP_FILE" ]]; then
+												log "压缩包已存在：$ZIP_FILE，跳过。"
+												continue
+											fi
+
+											log "开始压缩 $file ..."
+											if zip -j "$ZIP_FILE" "$file" >/dev/null 2>>"$SCRIPT_ERR_FILE"; then
+												# 校验压缩包是否可用
+												if unzip -tq "$ZIP_FILE" >/dev/null 2>>"$SCRIPT_ERR_FILE"; then
+												log "压缩并校验成功，删除原文件：$file"
+												if ! rm -f "$file" 2>>"$SCRIPT_ERR_FILE"; then
+													log_error "删除原文件失败：$file"
+												fi
+												else
+												log_error "压缩包校验失败，保留原文件：$file，删除无效压缩包：$ZIP_FILE"
+												rm -f "$ZIP_FILE" 2>>"$SCRIPT_ERR_FILE" || log_error "删除无效压缩包失败：$ZIP_FILE"
+												fi
+											else
+												log_error "压缩失败：$file"
+												# 若压缩失败，尝试删除可能生成的不完整压缩包
+												[[ -f "$ZIP_FILE" ]] && rm -f "$ZIP_FILE" 2>>"$SCRIPT_ERR_FILE"
+											fi
+											done
+
+											log "日志归档与清理完成。"
+
 							-- 20250409
 								ind_front_87_101_172.16.10.170-resque-download-51-74
 									相关数据： 使用空间：96
@@ -23073,6 +23449,16 @@
 									ai？
 
 		数据库相关
+			-- 20250825
+				数据导入（阿里云指定表导gcp）
+					-- gcp
+					rename table tr_user to tr_user_bak_20250825;
+					create table tr_user like tr_user_bak_20250825;
+					-- 208
+					mysqldump  -uroot -proot trackingdb  tr_user > tr_user.20250825.sql
+					grep -i INSERT tr_user.20250825.sql
+					-- gcp
+					数量不多（39），直接执行INSERT语句
 			114779赛维延长单号保留时长技术评审 · 钉钉文档: https://alidocs.dingtalk.com/i/nodes/amweZ92PV6anGRNbTdz33KY6WxEKBD6p?utm_scene=team_space
 				-- 20250630
 					删除时间减少
@@ -24556,6 +24942,30 @@
 			=IF(ISERROR(MATCH(A2,$G$2:$G$95,0)),"我们A2支持对方G2:G95不支持","双方都支持")
 
 	迁云
+		-- 20250825
+			迁云（产二、产四和中台）-会议
+				WTB
+					操作手册，非迁移方案（运维是否有时间，地方）
+				LDB
+					权限，运维介入（）
+					流水线是否都用argo（运维确定），日志、监控、告警是否公司统一，当前开始加人，10月来，熟悉，第一个项目可能11月底
+				HCL
+					成本如何分（等运维确认估计要明年），如果各自又回到之前
+					可视化目前aws（k8s、数据库、redis前期需要各部门上手用了再说），电话自己写的系统
+					leader牵头，尝试一个项目，总结文档再扩散
+					计费，产五一个项目，按标签、命名空间计费
+					自己部分
+				ZWJ
+					opensearch，好用，成本高，centri，需要埋点，时间会更长，更多用云厂商，入侵少些
+					进度
+						二部4个在维护
+						中台至少10月后
+						一年无预付6.7折，3年4.7 折，zwj-总结表格，后续大家可用
+						同城双活则所有资源都需要支持，包括出口（需要创建时用）
+						测试vpc，需要的，跨部门用im，sso隔离，google workspace通过idp
+				GC-r2个人推荐（换云不迁），HCL-3年4折，LDB-内部的不用
+				oss
+				LDB-视频用r2
 		-- 20250623
 			同步测试数据库
 				208-->fjny-tm-db-test
