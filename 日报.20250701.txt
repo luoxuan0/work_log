@@ -2883,6 +2883,22 @@
 					-- 解析binlog mysqlbinlog -vv --base64-output=decode-rows <Binlog文件名> | more
 					/usr/bin/mysqlbinlog -vv --base64-output=decode-rows mysql-bin.235454 | more
 		等保复测
+			-- 20250830
+				远程批量执行脚本
+					远程服务器创建ansible账户，配置免密sudo
+						切ansible用户
+						sudo su - ansible
+						测试
+						sudo su -
+					复制公钥
+						sudo su - ansible
+						echo 'ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAeFDoI2/FdPv3KHZqxrUbJ6CIV9+jY4A8oRmk2t3S52 for_175_send_file' >> .ssh/authorized_keys
+					配置.ssh/config
+					通过测试连通确认私网公网IP
+						ansible an_data -m ping
+						ansible all -m ping
+					发送文件到远程，并执行测试
+						ansible
 			-- 20250825
 				密码等安全策略调整，需要远程批量执行脚本
 					获取私钥公钥文件
@@ -8163,9 +8179,9 @@
 			目的-稳定运行保证
 				异常可及时介入处理
 				根据异常做归类，进行大范围优化
-					磁盘
-
 					IOA 测试 29
+
+					磁盘
 						-- 20250127
 							分割、压缩、清除定时任务
 								-- 20250726
@@ -9352,6 +9368,159 @@
 								script\queueshell\zipAndRmSpecifyTimeFile.sh
 								script\queueshell\file.to.zip.sh
 						历史数据清理 20240529
+							sz-51tracking-jd-78-172.27.117.125
+								-- 20250829
+									root@iZwz9g8isyesre06q6r2wvZ:~# df -h
+									Filesystem      Size  Used Avail Use% Mounted on
+									tmpfs           757M  3.7M  753M   1% /run
+									/dev/vda3        40G   38G  139M 100% /
+									tmpfs           3.7G     0  3.7G   0% /dev/shm
+									tmpfs           5.0M     0  5.0M   0% /run/lock
+									/dev/vda2       197M  6.1M  191M   4% /boot/efi
+									shm              64M     0   64M   0% /run/containerd/io.containerd.grpc.v1.cri/sandboxes/70e821d93ea03f650b3e5837346bd4ad615087cf05e8519f2e34ed084ff87981/shm
+									overlay          40G   38G  139M 100% /run/containerd/io.containerd.runtime.v2.task/k8s.io/70e821d93ea03f650b3e5837346bd4ad615087cf05e8519f2e34ed084ff87981/rootfs
+									shm              64M     0   64M   0% /run/containerd/io.containerd.grpc.v1.cri/sandboxes/acf4fd4f72b9d742ef32766bddbc8ef821f07e353f6df601872f8a741934b2bd/shm
+									overlay          40G   38G  139M 100% /run/containerd/io.containerd.runtime.v2.task/k8s.io/acf4fd4f72b9d742ef32766bddbc8ef821f07e353f6df601872f8a741934b2bd/rootfs
+									shm              64M     0   64M   0% /run/containerd/io.containerd.grpc.v1.cri/sandboxes/76017f8d777d083982e4422a51a038abcb7a6cd3bfaa9f770c32ab378c2df1cc/shm
+									shm              64M     0   64M   0% /run/containerd/io.containerd.grpc.v1.cri/sandboxes/8141715eebd2cfa8b906a6ef534a44d0310853395ba0fa32061863a250f10694/shm
+									overlay          40G   38G  139M 100% /run/containerd/io.containerd.runtime.v2.task/k8s.io/76017f8d777d083982e4422a51a038abcb7a6cd3bfaa9f770c32ab378c2df1cc/rootfs
+									overlay          40G   38G  139M 100% /run/containerd/io.containerd.runtime.v2.task/k8s.io/8141715eebd2cfa8b906a6ef534a44d0310853395ba0fa32061863a250f10694/rootfs
+									tmpfs           7.3G   12K  7.3G   1% /var/lib/kubelet/pods/0da6c589-c855-4c8c-b0b1-b55aca6528b8/volumes/kubernetes.io~projected/kube-api-access-4gg2g
+									shm              64M     0   64M   0% /run/containerd/io.containerd.grpc.v1.cri/sandboxes/255df32ec10b4ab20ab7a98bd3bc527741aa405502d91d27eae25ed6985b9a16/shm
+									overlay          40G   38G  139M 100% /run/containerd/io.containerd.runtime.v2.task/k8s.io/255df32ec10b4ab20ab7a98bd3bc527741aa405502d91d27eae25ed6985b9a16/rootfs
+									tmpfs           170M   12K  170M   1% /var/lib/kubelet/pods/f61d2970-8e91-43f8-baa1-1f922a3948f3/volumes/kubernetes.io~projected/kube-api-access-6qfdp
+									tmpfs           170M   12K  170M   1% /var/lib/kubelet/pods/8f14c97c-b208-4a01-a368-b01f1b825972/volumes/kubernetes.io~projected/kube-api-access-bvszs
+									overlay          40G   38G  139M 100% /run/containerd/io.containerd.runtime.v2.task/k8s.io/b3d7dd46b5ec1744a57abeb408325e3cb72894d33420cb17b1f121bd1603d9c2/rootfs
+									shm              64M     0   64M   0% /run/containerd/io.containerd.grpc.v1.cri/sandboxes/464f56323a62b5e4d55c826ea15c02378f1a9a3e77968d873c2909bc0570879d/shm
+									shm              64M     0   64M   0% /run/containerd/io.containerd.grpc.v1.cri/sandboxes/084a1e4ccaf50c861ee06af97e27aedba1db322ab343844959533a053fbf251b/shm
+									overlay          40G   38G  139M 100% /run/containerd/io.containerd.runtime.v2.task/k8s.io/464f56323a62b5e4d55c826ea15c02378f1a9a3e77968d873c2909bc0570879d/rootfs
+									overlay          40G   38G  139M 100% /run/containerd/io.containerd.runtime.v2.task/k8s.io/084a1e4ccaf50c861ee06af97e27aedba1db322ab343844959533a053fbf251b/rootfs
+									overlay          40G   38G  139M 100% /run/containerd/io.containerd.runtime.v2.task/k8s.io/33c591ebe8295b5cf11e1abb1399201cd07308ae6c8a7e3772913f3f9babc7b9/rootfs
+									overlay          40G   38G  139M 100% /run/containerd/io.containerd.runtime.v2.task/k8s.io/d52e3168dfb65bdf39cbe57e38a016a284d66063ed461e9ab92bde9d22d19c52/rootfs
+									tmpfs           7.3G   12K  7.3G   1% /var/lib/kubelet/pods/b1a294d3-dfdf-40d7-9f04-02f5237096d9/volumes/kubernetes.io~projected/kube-api-access-tldn9
+									shm              64M     0   64M   0% /run/containerd/io.containerd.grpc.v1.cri/sandboxes/b052aeabd5dfd6c798c4ed2ac5480ef369df8343cae16873b72389539cd59bb8/shm
+									overlay          40G   38G  139M 100% /run/containerd/io.containerd.runtime.v2.task/k8s.io/b052aeabd5dfd6c798c4ed2ac5480ef369df8343cae16873b72389539cd59bb8/rootfs
+									overlay          40G   38G  139M 100% /run/containerd/io.containerd.runtime.v2.task/k8s.io/bac0f0e5f26124acd20005a7de4c5f0491ef6d62b87a0e8ac1c004b294fee1ee/rootfs
+									tmpfs           757M  4.0K  757M   1% /run/user/1000
+									overlay          40G   38G  139M 100% /run/containerd/io.containerd.runtime.v2.task/k8s.io/28c381c8ce5a1b4e1170584f4682b5cc040c79ec4544ec767c2914879047f5f6/rootfs
+									overlay          40G   38G  139M 100% /run/containerd/io.containerd.runtime.v2.task/k8s.io/0e79b963722010f82bacdd71dd700826a0c070b6a93b27f1a271f080b6d38a90/rootfs
+									overlay          40G   38G  139M 100% /run/containerd/io.containerd.runtime.v2.task/k8s.io/14c50ec54fa8dd9147cfabac96204e7fe0bb309da14b86f1255a4b471e12989b/rootfs
+									overlay          40G   38G  139M 100% /run/containerd/io.containerd.runtime.v2.task/k8s.io/f6bdeff0e39070a7e5397c9c2f0b69e92b13e15444c4285f371aee5b99657c30/rootfs
+									overlay          40G   38G  139M 100% /var/lib/docker/overlay2/a8d2503d8b78de83c3a9cc82b9114d7ce21fdafe4e23a3de5e266a6c6f36ef52/merged
+									overlay          40G   38G  139M 100% /var/lib/docker/overlay2/5af55296fb63f9b813803d4a1a93b01e55a0fc3105f73ba55c1e1a1e3978f4e7/merged
+									overlay          40G   38G  139M 100% /var/lib/docker/overlay2/db6e8d3b4d5bed01ff98205ab424e8468dcde379e5816e54bd7c7b8b48d82d32/merged
+									overlay          40G   38G  139M 100% /var/lib/docker/overlay2/13138b2192c429bbf7459c41c556d3a0589a9685858abbbd6739dbc5950d1aa4/merged
+									overlay          40G   38G  139M 100% /var/lib/docker/overlay2/68d30cf4377fc6d0066a5e1e582d57ed775fe6352300d283ba694a0fd655ad6a/merged
+									overlay          40G   38G  139M 100% /var/lib/docker/overlay2/6f2f3090bf0c4335d49084f70d2e8b9ebc0332be6f43eca0331903e11ca98f37/merged
+									overlay          40G   38G  139M 100% /var/lib/docker/overlay2/3ecf4950bb76ec2e1be9050bfa9db3c13f178a93759db1287fb611b908f3c98b/merged
+									overlay          40G   38G  139M 100% /var/lib/docker/overlay2/bdcea25e6066dfdf0399e161cac540624be517be271114a7a084bc772e81c3e7/merged
+									root@iZwz9g8isyesre06q6r2wvZ:~# find / -type f -size +100M | xargs -i ls -lh {}
+									find: ‘/proc/2094415/task/2203935/fdinfo/15’: No such file or directory
+									-rwxr-xr-x 1 root root 113M Sep 13  2023 /run/containerd/io.containerd.runtime.v2.task/k8s.io/14c50ec54fa8dd9147cfabac96204e7fe0bb309da14b86f1255a4b471e12989b/rootfs/usr/local/bin/kube-controller-manager
+									-rwxr-xr-x 1 root root 117M Sep 13  2023 /run/containerd/io.containerd.runtime.v2.task/k8s.io/28c381c8ce5a1b4e1170584f4682b5cc040c79ec4544ec767c2914879047f5f6/rootfs/usr/local/bin/kube-apiserver
+									-r-------- 1 root root 128T Jun 29  2024 /proc/kcore
+									find: ‘/proc/2204194’: No such file or directory
+									find: ‘/proc/2204214/task/2204214/fdinfo/6’: No such file or directory
+									find: ‘/proc/2204214/fdinfo/5’: No such file or directory
+									-rw-r----- 1 syslog adm 167M Aug 29 18:48 /var/log/syslog
+									-rw-r-----+ 1 root systemd-journal 128M Aug 28 13:09 /var/log/journal/20220824155104035200373293129636/system@1715945c9bb94f2da6e345099008b620-0000000006a4b01f-00063d52f829b9b0.journal
+									-rw-r-----+ 1 root systemd-journal 128M Aug 25 06:29 /var/log/journal/20220824155104035200373293129636/system@1715945c9bb94f2da6e345099008b620-00000000069d5e06-00063d11115ee35a.journal
+									-rw-r-----+ 1 root systemd-journal 128M Aug 22 10:49 /var/log/journal/20220824155104035200373293129636/system@1715945c9bb94f2da6e345099008b620-000000000697200d-00063cd88790897d.journal
+									-rw-r-----+ 1 root systemd-journal 128M Aug 29 11:44 /var/log/journal/20220824155104035200373293129636/system@1715945c9bb94f2da6e345099008b620-0000000006a6c51b-00063d65e796b2c8.journal
+									-rw-r-----+ 1 root systemd-journal 120M Aug 21 12:29 /var/log/journal/20220824155104035200373293129636/system@1715945c9bb94f2da6e345099008b620-0000000006953f9e-00063cc77a59f472.journal
+									-rw-r-----+ 1 root systemd-journal 128M Aug 24 07:56 /var/log/journal/20220824155104035200373293129636/system@1715945c9bb94f2da6e345099008b620-00000000069b4944-00063cfe2bf32369.journal
+									-rw-r-----+ 1 root systemd-journal 128M Aug 13 17:35 /var/log/journal/20220824155104035200373293129636/system@1715945c9bb94f2da6e345099008b620-000000000683cd99-00063c28fc2f568f.journal
+									-rw-r-----+ 1 root systemd-journal 120M Aug 15 22:42 /var/log/journal/20220824155104035200373293129636/system@1715945c9bb94f2da6e345099008b620-000000000688e811-00063c57592b2977.journal
+									-rw-r-----+ 1 root systemd-journal 128M Aug 17 21:27 /var/log/journal/20220824155104035200373293129636/system@1715945c9bb94f2da6e345099008b620-00000000068d03ba-00063c7cac95245c.journal
+									-rw-r-----+ 1 root systemd-journal 128M Aug 10 18:44 /var/log/journal/20220824155104035200373293129636/system@1715945c9bb94f2da6e345099008b620-00000000067d43bb-00063bed998894df.journal
+									-rw-r-----+ 1 root systemd-journal 128M Aug 23 09:23 /var/log/journal/20220824155104035200373293129636/system@1715945c9bb94f2da6e345099008b620-0000000006993455-00063ceb41b3c715.journal
+									-rw-r-----+ 1 root systemd-journal 128M Aug 14 16:10 /var/log/journal/20220824155104035200373293129636/system@1715945c9bb94f2da6e345099008b620-000000000685e24c-00063c3be14b617c.journal
+									-rw-r-----+ 1 root systemd-journal 128M Aug 27 14:33 /var/log/journal/20220824155104035200373293129636/system@1715945c9bb94f2da6e345099008b620-0000000006a29cb8-00063d40b3a46cdb.journal
+									-rw-r----- 1 syslog adm 201M Aug 24 00:00 /var/log/syslog.1
+									-rwxr-xr-x 1 root root 117M Sep 13  2023 /var/lib/containerd/io.containerd.snapshotter.v1.overlayfs/snapshots/48/fs/usr/local/bin/kube-apiserver
+									-rwxr-xr-x 1 root root 113M Sep 13  2023 /var/lib/containerd/io.containerd.snapshotter.v1.overlayfs/snapshots/49/fs/usr/local/bin/kube-controller-manager
+									-rw-r----- 1 root root 163M Aug 29 18:48 /var/lib/docker/containers/571a54812eb9a85b21e94ee7e32ecdb9b48555863490697ce30c6f724c311db9/571a54812eb9a85b21e94ee7e32ecdb9b48555863490697ce30c6f724c311db9-json.log
+									-rw-r----- 1 root root 125M Aug 29 18:48 /var/lib/docker/containers/ea68d05cb61b656db9de7577fa3909c62b42babd24b98b022045ad54b6fb8ab7/ea68d05cb61b656db9de7577fa3909c62b42babd24b98b022045ad54b6fb8ab7-json.log
+									-rw-r--r-- 1 root root 112M Jan  4  2023 /var/lib/docker/overlay2/6f2f3090bf0c4335d49084f70d2e8b9ebc0332be6f43eca0331903e11ca98f37/merged/usr/lib/x86_64-linux-gnu/libLLVM-15.so.1
+									-rw-r--r-- 1 root root 112M Jan  4  2023 /var/lib/docker/overlay2/udfwt67xkqastuk0lmj2s6xqv/diff/usr/lib/x86_64-linux-gnu/libLLVM-15.so.1
+									-rw-r--r-- 1 root root 112M Jan  4  2023 /var/lib/docker/overlay2/68d30cf4377fc6d0066a5e1e582d57ed775fe6352300d283ba694a0fd655ad6a/merged/usr/lib/x86_64-linux-gnu/libLLVM-15.so.1
+									-rw-r--r-- 1 root root 112M Jan  4  2023 /var/lib/docker/overlay2/db6e8d3b4d5bed01ff98205ab424e8468dcde379e5816e54bd7c7b8b48d82d32/merged/usr/lib/x86_64-linux-gnu/libLLVM-15.so.1
+									-rw-r--r-- 1 root root 107M Jan  4  2023 /var/lib/docker/overlay2/6a00b1579fb8dacfbfc3e0b0c9885ed23e20c6c7851ca0c110a65bc19323bdf5/diff/usr/lib/aarch64-linux-gnu/libLLVM-15.so.1
+									-rw-r--r-- 1 root root 112M Jan  4  2023 /var/lib/docker/overlay2/a8d2503d8b78de83c3a9cc82b9114d7ce21fdafe4e23a3de5e266a6c6f36ef52/merged/usr/lib/x86_64-linux-gnu/libLLVM-15.so.1
+									-rw-r--r-- 1 root root 112M Jan  4  2023 /var/lib/docker/overlay2/5af55296fb63f9b813803d4a1a93b01e55a0fc3105f73ba55c1e1a1e3978f4e7/merged/usr/lib/x86_64-linux-gnu/libLLVM-15.so.1
+									-rw-r--r-- 1 root root 112M Jan  4  2023 /var/lib/docker/overlay2/13138b2192c429bbf7459c41c556d3a0589a9685858abbbd6739dbc5950d1aa4/merged/usr/lib/x86_64-linux-gnu/libLLVM-15.so.1
+									-rw-r--r-- 1 root root 112M Jan  4  2023 /var/lib/docker/overlay2/891e72wt1c7kayivuyn5oixe7/diff/usr/lib/x86_64-linux-gnu/libLLVM-15.so.1
+									-rw-r--r-- 1 root root 112M Jan  4  2023 /var/lib/docker/overlay2/bdcea25e6066dfdf0399e161cac540624be517be271114a7a084bc772e81c3e7/merged/usr/lib/x86_64-linux-gnu/libLLVM-15.so.1
+									-rw-r--r-- 1 root root 112M Jan  4  2023 /var/lib/docker/overlay2/3ecf4950bb76ec2e1be9050bfa9db3c13f178a93759db1287fb611b908f3c98b/merged/usr/lib/x86_64-linux-gnu/libLLVM-15.so.1
+									-rw-r--r-- 1 root root 112M Jan  4  2023 /var/lib/docker/overlay2/a34a9a81f531e6295d51d48d18a88bbb3335ba46feae729643a511a6a2c74cdf/diff/usr/lib/x86_64-linux-gnu/libLLVM-15.so.1
+									-rw------- 1 root root 184M Jul 25  2024 /var/lib/docker/overlay2/col33weui5usll8648dpvac83/diff/root/.cache/pip/http/1/7/2/b/3/172b30f2b5f3bf03c47fbf73f81098d8fd4d9059579953cbe505ec97
+									-rwxr-xr-x 1 root root 518M Jul 25  2024 /var/lib/docker/overlay2/col33weui5usll8648dpvac83/diff/usr/local/lib/python3.9/site-packages/onnxruntime/capi/libonnxruntime_providers_cuda.so
+									-rw------- 1 root root 184M Aug 15  2024 /var/lib/docker/overlay2/f1270bc479d64f2f6e3c9c6d0beade4da4bacdddc02b5fee6d4944f6448c8f15/diff/root/.cache/pip/http/1/7/2/b/3/172b30f2b5f3bf03c47fbf73f81098d8fd4d9059579953cbe505ec97
+									-rwxr-xr-x 1 root root 518M Aug 15  2024 /var/lib/docker/overlay2/f1270bc479d64f2f6e3c9c6d0beade4da4bacdddc02b5fee6d4944f6448c8f15/diff/usr/local/lib/python3.9/site-packages/onnxruntime/capi/libonnxruntime_providers_cuda.so
+									-rw------- 1 root root 1.6G Jul 14  2024 /home/cxj/eleven/chinaPost/nohup.out
+									-rw-r--r-- 1 root root 103M May 30  2024 /home/cxj/eleven/chinaPost/google-chrome-stable_current_amd64.deb
+									-rw-r--r-- 1 root root 103M Jul 11  2024 /home/cxj/eleven/dpdPost/google-chrome-stable_current_amd64.deb
+									-rw-r--r-- 1 root root 103M Jul 14  2024 /home/cxj/eleven/test_spider/google-chrome-stable_current_amd64.deb
+									-rwxr-xr-x 1 root root 106M Sep 14  2023 /usr/bin/kubelet
+									-rwxr-xr-x 1 root root 102M May 16  2024 /usr/bin/dockerd
+									-rwxr-xr-x 1 root root 219M Nov  7  2023 /opt/google/chrome/chrome
+									-rw-r--r-- 1 root root 103M Jul 11  2024 /opt/software/google-chrome-stable_current_amd64.deb
+									root@iZwz9g8isyesre06q6r2wvZ:~# tail /home/cxj/eleven/chinaPost/nohup.out
+									./cleanup.sh: line 34: 09: value too great for base (error token is "09")
+									Killed process 2519968 (/bin/sh) which was running for 31 seconds.
+									./cleanup.sh: line 34: 08: value too great for base (error token is "08")
+									./cleanup.sh: line 34: 09: value too great for base (error token is "09")
+									Killed process 2522080 (/bin/sh) which was running for 31 seconds.
+									./cleanup.sh: line 34: 08: value too great for base (error token is "08")
+									./cleanup.sh: line 34: 09: value too great for base (error token is "09")
+									./cleanup.sh: line 34: 09: value too great for base (error token is "09")
+									./cleanup.sh: line 34: 08: value too great for base (error token is "08")
+									./cleanup.sh: line 34: 09: value too great for base (error token is "09")
+									root@iZwz9g8isyesre06q6r2wvZ:~# echo > /home/cxj/eleven/chinaPost/nohup.out
+									root@iZwz9g8isyesre06q6r2wvZ:~# df -h
+									Filesystem      Size  Used Avail Use% Mounted on
+									tmpfs           757M  3.7M  753M   1% /run
+									/dev/vda3        40G   36G  1.8G  96% /
+									tmpfs           3.7G     0  3.7G   0% /dev/shm
+									tmpfs           5.0M     0  5.0M   0% /run/lock
+									/dev/vda2       197M  6.1M  191M   4% /boot/efi
+									shm              64M     0   64M   0% /run/containerd/io.containerd.grpc.v1.cri/sandboxes/70e821d93ea03f650b3e5837346bd4ad615087cf05e8519f2e34ed084ff87981/shm
+									overlay          40G   36G  1.8G  96% /run/containerd/io.containerd.runtime.v2.task/k8s.io/70e821d93ea03f650b3e5837346bd4ad615087cf05e8519f2e34ed084ff87981/rootfs
+									shm              64M     0   64M   0% /run/containerd/io.containerd.grpc.v1.cri/sandboxes/acf4fd4f72b9d742ef32766bddbc8ef821f07e353f6df601872f8a741934b2bd/shm
+									overlay          40G   36G  1.8G  96% /run/containerd/io.containerd.runtime.v2.task/k8s.io/acf4fd4f72b9d742ef32766bddbc8ef821f07e353f6df601872f8a741934b2bd/rootfs
+									shm              64M     0   64M   0% /run/containerd/io.containerd.grpc.v1.cri/sandboxes/76017f8d777d083982e4422a51a038abcb7a6cd3bfaa9f770c32ab378c2df1cc/shm
+									shm              64M     0   64M   0% /run/containerd/io.containerd.grpc.v1.cri/sandboxes/8141715eebd2cfa8b906a6ef534a44d0310853395ba0fa32061863a250f10694/shm
+									overlay          40G   36G  1.8G  96% /run/containerd/io.containerd.runtime.v2.task/k8s.io/76017f8d777d083982e4422a51a038abcb7a6cd3bfaa9f770c32ab378c2df1cc/rootfs
+									overlay          40G   36G  1.8G  96% /run/containerd/io.containerd.runtime.v2.task/k8s.io/8141715eebd2cfa8b906a6ef534a44d0310853395ba0fa32061863a250f10694/rootfs
+									tmpfs           7.3G   12K  7.3G   1% /var/lib/kubelet/pods/0da6c589-c855-4c8c-b0b1-b55aca6528b8/volumes/kubernetes.io~projected/kube-api-access-4gg2g
+									shm              64M     0   64M   0% /run/containerd/io.containerd.grpc.v1.cri/sandboxes/255df32ec10b4ab20ab7a98bd3bc527741aa405502d91d27eae25ed6985b9a16/shm
+									overlay          40G   36G  1.8G  96% /run/containerd/io.containerd.runtime.v2.task/k8s.io/255df32ec10b4ab20ab7a98bd3bc527741aa405502d91d27eae25ed6985b9a16/rootfs
+									tmpfs           170M   12K  170M   1% /var/lib/kubelet/pods/f61d2970-8e91-43f8-baa1-1f922a3948f3/volumes/kubernetes.io~projected/kube-api-access-6qfdp
+									tmpfs           170M   12K  170M   1% /var/lib/kubelet/pods/8f14c97c-b208-4a01-a368-b01f1b825972/volumes/kubernetes.io~projected/kube-api-access-bvszs
+									overlay          40G   36G  1.8G  96% /run/containerd/io.containerd.runtime.v2.task/k8s.io/b3d7dd46b5ec1744a57abeb408325e3cb72894d33420cb17b1f121bd1603d9c2/rootfs
+									shm              64M     0   64M   0% /run/containerd/io.containerd.grpc.v1.cri/sandboxes/464f56323a62b5e4d55c826ea15c02378f1a9a3e77968d873c2909bc0570879d/shm
+									shm              64M     0   64M   0% /run/containerd/io.containerd.grpc.v1.cri/sandboxes/084a1e4ccaf50c861ee06af97e27aedba1db322ab343844959533a053fbf251b/shm
+									overlay          40G   36G  1.8G  96% /run/containerd/io.containerd.runtime.v2.task/k8s.io/464f56323a62b5e4d55c826ea15c02378f1a9a3e77968d873c2909bc0570879d/rootfs
+									overlay          40G   36G  1.8G  96% /run/containerd/io.containerd.runtime.v2.task/k8s.io/084a1e4ccaf50c861ee06af97e27aedba1db322ab343844959533a053fbf251b/rootfs
+									overlay          40G   36G  1.8G  96% /run/containerd/io.containerd.runtime.v2.task/k8s.io/33c591ebe8295b5cf11e1abb1399201cd07308ae6c8a7e3772913f3f9babc7b9/rootfs
+									overlay          40G   36G  1.8G  96% /run/containerd/io.containerd.runtime.v2.task/k8s.io/d52e3168dfb65bdf39cbe57e38a016a284d66063ed461e9ab92bde9d22d19c52/rootfs
+									tmpfs           7.3G   12K  7.3G   1% /var/lib/kubelet/pods/b1a294d3-dfdf-40d7-9f04-02f5237096d9/volumes/kubernetes.io~projected/kube-api-access-tldn9
+									shm              64M     0   64M   0% /run/containerd/io.containerd.grpc.v1.cri/sandboxes/b052aeabd5dfd6c798c4ed2ac5480ef369df8343cae16873b72389539cd59bb8/shm
+									overlay          40G   36G  1.8G  96% /run/containerd/io.containerd.runtime.v2.task/k8s.io/b052aeabd5dfd6c798c4ed2ac5480ef369df8343cae16873b72389539cd59bb8/rootfs
+									overlay          40G   36G  1.8G  96% /run/containerd/io.containerd.runtime.v2.task/k8s.io/bac0f0e5f26124acd20005a7de4c5f0491ef6d62b87a0e8ac1c004b294fee1ee/rootfs
+									tmpfs           757M  4.0K  757M   1% /run/user/1000
+									overlay          40G   36G  1.8G  96% /run/containerd/io.containerd.runtime.v2.task/k8s.io/28c381c8ce5a1b4e1170584f4682b5cc040c79ec4544ec767c2914879047f5f6/rootfs
+									overlay          40G   36G  1.8G  96% /run/containerd/io.containerd.runtime.v2.task/k8s.io/0e79b963722010f82bacdd71dd700826a0c070b6a93b27f1a271f080b6d38a90/rootfs
+									overlay          40G   36G  1.8G  96% /run/containerd/io.containerd.runtime.v2.task/k8s.io/14c50ec54fa8dd9147cfabac96204e7fe0bb309da14b86f1255a4b471e12989b/rootfs
+									overlay          40G   36G  1.8G  96% /run/containerd/io.containerd.runtime.v2.task/k8s.io/f6bdeff0e39070a7e5397c9c2f0b69e92b13e15444c4285f371aee5b99657c30/rootfs
+									overlay          40G   36G  1.8G  96% /var/lib/docker/overlay2/a8d2503d8b78de83c3a9cc82b9114d7ce21fdafe4e23a3de5e266a6c6f36ef52/merged
+									overlay          40G   36G  1.8G  96% /var/lib/docker/overlay2/5af55296fb63f9b813803d4a1a93b01e55a0fc3105f73ba55c1e1a1e3978f4e7/merged
+									overlay          40G   36G  1.8G  96% /var/lib/docker/overlay2/db6e8d3b4d5bed01ff98205ab424e8468dcde379e5816e54bd7c7b8b48d82d32/merged
+									overlay          40G   36G  1.8G  96% /var/lib/docker/overlay2/13138b2192c429bbf7459c41c556d3a0589a9685858abbbd6739dbc5950d1aa4/merged
+									overlay          40G   36G  1.8G  96% /var/lib/docker/overlay2/68d30cf4377fc6d0066a5e1e582d57ed775fe6352300d283ba694a0fd655ad6a/merged
+									overlay          40G   36G  1.8G  96% /var/lib/docker/overlay2/6f2f3090bf0c4335d49084f70d2e8b9ebc0332be6f43eca0331903e11ca98f37/merged
+									overlay          40G   36G  1.8G  96% /var/lib/docker/overlay2/3ecf4950bb76ec2e1be9050bfa9db3c13f178a93759db1287fb611b908f3c98b/merged
+									overlay          40G   36G  1.8G  96% /var/lib/docker/overlay2/bdcea25e6066dfdf0399e161cac540624be517be271114a7a084bc772e81c3e7/merged
 							-- 20250726
 								ind_resque_188_172.16.10.163-resque-webhook-51-103
 									[root@izwz9c0asd8ujh0d8c7at2z ~]# df -h
@@ -16836,6 +17005,82 @@
 										overlay          40G   35G  4.5G  89% /var/lib/docker/overlay2/42f90134a9d2925e59000e462681b05b6a399b31228537281a92f25afc8df878/merged
 										overlay          40G   35G  4.5G  89% /var/lib/docker/overlay2/40d2cb0487f9b57bc2bb10bf1e52d5fc1caca3dd35af46c0ee2f3779028edf2d/merged
 										overlay          40G   35G  4.5G  89% /var/lib/docker/overlay2/cf95d1b2d1272e586c0196fb584c7a7517890a94206cbca3e7a567756d036aad/merged  
+									-- 20250830
+										bash "/home/wwwroot/www.trackingmore.com/script/queueshell/diskTree.sh" /home/wwwroot/www.trackingmore.com/admin 3 100
+										├── /home/wwwroot/www.trackingmore.com/admin: 13102 MB
+										│   ├── /home/wwwroot/www.trackingmore.com/admin/upload: 13046 MB
+										│   │   ├── /home/wwwroot/www.trackingmore.com/admin/upload/auto_csv: 9565 MB
+										│   │   ├── /home/wwwroot/www.trackingmore.com/admin/upload/auto_csv_zip: 3481 MB
+										[root@iz0xif9y7r0fstxmq97t54z ~]# df -h
+										Filesystem      Size  Used Avail Use% Mounted on
+										/dev/vda1        40G   39G  711M  99% /
+										devtmpfs         16G     0   16G   0% /dev
+										tmpfs            16G     0   16G   0% /dev/shm
+										tmpfs            16G  5.0G   11G  33% /run
+										tmpfs            16G     0   16G   0% /sys/fs/cgroup
+										tmpfs           3.1G     0  3.1G   0% /run/user/0
+										tmpfs           3.1G     0  3.1G   0% /run/user/1002
+										overlay          40G   39G  711M  99% /var/lib/docker/overlay2/d2703df78bc816ff68a6a91dd805825fdf41731b86dfb1acd45f001bad32e406/merged
+										overlay          40G   39G  711M  99% /var/lib/docker/overlay2/c043633fbddd7d4d2248284247bf06cc75fa5c740aa1366400bce75bb4168d14/merged
+										overlay          40G   39G  711M  99% /var/lib/docker/overlay2/b47a079dc9b17057739e60cc62794e9a083ef16f31890d897d67b8f31bd7a89a/merged
+										overlay          40G   39G  711M  99% /var/lib/docker/overlay2/83a49448c3e2713448d182eeb258505bdc2ef04eec331ba8b4499705e6ff06ed/merged
+										overlay          40G   39G  711M  99% /var/lib/docker/overlay2/46169c1ebedc71c054485e7a978387aa1d1b216470e539ecf3a12e84fd9c64aa/merged
+										overlay          40G   39G  711M  99% /var/lib/docker/overlay2/5a5d007e804e80f97e67cb993e7c00b6716bab22d40d780b03766a6ae871c4f3/merged
+										overlay          40G   39G  711M  99% /var/lib/docker/overlay2/1c60ac1751f37f5ea647ab8ad054192ec6eb9366d0ecc1b87b8d9d41e8933d98/merged
+										overlay          40G   39G  711M  99% /var/lib/docker/overlay2/eeb9c4ad79ae52e1698640c687ff2ef67360853b151f7ef2c61d8af38bd4a667/merged
+										overlay          40G   39G  711M  99% /var/lib/docker/overlay2/c780375c3d2c9bb41aea4785502cb8c045059b9666dbbfd4ce1b27c170de570b/merged
+										overlay          40G   39G  711M  99% /var/lib/docker/overlay2/5b9c7648f8a3103ae472be96492b4d694f28b9d4636f4a3c7fc28387b15f3c5b/merged
+										overlay          40G   39G  711M  99% /var/lib/docker/overlay2/be0afb28162fb4cbbba3653a35944a6fcc80eb1367426089b3c37dcac0af5053/merged
+										overlay          40G   39G  711M  99% /var/lib/docker/overlay2/b68be4f7b9222815ce8e644673aaef6cb6995ea0f7ebb85900394e898231568e/merged
+										overlay          40G   39G  711M  99% /var/lib/docker/overlay2/b8002b093029398fa675a5f103ad00052abffc8ea71c3d32e987e853a3958baf/merged
+										overlay          40G   39G  711M  99% /var/lib/docker/overlay2/9260ba6e864c36bbffd8248bee952df6b8ae211cbb40a17b954e95c4446b6450/merged
+										overlay          40G   39G  711M  99% /var/lib/docker/overlay2/ed7aa946cad59fe8f785e810a2cc68636ae6ee4aa076d291c674f0a8e780c3bd/merged
+										overlay          40G   39G  711M  99% /var/lib/docker/overlay2/42f90134a9d2925e59000e462681b05b6a399b31228537281a92f25afc8df878/merged
+										overlay          40G   39G  711M  99% /var/lib/docker/overlay2/40d2cb0487f9b57bc2bb10bf1e52d5fc1caca3dd35af46c0ee2f3779028edf2d/merged
+										overlay          40G   39G  711M  99% /var/lib/docker/overlay2/cf95d1b2d1272e586c0196fb584c7a7517890a94206cbca3e7a567756d036aad/merged
+										[root@iz0xif9y7r0fstxmq97t54z ~]# find /home/wwwroot/www.trackingmore.com/admin/upload/auto_csv -maxdepth 1 -type f -name \*csv -newermt 20250424 ! -newermt 20250524 | xargs -i ls -l {} | awk '{total += $5} END {print "Total size:", total / (1024^3), "GB"}'
+										Total size: 2.21829 GB
+										[root@iz0xif9y7r0fstxmq97t54z ~]# find /home/wwwroot/www.trackingmore.com/admin/upload/auto_csv -maxdepth 1 -type f -name \*csv -newermt 20250424 ! -newermt 20250524 | xargs -i rm -f {}
+										[root@iz0xif9y7r0fstxmq97t54z ~]# find /home/wwwroot/www.trackingmore.com/admin/upload/auto_csv -maxdepth 1 -type f -name \*csv -newermt 20250524 ! -newermt 20250624 | xargs -i ls -l {} | awk '{total += $5} END {print "Total size:", total / (1024^3), "GB"}'
+										Total size: 2.32936 GB
+										[root@iz0xif9y7r0fstxmq97t54z ~]# find /home/wwwroot/www.trackingmore.com/admin/upload/auto_csv -maxdepth 1 -type f -name \*csv -newermt 20250524 ! -newermt 20250624 | xargs -i rm -f {}[root@iz0xif9y7r0fstxmq97t54z ~]# find /home/wwwroot/www.trackingmore.com/admin/upload/auto_csv -maxdepth 1 -type f -name \*csv -newermt 20250624 ! -newermt 20250724 | xargs -i ls -l {} | awk '{total += $5} END {print "Total size:", total / (1024^3), "GB"}'
+										Total size: 2.27079 GB
+										[root@iz0xif9y7r0fstxmq97t54z ~]# upload/auto_csv -maxdepth 1 -type f -name \*csv -newermt 20250624 ! -newermt 20250724 | xargs -i rm -f {}
+										-bash: upload/auto_csv: No such file or directory
+										[root@iz0xif9y7r0fstxmq97t54z ~]# find /home/wwwroot/www.trackingmore.com/admin/upload/auto_csv -maxdepth 1 -type f -name \*csv -newermt 20250624 ! -newermt 20250724 | xargs -i rm -f {}
+										[root@iz0xif9y7r0fstxmq97t54z ~]# df -h
+										Filesystem      Size  Used Avail Use% Mounted on
+										/dev/vda1        40G   32G  7.6G  81% /
+										devtmpfs         16G     0   16G   0% /dev
+										tmpfs            16G     0   16G   0% /dev/shm
+										tmpfs            16G  5.0G   11G  33% /run
+										tmpfs            16G     0   16G   0% /sys/fs/cgroup
+										tmpfs           3.1G     0  3.1G   0% /run/user/0
+										tmpfs           3.1G     0  3.1G   0% /run/user/1002
+										overlay          40G   32G  7.6G  81% /var/lib/docker/overlay2/d2703df78bc816ff68a6a91dd805825fdf41731b86dfb1acd45f001bad32e406/merged
+										overlay          40G   32G  7.6G  81% /var/lib/docker/overlay2/c043633fbddd7d4d2248284247bf06cc75fa5c740aa1366400bce75bb4168d14/merged
+										overlay          40G   32G  7.6G  81% /var/lib/docker/overlay2/b47a079dc9b17057739e60cc62794e9a083ef16f31890d897d67b8f31bd7a89a/merged
+										overlay          40G   32G  7.6G  81% /var/lib/docker/overlay2/83a49448c3e2713448d182eeb258505bdc2ef04eec331ba8b4499705e6ff06ed/merged
+										overlay          40G   32G  7.6G  81% /var/lib/docker/overlay2/46169c1ebedc71c054485e7a978387aa1d1b216470e539ecf3a12e84fd9c64aa/merged
+										overlay          40G   32G  7.6G  81% /var/lib/docker/overlay2/5a5d007e804e80f97e67cb993e7c00b6716bab22d40d780b03766a6ae871c4f3/merged
+										overlay          40G   32G  7.6G  81% /var/lib/docker/overlay2/1c60ac1751f37f5ea647ab8ad054192ec6eb9366d0ecc1b87b8d9d41e8933d98/merged
+										overlay          40G   32G  7.6G  81% /var/lib/docker/overlay2/eeb9c4ad79ae52e1698640c687ff2ef67360853b151f7ef2c61d8af38bd4a667/merged
+										overlay          40G   32G  7.6G  81% /var/lib/docker/overlay2/c780375c3d2c9bb41aea4785502cb8c045059b9666dbbfd4ce1b27c170de570b/merged
+										overlay          40G   32G  7.6G  81% /var/lib/docker/overlay2/5b9c7648f8a3103ae472be96492b4d694f28b9d4636f4a3c7fc28387b15f3c5b/merged
+										overlay          40G   32G  7.6G  81% /var/lib/docker/overlay2/be0afb28162fb4cbbba3653a35944a6fcc80eb1367426089b3c37dcac0af5053/merged
+										overlay          40G   32G  7.6G  81% /var/lib/docker/overlay2/b68be4f7b9222815ce8e644673aaef6cb6995ea0f7ebb85900394e898231568e/merged
+										overlay          40G   32G  7.6G  81% /var/lib/docker/overlay2/b8002b093029398fa675a5f103ad00052abffc8ea71c3d32e987e853a3958baf/merged
+										overlay          40G   32G  7.6G  81% /var/lib/docker/overlay2/9260ba6e864c36bbffd8248bee952df6b8ae211cbb40a17b954e95c4446b6450/merged
+										overlay          40G   32G  7.6G  81% /var/lib/docker/overlay2/ed7aa946cad59fe8f785e810a2cc68636ae6ee4aa076d291c674f0a8e780c3bd/merged
+										overlay          40G   32G  7.6G  81% /var/lib/docker/overlay2/42f90134a9d2925e59000e462681b05b6a399b31228537281a92f25afc8df878/merged
+										overlay          40G   32G  7.6G  81% /var/lib/docker/overlay2/40d2cb0487f9b57bc2bb10bf1e52d5fc1caca3dd35af46c0ee2f3779028edf2d/merged
+										overlay          40G   32G  7.6G  81% /var/lib/docker/overlay2/cf95d1b2d1272e586c0196fb584c7a7517890a94206cbca3e7a567756d036aad/merged
+										[root@iz0xif9y7r0fstxmq97t54z ~]# bash "/home/wwwroot/www.trackingmore.com/script/queueshell/diskTree.sh" /home/wwwroot/www.trackingmore.com/admin 3 100
+										├── /home/wwwroot/www.trackingmore.com/admin: 6125 MB
+										│   ├── /home/wwwroot/www.trackingmore.com/admin/upload: 6069 MB
+										│   │   ├── /home/wwwroot/www.trackingmore.com/admin/upload/auto_csv: 2589 MB
+										│   │   ├── /home/wwwroot/www.trackingmore.com/admin/upload/auto_csv_zip: 3481 MB
+										待办：1，放到auto_csv_zip这个范围，2，覆盖处理情况（范围，方式，比如多文件压为一个文件，超过一定大小分割压缩）
 							-- 20250222
 								-77
 									96%
