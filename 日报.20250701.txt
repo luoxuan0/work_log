@@ -1712,6 +1712,38 @@
         整改-安全产品检测相关&退订
 
 
+===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== =====
+【告警】
+【客诉】
+【迁云】
+【桌面运维】
+【运维】
+
+20250901
+【告警】
+【安全】
+【运维】
+
+
+原计划：
+【本地】
+1，待优化&专线切换
+【安全】
+2，SOC2资料提供
+3，等保复测-服务器&安全产品检测相关整改
+【日常响应】
+4，后续优先级、应对
+
+计划：
+【本地】
+1，待优化&专线切换
+【迁云】
+2，相关准备
+【安全】
+3，等保复测-服务器&安全产品检测相关整改
+【日常响应】
+4，后续优先级、应对
+
 近期复盘
 	后续优先级、应对
 		4月份
@@ -2915,6 +2947,21 @@
 					-- 解析binlog mysqlbinlog -vv --base64-output=decode-rows <Binlog文件名> | more
 					/usr/bin/mysqlbinlog -vv --base64-output=decode-rows mysql-bin.235454 | more
 		等保复测
+			-- 20250901
+				远程批量执行脚本
+					sudo su - ansible
+					sudo mkdir -p /home/ansible/.ssh
+					sudo chown ansible.ansible /home/ansible
+					sudo chmod 700 /home/ansible
+					sudo chown ansible.ansible /home/ansible/.ssh
+					sudo chmod 700 /home/ansible/.ssh
+					sudo touch /home/ansible/.ssh/authorized_keys
+					sudo chmod 600 /home/ansible/.ssh/authorized_keys
+					sudo chown ansible.ansible /home/ansible/.ssh/authorized_keys
+					sudo sed -i '/ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAeFDoI2\/FdPv3KHZqxrUbJ6CIV9+jY4A8oRmk2t3S52 for_175_send_file/d' /home/ansible/.ssh/authorized_keys
+					sudo echo 'ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAeFDoI2/FdPv3KHZqxrUbJ6CIV9+jY4A8oRmk2t3S52 for_175_send_file' >> /home/ansible/.ssh/authorized_keys
+
+					sudo sed -i '/ssh\\-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAeFDoI2\/FdPv3KHZqxrUbJ6CIV9+jY4A8oRmk2t3S52 for_175_send_file/d' /home/ansible/.ssh/authorized_keys
 			-- 20250830
 				远程批量执行脚本
 					远程服务器创建ansible账户，配置免密sudo
@@ -25362,6 +25409,67 @@
 			=IF(ISERROR(MATCH(A2,$G$2:$G$95,0)),"我们A2支持对方G2:G95不支持","双方都支持")
 
 	迁云
+		-- 20250901
+			准备工作
+				cloudflare的page页面
+				阿里云临时升配VPN带宽
+				阿里云dts开redis迁移任务，配置最大
+				堡垒机服务器停止服务
+					具体操作
+						cd /home/wwwroot/www.trackingmore.com/script/queueshell
+						# 操作确认 check表示确认情况 down表示关闭相关服务 up表示启动相关服务
+						sh confirmStartStopServerAndProcess.sh check
+						sh confirmStartStopServerAndProcess.sh down 不实际操作仅查看crond服务
+						sh confirmStartStopServerAndProcess.sh down 1 停定时任务crond
+						sh confirmStartStopServerAndProcess.sh downToKill 平滑关闭当前任务 
+						sh confirmStartStopServerAndProcess.sh delResqueQueue 清除队列当前激活待执行任务 
+						sh confirmStartStopServerAndProcess.sh up 不实际操作仅查看crond服务
+						sh confirmStartStopServerAndProcess.sh up 1 启定时任务crond
+					情况分类
+						异步
+							国外独立更新 c-
+							国外非独立更新 -35
+								队列
+									非查询
+									查询
+								定时任务
+						实时（nginx）
+							www
+								上配置
+								reload配置
+									PTM=/home/wwwroot/www.trackingmore.com/
+									sh server/nginx/conf/vhost/nginx.sh noReload www.trackingmore.com.conf
+									sh server/nginx/conf/vhost/nginx.sh reload www.trackingmore.com.conf
+							api
+								上配置
+								reload配置
+									PTM=/home/wwwroot/www.trackingmore.com/
+									sh server/nginx/conf/vhost/nginx.sh noReload api.trackingmore.com.conf
+									sh server/nginx/conf/vhost/nginx.sh reload api.trackingmore.com.conf
+				阿里云停止dts任务
+					表数量
+					关键表记录数量
+					待办：分区跟新表创建
+				dns域名解析切换（cloudflare）
+					api
+					my
+					www
+					其他（s、*、download、t、mailwebhooken、m）
+				阿里云服务修改（redis和MySQL）配置
+					堡垒机服务器（配置查找确认）
+						队列更新（5）
+						独立更新
+						tracking page v4
+						webhook service（2）
+						邮件发送
+						邮件发送upload
+						待补充
+				阿里云服务启动
+					非查询队列
+					定时任务
+				国内更新国外运输商
+
+					
 		-- 20250825
 			迁云（产二、产四和中台）-会议
 				WTB
