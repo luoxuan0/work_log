@@ -1744,6 +1744,39 @@
 【日常响应】
 4，后续优先级、应对
 
+===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== =====
+【告警】
+【客诉】
+【迁云】
+【桌面运维】
+【运维】
+
+20250902
+【告警】
+【安全】
+【运维】
+
+
+原计划：
+【本地】
+1，待优化&专线切换
+【迁云】
+2，相关准备
+【安全】
+3，等保复测-服务器&安全产品检测相关整改
+【日常响应】
+4，后续优先级、应对
+
+计划：
+【本地】
+1，待优化&专线切换
+【迁云】
+2，相关准备
+【安全】
+3，等保复测-服务器&安全产品检测相关整改
+【日常响应】
+4，后续优先级、应对
+
 近期复盘
 	后续优先级、应对
 		4月份
@@ -2926,6 +2959,9 @@
 	财务数据
 
 	安全相关
+		SOC2
+			-- 20250902
+			数据库、os账号分工
 		远程办公场景
 			VPN
 				配置（VPN-账号由identity management统一管理）
@@ -25422,17 +25458,22 @@
 						sh confirmStartStopServerAndProcess.sh down 不实际操作仅查看crond服务
 						sh confirmStartStopServerAndProcess.sh down 1 停定时任务crond
 						sh confirmStartStopServerAndProcess.sh downToKill 平滑关闭当前任务 
+						sh confirmStartStopServerAndProcess.sh downToKill14 立即关闭当前任务 
 						sh confirmStartStopServerAndProcess.sh delResqueQueue 清除队列当前激活待执行任务 
 						sh confirmStartStopServerAndProcess.sh up 不实际操作仅查看crond服务
 						sh confirmStartStopServerAndProcess.sh up 1 启定时任务crond
 					情况分类
 						异步
 							国外独立更新 c-
+								ind_85-1-3-162-172.16.21.212-tm
 							国外非独立更新 -35
-								队列
-									非查询
-									查询
-								定时任务
+								分类
+									队列
+										非查询
+										查询
+									定时任务
+								12台通过-35执行脚本（或全部打开批量执行命令 优先 √）
+									wpa sou-test
 						实时（nginx）
 							www
 								上配置
@@ -25448,12 +25489,28 @@
 									sh server/nginx/conf/vhost/nginx.sh reload api.trackingmore.com.conf
 				阿里云停止dts任务
 					表数量
+						表数量是否一致
+						不一致列出区别
 					关键表记录数量
+						表记录数量是否一致
+						最近10条数据一致性
 					待办：分区跟新表创建
 				dns域名解析切换（cloudflare）
-					api
-					my
-					www
+					47.90.245.82	-->	
+						api
+					47.252.18.164	-->	
+						my
+						www
+						s
+						button
+						cdn
+						mailwebhooken
+						m
+						*
+						trackingmore.com
+						track
+						usalipay
+						wwww
 					其他（s、*、download、t、mailwebhooken、m）
 				阿里云服务修改（redis和MySQL）配置
 					堡垒机服务器（配置查找确认）
