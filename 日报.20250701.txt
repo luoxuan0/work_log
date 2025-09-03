@@ -1863,6 +1863,14 @@
 	5，测试环境-分支自动构建触发取消
 
 操作顺序
+	9月
+		-- 20250903
+			微软账号无法登录
+			crisp切intercome
+			iOA账号申请
+			远程办公用远程桌面
+			远程办公用VPN
+			卢森堡节点
 	8月
 		-- 20250828
 			权限
@@ -25445,13 +25453,78 @@
 			=IF(ISERROR(MATCH(A2,$G$2:$G$95,0)),"我们A2支持对方G2:G95不支持","双方都支持")
 
 	迁云
+		-- 20250903
+			# 配置更新
+				# 备份文件 原文件 原文件备份文件 目标文件
+				sh /home/wwwroot/www.trackingmore.com/script/queueshell/changeDBconfig_TM_ali_gcp.sh fileReadyToCopy 1
+				# 将从原文件备份来的同原文件内容一样的目标文件做修改，后续用户覆盖原文件达到切换目的
+				sh /home/wwwroot/www.trackingmore.com/script/queueshell/changeDBconfig_TM_ali_gcp.sh fileReadyToUpdate 1
+
+				# 通过目标文件覆盖原文件达到切换效果
+				sh /home/wwwroot/www.trackingmore.com/script/queueshell/changeDBconfig_TM_ali_gcp.sh updateConfig 1
+				# 通过原文件备份文件覆盖原文件达到切换撤回效果
+				sh /home/wwwroot/www.trackingmore.com/script/queueshell/changeDBconfig_TM_ali_gcp.sh recallOperation 1
+
+				明确哪些服务需要重启，如何重启
+			# 国内更新国外，或国外更新国内运输商
+				ps -ef | grep redisHomeTo | grep -v 'Z_H_U_B_\|grep' | awk '{print $NF}' | sort -nrk1 | uniq -c | sort -nrk1
+				ps -ef | grep redisHomeTo | grep -v 'grep' | awk '{print $NF}' | sort -nrk1 | uniq -c | sort -nrk1
+
+				ind_resque_53_172.16.10.168-resque-banyun-51-180
+					60 Z_H_U_B_Express_SET_Foreign2Home
+
+				ind_resque_251_172.16.10.165-resque-51-80
+					360 Z_R_P_U_china-post_SET
+					120 Z_H_U_B_Post_SET_9
+					98 Z_H_U_B_Post_SET
+					40 Z_P_U_cainiao_B_SET
+					20 Z_R_P_U_dtdc_SET
+					20 Z_H_U_B_Post_SET_4
+					20 Z_H_U_B_Express_SET_Foreign2Home
+					20 Z_H_U_B_Express_SET_9
+					12 Z_P_U_sf-express_B_SET
+					10 Z_P_U_sf-express_en_B_SET
+					8 Z_P_U_auspost_B_SET
+					4 Z_P_U_sf-express_cn_B_SET
+					4 Z_P_U_sfb2c_B_SET
+					2 Z_R_P_U_hermes-de_SET
+					2 Z_P_U_singapore-post_B_SET
+
+				c-ind-0-10-116-172.16.30.38-51
+					11 Z_H_U_B_Express_SET
+					7 cainiao_B
+					4 china-post
+					3 sfb2c_en
+					3 jtexpress-my
+					1 sfb2c_cn
+					1 flashexpress
+
+				# 实际生效运输商
+
+				Z_R_P_U_china-post_SET
+				Z_P_U_cainiao_B_SET
+				Z_R_P_U_dtdc_SET
+				Z_P_U_sf-express_B_SET
+				Z_P_U_sf-express_en_B_SET
+				Z_P_U_auspost_B_SET
+				Z_P_U_sf-express_cn_B_SET
+				Z_P_U_sfb2c_B_SET
+				Z_R_P_U_hermes-de_SET
+				Z_P_U_singapore-post_B_SET
+				jtexpress-my
+				flashexpress
 		-- 20250901
 			准备工作
 				cloudflare的page页面
 				阿里云临时升配VPN带宽
 				阿里云dts开redis迁移任务，配置最大
+					登录gcp vm 34.86.34.200
+						gcp的中间redis和目标redis执行 flushall
+						screen -r redis-middle-35
+						screen -r redis-taget-21
+						screen -r riot-redis-sync
 				堡垒机服务器停止服务
-					具体操作
+					具体操作（每台服务器上）
 						cd /home/wwwroot/www.trackingmore.com/script/queueshell
 						# 操作确认 check表示确认情况 down表示关闭相关服务 up表示启动相关服务
 						sh confirmStartStopServerAndProcess.sh check
@@ -25460,6 +25533,7 @@
 						sh confirmStartStopServerAndProcess.sh downToKill 平滑关闭当前任务 
 						sh confirmStartStopServerAndProcess.sh downToKill14 立即关闭当前任务 
 						sh confirmStartStopServerAndProcess.sh delResqueQueue 清除队列当前激活待执行任务 
+							只在145-44-35 sh /root/serverStop.sh
 						sh confirmStartStopServerAndProcess.sh up 不实际操作仅查看crond服务
 						sh confirmStartStopServerAndProcess.sh up 1 启定时任务crond
 					情况分类
