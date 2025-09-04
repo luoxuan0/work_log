@@ -1777,6 +1777,68 @@
 【日常响应】
 4，后续优先级、应对
 
+===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== =====
+【告警】
+【客诉】
+【迁云】
+【桌面运维】
+【运维】
+
+20250903
+【告警】
+【安全】
+【运维】
+
+
+原计划：
+【本地】
+1，待优化&专线切换
+【迁云】
+2，相关准备
+【安全】
+3，等保复测-服务器&安全产品检测相关整改
+【日常响应】
+4，后续优先级、应对
+
+计划：
+【本地】
+1，待优化&专线切换
+【迁云】
+2，相关准备&切换
+【日常响应】
+3，后续优先级、应对
+
+===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== =====
+【告警】
+【客诉】
+【迁云】
+【桌面运维】
+【运维】
+
+20250904
+【告警】
+【安全】
+【运维】
+
+
+原计划：
+【本地】
+1，待优化&专线切换
+【迁云】
+2，相关准备&切换
+【日常响应】
+3，后续优先级、应对
+
+计划：
+【本地】
+1，待优化&专线切换
+【迁云】
+2，切换-问题&后续处理
+【安全】
+3，SOC2提供相关资料
+【日常响应】
+4，后续优先级、应对
+
 近期复盘
 	后续优先级、应对
 		4月份
@@ -25453,17 +25515,43 @@
 			=IF(ISERROR(MATCH(A2,$G$2:$G$95,0)),"我们A2支持对方G2:G95不支持","双方都支持")
 
 	迁云
+		-- 20250904
+			配置更新后需要重启
+				trackingpage-138-88-tm
+					# 查看
+					ps -aux | grep main
+					# 关闭
+					kill -s 9 `ps -aux | grep main | grep -v grep  | awk '{print $2}'`
+					# 查看确认
+					ps -aux | grep main
+				email-28-92-tm
+					# 查看
+					docker ps -a
+					# 重启
+					docker restart 3da
+					# 查看确认
+					docker ps -a
+			待办
+				blog服务
+					当前在阿里云的SLB上配置转发规则，如果是/blog会转发到后端虚拟服务器组上（blog-224-154-tm-current）
+				数据库数据差异检查修复
+
+				数据库账号同步
+				配置同步版本库
+				
+				
 		-- 20250903
 			# 配置更新
+				ubuntu上sh会报错，改用bash
 				# 备份文件 原文件 原文件备份文件 目标文件
-				sh /home/wwwroot/www.trackingmore.com/script/queueshell/changeDBconfig_TM_ali_gcp.sh fileReadyToCopy 1
+				bash changeDBconfig_TM_ali_gcp.sh fileReadyToCopy 1
 				# 将从原文件备份来的同原文件内容一样的目标文件做修改，后续用户覆盖原文件达到切换目的
-				sh /home/wwwroot/www.trackingmore.com/script/queueshell/changeDBconfig_TM_ali_gcp.sh fileReadyToUpdate 1
+				bash changeDBconfig_TM_ali_gcp.sh fileReadyToUpdate 1
 
 				# 通过目标文件覆盖原文件达到切换效果
-				sh /home/wwwroot/www.trackingmore.com/script/queueshell/changeDBconfig_TM_ali_gcp.sh updateConfig 1
+				bash changeDBconfig_TM_ali_gcp.sh updateConfig 1
 				# 通过原文件备份文件覆盖原文件达到切换撤回效果
-				sh /home/wwwroot/www.trackingmore.com/script/queueshell/changeDBconfig_TM_ali_gcp.sh recallOperation 1
+				bash changeDBconfig_TM_ali_gcp.sh recallOperation 1
 
 				明确哪些服务需要重启，如何重启
 			# 国内更新国外，或国外更新国内运输商
@@ -25515,11 +25603,11 @@
 				flashexpress
 		-- 20250901
 			准备工作
-				cloudflare的page页面
-				阿里云临时升配VPN带宽
+				cloudflare的page页面	√
+				阿里云临时升配VPN带宽	√
 				阿里云dts开redis迁移任务，配置最大
 					登录gcp vm 34.86.34.200
-						gcp的中间redis和目标redis执行 flushall
+						gcp的中间redis和目标redis执行 flushall	√
 						screen -r redis-middle-35
 						screen -r redis-taget-21
 						screen -r riot-redis-sync
@@ -25534,6 +25622,22 @@
 						sh confirmStartStopServerAndProcess.sh downToKill14 立即关闭当前任务 
 						sh confirmStartStopServerAndProcess.sh delResqueQueue 清除队列当前激活待执行任务 
 							只在145-44-35 sh /root/serverStop.sh
+								redis keys "resque:queue:*Queue"
+
+								redis del "resque:queue:shopifyWebhookQueue"
+								redis del "resque:queue:updateInIndependentServer4pxRedisForeignToHomeReceiveDataQueue"
+								redis del "resque:queue:platefromWishQueue"
+								redis del "resque:queue:M1ExpressQueue"
+								redis del "resque:queue:updateInIndependentServer4pxQueue"
+								redis del "resque:queue:updateInIndependentServer4pxRedisForeignToHomeSendDataQueue"
+								redis del "resque:queue:updateInIndependentServerChinapostRedisForeignToHomeSendDataQueue"
+								redis del "resque:queue:platefromShopifyQueue"
+								redis del "resque:queue:airSendQueue"
+								redis del "resque:queue:airFisrtQueue"
+								redis del "resque:queue:airRetryQueue"
+								redis del "resque:queue:airPubQueue"
+								redis del "resque:queue:airWebhookQueue"
+								redis del "resque:queue:trackMonitorQueue"
 						sh confirmStartStopServerAndProcess.sh up 不实际操作仅查看crond服务
 						sh confirmStartStopServerAndProcess.sh up 1 启定时任务crond
 					情况分类
@@ -25559,6 +25663,7 @@
 								上配置
 								reload配置
 									PTM=/home/wwwroot/www.trackingmore.com/
+									cd $PTM
 									sh server/nginx/conf/vhost/nginx.sh noReload api.trackingmore.com.conf
 									sh server/nginx/conf/vhost/nginx.sh reload api.trackingmore.com.conf
 				阿里云停止dts任务
@@ -25570,9 +25675,9 @@
 						最近10条数据一致性
 					待办：分区跟新表创建
 				dns域名解析切换（cloudflare）
-					47.90.245.82	-->	
+					47.90.245.82	-->	34.149.151.85
 						api
-					47.252.18.164	-->	
+					47.252.18.164	-->	34.149.151.85
 						my
 						www
 						s
