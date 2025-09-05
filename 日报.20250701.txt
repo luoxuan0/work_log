@@ -25542,18 +25542,198 @@
 				
 		-- 20250903
 			# 配置更新
-				ubuntu上sh会报错，改用bash
-				# 备份文件 原文件 原文件备份文件 目标文件
-				bash changeDBconfig_TM_ali_gcp.sh fileReadyToCopy 1
-				# 将从原文件备份来的同原文件内容一样的目标文件做修改，后续用户覆盖原文件达到切换目的
-				bash changeDBconfig_TM_ali_gcp.sh fileReadyToUpdate 1
+				服务器上配置确认
+					find . -type f -exec grep -Hn "r-0xiyxblxonjb1bm3ri.redis.rds.aliyuncs.com\|r-0xiyxblxonjb1bm3ripd.redis.rds.aliyuncs.com" {} \; 2>/dev/null
+					find / -type f -exec grep -l "r-0xiyxblxonjb1bm3ri.redis.rds.aliyuncs.com\|r-0xiyxblxonjb1bm3ripd.redis.rds.aliyuncs.com" {} \; 2>/dev/null
 
-				# 通过目标文件覆盖原文件达到切换效果
-				bash changeDBconfig_TM_ali_gcp.sh updateConfig 1
-				# 通过原文件备份文件覆盖原文件达到切换撤回效果
-				bash changeDBconfig_TM_ali_gcp.sh recallOperation 1
+					# 国外服务器
+					# /home/wwwroot/www.trackingmore.com/ 为了确认文件列表，查找所有文件（包含redis连接），排除日志和压缩文件
+					find /home/wwwroot/www.trackingmore.com/ -type f -not -name "*.log" -not -name "*.zip" -not -name "*.20221213.00" -not -name "changeDBconfig_*" -not -name "root*" -not -name "db.php.20230710" -not -name "db.20230322.php" -not -name "databaseAToB.for.all.tr_user_tracknumber.table.php.20240227" -not -name "databaseAToB.for.all.tr_user_tracknumber.table.php.20231102" -exec grep -l "r-0xiyxblxonjb1bm3ri.redis.rds.aliyuncs.com\|r-0xiyxblxonjb1bm3ripd.redis.rds.aliyuncs.com" {} \; 2>/dev/null
+					# /home/wwwroot/www.trackingmore.com/ 为了确认修改内容，查找所有文件（包含redis连接）（包括行号和内容），排除日志和压缩文件
+					find /home/wwwroot/www.trackingmore.com/ -type f -not -name "*.log" -not -name "*.zip" -not -name "*.20221213.00" -not -name "changeDBconfig_*" -not -name "root*" -not -name "db.php.20230710" -not -name "db.20230322.php" -not -name "databaseAToB.for.all.tr_user_tracknumber.table.php.20240227" -not -name "databaseAToB.for.all.tr_user_tracknumber.table.php.20231102" -exec grep -Hn "r-0xiyxblxonjb1bm3ri.redis.rds.aliyuncs.com\|r-0xiyxblxonjb1bm3ripd.redis.rds.aliyuncs.com" {} \; 2>/dev/null
+					# /root/ 为了确认文件列表，查找所有文件（包含redis连接），排除日志和压缩文件
+					find /root/ -type f -not -name "*.log" -not -name "*.zip" -not -name "*.20221213.00" -not -name "changeDBconfig_*" -not -name "root*" -not -name "db.php.20230710" -not -name "db.20230322.php" -not -name "databaseAToB.for.all.tr_user_tracknumber.table.php.20240227" -not -name "databaseAToB.for.all.tr_user_tracknumber.table.php.20231102" -not -name ".bash_history" -not -name "test.meminfo.log*" -not -name "insert_info_SET.add.command.sh" -not -name "insert_SET.add.command.sh" -exec grep -l "r-0xiyxblxonjb1bm3ri.redis.rds.aliyuncs.com\|r-0xiyxblxonjb1bm3ripd.redis.rds.aliyuncs.com" {} \; 2>/dev/null
+					# /root/ 为了确认修改内容，查找所有文件（包含redis连接）（包括行号和内容），排除日志和压缩文件
+					find /root/ -type f -not -name "*.log" -not -name "*.zip" -not -name "*.20221213.00" -not -name "changeDBconfig_*" -not -name "root*" -not -name "db.php.20230710" -not -name "db.20230322.php" -not -name "databaseAToB.for.all.tr_user_tracknumber.table.php.20240227" -not -name "databaseAToB.for.all.tr_user_tracknumber.table.php.20231102" -not -name ".bash_history" -not -name "test.meminfo.log*" -not -name "insert_info_SET.add.command.sh" -not -name "insert_SET.add.command.sh" -exec grep -Hn "r-0xiyxblxonjb1bm3ri.redis.rds.aliyuncs.com\|r-0xiyxblxonjb1bm3ripd.redis.rds.aliyuncs.com" {} \; 2>/dev/null
 
-				明确哪些服务需要重启，如何重启
+					# /home/wwwroot/www.trackingmore.com/ 为了确认文件列表，查找所有文件（包含PolarDB连接），排除日志和压缩文件
+					find /home/wwwroot/www.trackingmore.com/ -type f -not -name "*.log" -not -name "*.zip" -not -name "*.20221213.00" -not -name "changeDBconfig_*" -not -name "root*" -not -name "db.php.20230710" -not -name "db.20230322.php" -not -name "databaseAToB.for.all.tr_user_tracknumber.table.php.20240227" -not -name "databaseAToB.for.all.tr_user_tracknumber.table.php.20231102" -exec grep -l "pc-0xi02p6760lwd5qa3.rwlb.rds.aliyuncs.com" {} \; 2>/dev/null
+					find /home/wwwroot/www.trackingmore.com/ -type f -not -name "*.log" -not -name "*.zip" -not -name "*.20221213.00" -not -name "changeDBconfig_*" -not -name "root*" -not -name "db.php.20230710" -not -name "db.20230322.php" -not -name "databaseAToB.for.all.tr_user_tracknumber.table.php.20240227" -not -name "databaseAToB.for.all.tr_user_tracknumber.table.php.20231102" -exec grep -l "trackingmore.rwlb.rds.aliyuncs.com" {} \; 2>/dev/null
+					# /home/wwwroot/www.trackingmore.com/ 为了确认修改内容，查找所有文件（包含PolarDB连接）（包括行号和内容），排除日志和压缩文件
+					find /home/wwwroot/www.trackingmore.com/ -type f -not -name "*.log" -not -name "*.zip" -not -name "*.20221213.00" -not -name "changeDBconfig_*" -not -name "root*" -not -name "db.php.20230710" -not -name "db.20230322.php" -not -name "databaseAToB.for.all.tr_user_tracknumber.table.php.20240227" -not -name "databaseAToB.for.all.tr_user_tracknumber.table.php.20231102" -exec grep -Hn "pc-0xi02p6760lwd5qa3.rwlb.rds.aliyuncs.com" {} \; 2>/dev/null
+					find /home/wwwroot/www.trackingmore.com/ -type f -not -name "*.log" -not -name "*.zip" -not -name "*.20221213.00" -not -name "changeDBconfig_*" -not -name "root*" -not -name "db.php.20230710" -not -name "db.20230322.php" -not -name "databaseAToB.for.all.tr_user_tracknumber.table.php.20240227" -not -name "databaseAToB.for.all.tr_user_tracknumber.table.php.20231102" -exec grep -Hn "trackingmore.rwlb.rds.aliyuncs.com" {} \; 2>/dev/null
+					# /root/ 为了确认文件列表，查找所有文件（包含PolarDB连接），排除日志和压缩文件
+					find /root/ -type f -not -name "*.log" -not -name "*.zip" -not -name "*.20221213.00" -not -name "changeDBconfig_*" -not -name "root*" -not -name "db.php.20230710" -not -name "db.20230322.php" -not -name "databaseAToB.for.all.tr_user_tracknumber.table.php.20240227" -not -name "databaseAToB.for.all.tr_user_tracknumber.table.php.20231102" -not -name ".bash_history" -not -name "test.meminfo.log*" -not -name "insert_info_SET.add.command.sh" -not -name "insert_SET.add.command.sh" -exec grep -l "pc-0xi02p6760lwd5qa3.rwlb.rds.aliyuncs.com" {} \; 2>/dev/null
+					find /root/ -type f -not -name "*.log" -not -name "*.zip" -not -name "*.20221213.00" -not -name "changeDBconfig_*" -not -name "root*" -not -name "db.php.20230710" -not -name "db.20230322.php" -not -name "databaseAToB.for.all.tr_user_tracknumber.table.php.20240227" -not -name "databaseAToB.for.all.tr_user_tracknumber.table.php.20231102" -not -name ".bash_history" -not -name "test.meminfo.log*" -not -name "insert_info_SET.add.command.sh" -not -name "insert_SET.add.command.sh" -exec grep -l "trackingmore.rwlb.rds.aliyuncs.com" {} \; 2>/dev/null
+					# /root/ 为了确认修改内容，查找所有文件（包含PolarDB连接）（包括行号和内容），排除日志和压缩文件
+					find /root/ -type f -not -name "*.log" -not -name "*.zip" -not -name "*.20221213.00" -not -name "changeDBconfig_*" -not -name "root*" -not -name "db.php.20230710" -not -name "db.20230322.php" -not -name "databaseAToB.for.all.tr_user_tracknumber.table.php.20240227" -not -name "databaseAToB.for.all.tr_user_tracknumber.table.php.20231102" -not -name ".bash_history" -not -name "test.meminfo.log*" -not -name "insert_info_SET.add.command.sh" -not -name "insert_SET.add.command.sh" -exec grep -Hn "pc-0xi02p6760lwd5qa3.rwlb.rds.aliyuncs.com" {} \; 2>/dev/null
+					find /root/ -type f -not -name "*.log" -not -name "*.zip" -not -name "*.20221213.00" -not -name "changeDBconfig_*" -not -name "root*" -not -name "db.php.20230710" -not -name "db.20230322.php" -not -name "databaseAToB.for.all.tr_user_tracknumber.table.php.20240227" -not -name "databaseAToB.for.all.tr_user_tracknumber.table.php.20231102" -not -name ".bash_history" -not -name "test.meminfo.log*" -not -name "insert_info_SET.add.command.sh" -not -name "insert_SET.add.command.sh" -exec grep -Hn "trackingmore.rwlb.rds.aliyuncs.com" {} \; 2>/dev/null
+					find /home/wwwroot/www.trackingmore.com/ -type f -not -name "*.log" -not -name "*.zip" -not -name "*.20221213.00" -not -name "changeDBconfig_*" -not -name "root*" -not -name "db.php.20230710" -not -name "db.20230322.php" -not -name "databaseAToB.for.all.tr_user_tracknumber.table.php.20240227" -not -name "databaseAToB.for.all.tr_user_tracknumber.table.php.20231102" -exec grep -Hn "trackingmore.rwlb.rds.aliyuncs.com" {} \; 2>/dev/null
+
+
+					# /home/ 为了确认文件列表，查找所有文件（包含redis连接），排除日志和压缩文件
+					find /home/ -type f -not -path "/home/wwwroot/upload/*" -not -path "/home/wwwroot/www.trackingmore.com/*" -not -name "*.log" -not -name "*.zip" -not -name "*.20221213.00" -not -name "changeDBconfig_*" -not -name "root*" -not -name "db.php.20230710" -not -name "db.20230322.php" -not -name "databaseAToB.for.all.tr_user_tracknumber.table.php.20240227" -not -name "databaseAToB.for.all.tr_user_tracknumber.table.php.20231102" -exec grep -l "r-0xiyxblxonjb1bm3ri.redis.rds.aliyuncs.com\|r-0xiyxblxonjb1bm3ripd.redis.rds.aliyuncs.com" {} \; 2>/dev/null
+					# /home/ 为了确认修改内容，查找所有文件（包含redis连接）（包括行号和内容），排除日志和压缩文件
+					find /home/ -type f -not -path "/home/wwwroot/upload/*" -not -path "/home/wwwroot/www.trackingmore.com/*" -not -name "*.log" -not -name "*.zip" -not -name "*.20221213.00" -not -name "changeDBconfig_*" -not -name "root*" -not -name "db.php.20230710" -not -name "db.20230322.php" -not -name "databaseAToB.for.all.tr_user_tracknumber.table.php.20240227" -not -name "databaseAToB.for.all.tr_user_tracknumber.table.php.20231102" -exec grep -Hn "r-0xiyxblxonjb1bm3ri.redis.rds.aliyuncs.com\|r-0xiyxblxonjb1bm3ripd.redis.rds.aliyuncs.com" {} \; 2>/dev/null
+
+					# /home/ 为了确认文件列表，查找所有文件（包含PolarDB连接），排除日志和压缩文件
+					find /home/ -type f -not -path "/home/wwwroot/upload/*" -not -path "/home/wwwroot/www.trackingmore.com/*" -not -name "*.log" -not -name "*.zip" -not -name "*.20221213.00" -not -name "changeDBconfig_*" -not -name "root*" -not -name "db.php.20230710" -not -name "db.20230322.php" -not -name "databaseAToB.for.all.tr_user_tracknumber.table.php.20240227" -not -name "databaseAToB.for.all.tr_user_tracknumber.table.php.20231102" -not -name ".bash_history" -not -name "test.meminfo.log*" -not -name "insert_info_SET.add.command.sh" -not -name "insert_SET.add.command.sh" -exec grep -l "pc-0xi02p6760lwd5qa3.rwlb.rds.aliyuncs.com" {} \; 2>/dev/null
+					# /home/ 为了确认修改内容，查找所有文件（包含PolarDB连接）（包括行号和内容），排除日志和压缩文件
+					find /home/ -type f -not -path "/home/wwwroot/upload/*" -not -path "/home/wwwroot/www.trackingmore.com/*" -not -name "*.log" -not -name "*.zip" -not -name "*.20221213.00" -not -name "changeDBconfig_*" -not -name "root*" -not -name "db.php.20230710" -not -name "db.20230322.php" -not -name "databaseAToB.for.all.tr_user_tracknumber.table.php.20240227" -not -name "databaseAToB.for.all.tr_user_tracknumber.table.php.20231102" -not -name ".bash_history" -not -name "test.meminfo.log*" -not -name "insert_info_SET.add.command.sh" -not -name "insert_SET.add.command.sh" -exec grep -Hn "pc-0xi02p6760lwd5qa3.rwlb.rds.aliyuncs.com" {} \; 2>/dev/null
+
+					# 后续补充给排查
+					# 排除所有隐藏目录
+					find . -type f -not -path "./.*/*" -exec grep -H "要查找的字符串" {} \;
+					# 排除多个目录和文件
+					find / -type f -not -path "/home/wwwroot/www.trackingmore.com/*" -not -path "/root/*" -not -path "/home/wwwroot/upload/*" -not -name "*.log" -exec grep -l "r-0xiyxblxonjb1bm3ri.redis.rds.aliyuncs.com\|r-0xiyxblxonjb1bm3ripd.redis.rds.aliyuncs.com\|pc-0xi02p6760lwd5qa3.rwlb.rds.aliyuncs.com\|trackingmore.rwlb.rds.aliyuncs.com" {} \; 2>/dev/null
+					find / -type f -not -path "/home/wwwroot/www.trackingmore.com/*" -not -path "/root/*" -not -path "/home/wwwroot/upload/*" -not -name "*.log" -exec grep -Hn "r-0xiyxblxonjb1bm3ri.redis.rds.aliyuncs.com\|r-0xiyxblxonjb1bm3ripd.redis.rds.aliyuncs.com\|pc-0xi02p6760lwd5qa3.rwlb.rds.aliyuncs.com\|trackingmore.rwlb.rds.aliyuncs.com" {} \; 2>/dev/null
+					find . -type f -not -path "./.*/*" -exec grep -H "要查找的字符串" {} \;
+
+					# 排除多个目录和文件
+					find / -type f -not -path "/home/*" -not -path "/root/*" -not -path "/home/wwwroot/upload/*" -not -name "*.log" -exec grep -l "r-0xiyxblxonjb1bm3ri.redis.rds.aliyuncs.com\|r-0xiyxblxonjb1bm3ripd.redis.rds.aliyuncs.com\|pc-0xi02p6760lwd5qa3.rwlb.rds.aliyuncs.com\|trackingmore.rwlb.rds.aliyuncs.com" {} \; 2>/dev/null
+					find / -type f -not -path "/home/*" -not -path "/root/*" -not -path "/home/wwwroot/upload/*" -not -name "*.log" -exec grep -Hn "r-0xiyxblxonjb1bm3ri.redis.rds.aliyuncs.com\|r-0xiyxblxonjb1bm3ripd.redis.rds.aliyuncs.com\|pc-0xi02p6760lwd5qa3.rwlb.rds.aliyuncs.com\|trackingmore.rwlb.rds.aliyuncs.com" {} \; 2>/dev/null
+
+
+					# 先改文件 后续再改的部分 ---
+					# root*
+					# script/queueshell/redisNodeKeyMemory.sh
+
+					# grep -r：默认显示 文件名:匹配内容
+					# grep -n -r：显示 文件名:行号:匹配内容
+					# grep -l -r：只显示包含匹配的文件名列表
+
+
+					# 涉及文件
+
+						/var/spool/cron/root
+
+						# email-28
+						# redis
+						/root/send_mail/configs/app.ini
+						/root/event_trigger/configs/app.ini
+
+						# blog-224
+						# db
+						/root/nginx/www/wordpress/wp-config.php
+						/root/nginx/www/wordpress/blog/wp-config.php
+
+
+						# redis
+						/home/wwwroot/www.trackingmore.com/config/redis.php
+						/home/wwwroot/www.trackingmore.com/config/redis1.php
+						/home/wwwroot/www.trackingmore.com/script/queueshell/host_conf.sh
+						/home/wwwroot/www.trackingmore.com/php-resque/lib/Redisent/Redisent.php
+						/home/wwwroot/www.trackingmore.com/php-resque/lib/redis.php
+						/home/wwwroot/www.trackingmore.com/python_img/get_redis_num.py
+						# r-0xiyxblxonjb1bm3ripd.redis.rds.aliyuncs.com 外网改内网
+						/home/wwwroot/www.trackingmore.com/python_img/test_speedpost.py
+						# 后续版本库中改
+						/home/wwwroot/www.trackingmore.com/script/queueshell/redisNodeKeyMemory.sh
+						/root/redis.cpu.sh
+						/root/del.redis.sh
+						/root/insert_info_SET.sh
+						/root/redis.memory.sh
+						/root/redis.monitor.sh
+						/root/t.sh
+						/root/redis.monitor.sh.c
+						/root/insert_SET.sh
+
+						/home/wwwroot/mytracking/config.yml
+						/home/wwwroot/trackingpage/config.yml
+
+						/home/jt/red_str.py
+						/home/jt/red_se.py
+						/home/wwwroot/mytracking_new/bin/config.yml
+						/home/wwwroot/mytracking_service/bin/config.yml
+						/home/wwwroot/customer-weekly/config.yml
+
+
+						# polardb
+						/home/wwwroot/www.trackingmore.com/config/db.php
+						# 版本库无
+						/home/wwwroot/www.trackingmore.com/script/databaseAToB.for.all.tr_user_tracknumber.table.php
+						/home/wwwroot/www.trackingmore.com/script/test_db_conn.php
+						/home/wwwroot/www.trackingmore.com/config/db-upload.php
+						/home/wwwroot/www.trackingmore.com/config/db-api.php
+						# 版本库同线上不一致 159-209
+						/home/wwwroot/www.trackingmore.com/script/empty_webhook_table.php
+						# 后续版本库中改
+						/home/wwwroot/www.trackingmore.com/script/queueshell/apiV4getAndInsertData.sh
+
+						# 之前做的一个单独api ？应该已经去掉
+						/home/wwwroot/www.parcelpanel.com/config/db.php
+
+						/home/wwwroot/customer-weekly/config.yml
+						/home/wwwroot/mytracking/config.yml
+						/home/wwwroot/trackingpage/config.yml
+
+						/home/wwwroot/mytracking_new/bin/config.yml
+						/home/wwwroot/mytracking_service/bin/config.yml
+						/home/wwwroot/www.parcelpanel.com/config/db-upload.php
+						/home/wwwroot/www.parcelpanel.com/config/db.php
+						/home/wwwroot/app.yaml
+
+						
+						# 其他补充
+						/home/jt/scanner/config.yml
+						/home/wwwroot/webhook-service/bin/conf/conf.yaml
+						/home/jt/webhook_service/conf/conf.yaml
+
+					grep -n -r "r-0xiyxblxonjb1bm3ri.redis.rds.aliyuncs.com\|r-0xiyxblxonjb1bm3ripd.redis.rds.aliyuncs.com\|pc-0xi02p6760lwd5qa3.rwlb.rds.aliyuncs.com\|trackingmore.rwlb.rds.aliyuncs.com" /var/spool/cron/root
+
+
+					# 国内服务器
+					# /home/wwwroot/www.trackingmore.com/ 为了确认文件列表，查找所有文件（包含redis连接），排除日志和压缩文件
+					find /home/wwwroot/www.trackingmore.com/ -type f -not -name "*.log" -not -name "*.zip" -not -name "*.20221213.00" -not -name "changeDBconfig_*" -not -name "root*" -not -name "db.php.20230710" -not -name "db.20230322.php" -not -name "databaseAToB.for.all.tr_user_tracknumber.table.php.20240227" -not -name "databaseAToB.for.all.tr_user_tracknumber.table.php.20231102" -exec grep -l "r-0xiyxblxonjb1bm3ripd.redis.rds.aliyuncs.com" {} \; 2>/dev/null
+					# /home/wwwroot/www.trackingmore.com/ 为了确认修改内容，查找所有文件（包含redis连接）（包括行号和内容），排除日志和压缩文件
+					find /home/wwwroot/www.trackingmore.com/ -type f -not -name "*.log" -not -name "*.zip" -not -name "*.20221213.00" -not -name "changeDBconfig_*" -not -name "root*" -not -name "db.php.20230710" -not -name "db.20230322.php" -not -name "databaseAToB.for.all.tr_user_tracknumber.table.php.20240227" -not -name "databaseAToB.for.all.tr_user_tracknumber.table.php.20231102" -exec grep -Hn "r-0xiyxblxonjb1bm3ripd.redis.rds.aliyuncs.com" {} \; 2>/dev/null
+					# /root/ 为了确认文件列表，查找所有文件（包含redis连接），排除日志和压缩文件
+					find /root/ -type f -not -name "*.log" -not -name "*.zip" -not -name "*.20221213.00" -not -name "changeDBconfig_*" -not -name "root*" -not -name "db.php.20230710" -not -name "db.20230322.php" -not -name "databaseAToB.for.all.tr_user_tracknumber.table.php.20240227" -not -name "databaseAToB.for.all.tr_user_tracknumber.table.php.20231102" -not -name ".bash_history" -not -name "test.meminfo.log*" -not -name "insert_info_SET.add.command.sh" -not -name "insert_SET.add.command.sh" -exec grep -l "r-0xiyxblxonjb1bm3ripd.redis.rds.aliyuncs.com" {} \; 2>/dev/null
+					# /root/ 为了确认修改内容，查找所有文件（包含redis连接）（包括行号和内容），排除日志和压缩文件
+					find /root/ -type f -not -name "*.log" -not -name "*.zip" -not -name "*.20221213.00" -not -name "changeDBconfig_*" -not -name "root*" -not -name "db.php.20230710" -not -name "db.20230322.php" -not -name "databaseAToB.for.all.tr_user_tracknumber.table.php.20240227" -not -name "databaseAToB.for.all.tr_user_tracknumber.table.php.20231102" -not -name ".bash_history" -not -name "test.meminfo.log*" -not -name "insert_info_SET.add.command.sh" -not -name "insert_SET.add.command.sh" -exec grep -Hn "r-0xiyxblxonjb1bm3ripd.redis.rds.aliyuncs.com" {} \; 2>/dev/null
+
+					# /home/wwwroot/www.trackingmore.com/ 为了确认文件列表，查找所有文件（包含PolarDB连接），排除日志和压缩文件
+					find /home/wwwroot/www.trackingmore.com/ -type f -not -name "*.log" -not -name "*.zip" -not -name "*.20221213.00" -not -name "changeDBconfig_*" -not -name "root*" -not -name "db.php.20230710" -not -name "db.20230322.php" -not -name "databaseAToB.for.all.tr_user_tracknumber.table.php.20240227" -not -name "databaseAToB.for.all.tr_user_tracknumber.table.php.20231102" -exec grep -l "trackingmore.rwlb.rds.aliyuncs.com" {} \; 2>/dev/null
+					# /home/wwwroot/www.trackingmore.com/ 为了确认修改内容，查找所有文件（包含PolarDB连接）（包括行号和内容），排除日志和压缩文件
+					find /home/wwwroot/www.trackingmore.com/ -type f -not -name "*.log" -not -name "*.zip" -not -name "*.20221213.00" -not -name "changeDBconfig_*" -not -name "root*" -not -name "db.php.20230710" -not -name "db.20230322.php" -not -name "databaseAToB.for.all.tr_user_tracknumber.table.php.20240227" -not -name "databaseAToB.for.all.tr_user_tracknumber.table.php.20231102" -exec grep -Hn "trackingmore.rwlb.rds.aliyuncs.com" {} \; 2>/dev/null
+					# /root/ 为了确认文件列表，查找所有文件（包含PolarDB连接），排除日志和压缩文件
+					find /root/ -type f -not -name "*.log" -not -name "*.zip" -not -name "*.20221213.00" -not -name "changeDBconfig_*" -not -name "root*" -not -name "db.php.20230710" -not -name "db.20230322.php" -not -name "databaseAToB.for.all.tr_user_tracknumber.table.php.20240227" -not -name "databaseAToB.for.all.tr_user_tracknumber.table.php.20231102" -not -name ".bash_history" -not -name "test.meminfo.log*" -not -name "insert_info_SET.add.command.sh" -not -name "insert_SET.add.command.sh" -exec grep -l "trackingmore.rwlb.rds.aliyuncs.com" {} \; 2>/dev/null
+					# /root/ 为了确认修改内容，查找所有文件（包含PolarDB连接）（包括行号和内容），排除日志和压缩文件
+					find /root/ -type f -not -name "*.log" -not -name "*.zip" -not -name "*.20221213.00" -not -name "changeDBconfig_*" -not -name "root*" -not -name "db.php.20230710" -not -name "db.20230322.php" -not -name "databaseAToB.for.all.tr_user_tracknumber.table.php.20240227" -not -name "databaseAToB.for.all.tr_user_tracknumber.table.php.20231102" -not -name ".bash_history" -not -name "test.meminfo.log*" -not -name "insert_info_SET.add.command.sh" -not -name "insert_SET.add.command.sh" -exec grep -Hn "trackingmore.rwlb.rds.aliyuncs.com" {} \; 2>/dev/null
+
+
+
+					# 服务器确认
+
+					# 连不上 跳过
+					doc-206-tm
+					zt-channelwill品牌app推荐-89-tm
+					blog-83-224-tm
+
+					# 连不上 可能需要确认
+					# 提示认证失败（用户名或密码错误）
+					python-47.253.87.29-tm -test
+
+					# 确认没用 后续从堡垒机去掉
+					track-186
+					track-34
+
+					# 排除的
+					track-113（查询系统的不用改，因没有连阿里的）
+					test-208-tm
+				操作步骤
+					ubuntu上sh会报错，改用bash
+					# 备份文件 原文件 原文件备份文件 目标文件
+					bash changeDBconfig_TM_ali_gcp.sh fileReadyToCopy 1
+					# 将从原文件备份来的同原文件内容一样的目标文件做修改，后续用户覆盖原文件达到切换目的
+					bash changeDBconfig_TM_ali_gcp.sh fileReadyToUpdate 1
+
+					# 通过目标文件覆盖原文件达到切换效果
+					bash changeDBconfig_TM_ali_gcp.sh updateConfig 1
+					# 通过原文件备份文件覆盖原文件达到切换撤回效果
+					bash changeDBconfig_TM_ali_gcp.sh recallOperation 1
+
+					明确哪些服务需要重启，如何重启
 			# 国内更新国外，或国外更新国内运输商
 				ps -ef | grep redisHomeTo | grep -v 'Z_H_U_B_\|grep' | awk '{print $NF}' | sort -nrk1 | uniq -c | sort -nrk1
 				ps -ef | grep redisHomeTo | grep -v 'grep' | awk '{print $NF}' | sort -nrk1 | uniq -c | sort -nrk1
