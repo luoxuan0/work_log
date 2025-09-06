@@ -168,3 +168,50 @@ gcloud redis instances describe fjny-tm-redis-pro --region=us-east4 --format=jso
 2.  根据对数据安全性和性能的综合考量，决定是否同时启用 **仅追加文件 (AOF)**。
 
 启用持久化会产生额外的存储成本，但这是保证数据安全所必需的。
+
+## 20250905
+
+### 切换后php连接数据库异常
+
+```shell
+
+# PHP 7.0.0 异常
+# PHP 7.0.33 正常
+
+# phpVersionChangeTemp.sh
+
+# 独立更新没有7.0.33
+# 从145-44-35获取 ， 172.16.21.212 类似操作
+rsync -avz /usr/local/php7.0.33 root@172.16.21.190:/usr/local/
+
+/usr/local/php7.0.33/bin/php -v
+/usr/local/php7.0.33/bin/php: error while loading shared libraries: libltdl.so.7: cannot open shared object file: No such file or directory
+
+# 这个错误是因为系统缺少 PHP 运行所需的 libltdl.so.7 共享库文件
+# 安装 libltdl7
+# 对于 Ubuntu/Debian 系统
+sudo apt update
+sudo apt install libltdl7
+
+# 对于 CentOS/RHEL 系统
+sudo yum install libtool-ltdl
+
+# 对于 Fedora
+sudo dnf install libtool-ltdl
+
+# 依旧报错
+/usr/local/php7.0.33/bin/php -v
+PHP Warning:  PHP Startup: Unable to load dynamic library '/usr/local/php7.0.33/lib/php/extensions/no-debug-non-zts-20151012/rdkafka.so' - librdkafka.so.1: cannot open shared object file: No such file or directory in Unknown on line 0
+PHP 7.0.33 (cli) (built: Oct 16 2020 14:10:41) ( NTS )
+Copyright (c) 1997-2017 The PHP Group
+Zend Engine v3.0.0, Copyright (c) 1998-2017 Zend Technologies
+    with Zend OPcache v7.0.33, Copyright (c) 1999-2017, by Zend Technologies
+
+
+/usr/local/php7.0.33/lib/php.ini
+;切换gcp后php连接数据库异常，从其他服务器复制过来 7.0.33 但是 缺乏扩展，查询队列不用kafka，将其注释-20250905
+;extension=rdkafka.so
+
+
+
+```

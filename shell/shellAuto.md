@@ -117,3 +117,75 @@ elif [[ $host == 'www_TM' ]]; then
 	run_command "/usr/local/nginx/sbin/nginx -t"
 fi
 ```
+
+phpVersionChangeTemp.sh
+
+```shell
+
+#!/bin/bash
+
+###############################################################################
+# 脚本名称: phpVersionChangeTemp.sh
+# 功能说明:
+#   本脚本用于将 /usr/local/php7/bin/php 切换为 php7.0.33 版本，解决迁云gcp数据库连接异常问题。
+#   操作流程如下：
+#     1. 备份原有 php 可执行文件，防止误操作导致无法恢复。
+#     2. 删除当前有迁云gcp数据库连接异常的 php 可执行文件。
+#     3. 建立软连接，将 php7.0.33 作为新的 php7 版本。
+#
+# 使用说明:
+#   1. 请确保有 root 权限执行本脚本。
+#   2. 所有操作均通过 run_command 封装，遇到错误会自动中断并输出详细日志，便于排查。
+#   3. 备份文件名自动带上当前日期，避免覆盖历史备份。
+#
+# 流程展示:
+#   ┌──────────────┐
+#   │ 备份原php文件 │
+#   └─────┬────────┘
+#         │
+#   ┌─────▼────────┐
+#   │ 删除异常php   │
+#   └─────┬────────┘
+#         │
+#   ┌─────▼──────────────┐
+#   │ 建立新php软连接     │
+#   └────────────────────┘
+###############################################################################
+
+log_date=$(date +%Y%m%d)
+# 备注：/data/audit/ 为操作审计目录，如不存在则创建
+audit_dir="/data/audit"
+if [ ! -d "$audit_dir" ]; then
+    mkdir -p "$audit_dir"
+fi
+log_file="${audit_dir}/phpVersionChangeTemp.${log_date}.log"
+
+{
+    bash_path=$(ps -p $$ -o comm=)
+    cmd="$0"
+    echo "执行脚本的bash: $bash_path"
+    echo "脚本执行完整命令: $bash_path $cmd $*"
+
+    # 引入通用工具函数
+    # source "$(dirname "$0")/../../common/shell-utils.sh"
+    source "/home/wwwroot/www.trackingmore.com/common/shell-utils.sh"
+
+    echo "========== PHP 版本切换流程开始 =========="
+
+    # 1. 备份原有 php 可执行文件，防止误操作导致无法恢复
+    echo "[1/3] 备份原有 php 可执行文件..."
+    run_command "rsync -avz /usr/local/php7/bin/php /usr/local/php7/bin/php.\$(date +%Y%m%d)"
+
+    # 2. 删除当前有迁云gcp数据库连接异常的 php 可执行文件
+    echo "[2/3] 删除当前有迁云gcp数据库连接异常的 php 可执行文件..."
+    run_command "rm -f /usr/local/php7/bin/php"
+
+    # 3. 建立软连接，将 php7.0.33 作为新的 php7 版本
+    echo "[3/3] 建立软连接，将 php7.0.33 作为新的 php7 版本..."
+    run_command "ln -s /usr/local/php7.0.33/bin/php /usr/local/php7/bin/php"
+
+    echo "========== PHP 版本切换流程完成 =========="
+} >> "$log_file" 2>&1
+
+
+```
