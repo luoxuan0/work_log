@@ -25548,6 +25548,117 @@
 			=IF(ISERROR(MATCH(A2,$G$2:$G$95,0)),"我们A2支持对方G2:G95不支持","双方都支持")
 
 	迁云
+		-- 20250906
+			切换后异常处理
+				rsync -azv /home/wwwroot/www.trackingmore.com/config/db-api.php /home/wwwroot/www.trackingmore.com/config/db-api.php.back.20250906
+				vi /home/wwwroot/www.trackingmore.com/config/db-api.php
+				
+				数据库账号同步缺失（先同步两个）
+					阿里云，高权限账号下
+						mysql> SELECT user,host FROM mysql.user WHERE user in ('trackingdb1','trackingdb_om') AND user NOT IN ('mysql.sys','mysql.session') ORDER BY 1,2;
+						+---------------+------+
+						| user          | host |
+						+---------------+------+
+						| trackingdb1   | %    |
+						| trackingdb_om | %    |
+						+---------------+------+
+						2 rows in set (0.00 sec)
+
+						mysql> SHOW GRANTS FOR 'trackingdb1'@'%';
+						+----------------------------------------------------------------------------------+
+						| Grants for trackingdb1@%                                                         |
+						+----------------------------------------------------------------------------------+
+						| GRANT PROCESS, REPLICATION SLAVE, REPLICATION CLIENT ON *.* TO 'trackingdb1'@'%' |
+						| GRANT ALL PRIVILEGES ON `trackingdb`.* TO 'trackingdb1'@'%'                      |
+						| GRANT ALL PRIVILEGES ON `test0110`.* TO 'trackingdb1'@'%'                        |
+						| GRANT ALL PRIVILEGES ON `yearning`.* TO 'trackingdb1'@'%'                        |
+						| GRANT SELECT ON `mysql`.`time_zone_name` TO 'trackingdb1'@'%'                    |
+						| GRANT SELECT ON `mysql`.`proc` TO 'trackingdb1'@'%'                              |
+						| GRANT SELECT ON `mysql`.`time_zone` TO 'trackingdb1'@'%'                         |
+						| GRANT SELECT ON `mysql`.`help_relation` TO 'trackingdb1'@'%'                     |
+						| GRANT SELECT ON `mysql`.`time_zone_transition` TO 'trackingdb1'@'%'              |
+						| GRANT SELECT ON `mysql`.`help_category` TO 'trackingdb1'@'%'                     |
+						| GRANT SELECT ON `mysql`.`event` TO 'trackingdb1'@'%'                             |
+						| GRANT SELECT ON `mysql`.`general_log` TO 'trackingdb1'@'%'                       |
+						| GRANT SELECT ON `mysql`.`slow_log` TO 'trackingdb1'@'%'                          |
+						| GRANT SELECT ON `mysql`.`func` TO 'trackingdb1'@'%'                              |
+						| GRANT SELECT ON `mysql`.`help_topic` TO 'trackingdb1'@'%'                        |
+						| GRANT SELECT ON `mysql`.`help_keyword` TO 'trackingdb1'@'%'                      |
+						| GRANT SELECT ON `mysql`.`time_zone_transition_type` TO 'trackingdb1'@'%'         |
+						| GRANT SELECT ON `mysql`.`time_zone_leap_second` TO 'trackingdb1'@'%'             |
+						+----------------------------------------------------------------------------------+
+						18 rows in set (0.00 sec)
+
+						mysql> SHOW GRANTS FOR 'trackingdb_om'@'%';
+						+------------------------------------------------------------------------------------+
+						| Grants for trackingdb_om@%                                                         |
+						+------------------------------------------------------------------------------------+
+						| GRANT PROCESS, REPLICATION SLAVE, REPLICATION CLIENT ON *.* TO 'trackingdb_om'@'%' |
+						| GRANT ALL PRIVILEGES ON `yearning`.* TO 'trackingdb_om'@'%'                        |
+						| GRANT ALL PRIVILEGES ON `trackingdb`.* TO 'trackingdb_om'@'%'                      |
+						| GRANT SELECT ON `mysql`.`proc` TO 'trackingdb_om'@'%'                              |
+						| GRANT SELECT ON `mysql`.`time_zone_transition` TO 'trackingdb_om'@'%'              |
+						| GRANT SELECT ON `mysql`.`time_zone_transition_type` TO 'trackingdb_om'@'%'         |
+						| GRANT SELECT ON `mysql`.`general_log` TO 'trackingdb_om'@'%'                       |
+						| GRANT SELECT ON `mysql`.`time_zone_name` TO 'trackingdb_om'@'%'                    |
+						| GRANT SELECT ON `mysql`.`help_keyword` TO 'trackingdb_om'@'%'                      |
+						| GRANT SELECT ON `mysql`.`slow_log` TO 'trackingdb_om'@'%'                          |
+						| GRANT SELECT ON `mysql`.`time_zone_leap_second` TO 'trackingdb_om'@'%'             |
+						| GRANT SELECT ON `mysql`.`help_relation` TO 'trackingdb_om'@'%'                     |
+						| GRANT SELECT ON `mysql`.`help_category` TO 'trackingdb_om'@'%'                     |
+						| GRANT SELECT ON `mysql`.`func` TO 'trackingdb_om'@'%'                              |
+						| GRANT SELECT ON `mysql`.`time_zone` TO 'trackingdb_om'@'%'                         |
+						| GRANT SELECT ON `mysql`.`event` TO 'trackingdb_om'@'%'                             |
+						| GRANT SELECT ON `mysql`.`help_topic` TO 'trackingdb_om'@'%'                        |
+						+------------------------------------------------------------------------------------+
+					gcp，高权限账号下
+						trackingdb1
+							CREATE USER 'trackingdb1'@'%' IDENTIFIED BY '';
+							GRANT PROCESS, REPLICATION SLAVE, REPLICATION CLIENT ON *.* TO 'trackingdb1'@'%';
+							GRANT ALL PRIVILEGES ON `trackingdb`.* TO 'trackingdb1'@'%';
+							GRANT ALL PRIVILEGES ON `test0110`.* TO 'trackingdb1'@'%';
+							GRANT ALL PRIVILEGES ON `yearning`.* TO 'trackingdb1'@'%';
+							GRANT SELECT ON `mysql`.`time_zone_name` TO 'trackingdb1'@'%';
+							GRANT SELECT ON `mysql`.`proc` TO 'trackingdb1'@'%';
+								ERROR 1146 (42S02): Table 'mysql.proc' doesn't exist
+							GRANT SELECT ON `mysql`.`time_zone` TO 'trackingdb1'@'%';
+							GRANT SELECT ON `mysql`.`help_relation` TO 'trackingdb1'@'%';
+							GRANT SELECT ON `mysql`.`time_zone_transition` TO 'trackingdb1'@'%';
+							GRANT SELECT ON `mysql`.`help_category` TO 'trackingdb1'@'%';
+							GRANT SELECT ON `mysql`.`event` TO 'trackingdb1'@'%';
+								ERROR 1146 (42S02): Table 'mysql.event' doesn't exist
+							GRANT SELECT ON `mysql`.`general_log` TO 'trackingdb1'@'%';
+							GRANT SELECT ON `mysql`.`slow_log` TO 'trackingdb1'@'%';
+							GRANT SELECT ON `mysql`.`func` TO 'trackingdb1'@'%';
+							GRANT SELECT ON `mysql`.`help_topic` TO 'trackingdb1'@'%';
+							GRANT SELECT ON `mysql`.`help_keyword` TO 'trackingdb1'@'%';
+							GRANT SELECT ON `mysql`.`time_zone_transition_type` TO 'trackingdb1'@'%';
+							GRANT SELECT ON `mysql`.`time_zone_leap_second` TO 'trackingdb1'@'%';
+						trackingdb_om
+							CREATE USER 'trackingdb_om'@'%' IDENTIFIED BY '$OTOMVFSXdg^8QCJ';
+							GRANT PROCESS, REPLICATION SLAVE, REPLICATION CLIENT ON *.* TO 'trackingdb_om'@'%';
+							GRANT ALL PRIVILEGES ON `yearning`.* TO 'trackingdb_om'@'%';
+							GRANT ALL PRIVILEGES ON `trackingdb`.* TO 'trackingdb_om'@'%';
+							GRANT SELECT ON `mysql`.`proc` TO 'trackingdb_om'@'%';
+								ERROR 1146 (42S02): Table 'mysql.proc' doesn't exist
+							GRANT SELECT ON `mysql`.`time_zone_transition` TO 'trackingdb_om'@'%';
+							GRANT SELECT ON `mysql`.`time_zone_transition_type` TO 'trackingdb_om'@'%';
+							GRANT SELECT ON `mysql`.`general_log` TO 'trackingdb_om'@'%';
+							GRANT SELECT ON `mysql`.`time_zone_name` TO 'trackingdb_om'@'%';
+							GRANT SELECT ON `mysql`.`help_keyword` TO 'trackingdb_om'@'%';
+							GRANT SELECT ON `mysql`.`slow_log` TO 'trackingdb_om'@'%';
+							GRANT SELECT ON `mysql`.`time_zone_leap_second` TO 'trackingdb_om'@'%';
+							GRANT SELECT ON `mysql`.`help_relation` TO 'trackingdb_om'@'%';
+							GRANT SELECT ON `mysql`.`help_category` TO 'trackingdb_om'@'%';
+							GRANT SELECT ON `mysql`.`func` TO 'trackingdb_om'@'%';
+							GRANT SELECT ON `mysql`.`time_zone` TO 'trackingdb_om'@'%';
+							GRANT SELECT ON `mysql`.`event` TO 'trackingdb_om'@'%';
+								ERROR 1146 (42S02): Table 'mysql.event' doesn't exist
+							GRANT SELECT ON `mysql`.`help_topic` TO 'trackingdb_om'@'%';
+				
+				临时操作回撤
+					rsync -azv /home/wwwroot/www.trackingmore.com/config/db-api.php /home/wwwroot/www.trackingmore.com/config/db-api.php.new.back.20250906
+					rsync -azv /home/wwwroot/www.trackingmore.com/config/db-api.php.back.20250906 /home/wwwroot/www.trackingmore.com/config/db-api.php
 		-- 20250904
 			配置更新后需要重启
 				trackingpage-138-88-tm
