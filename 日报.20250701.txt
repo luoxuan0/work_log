@@ -1907,6 +1907,40 @@
 	数据泄露&摄像头掉线安全隐患
 
 
+===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== =====
+【告警】
+【客诉】
+【迁云】
+【桌面运维】
+【运维】
+
+20250908
+【告警】
+【安全】
+【运维】
+
+
+原计划：
+【本地】
+1，待优化&专线切换
+【迁云】
+2，切换-问题&后续处理
+【安全】
+3，等保复测-服务器&安全产品检测相关整改
+【日常响应】
+4，后续优先级、应对
+
+计划：
+【本地】
+1，待优化&专线切换
+【迁云】
+2，切换-问题&后续处理
+【安全】
+3，SOC2-相关整改跟进
+【日常响应】
+4，后续优先级、应对
+
+
 近期复盘
 	后续优先级、应对
 		4月份
@@ -1997,7 +2031,7 @@
 		-- 20250903
 			微软账号无法登录
 			crisp切intercome
-			iOA账号申请
+			iOA账号申请	√
 			远程办公用远程桌面
 			远程办公用VPN
 			卢森堡节点
@@ -25583,6 +25617,69 @@
 			=IF(ISERROR(MATCH(A2,$G$2:$G$95,0)),"我们A2支持对方G2:G95不支持","双方都支持")
 
 	迁云
+		-- 20250908
+			tmzoho迁移	√
+				# 进入对应配置文件修改配置为gcp服务器数据库（MySQL和redis连接）
+				docker exec -it php82 bash
+				gosu www-data bash
+				cd tmzoho/
+				vim .env
+
+				# 获取当天日期
+				d=`date '+%Y%m%d'`
+				# 需备份文件
+				need_backup_file=.env
+				# 备份
+				# 备份
+				rsync -azv ${need_backup_file} ${need_backup_file}.back.${d}
+				# 修改
+				# 待修改字符
+				strOrigin=pc-0xi02p6760lwd5qa3.rwlb.rds.aliyuncs.com
+				# 修改后目标字符
+				strNew=10.19.16.14
+				# 查看需要修改，且修改后的行
+				sed -n "s/${strOrigin}/${strNew}/gp" ${need_backup_file}
+				# 修改
+				sed -i "s/${strOrigin}/${strNew}/g" ${need_backup_file}
+				# 为了确认是否还有修改的行，查看需要修改，且修改后的行
+				sed -n "s/${strOrigin}/${strNew}/gp" ${need_backup_file}
+			大数据数据库账号授权	√
+				--- 准备
+					--- 查看授权账号
+					SELECT user,host FROM mysql.user WHERE user in ('trackingdb_bigdata') AND user NOT IN ('mysql.sys','mysql.session') ORDER BY 1,2;
+
+					--- 查看授权账号具体授权信息
+					SHOW GRANTS FOR 'trackingdb_bigdata'@'%';
+
+					--- 进行授权
+					GRANT INSERT ON `trackingdb`.`tr_bigdata_user_usage_analysis` TO 'trackingdb_bigdata'@'%';
+
+					--- 刷新权限
+					FLUSH PRIVILEGES;
+				--- 实际操作
+					mysql>  SELECT user,host FROM mysql.user WHERE user in ('trackingdb_bigdata') AND user NOT IN ('mysql.sys','mysql.session') ORDER BY 1,2;
+					+--------------------+------+
+					| user               | host |
+					+--------------------+------+
+					| trackingdb_bigdata | %    |
+					+--------------------+------+
+					1 row in set (0.00 sec)
+
+					mysql> SHOW GRANTS FOR 'trackingdb_bigdata'@'%';
+					+------------------------------------------------------------+
+					| Grants for trackingdb_bigdata@%                            |
+					+------------------------------------------------------------+
+					| GRANT REPLICATION SLAVE ON *.* TO `trackingdb_bigdata`@`%` |
+					| GRANT SELECT ON `trackingdb`.* TO `trackingdb_bigdata`@`%` |
+					| GRANT `cloudsqlsuperuser`@`%` TO `trackingdb_bigdata`@`%`  |
+					+------------------------------------------------------------+
+					3 rows in set (0.00 sec)
+
+					mysql> GRANT INSERT ON `trackingdb`.`tr_bigdata_user_usage_analysis` TO 'trackingdb_bigdata'@'%';
+					Query OK, 0 rows affected (0.06 sec)
+
+					mysql> FLUSH PRIVILEGES;
+					Query OK, 0 rows affected (0.02 sec)
 		-- 20250906
 			切换后异常处理
 				rsync -azv /home/wwwroot/www.trackingmore.com/config/db-api.php /home/wwwroot/www.trackingmore.com/config/db-api.php.back.20250906
