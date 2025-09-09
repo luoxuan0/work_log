@@ -1,10 +1,16 @@
 ## 20250908
 
+### 监控数据
+![读写](image.png)
+![连接数](image-1.png)
+![平均延时](image-2.png)
+
 ```bash
 # 阿里云0902-0903监控，
 # 连接数大概22000
 # 新建连接 2500
 # QPS 180000 读 154000 写 25000
+# 平均延时 1.5-3.5ms 偶发最大 300ms
 
 # 阿里云配置
 # hash-max-ziplist-entries 512
@@ -135,8 +141,8 @@ redis-benchmark -c 100 -n 100000
 
 
 # 修改配置文件（需要重启）
-config set tcp-backlog 4096 
-config set io-threads 8
+tcp-backlog 4096 
+io-threads 8
 
 # 命令行修改
 config set timeout 0
@@ -237,3 +243,81 @@ sysctl -w net.ipv4.tcp_tw_reuse=1
 sysctl -w net.ipv4.tcp_timestamps=1
 
 ```
+
+## 20250909
+
+### 配置持久化
+
+```bash
+
+### 1) sysctl 持久化
+sudo tee /etc/sysctl.d/99-redis.conf >/dev/null <<'EOF'
+fs.file-max = 200000
+net.core.somaxconn = 4096
+net.ipv4.tcp_max_syn_backlog = 4096
+net.ipv4.ip_local_port_range = 10240 65535
+net.ipv4.tcp_tw_reuse = 1
+net.ipv4.tcp_fin_timeout = 15
+EOF
+sudo sysctl --system
+
+# 原始值变
+systemctl show redis -p LimitNOFILE
+LimitNOFILE=65535
+
+### 2) systemd：为 Redis 服务设 LimitNOFILE
+sudo systemctl edit redis <<'EOF'
+[Service]
+LimitNOFILE=100000
+EOF
+
+Editing "/etc/systemd/system/redis-server.service.d/override.conf" canceled: temporary file is empty.
+
+sudo mkdir -p /etc/systemd/system/redis-server.service.d
+sudo nano /etc/systemd/system/redis-server.service.d/override.conf
+
+sudo systemctl daemon-reload
+sudo systemctl restart redis
+
+### 3) limits.conf：给登录会话（压测机/服务端都建议设）
+### /etc/security/limits.conf 或 /etc/security/limits.d/90-nofile.conf
+echo '* soft nofile 20000' | sudo tee -a /etc/security/limits.conf
+echo '* soft nofile 20000' | sudo tee -a /etc/security/limits.d/90-nofile.conf
+echo '* hard nofile 20000' | sudo tee -a /etc/security/limits.conf
+echo '* hard nofile 20000' | sudo tee -a /etc/security/limits.d/90-nofile.conf
+# 重新登录一个 shell 后验证：
+ulimit -n
+
+### 4) 验证
+systemctl show redis -p LimitNOFILE
+cat /proc/$(pidof redis-server)/limits | grep -i "open files"
+sysctl net.ipv4.ip_local_port_range net.core.somaxconn net.ipv4.tcp_max_syn_backlog fs.file-max net.ipv4.tcp_tw_reuse
+
+#### 回滚
+# 删除 /etc/sysctl.d/99-redis.conf 即可。
+# 删除 /etc/security/limits.d/90-nofile.conf
+# 删除 systemctl edit redis 里的 LimitNOFILE 行
+
+
+# 提高配置
+# 修改redis配置
+config set maxclients 50000
+# 修改redis配置文件
+tcp-backlog 8192 
+# 修改配置 /etc/sysctl.d/99-redis.conf
+net.core.somaxconn = 8192
+net.ipv4.tcp_max_syn_backlog = 8192
+
+```
+
+### 进行压测
+
+![alt text](image-4.png)
+![alt text](image-3.png)
+
+### 进行切换
+
+![alt text](image-5.png)
+![alt text](image-6.png)
+![alt text](image-7.png)
+![redis服务器负载资源使用情况](image-8.png)
