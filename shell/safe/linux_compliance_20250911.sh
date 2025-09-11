@@ -1,59 +1,160 @@
 #!/usr/bin/env bash
 
 # ==============================
+# 统一文件存放配置 - 全部放到 /var/backups/compliance 下
+# ==============================
+
+# 基础目录
+COMPLIANCE_ROOT="/var/backups/compliance"
+
+# 时间相关变量
+TS="$(date +%Y%m%d%H%M%S)"
+DATE_TAG="$(date +%Y%m%d)"
+YEAR_MONTH="$(date +%Y/%m)"
+
+# 统一目录结构
+COMPLIANCE_DIR="${COMPLIANCE_ROOT}/${YEAR_MONTH}"
+SESSION_DIR="${COMPLIANCE_DIR}/compliance_${TS}"
+
+# 具体文件路径
+LOG_FILE="${SESSION_DIR}/compliance_fix_${TS}.log"
+BACKUP_DIR="${SESSION_DIR}/backups"
+STATE_DIR="${SESSION_DIR}/state"
+CONFIG_DIR="${SESSION_DIR}/config"
+DEPS_REC="${STATE_DIR}/deps_installed_${TS}.list"
+
+# 创建必要目录
+ensure_directories() {
+    local dirs=("$SESSION_DIR" "$BACKUP_DIR" "$STATE_DIR" "$CONFIG_DIR")
+    for dir in "${dirs[@]}"; do
+        [[ ! -d "$dir" ]] && run "mkdir -p '$dir'"
+    done
+}
+
+# 设置目录权限
+set_permissions() {
+    # 基础目录权限
+    chmod 755 "$COMPLIANCE_ROOT" 2>/dev/null || true
+    chmod 755 "$COMPLIANCE_DIR" 2>/dev/null || true
+    
+    # 会话目录权限（包含敏感信息）
+    chmod 700 "$SESSION_DIR" 2>/dev/null || true
+    
+    # 日志文件权限
+    [[ -f "$LOG_FILE" ]] && chmod 644 "$LOG_FILE" 2>/dev/null || true
+    
+    # 依赖记录权限
+    [[ -f "$DEPS_REC" ]] && chmod 600 "$DEPS_REC" 2>/dev/null || true
+}
+
+# 清理旧文件（保留最近N个月）
+cleanup_old_files() {
+    local keep_months=${1:-12}  # 默认保留12个月
+    log "清理${keep_months}个月前的旧文件"
+    
+    # 计算保留的月份
+    local cutoff_date=$(date -d "${keep_months} months ago" +%Y/%m 2>/dev/null || date -v-${keep_months}m +%Y/%m 2>/dev/null || echo "")
+    
+    if [[ -n "$cutoff_date" ]]; then
+        # 删除旧的月份目录
+        find "$COMPLIANCE_ROOT" -type d -name "20*" | while read dir; do
+            local dir_date=$(basename "$(dirname "$dir")")/$(basename "$dir")
+            if [[ "$dir_date" < "$cutoff_date" ]]; then
+                log "删除旧目录：$dir"
+                rm -rf "$dir" 2>/dev/null || true
+            fi
+        done
+    fi
+    
+    # 清理临时文件
+    find /tmp -name "pwq_*_${TS}.log" -mtime +1 -delete 2>/dev/null || true
+}
+
+# 磁盘空间检查
+check_disk_space() {
+    local threshold=85  # 85%阈值
+    local usage=$(df "$COMPLIANCE_ROOT" | awk 'NR==2 {print $5}' | sed 's/%//')
+    
+    if [[ $usage -gt $threshold ]]; then
+        log "警告：磁盘使用率 ${usage}% 超过阈值 ${threshold}%"
+        log "建议执行清理：$0 --cleanup"
+    fi
+}
+
+# 显示存储使用情况
+show_storage_usage() {
+    log "=== 存储使用情况 ==="
+    log "合规文件根目录：$COMPLIANCE_ROOT"
+    
+    if [[ -d "$COMPLIANCE_ROOT" ]]; then
+        local total_size=$(du -sh "$COMPLIANCE_ROOT" 2>/dev/null | cut -f1)
+        log "总使用空间：$total_size"
+        
+        log "按月份统计："
+        find "$COMPLIANCE_ROOT" -maxdepth 1 -type d -name "20*" | sort | while read dir; do
+            local month=$(basename "$dir")
+            local size=$(du -sh "$dir" 2>/dev/null | cut -f1)
+            local count=$(find "$dir" -type d -name "compliance_*" | wc -l)
+            log "  $month: $size (${count}个会话)"
+        done
+    else
+        log "目录不存在"
+    fi
+}
+
+# ==============================
 # Linux 合规整改脚本（精简版/分步版）
 #
 # 本脚本用于自动化修复常见的等保合规项，包括：
 #   1. 配置密码复杂度策略（pam_pwquality，长度>=12，含大小写/数字/特殊字符，重试3，root生效）
 #   2. 配置日志轮转策略（logrotate，按月轮转，保留7个月）
-#   3. 限制历史命令条数（/etc/profile，HISTSIZE=10）
+#   3. 限制历史命令条数（/etc/profile，HISTSIZE=29）
 #
 # 使用方法（示例）：
 #   1. 预览整改变更（不实际修改，仅显示diff）：
-#        sudo bash linux_compliance.sh --preview
+#        sudo bash linux_compliance_1.sh --preview
 #   2. 执行整改（自动备份原文件，实际修改）：
-#        sudo bash linux_compliance.sh --apply
+#        sudo bash linux_compliance_1.sh --apply
 #   3. 校验整改项（仅检查当前配置是否合规）：
-#        sudo bash linux_compliance.sh --verify
+#        sudo bash linux_compliance_1.sh --verify
 #   4. 显示变更内容（与备份对比diff）：
-#        sudo bash linux_compliance.sh --show-changes [/var/backups/compliance_YYYYmmddHHMMSS]
+#        sudo bash linux_compliance_1.sh --show-changes [会话目录]
 #   5. 检查依赖（如rsync/expect/pam_pwquality等）：
-#        sudo bash linux_compliance.sh --check-deps
+#        sudo bash linux_compliance_1.sh --check-deps
 #   6. 安装依赖（自动安装缺失依赖）：
-#        sudo bash linux_compliance.sh --install-deps
+#        sudo bash linux_compliance_1.sh --install-deps
 #   7. 回撤依赖（卸载本脚本安装的依赖）：
-#        sudo bash linux_compliance.sh --rollback-deps
+#        sudo bash linux_compliance_1.sh --rollback-deps
 #   8. 回滚整改（恢复指定备份目录）：
-#        sudo bash linux_compliance.sh --rollback /var/backups/compliance_YYYYmmddHHMMSS
+#        sudo bash linux_compliance_1.sh --rollback [会话目录]
+#   9. 清理旧文件（保留指定月数）：
+#        sudo bash linux_compliance_1.sh --cleanup [月数]
+#   10. 显示存储使用情况：
+#        sudo bash linux_compliance_1.sh --storage-usage
 #
-# 日志文件：/var/log/compliance_fix_YYYYmm.log
-# 备份目录：/var/backups/compliance_时间戳/
+# 文件存放结构：
+#   /var/backups/compliance/YYYY/MM/compliance_时间戳/
+#   ├── compliance_fix_时间戳.log          # 执行日志
+#   ├── backups/                           # 系统文件备份
+#   │   ├── etc/pam.d/system-auth
+#   │   ├── etc/pam.d/common-password
+#   │   ├── etc/logrotate.conf
+#   │   └── etc/profile
+#   ├── state/                             # 状态文件
+#   │   └── deps_installed_时间戳.list     # 依赖安装记录
+#   └── config/                            # 配置文件
 #
 # 适用系统：主流RHEL/CentOS/Rocky/AlmaLinux/Debian/Ubuntu
 #
 # 详细合规项及整改建议请参考 safe/等保/不符合项.md
 # ==============================
 
-
-# sudo bash linux_compliance.sh --preview
-# sudo bash linux_compliance.sh --apply
-# sudo bash linux_compliance.sh --verify
-# sudo bash linux_compliance.sh --show-changes [/var/backups/compliance_YYYYmmddHHMMSS]
-# sudo bash linux_compliance.sh --check-deps
-# sudo bash linux_compliance.sh --install-deps
-# sudo bash linux_compliance.sh --rollback-deps
-# sudo bash linux_compliance.sh --rollback /var/backups/compliance_YYYYmmddHHMMSS
-
-
 set -euo pipefail
 
-LOG="/var/log/compliance_fix_$(date +%Y%m).log"
-BACKUP_ROOT="/var/backups"
-TS="$(date +%Y%m%d%H%M%S)"
-DATE_TAG="$(date +%Y%m%d)"
-BACKUP_DIR="${BACKUP_ROOT}/compliance_${TS}"
+# 使用新的统一路径
+LOG="$LOG_FILE"
+BACKUP_ROOT="$BACKUP_DIR"
 MODE="${1:-}"
-DEPS_REC="${BACKUP_ROOT}/compliance_deps_installed.list"
 
 log(){ printf '[%s] %s\n' "$(date +'%F %T%z')" "$*" | tee -a "$LOG"; }
 run(){ echo "+ $*" | tee -a "$LOG"; eval "$@" | tee -a "$LOG"; }
@@ -89,7 +190,10 @@ pwquality_so_path(){
   echo ""
 }
 
-ensure_backup_root(){ run "mkdir -p '$BACKUP_DIR'"; }
+ensure_backup_root(){ 
+    ensure_directories
+    set_permissions
+}
 
 resolve_symlink(){ # 打印真实路径（若存在）
   local f="$1"
@@ -180,7 +284,7 @@ install_deps(){
     pkgs+=(pam_pwquality)
   fi
 
-  # 记录“需要安装且当前尚未安装”的包
+  # 记录"需要安装且当前尚未安装"的包
   : > "$DEPS_REC.tmp"
   for p in "${pkgs[@]}"; do
     if dpkg -s "$p" >/dev/null 2>&1 || rpm -q "$p" >/dev/null 2>&1; then
@@ -351,7 +455,7 @@ verify_changes(){
   # 方法1：直接使用 passwd 命令测试密码复杂度
   log "测试弱密码（应被拒绝）：$weak"
   set +e
-  echo -e "${weak}\n${weak}\n" | passwd "$test_user" >${BACKUP_ROOT}/tmp/pwq_weak_${TS}.log 2>&1
+  echo -e "${weak}\n${weak}\n" | passwd "$test_user" >/tmp/pwq_weak_${TS}.log 2>&1
   local weak_rc=$?
   set -e
   
@@ -360,16 +464,16 @@ verify_changes(){
   else
     log "弱密码被拒绝（符合预期）✅"
     # 查看详细错误信息
-    if [[ -f ${BACKUP_ROOT}/tmp/pwq_weak_${TS}.log ]]; then
+    if [[ -f /tmp/pwq_weak_${TS}.log ]]; then
       log "弱密码错误详情："
-      tail -5 ${BACKUP_ROOT}/tmp/pwq_weak_${TS}.log | while read line; do log "  $line"; done
+      tail -5 /tmp/pwq_weak_${TS}.log | while read line; do log "  $line"; done
     fi
   fi
 
   # 方法2：测试强密码（应成功）
   log "测试强密码（应成功）：$strong"
   set +e
-  echo -e "${strong}\n${strong}\n" | passwd "$test_user" >${BACKUP_ROOT}/tmp/pwq_strong_${TS}.log 2>&1
+  echo -e "${strong}\n${strong}\n" | passwd "$test_user" >/tmp/pwq_strong_${TS}.log 2>&1
   local strong_rc=$?
   set -e
   
@@ -378,9 +482,9 @@ verify_changes(){
   else
     log "❌ 强密码设置失败，请检查pam配置"
     # 查看详细错误信息
-    if [[ -f ${BACKUP_ROOT}/tmp/pwq_strong_${TS}.log ]]; then
+    if [[ -f /tmp/pwq_strong_${TS}.log ]]; then
       log "强密码错误详情："
-      tail -5 ${BACKUP_ROOT}/tmp/pwq_strong_${TS}.log | while read line; do log "  $line"; done
+      tail -5 /tmp/pwq_strong_${TS}.log | while read line; do log "  $line"; done
     fi
   fi
 
@@ -391,7 +495,7 @@ verify_changes(){
   }
   set -e
   
-  log "验证结束。详细日志：${BACKUP_ROOT}/tmp/pwq_weak_${TS}.log ${BACKUP_ROOT}/tmp/pwq_strong_${TS}.log"
+  log "验证结束。详细日志：/tmp/pwq_weak_${TS}.log /tmp/pwq_strong_${TS}.log"
   
   # 显示关键日志内容
   echo "=== 验证结果摘要 ==="
@@ -401,16 +505,16 @@ verify_changes(){
 
 # ---------- 仅展示变更（与备份对比） ----------
 latest_backup(){
-  ls -1dt "${BACKUP_ROOT}"/compliance_* 2>/dev/null | head -n1
+  find "$COMPLIANCE_ROOT" -type d -name "compliance_*" -printf '%T@ %p\n' 2>/dev/null | sort -n | tail -1 | cut -d' ' -f2-
 }
 
 show_changes(){
   local b="${2:-$(latest_backup)}"
-  [[ -n "$b" && -d "$b" ]] || die "找不到备份目录，请指定：$0 --show-changes <备份目录>"
+  [[ -n "$b" && -d "$b" ]] || die "找不到备份目录，请指定：$0 --show-changes <会话目录>"
   log "对比当前文件与备份：$b"
   for f in /etc/pam.d/system-auth /etc/pam.d/common-password /etc/logrotate.conf /etc/profile; do
     local real; real="$(resolve_symlink "$f")"
-    local bak="${b}${f}"
+    local bak="${b}/backups${f}"
     if [[ -f "$real" && -f "$bak" ]]; then
       echo "==== $f ===="
       # 统一上下文 diff，用户可直观看到 +/- 行
@@ -420,13 +524,13 @@ show_changes(){
 }
 
 do_rollback(){
-  local b="${2:-}"; [[ -n "$b" ]] || die "用法：$0 --rollback <备份目录>"
-  [[ -d "$b" ]] || die "备份目录不存在：$b"
+  local b="${2:-}"; [[ -n "$b" ]] || die "用法：$0 --rollback <会话目录>"
+  [[ -d "$b" ]] || die "会话目录不存在：$b"
   log "回滚自备份：$b"
   for f in /etc/pam.d/system-auth /etc/pam.d/common-password /etc/logrotate.conf /etc/profile; do
     local real; real="$(resolve_symlink "$f")"
-    if [[ -f "$real" && -f "${b}${f}" ]]; then
-      run "rsync -a --numeric-ids --inplace '${b}${f}' '$real'"
+    if [[ -f "$real" && -f "${b}/backups${f}" ]]; then
+      run "rsync -a --numeric-ids --inplace '${b}/backups${f}' '$real'"
     fi
   done
   log "回滚完成"
@@ -441,5 +545,7 @@ case "$MODE" in
   --check-deps)     check_deps ;;
   --install-deps)   install_deps ;;
   --rollback-deps)  rollback_deps ;;
-  *) echo "用法: $0 --preview | --apply | --verify | --show-changes [备份目录] | --rollback <备份目录> | --check-deps | --install-deps | --rollback-deps"; exit 1 ;;
+  --cleanup)        cleanup_old_files "${2:-12}" ;;
+  --storage-usage)  show_storage_usage ;;
+  *) echo "用法: $0 --preview | --apply | --verify | --show-changes [会话目录] | --rollback <会话目录> | --check-deps | --install-deps | --rollback-deps | --cleanup [月数] | --storage-usage"; exit 1 ;;
 esac

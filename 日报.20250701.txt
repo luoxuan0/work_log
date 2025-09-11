@@ -2015,6 +2015,44 @@
 【日常响应】
 6，后续优先级、应对
 
+===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== =====
+【告警】
+【客诉】
+【迁云】
+【桌面运维】
+【运维】
+
+20250911
+【告警】
+【安全】
+【运维】
+
+
+原计划：
+【本地】
+1，待优化&专线切换
+【迁云】
+2，切换-问题&后续处理
+【安全】
+3，等保复测-服务器&安全产品检测相关整改
+【运维】
+4，充值梳理提交
+5，财务分账
+【日常响应】
+6，后续优先级、应对
+
+计划：
+【本地】
+1，待优化&专线切换
+【迁云】
+2，切换-问题&后续处理
+【安全】
+3，等保复测-数据备份本地&安全产品检测相关整改
+【运维】
+4，财务分账
+【日常响应】
+5，后续优先级、应对
+
 
 近期复盘
 	后续优先级、应对
@@ -3230,6 +3268,39 @@
 					-- 解析binlog mysqlbinlog -vv --base64-output=decode-rows <Binlog文件名> | more
 					/usr/bin/mysqlbinlog -vv --base64-output=decode-rows mysql-bin.235454 | more
 		等保复测
+			-- 20250911
+				远程批量执行合规整改
+					服务器
+						sz-dolphinscheduler-140-175
+					目录
+						/home/ansible/security
+					# 执行脚本版本
+						linux_compliance_1.sh
+				数据备份本地
+					find /mnt/bak/scriptbak/prodb -type f -name '*_202406*' -exec ls -lh {} \;
+					4202
+					root@iZwz9f8mqoebdp7chq1fjlZ ~]# find /mnt/bak/scriptbak/prodb -type f -name '*_202406*' -exec du -b {} + | awk '{total += $1} END {print "Total size:", total / (1024^3), "GB"}'
+					Total size: 8.45785 GB
+					[root@iZwz9f8mqoebdp7chq1fjlZ ~]# find /mnt/bak/scriptbak/prodb -type f -name '*_202405*' -exec du -b {} + | awk '{total += $1} END {print "Total size:", total / (1024^3), "GB"}'
+					Total size: 26.7634 GB
+					[root@iZwz9f8mqoebdp7chq1fjlZ ~]# find /mnt/bak/scriptbak/prodb -type f -name '*_202404*' -exec du -b {} + | awk '{total += $1} END {print "Total size:", total / (1024^3), "GB"}'
+					Total size: 26.1131 GB
+					[root@iZwz9f8mqoebdp7chq1fjlZ ~]# find /mnt/bak/scriptbak/prodb -type f -name '*_202403*' -exec du -b {} + | awk '{total += $1} END {print "Total size:", total / (1024^3), "GB"}'
+					Total size: 24.8751 GB
+					[root@iZwz9f8mqoebdp7chq1fjlZ ~]# find /mnt/bak/scriptbak/prodb -type f -name '*_202402*' -exec du -b {} + | awk '{total += $1} END {print "Total size:", total / (1024^3), "GB"}'
+					Total size: 19.264 GB
+					[root@iZwz9f8mqoebdp7chq1fjlZ ~]# find /mnt/bak/scriptbak/prodb -type f -name '*_202401*' -exec du -b {} + | awk '{total += $1} END {print "Total size:", total / (1024^3), "GB"}'
+					Total size: 34.8696 GB
+
+					screen -S db_backup
+					find /mnt/bak/scriptbak/prodb -type f -name '*_202406*' -exec zip /mnt/tmp/202406.backup.zip {} \;
+					find /mnt/bak/scriptbak/prodb -type f -name '*_202405*' -exec zip /mnt/tmp/202405.backup.zip {} \;
+					find /mnt/bak/scriptbak/prodb -type f -name '*_202404*' -exec zip /mnt/tmp/202404.backup.zip {} \;
+					find /mnt/bak/scriptbak/prodb -type f -name '*_202403*' -exec zip /mnt/tmp/202403.backup.zip {} \;
+					find /mnt/bak/scriptbak/prodb -type f -name '*_202402*' -exec zip /mnt/tmp/202402.backup.zip {} \;
+					find /mnt/bak/scriptbak/prodb -type f -name '*_202401*' -exec zip /mnt/tmp/202401.backup.zip {} \;
+
+					下载到本地
 			-- 20250901
 				远程批量执行脚本
 					sudo su - ansible
