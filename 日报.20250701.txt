@@ -2053,6 +2053,42 @@
 【日常响应】
 5，后续优先级、应对
 
+===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== =====
+【告警】
+【客诉】
+【迁云】
+【桌面运维】
+【运维】
+
+20250912
+【告警】
+【安全】
+【运维】
+
+
+原计划：
+【本地】
+1，待优化&专线切换
+【迁云】
+2，切换-问题&后续处理
+【安全】
+3，等保复测-数据备份本地&安全产品检测相关整改
+【运维】
+4，财务分账
+【日常响应】
+5，后续优先级、应对
+
+计划：
+【本地】
+1，待优化&专线切换
+【迁云】
+2，切换-问题&后续处理
+【安全】
+3，SOC2提供相关资料
+4，等保复测-数据备份本地&安全产品检测相关整改
+【日常响应】
+5，后续优先级、应对
+
 
 近期复盘
 	后续优先级、应对
@@ -3268,6 +3304,17 @@
 					-- 解析binlog mysqlbinlog -vv --base64-output=decode-rows <Binlog文件名> | more
 					/usr/bin/mysqlbinlog -vv --base64-output=decode-rows mysql-bin.235454 | more
 		等保复测
+			-- 20250912
+				下载本地
+					# 目标服务器
+					find /mnt/bak/scriptbak/prodb -type f -name '*_202406*' 
+
+					# 本地服务器
+					mkdir /mnt/backup
+					# 先查找匹配的文件，然后同步
+					ssh db_198 "find /mnt/bak/scriptbak/prodb -type f -name '*_202406*'" | while read file; do
+						rsync -avz --bwlimit=20000 db_198:"$file" /mnt/backup
+					done
 			-- 20250911
 				远程批量执行合规整改
 					服务器
@@ -24054,6 +24101,9 @@
 				ssl证书更新-20240624 · 钉钉文档: https://alidocs.dingtalk.com/i/nodes/Obva6QBXJw1yjXgNCv0R4PmlWn4qY5Pr?corpId=
 
 		阿里云
+			企业支持计划 https://www.aliyun.com/service/supportplans
+				-- 20250912
+					续费服务入口（免费使用，大概每半年需要手动续费）
 			中台数据库指定表授权
 				-- 20250814
 					中台表，白名单（阿里云RDS需要用高权限账号进行登录 授权）
@@ -25763,6 +25813,65 @@
 			=IF(ISERROR(MATCH(A2,$G$2:$G$95,0)),"我们A2支持对方G2:G95不支持","双方都支持")
 
 	迁云
+		-- 20250913
+			总
+				select sum((data_length+index_length)/1024/1024) as sum_all_mb, table_schema, table_name, (data_length/1024/1024) as data_mb , (index_length/1024/1024) as index_mb, ((data_length+index_length)/1024/1024) as all_mb, table_rows from information_schema.tables order by all_mb DESC limit 50;
+				select table_schema, table_name, (data_length/1024/1024) as data_mb , (index_length/1024/1024) as index_mb, ((data_length+index_length)/1024/1024) as all_mb, table_rows from information_schema.tables where table_schema = 'mycat1' order by all_mb DESC limit 50;
+
+			文件
+				SELECT sum(TOTAL_EXTENTS), file_name, concat(TOTAL_EXTENTS,'M') as 'FIle_size', TOTAL_EXTENTS FROM INFORMATION_SCHEMA.FILES where TOTAL_EXTENTS <> 0  order by TOTAL_EXTENTS DESC limit 50;
+				SELECT file_name, concat(TOTAL_EXTENTS,'M') as 'FIle_size', TOTAL_EXTENTS FROM INFORMATION_SCHEMA.FILES where TOTAL_EXTENTS <> 0  order by TOTAL_EXTENTS DESC limit 50;
+
+			select create_time,from_unixtime(create_time) from tr_tracking_info_46001_46500  order by create_time limit 1 \G
+
+			备份清除单号表数据数据脚本，清除使用的是delete，需要对分区truncate，否则磁盘空间不会释放
+			先临时清除部分无效数据
+				查看无效数据，大概62G
+					| ./trackingdb/tr_trackinfo_effective_for_rule_03.ibd         | 26036M    |         26036 |
+					| ./trackingdb/tr_trackinfo_effective_for_rule_02.ibd         | 18876M    |         18876 |
+					| ./trackingdb/tr_trackinfo_effective_for_rule_01.ibd         | 18756M    |         18756 |
+				mysql> select create_time,from_unixtime(create_time) from tr_trackinfo_effective_for_rule_01 limit 1 \G
+				*************************** 1. row ***************************
+							create_time: 1699430138
+				from_unixtime(create_time): 2023-11-08 07:55:38
+				1 row in set (0.05 sec)
+
+				mysql> select create_time,from_unixtime(create_time) from tr_trackinfo_effective_for_rule_01 order by id desc limit 1 \G
+				*************************** 1. row ***************************
+							create_time: 1699441349
+				from_unixtime(create_time): 2023-11-08 11:02:29
+				1 row in set (0.00 sec)
+
+				mysql> select create_time,from_unixtime(create_time) from tr_trackinfo_effective_for_rule_02 order by id desc limit 1 \G
+				*************************** 1. row ***************************
+							create_time: 1699452609
+				from_unixtime(create_time): 2023-11-08 14:10:09
+				1 row in set (0.01 sec)
+
+				mysql> select create_time,from_unixtime(create_time) from tr_trackinfo_effective_for_rule_03 order by id desc limit 1 \G
+				*************************** 1. row ***************************
+							create_time: 1699466611
+				from_unixtime(create_time): 2023-11-08 18:03:31
+
+				truncate table tr_trackinfo_effective_for_rule_01;
+				truncate table tr_trackinfo_effective_for_rule_02;
+				truncate table tr_trackinfo_effective_for_rule_03;
+
+				-- 大概22:00时
+				mysql> SELECT sum(TOTAL_EXTENTS), file_name, concat(TOTAL_EXTENTS,'M') as 'FIle_size', TOTAL_EXTENTS FROM INFORMATION_SCHEMA.FILES where TOTAL_EXTENTS <> 0  order by TOTAL_EXTENTS DESC limit 50;
+				+--------------------+-----------+-----------+---------------+
+				| sum(TOTAL_EXTENTS) | FILE_NAME | FIle_size | TOTAL_EXTENTS |
+				+--------------------+-----------+-----------+---------------+
+				|            3095336 | ./ibtmp1  | 12M       |            12 |
+				+--------------------+-----------+-----------+---------------+
+				-- 大概22:44时，清除数据后，大概释放62G
+				mysql> SELECT sum(TOTAL_EXTENTS), file_name, concat(TOTAL_EXTENTS,'M') as 'FIle_size', TOTAL_EXTENTS FROM INFORMATION_SCHEMA.FILES where TOTAL_EXTENTS <> 0  order by TOTAL_EXTENTS DESC limit 50;
+				+--------------------+-----------+-----------+---------------+
+				| sum(TOTAL_EXTENTS) | FILE_NAME | FIle_size | TOTAL_EXTENTS |
+				+--------------------+-----------+-----------+---------------+
+				|            3033690 | ./ibtmp1  | 12M       |            12 |
+				+--------------------+-----------+-----------+---------------+
+			
 		-- 20250909
 			增加redis用于队列使用
 				# redis自建，参数调整
@@ -25951,6 +26060,12 @@
 							GRANT SELECT ON `mysql`.`event` TO 'trackingdb_om'@'%';
 								ERROR 1146 (42S02): Table 'mysql.event' doesn't exist
 							GRANT SELECT ON `mysql`.`help_topic` TO 'trackingdb_om'@'%';
+						修改密码 ALTER USER 'username'@'host' IDENTIFIED BY 'NewPassword';
+							-- 修改密码
+							ALTER USER 'trackingdb1'@'%' IDENTIFIED BY '';
+							ALTER USER 'trackingdb_om'@'%' IDENTIFIED BY '';
+							-- 刷新生效
+							FLUSH PRIVILEGES;
 				
 				临时操作回撤
 					rsync -azv /home/wwwroot/www.trackingmore.com/config/db-api.php /home/wwwroot/www.trackingmore.com/config/db-api.php.new.back.20250906

@@ -129,6 +129,12 @@ Permission denied (publickey).
 
 目标日志
 
+# Ubuntu/Debian
+tail -f /var/log/auth.log
+
+# CentOS/RHEL
+tail -f /var/log/secure
+
 2025-09-10T02:22:59.354237+00:00 tm-redis-master sshd[1644136]: ROOT LOGIN REFUSED FROM 172.16.21.185 port 49568
 2025-09-10T02:22:59.361018+00:00 tm-redis-master sshd[1644136]: ROOT LOGIN REFUSED FROM 172.16.21.185 port 49568 [preauth]
 2025-09-10T02:22:59.364095+00:00 tm-redis-master sshd[1644136]: refusing previously-used ED25519 key [preauth]
