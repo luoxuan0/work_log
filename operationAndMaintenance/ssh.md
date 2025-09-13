@@ -4,6 +4,8 @@
 
 ### ai咨询
 
+```txt
+
 帮忙看下，1，ssh异常，2，提供的信息是否包含敏感信息
 
 ssh -vvv -o IdentitiesOnly=yes -i ~/.ssh/id_ed25519.operation_from_145 gcp_35
@@ -139,6 +141,8 @@ tail -f /var/log/secure
 2025-09-10T02:22:59.361018+00:00 tm-redis-master sshd[1644136]: ROOT LOGIN REFUSED FROM 172.16.21.185 port 49568 [preauth]
 2025-09-10T02:22:59.364095+00:00 tm-redis-master sshd[1644136]: refusing previously-used ED25519 key [preauth]
 2025-09-10T02:22:59.377101+00:00 tm-redis-master sshd[1644136]: Connection closed by authenticating user root 172.16.21.185 port 49568 [preauth]
+
+```
 
 下面先给结论，再给排查与修复步骤。
 
