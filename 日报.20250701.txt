@@ -2177,6 +2177,9 @@
 
 操作顺序
 	9月
+		-- 20250913
+			cloudsql磁盘&gcp告警
+			SOC2资料提供
 		-- 20250903
 			微软账号无法登录
 			crisp切intercome
@@ -25816,7 +25819,7 @@
 		-- 20250913
 			总
 				select sum((data_length+index_length)/1024/1024) as sum_all_mb, table_schema, table_name, (data_length/1024/1024) as data_mb , (index_length/1024/1024) as index_mb, ((data_length+index_length)/1024/1024) as all_mb, table_rows from information_schema.tables order by all_mb DESC limit 50;
-				select table_schema, table_name, (data_length/1024/1024) as data_mb , (index_length/1024/1024) as index_mb, ((data_length+index_length)/1024/1024) as all_mb, table_rows from information_schema.tables where table_schema = 'mycat1' order by all_mb DESC limit 50;
+				select table_schema, table_name, (data_length/1024/1024) as data_mb , (index_length/1024/1024) as index_mb, ((data_length+index_length)/1024/1024) as all_mb, table_rows from information_schema.tables where table_schema = 'trackingdb' order by all_mb DESC limit 50;
 
 			文件
 				SELECT sum(TOTAL_EXTENTS), file_name, concat(TOTAL_EXTENTS,'M') as 'FIle_size', TOTAL_EXTENTS FROM INFORMATION_SCHEMA.FILES where TOTAL_EXTENTS <> 0  order by TOTAL_EXTENTS DESC limit 50;
@@ -25826,7 +25829,62 @@
 
 			备份清除单号表数据数据脚本，清除使用的是delete，需要对分区truncate，否则磁盘空间不会释放
 			先临时清除部分无效数据
-				查看无效数据，大概62G
+				mysql> SELECT file_name, concat(TOTAL_EXTENTS,'M') as 'FIle_size', TOTAL_EXTENTS FROM INFORMATION_SCHEMA.FILES where TOTAL_EXTENTS <> 0  order by TOTAL_EXTENTS DESC limit 50;
+				+-------------------------------------------------------------+-----------+---------------+
+				| FILE_NAME                                                   | FIle_size | TOTAL_EXTENTS |
+				+-------------------------------------------------------------+-----------+---------------+
+				| ./trackingdb/tr_user_cost_deducte_log#p#p_max.ibd           | 122036M   |        122036 |
+				| ./trackingdb/tr_trackinfo_effective_for_rule.ibd            | 115292M   |        115292 |
+				| ./trackingdb/tr_tracking_info_58126_58126#p#p20250801.ibd   | 99824M    |         99824 |
+				| ./trackingdb/tr_tracking_number_middle_ups.ibd              | 96944M    |         96944 |
+				| ./trackingdb/tr_tracking_info_58126_58126#p#p20250701.ibd   | 83332M    |         83332 |
+				| ./trackingdb/tr_tracking_info_58126_58126#p#p20250901.ibd   | 75260M    |         75260 |
+				| ./trackingdb/tr_tracking_info_58126_58126#p#p20250601.ibd   | 74068M    |         74068 |
+				| ./trackingdb/tr_tracking_special.ibd                        | 71104M    |         71104 |
+				| ./trackingdb/tr_user_tracknumber_58126_58126.ibd            | 68536M    |         68536 |
+				| ./trackingdb/tr_tracking_info_58126_58126#p#p20250401.ibd   | 61832M    |         61832 |
+				| ./trackingdb/tr_tracking_info_58126_58126#p#p20250501.ibd   | 61320M    |         61320 |
+				| ./trackingdb/tr_tracking_number_middle_yunexpress.ibd       | 42992M    |         42992 |
+				| ./trackingdb/tr_tracking_info_58126_58126#p#p20250301.ibd   | 38648M    |         38648 |
+				| ./trackingdb/tr_tracking_number_middle_fedex.ibd            | 37892M    |         37892 |
+				| ./trackingdb/tr_tracking_info_218001_218500#p#p20250801.ibd | 36848M    |         36848 |
+				| ./trackingdb/tr_user_tracknumber_218001_218500#p#p9.ibd     | 32164M    |         32164 |
+				| ./trackingdb/tr_tracking_number_middle_usps.ibd             | 29776M    |         29776 |
+				| ./trackingdb/tr_tracking_number_middle_c.ibd                | 28520M    |         28520 |
+				| ./trackingdb/tr_tracking_number_middle_r.ibd                | 26596M    |         26596 |
+				| ./trackingdb/tr_tracking_info_218001_218500#p#p20250901.ibd | 26256M    |         26256 |
+				| ./trackingdb/tr_trackinfo_effective_for_rule_03.ibd         | 26036M    |         26036 |
+				| ./trackingdb/tr_tracking_info_218001_218500#p#p20250701.ibd | 25212M    |         25212 |
+				| ./trackingdb/tr_carrier_status_monitor_log.ibd              | 24736M    |         24736 |
+				| ./trackingdb/tr_notfound_retrack#p#p_max.ibd                | 22932M    |         22932 |
+				| ./trackingdb/tr_tracking_info_58126_58126#p#p_max.ibd       | 22916M    |         22916 |
+				| ./trackingdb/tr_tracking_number_middle_y.ibd                | 21956M    |         21956 |
+				| ./trackingdb/tr_tracking_info_218001_218500#p#p20250601.ibd | 21920M    |         21920 |
+				| ./trackingdb/tr_user_cost_rd_log#p#p_max.ibd                | 21880M    |         21880 |
+				| ./trackingdb/tr_tracking_number_middle_d.ibd                | 21048M    |         21048 |
+				| ./trackingdb/tr_tracking_number_middle_dhlglobalmail.ibd    | 21012M    |         21012 |
+				| ./trackingdb/tr_user_tracknumber_224501_225000#p#p5.ibd     | 20888M    |         20888 |
+				| ./trackingdb/tr_tracking_info_218001_218500#p#p20250501.ibd | 20100M    |         20100 |
+				| ./trackingdb/tr_user_phone_email_title#p#p_max.ibd          | 19380M    |         19380 |
+				| ./trackingdb/tr_trackinfo_effective_for_rule_02.ibd         | 18876M    |         18876 |
+				| ./trackingdb/tr_trackinfo_effective_for_rule_01.ibd         | 18756M    |         18756 |
+				| ./trackingdb/tr_tracking_number_middle_h.ibd                | 18408M    |         18408 |
+				| ./trackingdb/tr_tracking_info_218001_218500#p#p20250401.ibd | 18028M    |         18028 |
+				| ./trackingdb/tr_tracking_info_224501_225000#p#p20250901.ibd | 17300M    |         17300 |
+				| ./trackingdb/tr_tracking_number_middle_g.ibd                | 17092M    |         17092 |
+				| ./trackingdb/tr_tracking_info_224501_225000#p#p20250801.ibd | 16852M    |         16852 |
+				| ./trackingdb/tr_tracknumber_effective_for_rule.ibd          | 16424M    |         16424 |
+				| ./trackingdb/tr_tracking_number_middle_u.ibd                | 15972M    |         15972 |
+				| ./trackingdb/tr_tracking_info_224501_225000#p#p20250701.ibd | 15776M    |         15776 |
+				| ./trackingdb/tr_tracking_number_middle_s.ibd                | 15132M    |         15132 |
+				| ./trackingdb/tr_tracking_info_114501_115000#p#p20250401.ibd | 15036M    |         15036 |
+				| ./trackingdb/tr_tracking_info_224501_225000#p#p20250601.ibd | 15004M    |         15004 |
+				| ./trackingdb/tr_tracking_info_224501_225000#p#p20250401.ibd | 14604M    |         14604 |
+				| ./trackingdb/tr_tracking_info_224501_225000#p#p20250501.ibd | 14044M    |         14044 |
+				| ./trackingdb/tr_tracking_number_middle_dhl_germany.ibd      | 13704M    |         13704 |
+				| ./trackingdb/tr_tracking_info_436501_437000#p#p20250601.ibd | 13052M    |         13052 |
+				+-------------------------------------------------------------+-----------+---------------+
+				查看其中无效数据，大概62G
 					| ./trackingdb/tr_trackinfo_effective_for_rule_03.ibd         | 26036M    |         26036 |
 					| ./trackingdb/tr_trackinfo_effective_for_rule_02.ibd         | 18876M    |         18876 |
 					| ./trackingdb/tr_trackinfo_effective_for_rule_01.ibd         | 18756M    |         18756 |
