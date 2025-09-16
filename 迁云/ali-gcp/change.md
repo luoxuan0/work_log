@@ -215,3 +215,8 @@ Zend Engine v3.0.0, Copyright (c) 1998-2017 Zend Technologies
 
 
 ```
+
+## 20250916
+
+- 启动激活中关于服务器CPU和内存余量的判断去掉
+  - gcp上k8s的pod中无法获取pod本身 CPU 内存
