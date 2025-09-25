@@ -192,3 +192,6 @@ start "title" "D:\program\DingDing\main\current_new\DingTalk.exe"
 
 要不要我帮你整理一份 **LGA1200 全部可用 CPU 清单（10 代 + 11 代，按 i3/i5/i7/i9 分类）**，方便你直接对照？
 
+### 其他
+
+[Redis Input/Output Tools (RIOT)](https://redis.github.io/riot/#_batching)
