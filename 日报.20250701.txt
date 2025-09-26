@@ -2444,6 +2444,39 @@
 【日常响应】
 4，后续优先级、应对
 
+===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== ===== =====
+【告警】
+【客诉】
+【迁云】
+【桌面运维】
+【运维】
+
+20250926
+【告警】
+【安全】
+【运维】
+
+
+原计划：
+【本地】
+1，待优化&专线切换
+【规范】
+2，文档规范
+【安全】
+3，SOC2提供相关资料&权限回收整改
+【日常响应】
+4，后续优先级、应对
+
+计划：
+【本地】
+1，待优化&专线切换
+【规范】
+2，文档规范
+【安全】
+3，SOC2提供相关资料&权限回收整改
+【日常响应】
+4，后续优先级、应对
+
 
 
 近期复盘
@@ -23352,6 +23385,10 @@
 			
 	运维
 		常用操作
+			数据库
+				[放开测试用户的51-detect接口访问权限-20250707 · 钉钉文档](https://alidocs.dingtalk.com/i/nodes/mExel2BLV5Z1L7jrTELz3x7aJgk9rpMq)
+				表权限调整
+					[表权限调整-20240909 · 钉钉文档](https://alidocs.dingtalk.com/i/nodes/93NwLYZXWy1Lk2jXC5geR2veWkyEqBQm?corpId=)
 			授权
 				资源申请
 					公司账号权限使用申请钉钉审批 https://alidocs.dingtalk.com/i/nodes/jb9Y4gmKWr1yvgK9CaQ6nE5l8GXn6lpz?utm_scene=team_space
@@ -23520,6 +23557,8 @@
 					systemctl start aegis
 				重启云监控
 		队列
+			-- 20250926
+				[队列执行相关 · 钉钉文档](https://alidocs.dingtalk.com/i/nodes/P7QG4Yx2Jp1PK9B4CoYoxkyX89dEq3XD)
 			-- 20250725
 				国内独立更新重启
 					wpa kill php-resque
